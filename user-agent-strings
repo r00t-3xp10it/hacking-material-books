@@ -4,6 +4,15 @@ USER-AGENT STRINGS
 # APACHE HTTPD
 Apache-HttpClient/4.0.3 (java 1.5)
 
+# IE11’s Default UA String
+# By default, Internet Explorer 11 on Windows 8.1 sends the following User-Agent string:
+Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko 
+
+
+# TOR-BROWSER
+Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0
+
+
 
 # MOZILLA FIREFOX
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3) Gecko/20090305 Firefox/3.1b3 GTB5
