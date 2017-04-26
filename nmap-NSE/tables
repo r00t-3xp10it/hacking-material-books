@@ -1,0 +1,18 @@
+local table = require "table"
+
+
+  local request = {
+    host = host;
+    port = port;
+    submission = submission;
+    mime = mime;
+    name = name;
+    filename = filename;
+    partofrequest = partofrequest;
+    payload = payload;
+    check = check;
+    uploadedpaths = {};
+    success = 0;
+  end;
+
+table.insert(self.uploadedpaths, uploadpath)
