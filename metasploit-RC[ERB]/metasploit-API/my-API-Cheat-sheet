@@ -6,6 +6,10 @@
 
 
 
+# colors in prints
+print_line("%red" + "[SSA-red_team]")
+
+
 #
 # This is my imaginary exploit in ruby
 #
