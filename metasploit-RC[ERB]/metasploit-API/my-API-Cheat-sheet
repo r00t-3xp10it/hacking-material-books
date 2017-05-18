@@ -29,6 +29,25 @@ register_options(
 
 
 #
+# execute bash (/bin/sh) commands
+# define your variable
+#
+value = "chmod +x /etc/init.d/script_name"
+value_two = "rc.update script_name #defaults 86 34"
+# execute your shell command
+puts `#{value}`
+puts `#{value_two}`
+
+# another alternative its to use the %x{} funtion
+puts %x{chmod +x /etc/init.d/script_name}
+puts %x{rc.update script_name #defaults 86 34}
+
+# another alternative its to use system funtion
+system "chmod +x /etc/init.d/script_name"
+
+
+
+#
 # check for proper operative system (windows-not-wine)
 #
 if not oscheck == "Windows_NT"
