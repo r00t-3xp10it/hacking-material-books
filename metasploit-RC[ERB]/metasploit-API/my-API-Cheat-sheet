@@ -30,20 +30,14 @@ register_options(
 
 #
 # execute bash (/bin/sh) commands
-# define your variable
 #
-value = "chmod +x /etc/init.d/script_name"
-value_two = "rc.update script_name #defaults 86 34"
-# execute your shell command
-puts `#{value}`
-puts `#{value_two}`
+cmd_exec("mkdir -m 700 -p /root/test")
+cmd_exec("chmod 777 #{random_file_path}")
+cmd_exec("sh #{random_file_path}")
+# read file
+read_file("/proc/scsi/scsi")
 
-# another alternative its to use the %x{} funtion
-puts %x{chmod +x /etc/init.d/script_name}
-puts %x{rc.update script_name #defaults 86 34}
 
-# another alternative its to use system funtion
-system "chmod +x /etc/init.d/script_name"
 
 
 
@@ -69,6 +63,8 @@ end
 File = file.open("/root/test", "w")
 File.write("sc create #{sname} binpath= \"%tmp%\\t.exe\" start= auto") 
 File.close
+
+
 
 
 # use backslash to escape double quotes or special caracters
