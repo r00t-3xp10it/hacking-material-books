@@ -7,6 +7,19 @@
 
 
 #
+# store data in loot
+#
+OptBool.new('STORE_LOOT', [false, 'Store file in loot (will simply output file to console if set to false).', true]),
+
+  if datastore['STORE_LOOT'] == true
+    data_entry = cmd_exec("ifconfig")
+    store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
+  end
+
+
+
+
+#
 # colors in prints (milton@barra)
 #
 print_line("%red" + "[SSA-red_team]")
@@ -64,6 +77,13 @@ print_status("Executing command: ifconfig wlan0")
 command_output = cmd_exec("ifconfig wlan0")
 print_line("CONFIGS: #{command_output}")
 
+
+
+#
+# check if application exists (installed)
+if exists_exe?("wget")
+  print_good("wget available, using it")
+end
 
 
 
@@ -196,13 +216,24 @@ Syntax: client.fs.dir.mkdir("c:\\oldman")
 # check if directory exists
 #
 get_path = "C:\\windows"
-  if session.fs.dir.exist?(get_path)
+  if session.fs.dir.exist?(get_path) # error ?? why ???
     print_good('Vuln path exists')
     return Exploit::CheckCode::Appears
   else
     print_error("#{get_path} doesn't exist on target")
     return Exploit::CheckCode::Safe
 end
+
+
+#
+# check if directory exists
+#
+get_path = "C:\\windows"
+  if not File.directory?(get_path)
+    print_error("Remote path: #{get_path} not found ..")
+    print_line("")
+    return nil
+  end
 
 
 
