@@ -52,3 +52,11 @@ we begin defining the class and inherit from Msf::Auxiliary. Metasploit auxiliar
 
 
 5 - debug post-module
+
+
+
+
+
+
+## LINUX HOST_RECON MODULE
+https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
