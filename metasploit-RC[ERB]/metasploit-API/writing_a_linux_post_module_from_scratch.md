@@ -24,9 +24,9 @@
 
 
 
+<br /><br />
 
 ## WRITING A POST MODULE (auxiliary)
-
 
 
 1 - research
@@ -54,7 +54,7 @@ we begin defining the class and inherit from Msf::Auxiliary. Metasploit auxiliar
 5 - debug post-module
 
 
-
+<br /><br />
 
 
 
