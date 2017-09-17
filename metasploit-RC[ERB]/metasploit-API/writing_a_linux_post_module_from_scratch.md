@@ -36,7 +36,7 @@
 2 - build metasploit skelleton
 
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
-we are going to include all the functionality from the core library. MSF has a modular structure and is broken down into several pieces: the framework core, base, and ui. A full discussion of the MSF architecture is outside the scope of this tutorial but for now, know that the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. This line alone gives us access to some 6,000+ different functions. If you’re interested in the full design of the framework, checkout the
+we are going to include all the functionality from the core library. MSF has a modular structure and is broken down into several pieces: the framework core, base, and ui. A full discussion of the MSF architecture is outside the scope of this tutorial but for now, know that the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. This line alone gives us access to some 6,000+ different functions.
 
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
 we begin defining the class and inherit from Msf::Auxiliary. Metasploit auxiliary modules are special in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
