@@ -34,7 +34,7 @@
 ## WRITTING A MSF POST MODULE (step by step)
 
 
-#### 1 - research:
+### 1 - research:
 
 
       'LIST OF BASH COMMANDS TO BE USED TO DUMP TARGET SYSTEM INFORMATION'
@@ -114,7 +114,7 @@
 <br /><br /><br />
 
 
-#### 2 - build metasploit skelleton
+### 2 - build metasploit skelleton
 
 <br />
 
@@ -149,11 +149,11 @@ Module description (info)
 
 <br /><br /><br />
 
-#### 3 - write metasploit post-module funtion logic
+### 3 - write metasploit post-module funtion logic
 
 <br /><br /><br />
 
-#### 4 - port module to metasploit database
+### 4 - port module to metasploit database
 
 
 
