@@ -126,6 +126,11 @@ we begin defining the class and inherit from Msf::Post. Metasploit post modules 
 ![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
 Metasploit mixin: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html
 
+
+Module description (info)
+![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
+
+
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
