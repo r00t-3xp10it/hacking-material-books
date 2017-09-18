@@ -111,7 +111,7 @@
       cat /proc/meminfo | grep "MemTotal"; cat /proc/meminfo | grep "MemFree"; cat /proc/meminfo | grep "MemAvailable"; cat /proc/meminfo | grep "Dirty"; cat /proc/meminfo | grep "SwapTotal"; cat /proc/meminfo | grep "SwapFree"
 
 
-<br /><br />
+<br /><br /><br />
 
 
 #### 2 - build metasploit skelleton
@@ -119,27 +119,36 @@
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 we are going to include all the functionalitys from the core library. MSF has a modular structure and is broken down into several pieces: the framework core, base, and ui. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. This line alone gives us access to some 6,000+ different functions.
 
+<br />
+
+Module dependencies/requires
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
 we begin defining the class and inherit from Msf::Post. Metasploit post modules are special in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
+<br />
 
+Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
 Metasploit mixin: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html
 
+<br />
 
 Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 
+<br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 
+<br />
+
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 
-<br /><br />
+<br /><br /><br />
 
 #### 3 - write metasploit post-module funtion logic
 
-<br /><br />
+<br /><br /><br />
 
 #### 4 - port module to metasploit database
 
