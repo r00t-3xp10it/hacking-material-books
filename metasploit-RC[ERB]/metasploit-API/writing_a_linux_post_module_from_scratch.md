@@ -36,7 +36,9 @@
 ## WRITING A POST MODULE (step by step)
 
 
-1 - research: for bash command that can be used to dump target system information
+1 - research:
+
+#### list of bash commands to be used to dump target system information
 
       # system information
       id
