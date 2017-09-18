@@ -36,9 +36,10 @@
 ## WRITING A POST MODULE (step by step)
 
 
-1 - research:
-#### list of bash commands to be used to dump target system information
+#### 1 - research:
 
+
+      'list of bash commands to be used to dump target system information'
 
       # system information
       id
@@ -123,7 +124,7 @@
 <br /><br />
 
 
-2 - build metasploit skelleton
+#### 2 - build metasploit skelleton
 
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 we are going to include all the functionality from the core library. MSF has a modular structure and is broken down into several pieces: the framework core, base, and ui. know that the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. This line alone gives us access to some 6,000+ different functions.
@@ -133,11 +134,11 @@ we begin defining the class and inherit from Msf::Post. Metasploit post modules 
 
 <br /><br />
 
-3 - write metasploit post-module funtion logic
+#### 3 - write metasploit post-module funtion logic
 
 <br /><br />
 
-4 - port module to metasploit database
+#### 4 - port module to metasploit database
 
 
 
@@ -146,5 +147,5 @@ we begin defining the class and inherit from Msf::Post. Metasploit post modules 
 
 
 
-## LINUX HOST_RECON MODULE
+## LINUX_HOSTRECON POST-MODULE
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
