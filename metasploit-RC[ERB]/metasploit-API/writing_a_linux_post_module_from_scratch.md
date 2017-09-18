@@ -124,6 +124,10 @@ we are going to include all the functionality from the core library. MSF has a m
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
 we begin defining the class and inherit from Msf::Post. Metasploit post modules are special in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
+![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
+
+![msf-auxiliarys](http://i.cubeupload.com/pvoDpj.png)
+
 <br /><br />
 
 #### 3 - write metasploit post-module funtion logic
