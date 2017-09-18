@@ -31,7 +31,7 @@
 
 
 
-<br /><br />
+<br /><br /><br />
 
 ## WRITING A POST MODULE (step by step)
 
@@ -120,7 +120,7 @@
       echo ""; cat /proc/meminfo | grep "MemTotal"; cat /proc/meminfo | grep "MemFree"; cat /proc/meminfo | grep "MemAvailable"; cat /proc/meminfo | grep "Dirty"; cat /proc/meminfo | grep "SwapTotal"; cat /proc/meminfo | grep "SwapFree"; echo ""
 
 
-<br />
+<br /><br />
 
 
 2 - build metasploit skelleton
@@ -131,19 +131,18 @@ we are going to include all the functionality from the core library. MSF has a m
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
 we begin defining the class and inherit from Msf::Post. Metasploit post modules are special in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
-
-
+<br /><br />
 
 3 - write metasploit post-module funtion logic
 
-
+<br /><br />
 
 4 - port module to metasploit database
 
 
 
 
-<br /><br />
+<br /><br /><br />
 
 
 
