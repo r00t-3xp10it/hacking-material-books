@@ -11,9 +11,13 @@
 <br /><br />  
 
 ## MODULE OBJECTIVES
-                module objectives are: gather system information after succcessfully exploitation
-                we are going to use a special msf API call (exec_com) to be able to execute bash
-                commands remotelly in target system
+                Module name: linux_hostrecon.rb
+                Affected systems: linux (unix)
+                Arch: x84 bits | x64 bits
+
+                Module objectives: gather system information after succcessfully exploitation.
+                Adicionally we are going to use a special msf API call 'exec_com()' to be able to
+                execute bash commands remotelly in target system
 
 
 <br /><br />  
@@ -34,7 +38,87 @@
 
 1 - research: for bash command that can be used to dump target system information
 
+      # system information
+      id
+      df -h
+      uname -a
+      hostname
+      cat /etc/*-release
+ 
 
+      # Show the current date and time
+      date
+
+ 
+      # Show possible locations of app
+      whereis firefox
+ 
+ 
+      # Display your currently active processes
+      ps
+ 
+ 
+      # lists available shells
+      grep '^[^#]' /etc/shells
+ 
+      # How to check which shell you are using?
+      echo $0
+ 
+      # How to check which is the default shell for you?
+      echo "$SHELL"
+ 
+ 
+      # dump credentials
+      cat /etc/passwd | cut -d ":" -f 1,2,3,4
+      cat /etc/shadow | cut -d ":" -f 1,2,3,4
+ 
+ 
+      # Storage info
+      cat /proc/partitions
+ 
+      # distro release
+      lsb_release -a | grep "Description"
+
+
+      # hardware system info
+      echo ""; lscpu | grep "Architecture"; lscpu | grep "CPU op-mode"; lscpu | grep "Vendor ID"; echo ""
+ 
+      # list all root accounts (uid 0)
+      grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'
+
+      # lists all id's and respective group(s)
+      for i in $(cat /etc/passwd | cut -d ":" -f1);do id $i;done
+ 
+      # is root permitted to login via ssh ?
+      grep "PermitRootLogin" /etc/ssh/sshd_config | grep -v "#" | awk '{print  $2}'
+ 
+      # search for logfiles
+      find /var/log -type f -perm -4
+ 
+      # packages installed
+      /usr/bin/dpkg -l
+ 
+      # are there any cron jobs configured ?
+      ls -la /etc/cron*
+ 
+      # store gateway (192.168.1.254)
+      cat /etc/resolv.conf | grep "nameserver" | awk {'print $2'}
+ 
+      # store interface in use
+      route | grep default | awk {'print $8'}
+ 
+      # what account is apache running under
+      cat /etc/apache2/envvars | grep -i 'user\|group' | awk '{sub(/.*\export /,"")}1'
+ 
+ 
+      # can we read roots *_history files - could be passwords stored etc.
+      ls -la /root/.*_history
+ 
+      # memory info
+      echo ""; cat /proc/meminfo | grep "MemTotal"; cat /proc/meminfo | grep "MemFree"; cat /proc/meminfo | grep "MemAvailable"; cat /proc/meminfo | grep "Dirty"; cat /proc/meminfo | grep "SwapTotal"; cat /proc/meminfo | grep "SwapFree"; echo ""
+
+
+<br />
 
 
 2 - build metasploit skelleton
