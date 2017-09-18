@@ -39,7 +39,7 @@
 #### 1 - research:
 
 
-      'list of bash commands to be used to dump target system information'
+      'LIST OF BASH COMMANDS TO BE USED TO DUMP TARGET SYSTEM INFORMATION'
 
       # system information
       id
@@ -48,18 +48,14 @@
       hostname
       cat /etc/*-release
  
-
       # Show the current date and time
       date
-
  
       # Show possible locations of app
-      whereis firefox
- 
+      whereis firefox 
  
       # Display your currently active processes
       ps
- 
  
       # lists available shells
       grep '^[^#]' /etc/shells
@@ -70,18 +66,15 @@
       # How to check which is the default shell for you?
       echo "$SHELL"
  
- 
       # dump credentials
       cat /etc/passwd | cut -d ":" -f 1,2,3,4
       cat /etc/shadow | cut -d ":" -f 1,2,3,4
- 
  
       # Storage info
       cat /proc/partitions
  
       # distro release
       lsb_release -a | grep "Description"
-
 
       # hardware system info
       echo ""; lscpu | grep "Architecture"; lscpu | grep "CPU op-mode"; lscpu | grep "Vendor ID"; echo ""
@@ -112,7 +105,6 @@
  
       # what account is apache running under
       cat /etc/apache2/envvars | grep -i 'user\|group' | awk '{sub(/.*\export /,"")}1'
- 
  
       # can we read roots *_history files - could be passwords stored etc.
       ls -la /root/.*_history
