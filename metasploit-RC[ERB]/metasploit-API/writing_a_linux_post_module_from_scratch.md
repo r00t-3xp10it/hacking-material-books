@@ -38,7 +38,9 @@
 
 1 - research:
 <center>
+
 #### list of bash commands to be used to dump target system information
+
 </center>
 
       # system information
