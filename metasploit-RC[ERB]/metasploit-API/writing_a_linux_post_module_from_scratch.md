@@ -16,7 +16,7 @@
 
                 Module objectives: Gather system information after succcessfully exploitation.
                 Adicionally we are going to use a special MSF API call 'exec_com()' to be able to
-                execute bash commands remotelly in target sys, display scans and store the logfile.
+                execute bash commands remotelly in target sys, display outputs and store to logfile.
 
 
 <br /><br />  
@@ -31,7 +31,7 @@
 
 <br /><br /><br />
 
-## WRITING A POST MODULE (step by step)
+## WRITING A MSF POST MODULE (step by step)
 
 
 #### 1 - research:
@@ -75,7 +75,7 @@
       lsb_release -a | grep "Description"
 
       # hardware system info
-      echo ""; lscpu | grep "Architecture"; lscpu | grep "CPU op-mode"; lscpu | grep "Vendor ID"; echo ""
+      lscpu | grep "Architecture"; lscpu | grep "CPU op-mode"; lscpu | grep "Vendor ID"
  
       # list all root accounts (uid 0)
       grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'
@@ -108,7 +108,7 @@
       ls -la /root/.*_history
  
       # memory info
-      echo ""; cat /proc/meminfo | grep "MemTotal"; cat /proc/meminfo | grep "MemFree"; cat /proc/meminfo | grep "MemAvailable"; cat /proc/meminfo | grep "Dirty"; cat /proc/meminfo | grep "SwapTotal"; cat /proc/meminfo | grep "SwapFree"; echo ""
+      cat /proc/meminfo | grep "MemTotal"; cat /proc/meminfo | grep "MemFree"; cat /proc/meminfo | grep "MemAvailable"; cat /proc/meminfo | grep "Dirty"; cat /proc/meminfo | grep "SwapTotal"; cat /proc/meminfo | grep "SwapFree"
 
 
 <br /><br />
