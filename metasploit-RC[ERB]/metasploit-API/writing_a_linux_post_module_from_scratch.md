@@ -124,7 +124,7 @@ we begin defining the class and inherit from Msf::Post. Metasploit post modules 
 
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 
-![msf-auxiliarys](http://i.cubeupload.com/cOaYIo.png)
+![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 
 <br /><br />
 
