@@ -3,7 +3,7 @@
 
 
 ## INTRO
-                                 'writing a linux post module from scratch'
+                                 'writting a linux post module from scratch'
                 Metasploit modules are writting in ruby. Even if you don’t know alot about ruby,
              you should still be able to write a metasploit linux post module based on this tutorial!
 
@@ -31,7 +31,7 @@
 
 <br /><br /><br />
 
-## WRITING A MSF POST MODULE (step by step)
+## WRITTING A MSF POST MODULE (step by step)
 
 
 #### 1 - research:
