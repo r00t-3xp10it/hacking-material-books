@@ -120,7 +120,23 @@
 
 Module dependencies/requires
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
-we are going to include all the functionalitys from the core library. MSF has a modular structure and is broken down into several pieces: the framework core, base, and ui. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. This line alone gives us access to some 6,000+ different functions.
+Adding msf/core require will include all the functionalitys from the core library. the framework’s core library
+is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
+plugins, etc. This line alone gives us access to some 6,000+ different functions. without the need to write inside
+module all functions in ruby, because most of the functions are allready available using MSF API calls ..
+
+          
+          EXAMPLE:
+          session.sys.config.sysinfo msf API call uses functions from session.rb
+          functions from sys.rb, functions from config.rb, functions from sysinfo.rb
+          to display the output of meterpreter command 'sysinfo' (system info)
+          
+          COMCLUSION:
+          If i need to display target OS, i just need to write session.sys.config.sysinfo['OS']
+          that sessions.rb will provide funtionalitys with open sessions, sys.rb will provide
+          funtionalitys with system, .. and finally sysinfo['OS'] will execute the post-module
+          sysinfo.rb and the funtion that scans for target OS info, and voila, now i can display
+          the target Operative System to users of my module ..
 
 <br />
 
