@@ -2,14 +2,14 @@
 
 
 
-## INTRO
+# INTRO
                                  'writing a linux post module from scratch'
                 Metasploit modules are written in ruby. Even if you don’t know a lot about ruby,
              you should still be able to write a metasploit linux post module based on this tutorial!
 
 <br /><br />  
 
-## MODULE OBJECTIVES
+# MODULE OBJECTIVES
                 Module name: linux_hostrecon.rb
                 Afected systems: Linux (Unix)
                 Arch: x84 bits | x64 bits
@@ -21,7 +21,7 @@
 
 <br /><br />  
 
-## MODULE DEVELOP METHODOLOGIE
+# MODULE DEVELOP METHODOLOGIE
 
                1 - Research: For bash commands that can be used to dump target system information
                2 - Write template: Basic explaination of 'include' 'require' 'class name' and module description
@@ -31,10 +31,10 @@
 
 <br /><br /><br />
 
-## WRITING A MSF POST MODULE (step by step)
+# WRITING A MSF POST MODULE (step by step)
 
 
-### 1 - research:
+## 1 - research:
 
 
       'LIST OF BASH COMMANDS TO BE USED TO DUMP TARGET SYSTEM INFORMATION'
@@ -114,11 +114,11 @@
 <br /><br /><br />
 
 
-### 2 - build metasploit template
+## 2 - build metasploit template
 
 <br />
 
-Module dependencies/requires
+#### Module dependencies/requires
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 Adding msf/core require will include all the functionalitys from the core library. the framework’s core library
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
@@ -126,7 +126,7 @@ plugins, post modules, etc. This line alone gives us access to over 6,000+ diffe
 
 <br />
 
-Module class name and rank
+#### Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
 we begin defining the class and inherit from Msf::Post. Metasploit post modules are special in that they aren’t
 necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes
@@ -134,7 +134,7 @@ tools like port scanners, fuzzers, service fingerprinters, enumeration, informat
 
 <br />
 
-The Msf::Post Mixin
+#### The Msf::Post Mixin
 ![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
 One of the first things that is done is the implementaion of the class Msf::Post mixin.
 When you create a post module with this mixin, a lot of other mixins are also already included for all kinds of scenarios.
@@ -155,24 +155,26 @@ Msf::Post::Linux::System (mixin): http://rapid7.github.io/metasploit-framework/a
 
 <br />
 
-Module description (info)
+#### Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 
 <br />
 
+#### Module options (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 
 <br />
 
+#### Module advanced options (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 
 <br /><br /><br />
 
-### 3 - write metasploit post-module funtion logic
+## 3 - write metasploit post-module funtion logic
 
 <br /><br /><br />
 
-### 4 - port module to metasploit database
+## 4 - port module to metasploit database
 
 
 
@@ -181,44 +183,15 @@ Module description (info)
 
 
 
-## LINUX_HOSTRECON POST-MODULE
+# LINUX_HOSTRECON POST-MODULE
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 
 
+# REFERENCES
 https://www.offensive-security.com/metasploit-unleashed/building-module/
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module
 
 
-The Msf::Post Mixin
-
-As we explained, most post module mixins are built on top of the session object, and there are many out there. However, there is a main one you obviously cannot live without: the Msf::Post mixin. When you create a post module with this mixin, a lot of other mixins are also already included for all kinds of scenarios, to be more specific:
-
-    msf/core/post/common - Common methods post modules use, for example: cmd_exec.
-    msf/core/post_mixin - Keeps track of the session state.
-    msf/core/post/file - File system related methods.
-    msf/core/post/webrtc - Uses WebRTC to interact with the target machine's webcam.
-    msf/core/post/linux - There actually isn't a lot going on, just get_sysinfo and is_root? specifically for Linux.
-    msf/core/post/osx - get_sysinfo, get_users, get_system_accounts, get_groups, and methods for operating the target machine's webcam.
-    msf/core/post/solaris - Pretty much like the linux mixin. Same methods, but for Solaris.
-    msf/core/post/unix - get_users, get_groups, enum_user_directories
-    msf/core/post/windows - Most of the development time are spent here. From Windows account management, event log, file info, Railgun, LDAP, netapi, powershell, registry, wmic, services, etc.
-
-
-without the need to write inside
-module all functions in ruby, because most of the functions are allready available using msf API calls ..
-
-          
-          EXAMPLE:
-          session.sys.config.sysinfo msf API call uses functions from session.rb
-          functions from sys.rb, functions from config.rb, functions from sysinfo.rb
-          to display the output of meterpreter command 'sysinfo' (system info)
-          
-          COMCLUSION:
-          If i need to display target OS, i just need to write session.sys.config.sysinfo['OS']
-          that sessions.rb will provide funtionalitys with open sessions, sys.rb will provide
-          funtionalitys with system, .. and finally sysinfo['OS'] will execute the post-module
-          sysinfo.rb and the funtion that scans for target OS info, and voila, now i can display
-          the target Operative System to users of my module ..
