@@ -132,6 +132,9 @@ we begin defining the class and inherit from Msf::Post. Metasploit post modules 
 necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes
 tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
+Every exploit module has been assigned a rank based on its potential impact to the target system
+Metasploit ranking: https://github.com/rapid7/metasploit-framework/wiki/Exploit-Ranking
+
 <br />
 
 #### The Msf::Post Mixin
