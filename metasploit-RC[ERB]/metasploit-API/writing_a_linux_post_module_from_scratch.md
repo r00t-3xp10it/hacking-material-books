@@ -136,7 +136,7 @@ tools like port scanners, fuzzers, service fingerprinters, enumeration, informat
 
 The Msf::Post Mixin
 ![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
-One of the first things that is done is the importation of the class Msf::Post mixin.
+One of the first things that is done is the implementaion of the class Msf::Post mixin.
 When you create a post module with this mixin, a lot of other mixins are also already included.
 
     mixins loaded by Msf::Post method class
