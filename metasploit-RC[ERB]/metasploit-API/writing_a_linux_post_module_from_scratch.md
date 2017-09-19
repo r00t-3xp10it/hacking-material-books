@@ -122,17 +122,17 @@
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 Adding msf/core require will include all the functionalitys from the core library. the framework’s core library
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
-plugins, post modules, etc. This line alone gives us access to over 6,000+ different functions. 
+plugins, post modules, etc.<br /> This line alone gives us access to over 6,000+ different functions. 
 
 <br />
 
 #### Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
-we begin defining the class and inherit from Msf::Post. Metasploit post modules are special in that they aren’t
+we begin defining the **class** and inherit from Msf::Post. Metasploit post modules are special in that they aren’t
 necessarily exploits that feature a payload. Instead, they can be considered as reconnaissance tools. This includes
 tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
-Every exploit module has been assigned a rank based on its potential impact to the target system.<br />
+Rank = Every exploit module has been assigned a rank based on its potential impact to the target system.<br />
 Metasploit ranking: https://github.com/rapid7/metasploit-framework/wiki/Exploit-Ranking
 
 <br />
