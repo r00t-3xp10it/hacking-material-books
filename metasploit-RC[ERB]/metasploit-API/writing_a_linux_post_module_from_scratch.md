@@ -18,6 +18,8 @@
                 Addicionally we are going to use a special MSF API call 'cmd_exec()' to be able to
                 execute bash commands remotelly in target sys, display outputs and store to logfile.
 
+cmd_exec-instance_method: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method<br />
+
 
 <br /><br />  
 
