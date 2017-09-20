@@ -17,7 +17,7 @@
                 Module objectives: Gather system information after succcessfully exploitation.
                 Addicionally we are going to load the msf/core/post/common module to use the
                 API call 'cmd_exec()' to be able to execute bash commands remotelly in target
-                display outputs and store to logfile.
+                display outputs and store to logfile (store_loot).
 
 **cmd_exec**: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method<br />
 
