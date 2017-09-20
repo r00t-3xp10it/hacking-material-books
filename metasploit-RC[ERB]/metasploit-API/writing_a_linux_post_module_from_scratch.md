@@ -166,12 +166,14 @@ Class Msf::Post http://rapid7.github.io/metasploit-framework/api/Msf/Post.html
 #### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 This method adds options that the user can specify before running the module.
+The **OptString.new()** method accepts string values (text)
 
 <br />
 
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 This method adds advanced options that the user can specify before running the module.
+The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)
 
 <br /><br /><br />
 
