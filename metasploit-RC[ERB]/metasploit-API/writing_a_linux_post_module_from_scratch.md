@@ -146,19 +146,6 @@ Metasploit ranking: https://github.com/rapid7/metasploit-framework/wiki/Exploit-
 One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
 Class Msf::Post http://rapid7.github.io/metasploit-framework/api/Msf/Post.html<br />
-
-    mixins loaded by Msf::Post method class
-
-    msf/core/post/common - Common methods post modules use, for example: cmd_exec.
-    msf/core/post_mixin - Keeps track of the session state.
-    msf/core/post/file - File system related methods.
-    msf/core/post/webrtc - Uses WebRTC to interact with the target machine's webcam.
-    msf/core/post/linux - There actually isn't a lot going on, just get_sysinfo and is_root? specifically for Linux.
-    msf/core/post/osx - get_sysinfo, get_users, get_system_accounts, get_groups, and methods for operating the target machine's webcam.
-    msf/core/post/solaris - Pretty much like the linux mixin. Same methods, but for Solaris.
-    msf/core/post/unix - get_users, get_groups, enum_user_directories
-    msf/core/post/windows - From Windows account management, event log, file info, Railgun, LDAP, netapi, powershell, registry, wmic, services, etc.
-
 Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html
 
 <br />
