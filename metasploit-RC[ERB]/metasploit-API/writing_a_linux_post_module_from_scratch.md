@@ -153,6 +153,12 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 #### Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
+In **def initialize()**, you need to define some information about the post module, such as:<br />
+Module name, description, module author, version, platform, target architecture, etc ..
+
+we also can config module default options settings by using the **DefaultOptions**
+![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
+
 
 <br />
 
@@ -183,12 +189,12 @@ The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)
 
 
 
-# LINUX_HOSTRECON POST-MODULE
+## LINUX_HOSTRECON POST-MODULE
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 
 
-# REFERENCES
+## REFERENCES
 https://github.com/rapid7/metasploit-framework/wiki
 https://en.wikibooks.org/wiki/Metasploit/DevelopingAuxiliaryModules
 https://www.offensive-security.com/metasploit-unleashed/building-module/
@@ -198,9 +204,6 @@ https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writ
 
 
 
-First, I included Metasploit’s TCP library (include Msf::Exploit::Remote::Tcp), as I need to connect to a TCP server.
-
-In initialize(), you need to define some information about the exploit module, such as name, description, payload encoding and target architecture. In this case, I will not use any payload encoding for the sake of simplicity, and the target architecture would be linux x86
 
 
 The datastore
