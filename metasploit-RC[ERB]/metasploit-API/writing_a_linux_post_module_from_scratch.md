@@ -154,7 +154,7 @@ When you create a post module with this mixin, a lot of other mixins are also al
     msf/core/post/unix - get_users, get_groups, enum_user_directories
     msf/core/post/windows - From Windows account management, event log, file info, Railgun, LDAP, netapi, powershell, registry, wmic, services, etc.
 
-Msf::Post::Linux::System (mixin): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html
+Class Msf::Post http://rapid7.github.io/metasploit-framework/api/Msf/Post.html
 
 <br />
 
@@ -163,15 +163,15 @@ Msf::Post::Linux::System (mixin): http://rapid7.github.io/metasploit-framework/a
 
 <br />
 
-#### Module options (show options)
+#### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
-The **register_options** method. This method adds options that the user can specify before running the module.
+This method adds options that the user can specify before running the module.
 
 <br />
 
-#### Module advanced options (show advanced options)
+#### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
-The **register_advanced_options** method. This method adds advanced options that the user can specify before running the module.
+This method adds advanced options that the user can specify before running the module.
 
 <br /><br /><br />
 
