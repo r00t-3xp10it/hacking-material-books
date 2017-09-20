@@ -121,14 +121,14 @@
 **require msf/core** will include all the functionalitys from the core library. the framework’s core library
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
 plugins, post modules, etc.<br /> This line alone gives us access to over 6,000+ different functions.<br />
-**msf/core/post/common** allow us to use the API **cmd_exec** to execute bash commands on remote system.<br />
+**msf/core/post/common** allow us to use the API cmd_exec to execute bash commands on remote system.<br />
 cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
 
 <br />
 
-### Module class name and rank
+### B - Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
-we begin defining the **class** and inherit from **Msf::Post**. Metasploit post modules are special in that they aren’t
+we begin defining the class and inherit from **Msf::Post**. Metasploit post modules are special in that they aren’t
 necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**. This includes
 tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
@@ -137,7 +137,7 @@ Metasploit ranking: https://github.com/rapid7/metasploit-framework/wiki/Exploit-
 
 <br />
 
-### The Msf::Post Mixin
+### C - The Msf::Post Mixin
 ![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
 One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
@@ -147,25 +147,25 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br />
 
-### Module description (info)
+### D - Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
-In **def initialize()**, you need to define some information about the post module, such as:<br />
+**def initialize()** here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, etc ..
 
-we also can config module default options settings by using the **DefaultOptions**
+we can config module default options settings by using the **DefaultOptions**
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
 
 
 <br />
 
-### The register_options method (show options)
+### E - The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 This method adds options that the user can specify before running the module.<br />
 The **OptString.new()** method accepts string values (text)
 
 <br />
 
-### The register_advanced_options method (show advanced options)
+### F - The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 This method adds advanced options that the user can specify before running the module.<br />
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)
