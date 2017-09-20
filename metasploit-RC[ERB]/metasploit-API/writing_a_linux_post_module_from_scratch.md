@@ -125,8 +125,8 @@ Adding **require msf/core** will include all the functionalitys from the **core 
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
 plugins, post modules, etc.<br /> This line alone gives us access to over **6,000+ different functions**. 
 
-Adding **require msf/core/post/common** allow us to use the API 'cmd_exec()' to execute bash commands on remote system.<br />
-cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
+Adding **require msf/core/post/common** allow us to use the API **cmd_exec()** to execute bash commands on remote system.<br />
+**cmd_exec()**: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
 
 <br />
 
