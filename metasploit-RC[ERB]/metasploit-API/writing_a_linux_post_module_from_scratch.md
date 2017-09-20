@@ -122,7 +122,7 @@
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 Adding **require msf/core** will include all the functionalitys from the **core library**. the framework’s core library
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
-plugins, post modules, etc.<br /> This line alone gives us access to over 6,000+ different functions. 
+plugins, post modules, etc.<br /> **This line alone gives us access to over 6,000+ different functions**. 
 
 <br />
 
@@ -165,11 +165,13 @@ Msf::Post::Linux::System (mixin): http://rapid7.github.io/metasploit-framework/a
 
 #### Module options (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
+The **register_options** method. This method adds options that the user can specify before running the module.
 
 <br />
 
 #### Module advanced options (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
+The **register_advanced_options** method. This method adds advanced options that the user can specify before running the module.
 
 <br /><br /><br />
 
@@ -192,9 +194,22 @@ https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon
 
 
 # REFERENCES
+https://github.com/rapid7/metasploit-framework/wiki
+https://en.wikibooks.org/wiki/Metasploit/DevelopingAuxiliaryModules
 https://www.offensive-security.com/metasploit-unleashed/building-module/
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module
 
+
+
+First, I included Metasploit’s TCP library (include Msf::Exploit::Remote::Tcp), as I need to connect to a TCP server.
+
+In initialize(), you need to define some information about the exploit module, such as name, description, payload encoding and target architecture. In this case, I will not use any payload encoding for the sake of simplicity, and the target architecture would be linux x86
+
+
+The datastore
+
+The options set by a user are available via a predefined hash named datastore. For example:
+ print_status("the contents of the DATA variable are: " + datastore['DATA'])
 
