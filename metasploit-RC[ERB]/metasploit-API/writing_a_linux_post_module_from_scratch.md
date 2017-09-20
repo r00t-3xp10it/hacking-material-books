@@ -29,7 +29,7 @@
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 # WRITING A MSF POST MODULE (step by step)
 
@@ -122,7 +122,7 @@
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
 Adding **require msf/core** will include all the functionalitys from the **core library**. the framework’s core library
 is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
-plugins, post modules, etc.<br /> **This line alone gives us access to over 6,000+ different functions**. 
+plugins, post modules, etc.<br /> This line alone gives us access to over **6,000+ different functions**. 
 
 <br />
 
@@ -184,7 +184,7 @@ The **register_advanced_options** method. This method adds advanced options that
 
 
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 
 
