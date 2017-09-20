@@ -154,7 +154,7 @@ When you create a post module with this mixin, a lot of other mixins are also al
     msf/core/post/unix - get_users, get_groups, enum_user_directories
     msf/core/post/windows - From Windows account management, event log, file info, Railgun, LDAP, netapi, powershell, registry, wmic, services, etc.
 
-Class Msf::Post http://rapid7.github.io/metasploit-framework/api/Msf/Post.html
+Class Msf::Post http://rapid7.github.io/metasploit-framework/api/Msf/Post.html<br />
 Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html
 
 <br />
