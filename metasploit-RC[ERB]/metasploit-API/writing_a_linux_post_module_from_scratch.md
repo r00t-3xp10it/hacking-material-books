@@ -164,7 +164,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 The **OptString.new()** method accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
-HINT: in **DefaultOption** funtion we allready have defined the module to run agains session 1.
+HINT: in **DefaultOptions** funtion we allready have defined the module to run agains session 1 by default
 
 <br /><br />
 
