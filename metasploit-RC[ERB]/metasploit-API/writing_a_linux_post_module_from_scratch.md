@@ -34,7 +34,7 @@
 
 # WRITING A MSF POST MODULE (step by step)
 
-# 1 - Research Stage:
+# 1 - The research stage:
 In this stage (research) i have used online articles from diferent websites<br />
 to store interesting bash commands that can be used in gathering target sys info.  
 
