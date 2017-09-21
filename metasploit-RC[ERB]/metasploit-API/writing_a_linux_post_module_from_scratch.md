@@ -118,8 +118,7 @@
 
 ### MSF libraries
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
-**rex** The basic library for most tasks: Handles sockets, protocols, text transformations<br />
-SSL, SMB, HTTP, XOR, Base64, Unicode and others ..
+**rex** The basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
 **msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
 interface that provides the required functionality for interacting with exploit modules, sessions, plugins, post modules.<br />
