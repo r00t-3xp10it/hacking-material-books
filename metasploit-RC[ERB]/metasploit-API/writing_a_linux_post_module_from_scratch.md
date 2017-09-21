@@ -34,7 +34,7 @@
 
 # WRITING A MSF POST MODULE (step by step)
 
-# 1 - research:
+# 1 - Research Stage:
 In this stage (research) i have used online articles from diferent websites<br />
 to store interesting bash commands that can be used in gathering target sys info.  
 
@@ -113,7 +113,7 @@ to store interesting bash commands that can be used in gathering target sys info
 <br /><br /><br />
 
 
-# 2 - Build metasploit template
+# 2 - Building the metasploit template
 
 ### MSF libraries
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
@@ -175,15 +175,15 @@ This method adds advanced options that the user can specify before running the m
 
 <br /><br /><br />
 
-# 3 - write metasploit post-module funtion logic
+# 3 - Write metasploit post-module funtion logic
 
 <br /><br /><br />
 
-# 4 - port module to metasploit database
+# 4 - Port module to metasploit database
 
 <br /><br /><br /><br />
 
-### LINUX_HOSTRECON POST-MODULE
+### Download/read linux_hostrecon.rb post-module from here:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 <br /><br /><br />
