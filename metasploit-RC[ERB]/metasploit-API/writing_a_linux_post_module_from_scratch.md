@@ -35,9 +35,8 @@
 # WRITING A MSF POST MODULE (step by step)
 
 # 1 - research:
-
-
-      'LIST OF BASH COMMANDS TO BE USED TO DUMP TARGET SYSTEM INFORMATION'
+In this stage (research) i have used online articles from diferent websites<br />
+to store interesting bash commands to be used into gathering target sys informations.  
 
       # system information
       id
