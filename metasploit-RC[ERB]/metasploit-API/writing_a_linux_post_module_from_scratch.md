@@ -131,8 +131,8 @@ cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.htm
 
 #### Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
-we begin defining the **class** as MetasploitModule and inherit from **Msf::Post** mixin. Metasploit post modules are special
-in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**.
+we begin defining the **class** as MetasploitModule and inherit from **Msf::Post** mixin. Metasploit post modules are special<br />
+in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**.<br />
 This includes port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
 
 **Rank** = Every module has been assigned a rank based on its potential impact to the target system.<br />
