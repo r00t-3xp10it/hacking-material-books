@@ -118,13 +118,12 @@
 
 ### MSF libraries
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
-
-**Rex** The basic library for most tasks: Handles sockets, protocols, text transformations<br />
+**rex** The basic library for most tasks: Handles sockets, protocols, text transformations<br />
 SSL, SMB, HTTP, XOR, Base64, Unicode and others ..
 
-**require msf/core** will include all the functionalitys from the core library. the framework’s core library
-is the low-level interface that provides the required functionality for interacting with exploit modules, sessions,
-plugins, post modules, etc.<br /> This line alone gives us access to over 6,000+ different functions.<br />
+**msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
+interface that provides the required functionality for interacting with exploit modules, sessions, plugins, post modules.<br />
+This line alone gives us access to over 6,000+ different functions.<br />
 
 **msf/core/post/common** allow us to use the API cmd_exec to execute bash commands on remote system.<br />
 cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
