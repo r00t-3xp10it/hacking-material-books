@@ -155,7 +155,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 **def initialize()** here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, etc ..
 
-we can config module default options settings by using the **DefaultOptions**
+Here we can adicionaly config module's default settings using the **DefaultOptions** funtion
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
 
 
@@ -163,8 +163,9 @@ we can config module default options settings by using the **DefaultOptions**
 
 #### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
+The **OptString.new()** method accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
-The **OptString.new()** method accepts string values (text)
+HINT: in DefaultOption funtion we allready have defined module to run agains session 1.
 
 <br /><br />
 
