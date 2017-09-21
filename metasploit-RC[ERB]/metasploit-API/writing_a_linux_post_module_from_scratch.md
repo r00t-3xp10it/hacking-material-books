@@ -36,7 +36,7 @@
 
 # 1 - research:
 In this stage (research) i have used online articles from diferent websites<br />
-to store interesting bash commands to be used into gathering target sys informations.  
+to store interesting bash commands that can be used in gathering target sys info.  
 
       # system information
       id
