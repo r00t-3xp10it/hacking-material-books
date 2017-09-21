@@ -118,25 +118,26 @@
 
 ### MSF libraries
 ![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
-**rex** The basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
+**rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
 **msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
-interface that provides the required functionality for interacting with exploit modules, sessions, plugins, post modules.<br />
+interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc.<br />
 This line alone gives us access to over 6,000+ different functions.<br />
 
-**msf/core/post/common** allow us to use the API cmd_exec to execute bash commands on remote system.<br />
+**msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system.<br />
 cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
 
 <br /><br />
 
 #### Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ETlv6v.png)
-we begin defining the class and inherit from **Msf::Post**. Metasploit post modules are special in that they aren’t
-necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**. This includes
-tools like port scanners, fuzzers, service fingerprinters, enumeration, information gathering, etc.
+we begin defining the **class** as MetasploitModule and inherit from **Msf::Post** mixin<br />
+Metasploit post modules are special in that they aren’t necessarily exploits that feature a payload.
+Instead, they can be considered as **reconnaissance tools**. This includes port scanners, fuzzers,
+service fingerprinters, enumeration, information gathering, etc.
 
-**Rank** = Every exploit module has been assigned a rank based on its potential impact to the target system.<br />
-Metasploit ranking: https://github.com/rapid7/metasploit-framework/wiki/Exploit-Ranking
+**Rank** = Every module has been assigned a rank based on its potential impact to the target system.<br />
+Metasploit ranking system: https://github.com/rapid7/metasploit-framework/wiki/Exploit-Ranking
 
 <br /><br />
 
