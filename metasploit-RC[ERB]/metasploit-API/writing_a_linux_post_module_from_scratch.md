@@ -152,7 +152,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 #### Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
-**def initialize()** here we need to define some information about the post module, such as:<br />
+**def initialize(info={})** here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, etc ..
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** funtion
@@ -182,17 +182,12 @@ This method adds advanced options that the user can specify before running the m
 
 # 4 - port module to metasploit database
 
-
-
-
 <br /><br /><br /><br />
 
-
-
-## LINUX_HOSTRECON POST-MODULE
+### LINUX_HOSTRECON POST-MODULE
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
-
+<br /><br /><br />
 
 ## REFERENCES
 https://github.com/rapid7/metasploit-framework/wiki
