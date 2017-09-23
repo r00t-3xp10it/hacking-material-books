@@ -117,7 +117,7 @@ to store interesting bash commands that can be used in gathering target sys info
 
       The metasploit template its divided in to 3 main funtions.
       the librarys/class-name/mixins that contains module requires/imports, the 'def initialize()' funtion
-      that contains module description/settings, and 'def run()' funtion that contain the script logic.
+      that contains module description/settings, and the 'def run()' funtion that contain the script logic.
 
       At this stage we are going to focous in the 'librarys/class-name/mixins' and 'def initialize()' funtions
 
