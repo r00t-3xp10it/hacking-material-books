@@ -10,10 +10,6 @@
 <br /><br />  
 
 # MODULE OBJECTIVES
-                Module name: linux_hostrecon.rb
-                Affected systems: Linux (Unix)
-                Arch: x84 bits | x64 bits
-
                 Module objectives: Gather system information after succcessfully exploitation.
                 For that we are going to load the msf/core/post/common module to use the MSF
                 API 'cmd_exec()' to execute bash commands on remote system, display outputs,
