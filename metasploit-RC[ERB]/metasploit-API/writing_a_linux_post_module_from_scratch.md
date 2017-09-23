@@ -45,10 +45,11 @@
 # 2 - Building the metasploit template
 
       The metasploit template its divided in to 3 main funtions.
-      the librarys/class-name/mixins that contains module requires/imports, the 'def initialize()' funtion
-      that contains module description/settings, and the 'def run()' funtion that contain the script logic.
+      1 - the librarys, class name, mixins that contains module requires/imports.
+      2 - the 'def initialize()' funtion that contains module description/settings.
+      3 - and the 'def run()' funtion that contain the script logic (exploit code).
 
-      At this stage we are going to focous in the 'librarys/class-name/mixins' and 'def initialize()' funtions
+      At this stage we are going to focous in the 'librarys' and 'def initialize()' funtions
 
 <br /><br />
 
