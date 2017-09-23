@@ -182,9 +182,9 @@ But users can still define (manually) a diferent session number to the run modul
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.<br />
 
-**HINT**: The first **false** value show us that is one **required** setting, The second **false** value<br />
-its the default setting to be run at execution. If the second field its empty, it meens that its waiting<br />
-for user settings to run the funtion. 
+**HINT**: The first value as **true** show us that is one **required** setting to run module,<br />
+The second value **false** it activates or not the funtion to be run, If the second field its empty,<br />
+it meens that module its waiting for user input settings to run the funtion. 
 
 <br />
 
