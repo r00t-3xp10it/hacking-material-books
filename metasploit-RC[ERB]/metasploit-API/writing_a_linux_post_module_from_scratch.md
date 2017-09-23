@@ -150,6 +150,15 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 <br /><br />
 
 #### Module description (info)
+
+
+**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
+and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
+
+     def hi
+       puts "Hello World!"
+     end
+
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, etc. And close the<br/>
@@ -172,17 +181,7 @@ HINT: in **DefaultOptions** funtion we allready have defined the module to run a
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
-This method adds advanced options that the user can specify before running the module.<br />
-
-
-<br />
-
-**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
-and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
-
-     def hi
-       puts "Hello World!"
-     end
+This method adds advanced options that the user can specify before running the module.
 
 <br /><br /><br />
 
