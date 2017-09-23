@@ -116,7 +116,7 @@ to store interesting bash commands that can be used in gathering target sys info
 # 2 - Building the metasploit template
 
 ### MSF libraries
-![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)
+![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
 **msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
