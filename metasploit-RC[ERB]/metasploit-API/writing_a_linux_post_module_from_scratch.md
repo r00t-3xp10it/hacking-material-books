@@ -128,23 +128,24 @@ This method adds advanced options that the user can specify before running the m
 The second value as **false** it activates or not the funtion to be run, If the second field its empty,<br />
 it meens that module its waiting for user input settings to run the funtion. 
 
-<br />
-
-**HINT**: The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
-will be stored into msfdb (metasploit database) and they can be called later into script logic.
-
-      example: The next funtion will read the value inside the 'STORE_LOOT' option,
-               and if its config as 'true' it will run the follow funtion (store_loot).
-      
-      if datastore['STORE_LOOT'] == true
-        print_good("storing dump into looot folder ..")
-      end
-
 <br /><br />
 
 #### Close the 'def initialize()' funtion
 **HINT**: At this stage we have done writing the **def initialize()** funtion (module description/settings).<br/>
 Now we need to close the funtion with the **end** statement, before start writing the **def run()** funtion.
+
+<br />
+
+**HINT**: The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
+will be stored into msfdb (metasploit database) and they can be called later to script logic.
+
+      example: The next funtion will read the value inside the 'STORE_LOOT' option,
+               and if its config as 'true' it will run the follow funtion (store_loot).
+      
+      if datastore['STORE_LOOT'] == true
+        print_good("storing dump into loot folder ..")
+        store_loot("hostrecon", "text/plain", session, data_dump, "hostrecon.txt", "linux_hostrecon")
+      end
 
 <br /><br /><br />
 
