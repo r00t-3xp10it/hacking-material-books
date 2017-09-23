@@ -183,7 +183,7 @@ This method adds advanced options that the user can specify before running the m
 
 <br />
 
-**HINT**: At this stage we have done writing the **def initialize()** method. Now we need to close<br/>
+**HINT**: At this stage we have done writing the **def initialize()** funtion. Now we need to close<br/>
 the funtion with the **end** statement, before start writing the **def run()** funtion (script action) ..
 
 <br /><br /><br />
