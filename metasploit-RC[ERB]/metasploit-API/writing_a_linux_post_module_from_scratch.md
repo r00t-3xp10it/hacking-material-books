@@ -130,8 +130,8 @@ it meens that module its waiting for user input settings to run the funtion.
 
 <br /><br />
 
-**HINT**: The settings of **SESSION** **STORE_LOOT** **AGRESSIVE_DUMP** **SINGLE_COMMAND**
-will be stored into msfdb (metasploit database) and they can be called later to script logic.
+**HINT**: The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** **'SINGLE_COMMAND'**<br />
+will be stored into msfdb (metasploit database) and they can be called later into script logic.
 
       example: The next funtion will read the value inside the 'STORE_LOOT' option,
                and if its config as 'true' it will run the follow funtion (store_loot).
