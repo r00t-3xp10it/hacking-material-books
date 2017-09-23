@@ -123,7 +123,7 @@ to store interesting bash commands that can be used in gathering target sys info
 interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc.<br />
 This line alone gives us access to over 6,000+ different functions.<br />
 
-**msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system.<br />
+**msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system (linux).<br />
 cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
 
 <br /><br />
@@ -173,6 +173,7 @@ The **OptString.new()** method accepts string values (text-numbers-symbols)<br /
 This method adds options that the user can specify before running the module.<br />
 
 **HINT**: in **DefaultOptions** funtion we allready have defined the module to run agains session 1 by default
+but users can still define (manually) a diferent session number to the run module againts.  
 
 <br /><br />
 
