@@ -149,6 +149,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br /><br />
 
+#### Module description (info)
 **HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
@@ -156,7 +157,6 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
        puts "Hello World!"
      end
 
-#### Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, etc.<br />
