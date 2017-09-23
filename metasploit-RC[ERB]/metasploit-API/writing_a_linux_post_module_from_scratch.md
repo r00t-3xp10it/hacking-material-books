@@ -131,7 +131,7 @@ it meens that module its waiting for user input settings to run the funtion.
 <br /><br />
 
 #### Close the 'def initialize()' funtion
-![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)
+![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
 **HINT**: At this stage we have done writing the **def initialize()** funtion (module description/settings).<br/>
 Now we need to close the funtion with the **end** statement, before start writing the **def run()** funtion.
 
