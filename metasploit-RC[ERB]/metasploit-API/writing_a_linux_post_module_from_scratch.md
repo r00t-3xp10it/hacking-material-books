@@ -36,7 +36,7 @@
 
 # 1 - The research stage:
 
-      In this stage (research) i have used online articles from diferent websites to store
+      At this stage (research) i have used online articles from diferent websites to store
       possible interesting bash commands that can be used in gathering target system information.  
 
 ![msf-auxiliarys](http://i.cubeupload.com/YK7B6f.png)
@@ -89,7 +89,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br /><br />
 
-#### The Module description (info)
+#### The def initialize(info)
 **HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
@@ -100,7 +100,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 <br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
-**def initialize(info={})** funtion, Here we need to define some information about the post module, such as:<br />
+**def initialize(info={})** Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** method
@@ -137,7 +137,8 @@ Now we need to close the funtion with the **end** statement, before start writin
 
 <br />
 
-**HINT**: The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
+**HINT**: The options set by a user are available via a predefined hash named datastore<br />
+The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
 will be stored into msfdb (metasploit database) and they can be called later to script logic.
 
       example: The next funtion will read the value inside the 'STORE_LOOT' option,
@@ -171,12 +172,5 @@ https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-modul
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module
 
-
-
-
-
-The datastore
-
-The options set by a user are available via a predefined hash named datastore. For example:
- print_status("the contents of the DATA variable are: " + datastore['DATA'])
+# SSA Red_Team
 
