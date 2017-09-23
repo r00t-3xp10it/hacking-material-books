@@ -90,6 +90,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 <br /><br />
 
 #### The def initialize(info)
+![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
 **HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
@@ -98,8 +99,6 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
      end
 
 <br />
-
-![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
