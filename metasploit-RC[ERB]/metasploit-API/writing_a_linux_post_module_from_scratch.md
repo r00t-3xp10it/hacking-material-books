@@ -116,7 +116,7 @@ to store interesting bash commands that can be used in gathering target sys info
 # 2 - Building the metasploit template
 
       The metasploit template its divided in to two main funtions.
-      the 'def initialize()' funtion contains module requires/librarys/description,
+      the 'def initialize()' funtion contains module librarys/class name/description,
       and the 'def run()' funtion contain the script logic (the exploit code logic)
 
       At this stage we are going to focous in describing the 'def initialize()' funtion.
