@@ -19,6 +19,8 @@
                 API 'cmd_exec()' to execute bash commands on remote system, display outputs,
                 and store outputs to logfile (store_loot).
 
+![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
+
 
 <br /><br />  
 
@@ -89,7 +91,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br /><br />
 
-#### The def initialize(info)
+#### The 'def initialize()' function
 **HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
@@ -102,7 +104,6 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 **def initialize(info={})** Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
-![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** method
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
@@ -112,7 +113,6 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 
 #### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
-![msf-auxiliarys](http://i.cubeupload.com/PF4Bdv.png)
 The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
 
@@ -123,7 +123,6 @@ But users can still define (manually) a diferent session number to the run modul
 
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
-![msf-auxiliarys](http://i.cubeupload.com/xpmFB9.png)
 The **OptBool.new()** API accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.<br />
 
