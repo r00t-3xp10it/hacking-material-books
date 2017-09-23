@@ -177,8 +177,8 @@ This method adds advanced options that the user can specify before running the m
 
 <br />
 
-    HINT: Funtions in ruby start with 'def' (definition) follow by the body of the method (funtion logic)
-    and it closes the funtion using the 'end' statement (It tells Ruby that we’re done defining the method)
+**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
+and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
      def hi
        puts "Hello World!"
