@@ -119,7 +119,7 @@ to store interesting bash commands that can be used in gathering target sys info
       the librarys/classname/mixins (requires/imports), the 'def initialize()' funtion that contains module
       description/settings, and the 'def run()' funtion that contain the script logic (the exploit code logic)
 
-      At this stage we are going to focous in the 'librarys/classname/mixins' and the 'def initialize()' funtions.
+      At this stage we are going to focous in the 'librarys/classname/mixins' and the 'def initialize()' funtion
 
 <br /><br />
 
