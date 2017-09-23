@@ -164,6 +164,8 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
        puts "Hello World!"
      end
 
+<br />
+
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** funtion, Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
