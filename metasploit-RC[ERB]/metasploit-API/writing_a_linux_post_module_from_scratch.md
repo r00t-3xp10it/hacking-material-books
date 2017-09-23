@@ -115,6 +115,12 @@ to store interesting bash commands that can be used in gathering target sys info
 
 # 2 - Building the metasploit template
 
+      The metasploit template its divided in to two main funtions.
+      the 'def initialize()' funtion contains module requires/librarys/description,
+      and the 'def run()' funtion contain the script logic (the exploid code logic)
+
+<br /><br />
+
 ### MSF librarys
 ![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
