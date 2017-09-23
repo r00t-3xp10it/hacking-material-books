@@ -25,7 +25,7 @@
 # MODULE DEVELOP METHODOLOGIE
 
                1 - Research: For bash commands that can be used to dump target system information
-               2 - Build template: Basic explaination of libraries, class name, mixins and description
+               2 - Build template: Basic explaination of librarys, class name, mixins and description
                3 - Write funtion logic: Basic explaination of ruby syntax + metasploit API calls logic
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
@@ -115,7 +115,7 @@ to store interesting bash commands that can be used in gathering target sys info
 
 # 2 - Building the metasploit template
 
-### MSF libraries
+### MSF librarys
 ![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
