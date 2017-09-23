@@ -111,7 +111,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 <br /><br />
 
 #### The register_options method (show options)
-![msf-auxiliarys](http://i.cubeupload.com/6KQME6.png)
+![msf-auxiliarys](http://i.cubeupload.com/PF4Bdv.png)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
