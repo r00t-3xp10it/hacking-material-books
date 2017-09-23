@@ -172,7 +172,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 The **OptString.new()** method accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
 
-**HINT**: in **DefaultOptions** funtion we allready have defined the module to run agains session 1 by default.<br />
+**HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
 But users can still define (manually) a diferent session number to the run module againts (set SESSION 3).  
 
 <br /><br />
