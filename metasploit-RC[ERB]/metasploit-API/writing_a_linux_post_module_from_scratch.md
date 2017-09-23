@@ -169,7 +169,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 
 #### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
-The **OptString.new()** method accepts string values (text-numbers-symbols)<br />
+The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
 
 **HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
@@ -179,7 +179,7 @@ But users can still define (manually) a diferent session number to the run modul
 
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
-The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
+The **OptBool.new()** API accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.<br />
 
 **HINT**: The first value as **true** show us that is one **required** setting to run the module,<br />
