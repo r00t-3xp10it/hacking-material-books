@@ -159,7 +159,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** here we need to define some information about the post module, such as:<br />
-Module name, description, module author, version, platform, target architecture, etc.<br />
+Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** funtion
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
