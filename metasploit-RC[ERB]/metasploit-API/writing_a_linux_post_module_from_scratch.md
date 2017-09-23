@@ -115,7 +115,7 @@ to store interesting bash commands that can be used in gathering target sys info
 
 # 2 - Building the metasploit template
 
-### MSF librarys
+### The MSF librarys
 ![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
@@ -128,7 +128,7 @@ cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.htm
 
 <br /><br />
 
-#### Module class name and rank
+#### The Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ZcWceG.png)
 we begin defining the **class** as MetasploitModule and inherit from **Msf::Post** mixin. Metasploit post modules are special<br />
 in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**.<br />
@@ -149,7 +149,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br /><br />
 
-#### Module description (info)
+#### The Module description (info)
 
       The metasploit template its divided in to two main funtions.
       the 'def initialize()' funtion contains module description/settings,
