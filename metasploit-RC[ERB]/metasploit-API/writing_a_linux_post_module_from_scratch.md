@@ -19,7 +19,7 @@
 
 <br /><br />  
 
-# MODULE DEVELOP METHODOLOGIE
+# MODULE DEVELOP METHODOLOGY
 
                1 - Research: For bash commands that can be used to dump target system information
                2 - Build template: Basic explaination of librarys, class name, mixins and description
@@ -33,7 +33,7 @@
 
 # 1 - The research stage:
 
-      At this stage (research) i have used online articles from diferent websites to store
+      At this stage (research) i have used online articles from different websites to store
       possible interesting bash commands that can be used in gathering target system information.  
 
 ![msf-auxiliarys](http://i.cubeupload.com/YK7B6f.png)
@@ -57,7 +57,7 @@
 ![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
-**msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
+**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level<br />
 interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc.<br />
 This line alone gives us access to over 6,000+ different functions.<br />
 
@@ -113,7 +113,7 @@ This method adds options that the user can specify before running the module.<br
 The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
 
 **HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
-But users can still define (manually) a diferent session number to the run module againts (set SESSION 3).  
+But users can still define (manually) a different session number to the run module againts (set SESSION 3).  
 
 <br /><br />
 
