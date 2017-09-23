@@ -117,7 +117,7 @@ to store interesting bash commands that can be used in gathering target sys info
 
       The metasploit template its divided in to two main funtions.
       the 'def initialize()' funtion contains module requires/librarys/description,
-      and the 'def run()' funtion contain the script logic (the exploid code logic)
+      and the 'def run()' funtion contain the script logic (the exploit code logic)
 
 <br /><br />
 
