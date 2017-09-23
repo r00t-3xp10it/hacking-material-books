@@ -188,7 +188,7 @@ it meens that module its waiting for user input settings to run the funtion.
 
 <br /><br />
 
-#### Close def initialize funtion
+#### Close the 'def initialize()' funtion
 **HINT**: At this stage we have done writing the **def initialize()** funtion. Now we need to close<br/>
 the funtion with the **end** statement, before start writing the **def run()** funtion (script action) ..
 
