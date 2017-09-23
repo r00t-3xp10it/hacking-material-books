@@ -182,9 +182,10 @@ HINT: in **DefaultOptions** funtion we allready have defined the module to run a
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.
 
+<br />
 
-**HINT**: at this stage we have done writing the def initialize method And now we need to close the<br/>
-funtion with the **end** statement before start writing the def run() funtion ..
+**HINT**: at this stage we have done writing the **def initialize** method. Now we need to close<br/>
+the funtion with the **end** statement, before start writing the def run() funtion (script action) ..
 
 <br /><br /><br />
 
