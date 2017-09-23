@@ -25,7 +25,7 @@
 # MODULE DEVELOP METHODOLOGIE
 
                1 - Research: For bash commands that can be used to dump target system information
-               2 - Build template: Basic explaination of libraries, classname, mixins and module description
+               2 - Build template: Basic explaination of libraries, class name, mixins and description
                3 - Write funtion logic: Basic explaination of ruby syntax + metasploit API calls logic
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
