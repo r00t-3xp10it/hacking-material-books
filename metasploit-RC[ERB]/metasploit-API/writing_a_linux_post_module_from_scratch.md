@@ -7,6 +7,8 @@
                 Metasploit modules are written in ruby. Even if you don’t know a lot about ruby,
              you should still be able to write a metasploit linux post module based on this tutorial!
 
+![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
+
 <br /><br />  
 
 # MODULE OBJECTIVES
@@ -14,9 +16,6 @@
                 For that we are going to load the msf/core/post/common module to use the MSF
                 API 'cmd_exec()' to execute bash commands on remote system, display outputs,
                 and store outputs to logfile (store_loot).
-
-![msf-auxiliarys](http://i.cubeupload.com/m77AgR.png)
-
 
 <br /><br />  
 
