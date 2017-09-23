@@ -180,7 +180,10 @@ But users can still define (manually) a diferent session number to the run modul
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
-This method adds advanced options that the user can specify before running the module.
+This method adds advanced options that the user can specify before running the module.<br />
+
+**HINT**: The first **false** value show us that is one **required** setting,
+The second **false** value its the default setting to be run at execution.
 
 <br />
 
