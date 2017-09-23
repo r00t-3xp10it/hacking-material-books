@@ -112,9 +112,9 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 <br /><br />
 
 #### The register_options method (show options)
-![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
 This method adds options that the user can specify before running the module.<br />
+![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 
 **HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
 But users can still define (manually) a diferent session number to the run module againts (set SESSION 3).  
@@ -122,9 +122,9 @@ But users can still define (manually) a diferent session number to the run modul
 <br /><br />
 
 #### The register_advanced_options method (show advanced options)
-![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 The **OptBool.new()** API accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.<br />
+![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 
 **HINT**: The first value as **true** show us that is one **required** setting to run the module,<br />
 The second value as **false** it activates or not the funtion to be run, If the second field its empty,<br />
