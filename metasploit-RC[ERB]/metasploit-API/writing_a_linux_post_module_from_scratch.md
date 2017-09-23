@@ -116,7 +116,7 @@ to store interesting bash commands that can be used in gathering target sys info
 # 2 - Building the metasploit template
 
 ### MSF libraries
-![msf-auxiliarys](http://i.cubeupload.com/qOUGPr.png)
+![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
 **msf/core** will include all the functionalitys from the core library. the framework’s core library is the low-level<br />
@@ -140,7 +140,7 @@ Metasploit ranking system: https://github.com/rapid7/metasploit-framework/wiki/E
 <br /><br />
 
 #### The Msf::Post Mixin
-![msf-auxiliarys](http://i.cubeupload.com/cqF7gH.png)
+![msf-auxiliarys](http://i.cubeupload.com/gvgw2G.png)
 One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
 Msf::Post::File http://rapid7.github.io/metasploit-framework/api/Msf/Post/File.html<br />
@@ -152,7 +152,8 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 #### Module description (info)
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** here we need to define some information about the post module, such as:<br />
-Module name, description, module author, version, platform, target architecture, etc ..
+Module name, description, module author, version, platform, target architecture, etc. And close the<br/>
+funtion with the **end** statement before start writing the def run() funtion ..
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** funtion
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
@@ -172,6 +173,16 @@ HINT: in **DefaultOptions** funtion we allready have defined the module to run a
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.<br />
+
+
+<br /><br />
+
+    HINT: Funtions in ruby start with def (definition) follow by the body of the method (funtion logic)
+    and it closes the funtion using the end statement (It tells Ruby that we’re done defining the method)
+
+     def hi
+       puts "Hello World!"
+     end
 
 <br /><br /><br />
 
