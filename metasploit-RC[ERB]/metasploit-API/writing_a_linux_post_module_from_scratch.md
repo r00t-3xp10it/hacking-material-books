@@ -119,6 +119,8 @@ to store interesting bash commands that can be used in gathering target sys info
       the 'def initialize()' funtion contains module requires/librarys/description,
       and the 'def run()' funtion contain the script logic (the exploit code logic)
 
+      At this stage we are going to focous in the 'def initialize()' funtion.
+
 <br /><br />
 
 ### MSF librarys
