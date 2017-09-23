@@ -161,8 +161,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 **def initialize(info={})** here we need to define some information about the post module, such as:<br />
-Module name, description, module author, version, platform, target architecture, etc. And close the<br/>
-funtion with the **end** statement before start writing the def run() funtion ..
+Module name, description, module author, version, platform, target architecture, etc.<br />
 
 Here we can adicionaly config module's default settings using the **DefaultOptions** funtion
 ![msf-auxiliarys](http://i.cubeupload.com/4H3A1x.png)
@@ -182,6 +181,10 @@ HINT: in **DefaultOptions** funtion we allready have defined the module to run a
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 The **OptBool.new()** method accepts bollean values (1 or 0 - true or false)<br />
 This method adds advanced options that the user can specify before running the module.
+
+
+**HINT**: at this stage we have done writing the def initialize method And now we need to close the<br/>
+funtion with the **end** statement before start writing the def run() funtion ..
 
 <br /><br /><br />
 
