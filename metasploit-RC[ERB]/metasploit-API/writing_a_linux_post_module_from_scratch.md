@@ -36,8 +36,8 @@
 
 # 1 - The research stage:
 
-      In this stage (research) i have used online articles from diferent websites<br />
-      to store interesting bash commands that can be used in gathering target sys info.  
+      In this stage (research) i have used online articles from diferent websites to store possible
+      interesting bash commands that can be used in gathering target sys info.  
 
 ![msf-auxiliarys](http://i.cubeupload.com/YK7B6f.png)
 
