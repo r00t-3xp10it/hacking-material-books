@@ -61,7 +61,7 @@
 
 **msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level<br />
 interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc.<br />
-`This line alone gives us access to over 6,000+ different functions (API calls).`<br />
+`HINT: This line alone gives us access to over 6,000+ different functions (API calls).`<br />
 
 **msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system (linux).<br />
 cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.html#cmd_exec-instance_method
