@@ -132,9 +132,10 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 <br /><br />
 
 #### writing the module 'banner'
-![msf-auxiliarys](http://i.cubeupload.com/DZFRrh.png)<br />
-The **client** variable handles the meterpreter client communications
-The **print_line()** allow us to write on screen (terminal)
+![msf-auxiliarys](http://i.cubeupload.com/mveW2q.png)<br />
+The line 2 tells msf that **session** variable holds the **client** meterpreter communications
+`session = client`
+The **print_line()** API allow us to write on screen (terminal)
 
 
 
