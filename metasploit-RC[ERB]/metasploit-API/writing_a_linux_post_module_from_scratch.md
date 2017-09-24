@@ -120,13 +120,8 @@ But users can still define (manually) a different session number to run module a
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 This method adds advanced options that the user can specify before running the module.<br />
-The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed<br />
-The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed<br />
-
-<br /><br />
-
-![msf-auxiliarys](http://i.cubeupload.com/stf9Ki.png)
-**HINT**: The first value as **true** show us that is one **required** setting to run the module, The second value set as **false**<br /> will not activate this funtion to run, unless user sets manually the value to **true** before runing the module.<br /> 
+The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed manually by user<br />
+The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed manually by user<br />
 
 <br />
 
