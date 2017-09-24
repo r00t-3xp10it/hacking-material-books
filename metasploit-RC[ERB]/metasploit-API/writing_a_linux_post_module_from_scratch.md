@@ -127,15 +127,19 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 # 3 - The 'exploit' code (def run)
 
       The 'def run()' funtion will contain all the 'exploit' code to be executed againt target session.
-      It contains the module 'banner' the target 'compatiblity checks' and the actual 'exploit' code.
+      It contains the module 'banner' the target 'compatibility checks' and the actual 'exploit' code.
 
-<br /><br />
+<br />
 
 #### writing the module 'banner'
 ![msf-auxiliarys](http://i.cubeupload.com/mveW2q.png)<br />
 The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications.<br />
 The **print_line()** API allow us to write on screen (terminal)
 
+<br />
+
+#### writing the module 'compatibility checks'
+![msf-auxiliarys](http://i.cubeupload.com/Y2G72X.png)<br />
 
 
 
