@@ -159,6 +159,8 @@ will be stored into msfdb (metasploit database) and they can be called later to 
 
 #### port module to msf database
 `cp linux_hostrecon.rb /usr/share/metasploit-framework/modules/post/linux/gather/linux_hostrecon.rb`
+#### start postgresql database
+`service postgresql start`
 #### rebuild msfdb database (database.yml)
 `msfdb reinit`
 #### reload msfdb database
