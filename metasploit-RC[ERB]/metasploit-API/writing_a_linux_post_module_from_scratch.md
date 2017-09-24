@@ -169,7 +169,7 @@ The line 28 uses **sysinfo** meterpreter API call, to check if we are running in
       the non-return of sysinfo command reveals that we are not on a meterpreter session!
 
 The line 29 **print_status()** prints a msg on screen, if we are running in a meterpreter session.<br />
-`If a meterpreter session its found, then script execution will jump to the end of this funtion`<br /><br />
+`HINT: If a meterpreter session its found, then script execution will jump to the end of this funtion`<br /><br />
 The line 30 **else** will execute the 'non-meterpreter session' NOT found funtion<br />
 The line 31 **print_error()** prints a error msg on screen, if we are NOT running in a meterpreter session.<br />
 The line 32 **return nil** will exit module execution, if we are NOT running in a meterpreter session.<br />
