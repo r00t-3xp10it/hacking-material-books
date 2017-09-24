@@ -129,6 +129,9 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       The 'def run()' funtion will contain all the 'exploit' code to be executed againt target session.
       It contains the module 'banner' the target 'compatibility checks' and the actual 'exploit' code.
 
+      HINT: loading 'require msf/core/post/linux/common' msf library in the beggining of the module,
+      allows us to call most API calls (eg. client.sys.config.getuid) to be used in def run() funtion..
+
 <br />
 
 #### writing the module 'banner'
@@ -139,9 +142,8 @@ The **print_line()** API allow us to write on screen (terminal)
 <br />
 
 #### writing the module 'compatibility checks'
-**HINT**: loading **require msf/core/post/linux/common** in the beggining of the module, allows us to call most API calls
 ![msf-auxiliarys](http://i.cubeupload.com/Y2G72X.png)<br />
-The line 12 uses meterpreter **sysinfo['OS']** module to check if target system its a **linux distro**<br />
+The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux distro**<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the values are returned: **Linux** or **linux**<br />
 The line 14 **return nill** exits module execution, if none of the above values are returned<br />
 The line 15 **end** will close the funtion<br />
