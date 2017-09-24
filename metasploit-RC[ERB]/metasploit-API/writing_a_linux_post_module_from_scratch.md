@@ -181,8 +181,11 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
 #### writing the 'exploit code'
 ![msf-auxiliarys](http://i.cubeupload.com/QRvSWa.png)<br />
 The line 39 cleans the contents of **data_dump** local variable to accept new data inputs.<br />
-The line 40 **print_status()** prints a msg on screen for users know that the module its working<br />
+The line 40 **print_status()** prints a msg on screen for users to know that the module its working<br />
 The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a secund<br />
+
+<br /><br />
+![msf-auxiliarys](http://i.cubeupload.com/7cXJmO.png)<br />
 
 
 
