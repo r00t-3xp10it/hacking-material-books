@@ -140,6 +140,7 @@ The **print_line()** API allow us to write on screen (terminal)
 
 #### writing the module 'compatibility checks'
 ![msf-auxiliarys](http://i.cubeupload.com/Y2G72X.png)<br />
+The line 12 uses meterpreter **sysinfo['OS']** module to check if target system its a **linux distro**<br />
 
 
 
