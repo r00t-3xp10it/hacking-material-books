@@ -135,8 +135,13 @@ Now we need to close the funtion with the **end** statement, before start writin
 
 # 3 - Write metasploit post-module funtion logic (def run)
 
-      The def run() funtion will contain the 'exploit' code to be executed againt target session.
-      But in this example iam going to divided it into two stages: module banner and exploit code.       
+      The def run() funtion will contain all the 'exploit' code to be executed againt target session.
+      And in this example its going to be divided into 4 develop stages for better understanding.
+
+      A - basic description of msf APIs used
+      B - print banner funtion
+      C - check target systems requires funtion
+      D - exploit code funtion      
 
 
 
