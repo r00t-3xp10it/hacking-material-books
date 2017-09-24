@@ -124,17 +124,15 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 
 <br /><br /><br />
 
-# 3 - The 'exploit' code logic (def run)
+# 3 - The 'exploit' code (def run)
 
-      The def run() funtion will contain all the 'exploit' code to be executed againt target session.
-      And in this example its going to be divided into 4 develop stages for better understanding.
+      The 'def run()' funtion will contain all the 'exploit' code to be executed againt target session.
+      It contains the module 'banner' the target 'compatiblity checks' and the actual 'exploit' code.
 
-      A - basic description of msf APIs used
-      B - print banner funtion
-      C - check target systems requires funtion
-      D - exploit code funtion      
+<br /><br />
 
-
+#### writing the module 'banner'
+![msf-auxiliarys](http://i.cubeupload.com/DZFRrh.png)<br />
 
 
 
