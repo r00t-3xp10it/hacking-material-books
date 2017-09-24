@@ -154,7 +154,7 @@ The line 15 **end** will close the actual funtion, and resumes script execution.
 ![msf-auxiliarys](http://i.cubeupload.com/dDDnow.png)<br />
 The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context (root)<br />
 `then it stores the returned string into a local variable named 'target_uid' for later use.`<br /><br />
-The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings<br />
+The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings present<br />
 `that reveal us that we are running under a privileged session (root privileges).`<br /><br />
 The line 21 **print_error()** prints a error msg on screen, if none of the strings are returned: **uid=0** or **root**<br />
 The line 22 **return nil** will exit module execution, if none of the above strings are returned<br />
