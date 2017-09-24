@@ -19,7 +19,7 @@
 
 <br /><br />  
 
-# MODULE DEVELOP METHODOLOGY (planning a module)
+# MODULE DEVELOP METHODOLOGY
 
                1 - The Research stage: bash commands that can be used to dump target system information
                2 - The metasploit template: Basic explaination of librarys, class name, mixins, description
