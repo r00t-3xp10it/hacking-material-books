@@ -169,9 +169,9 @@ The line 28 uses **sysinfo** meterpreter API call, to check if we are running in
       the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string.
       the non-return of sysinfo command reveals that we are not on a meterpreter session!
 
-The line 29 **print_status()** prints a msg on screen (meterpreter session found)<br />
-The line 31 **print_error()** prints a error msg on screen, if we are not running in a meterpreter session.<br />
-The line 32 **return nill** exits module execution, if we are not running in a meterpreter session.<br />
+The line 29 **print_status()** prints a msg on screen, if we are running in a meterpreter session.<br />
+The line 31 **print_error()** prints a error msg on screen, if we are NOT running in a meterpreter session.<br />
+The line 32 **return nill** exits module execution, if we are NOT running in a meterpreter session.<br />
 The line 33 **end** will close the actual funtion<br />
 
 
