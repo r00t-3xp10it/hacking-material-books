@@ -130,7 +130,7 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 At this stage we have done writing the **def initialize()** funtion (module description/settings).<br/>
 Now we need to close the funtion with the **end** statement, before start writing the **def run()** funtion.
 
-<br />
+<br /><br />
 
 **HINT**: The options set by a user are available via a predefined hash named datastore<br />
 The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
