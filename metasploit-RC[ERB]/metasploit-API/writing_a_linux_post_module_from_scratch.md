@@ -165,10 +165,18 @@ will be stored into msfdb (metasploit database) and they can be called later to 
 `msfdb reinit`
 #### reload msfdb database
 `msfconsole -q -x 'db_status; reload_all'`
+
 #### search module
 `msf > search linux_hostrecon`
 #### load module
 `msf > use post/linux/gather/linux_hostrecon`
+
+#### show all module options
+`msf post(linux_hostrecon) > show advanced options`
+#### set module options
+`msf post(linux_hostrecon) > set SINGLE_COMMAND netstat -ano`
+#### execute module (run)
+`msf post(linux_hostrecon) > exploit`
 
 
 <br /><br /><br /><br />
