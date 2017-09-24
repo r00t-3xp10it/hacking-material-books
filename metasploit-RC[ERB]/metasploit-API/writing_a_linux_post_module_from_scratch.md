@@ -144,7 +144,7 @@ The **print_line()** API allow us to write msgs on screen (terminal)
 <br />
 
 #### writing the module 'compatibility checks'
-![msf-auxiliarys](http://i.cubeupload.com/Y2G72X.png)<br />
+![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
 The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux distro**<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the strings are returned: **Linux** or **linux**<br />
 The line 14 **return nill** exits module execution, if none of the above strings are returned<br />
@@ -152,7 +152,8 @@ The line 15 **end** will close the actual funtion<br />
 
 <br />
 
-The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context<br />
+![msf-auxiliarys](http://i.cubeupload.com/dDDnow.png)<br />
+The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context (root)<br />
 `then it stores the returned string into a local variable named 'target_uid' for later use.`<br />
 The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings<br />
 `that reveal us that we are running under a privileged session (root privileges).`<br />
