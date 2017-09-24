@@ -110,21 +110,24 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 #### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 This method adds options that the user can specify before running the module.<br />
-The **OptString.new()** API accepts string values (text-numbers-symbols)<br />
+The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed<br />
 
 **HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
-But users can still define (manually) a different session number to the run module againts (set SESSION 3).  
+But users can still define (manually) a different session number to run module againts, example: set SESSION 3  
 
 <br /><br />
 
 #### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 This method adds advanced options that the user can specify before running the module.<br />
-The **OptBool.new()** API accepts bollean values (1 or 0 - true or false)<br />
+The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed<br />
+The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed<br />
 
+![msf-auxiliarys](http://i.cubeupload.com/stf9Ki.png)
 **HINT**: The first value as **true** show us that is one **required** setting to run the module,<br />
-The second value as **false** it activates or not the funtion to be run, If the second field its empty,<br />
-it meens that module its waiting for user input settings to run the funtion. 
+The second value set as **false** will not activate the funtion to be run, unless user sets the value<br />
+to **true** before runing the module, If the second field its empty, it meens that module its waiting <br />
+for user input settings to run the funtion. 
 
 <br /><br />
 
