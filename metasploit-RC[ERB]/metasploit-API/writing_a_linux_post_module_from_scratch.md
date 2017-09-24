@@ -21,9 +21,9 @@
 
 # MODULE DEVELOP METHODOLOGY
 
-               1 - The Research stage: bash commands that can be used to dump target system information
+               1 - The Research stage: For bash commands that can be used to dump target system information
                2 - The metasploit template: Basic explaination of librarys, class name, mixins, description
-               3 - The exploit code logic: Basic explaination of ruby syntax + metasploit APIs (def run)
+               3 - The exploit code: Basic explaination of ruby syntax + metasploit APIs (def run)
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
 
