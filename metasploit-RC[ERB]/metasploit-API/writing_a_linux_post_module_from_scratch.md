@@ -105,7 +105,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 This method adds options that the user can specify before running the module.<br />
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed manually by user<br />
 
-**HINT**: in **DefaultOptions** method we allready have defined the module to run agains session 1 by default.<br />
+**HINT**: in **DefaultOptions** method we allready have defined the module to run againts session 1 by default.<br />
 But users can still define (manually) a different session number to run module againts, example: set SESSION 3  
 
 <br /><br />
@@ -175,6 +175,17 @@ The line 30 **else** will execute the 'non-meterpreter session' NOT found funtio
 The line 31 **print_error()** prints a error msg on screen, if we are NOT running in a meterpreter session.<br />
 The line 32 **return nill** exits module execution, if we are NOT running in a meterpreter session.<br />
 The line 33 **end** will close the actual funtion, and resumes script execution.<br />
+
+<br /><br />
+
+#### writing the 'exploit code'
+![msf-auxiliarys](http://i.cubeupload.com/QRvSWa.png)<br />
+The line 39 cleans the contents of **data_dump** local variable to accept new data inputs.<br />
+The line 40 **print_status()** prints a msg on screen for users know that the module its working<br />
+The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a secund<br />
+
+
+
 
 
 <br /><br /><br /><br />
