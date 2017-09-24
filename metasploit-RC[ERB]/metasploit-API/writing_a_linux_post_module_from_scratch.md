@@ -145,10 +145,10 @@ The **print_line()** API allow us to write msgs on screen (terminal) and its use
 
 #### writing the module 'compatibility checks'
 ![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
-The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux distro**<br />
+The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux** distro<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the strings are returned: **Linux** or **linux**<br />
-The line 14 **return nill** exits module execution, if none of the above strings are returned<br />
-The line 15 **end** will close the actual funtion<br />
+The line 14 **return nill** exit module execution, if none of the above strings are returned<br />
+The line 15 **end** will close the actual funtion, and resumes script execution.<br />
 
 <br />
 
@@ -158,8 +158,8 @@ The line 19 will use **getuid** meterpreter API call, to check if we are running
 The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings<br />
 `that reveal us that we are running under a privileged session (root privileges).`<br /><br />
 The line 21 **print_error()** prints a error msg on screen, if none of the strings are returned: **uid=0** or **root**<br />
-The line 22 **return nill** exits module execution, if none of the above strings are returned<br />
-The line 23 **end** will close the actual funtion<br />
+The line 22 **return nill** exit module execution, if none of the above strings are returned<br />
+The line 23 **end** will close the actual funtion, and resumes script execution.<br />
 
 <br />
 
@@ -174,7 +174,7 @@ The line 29 **print_status()** prints a msg on screen, if we are running in a me
 The line 30 **else** will execute the 'non-meterpreter session found' funtion<br />
 The line 31 **print_error()** prints a error msg on screen, if we are NOT running in a meterpreter session.<br />
 The line 32 **return nill** exits module execution, if we are NOT running in a meterpreter session.<br />
-The line 33 **end** will close the actual funtion<br />
+The line 33 **end** will close the actual funtion, and resumes script execution.<br />
 
 
 <br /><br /><br /><br />
