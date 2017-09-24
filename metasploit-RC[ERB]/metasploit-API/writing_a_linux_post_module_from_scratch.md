@@ -154,9 +154,9 @@ The line 15 **end** will close the actual funtion<br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/dDDnow.png)<br />
 The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context (root)<br />
-`then it stores the returned string into a local variable named 'target_uid' for later use.`<br />
+`then it stores the returned string into a local variable named 'target_uid' for later use.`<br /><br />
 The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings<br />
-`that reveal us that we are running under a privileged session (root privileges).`<br />
+`that reveal us that we are running under a privileged session (root privileges).`<br /><br />
 The line 21 **print_error()** prints a error msg on screen, if none of the strings are returned: **uid=0** or **root**<br />
 The line 22 **return nill** exits module execution, if none of the above strings are returned<br />
 The line 23 **end** will close the actual funtion<br />
@@ -166,7 +166,7 @@ The line 23 **end** will close the actual funtion<br />
 ![msf-auxiliarys](http://i.cubeupload.com/gZOBT6.png)<br />
 The line 28 uses **sysinfo** meterpreter API call, to check if we are running in a meterpreter session<br />
 
-      the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string (not meterpreter)
+      the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string.
       the non-return of sysinfo command reveals that we are not on a meterpreter session!
 
 
