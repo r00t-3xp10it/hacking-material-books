@@ -19,11 +19,11 @@
 
 <br /><br />  
 
-# MODULE DEVELOP METHODOLOGY
+# MODULE DEVELOP METHODOLOGY (planning a module)
 
-               1 - Research: For bash commands that can be used to dump target system information
-               2 - Build template: Basic explaination of librarys, class name, mixins and description
-               3 - Write funtion logic: Basic explaination of ruby syntax + metasploit APIs (def run)
+               1 - The Research stage: bash commands that can be used to dump target system information
+               2 - The metasploit template: Basic explaination of librarys, class name, mixins, description
+               3 - The exploit code logic: Basic explaination of ruby syntax + metasploit APIs (def run)
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
 
@@ -42,7 +42,7 @@
 <br /><br /><br />
 
 
-# 2 - Building the metasploit template
+# 2 - The metasploit template
 
       The metasploit template its divided in to 3 main funtions.
       1 - the librarys, class name, mixins that contains module requires/imports.
@@ -133,7 +133,7 @@ Now we need to close the funtion with the **end** statement, before start writin
 
 <br /><br /><br />
 
-# 3 - Write metasploit post-module funtion logic (def run)
+# 3 - The 'exploit' code logic (def run)
 
       The def run() funtion will contain all the 'exploit' code to be executed againt target session.
       And in this example its going to be divided into 4 develop stages for better understanding.
