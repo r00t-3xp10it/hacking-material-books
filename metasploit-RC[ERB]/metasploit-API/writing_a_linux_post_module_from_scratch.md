@@ -194,7 +194,7 @@ From line 43 to 46 we are executing bash commands remotelly, and store the resul
 This next funtion will store the contents of previous scans (stored inside local variables)<br />
 into **data_dump** local variable to be able to write the logfile, and display outputs to user.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/Axodxo.png)<br />
-The line 51 **data_dump << "\n\n"** will brake the output in two empty lines<br />
+The line 51 **data_dump << "\n\n"** will brake the output in to 2 empty lines<br />
 The line 58 **data_dump << "hardware_info"** will store the contents of **hardware_info** inside **data_dump**<br />
 
 <br /><br />
@@ -202,19 +202,6 @@ The line 58 **data_dump << "hardware_info"** will store the contents of **hardwa
 #### writing the 'agressive_dump' advanced option funtion
 ![msf-auxiliarys](http://i.cubeupload.com/dnwV7r.png)<br />
 
-
-
-<br /><br /><br /><br />
-
-
-
-      example: The next funtion will read the value inside the 'STORE_LOOT' option,
-               and if its config as 'true' it will run the follow funtion (store_loot).
-      
-      if datastore['STORE_LOOT'] == true
-        print_good("storing dump into loot folder ..")
-        store_loot("hostrecon", "text/plain", session, data_dump, "hostrecon.txt", "linux_hostrecon")
-      end
 
 <br /><br /><br /><br />
 
