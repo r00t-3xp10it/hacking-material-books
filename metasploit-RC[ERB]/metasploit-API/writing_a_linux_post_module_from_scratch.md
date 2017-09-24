@@ -41,7 +41,7 @@
 ![msf-auxiliarys](http://i.cubeupload.com/YK7B6f.png)
 
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 
 # 2 - The metasploit template
@@ -116,7 +116,7 @@ This method adds advanced options that the user can specify before running the m
 The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed manually by user<br />
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed manually by user<br />
 
-<br />
+<br /><br />
 
 #### Close the 'def initialize()' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
@@ -124,7 +124,7 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 # 3 - The 'exploit' code (def run)
 
@@ -141,7 +141,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications chanel.<br />
 The **print_line()** API allow us to write msgs on screen (terminal) and its used to build the module 'banner'<br />
 
-<br />
+<br /><br />
 
 #### writing the module 'compatibility checks'
 ![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
@@ -150,7 +150,7 @@ The line 13 **print_error()** prints a error msg on screen, if none of the strin
 The line 14 **return nill** exit module execution, if none of the above strings are returned<br />
 The line 15 **end** will close the actual funtion, and resumes script execution.<br />
 
-<br />
+<br /><br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/dDDnow.png)<br />
 The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context (root)<br />
@@ -161,7 +161,7 @@ The line 21 **print_error()** prints a error msg on screen, if none of the strin
 The line 22 **return nill** exit module execution, if none of the above strings are returned<br />
 The line 23 **end** will close the actual funtion, and resumes script execution.<br />
 
-<br />
+<br /><br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/gZOBT6.png)<br />
 The line 28 uses **sysinfo** meterpreter API call, to check if we are running in a meterpreter session<br />
@@ -189,7 +189,7 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
         store_loot("hostrecon", "text/plain", session, data_dump, "hostrecon.txt", "linux_hostrecon")
       end
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 # 4 - Port module to metasploit database
 
@@ -226,7 +226,7 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
 ## Download/read linux_hostrecon.rb post-module from here:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
-<br /><br /><br />
+<br /><br />
 
 ## REFERENCES
 https://github.com/rapid7/metasploit-framework/wiki<br />
