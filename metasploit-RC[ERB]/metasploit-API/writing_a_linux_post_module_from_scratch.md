@@ -192,9 +192,11 @@ From line 43 to 46 we are executing bash commands remotelly, and store the resul
 
 <br /><br />
 
-![msf-auxiliarys](http://i.cubeupload.com/Axodxo.png)<br />
 This next funtion will store the contents of previous scans (stored inside local variables)<br />
 into **data_dump** local variable to be able to write the logfile, and display outputs to user.<br />
+![msf-auxiliarys](http://i.cubeupload.com/Axodxo.png)<br />
+The line 51 **data_dump << "\n\n"** will brake the output in two empty lines<br />
+The line 58 **data_dump << "hardware_info"** will store the contents of hardware_info inside data_dump<br />
 
 
 
