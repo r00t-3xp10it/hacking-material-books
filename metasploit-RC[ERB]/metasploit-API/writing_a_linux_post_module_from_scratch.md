@@ -134,9 +134,6 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       HINT: loading 'require msf/core/post/common' msf library in the beggining of the module,
       allows us to use most API calls (eg. client.sys.config.getuid) to be used in building this funtion.
 
-#### my-API-Cheat-sheet
-https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet
-
 <br /><br />
 
 #### writing the module 'banner'
@@ -207,12 +204,13 @@ https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon
 <br /><br /><br />
 
 ## REFERENCES
-https://github.com/rapid7/metasploit-framework/wiki
-https://en.wikibooks.org/wiki/Metasploit/DevelopingAuxiliaryModules
-https://www.offensive-security.com/metasploit-unleashed/building-module/
-https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/
-https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit
-https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module
+https://github.com/rapid7/metasploit-framework/wiki<br />
+https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
+https://en.wikibooks.org/wiki/Metasploit/DevelopingAuxiliaryModules<br />
+https://www.offensive-security.com/metasploit-unleashed/building-module/<br />
+https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/<br />
+https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit<br />
+https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
 
-# SSA Red_Team
+# @SSA Red_Team 2017
 
