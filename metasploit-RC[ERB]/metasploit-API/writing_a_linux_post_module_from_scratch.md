@@ -165,7 +165,7 @@ The line 23 **end** will close the actual funtion<br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/gZOBT6.png)<br />
 The line 28 uses **sysinfo** meterpreter API call, to check if we are running in a meterpreter session<br />
-`the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string (not meterpreter session)`<br />
+`the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string (not meterpreter)`<br />
 
 
 <br /><br /><br /><br />
