@@ -68,7 +68,7 @@ cmd_exec(): http://rapid7.github.io/metasploit-framework/api/Msf/Post/Common.htm
 
 <br /><br />
 
-#### The Module class name and rank
+### The Module class name and rank
 ![msf-auxiliarys](http://i.cubeupload.com/ZcWceG.png)
 we begin defining the **class** as MetasploitModule and inherit from **Msf::Post** mixin. Metasploit post modules are special<br />
 in that they aren’t necessarily exploits that feature a payload. Instead, they can be considered as **reconnaissance tools**.<br />
@@ -79,7 +79,7 @@ Metasploit ranking system: https://github.com/rapid7/metasploit-framework/wiki/E
 
 <br /><br />
 
-#### The Msf::Post Mixin
+### The Msf::Post Mixin
 ![msf-auxiliarys](http://i.cubeupload.com/gvgw2G.png)
 One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
@@ -89,7 +89,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 
 <br /><br />
 
-#### The 'def initialize()' function
+### The 'def initialize()' function
 Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
@@ -100,7 +100,7 @@ Here we can adicionaly config module's default settings using the **DefaultOptio
 
 <br /><br />
 
-#### The register_options method (show options)
+### The register_options method (show options)
 ![msf-auxiliarys](http://i.cubeupload.com/qEoaAE.png)
 This method adds options that the user can specify before running the module.<br />
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed manually by user<br />
@@ -110,7 +110,7 @@ But users can still define (manually) a different session number to run module a
 
 <br /><br />
 
-#### The register_advanced_options method (show advanced options)
+### The register_advanced_options method (show advanced options)
 ![msf-auxiliarys](http://i.cubeupload.com/TSfW5w.png)
 This method adds advanced options that the user can specify before running the module.<br />
 The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed manually by user<br />
@@ -118,7 +118,7 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 
 <br /><br />
 
-#### Close the 'def initialize()' funtion
+### Close the 'def initialize()' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
 **HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
 and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
@@ -135,14 +135,14 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       allows us to use most of the APIs used in post-exploitation develop (eg. client.sys.config.getuid).
 <br /><br />
 
-#### writing the module 'banner'
+### writing the module 'banner'
 ![msf-auxiliarys](http://i.cubeupload.com/HjxmZp.png)<br />
 The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications chanel.<br />
 The **print_line()** API allow us to write msgs on screen (terminal) and its used to build the module 'banner' in this case.<br />
 
 <br /><br />
 
-#### writing the 'target compatibility checks' funtion
+### writing the 'target compatibility checks' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
 The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux** distro<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the strings are returned: **Linux** or **linux**<br />
@@ -177,7 +177,7 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
 
 <br /><br />
 
-#### writing the 'exploit code'
+### writing the 'exploit code'
 ![msf-auxiliarys](http://i.cubeupload.com/QRvSWa.png)<br />
 The line 39 cleans the contents of **data_dump** local variable to accept new data inputs.<br />
 The line 40 **print_status()** prints a msg on screen for users to know that the module its working<br />
@@ -199,7 +199,7 @@ The line 58 **data_dump << "hardware_info"** will store the contents of **hardwa
 
 <br /><br />
 
-#### writing the 'agressive_dump' advanced option funtion
+### writing the 'agressive_dump' advanced option funtion
 ![msf-auxiliarys](http://i.cubeupload.com/dnwV7r.png)<br />
 
 
