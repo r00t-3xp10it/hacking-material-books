@@ -88,15 +88,6 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 <br /><br />
 
 #### The 'def initialize()' function
-**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
-and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
-
-     def hi
-       puts "Hello World!"
-     end
-
-<br />
-
 **def initialize(info={})** Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
@@ -127,8 +118,8 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 
 #### Close the 'def initialize()' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
-At this stage we have done writing the **def initialize()** funtion (module description/settings).<br/>
-Now we need to close the funtion with the **end** statement, before start writing the **def run()** funtion.
+**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
+and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
 
 
 <br /><br /><br />
