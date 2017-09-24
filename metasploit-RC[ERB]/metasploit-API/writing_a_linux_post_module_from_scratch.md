@@ -123,6 +123,8 @@ This method adds advanced options that the user can specify before running the m
 The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be inputed<br />
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed<br />
 
+<br /><br />
+
 ![msf-auxiliarys](http://i.cubeupload.com/stf9Ki.png)
 **HINT**: The first value as **true** show us that is one **required** setting to run the module, The second value set as **false**<br /> will not activate the funtion to be run, unless user sets the value to **true** before runing the module.<br />
 
@@ -130,7 +132,7 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 If The first value is set to **true** and the second field its empty,<br />
 it meens that module its waiting for user input settings to run the funtion. 
 
-<br /><br />
+<br />
 
 #### Close the 'def initialize()' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
