@@ -126,11 +126,7 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 <br /><br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/stf9Ki.png)
-**HINT**: The first value as **true** show us that is one **required** setting to run the module, The second value set as **false**<br /> will not activate the funtion to be run, unless user sets manually the value to **true** before runing the module.<br />
-
-![msf-auxiliarys](http://i.cubeupload.com/EDlMUH.png)
-If The first value is set to **true** and the second field its empty,<br />
-it meens that module its waiting for user input settings to run the funtion. 
+**HINT**: The first value as **true** show us that is one **required** setting to run the module, The second value set as **false**<br /> will not activate this funtion to run, unless user sets manually the value to **true** before runing the module.<br /> 
 
 <br />
 
