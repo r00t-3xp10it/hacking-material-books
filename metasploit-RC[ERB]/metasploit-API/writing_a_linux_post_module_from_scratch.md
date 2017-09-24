@@ -150,7 +150,15 @@ The line 13 **print_error()** prints a error msg on screen, if none of the strin
 The line 14 **return nill** exits module execution, if none of the above strings are returned<br />
 The line 15 **end** will close the actual funtion<br />
 
+<br />
 
+The line 19 will use **getuid** meterpreter API call, to check if we are running in an higth integrity context<br />
+then it stores the returned string into a local variable named **target_uid** for later use.<br />
+The line 20 reads the **target_uid** local variable, and searchs for **uid=0** or **root** strings<br />
+that reveal us that we are running under a privileged session (root privileges).<br />
+The line 21 **print_error()** prints a error msg on screen, if none of the strings are returned: **uid=0** or **root**<br />
+The line 22 **return nill** exits module execution, if none of the above strings are returned<br />
+The line 23 **end** will close the actual funtion<br />
 
 <br /><br /><br /><br />
 
