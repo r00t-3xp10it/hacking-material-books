@@ -88,7 +88,7 @@ Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/P
 <br /><br />
 
 #### The 'def initialize()' function
-**def initialize(info={})** Here we need to define some information about the post module, such as:<br />
+Here we need to define some information about the post module, such as:<br />
 Module name, description, module author, version, platform, target architecture, DefaultOptions, etc.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/eHlLPT.png)
 
