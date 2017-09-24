@@ -143,6 +143,7 @@ The **print_line()** API allow us to write on screen (terminal)
 The line 12 uses meterpreter **sysinfo['OS']** module to check if target system its a **linux distro**<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the values are returned: **Linux** or **linux**<br />
 The line 14 **return nill** exit module execution, if none of the above values are returned<br />
+The line 15 **end** will close the funtion<br />
 
 
 
