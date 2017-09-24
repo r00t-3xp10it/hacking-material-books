@@ -142,7 +142,7 @@ The **print_line()** API allow us to write msgs on screen (terminal) and its use
 
 <br /><br />
 
-#### writing the module 'target compatibility checks'
+#### writing the 'target compatibility checks' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
 The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux** distro<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the strings are returned: **Linux** or **linux**<br />
