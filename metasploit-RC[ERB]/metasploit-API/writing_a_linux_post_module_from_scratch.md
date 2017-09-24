@@ -124,10 +124,10 @@ The **OptBool.new()** API accepts bollean values (1 or 0 - true or false) to be 
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed<br />
 
 ![msf-auxiliarys](http://i.cubeupload.com/stf9Ki.png)
-**HINT**: The first value as **true** show us that is one **required** setting to run the module,<br />
-The second value set as **false** will not activate the funtion to be run, unless user sets the value<br />
-to **true** before runing the module, If the second field its empty, it meens that module its waiting <br />
-for user input settings to run the funtion. 
+**HINT**: The first value as **true** show us that is one **required** setting to run the module, The second value set as **false**<br /> will not activate the funtion to be run, unless user sets the value to **true** before runing the module.<br />
+
+![msf-auxiliarys](http://i.cubeupload.com/EDlMUH.png)
+If the second field its empty, it meens that module its waiting for user input settings to run the funtion. 
 
 <br /><br />
 
