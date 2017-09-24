@@ -135,9 +135,17 @@ Now we need to close the funtion with the **end** statement, before start writin
 
 # 3 - Write metasploit post-module funtion logic (def run)
 
-**HINT**: The options set by a user are available via a predefined hash named datastore<br />
-The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
-will be stored into msfdb (metasploit database) and they can be called later to script logic.
+      The def run() funtion will contain the 'exploit' code to be executed againt target session.
+      But in this example iam going to divided it into two stages: module banner and exploit code.       
+
+
+
+
+
+
+
+
+
 
       example: The next funtion will read the value inside the 'STORE_LOOT' option,
                and if its config as 'true' it will run the follow funtion (store_loot).
