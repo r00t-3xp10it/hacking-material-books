@@ -131,9 +131,8 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       The 'def run()' funtion will contain all the 'exploit' code to be executed againt target session.
       It contains the module 'banner' the target 'compatibility checks' and the actual 'exploit' code.
 
-      HINT: loading 'require msf/core/post/common' msf library in the beggining of the module,
-      allows us to use most API calls (eg. client.sys.config.getuid) to be used in building this funtion.
-
+      HINT: loading 'require msf/core/post/common' msf library in the beggining of the post-module,
+      allows us to use most of the APIsused in post-exploitation develop (eg. client.sys.config.getuid).
 <br /><br />
 
 #### writing the module 'banner'
@@ -200,7 +199,7 @@ The line 58 **data_dump << "hardware_info"** will store the contents of **hardwa
 
 <br /><br />
 
-#### writing the 'agressive dump' advanced option funtion
+#### writing the 'agressive_dump' advanced option funtion
 ![msf-auxiliarys](http://i.cubeupload.com/dnwV7r.png)<br />
 
 
