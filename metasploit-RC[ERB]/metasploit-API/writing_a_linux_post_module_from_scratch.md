@@ -155,6 +155,8 @@ will be stored into msfdb (metasploit database) and they can be called later to 
       At this stage we need to port our post-module to the rigth location inside metasploit
       directory structure, reload the database with the new module and load/run the module.
 
+      HINT: reloading our module to msfdb will reveal us any syntax error commited.
+
 #### port module to msf database
 `cp linux_hostrecon.rb /usr/share/metasploit-framework/modules/post/linux/gather/linux_hostrecon.rb`
 #### rebuild msfdb database (database.yml)
