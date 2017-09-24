@@ -132,7 +132,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       It contains the module 'banner' the target 'compatibility checks' and the actual 'exploit' code.
 
       HINT: loading 'require msf/core/post/common' msf library in the beggining of the module,
-      allows us to call most API calls (eg. client.sys.config.getuid) to be used in building this funtion.
+      allows us to use most API calls (eg. client.sys.config.getuid) to be used in building this funtion.
 
 <br />
 
