@@ -134,9 +134,10 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
       HINT: loading 'require msf/core/post/common' msf library in the beggining of the module,
       allows us to use most API calls (eg. client.sys.config.getuid) to be used in building this funtion.
 
+#### my-API-Cheat-sheet
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet
 
-<br />
+<br /><br />
 
 #### writing the module 'banner'
 ![msf-auxiliarys](http://i.cubeupload.com/HjxmZp.png)<br />
