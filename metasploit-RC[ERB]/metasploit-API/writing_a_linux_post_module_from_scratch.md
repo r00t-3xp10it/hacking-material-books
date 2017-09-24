@@ -130,7 +130,10 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 At this stage we have done writing the **def initialize()** funtion (module description/settings).<br/>
 Now we need to close the funtion with the **end** statement, before start writing the **def run()** funtion.
 
-<br /><br />
+
+<br /><br /><br />
+
+# 3 - Write metasploit post-module funtion logic (def run)
 
 **HINT**: The options set by a user are available via a predefined hash named datastore<br />
 The settings of **'SESSION'** **'STORE_LOOT'** **'AGRESSIVE_DUMP'** and **'SINGLE_COMMAND'**<br />
@@ -143,10 +146,6 @@ will be stored into msfdb (metasploit database) and they can be called later to 
         print_good("storing dump into loot folder ..")
         store_loot("hostrecon", "text/plain", session, data_dump, "hostrecon.txt", "linux_hostrecon")
       end
-
-<br /><br /><br />
-
-# 3 - Write metasploit post-module funtion logic (def run)
 
 <br /><br /><br />
 
