@@ -185,9 +185,14 @@ The line 40 **print_status()** prints a msg on screen for users to know that the
 The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a secund<br />
 
 <br /><br />
+
 ![msf-auxiliarys](http://i.cubeupload.com/7cXJmO.png)<br />
 From line 43 to 46 we are executing bash commands remotelly and store the results inside local variables<br />
-`The cmd_exec() API allow us to execute remotelly bash commands (in linux distros)`
+`The cmd_exec() API allow us to execute remotelly bash commands (in linux distros)`<br />
+
+<br /><br />
+
+![msf-auxiliarys](http://i.cubeupload.com/Axodxo.png)<br />
 
 
 
