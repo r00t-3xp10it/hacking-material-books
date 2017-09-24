@@ -138,11 +138,11 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 #### writing the module 'banner'
 ![msf-auxiliarys](http://i.cubeupload.com/HjxmZp.png)<br />
 The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications chanel.<br />
-The **print_line()** API allow us to write msgs on screen (terminal) and its used to build the module 'banner'<br />
+The **print_line()** API allow us to write msgs on screen (terminal) and its used to build the module 'banner' in this case.<br />
 
 <br /><br />
 
-#### writing the module 'compatibility checks'
+#### writing the module 'target compatibility checks'
 ![msf-auxiliarys](http://i.cubeupload.com/7OHAEL.png)<br />
 The line 12 uses meterpreter **sysinfo['OS']** API to check if target system its a **linux** distro<br />
 The line 13 **print_error()** prints a error msg on screen, if none of the strings are returned: **Linux** or **linux**<br />
