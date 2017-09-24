@@ -198,7 +198,10 @@ into **data_dump** local variable to be able to write the logfile, and display o
 The line 51 **data_dump << "\n\n"** will brake the output in two empty lines<br />
 The line 58 **data_dump << "hardware_info"** will store the contents of **hardware_info** inside **data_dump**<br />
 
+<br /><br />
 
+#### writing the 'agressive dump' advanced option funtion
+![msf-auxiliarys](http://i.cubeupload.com/dnwV7r.png)<br />
 
 
 
