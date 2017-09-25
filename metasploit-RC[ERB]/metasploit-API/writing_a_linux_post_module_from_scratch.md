@@ -209,7 +209,10 @@ The line 74 checks whats the settings of 'AGRESSIVE_DUMP' advanced option (if it
 The line 75 **print_status()** prints a msg on screen for users to know that the module its working<br />
 The line 76 **Rex::sleep(0.5)** makes a pause in script execution for half a second<br />
 
-The line 33 **end** will close the actual funtion, and resumes script execution.<br />
+<br /><br />
+
+![msf-auxiliarys](http://i.cubeupload.com/ByQn9d.png)
+
 
 
 <br /><br /><br /><br />
