@@ -205,6 +205,8 @@ The line 58 **data_dump << "hardware_info"** will append the contents of **hardw
       The database['AGRESSIVE_DUMP'] contains the module advanced_option current settings (false or true) and its
       configurated as 'false' by default (user needs to set the option to 'true' to be able to run this funtion)
 
+      HINT: In ruby every IF funtion must be closed by the END statement.
+
 The line 74 checks whats the settings of 'AGRESSIVE_DUMP' advanced option (if its **true** then it will run the funtion)<br />
 The line 75 **print_status()** prints a msg on screen for users to know that the module its working<br />
 The line 76 **Rex::sleep(0.5)** makes a pause in script execution for half a second<br />
