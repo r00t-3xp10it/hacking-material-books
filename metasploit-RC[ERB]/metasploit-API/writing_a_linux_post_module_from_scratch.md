@@ -213,43 +213,44 @@ The line 58 **data_dump << "hardware_info"** will append the contents of **hardw
       HINT: reloading our module to msfdb will reveal us if any syntax error was commited.
       loading/executing the module will also reveal us if any sintax errors was commited.
 
-#### port module to msf database
+#### Download linux_hostrecon V1.2 (latest review)
+`wget https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb`
+#### port the post-module to msf database
 `cp linux_hostrecon.rb /usr/share/metasploit-framework/modules/post/linux/gather/linux_hostrecon.rb`
-#### start postgresql database
+#### start postgresql service
 `service postgresql start`
 #### rebuild msfdb database (database.yml)
 `msfdb reinit`
-#### reload msfdb database
+#### reload all modules into database
 `msfconsole -q -x 'db_status; reload_all'`
-
-#### search module
+#### search for module
 `msf > search linux_hostrecon`
 #### load module
 `msf > use post/linux/gather/linux_hostrecon`
-
 #### show all module options
 `msf post(linux_hostrecon) > show advanced options`
 #### set module options
 `msf post(linux_hostrecon) > set SINGLE_COMMAND netstat -ano`
 #### execute module (run)
 `msf post(linux_hostrecon) > exploit`
+#### unset all module options
+`msf post(linux_hostrecon) > unset_all`
 
 
 <br /><br /><br /><br />
 
-## Download/read linux_hostrecon.rb post-module from here:
+## read linux_hostrecon.rb sourcecode here:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 <br /><br />
 
 ## REFERENCES
-https://github.com/rapid7/metasploit-framework/wiki<br />
-https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
-https://en.wikibooks.org/wiki/Metasploit/DevelopingAuxiliaryModules<br />
+http://rapid7.github.io/metasploit-framework/api/
 https://www.offensive-security.com/metasploit-unleashed/building-module/<br />
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/<br />
-https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-exploit<br />
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
+https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
+https://securityonline.info/linux-terminal-command-reference-list/?utm_source=ReviveOldPost&utm_medium=social&utm_campaign=ReviveOldPost
 
 # @SSA Red_Team 2017
 
