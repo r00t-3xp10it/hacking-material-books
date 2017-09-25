@@ -224,6 +224,10 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 ![msf-auxiliarys](http://i.cubeupload.com/bsPBAS.png)
 
+<br /><br />
+
+![msf-auxiliarys](http://i.cubeupload.com/Vtg9YS.png)
+
 <br /><br /><br /><br />
 
 # 4 - Port module to metasploit database
