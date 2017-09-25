@@ -226,7 +226,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-![msf-auxiliarys](http://i.cubeupload.com/Vtg9YS.png)
+![msf-auxiliarys](http://i.cubeupload.com/xPECxh.png)
 
 <br /><br /><br /><br />
 
