@@ -215,6 +215,12 @@ The line 76 **Rex::sleep(0.5)** makes a pause in script execution for half a sec
 From line 78 to 81 we are executing bash commands remotelly, and store the results inside local variables<br />
 `HINT: The cmd_exec() API allow us to execute remotelly bash commands (in linux distros)`<br />
 
+<br /><br />
+
+This next funtion will store the contents of previous scans (stored inside local variables)<br />
+into data_dump local variable to be able to write the logfile, and display outputs to user.<br />
+![msf-auxiliarys](http://i.cubeupload.com/BjByPP.png)
+
 
 <br /><br /><br /><br />
 
