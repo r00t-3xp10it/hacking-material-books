@@ -250,7 +250,6 @@ https://www.offensive-security.com/metasploit-unleashed/building-module/<br />
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/<br />
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
-https://securityonline.info/linux-terminal-command-reference-list/?utm_source=ReviveOldPost&utm_medium=social&utm_campaign=ReviveOldPost
 
 # @SSA Red_Team 2017
 
