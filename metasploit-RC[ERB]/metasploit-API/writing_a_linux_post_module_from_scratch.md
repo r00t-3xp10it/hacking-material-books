@@ -181,7 +181,7 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
 ![msf-auxiliarys](http://i.cubeupload.com/QRvSWa.png)<br />
 The line 39 cleans the contents of **data_dump** local variable to be able to accept new data inputs.<br />
 The line 40 **print_status()** prints a msg on screen for users to know that the module its working<br />
-The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a secund<br />
+The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a second<br />
 
 <br /><br />
 
@@ -207,7 +207,7 @@ The line 58 **data_dump << "hardware_info"** will append the contents of **hardw
 
 The line 74 checks whats the settings of 'AGRESSIVE_DUMP' advanced option (if its **true** then it will run the funtion)<br />
 The line 75 **print_status()** prints a msg on screen for users to know that the module its working<br />
-The line 76 **Rex::sleep(0.5)** makes a pause in script execution for half a secund<br />
+The line 76 **Rex::sleep(0.5)** makes a pause in script execution for half a second<br />
 
 The line 33 **end** will close the actual funtion, and resumes script execution.<br />
 
