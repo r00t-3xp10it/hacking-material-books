@@ -201,6 +201,8 @@ The line 58 **data_dump << "hardware_info"** will append the contents of **hardw
 
 ### writing the 'agressive_dump' advanced option funtion
 ![msf-auxiliarys](http://i.cubeupload.com/dnwV7r.png)<br />
+The **database['AGRESSIVE_DUMP']** contains the module current settings, in this case its a **OptBool()**<br />
+option (0 or 1 - false or true), 
 
 
 <br /><br /><br /><br />
