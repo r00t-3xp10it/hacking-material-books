@@ -239,13 +239,13 @@ The line 58 **data_dump << "hardware_info"** will append the contents of **hardw
 
 <br /><br /><br /><br />
 
-## read linux_hostrecon.rb sourcecode here:
+## read linux_hostrecon.rb sourcecode from here:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 <br /><br />
 
 ## REFERENCES
-http://rapid7.github.io/metasploit-framework/api/
+http://rapid7.github.io/metasploit-framework/api/<br />
 https://www.offensive-security.com/metasploit-unleashed/building-module/<br />
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/<br />
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
