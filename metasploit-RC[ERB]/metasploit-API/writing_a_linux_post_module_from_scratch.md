@@ -244,7 +244,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 #### Download linux_hostrecon V1.2 (latest review)
 `wget https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb`
-#### port the post-module to msf database
+#### port the module to msf directory
 `cp linux_hostrecon.rb /usr/share/metasploit-framework/modules/post/linux/gather/linux_hostrecon.rb`
 #### start postgresql service
 `service postgresql start`
@@ -265,10 +265,27 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 #### unset all module options
 `msf post(linux_hostrecon) > unset_all`
 
+<br /><br />
+
+## Final Notes
+
+      This module requires a session allready open to interact with it 
+      This module requires a meterpreter session to run
+      This module requires a linux distro as target
+      This module requires root privileges to execute tasks
+      This module stores dump logfiles into ~msf4/loot folder
+      This module enables users to run options indevidually or all at once
+      This module enables users to input a single bash command to be executed
+
+      HINT: the single_command option accepts semi-collons to stack commands
+      EXAMPLE: cat /etc/passwd && cat /etc/shadow && find /var/log -type f -perm -4
 
 <br /><br /><br /><br />
 
-## read linux_hostrecon.rb sourcecode from here:
+## use this pre-made template (article):
+https://pastebin/blablabla
+
+## linux_hostrecon.rb sourcecode (version 1.2):
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 <br /><br />
