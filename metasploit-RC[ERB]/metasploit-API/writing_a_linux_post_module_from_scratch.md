@@ -277,12 +277,12 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
       This module enables users to run options indevidually or all at once
       This module enables users to input a single bash command to be executed
 
-      HINT: the single_command option accepts semi-collons to stack commands
+      HINT: the single_command option accepts semi-collons to stack bash commands.
       EXAMPLE: cat /etc/passwd && cat /etc/shadow && find /var/log -type f -perm -4
 
 <br /><br /><br /><br />
 
-## use this pre-made template (article):
+## Use this pre-made template (article):
 https://pastebin/blablabla
 
 ## linux_hostrecon.rb sourcecode (version 1.2):
