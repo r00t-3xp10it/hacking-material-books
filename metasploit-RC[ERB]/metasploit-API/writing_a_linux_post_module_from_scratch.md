@@ -282,14 +282,11 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-#### Use this pre-made (article) msf template:
-https://pastebin/blablabla
+#### linux_hostrecon.rb (v1.2) video tutorial:
+https://youtube/blablabla
 
 #### linux_hostrecon.rb (v1.2) sourcecode:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
-
-#### linux_hostrecon.rb (v1.2) video tutorial:
-https://youtube/blablabla
 
 <br /><br />
 
