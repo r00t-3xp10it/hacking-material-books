@@ -280,6 +280,10 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
       HINT: the single_command option accepts semi-collons to stack bash commands.
       EXAMPLE: cat /etc/passwd && cat /etc/shadow && find /var/log -type f -perm -4
 
+
+![msf-auxiliarys](http://i.cubeupload.com/wO8vzX.png)
+
+
 <br /><br />
 
 #### linux_hostrecon.rb (v1.2) video tutorial:
