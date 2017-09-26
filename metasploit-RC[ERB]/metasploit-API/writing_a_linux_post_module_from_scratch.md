@@ -288,6 +288,9 @@ https://pastebin/blablabla
 ## linux_hostrecon.rb sourcecode (version 1.2):
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
+## linux_hostrecon (v1.2) video tutorial
+https://youtube/blablabla
+
 <br /><br />
 
 ## REFERENCES
