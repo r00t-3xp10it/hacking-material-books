@@ -278,7 +278,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
       This module enables users to input a single bash command to be executed
 
       HINT: the single_command option accepts [ ; | && ] to stack bash commands.
-      EXAMPLE: ls; cat /etc/passwd | cut -d ":" -f1 && find /var/log -type f -perm -4
+      EXAMPLE: ls -a; cat /etc/passwd | cut -d ":" -f1 && find /var/log -type f -perm -4
 
 <br /><br />
 
