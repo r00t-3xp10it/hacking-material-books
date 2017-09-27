@@ -226,11 +226,15 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-![msf-auxiliarys](http://i.cubeupload.com/D4kD0u.png)
+![msf-auxiliarys](http://i.cubeupload.com/r4xi9j.png)
 
 <br /><br />
 
-![msf-auxiliarys](http://i.cubeupload.com/OymZ84.png)
+![msf-auxiliarys](http://i.cubeupload.com/J197ot.png)
+
+<br /><br />
+
+![msf-auxiliarys](http://i.cubeupload.com/LWKcwX.png)
 
 <br /><br /><br /><br />
 
@@ -300,6 +304,7 @@ https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon
 http://rapid7.github.io/metasploit-framework/api/<br />
 https://www.offensive-security.com/metasploit-unleashed/building-module/<br />
 https://www.offensive-security.com/metasploit-unleashed/creating-auxiliary-module/<br />
+https://www.cyberciti.biz/tips/linux-command-to-gathers-up-information-about-a-linux-system.html<br />
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
 
