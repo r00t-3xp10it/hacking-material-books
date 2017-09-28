@@ -35,7 +35,6 @@
 
       At this stage (research) i have used online articles from different websites to store
       possible interesting bash commands that can be used in gathering target system information.
-
       The follow screenshot shows some of the bash commands that i have stored in a text file.
 
 ![msf-auxiliarys](http://i.cubeupload.com/YK7B6f.png)
