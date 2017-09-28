@@ -222,7 +222,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-The next funtion will display the contents of **data_dump** local variable (remote scan reports) to user<br />
+The next funtion will display the contents of **data_dump** local variable (remote scan reports) on screen<br />
 ![msf-auxiliarys](http://i.cubeupload.com/bZzIoc.png)
 The line 109 **print_status()** prints a msg on screen for users to know that the module its working<br />
 The line 112 **print_line(data_dump)** will print on screen the contents of **data_dump** (remote scan reports)<br />
