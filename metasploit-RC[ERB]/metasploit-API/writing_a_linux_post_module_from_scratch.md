@@ -83,9 +83,13 @@ Metasploit ranking system: https://github.com/rapid7/metasploit-framework/wiki/E
 ![msf-auxiliarys](http://i.cubeupload.com/gvgw2G.png)
 One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
+
+      HINT: Mixins are a handy mechanism in Ruby language to include functionality into a module.
+
 Msf::Post::File http://rapid7.github.io/metasploit-framework/api/Msf/Post/File.html<br />
 Msf::Post::Linux::Priv http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/Priv.html<br />
 Msf::Post::Linux::System: http://rapid7.github.io/metasploit-framework/api/Msf/Post/Linux/System.html<br />
+Metasploit-Using-Mixins: https://en.wikibooks.org/wiki/Metasploit/UsingMixins<br />
 
 <br /><br />
 
