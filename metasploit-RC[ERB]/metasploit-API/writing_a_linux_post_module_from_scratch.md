@@ -283,7 +283,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 <br /><br />
 
 #### Automating the module
-![msf-auxiliarys](http://i.cubeupload.com/wO8vzX.png)
+![msf-auxiliarys](http://i.cubeupload.com/us441y.png)
 
 
 <br /><br />
