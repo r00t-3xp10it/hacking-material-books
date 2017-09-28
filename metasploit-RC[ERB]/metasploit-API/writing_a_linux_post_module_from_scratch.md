@@ -131,8 +131,8 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 
 # 3 - The 'exploit' code (def run)
 
-      The 'def run()' funtion will contain all the 'exploit' code to be executed againt target session.
-      It contains the module 'banner' the target 'compatibility checks' and the actual 'exploit' code.
+      The 'def run()' funtion will contain all the 'exploit' code to be executed againts target session.
+      It contains the module 'banner' the 'target compatibility checks' and the actual 'exploit' code.
 
       HINT: loading 'require msf/core/post/common' msf library in the beggining of the post-module,
       allows us to use most of the APIs used in post-exploitation develop (eg. client.sys.config.getuid).
@@ -140,7 +140,7 @@ and it closes the funtion using the **end** statement (It tells Ruby that we’r
 
 ### writing the module 'banner'
 ![msf-auxiliarys](http://i.cubeupload.com/HjxmZp.png)<br />
-The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications chanel.<br />
+The **session = client** API tells msf that **session** variable holds the **client** meterpreter communications channel.<br />
 The **print_line()** API allow us to write msgs on screen (terminal) and its used to build the module 'banner' in this case.<br />
 
 <br /><br />
