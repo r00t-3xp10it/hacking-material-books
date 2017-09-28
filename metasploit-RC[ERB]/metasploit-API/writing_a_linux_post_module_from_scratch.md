@@ -234,6 +234,7 @@ This next funtion will store the contents (logfile) of **data_dump** into ~/msf4
 The line 120 checks whats the settings of 'STORE_DUMP' advanced option (if its true then it will run the funtion)<br />
 The line 121 **print_status()** prints a msg on screen for users to know that the module its working<br />
 The line 122 **store_loot()** its a special msf API that allow us to store scan results into a logfile<br />
+http://www.rubydoc.info/github/rapid7/metasploit-framework/Msf/Auxiliary/Report#store_loot-instance_method
 
 <br /><br />
 
