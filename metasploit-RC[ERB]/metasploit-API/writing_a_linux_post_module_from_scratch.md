@@ -169,7 +169,7 @@ The line 23 **end** will close the actual funtion, and resumes script execution.
 The line 28 uses **sysinfo** meterpreter API call, to check if we are running in a meterpreter session<br />
 
       the sysinfo.nil? API checks if the sysinfo command returned, contains a empty string.
-      the non-return of sysinfo command reveals that we are not on a meterpreter session!
+      "the non-return of sysinfo command reveals that we are not on a meterpreter session!"
 
 The line 29 **print_status()** prints a msg on screen, if we are running in a meterpreter session.<br />
 `HINT: If a meterpreter session its found, then script execution will jump to the end of this funtion`<br /><br />
