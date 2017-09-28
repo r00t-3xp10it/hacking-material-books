@@ -293,9 +293,8 @@ This next funtion its self-explanatory :D
 
 #### Automating the module
 ![msf-auxiliarys](http://i.cubeupload.com/us441y.png)
-If we wish to run all module options at once, then simple edit the module before port it<br />
-to metasploit, and add the above lines on it, save it and use it. the above line will config<br />
-that options to run auto at module execution (exploit or run).. 
+If we wish to run all module options at once, then simple edit the module before port it to metasploit,<br />
+and add the above lines on it, save it and use it. the above line will config that options to run auto at module execution. 
 
 
 <br /><br />
