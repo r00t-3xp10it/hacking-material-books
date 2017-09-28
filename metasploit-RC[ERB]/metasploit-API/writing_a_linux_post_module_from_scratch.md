@@ -222,7 +222,10 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
+The next funtion will display the contents of **data_dump** local variable (remote scan reports)<br />
 ![msf-auxiliarys](http://i.cubeupload.com/bZzIoc.png)
+The line 109 **print_status()** prints a msg on screen for users to know that the module its working<br />
+The line 112 **print_line(data_dump)** will print on screen the contents of data_dump (remote scan reports)<br />
 
 <br /><br />
 
@@ -291,10 +294,10 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 #### This article template (v1.0):
 https://pastebin.com/7DZm7W4U
 
-#### linux_hostrecon.rb (v1.2) sourcecode:
+#### linux_hostrecon.rb (v1.3) sourcecode:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
-#### linux_hostrecon.rb (v1.2) video tutorial:
+#### linux_hostrecon.rb (v1.3) video tutorial:
 https://youtube/blablabla
 
 <br /><br />
