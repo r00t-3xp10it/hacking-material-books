@@ -291,11 +291,11 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 #### This article template (v1.0):
 https://pastebin.com/7DZm7W4U
 
-#### linux_hostrecon.rb (v1.2) video tutorial:
-https://youtube/blablabla
-
 #### linux_hostrecon.rb (v1.2) sourcecode:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
+
+#### linux_hostrecon.rb (v1.2) video tutorial:
+https://youtube/blablabla
 
 <br /><br />
 
