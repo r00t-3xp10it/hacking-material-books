@@ -230,11 +230,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-![msf-auxiliarys](http://i.cubeupload.com/J197ot.png)
-
-<br /><br />
-
-![msf-auxiliarys](http://i.cubeupload.com/LWKcwX.png)
+![msf-auxiliarys](http://i.cubeupload.com/KZAwaY.png)
 
 <br /><br /><br /><br />
 
@@ -292,6 +288,9 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
+#### This article template (v1.0):
+https://pastebin.com/7DZm7W4U
+
 #### linux_hostrecon.rb (v1.2) video tutorial:
 https://youtube/blablabla
 
@@ -308,5 +307,5 @@ https://www.cyberciti.biz/tips/linux-command-to-gathers-up-information-about-a-l
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
 
-# @SSA Red_Team 2017
+# @Suspicious_Shell_Activity - Red_Team 2017
 
