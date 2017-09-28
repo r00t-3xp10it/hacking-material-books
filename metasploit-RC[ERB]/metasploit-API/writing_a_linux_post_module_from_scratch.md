@@ -229,6 +229,7 @@ The line 112 **print_line(data_dump)** will print on screen the contents of **da
 
 <br /><br />
 
+This next funtion will store the contents (logfile) of **data_dump** into ~/msf4/loot folder<br />
 ![msf-auxiliarys](http://i.cubeupload.com/r4xi9j.png)
 
 <br /><br />
