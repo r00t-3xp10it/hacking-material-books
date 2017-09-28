@@ -50,7 +50,7 @@
       2 - the 'def initialize()' funtion: that contains module description/settings.
       3 - and the 'def run()' funtion: that contain the script logic (exploit code).
 
-      At this stage we are going to focous in the 'librarys' and 'def initialize()' funtions
+      At this stage we are going to focus in the 'librarys' and 'def initialize()' funtions
 
 <br /><br />
 
