@@ -50,7 +50,7 @@
       2 - the 'def initialize()' funtion: that contains module description/settings.
       3 - and the 'def run()' funtion: that contain the script logic (exploit code).
 
-      At this stage we are going to focus in the 'librarys' and 'def initialize()' funtions
+      At this stage we are going to focus in the 'librarys' and 'def initialize()' funtions ..
 
 <br /><br />
 
@@ -80,7 +80,7 @@ Metasploit ranking system: https://github.com/rapid7/metasploit-framework/wiki/E
 
 ### The Msf::Post Mixin
 ![msf-auxiliarys](http://i.cubeupload.com/gvgw2G.png)
-One of the first things that is done is the implementaion of the **class** Msf::Post mixin.<br />
+One of the first things that is done is the implementaion of the **Msf::Post** mixin.<br />
 When you create a post module with this mixin, a lot of other mixins are also already included.<br />
 
       HINT: Mixins are a handy mechanism in Ruby language to include functionality into a module.
