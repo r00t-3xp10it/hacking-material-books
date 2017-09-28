@@ -180,7 +180,7 @@ The line 33 **end** will close the actual funtion, and resumes script execution.
 
 <br /><br />
 
-### writing the 'exploit code'
+### writing the 'exploit code' (target dump funtion)
 ![msf-auxiliarys](http://i.cubeupload.com/QRvSWa.png)<br />
 The line 39 cleans the contents of **data_dump** local variable to be able to accept new data inputs.<br />
 The line 40 **print_status()** prints a msg on screen for users to know that the module its working<br />
