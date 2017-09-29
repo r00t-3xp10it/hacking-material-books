@@ -308,8 +308,10 @@ on it, save it and use it. the above lines will config that options to run auto 
 <br /><br />
 
 ### Screenshots of the post-module running
-![msf-auxiliarys](http://i.cubeupload.com/oGljPp.jpg)
-![msf-auxiliarys](http://i.cubeupload.com/dQIb9U.png)
+![msf-auxiliarys](http://i.cubeupload.com/SQ0eDb.png)
+![msf-auxiliarys](http://i.cubeupload.com/WbYvm1.png)
+![msf-auxiliarys](http://i.cubeupload.com/JYIF0C.png)
+
 
 
 <br /><br />
