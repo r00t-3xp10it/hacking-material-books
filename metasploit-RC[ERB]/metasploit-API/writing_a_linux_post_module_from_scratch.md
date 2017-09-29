@@ -191,7 +191,7 @@ The line 41 **Rex::sleep(0.5)** makes a pause in script execution for half a sec
 #### executing remote bash commands
 ![msf-auxiliarys](http://i.cubeupload.com/7cXJmO.png)<br />
 From line 43 to 46 we are executing bash commands remotelly, and store the results inside local variables<br />
-`HINT: distro_uname will contain the results of cmd_exec("uname -a")`<br />
+`HINT: 'distro_uname' local variable will contain the results of cmd_exec("uname -a") bash command`<br />
 
 <br /><br />
 
