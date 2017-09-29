@@ -235,7 +235,7 @@ The line 112 **print_line(data_dump)** will print on screen the contents of **da
 
 <br /><br />
 
-## Store stolen data from session (client) as a logfile
+## Store stolen data from session as a logfile
 This next funtion will store the contents (logfile) of **data_dump** into ~/msf4/loot folder<br />
 ![msf-auxiliarys](http://i.cubeupload.com/r4xi9j.png)
 The line 120 checks whats the settings of **'STORE_LOOT'** advanced option (if its **true** then it will run the funtion)<br />
