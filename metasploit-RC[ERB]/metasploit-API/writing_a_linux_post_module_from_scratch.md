@@ -323,7 +323,7 @@ https://pastebin.com/7DZm7W4U
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 #### linux_hostrecon.rb (v1.3) video tutorial:
-https://youtube/blablabla
+https://www.youtube.com/watch?v=t2zTSZc0gAc
 
 <br /><br />
 
