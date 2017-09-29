@@ -245,7 +245,7 @@ http://www.rubydoc.info/github/rapid7/metasploit-framework/Msf/Auxiliary/Report#
 
 <br /><br />
 
-This next funtion its self-explanatory :D 
+This next funtion its self-explanatory :D (the end of the msf module)
 ![msf-auxiliarys](http://i.cubeupload.com/KZAwaY.png)
 
 <br /><br /><br /><br />
