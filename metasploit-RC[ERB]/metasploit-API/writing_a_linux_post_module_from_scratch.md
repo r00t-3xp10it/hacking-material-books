@@ -110,7 +110,7 @@ This method adds options that the user can specify before running the module.<br
 The **OptString.new()** API accepts string values (text-numbers-symbols) to be inputed manually by user<br />
 
 **HINT**: in **DefaultOptions** method we allready have defined the module to run againts session 1 by default.<br />
-But users can still define (manually) a different session number to run module againts, example: set SESSION 3  
+But users can still define (manually) a different session number to run the module againts, example: set SESSION 3  
 
 <br /><br />
 
