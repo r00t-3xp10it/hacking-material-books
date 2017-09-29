@@ -30,8 +30,8 @@
 <br /><br /><br /><br />
 
 ---
-
 # WRITING A MSF POST MODULE (step by step)
+---
 
 # 1 - The research stage:
 
