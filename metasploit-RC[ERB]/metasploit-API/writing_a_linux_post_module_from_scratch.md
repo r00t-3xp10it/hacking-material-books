@@ -12,10 +12,10 @@
 <br /><br />  
 
 # MODULE OBJECTIVES
-                Gather system information after succcessfully exploitation (post-exploitation).
+                Gather system information after successfully exploitation (post-exploitation).
                 For that we are going to load the msf/core/post/common module to use the msf
                 API 'cmd_exec()' to execute bash commands on remote system, display outputs,
-                and store outputs as logfile (store_loot).
+                and store outputs as logfile (store_loot - API call).
 
 <br /><br />  
 
