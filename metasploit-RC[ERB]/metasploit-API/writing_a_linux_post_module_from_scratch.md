@@ -130,7 +130,7 @@ by this definition on the top and the word **end** (It tells Ruby that we’re d
 
 <br /><br /><br /><br />
 
-# 3 - The 'exploit' code (def run)
+# 3 - The 'exploit code' (def run)
 
       The 'def run()' funtion will contain all the 'exploit code' to be executed againts target session.
       It contains the module 'banner' the 'target compatibility checks' and the actual 'exploit code'.
