@@ -22,7 +22,7 @@
 # MODULE DEVELOP METHODOLOGY
 
                1 - Research stage: For bash commands that can be used to dump target system information
-               2 - Writing the metasploit template: librarys, class name, mixins, description (def initialize)
+               2 - Writing the metasploit template: libraries, class name, mixins, description (def initialize)
                3 - The exploit code: Basic explaination of ruby syntax + metasploit APIs (def run)
                4 - Port module to msf database: Copy module to the rigth location and reload msfdb
 
@@ -48,14 +48,14 @@
 # 2 - Writing the metasploit template
 
       The metasploit template its divided in to 3 main funtions.
-      1 - the librarys, class name, mixins: that contains module requires/imports.
+      1 - the libraries, class name, mixins: that contains module requires/imports.
       2 - the 'def initialize()' funtion: that contains module description/settings.
       3 - the 'def run()' funtion: that contain the script logic (the exploit code).
-      "At this stage we are going to focus in the 'librarys' and 'def initialize()' funtions".
+      "At this stage we are going to focus in the 'libraries' and 'def initialize()' funtions".
 
 <br /><br />
 
-### The MSF librarys
+### The MSF libraries
 ![msf-auxiliarys](http://i.cubeupload.com/EZbnFy.png)<br />
 **rex** the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
 
