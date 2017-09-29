@@ -124,13 +124,8 @@ The **OptString.new()** API accepts string values (text-numbers-symbols) to be i
 
 ### Close the 'def initialize()' funtion
 ![msf-auxiliarys](http://i.cubeupload.com/ACpzcT.png)<br />
-
-      Methods are defined using the keyword def followed by the method name. Method parameters are specified between
-      parentheses following the method name. The method body is enclosed by this definition on the top and the word end
-      on the bottom. By convention method names that consist of multiple words have each word separated by an underscore.
-
-**HINT**: Funtions in ruby start with **def** (definition) follow by the body of the method (funtion logic)<br />
-and it closes the funtion using the **end** statement (It tells Ruby that we’re done defining the method)
+**HINT**: Funtions in ruby start with **def** (definition) follow by the method name, The method body is enclosed<br />
+by this definition on the top and the word **end** (It tells Ruby that we’re done defining the method).
 
 
 <br /><br /><br /><br />
