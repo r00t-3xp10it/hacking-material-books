@@ -311,6 +311,7 @@ on it, save it and use it. the above lines will config that options to run auto 
 ![msf-auxiliarys](http://i.cubeupload.com/SQ0eDb.png)
 ![msf-auxiliarys](http://i.cubeupload.com/WbYvm1.png)
 ![msf-auxiliarys](http://i.cubeupload.com/JYIF0C.png)
+![msf-auxiliarys](http://i.cubeupload.com/tKpRcj.png)
 
 
 
