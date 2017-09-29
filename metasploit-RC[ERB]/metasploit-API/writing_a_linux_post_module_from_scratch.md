@@ -227,7 +227,7 @@ The line 102 **end** will close the actual funtion (agressive_dump), and resumes
 
 <br /><br />
 
-### Display scans results on screen
+#### Display scans results on screen
 The next funtion will display the contents of **data_dump** local variable (remote scan reports) on screen<br />
 ![msf-auxiliarys](http://i.cubeupload.com/bZzIoc.png)
 The line 109 **print_status()** prints a msg on screen for users to know that the module its working<br />
@@ -235,7 +235,7 @@ The line 112 **print_line(data_dump)** will print on screen the contents of **da
 
 <br /><br />
 
-## Store stolen data from session as a logfile
+#### Store stolen data from session as a logfile
 This next funtion will store the contents (logfile) of **data_dump** into ~/msf4/loot folder<br />
 ![msf-auxiliarys](http://i.cubeupload.com/r4xi9j.png)
 The line 120 checks whats the settings of **'STORE_LOOT'** advanced option (if its **true** then it will run the funtion)<br />
