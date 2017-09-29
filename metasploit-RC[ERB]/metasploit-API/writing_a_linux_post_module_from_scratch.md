@@ -255,8 +255,8 @@ This next funtion its self-explanatory :D **(the end of the msf module)**.
       At this stage we need to port our post-module to the rigth location inside metasploit
       directory structure, reload the database with the new module and load/run the module.
 
-      HINT: reloading our module to msfdb will reveal us if any syntax error was commited.
-      loading/executing the module will also reveal us if any sintax errors was commited.
+      HINT: reloading our module to msfdb will reveal us if any syntax error as commited.
+      loading/executing the module will also reveal us if any sintax errors as commited.
 
 #### Download linux_hostrecon V1.3 (latest review)
 `wget https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb`
