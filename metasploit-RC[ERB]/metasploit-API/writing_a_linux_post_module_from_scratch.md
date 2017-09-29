@@ -304,7 +304,9 @@ This next funtion its self-explanatory :D **(the end of the msf module)**.
 If we wish to run all module options at once, then simple edit the module before port it to metasploit, add the above lines<br />
 on it, save it and use it. the above lines will config that options to run auto at module execution (exploit or run). 
 
-### Screenshot of the post-module running
+<br /><br />
+
+### Screenshots of the post-module running
 ![msf-auxiliarys](http://i.cubeupload.com/oGljPp.jpg)
 ![msf-auxiliarys](http://i.cubeupload.com/dQIb9U.png)
 
