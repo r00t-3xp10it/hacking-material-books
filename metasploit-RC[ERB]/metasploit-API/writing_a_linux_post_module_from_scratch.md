@@ -258,6 +258,8 @@ This next funtion its self-explanatory :D **(the end of the msf module)**.
       HINT: reloading our module to msfdb will reveal us if any syntax error as commited.
       loading/executing the module will also reveal us if any sintax errors as commited.
 
+<br /><br />
+
 #### Download linux_hostrecon V1.3 (latest review)
 `wget https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb`
 #### port the module to msf directory
