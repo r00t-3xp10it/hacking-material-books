@@ -219,6 +219,7 @@ From line 78 to 81 we are executing bash commands remotelly, and store the resul
 
 <br /><br />
 
+### Display scans results on screen
 This next funtion will store the contents of previous scans (stored inside local variables)<br />
 into **data_dump** local variable to be able to write the logfile, and display outputs on screen.<br />
 ![msf-auxiliarys](http://i.cubeupload.com/BjByPP.png)
