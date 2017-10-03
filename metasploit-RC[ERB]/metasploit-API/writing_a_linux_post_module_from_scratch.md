@@ -336,5 +336,5 @@ https://www.cyberciti.biz/tips/linux-command-to-gathers-up-information-about-a-l
 https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-a-post-module<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC[ERB]/metasploit-API/my-API-Cheat-sheet<br />
 
-# @Suspicious_Shell_Activity - Red_Team 2017
+# Suspicious-Shell-Activity (SSA) RedTeam develop @2017
 
