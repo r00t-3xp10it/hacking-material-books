@@ -320,7 +320,7 @@ on it, save it and use it. the above lines will config that options to run auto 
 #### This article template (v1.0):
 https://pastebin.com/7DZm7W4U
 
-#### linux_hostrecon.rb (v1.3) sourcecode:
+#### linux_hostrecon.rb (v1.5) sourcecode:
 https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb
 
 #### linux_hostrecon.rb (v1.3) video tutorial:
