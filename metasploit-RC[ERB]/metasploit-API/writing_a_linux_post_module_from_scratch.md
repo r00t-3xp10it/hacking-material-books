@@ -260,7 +260,7 @@ This next funtion its self-explanatory :D **(the end of the msf module)**.
 
 <br /><br />
 
-#### Download linux_hostrecon V1.3 (latest review)
+#### Download linux_hostrecon V1.5 (latest review)
 `wget https://github.com/r00t-3xp10it/msf-auxiliarys/blob/master/linux/linux_hostrecon.rb`
 #### port the module to msf directory
 `cp linux_hostrecon.rb /usr/share/metasploit-framework/modules/post/linux/gather/linux_hostrecon.rb`
