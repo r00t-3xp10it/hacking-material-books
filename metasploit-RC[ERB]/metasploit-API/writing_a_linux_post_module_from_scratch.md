@@ -277,11 +277,11 @@ This next funtion its self-explanatory :D **(the end of the msf module)**.
 #### show all module options
 `msf post(linux_hostrecon) > show advanced options`
 #### set module options
-`msf post(linux_hostrecon) > set SINGLE_COMMAND netstat -ano`
+`msf post(linux_hostrecon) > set SINGLE_COMMAND netstat -ano
 #### execute module (run)
 `msf post(linux_hostrecon) > exploit`
 #### unset all module options
-`msf post(linux_hostrecon) > unset_all`
+`msf post(linux_hostrecon) > unset all`
 
 <br /><br />
 
