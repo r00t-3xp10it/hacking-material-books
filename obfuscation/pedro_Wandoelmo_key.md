@@ -3,72 +3,80 @@
 - using one batch local variable to serve as our **master key** (varObj)<br />
 `varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW`<br />
 
-- Them we just need to call the leter possition inside the varObj local variable to build our command
-`example: %varObj:~3,1% == leter c`
+- Them we just need to call the leter possition inside the **varObj** local variable to build our command<br />
+`example: %varObj:~3,1% == leter c`<br />
 
 ---
 
-a 1
-b 2 
-c 3
-d 4
-e 5
-f 6
-g 7
-h 8
-i 9
-j 10
-l 11
-m 12
-n 13
-o 14
-p 15
-q 16
-r 17
-s 18
-t 19
-u 20
-v 21
-x 22
-z 23
-k 24
-y 25
-w 26
+a 1<br />
+b 2<br />
+c 3<br />
+d 4<br />
+e 5<br />
+f 6<br />
+g 7<br />
+h 8<br />
+i 9<br />
+j 10<br />
+l 11<br />
+m 12<br />
+n 13<br />
+o 14<br />
+p 15<br />
+q 16<br />
+r 17<br />
+s 18<br />
+t 19<br />
+u 20<br />
+v 21<br />
+x 22<br />
+z 23<br />
+k 24<br />
+y 25<br />
+w 26<br />
+<br />
+0 27<br />
+1 28<br />
+2 29<br />
+3 30<br />
+4 31<br />
+5 32<br />
+6 33<br />
+7 34<br />
+8 35<br />
+9 36<br />
+<br />
+A 37<br />
+B 38<br />
+C 39<br />
+D 40<br />
+E 41<br />
+F 42<br />
+G 43<br />
+H 44<br />
+I 45<br />
+J 46<br />
+L 47<br />
+M 48<br />
+N 49<br />
+O 50<br />
+P 51<br />
+Q 52<br />
+R 53<br />
+S 54<br />
+T 55<br />
+U 56<br />
+V 57<br />
+X 58<br />
+Z 59<br />
+K 60<br />
+Y 61<br />
+W 62<br />
+<br />
 
-0 27
-1 28
-2 29
-3 30
-4 31
-5 32
-6 33
-7 34
-8 35
-9 36
+---
 
-A 37
-B 38
-C 39
-D 40
-E 41
-F 42
-G 43
-H 44
-I 45
-J 46
-L 47
-M 48
-N 49
-O 50
-P 51
-Q 52
-R 53
-S 54
-T 55
-U 56
-V 57
-X 58
-Z 59
-K 60
-Y 61
-W 62
+## Special thanks to: @Wandoelmo Silva
+
+<br />
+
