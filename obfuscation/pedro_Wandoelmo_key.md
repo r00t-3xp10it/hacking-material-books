@@ -3,10 +3,10 @@
 - using one batch local variable to serve as our **master key** (varObj)<br />
 `varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW`<br />
 
+- Them we just need to call the leter possition inside the varObj local variable to build our command
+`example: %varObj:~3,1% == leter c`
 
-    Them we just need to call the leter possition inside the varObj local variable
-    to build our commands/strings, example: %varObj:~3,1% == leter c 
-
+---
 
 a 1
 b 2 
