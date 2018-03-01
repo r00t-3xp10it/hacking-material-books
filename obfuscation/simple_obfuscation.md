@@ -1,12 +1,12 @@
 <br />
 
-## SIMPLE STRING OBFUSCATION TECNICS
+# SIMPLE STRING OBFUSCATION TECNICS
 
 
-# batch
+### batch
 
-# bash
+### bash
 
-# powershell
+### powershell
 
 <br />
