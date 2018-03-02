@@ -80,7 +80,7 @@ W - 62<br />
 
 ### Special thanks to: @Wandoelmo Silva
 
-This document belongs to this article:
+This document belongs to this article:<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md
 
 <br />
