@@ -156,6 +156,7 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
       This next tecnic writes a file to disk before executing shellcode into target ram ..
 
+<br />
 
       #include <stdio.h>
       #include <stdlib.h>
