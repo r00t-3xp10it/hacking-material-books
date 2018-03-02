@@ -4,7 +4,11 @@
 
       This article contains a list of simple obfuscation technics that can be used into obfuscating system
       call's like (powershell.exe -EncodedCommand OR cmd.exe /c start /MIN) in one attempt to bypass AV's
-      AMSI and DEP detections
+      AMSI and DEP detection mecanisms, why? let assume we have crypted your shellcode with one AES master
+      key, and the AV vendor can't read inside crypted sourcecode to determine if there actions are good or
+      bad, in this ocasion the AV vendor starts to look for system call's that may reveal malicious actions.
+
+![detection pic]('http://i.cubeupload.com/pLllwr.jpg')
 
 <br /><br /><br />
 
