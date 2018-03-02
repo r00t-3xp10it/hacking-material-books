@@ -2,9 +2,9 @@
 
 # SIMPLE STRING OBFUSCATION TECHNICS
 
-      This article contains a list of simple obfuscation technics that can be used into
-      obfuscating system call's like (powershell.exe -EncodedCommand) in one attempt to
-      bypass AV's AMSI and DEP detections
+      This article contains a list of simple obfuscation technics that can be used into obfuscating system
+      call's like (powershell.exe -EncodedCommand OR cmd.exe /c start /MIN) in one attempt to bypass AV's
+      AMSI and DEP detections
 
 <br /><br /><br />
 
