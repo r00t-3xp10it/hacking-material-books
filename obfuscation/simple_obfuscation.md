@@ -102,7 +102,9 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       exec_shellcode(shellcode);
       }
 
+- compiling with **GCC**
 
+      gcc template.c -o agent.exe
 
 ---
 
