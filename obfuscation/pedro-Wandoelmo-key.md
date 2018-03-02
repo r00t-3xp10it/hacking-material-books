@@ -4,7 +4,7 @@
 `varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW`<br />
 
 - Them we just need to call the letter possition inside the **varObj** local variable to build our command<br />
-`example: %varObj:~3,1% == leter c`<br />
+`example: %varObj:~3,1% == letter c` `example: %varObj:~14,1% == letter o`<br />
 
 ---
 
