@@ -3,8 +3,8 @@
 - using one batch local variable to serve as our **master key** (varObj)<br />
 `varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW`<br />
 
-- Them we just need to call the letter possition inside the **varObj** local variable to build our command<br />
-`example: %varObj:~3,1% == letter c` `example: %varObj:~14,1% == letter o`<br />
+- Then we just need to call the letter possition inside the **varObj** local variable to build our command<br />
+**examples:** `%varObj:~3,1% == letter c`+`%varObj:~12,1% == letter m`+`%varObj:~4,1% == letter d`=`cmd`<br />
 
 ---
 
