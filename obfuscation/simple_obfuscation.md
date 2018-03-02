@@ -153,6 +153,5 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 <br />
 
 ### Author: @r00t-3xp10it
-
-### Special Thanks to: @Wandoelmo Silva
+# Special Thanks to: @Wandoelmo Silva
 # Suspicious Shell Activity 2018
