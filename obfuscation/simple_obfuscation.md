@@ -51,7 +51,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 - parsing shellcode data
 
       # store parsed data into '$store' local var
-      store=`cat shellcode.txt | tr -d '\\' | tr -d 'x'`
+      store=`cat shellcode.txt | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
       # inject shellcode into template.c using SED bash command
       sed -i "s/INSERT_SHELLCODE_HERE/$store/g" template.c
