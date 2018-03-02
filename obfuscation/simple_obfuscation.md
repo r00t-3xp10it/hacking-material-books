@@ -48,7 +48,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       8b5a00270d0a              <-- ANCII shellcode
 
 
-- parsing shellcode data
+- **parsing** shellcode data
 
       # store parsed data into '$store' local var
       store=`cat shellcode.txt | tr -d '\\' | tr -d 'x' | tr -d '\n'`
