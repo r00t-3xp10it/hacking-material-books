@@ -1,6 +1,10 @@
 <br />
 
-# SIMPLE STRING OBFUSCATION TECNICS
+# SIMPLE STRING OBFUSCATION TECHNICS
+
+      This article contains a list of simple obfuscation technics that can be used into
+      obfuscating system call's like (powershell.exe -EncodedCommand) in one attempt to
+      bypass AV's AMSI and DEP detections
 
 <br /><br /><br />
 
@@ -54,7 +58,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       store=`cat shellcode.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
       # inject shellcode into template.c using SED bash command
-      sed -i "s/INSERT_SHELLCODE_HERE/$store/g" template.c
+      sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
 
 
 - **template.c**
@@ -66,6 +70,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       #include
       #include
       #include
+
       <stdio.h>
       <stdlib.h>
       <unistd.h>
@@ -141,3 +146,8 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 ---
 
 <br />
+
+### Author: @r00t-3xp10it
+
+### Special Thanks to: @Wandoelmo Silva
+# Suspicious Shell Activity 2018
