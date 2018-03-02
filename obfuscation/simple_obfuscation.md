@@ -2,7 +2,7 @@
 
 # SIMPLE STRING OBFUSCATION TECNICS
 
-<br /><br />
+<br /><br /><br />
 
 ## batch
 
@@ -33,7 +33,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
-<br />
+<br /><br /><br />
 
 ## bash
 
@@ -106,7 +106,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
-<br />
+<br /><br /><br />
 
 ## powershell
 
