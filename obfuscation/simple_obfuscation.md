@@ -37,7 +37,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ## bash
 
-- encoding shellcode in **C** to **ANCII**
+- encoding shellcode from **C** to **ANCII**
 
       \x8b\x5a\x00\x27\x0d\x0a  <-- C shellcode
 
