@@ -152,11 +152,14 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 <br /><br /><br />
 
-## bypass the scan engine (avet) template.c
+## bypass the scan engine (avet)
 
       This next tecnic writes a file to disk before executing shellcode into target ram ..
 
 <br />
+
+**template.c**<br />
+
 
       #include <stdio.h>
       #include <stdlib.h>
