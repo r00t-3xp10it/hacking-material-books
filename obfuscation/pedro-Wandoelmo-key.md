@@ -8,7 +8,7 @@
 
 ---
 
-**leter/number - position inside varObj var**
+**Letter/Number - Position inside varObj var**
 
 a - 1<br />
 b - 2<br />
