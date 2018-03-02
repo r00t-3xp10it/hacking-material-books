@@ -57,7 +57,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       sed -i "s/INSERT_SHELLCODE_HERE/$store/g" template.c
 
 
-- template.c
+- **template.c**
 
       #include
       #include
