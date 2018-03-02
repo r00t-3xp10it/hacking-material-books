@@ -1,5 +1,7 @@
 <br />
 
+# SIMPLE STRING OBFUSCATION TECHNICS [2]<br />
+
 - using one batch local variable to serve as our **master key** (varObj)<br />
 `varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW`<br />
 
