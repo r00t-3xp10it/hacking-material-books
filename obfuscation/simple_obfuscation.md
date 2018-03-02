@@ -13,7 +13,7 @@
 
 <br /><br /><br />
 
-## batch
+## batch obfuscation
 
 - string command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
@@ -44,7 +44,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 <br /><br /><br />
 
-## bash
+## bash obfuscation
 
 - encoding shellcode from **C** to **ANCII**
 
@@ -127,7 +127,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 <br /><br /><br />
 
-## powershell
+## powershell obfuscation
 
 - string command to obfuscate<br />
 `powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
