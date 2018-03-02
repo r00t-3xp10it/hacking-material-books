@@ -150,7 +150,7 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 ---
 
-<br />
+<br /><br /><br />
 
 **Author: @r00t-3xp10it**<br />
 **Special Thanks to: @Wandoelmo Silva**<br />
