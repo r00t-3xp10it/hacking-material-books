@@ -120,12 +120,13 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 <br />
 
+- **embeded** parsed shellcode into **template.c**
 
       # inject shellcode into template.c using SED bash command
       sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
 
 
-- compiling with **GCC**
+- compiling template with **GCC**
 
       gcc template.c -o agent.exe
 
