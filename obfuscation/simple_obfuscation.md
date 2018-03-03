@@ -71,7 +71,7 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 <br /><br /><br />
 
-## bash obfuscation
+## C to ANCII obfuscation
 
 - encoding shellcode from **C** to **ANCII**
 
@@ -160,9 +160,9 @@ The above string can be obfuscated using **powershell escape caracters** ` and +
 
 <br /><br /><br />
 
-## bypass the scan engine (avet)
+## bypass the scan engine (author: avet)
 
-      This next tecnic writes a file to disk before executing shellcode into target ram ..
+      This next technic writes a file to disk before executing shellcode into target ram ..
 
 <br />
 
