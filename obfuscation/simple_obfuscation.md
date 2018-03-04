@@ -238,5 +238,5 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 
 **Author: @r00t-3xp10it**<br />
-**Special Thanks to: @Wandoelmo Silva**<br />
+**If you know more of this technics, fell free to report :)**<br />
 # Suspicious Shell Activity (red team) @2018
