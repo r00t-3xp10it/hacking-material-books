@@ -10,6 +10,14 @@
 
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
+      Special note:
+        Remenber that if chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
+        interpreter (cmd.exe or file.bat). If we use one 'batch' special caracter in powershell terminal
+        console, then the powershell interpreter will not be hable to escape the special caracter.
+
+**Bad caracter sellection**
+![bad caracter sellection](http://i.cubeupload.com/5bsI07.jpg)
+
 
 <br /><br /><br />
 
