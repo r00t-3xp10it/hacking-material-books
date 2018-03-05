@@ -1,6 +1,6 @@
 <br />
 
-![banner](http://i.cubeupload.com/tsVBen.png)
+![banner](http://i.cubeupload.com/FGyNq2.jpg)
 
 <br />
 
