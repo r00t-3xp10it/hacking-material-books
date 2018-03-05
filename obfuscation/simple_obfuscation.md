@@ -4,7 +4,6 @@
 
 <br />
 
-# SIMPLE STRING OBFUSCATION TECHNICS
 
       This article contains a list of simple obfuscation technics that can be used into obfuscating system
       call's like (powershell.exe -EncodedCommand OR cmd.exe /c start /MIN) in one attempt to bypass AV's
