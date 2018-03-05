@@ -84,6 +84,8 @@ The above string can be obfuscated using the **bash special caracters: '** or **
 
       w$@h\o$@am\i
 
+![3 special caracters](http://i.cubeupload.com/tLBdbW.png)
+
 ---
 
 <br /><br /><br />
