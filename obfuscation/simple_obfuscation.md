@@ -124,7 +124,9 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 - Using an **batch** local variable inside powershell interpreter
 
-      cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe 
+      cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
+
+      c`m`d.e`xe /c "s^et va^r=Get-Date && c^md^.e^xe /c e^cho %var%^" | power`shel`l.e`x`e
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
