@@ -248,10 +248,10 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 <br /><br /><br />
 
-
 ### Special thanks to:
-**@404death** **@Wandoelmo Silva**
+**@404death** **@Wandoelmo Silva** **@daniel sauder(avet)**
 
+<br />
 
 **Author: r00t-3xp10it**<br />
 **If you know more of this technics, fell free to report them ^_^**<br />
