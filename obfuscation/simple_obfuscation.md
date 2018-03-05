@@ -19,7 +19,7 @@
         interpreter (cmd.exe or file.bat). If we use one 'batch' special caracter in powershell terminal
         console, then the powershell interpreter will not be hable to escape the special caracter.
 
-**Bad caracter sellection**
+**Bad caracter sellection** [ batch escape caracter -used- in powershell terminal ]
 ![bad caracter sellection](http://i.cubeupload.com/5bsI07.jpg)
 
 
