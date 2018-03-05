@@ -1,5 +1,9 @@
 <br />
 
+![banner](http://i.cubeupload.com/tsVBen.png)
+
+<br />
+
 # SIMPLE STRING OBFUSCATION TECHNICS
 
       This article contains a list of simple obfuscation technics that can be used into obfuscating system
@@ -64,6 +68,8 @@ The above string can be obfuscated using the **bash special caracters: '** or **
       w'h'o'am'i
 
       w$@h$@o$@am$@i
+
+      w$@h'o$@am'i
 
 ---
 
