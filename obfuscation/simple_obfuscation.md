@@ -67,7 +67,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 - String command to obfuscate<br />
 `whoami`<br />
-The above string can be obfuscated using the **bash special caracters: '** or **$@**<br />
+The above string can be obfuscated using the **bash special caracters: '** or **$@** or **\\**<br />
 
 - String obfuscated<br />
 
@@ -76,6 +76,8 @@ The above string can be obfuscated using the **bash special caracters: '** or **
       w$@h$@o$@am$@i
 
       w$@h'o$@am'i
+
+      w\h\o\am\i
 
 ---
 
