@@ -95,8 +95,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-      This next technic uses one batch local variable (%varObj%) as master key to extract
-      strings inside %varoBj% to build commands. (special thanks to: @Wandoelmo Silva).
+      This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
+      strings inside the %varoBj% variable to build our command. (special thanks to: @Wandoelmo Silva).
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
