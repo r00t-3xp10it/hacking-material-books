@@ -149,6 +149,26 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
+      This next technic uses one bash local variable ($M) as master key to extract
+      strings inside $M to build commands. (special thanks to: @Muhammad Samaak).
+
+- String command to obfuscate<br />
+`route`<br />
+
+- String obfuscated (**oneliner**)<br />
+
+      M="ureto -n" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;
+
+![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
+
+- Using bash **for loop** funtion to execute our command (string)
+
+      for i in `M="ureto -n" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;`;do $i -n; done;
+
+![bash obfuscation](http://i.cubeupload.com/v9Z8ib.jpg)
+
+---
+
 <br /><br /><br /><br />
 
 ## Powershell Obfuscation
