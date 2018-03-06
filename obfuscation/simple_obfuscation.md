@@ -120,6 +120,8 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
+- More Obfuscated using powershell **`** and batch **^** special characters
+
       c`m`d.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shel`l.e`x`e
 
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
