@@ -125,7 +125,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - String obfuscated<br />
 
-      w'h'o'am'i <-- This technic requires 'open' and 'close' single quotes
+      w'h'o'am'i <-- This technic requires to 'open' and 'close' the single quotes
 
       w\h\o\am\i
 
