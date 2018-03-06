@@ -97,7 +97,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-- We can also **pipe** commands to avoid detection with **|** or **;**or **&**
+- We can also **pipe** commands to avoid detection with **|** or **;** or **&**
 
       echo "Rubish data" | w$@h$@o\am$@i
 
