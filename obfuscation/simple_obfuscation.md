@@ -167,6 +167,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ![bash obfuscation](http://i.cubeupload.com/v9Z8ib.jpg)
 
+`HINT: The var ${M:0:1} extracts the letter U from the $M local variable`
+
 ---
 
 <br /><br /><br /><br />
