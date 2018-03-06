@@ -115,7 +115,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ## Bash Obfuscation
 
@@ -149,7 +149,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ## Powershell Obfuscation
 
@@ -210,7 +210,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ## C to ANCII Obfuscation
 
@@ -300,7 +300,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 ---
 
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ## Bypass the scan engine (daniel sauder: avet)
 
@@ -360,7 +360,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ### Special thanks to:
 **@danielbohannon** **@Andy Green** **@404death**<br />
