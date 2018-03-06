@@ -21,6 +21,7 @@
 **Good character sellection** [ powershell special character used in powershell interpreter ]
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
+---
 
 <br /><br /><br /><br /><br />
 
@@ -248,6 +249,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the arraw a
 
       This next technic writes a file to disk before executing shellcode into target ram ..
       'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
+
+---
 
 ![avet bypass](http://i.cubeupload.com/ub18vo.png)
 
