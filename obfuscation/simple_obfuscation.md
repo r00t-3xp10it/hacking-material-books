@@ -159,7 +159,9 @@ The above string can be obfuscated using the **powershell special character: `**
 
 - String obfuscated<br />
 
-      po`w`er`shel`l.ex`e -n`op -w`i`nd h`idd`en -Ex`e`c B`yp`a`ss -no`n`i -en`c $shellcode
+      po`wer`shel`l.ex`e -n`op -w`in`d h`idd`en -E`xe`c B`yp`ass -n`on`i -en`c $shellcode
+
+![powershell obfuscation](http://i.cubeupload.com/7hUkvC.jpg)
 
 ---
 
@@ -182,7 +184,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - More Obfuscated using powershell **`** and batch **^** special characters
 
-      c`m`d.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shel`l.e`x`e
+      c`md`.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shell.`ex`e
 
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
 
