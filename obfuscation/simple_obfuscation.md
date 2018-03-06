@@ -102,13 +102,13 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - String obfuscated<br />
 
-      w'h'o'am'i
+      w'h'o'am'i <-- This technic requires 'open' and 'close' single quotes
 
       w\h\o\am\i
 
       w$@h$@o$@am$@i
 
-      w$@h\o$@am\i <-- using all 3 methods together 
+      w$@h\o$@am\i <-- Using the 2 previous methods together 
 
 ![3 special characters](http://i.cubeupload.com/tLBdbW.png)
 
