@@ -49,6 +49,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       ;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
+![batch obfuscation](http://i.cubeupload.com/nVD7On.jpg)
+
 ---
 
 - We can also **pipe** commands to avoid detection
