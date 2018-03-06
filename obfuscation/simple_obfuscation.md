@@ -163,7 +163,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - Using bash **for loop** funtion to execute our command (string)
 
-      for i in `M="ureto -n" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;`;do $i -n; done;
+      for i in `M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;`;do $i -n; done;
 
 ![bash obfuscation](http://i.cubeupload.com/v9Z8ib.jpg)
 
