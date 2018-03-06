@@ -149,8 +149,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-      This next technic uses one bash local variable ($M) as master key to extract
-      strings inside $M to build commands. (special thanks to: @Muhammad Samaak).
+      This next technic uses one bash local variable ($M) as MasterKey that allow us to extract
+      strings inside the $M variable to build our command. (special thanks to: @Muhammad Samaak).
 
 - String command to obfuscate<br />
 `route`<br />
