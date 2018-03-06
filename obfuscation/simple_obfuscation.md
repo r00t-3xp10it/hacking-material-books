@@ -62,7 +62,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       Using a batch redirection caret (<nul) to 'escape' tokens.
-      'If you place a token at the caret the token is removed'.
+      'If you place a token at the caret the token is replaced by a empty string'.
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
