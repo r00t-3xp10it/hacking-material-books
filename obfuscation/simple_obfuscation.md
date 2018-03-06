@@ -97,11 +97,13 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-- We can also **pipe** commands to avoid detection with **|** or **;** or **&**
+- We can also **pipe** commands to avoid detection with **|** or **;** or **&&**
 
       echo "Rubish data" | w$@h$@o\am$@i
 
       echo $@I A\M; who\am$@i
+
+      echo $@I A\M; wh$@oam$@i && echo o\ff$@cou$@rs\e .\.
 
 ![pipe bash commands](http://i.cubeupload.com/0oCn6M.png)
 
