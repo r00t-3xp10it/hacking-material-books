@@ -97,6 +97,14 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
+- We can also **pipe** commands to avoid detection
+
+      echo "Rubish data" | w$@h$@o\am$@i
+
+![pipe bash commands](http://i.cubeupload.com/0oCn6M.png)
+
+---
+
 <br /><br /><br />
 
 ## Powershell Obfuscation
