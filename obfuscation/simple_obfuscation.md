@@ -316,7 +316,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
                                       - FINAL NOTES -
 
       95% of the obfuscation technics in the 'powershell' section contained in this article are
-      based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by @danielbohannondue
+      based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon
       and is pdf article 'PowerShell obFUsk8tion Techniques & How To (Try To) D""e`Tec`T'Th'+'em''
 
 [3] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
