@@ -506,5 +506,5 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br />
 
-##Author: r00t-3xp10it
+## Author: r00t-3xp10it
 # Suspicious Shell Activity (red team) @2018
