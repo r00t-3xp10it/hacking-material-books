@@ -303,7 +303,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       (&( "{0}{2}{1}" -f'(New','ject','-Ob') ( "{1}{2}{0}" -f'Client)','Net.','We'))
       OUTPUT: (New-Object Net.WebClient)
 
-      ALL: Invoke-Expresion (New-Object Net.WebClient)
+      ALL: &("{0}{2}{1}{3}" -f'Invoke','es','-Expr','ion') (&( "{0}{2}{1}" -f'(New','ject','-Ob') ( "{1}{2}{0}" -f'Client)','Net.','We'))
+      OUTPUT: Invoke-Expresion (New-Object Net.WebClient)
 
 ---
       escrever a agradecer ao daniel (pdf file)
