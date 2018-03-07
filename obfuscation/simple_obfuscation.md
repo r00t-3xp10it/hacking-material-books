@@ -226,7 +226,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       3º - Insert the follow lines into your bash script
       string=`echo "cm91dGUgLW4K" | base64 -d`
-      $string   <-- execute the base64 decoded string (system call) at runtime
+      $string   <-- execute the base64 decoded string (syscall) at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/bqoYPE.png)
 
