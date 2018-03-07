@@ -487,6 +487,14 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       system call and the last but not least, Concatenate also all function names to use big and
       small letters (eg PoWeRshElL.exE) since cmd.exe interpreter its not case sensitive.
 
+      Its never to late to remmenber that diferent technics can be combined together to achieve
+      better results. The next example shows one powershell payload embbebed into one template.bat
+      using 3 diferent batch obfuscation technics found in this article:
+
+<br />
+
+      @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
+
 ---
 
 ### Special thanks to:
