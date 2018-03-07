@@ -473,13 +473,6 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br /><br /><br /><br />
 
-### Special thanks to:
-**@danielbohannon** **@Andy Green** **@404death**<br />
-**@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
-**@Muhammad Samaak <-- for is contributions to this project ^_^**
-
-<br />
-
 ---
 
                                       - FINAL NOTES -
@@ -495,6 +488,11 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
+### Special thanks to:
+**@danielbohannon** **@Andy Green** **@404death**<br />
+**@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
+**@Muhammad Samaak <-- for is contributions to this project ^_^**
+
 <br />
 
 ### Referencies
@@ -509,5 +507,4 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 <br />
 
 **Author: r00t-3xp10it**<br />
-**We have here many described technics, use your imagination to 'Concatenate' it more  ^_^**<br />
 # Suspicious Shell Activity (red team) @2018
