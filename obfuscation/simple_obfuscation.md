@@ -159,7 +159,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated (**oneliner**)<br />
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
-      OUTPUT: print parsed data on screen (route syscall command results)
+      OUTPUT: print parsed data on screen (route syscall command)
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme.sh; bash meme.sh; rm meme.sh
       RESPONSE: Use meme.sh file to execute parsed syscall (route command) and then delete meme.sh
