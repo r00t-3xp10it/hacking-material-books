@@ -171,6 +171,22 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
+- Using **base64** to encode/decode the bash local variables **$enc** and **$string** (system call)
+
+      1º - encode the command you want to obfuscate
+      enc=`echo "route -n" | base64`
+
+      2º - copy the encoded string
+      cm91dGUgLW4K
+
+      2º - Insert the follow lines into our bash script
+      string=`echo "cm91dGUgLW4K" | base64 -d`
+      $string                           <-- execute the base64 decoded string (system call)
+
+![bash obfuscation](http://i.cubeupload.com/bqoYPE.png)
+
+---
+
 <br /><br /><br /><br />
 
 ## Powershell Obfuscation
@@ -386,7 +402,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ### Special thanks to:
 **@danielbohannon** **@Andy Green** **@404death**<br />
-**@Wandoelmo Silva** **@daniel sauder(avet)**
+**@Wandoelmo Silva** **@daniel sauder(avet)** and<br />
+**@Muhammad Samaak <-- for is contributions to this project ^_^**
 
 <br />
 
