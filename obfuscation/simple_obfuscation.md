@@ -294,21 +294,32 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-- Using splatting + reorder
+      Using -f (reorder) switch to re-order the strings in there correct order, the switch
+      -f accepts strings separated by a comma, and the caret {} contains the string position
+      after the -f switch.. HINT: {0} == {vice} | {3} == {et-} | {1} == {Ser} | {2} == {G}
+      [Special thanks to: @danielbohannon]
 
-      &("{0}{2}{1}{3}" -f'Invoke','es','-Expr','ion')
-      OUTPUT: Invoke-Expresion
+- Using splatting + reorder (-f) obfuscation technic
 
+      ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
+      OUTPUT: Get-Service
 
-      (&( "{0}{2}{1}" -f'(New','ject','-Ob') ( "{1}{2}{0}" -f'Client)','Net.','We'))
-      OUTPUT: (New-Object Net.WebClient)
+![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-      ALL: &("{0}{2}{1}{3}" -f'Invoke','es','-Expr','ion') (&( "{0}{2}{1}" -f'(New','ject','-Ob') ( "{1}{2}{0}" -f'Client)','Net.','We'))
-      OUTPUT: Invoke-Expresion (New-Object Net.WebClient)
+- Stacking commands together with the & caret
+
+      ("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
+      OUTPUT: Invoke-Expression (New-Object)
 
 ---
-      escrever a agradecer ao daniel (pdf file)
-      LINK para o pdf file
+
+                                      - FINAL NOTES -
+
+      95% of the obfuscation technics in the 'powershell' section contained in this article are
+      based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by @danielbohannondue
+      and is pdf article 'PowerShell obFUsk8tion Techniques & How To (Try To) D""e`Tec`T'Th'+'em''
+
+[3] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
 
 ---
 
