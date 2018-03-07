@@ -209,6 +209,10 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
+      HINT: Using base64 stings decoded at runtime are a Useful obfuscation trick,
+      because the agent.sh dosen't contain any real malicious syscall's to be flagged. 
+
+
 - String command to obfuscate<br />
 `route -n`
 
