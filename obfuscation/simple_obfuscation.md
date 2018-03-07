@@ -483,8 +483,9 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       Also keep in mind of the most common obfuscations technics like write a file on disk before
       executing any malicious actions (agent execution) replace any main functions (syscall's)
       by base64 encoded strings, and store them inside your script (agent) as local variables
-      to be called at runtime execution and the last but not least, Concatenate also function
-      names to use big and small letters (eg PoWeRshElL.exE) since cmd its not case sensitive.
+      to be called at runtime execution also remmenber to use 'Rubish Data' piped (|) before your
+      system call and the last but not least, Concatenate also all function names to use big and
+      small letters (eg PoWeRshElL.exE) since cmd.exe interpreter its not case sensitive.
 
 ---
 
