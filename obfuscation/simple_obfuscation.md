@@ -452,7 +452,6 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br />
 
-
 ### Referencies
 https://twitter.com/404death<br />
 https://github.com/govolution/avepoc<br />
@@ -463,5 +462,5 @@ https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i
 <br />
 
 **Author: r00t-3xp10it**<br />
-**'If you know more of this technics, fell free to report them'  ^_^**<br />
+**We have here many described technics, use your imagination to 'Concatenate' it more  ^_^**<br />
 # Suspicious Shell Activity (red team) @2018
