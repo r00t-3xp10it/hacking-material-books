@@ -98,6 +98,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
       strings inside the %varoBj% variable to build our command. [special thanks to: @Wandoelmo Silva]
 
+<br />
+
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
 
@@ -153,6 +155,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       strings inside the $M variable to build our command and sends it to a file named meme.
       [special thanks to: @Muhammad Samaak]
 
+<br />
+
 - String command to obfuscate<br />
 `route`<br />
 
@@ -176,23 +180,24 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-      This next technic uses $s bash local variable to extract the letters from the variable $skid
-      uses a loop funtion (for i in) to take the arrays and convert them into a string, them the pipe |
+      This next technic uses $s bash local variable to extract the letters from the variable $skid then
+      uses a loop funtion (for i in) to take the arrays and convert them into a string, them the pipe | tr -d
       command will delete the empty lines from the string and passes the output (pipe) to 'do echo ${skid[$i]}'
       funtion that prints the results (full string) on screen, the 'done' funtion will close the 'for i in' loop.
       [special thanks to: @Muhammad Samaak]
 
+<br />
 
 - String command to obfuscate<br />
 `whoami`<br />
 
 - String obfuscated (**oneliner**)<br />
 
-      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]} ; do echo ${skid[$i]} | tr -d '\n'; done
+      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
       OUTPUT: parsing data inside $skid and $s variables to extract the string: whoami
 
-      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]} ; do echo ${skid[$i]} | tr -d '\n'; done > 1337.sh; bash 1337.sh; rm 1337.sh
-      RESULT: Use 1337.sh file to execute 'whoami' syscall (response: root) and then delete the 1337.sh file.
+      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done > 1.sh; bash 1.sh; rm 1.sh
+      RESULT: Use 1.sh file to execute 'whoami' syscall (response: root) and then delete the 1.sh file.
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
