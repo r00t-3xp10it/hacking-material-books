@@ -153,11 +153,13 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - Using **rev <<<** to reverse the order of characters in a string
 
-      rev <<< 'm- klbsl' |$0
+      OBFUSCATED   : rev <<< 'm- klbsl' |$0
+      DE-OBFUSCATED: lsblk -m
 
 ![bash rev obfuscation](http://i.cubeupload.com/lsyzo5.png)
 
-      rev <<< i$@ma\o$@hw |$0
+      OBFUSCATED   : rev <<< i$@ma\o$@hw |$0
+      DE-OBFUSCATED: whoami
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
 `HINT: Single quotes are not allowed in Combining rev <<< and batch escape characters`
