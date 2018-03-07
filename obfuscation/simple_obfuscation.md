@@ -165,10 +165,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
       OUTPUT: print parsed data on screen (route syscall command)
 
+![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
+
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme.sh; bash meme.sh; rm meme.sh
       RESPONSE: Use meme.sh file to execute parsed syscall (route command) and then delete meme.sh
 
-![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
+![bash obfuscation](http://i.cubeupload.com/UhhcKT.png)
 
 - Using bash **for loop** funtion to execute our command (string)
 
@@ -196,8 +198,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
       OUTPUT: parsing data inside $skid and $s variables to extract the string: whoami
 
+![bash obfuscation](http://i.cubeupload.com/HkX7JH.png)
+
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done > 1.sh; bash 1.sh; rm 1.sh
       RESULT: Use 1.sh file to execute 'whoami' syscall (response: root) and then delete the 1.sh file.
+
+![bash obfuscation](http://i.cubeupload.com/6EOCZM.png)
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
