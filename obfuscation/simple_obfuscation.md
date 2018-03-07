@@ -484,7 +484,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       executing any malicious actions (agent execution) replace any main functions (syscall's)
       by base64 encoded strings, and store them inside your script (agent) as local variables
       to be called at runtime execution and the last but not least, Concatenate also function
-      names to use big and small letters (eg PoWeRshElL.exE). 
+      names to use big and small letters (eg PoWeRshElL.exE) since cmd its not case sensitive.
 
 ---
 
