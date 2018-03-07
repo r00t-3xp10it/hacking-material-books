@@ -171,6 +171,9 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
+- String command to obfuscate<br />
+`route -n`
+
 - Using **base64** to encode/decode the bash local variable **$string** (system call)
 
       1º - encode the command you want to obfuscate
