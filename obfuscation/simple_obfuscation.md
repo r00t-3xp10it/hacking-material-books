@@ -96,7 +96,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
-      strings inside the %varoBj% variable to build our command. (special thanks to: @Wandoelmo Silva).
+      strings inside the %varoBj% variable to build our command. [special thanks to: @Wandoelmo Silva]
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
@@ -150,24 +150,51 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 ---
 
       This next technic uses one bash local variable ($M) as MasterKey that allow us to extract
-      strings inside the $M variable to build our command. (special thanks to: @Muhammad Samaak).
+      strings inside the $M variable to build our command and sends it to a file named meme.
+      [special thanks to: @Muhammad Samaak]
 
 - String command to obfuscate<br />
 `route`<br />
 
 - String obfuscated (**oneliner**)<br />
 
-      M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;
+      M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
+      OUTPUT: print parsed data on screen (route syscall command results)
+
+      M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme.sh; bash meme.sh; rm meme.sh
+      RESPONSE: Use meme.sh file to execute parsed syscall (route command) and then delete meme.sh
 
 ![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
 
 - Using bash **for loop** funtion to execute our command (string)
 
-      for i in `M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme;ul meme;`;do $i -n; done;
+      for i in `M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme;`; do $i -n; done;
 
 ![bash obfuscation](http://i.cubeupload.com/v9Z8ib.jpg)
 
 `HINT: The var ${M:0:1} extracts the letter U from the $M local variable`
+
+---
+
+      This next technic uses $s bash local variable to extract the letters from the variable $skid
+      uses a loop funtion (for i in) to take the arrays and convert them into a string, them the pipe |
+      command will delete the empty lines from the string and passes the output (pipe) to 'do echo ${skid[$i]}'
+      funtion that prints the results (full string) on screen, the 'done' funtion will close the 'for i in' loop.
+      [special thanks to: @Muhammad Samaak]
+
+
+- String command to obfuscate<br />
+`whoami`<br />
+
+- String obfuscated (**oneliner**)<br />
+
+      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]} ; do echo ${skid[$i]} | tr -d '\n'; done
+      OUTPUT: parsing data inside $skid and $s variables to extract the string: whoami
+
+      skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]} ; do echo ${skid[$i]} | tr -d '\n'; done > 1337.sh; bash 1337.sh; rm 1337.sh
+      RESULT: Use 1337.sh file to execute 'whoami' syscall (response: root) and then delete the 1337.sh file.
+
+`HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
 ---
 
@@ -405,7 +432,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ### Special thanks to:
 **@danielbohannon** **@Andy Green** **@404death**<br />
-**@Wandoelmo Silva** **@daniel sauder(avet)** and<br />
+**@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**
 
 <br />
