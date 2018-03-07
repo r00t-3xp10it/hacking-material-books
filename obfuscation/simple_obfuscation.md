@@ -162,7 +162,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       DE-OBFUSCATED: whoami
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
-`HINT: Single quotes are not allowed in Combining rev <<< and batch escape characters`
+`HINT: Single quotes are not allowed in Combining rev <<< and the batch (\) escape character`
 
 
 ---
