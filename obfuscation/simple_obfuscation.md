@@ -221,12 +221,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       1º - encode the command you want to obfuscate
       echo "route -n" | base64
 
-      2º - copy the encoded string
+      2º - copy the encoded string to paste it on your script
       cm91dGUgLW4K
 
-      3º - Insert the follow lines into our bash script
+      3º - Insert the follow lines into your bash script
       string=`echo "cm91dGUgLW4K" | base64 -d`
-      $string   <-- execute the base64 decoded string (system call)
+      $string   <-- execute the base64 decoded string (system call) at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/bqoYPE.png)
 
