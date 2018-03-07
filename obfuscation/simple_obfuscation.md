@@ -485,7 +485,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 [3] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
 [4] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 [5] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
-[6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
+[6] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
+[7] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
 
 <br />
 
