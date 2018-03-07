@@ -182,7 +182,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       2º - copy the encoded string
       cm91dGUgLW4K
 
-      2º - Insert the follow lines into our bash script
+      3º - Insert the follow lines into our bash script
       string=`echo "cm91dGUgLW4K" | base64 -d`
       $string   <-- execute the base64 decoded string (system call)
 
