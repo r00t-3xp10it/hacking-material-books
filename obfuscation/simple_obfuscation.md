@@ -163,7 +163,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated (**oneliner**)<br />
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
-      OUTPUT: print parsed data on screen (route syscall command)
+      OUTPUT: print parsed data on screen (route syscall command pulled from inside $M variable)
 
 ![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
 
@@ -226,7 +226,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       3º - Insert the follow lines into your bash script
       string=`echo "cm91dGUgLW4K" | base64 -d`
-      $string   <-- execute the base64 decoded string (syscall) at runtime
+      $string   <-- execute/decode the base64 string (syscall) at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/bqoYPE.png)
 
@@ -249,7 +249,7 @@ The above string can be obfuscated using the **powershell special character: `**
 ---
 
 
-- Using an **batch** local variable inside the **powershell interpreter**
+- Using one **batch** local variable inside the **powershell interpreter**
 
       cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
 
@@ -301,15 +301,15 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 - Using **splatting + reorder** (-f) obfuscation technic
 
-      ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
-      OUTPUT: Get-Service
+      OBFUSCATED    : ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
+      DE-OBFUSCATED : Get-Service
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-- Stacking commands together with the & caret
+- **Stacking** commands together with the **&** caret
 
-      ("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
-      OUTPUT: Invoke-Expression (New-Object)
+      OBFUSCATED    :("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
+      DE-OBFUSCATED : Invoke-Expression (New-Object)
 
 ---
 
