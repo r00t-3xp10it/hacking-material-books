@@ -147,7 +147,21 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       echo $@I A\M; wh$@oam$@i && echo o\ff$@cou$@rs\e .\.
 
-![pipe bash commands](http://i.cubeupload.com/0oCn6M.png)
+![pipe bash obfuscation](http://i.cubeupload.com/0oCn6M.png)
+
+---
+
+- Using **rev <<<** to reverse the order of characters in a string
+
+      rev <<< 'm- klbsl' |$0
+
+![bash rev obfuscation](http://i.cubeupload.com/lsyzo5.png)
+
+      rev <<< i$@ma\o$@hw |$0
+
+![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
+`HINT: Single quotes are not allowed in Combining rev <<< and batch escape characters`
+
 
 ---
 
