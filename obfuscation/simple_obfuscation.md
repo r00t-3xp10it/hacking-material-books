@@ -171,7 +171,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-- Using **base64** to encode/decode the bash local variable **$enc** (system call)
+- Using **base64** to encode/decode the bash local variable **$string** (system call)
 
       1º - encode the command you want to obfuscate
       enc=`echo "route -n" | base64`
