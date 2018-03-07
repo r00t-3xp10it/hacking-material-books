@@ -489,7 +489,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       Its never to late to remmenber that diferent technics can be combined together to achieve
       better results. The next example shows one powershell payload embbebed into one template.bat
-      using 3 diferent batch obfuscation technics found in this article:
+      using 5 diferent batch obfuscation technics found in this article:
 
 <br />
 
