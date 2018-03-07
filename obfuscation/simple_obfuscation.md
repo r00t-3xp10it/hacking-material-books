@@ -168,7 +168,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 ![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} |$0
-      OUTPUT: parsing data inside $m variable to extract and 'execute' the string: route
+      OUTPUT: parsing data inside $M variable to extract and 'execute' the string: route
 
 ![bash obfuscation](http://i.cubeupload.com/eRmZtT.jpg)
 `HINT: The var ${M:0:1} extracts the letter U from inside the $M local variable`
@@ -221,7 +221,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       string=`echo "cm91dGUgLW4K" | base64 -d`
       $string   <-- execute/decode the base64 string (syscall) at runtime
 
-![bash obfuscation](http://i.cubeupload.com/bqoYPE.png)
+![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
 
 ---
 
