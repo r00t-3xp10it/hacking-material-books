@@ -23,6 +23,16 @@
 
 ---
 
+## Glosario:
+[Batch Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)
+[Bash Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)
+[Powershell Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)
+[C to ANCII shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)
+[bypass sanbox AVET](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)
+[FInal Notes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)
+
+---
+
 <br /><br /><br /><br /><br />
 
 ## Batch Obfuscation
@@ -519,6 +529,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
       OBFUSCATED    : @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
+
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#Glosario)
 
 ---
 
