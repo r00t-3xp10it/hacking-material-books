@@ -24,12 +24,12 @@
 ---
 
 ## Glosario:
-[1][Batch Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)<br />
-[Bash Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)<br />
-[Powershell Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)<br />
-[C to ANCII shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
-[bypass sanbox AVET](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
-[FInal Notes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
+[1] [Batch Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)<br />
+[2] [Bash Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)<br />
+[3] [Powershell Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)<br />
+[4] [C to ANCII shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
+[5] [bypass sanbox AVET](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
+[6] [FInal Notes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
 
 ---
 
@@ -134,7 +134,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
         cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode <-- here is our base64 syscall decoded
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -259,7 +259,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -354,7 +354,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -445,7 +445,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       gcc.exe template.c -o agent.exe
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -508,7 +508,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 	exec_mycode(buffer);
       }
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
