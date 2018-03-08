@@ -551,6 +551,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 <br />
 
 ### Referencies
+[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 [1] https://github.com/govolution/avepoc<br />
 [2] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
 [3] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
