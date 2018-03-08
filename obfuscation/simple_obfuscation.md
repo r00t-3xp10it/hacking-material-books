@@ -24,10 +24,10 @@
 ---
 
 ## Glosario:
-[1] [Batch Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)<br />
-[2] [Bash Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)<br />
-[3] [Powershell Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)<br />
-[4] [C to ANCII Obfuscated shellcode](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
+[1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation)<br />
+[2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation)<br />
+[3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation)<br />
+[4] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation)<br />
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks-to)<br />
@@ -36,7 +36,7 @@
 
 <br /><br /><br /><br /><br />
 
-## Batch Obfuscation
+## Batch Obfuscation (cmd-bat)
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
@@ -141,7 +141,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 <br /><br /><br /><br />
 
-## Bash Obfuscation
+## Bash Obfuscation (bash-sh)
 
 - String command to obfuscate<br />
 `whoami`<br />
@@ -266,7 +266,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 <br /><br /><br /><br />
 
-## Powershell Obfuscation
+## Powershell Obfuscation (psh-ps1)
 
 - String command to obfuscate<br />
 `powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
@@ -361,7 +361,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 <br /><br /><br /><br />
 
-## C to ANCII Obfuscation
+## C to ANCII Obfuscation (c-ancii)
 
 - Encoding shellcode from **C** to **ANCII**
 
@@ -517,7 +517,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-## FINAL NOTES:
+## FINAL NOTES - REMARKS
 
       95% of the obfuscation technics in the 'powershell' section contained in this article are
       based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon.
@@ -543,7 +543,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-### Special thanks to:
+### Special thanks
 **@danielbohannon** **@Andy Green** **@404death**<br />
 **@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**
