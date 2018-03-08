@@ -135,6 +135,14 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 - String command to obfuscate<br />
 `-Exec Bypass`
 
+      1º - encode the command you want to obfuscate
+      echo "-Exec Bypass" | base64
+
+      2º - copy the encoded string to paste it on your script
+      LUV4ZWMgQnlwYXNzCg==
+
+      3º - Insert the follow lines into your batch script
+
        [use base64 to decode the encoded syscall]
        set "base64string=LUV4ZWMgQnlwYXNzCg=="
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
@@ -372,8 +380,17 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 - String command to obfuscate<br />
 `Get-date`
 
+
+      1º - encode the command you want to obfuscate
+      echo "Get-date" | base64
+
+      2º - copy the encoded string to paste it on your script
+      R2V0LURhdGUK
+
+      3º - Insert the follow lines into your powershell script
+
        [using powershell to decode base64 syscall]
-       $base64string=R2V0LURhdGUK
+       $base64string='R2V0LURhdGUK'
        $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)'
        powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
 
