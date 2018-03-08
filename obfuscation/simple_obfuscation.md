@@ -135,6 +135,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 - String command to obfuscate<br />
 `-Exec Bypass`
 
+- using base64 to decode the encoded syscall
+
       1º - encode the command you want to obfuscate
       echo "-Exec Bypass" | base64
 
@@ -143,11 +145,10 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       3º - Insert the follow lines into your batch script
 
-       [use base64 to decode the encoded syscall]
-       @echo off
-       set "base64string='LUV4ZWMgQnlwYXNzCg=='"
-       for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
-       cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode #<-- execute/decode the base64 syscall at runtime
+        @echo off
+        set "base64string='LUV4ZWMgQnlwYXNzCg=='"
+        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
+        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode #<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i.)
 
@@ -262,7 +263,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String command to obfuscate<br />
 `route -n`
 
-- Using **base64** to decode the bash local variable **$string** (syscall)
+- Using base64 to decode the encoded syscall
+
 
       1º - encode the command you want to obfuscate
       echo "route -n" | base64
@@ -271,9 +273,10 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       cm91dGUgLW4K
 
       3º - Insert the follow lines into your bash script
-      #!/bin/sh
-      string=`echo "cm91dGUgLW4K" | base64 -d`
-      $string   #<-- execute/decode the base64 syscall at runtime
+
+        #!/bin/sh
+        string=`echo "cm91dGUgLW4K" | base64 -d`
+        $string   #<-- execute/decode the base64 syscall at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
 
@@ -382,6 +385,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 - String command to obfuscate<br />
 `Get-date`
 
+- using powershell to decode base64 syscall
+
 
       1º - encode the command you want to obfuscate
       echo "Get-date" | base64
@@ -391,10 +396,9 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       3º - Insert the follow lines into your powershell script
 
-       [using powershell to decode base64 syscall]
-       $base64string='R2V0LURhdGUK'
-       $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)'
-       powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
+        $base64string='R2V0LURhdGUK'
+        $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)'
+        powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
 
 ![powershell obfuscation](http://i.)
 
