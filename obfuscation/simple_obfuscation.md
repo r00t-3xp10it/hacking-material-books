@@ -119,6 +119,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
        use base64 to decode the encoded syscall :)
 
+       [using pure batch and certutil]
        @echo off
        del /q /f "%temp%\b64"  >nul 2>nul
        del /q /f "%temp%\decoded"  >nul 2>nul
@@ -136,6 +137,12 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
        del /q /f "%temp%\b64"  >nul 2>nul
        del /q /f "%temp%\decoded"  >nul 2>nul
+
+
+       [using powershell]
+       set "base64string=YmFzZTY0c3RyaW5n"
+       for /f "tokens=* delims=" %%# in ('powershell[System.Text.Encoding]::UTF8.GetString([Syste.Convert]::FromBase64String("""%base64string%"""^^)') do set "decoded=%%#"
+       echo %decoded% <-- here is our base64 syscall decoded
 
 ---
 
