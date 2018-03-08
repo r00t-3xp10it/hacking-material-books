@@ -117,6 +117,18 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
 ---
 
+      1º - use this website to generate syscall's obfuscated  in hex
+           https://www.browserling.com/tools/hex-to-text
+      base64 syscalls obfuscated using 'certutil -encode "in-file" "out-file" > nul'
+
+      2º - insert hex syscall into your batch script and let certutil decode the syscall
+      @echo off
+      echo 73 33 63 72 33 74 > hex.txt
+      certutil -decodehex hex.txt bin.txt
+      ::Hex2Bin
+
+---
+
 <br /><br /><br /><br />
 
 ## Bash Obfuscation
