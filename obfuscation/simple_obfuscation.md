@@ -354,7 +354,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
 
-[*] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
+[!] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
