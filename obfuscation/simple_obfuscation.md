@@ -119,27 +119,7 @@ https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/p
 
        use base64 to decode the encoded syscall :) [base64 decoded:-Exec Bypass]
 
-       [using pure batch and certutil]
-       @echo off
-       del /q /f "%temp%\b64"  >nul 2>nul
-       del /q /f "%temp%\decoded"  >nul 2>nul
-
-       set "base64string=LUV4ZWMgQnlwYXNzCg=="
-       echo -----BEGIN CERTIFICATE----->"%temp%\b64"
-       <nul set /p=%base64string% >>"%temp%\b64"
-       echo -----END CERTIFICATE----->>"%temp%\b64"
-
-       certutil /decode "%temp%\b64" "%temp%\decoded" >nul 2>nul
-
-
-       for /f "useback tokens=* delims=" %%# in ("%temp%\decoded")  do set "decoded=%%#"
-       echo %decoded% <-- here is our base64 syscall decoded
-
-       del /q /f "%temp%\b64"  >nul 2>nul
-       del /q /f "%temp%\decoded"  >nul 2>nul
-
-
-       [using powershell]
+       [using powershell inside batch interpreter]
        set "base64string=LUV4ZWMgQnlwYXNzCg=="
        for /f "tokens=* delims=" %%# in ('powershell[System.Text.Encoding]::UTF8.GetString([Syste.Convert]::FromBase64String("""%base64string%"""^^)') do set "decoded=%%#"
        echo %decoded% <-- here is our base64 syscall decoded
