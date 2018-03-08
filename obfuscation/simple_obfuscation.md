@@ -325,7 +325,7 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-      RTLO Powershell cames with one buitin feature (::Reverse) that allow us to change the
+      [RTLO] Powershell cames with one buitin feature (::Reverse) that allow us to change the
       text alignment from left to rigth side (arabe alignment). That allow us to use it as
       one obfuscation technic (writing syscall's backwards) and 'revert' them at runtime.
 
