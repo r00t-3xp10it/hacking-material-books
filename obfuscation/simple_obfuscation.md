@@ -86,8 +86,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       Obfuscating windows batch files using undefined environmental variables.
-      Inside .bat files undefined environmental variables are expanded to empty
-      strings. Since cmd.exe allows using variables inside commands.
+      Inside .bat files undefined environmental variables are expanded into empty strings
+      Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
 
       1º Choose some set of environmental variables that you are certain are not defined
          on most of the machines e.g. single or two letter variables like %A%, %B%, %C%
