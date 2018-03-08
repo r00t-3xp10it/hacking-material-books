@@ -144,7 +144,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       3º - Insert the follow lines into your batch script
 
        [use base64 to decode the encoded syscall]
-       set "base64string=LUV4ZWMgQnlwYXNzCg=="
+       @echo off
+       set "base64string='LUV4ZWMgQnlwYXNzCg=='"
        for /f "tokens=* delims=" %%# in ('powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""%base64string%"""^)^)') do set "decoded=%%#"
        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode #<-- execute/decode the base64 syscall at runtime
 
@@ -270,6 +271,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       cm91dGUgLW4K
 
       3º - Insert the follow lines into your bash script
+      #!/bin/sh
       string=`echo "cm91dGUgLW4K" | base64 -d`
       $string   #<-- execute/decode the base64 syscall at runtime
 
