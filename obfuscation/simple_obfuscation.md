@@ -446,24 +446,27 @@ The above string can be obfuscated using **powershell special characters:** **`*
 <br />
 
 - String command to obfuscate<br />
-`Get-date`
+`Date`
 
 - using powershell to decode base64 syscall
 
 
       1º - encode the command you want to obfuscate
-      echo "Get-date" | base64
+      echo "Date" | base64
 
       2º - copy the encoded string to paste it on your script
-      R2V0LURhdGUK
+      RGF0ZQ0=
 
       3º - Insert the follow lines into your powershell script
 
-        $Certificate="R2V0LURhdGUK"
+        $Certificate="RGF0ZQ0="
         $Decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
         powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation](http://i.cubeupload.com/E1Y8xV.jpg)
+
+- Here we can view the all process of encoding/decoding in powershell term
+![powershell obfuscation](http://i.cubeupload.com/FTnIue.jpg)
 
 ---
 
