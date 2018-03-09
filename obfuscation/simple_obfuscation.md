@@ -465,7 +465,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/E1Y8xV.jpg)
 
-- Here we can view the all process of encoding/decoding in powershell term
+Here we can view the all process of encoding/decoding in powershell term
 ![powershell obfuscation](http://i.cubeupload.com/FTnIue.jpg)
 
 ---
