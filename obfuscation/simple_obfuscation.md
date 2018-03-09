@@ -461,7 +461,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
         $Certificate="RGF0ZQ0="
         $Decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
-        powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
+        powershell.exe Get-$decoded   #<-- execute/decode the base64 syscall at runtime
 
 ![powershell obfuscation](http://i.cubeupload.com/E1Y8xV.jpg)
 
