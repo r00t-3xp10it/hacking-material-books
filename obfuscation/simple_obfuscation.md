@@ -359,7 +359,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 ![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
 
 ---
-
+      'Powershell allow us to access windows environment variables using $env: switch'
       Using $env:LOCALAPPDATA (windows environment variable) and -Join '' to pull out the 0º ,23º, 21º,7º and 7º
       chars from $env:LOCALAPPDATA and then the -Join '' operator will take the array and convert it to a string.
 
