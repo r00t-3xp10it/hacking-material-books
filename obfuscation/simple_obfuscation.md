@@ -468,11 +468,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 
       2º - copy the encoded string to paste it on your script
-      RGF0ZQ0=
+      RGF0ZQo=
 
       3º - Insert the follow lines into your powershell script
 
-        $Certificate="RGF0ZQ0="
+        $Certificate="RGF0ZQo="
         $Decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
         powershell.exe Get-$decoded   #<-- execute/decode the base64 syscall at runtime
 
