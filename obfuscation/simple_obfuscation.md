@@ -360,8 +360,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      Using $env:comspec (windows environment variable) and -Join '' to pull out the 4º ,15º and 25º characters
-      from $env:comspec variable and then the -Join '' operator will take the array and convert it to a string.
+      Using $env:LOCALAPPDATA (windows environment variable) and -Join '' to pull out the 0º ,23º, 21º,7º and 7º
+      chars from $env:LOCALAPPDATA var and then the -Join '' operator will take the array and convert it to a string.
 
 <br />
 
