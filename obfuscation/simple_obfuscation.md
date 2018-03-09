@@ -92,7 +92,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-      We can also use batch local enviroment variables to scramble syscall's 
+      We can also use batch local enviroment variables to scramble the syscall's
+      'HINT: chose letter as: a e i o u' because they are the most commom ;)
 
 <br />
 
