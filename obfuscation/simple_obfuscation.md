@@ -152,7 +152,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 - using base64 to decode the encoded syscall
 
-      1º - encode the command you want to obfuscate
+      1º - encode the command you want to obfuscate (linux-terminal)
       echo "Exec Bypass" | base64
 
       2º - copy the encoded string to paste it on your script
@@ -294,7 +294,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - Using base64 to decode the encoded syscall
 
-      1º - encode the command you want to obfuscate
+      1º - encode the command you want to obfuscate (linux-terminal)
       echo "route -n" | base64
 
       2º - copy the encoded string to paste it on your script
@@ -466,11 +466,6 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       1º - encode the command you want to obfuscate (linux-terminal)
       echo "Date" | base64
-
-        encode the command you want to obfuscate (powershell-terminal)
-        [string]$StringToEncode="Date"
-        $EncodingString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($StringToEncode))
-
 
       2º - copy the encoded string to paste it on your script
       RGF0ZQo=
