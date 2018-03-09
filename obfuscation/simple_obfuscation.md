@@ -194,7 +194,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       w$@h$@o$@am$@i
 
-      w$@h\o$@am\i <-- Using the 2 previous methods together 
+      w$@h\o$@a"m"'i' <-- Using the 4 previous methods together 
 
 ![3 special characters](http://i.cubeupload.com/tLBdbW.png)
 
