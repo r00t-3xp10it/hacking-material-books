@@ -459,8 +459,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - using powershell to decode base64 syscall
 
 
-      1º - encode the command you want to obfuscate
+      1º - encode the command you want to obfuscate (linux-terminal)
       echo "Date" | base64
+
+           encode the command you want to obfuscate (powershell-terminal)
+           [string]$StringToEncode="Date"
+           $EncodingString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($$StringToEncode))
 
       2º - copy the encoded string to paste it on your script
       RGF0ZQ0=
