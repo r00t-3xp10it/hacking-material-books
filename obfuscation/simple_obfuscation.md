@@ -395,8 +395,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       Using -f (reorder) switch to re-order the strings in there correct order, the switch
       -f accepts strings separated by a comma, and the caret {} contains the string position
-      after the -f switch.. HINT: we are going to replace the syscall by one concaternated
-      local variable to be called at execution time.
+      after the -f switch.. HINT: we are going to replace another syscall by one concaternated
+      local variable to be called at execution time also (3 obfuscation technics used).
 
 <br />
 
