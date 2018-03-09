@@ -92,27 +92,6 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-      We can also use batch local enviroment variables to scramble the syscall's
-      'HINT: chose letter as: a e i o u' because they are the most commom ;)
-
-<br />
-
-- String command to obfuscate<br />
-`netstat -s -p tcp -f`<br />
-
-- String obfuscated (**test.bat**)<br />
-
-      @echo off
-      set ui=t
-      set pP0=p
-      set db0=a
-
-      ne%ui%st%db0%t -%s -%pP0% %ui%c%pP0% -f
-
-![batch obfuscation](http://i.)
-
----
-
       Obfuscating windows batch files using undefined environmental variables.
       Inside .bat files undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
@@ -132,6 +111,27 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       exit
 
 ![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)
+
+---
+
+      We can also use batch local enviroment variables to scramble the syscall's
+      'HINT: chose letters as: a e i o u' because they are the most commom ;)
+
+<br />
+
+- String command to obfuscate<br />
+`netstat -s -p tcp -f`<br />
+
+- String obfuscated (**test.bat**)<br />
+
+      @echo off
+      set ui=t
+      set pP0=p
+      set db0=a
+
+      ne%ui%st%db0%t -%s -%pP0% %ui%c%pP0% -f
+
+![batch obfuscation](http://i.)
 
 ---
 
