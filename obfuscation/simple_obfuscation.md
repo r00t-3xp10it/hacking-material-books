@@ -205,15 +205,23 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-- Using **rev <<<** to reverse the order of characters in a string
+      Using rev <<< to reverse the order of the characters in a string
 
-      DE-OBFUSCATED: lsblk -m
-      OBFUSCATED   : rev <<< 'm- klbsl' |$0
+<br />
+
+- String command to obfuscate<br />
+`lsblk -m`<br />
+
+- String obfuscated <br />
+`rev <<< 'm- klbsl' |$0`
 
 ![bash rev obfuscation](http://i.cubeupload.com/lsyzo5.png)
 
-      DE-OBFUSCATED: whoami
-      OBFUSCATED   : rev <<< i$@ma\o$@hw |$0
+- String command to obfuscate<br />
+`whoami`<br />
+
+- String obfuscated <br />
+`rev <<< i$@ma\o$@hw |$0`
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
 `HINT: Single quotes are not allowed in Combining rev <<< and the batch (\) escape character`
