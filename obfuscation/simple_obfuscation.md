@@ -98,16 +98,16 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 <br />
 
 - String command to obfuscate<br />
-`netstat -r | grep "default" | awk {'print $8'}`<br />
+`netstat -s -p tcp -f`<br />
 
 - String obfuscated (**test.bat**)<br />
 
       @echo off
       set ui=t
-      set pP0=r
+      set pP0=p
       set db0=a
 
-      ne%ui%st%db0%t -%pP0% | g%pP0%ep "def%db0%ul%ui%" | %db0%wk {'p%pP0%int $8'}
+      ne%ui%st%db0%t -%s -%pP0% %ui%c%pP0% -f
 
 ![batch obfuscation](http://i.)
 
