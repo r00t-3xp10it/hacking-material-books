@@ -342,7 +342,7 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
-      We can obfuscate syscall's by simple split them into local variables or contaternate them
+      We can obfuscate syscall's by simple split them into local variables or concaternate them
 
 <br />
 
