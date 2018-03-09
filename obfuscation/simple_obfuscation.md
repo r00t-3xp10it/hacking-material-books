@@ -377,7 +377,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      Using an variable ($encoded) to 'split' the system call and then use .Split and -Join '' it back again.
+      Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Split("~~") -Join ''
+      to 'de-split' the syscall into a new local variable named $decoded, to be called as a syscall at run-time.
 
 <br />
 
