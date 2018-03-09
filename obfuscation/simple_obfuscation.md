@@ -139,7 +139,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
 
       HINT: Since windows dosen't have a base64 term interpreter built-in installed,
-      we have to choises to decode the base64 encoded syscall, or use the built-in
+      we have two choises to decode the base64 encoded syscall, or use the built-in
       powershell (::FromBase64String) switch to decode our syscall or we chose to use
       certutil, but certuil onlly accepts strings taken from inside a text file, in
       that situation we instruct our script to writte the text files containing the
@@ -459,8 +459,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       3º - Insert the follow lines into your powershell script
 
-        $base64string='R2V0LURhdGUK';
-        $decoded = 'powershell [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("""$base64string"""^)^)';
+        $Certificate="R2V0LURhdGUK"
+        $Decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
         powershell.exe $decoded   #<-- execute/decode the base64 syscall at runtime
 
 ![powershell obfuscation](http://i.)
