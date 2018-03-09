@@ -648,7 +648,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## FINAL NOTES - REMARKS
 
-      95% of the obfuscation technics in the 'powershell' section contained in this article are
+      90% of the obfuscation technics in the 'powershell' section contained in this article are
       based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon.
 
       Also keep in mind of the most common obfuscations technics like write a file on disk before
