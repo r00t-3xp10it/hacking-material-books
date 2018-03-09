@@ -92,6 +92,28 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
+      We can also use batch local enviroment variables to scramble syscall's 
+
+<br />
+
+- String command to obfuscate<br />
+`netstat -r | grep "default" | awk {'print $8'}`<br />
+
+- String obfuscated (**test.bat**)<br />
+
+      @echo off
+      set pP0=-r
+      set db1=awk
+      set 010=print
+      set fU5=default
+      set h1r0=netstat
+      %h1r0% %pP0% | grep "%fU5%" | %db1% {'%010% $8'}
+      pause
+
+![batch obfuscation](http://i.)
+
+---
+
       Obfuscating windows batch files using undefined environmental variables.
       Inside .bat files undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
