@@ -64,7 +64,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-- We can also **pipe** commands to avoid detection
+- We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
 
       echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -72,8 +72,13 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-      Using a batch redirection caret (<nul) to 'escape' tokens.
-      'If you place a token at the caret the token is replaced by a empty string'.
+      Using a batch redirection caret (<nul) to add a extra layer of rubish data into your oneliner.
+      HINT: the <nul caret will be replaced by a empty string at execution time, And If used the special
+      character ^ at the end of the <nul caret them the token written next to it will also be replaced
+      by a empty string, Example: cmd.exe /c start <nul^DataToDelete calc
+
+<br />
+
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
@@ -89,8 +94,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       Inside .bat files undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
 
-      1º Choose some set of environmental variables that you are certain are not defined
-         on most of the machines e.g. single or two letter variables like %A%, %B%, %C%
+      Choose some set of environmental variables that you are certain are not defined
+      on most of the machines Example: single or two letter variables like %A%, %B%, %C%
 
 <br />
 
@@ -108,7 +113,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
-      strings inside the %varoBj% variable to build our command. [special thanks to: @Wandoelmo Silva]
+      strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
 
 <br />
 
@@ -131,6 +136,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.bat dosen't contain any real malicious syscall's to be scan/flagged. 
 
+<br />
 
 - String command to obfuscate<br />
 `-Exec Bypass`
@@ -217,12 +223,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated (**oneliner**)<br />
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
-      OUTPUT: print parsed data on screen (route syscall pulled from inside $M variable)
+      [ print parsed data on screen (route syscall pulled from inside $M variable) ]
 
 ![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} |$0
-      OUTPUT: parsing data inside $M variable to extract and 'execute' the string: route
+      [ parsing data inside $M variable to extract and 'execute' the string: route ]
 
 ![bash obfuscation](http://i.cubeupload.com/eRmZtT.jpg)
 `HINT: The var ${M:0:1} extracts the letter U from inside the $M local variable`
@@ -243,12 +249,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated (**oneliner**)<br />
 
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
-      OUTPUT: parsing data inside $skid and $s variables to extract the string: whoami
+      [ parsing data inside $skid and $s variables to extract the string: whoami ]
 
 ![bash obfuscation](http://i.cubeupload.com/HkX7JH.png)
 
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done |$0
-      OUTPUT: parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami
+      [ parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami ]
 
 ![bash obfuscation](http://i.cubeupload.com/gdgswy.png)
 
@@ -259,12 +265,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.sh dosen't contain any real malicious syscall's to be scan/flagged. 
 
+<br />
 
 - String command to obfuscate<br />
 `route -n`
 
 - Using base64 to decode the encoded syscall
-
 
       1º - encode the command you want to obfuscate
       echo "route -n" | base64
