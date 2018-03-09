@@ -400,7 +400,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 <br />
 
 - String command to obfuscate<br />
-`Get-Service`
+`Get-Service` And `TeamViewer`
 
 - String obfuscated<br />
 `("{0}{2}{1}{3}" -f'vice','Ser','G','et-')`
