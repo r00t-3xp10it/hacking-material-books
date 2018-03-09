@@ -136,7 +136,14 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
-      the agent.bat dosen't contain any real malicious syscall's to be scan/flagged. 
+      the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
+
+      HINT: Since windows dosen't have a base64 term interpreter built-in installed,
+      we have to choises to decode the base64 encoded syscall, or use the built-in
+      powershell (::FromBase64String) switch to decode our syscall or we chose to use
+      certutil, but certuil onlly accepts strings taken from inside a text file, in
+      that situation we instruct our script to writte the text files containing the
+      obfuscated syscall's before further head using certutil to decode them.
 
 <br />
 
