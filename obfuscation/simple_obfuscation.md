@@ -115,23 +115,26 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       We can also use batch local enviroment variables to scramble the syscall's
-      'HINT: chose letters as: a e i o u' because they are the most commom ;)
+      Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
+      HINT: chose letters as: 'a e i o u' because they are the most commom ;)
+      HINT: dont leave 'empty spaces' defining variables (set i#=t<empty-space>)
 
 <br />
 
 - String command to obfuscate<br />
-`netstat -s -p tcp -f`<br />
+`netstat -s | findstr Opens`<br />
 
 - String obfuscated (**test.bat**)<br />
 
       @echo off
-      set ui=t
+      set i#=t
       set pP0=p
       set db0=a
+      set !h=n
 
-      ne%ui%st%db0%t -%s -%pP0% %ui%c%pP0% -f
+      %!h%e%i#%st%db0%%i#% -s | fi%!h%ds%i#%r O%pP0%e%!h%s
 
-![batch obfuscation](http://i.)
+![batch obfuscation](http://i.cubeupload.com/r6dWN8.jpg)
 
 ---
 
