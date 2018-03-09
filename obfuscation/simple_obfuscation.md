@@ -387,7 +387,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 
       $encoded = "Get-WmiObject -Class Win32_ComputerSystem"
-      $decoded = $encoded.Split("~~") -Join '')
+      $decoded = $encoded.Split("~~") -Join ''
       poweshell.exe $decoded 
 
 ![powershell obfuscation](http://i.cubeupload.com/0HwnAL.jpg)
