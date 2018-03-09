@@ -163,7 +163,8 @@ The above string can be obfuscated using the **batch special character: ^** <br 
         @echo off
         set syscall=LUV4ZWMgQnlwYXNzCg==
           #
-          # REMAK: to test on terminal remove the extra % from %%i
+          # REMARK: to test on terminal remove the extra % from %%i
+          # REMARK: If local var can't be accessed from cmd, setX syscall LUV4ZWMgQnlwYXNzCg==
           # https://serverfault.com/questions/349585/how-do-i-set-an-environmental-variable-from-a-powershell-command
           #
           for /F "usebackq tokens=1" %%i in (`powershell ^([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall))^)`) do set decoded=%%i
