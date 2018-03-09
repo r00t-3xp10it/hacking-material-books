@@ -102,13 +102,11 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 - String obfuscated (**test.bat**)<br />
 
       @echo off
-      set pP0=-r
-      set db1=awk
-      set 010=print
-      set fU5=default
-      set h1r0=netstat
-      %h1r0% %pP0% | grep "%fU5%" | %db1% {'%010% $8'}
-      pause
+      set ui=t
+      set pP0=r
+      set db0=a
+
+      ne%ui%st%db0%t -%pP0% | g%pP0%ep "def%db0%ul%ui%" | %db0%wk {'p%pP0%int $8'}
 
 ![batch obfuscation](http://i.)
 
