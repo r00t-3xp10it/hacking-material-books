@@ -25,15 +25,15 @@
 
 ## Glosario:
 [0] <- Yes, just because in computing the 0 its an importante number too :P<br />
-[1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
+[1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)
 - Using batch special character: ^
-- Any formula can be start with: @ or = or , or ;
+- Any formula can be started with: @ or = or , or ;
 - Pipe commands to avoid detection adding rubish data
 - Using a batch redirection caret: <nul
 - Use batch local enviroment variables to scramble the syscall's
 - Obfuscating windows batch files using undefined environmental variables
 - %varObj% MasterKey by: @Wandoelmo Silva
-- Using base64 stings decoded at runtime
+- Using base64 stings decoded at runtime<br />
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
