@@ -404,8 +404,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `Get-Service` And `TeamViewer`
 
 - String obfuscated<br />
-`("{0}{2}{1}{3}" -f'vice','Ser','G','et-')`
-`$first='Te'+'amV'+'iewer'`
+`("{0}{2}{1}{3}" -f'vice','Ser','G','et-')` And `$first='Te'+'amV'+'iewer'`
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
