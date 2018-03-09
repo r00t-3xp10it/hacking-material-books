@@ -464,7 +464,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
         encode the command you want to obfuscate (powershell-terminal)
         [string]$StringToEncode="Date"
-        $EncodingString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($$StringToEncode))
+        $EncodingString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($StringToEncode))
 
 
       2º - copy the encoded string to paste it on your script
@@ -473,7 +473,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       3º - Insert the follow lines into your powershell script
 
         $Certificate="RGF0ZQo="
-        $Decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
+        $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
         powershell.exe Get-$decoded   #<-- execute/decode the base64 syscall at runtime
 
 ![powershell obfuscation](http://i.cubeupload.com/E1Y8xV.jpg)
