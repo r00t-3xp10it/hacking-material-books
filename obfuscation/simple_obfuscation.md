@@ -375,10 +375,10 @@ The above string can be obfuscated using the **powershell special character: `**
 
 - Using one **batch** local variable inside the **powershell interpreter**
 
-      cmd.exe /c "set var=Get-Date && cmd.exe /c echo %var%^" | powershell.exe
+      cmd.exe /c "set var=Get-Date&& cmd.exe /c echo %var%^" | powershell.exe
 
       "powershell" can be set and called as variable in cmd.exe too
-      cmd /c "set p1=power&& set p2=shell&& cmd /c echo Write -Host SUCCESS -Fore Green ^| %p1%%p2% - "
+      cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo Write -Host SUCCESS -Fore Green ^| %p1%%p2% - "
 
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
