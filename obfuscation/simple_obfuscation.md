@@ -82,7 +82,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
 
-      [Using four diferent technics]
+      [Using 3 diferent technics (=@|^|")]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
 ![batch obfuscation](http://i.cubeupload.com/gB8tsA.jpg)
