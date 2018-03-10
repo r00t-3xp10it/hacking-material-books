@@ -737,7 +737,6 @@ Here we can view the all process of encoding/decoding in powershell console
 [4] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
 [5] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
 [6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
-[7] [If you know more technics, and want to contribute to this article, fell free to report them here:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
 
 <br />
 
