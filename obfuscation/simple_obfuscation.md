@@ -32,8 +32,8 @@
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
-[8] [If you know more technics, and want to contribute to this article:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
-[9] [Send me BitCoins to writte the 2º series of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
+[8] [Send me BitCoins to writte the 2º series of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
+[9] [If you know more technics, and want to contribute to this article:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
 
 ---
 
