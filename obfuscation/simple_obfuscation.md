@@ -384,7 +384,7 @@ The above string can be obfuscated using the **powershell special character: `**
 
 - More Obfuscated using powershell **`** and batch **^** special characters
 
-      c`md`.e`xe /c "s^Et va^r=Get-Date && c^md^.e^xe /c e^ch^o %var%^" | power`shell.`ex`e
+      c`md`.e`xe /c "s^Et va^r=Get-Date&& c^md^.e^xe /c e^ch^o %var%^" | power`shell.`ex`e
 
 ![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
 
