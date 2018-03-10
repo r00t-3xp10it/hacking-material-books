@@ -169,7 +169,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       that situation we instruct our script to writte the text files containing the
       obfuscated syscall's before further head using certutil to decode them.
 
-      REMARK: If the local var can't be accessed from cmd, setX syscall R2V0LURhdGUK
+      REMARK: If the local var can't be accessed from cmd, setX syscall=R2V0LURhdGUK
 
 <br />
 
