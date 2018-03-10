@@ -187,7 +187,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       3º - Insert the follow lines into your batch script
 
         @echo off
-        set syscall=R2V0LURhdGUK
+        set syscall=R2V0LURhdGUK :: <-- WARNING: Dont leave any 'empty spaces' in variable creation
         powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i.cubeupload.com/Ofwhkg.jpg)
