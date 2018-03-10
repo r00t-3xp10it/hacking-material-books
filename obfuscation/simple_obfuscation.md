@@ -377,8 +377,8 @@ The above string can be obfuscated using the **powershell special character: `**
 
       cmd.exe /c "set var=Get-Date&& cmd.exe /c echo %var%^" | powershell.exe
 
-      "powershell" can be set and called as variable in cmd.exe too
-      cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo Write -Host SUCCESS -Fore Green ^| %p1%%p2% - "
+      [ "powershell" can be also set and called as variable in cmd.exe ]
+      cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo Write -Host SUCCESS -Fore Green ^" | %p1%%p2%.exe Get-Date
 
 
 ![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
