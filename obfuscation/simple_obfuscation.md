@@ -351,7 +351,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
         string=`echo "cm91dGUgLW4K" | base64 -d`
         $string   #<-- execute/decode the base64 syscall at runtime
 
-![bash obfuscation](http://i.cubeupload.com/gXKy3s.png)
+![bash obfuscation](http://i.cubeupload.com/BPHOln.jpg)
 
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
