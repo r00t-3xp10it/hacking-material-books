@@ -169,32 +169,28 @@ The above string can be obfuscated using the **batch special character: ^** <br 
       that situation we instruct our script to writte the text files containing the
       obfuscated syscall's before further head using certutil to decode them.
 
+      REMARK: If the local var can't be accessed from cmd, setX syscall R2V0LURhdGUK
+
 <br />
 
 - String command to obfuscate<br />
-`Exec Bypass`
+`Get-Date`
 
 - using base64 to decode the encoded syscall
 
       1º - encode the command you want to obfuscate (linux-terminal)
-      echo "Exec Bypass" | base64
+      echo "Get-Date" | base64
 
       2º - copy the encoded string to paste it on your script
-      RXhlYyBCeXBhc3MK
+      R2V0LURhdGUK
 
       3º - Insert the follow lines into your batch script
 
         @echo off
-        set syscall=RXhlYyBCeXBhc3MK
-          #
-          # REMARK: to test on terminal remove the extra % from %%i
-          # REMARK: If local var can't be accessed from cmd, setX syscall RXhlYyBCeXBhc3MK
-          # https://serverfault.com/questions/349585/how-do-i-set-an-environmental-variable-from-a-powershell-command
-          #
-          for /F "usebackq tokens=1" %%i in (`powershell ^([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall))^)`) do set decoded=%%i
-        cmd.exe /c powershell.exe -nop -%decoded% -noni -enc $shellcode ::<-- execute/decode the base64 syscall at runtime
+        set syscall=R2V0LURhdGUK
+        powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
 
-![batch obfuscation](http://i.)
+![batch obfuscation](http://i.cubeupload.com/Ofwhkg.jpg)
 
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
