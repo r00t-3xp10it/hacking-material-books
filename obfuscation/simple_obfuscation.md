@@ -337,7 +337,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String command to obfuscate<br />
 `route -n`
 
-- Using base64 to decode the encoded syscall
+- Using base64 to decode the encoded syscall (test.sh)
 
       1º - encode the command you want to obfuscate (linux-terminal)
       echo "route -n" | base64
