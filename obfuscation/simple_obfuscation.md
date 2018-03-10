@@ -32,7 +32,8 @@
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
-[8] [Send me BitCoins to writte the 2º series of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
+[8] [If you know more technics, and want to contribute to this article, fell free to report them here:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
+[9] [Send me BitCoins to writte the 2º series of this article :D](https://chrome.google.com/webstore/detail/no-coin-block-miners-on-t/gojamcfopckidlocpkbelmpjcgmbgjcl)<br />
 
 ---
 
@@ -80,7 +81,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-      [Using two diferent technics]
+
+      [Using four diferent technics]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
 ![batch obfuscation](http://i.cubeupload.com/gB8tsA.jpg)
@@ -153,7 +155,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       set db0=a
       set !h=n
 
-      %!h%e%i#%st%db0%%i#% -s | fi%!h%ds%i#%r O%pP0%e%!h%s
+      %!h%e%i#%st%db0%%i#% -"s" | fi%!h%ds%i#%r O%pP0%e%!h%s
 
 ![batch obfuscation](http://i.cubeupload.com/r6dWN8.jpg)
 
@@ -735,6 +737,7 @@ Here we can view the all process of encoding/decoding in powershell console
 [4] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
 [5] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
 [6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
+[7] [If you know more technics, and want to contribute to this article, fell free to report them here:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
 
 <br />
 
