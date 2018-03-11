@@ -801,13 +801,13 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- 1º - Take one **obfuscated** command and store it into $encode variable
+- 1º - Take one **obfuscated** command and store it into **$encode** variable
 
            [String]$encode="G`et-Wm`iOb`ject"   #<-- Use allway an impar number of ` special characters
 
 <br />
 
-- 2º - **Encode** the $encode var into a **base64 string** and store it **into $encodeString** var
+- 2º - **Encode** the $encode var into a **base64 string** and store it into **$encodeString** var
 
            $encodeString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encode))
 
@@ -823,7 +823,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
            $rebOfuscation = "R2VOLVdtaU9iamVjdA=="
            $syscall=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reObfuscation))
-           powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode/deobfuscate the syscall at run-time.
+           powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode the syscall at run-time.
 
 ![powershell obfuscation](http://i.cubeupload.com/Xg6fEQ.jpg)
 
