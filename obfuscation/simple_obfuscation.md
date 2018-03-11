@@ -801,22 +801,26 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      1º - Take one obfuscated command and store it into $encode variable
+- 1º - Take one **obfuscated** command and store it into $encode variable
+
            [String]$encode="G`et-Wm`iOb`ject"   #<-- Use allway an impar number of ` special characters
 
 <br />
 
-      2º - Encode the $encode var into a base64 string and store it into $encodeString var
+- 2º - **Encode** the $encode var into a **base64 string** and store it **into $encodeString** var
+
            $encodeString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encode))
 
 <br />
 
-      3ª - Display/Copy the reObfuscated base64 string
+- 3ª - **Display/Copy** the reObfuscated base64 string
+
            Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green
 
 <br /><br />
 
-      4º - Add the follow lines to your script.ps1
+- 4º - Add the follow lines to **your script.ps1**
+
            $rebOfuscation = "R2VOLVdtaU9iamVjdA=="
            $syscall=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reObfuscation))
            powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode/deobfuscate the syscall at run-time.
