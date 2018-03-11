@@ -115,7 +115,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ---
 
       Obfuscating windows batch files using undefined environmental variables.
-      Inside .bat files undefined environmental variables are expanded into empty strings
+      '''Inside .bat files''' undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
 
       Choose some set of environmental variables that you are certain are not defined
