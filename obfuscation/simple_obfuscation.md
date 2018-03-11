@@ -525,7 +525,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-      **Stacking** 're-order' commands together with the **;** operator. Remmenber that
+      Stacking 're-order' commands together with the ; operator. Remmenber that
       we can also store the re-order method inside an local variable to be called at run-time.
       Example: $syscall = ("{3}{0}{2}{4}" -f'voke','es','-Expr','In','sion')
 
@@ -801,29 +801,21 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- 1º - Take one **obfuscated** command and store it into **$encode** variable
-
+      1º - Take one obfuscated command and store it into $encode variable
            [String]$encode="G`et-Wm`iOb`ject"   #<-- Use allway an impar number of ` special characters
 
-<br />
-
-- 2º - **Encode** the $encode var into a **base64 string** and store it into **$encodeString** var
-
+      2º - Encode the $encode var into a base64 string and store it into $encodeString var
            $encodeString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encode))
 
-<br />
-
-- 3ª - **Display/Copy** the reObfuscated base64 string
-
+      3ª - Display/Copy the reObfuscated base64 string
            Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green
 
 ![powershell obfuscation](http://i.cubeupload.com/L4hMrt.jpg)
 
 
-<br /><br />
+<br />
 
-- 4º - Add the follow lines to **your script.ps1**
-
+      4º - Add the follow lines to your script.ps1
            $rebOfuscation = "R2VOLVdtaU9iamVjdA=="
            $syscall=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reObfuscation))
            powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode the syscall at run-time.
