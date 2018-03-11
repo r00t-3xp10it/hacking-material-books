@@ -817,6 +817,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
            Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green
 
+![powershell obfuscation](http://i.cubeupload.com/L4hMrt.jpg)
+
+
 <br /><br />
 
 - 4º - Add the follow lines to **your script.ps1**
