@@ -401,7 +401,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       $get = "G`et-Wm`iObj`ect"                     #<-- caret ` inside double quotes
       $Dow = 'Wi'+'n32_C'+'ompu'+'terS'+'ystem'     #<-- caret + inside single quotes
-      p`ow`ers`hell.e`xe $get -Class $Dow
+      p`ow`ers`hell.e`xe $get -Class $Dow           #<-- de-obfuscate syscall's at run-time
 
 ![powershell obfuscation](http://i.cubeupload.com/JosaOh.jpg)
 
