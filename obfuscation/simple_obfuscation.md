@@ -525,16 +525,17 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-
-TODO: - **Stacking** commands together with the **;** caret
+      **Stacking** 're-order' commands together with the **;** operator. Remmenber that
+      we can also store the re-order method inside an local variable to be called at run-time.
+      Example: $syscall = ("{3}{0}{2}{4}" -f'voke','es','-Expr','In','sion')
 
 - String command to obfuscate<br />
 `Invoke-Expression (New-Object)`
 
 - String obfuscated<br />
-`("{0}{2}{1}{3}" -f'Invoke','es','-Expr','sion') ; ("{0}{2}{1}" -f'(New','ject)','-Ob'))`
+`("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; ("{0}{2}{1}" -f'(New','ject)','-Ob'))`
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
 
 ---
 
@@ -553,8 +554,8 @@ TODO: - **Stacking** commands together with the **;** caret
 
       TODO: [ BitsTransfer ]
       Another way to download/execute remotelly our agent without using the powershell switch
-      'Net.WebClient.DownloadString' method. This method allow us to chose the download location
-      in target system and start the agent (exe).
+      'Net.WebClient.DownloadString' method. This method also allow us to chose the download
+      location of the agent in target system and start the agent (exe).
 
 <br />
 
@@ -785,19 +786,25 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      Article Reward technic [ re-obfuscation-encoding ] by: r00t-3xp10it
+      This technic can be used in cmd.exe | bash or powershell.exe interpreter, but this example
+      its written to describe the technic under powershell interpreter (terminal or script.ps1).
+
 <br />
 
-      TODO: Reward technic [ re-obfuscation-encoding ] by: r00t-3xp10it
-      This technic can be used in cmd.exe | bash | powershell.exe interpreter, but this example
-      its written to describe the technic under powershell interpreter (terminal or script.ps1)
+      1º - Take one obfuscated command and store it into $encode variable
+           [String]$encode="G`et-Wm`iOb`ject"   #<-- Use allway an impar number of ` special characters
+      2º - Encode the $encode var into a base64 string and store it into $encodeString var
+           $encodeString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encode))
+      3ª - Display/Copy the reObfuscated base64 string
+           Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green
 
-      1º - Take one obfuscated command                          (example: G`et-Wm`iOb`ject)
-      2º - Encode the obfuscated command into a base64 string   (RsNGdSIfGagTed=)
-      3º - $reobfuscation = "RsNGdSIfGagTed="                   (store encoded syscall into one psh variable)
-      4º - $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reobfuscation))
-      5º - powershell.exe $decoded -Class Win32_ComputerSystem  (decode the syscall at run-time)
+      4º - Add the follow lines to your script.ps1
+           $rebOfuscation = "R2VOLVdtaU9iamVjdA=="
+           $syscall=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reObfuscation))
+           powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode/deobfuscate the syscall at run-time.
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation](http://i.cubeupload.com/Xg6fEQ.jpg)
 
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 
@@ -807,6 +814,7 @@ Here we can view the all process of encoding/decoding in powershell console
 **@danielbohannon** **@Andy Green** **@404death**<br />
 **@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**
+**@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**
 
 <br />
 
