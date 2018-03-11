@@ -792,6 +792,15 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+- String command to obfuscate<br />
+`Get-WmiObject`
+
+- String to be transformed into base64<br />
+
+      `G`et-Wm`iOb`ject
+
+<br />
+
       1º - Take one obfuscated command and store it into $encode variable
            [String]$encode="G`et-Wm`iOb`ject"   #<-- Use allway an impar number of ` special characters
       2º - Encode the $encode var into a base64 string and store it into $encodeString var
