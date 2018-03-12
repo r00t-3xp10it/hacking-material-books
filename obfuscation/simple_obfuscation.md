@@ -829,8 +829,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![powershell obfuscation](http://i.cubeupload.com/Xg6fEQ.jpg)
 
-[0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
-
 ---
 
 ### Special thanks
