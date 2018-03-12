@@ -773,6 +773,11 @@ Here we can view the all process of encoding/decoding in powershell console
       and the last but not least, Concatenate/splatting all function names also to use big and small
       letters (eg: Po"W"e^Rs%!h%E^lL"."e^%i:~14,1%^E) since cmd.exe interpreter its not case sensitive.
 
+      Less used powershell parameters: powershell.exe -noP -Win hidden -ep ByPass -nonI -en
+      check the full list in Referencies URL link [5] http://www.danielbohannon.com/blog-1/
+      2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier
+
+
       Its never to late to remmenber that diferent technics can be combined together to achieve
       better results. The next example shows one powershell (psh-cmd) payload embbebed into one
       template.bat using 5 diferent batch obfuscation technics found in this article (only batch technics)
@@ -840,8 +845,8 @@ Here we can view the all process of encoding/decoding in powershell console
 [2] https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf<br />
 [3] https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/<br />
 [4] http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9<br />
-[5] https://malwaretips.com/threads/how-to-de-obfuscate-powershell-script-commands-examples.76369/<br />
-[6] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
+[5] http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier<br />
+[6] https://researchcenter.paloaltonetworks.com/2017/03/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/<br />
 
 <br />
 
