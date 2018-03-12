@@ -777,7 +777,6 @@ Here we can view the all process of encoding/decoding in powershell console
       check the full list in Referencies URL link [5] http://www.danielbohannon.com/blog-1/
       2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier
 
-
       Its never to late to remmenber that diferent technics can be combined together to achieve
       better results. The next example shows one powershell (psh-cmd) payload embbebed into one
       template.bat using 5 diferent batch obfuscation technics found in this article (only batch technics)
