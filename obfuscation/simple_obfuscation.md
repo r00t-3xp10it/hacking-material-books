@@ -389,7 +389,8 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
-      We can obfuscate syscall's by simple split them into local variables and concaternate them
+      We can obfuscate the syscall's by simple split them into local variables and concaternate
+      them using 'tick' + 'splatting' obfuscation methods inside variable declarations.
 
 <br />
 
@@ -406,7 +407,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 ![powershell obfuscation](http://i.cubeupload.com/JosaOh.jpg)
 
 ---
-      'Powershell also allow us to access windows environment variables using the $env: switch'
+      Powershell also allow us to access windows environment variables using the $env: switch
       Using $env:LOCALAPPDATA (windows environment variable) and -Join '' to pull out the 0º ,23º, 21º,7º and 7º
       chars from $env:LOCALAPPDATA and then the -Join '' operator will take the array and convert it to a string.
 
@@ -424,6 +425,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      [ .Split powershell parameter ]
       Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Split("~~") -Join ''
       to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
@@ -442,7 +444,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ -Replace powershell string syntax ]
+      [ -Replace powershell parameter ]
       Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Replace("~~","")
       to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
@@ -466,7 +468,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      TODO: [ ScriptBlock -Replace method ]
+      TODO: [ ScriptBlock -Replace parameter ]
       Build a variable named $ScriptBlockContents with the 'SPLIT' syscall inside, and use .Replace("+","")
       to 'de-split' the syscall into a new local variable named $syscall, to be called at run-time.
 
@@ -485,7 +487,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [RTLO] Powershell cames with one buitin feature (::Reverse) that allow us to change the
+      [ RTLO ] Powershell cames with one buitin feature (::Reverse) that allow us to change the
       text alignment from left to rigth side (arabe alignment). That built in feature allow us
       to use it as obfuscation technic (writing syscall's backwards) and 'revert' them at run-time.
 
@@ -496,12 +498,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      [Using ::Reverse Switch]
+      [ Using ::Reverse Switch ]
       $reverseCmd = "etaD.teG exe.llehsrewop"
       $reverseCmdCharArray = $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
       ($ReverseCmdCharArray-Join '') | IEX
 
-      [Using Regex]
+      [ Using Regex Switch ]
       $reverseCmd = "etaD.teG exe.llehsrewop"
       IEX (-Join[RegEx]::Matches($reverseCmd,'.','RightToLeft')) | IEX
 
@@ -510,6 +512,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      [ -f reorder parameter ]
       Using -f (reorder) switch to re-order the strings in there correct order, the switch
       -f accepts strings separated by a comma, and the caret {} contains the string position
       after the -f switch.. HINT: we are going to replace another syscall by one splatting
@@ -554,7 +557,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       TODO: [ BitsTransfer ]
       Another way to download/execute remotelly our agent without using the powershell switch
-      'Net.WebClient.DownloadString' method. This method also allow us to chose the download
+      (Net.WebClient).DownloadString method. This method also allow us to chose the download
       location of the agent in target system and start the agent (exe).
 
 <br />
