@@ -18,6 +18,9 @@
 
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
+**Example of an obfuscated powershell dropper** [ test.ps1 ]
+![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
+
 <br />
 
                                                - SPECIAL NOTE -
@@ -49,9 +52,6 @@
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
-
-**Example of an obfuscated powershell dropper** [ test.ps1 ]
-![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
 
 ---
 
