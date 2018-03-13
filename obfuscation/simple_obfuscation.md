@@ -830,11 +830,12 @@ Here we can view the all process of encoding/decoding in powershell console
       based in the exelent 'Invoke-Obfuscation' powershell cmdlet develop by: @danielbohannon.
 
       Also keep in mind of the most common obfuscations technics like write a file on disk before
-      executing any malicious actions (agent execution) replace any main functions (syscall's)
-      by base64 encoded variables/funtions, and store them inside your script (agent) to be called
-      at run-time execution, also remmenber to use 'Rubish Data' piped (|) before your system call's
-      and the last but not least, Concatenate/splatting all function names also to use big and small
-      letters (eg: Po"W"e^Rs%!h%E^lL"."e^%i:~14,1%^E) since cmd.exe interpreter its not case sensitive.
+      executing any malicious actions (agent execution) or execute obscure funtions, replace any
+      main functions (and syscall's) by base64 encoded variables/funtions, and store them inside
+      your script (agent) to be called at run-time, also remmenber to use 'Rubish Data' piped (|)
+      before your system call's and the last but not least, Tick,Concatenate/splatting all function
+      names also to use big and small letters (eg: P`o"W"e^Rs%!h%E^l%0D%L"."e^%i0:~14,1%^E) since
+      microsoft's interpreters are not case sensitive (powershell and cmd).
 
       Less used powershell parameters: powershell.exe -noP -Win hidden -ep ByPass -nonI -en
       check the full list in Referencies URL link [5] http://www.danielbohannon.com/blog-1/
