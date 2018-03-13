@@ -26,7 +26,7 @@
 
       Its also a good practice to test your obfuscation sourcecode in 'target' terminal console to check
       if the code its not broken with a missplaced special character or other diferent thing interfering
-      with sourcecode normal execution ..
+      with sourcecode normal execution, before sending your obfuscated code to target machine ..
 
 **Bad character sellection** [ batch escape character -used- in powershell interpreter ]
 ![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
