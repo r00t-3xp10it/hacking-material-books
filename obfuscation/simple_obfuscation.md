@@ -41,7 +41,7 @@
 <br /><br />
 
 ## Glosario:
-[0] <- Yes, just because in computing the 0 its an importante number too :P<br />
+[0] <- Yes, just because in computing 0 its an importante number too :P<br />
 [1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
@@ -148,7 +148,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
       exit
 
-![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)
+![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)<br />
 `HINT: Undefined variables technic are only accessible in bat scripting`
 ---
 
