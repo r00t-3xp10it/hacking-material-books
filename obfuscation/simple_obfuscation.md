@@ -32,7 +32,6 @@
 [5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
 [6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
-[8] [Contribute to this article:](https://github.com/r00t-3xp10it/hacking-material-books/issues/1)<br />
 
 ---
 
@@ -119,7 +118,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
 
       Choose some set of environmental variables that you are certain are not defined
-      on most of the machines Example: single or two letter variables like %A%, %B%, %C%
+      on most of the machines Example: single or two letter variables like %A%, %0B%, %C% ..
 
 <br />
 
@@ -133,7 +132,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       exit
 
 ![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)
-
+`HINT: Undefined variables technic are only accessible in bat scripting`
 ---
 
       We can also use batch local enviroment variables to scramble the syscall's
@@ -290,7 +289,9 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
 ---
 
-      Using rev <<< to reverse the order of the characters in a string
+      Using rev <<< to reverse the order of the characters in a string.
+      Using this technic allow us to writte the syscall's backwards and
+      decode/revert them at run-time execution (auto-exec: |$0 = /bin/bash).
 
 <br />
 
@@ -309,7 +310,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 `rev <<< i$@ma\o$@hw |$0`
 
 ![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
-`HINT: Single quotes are not allowed in Combining rev <<< and the batch (\) escape character`
+`HINT: Single quotes are not allowed in Combining rev <<< and the batch \ escape character`
 
 ---
 
@@ -333,7 +334,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       [ parsing data inside $M variable to extract and 'execute' the string: route ]
 
 ![bash obfuscation](http://i.cubeupload.com/eRmZtT.jpg)
-`HINT: The var ${M:0:1} extracts the letter U from inside the $M local variable`
+`HINT: The var ${M:0:1} extracts the letter U from inside the $M local var to build: route`
 
 ---
 
@@ -437,8 +438,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 
       $get = "G`et-Wm`iObj`ect"                     #<-- caret ` inside double quotes
-      $Dow = 'Wi'+'n32_C'+'ompu'+'terS'+'ystem'     #<-- caret + inside single quotes
-      p`ow`ers`hell.e`xe $get -Class $Dow           #<-- de-obfuscate syscall's at run-time
+      $sys = 'Wi'+'n32_C'+'ompu'+'terS'+'ystem'     #<-- caret + inside single quotes
+      p`ow`ers`hell.e`xe $get -Class $sys           #<-- de-obfuscate syscall's at run-time
 
 ![powershell obfuscation](http://i.cubeupload.com/JosaOh.jpg)
 
