@@ -20,9 +20,13 @@
 
                                                - SPECIAL NOTE -
 
-        remember that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
-        interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
-        console, then the powershell interpreter will not be able to escape the special character.
+      remember that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
+      interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
+      console, then the powershell interpreter will not be able to escape the special character.
+
+      Its also a good practice to test your obfuscation sourcecode in 'target' terminal console to check
+      if the code its not broken with a missplaced special character or other diferent thing interfering
+      with sourcecode normal execution ..
 
 **Bad character sellection** [ batch escape character -used- in powershell interpreter ]
 ![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
