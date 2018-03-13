@@ -48,7 +48,7 @@
 
 <br /><br />
 
-## Glosario:
+## Glosario (Index):
 [0] <- Yes, just because in computing 0 its an importante number too :P<br />
 [1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
@@ -934,7 +934,7 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
 ### Referencies
-[0] [This Article Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
+[0] [This Article Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 [1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
 [2] [danielbohannon - invoke-obfuscation-v11-release](http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9)<br />
 [3] [danielbohannon - Invoke-obfuscation Techniques how-to](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
