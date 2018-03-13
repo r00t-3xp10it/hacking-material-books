@@ -14,6 +14,8 @@
       evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
       system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
 
+                       And .. Yes, this article its all about red teaming (pentesting)
+
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
 <br />
