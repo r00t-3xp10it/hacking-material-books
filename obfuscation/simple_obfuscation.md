@@ -53,10 +53,13 @@
 [1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
-[4] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
-[6] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
-[7] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
+
+[4] [AMSI COM Bypass (HKCU Hijacking)]()<br />
+
+[5] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
+[6] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
+[7] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
+[8] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
 ---
 
@@ -696,6 +699,34 @@ Here we can view the all process of encoding/decoding in powershell console
 [!] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
+
+---
+
+<br /><br /><br /><br />
+
+## AMSI COM Bypass (HKCU)
+
+	
+
+Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface that provides the ability for AV engines to apply signatures to buffers both in memory and on disk. This gives AV products the ability to “hook” right before script interpretation,
+
+Since the COM server is resolved via the HKCU hive first, a normal user can hijack the InProcServer32 key and register a non-existent DLL (or a malicious one if you like code execution). In order to do this, there are two registry entries that need to be made:
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
+
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
+@="C:\\goawayamsi.dll"
+
+![enigma0x3 - AMSI Bypass](http://i.)
+
+When AMSI attempts to instantiate its COM component, it will query its registered CLSID and return a non-existent COM server. This causes a load failure and prevents any scanning methods from being accessed, ultimately rendering AMSI useless.
+
+Now, when we try to run our “malicious” AMSI test sample, you will notice that it is allowed to execute because AMSI is unable to access any of the scanning methods via its COM interface:
+
+
+
 ---
 
 <br /><br /><br /><br />
@@ -926,7 +957,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
 ### Special thanks
-**@danielbohannon** **@Andy Green** **@404death**<br />
+**@danielbohannon** **@AndyGreen** **enigma0x3**<br />
 **@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**<br />
 **@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**<br />
@@ -941,6 +972,7 @@ Here we can view the all process of encoding/decoding in powershell console
 [4] [varonis - powershell-obfuscation-stealth-through-confusion](https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/)<br />
 [5] [danielbohannon - powershell-execution-argument-obfuscation](http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier)<br />
 [6] [paloaltonetworks - pulling-back-the-curtains-on-encodedcommand-powershell](https://researchcenter.paloaltonetworks.com/2017/03/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/)<br />
+[7] [enigma0x3 - bypassing-amsi-via-com-server-hijacking](https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/)<br />
 
 <br />
 
