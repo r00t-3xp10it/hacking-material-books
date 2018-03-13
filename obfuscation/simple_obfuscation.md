@@ -14,9 +14,9 @@
       evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
       system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
 
-                       And .. Yes, this article its all about red teaming (pentesting)
+<br />
 
-**Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
+**Diagram of PowerShell execution arguments beeing flagged by AMSI security suite**<br />
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)<br />
 
 **Example of an obfuscated powershell dropper to evade AMSI detection** [ test.ps1 ]<br />
