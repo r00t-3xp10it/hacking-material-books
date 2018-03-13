@@ -931,9 +931,9 @@ Here we can view the all process of encoding/decoding in powershell console
 ### Referencies
 [0] [This Article Glosario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario)<br />
 [1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
-[2] [danielbohannon - Invoke-obfuscation Techniques](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
-[3] [varonis - powershell-obfuscation-stealth-through-confusion](https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/)<br />
-[4] [danielbohannon - invoke-obfuscation-v11-release](http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9)<br />
+[2] [danielbohannon - invoke-obfuscation-v11-release](http://www.danielbohannon.com/blog-1/2016/10/1/invoke-obfuscation-v11-release-sunday-oct-9)<br />
+[3] [danielbohannon - Invoke-obfuscation Techniques how-to](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
+[4] [varonis - powershell-obfuscation-stealth-through-confusion](https://blog.varonis.com/powershell-obfuscation-stealth-through-confusion-part-i/)<br />
 [5] [danielbohannon - powershell-execution-argument-obfuscation](http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier)<br />
 [6] [paloaltonetworks - pulling-back-the-curtains-on-encodedcommand-powershell](https://researchcenter.paloaltonetworks.com/2017/03/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/)<br />
 
