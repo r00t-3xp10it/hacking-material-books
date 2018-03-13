@@ -6,7 +6,7 @@
       I have found out that many A/V vendors and other detection frameworks and services were writing
       signatures for specific PowerShell attacks based solely on PowerShell execution arguments like:
 
-              -nop -exec bypass -win Hidden -noni -enc | -ep bypass -noni -w hidden -enc
+      -exec bypass -win Hidden -noni -enc | -ep bypass -noni -w hidden -enc | .WebClient).DonwloadString
 
       That and the amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile
       this article with a list of availale obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) and
