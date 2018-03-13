@@ -9,7 +9,7 @@
       -exec bypass -win Hidden -noni -enc | -ep bypass -noni -w hidden -enc | .WebClient).DonwloadString
 
       That and the amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile
-      this article with a list of availale obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) and
+      this article with a list of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) and
       powershell (psh-ps1), in one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
       evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
       system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
@@ -33,6 +33,10 @@
       Its also a good practice to test your obfuscation sourcecode in 'target' terminal console to check
       if the code its not broken with a missplaced special character or other diferent thing interfering
       with sourcecode normal execution, before sending your obfuscated code to target machine ..
+
+      To conduct this kind of tests we need to allow the execution of powershell scripts.
+      1º - Start Windows PowerShell with the "Run as Administrator" option.
+      2º - Execute the follow in terminal: set-executionpolicy remotesigned
 
 **Bad character sellection** [ batch escape character -used- in powershell interpreter ]
 ![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
