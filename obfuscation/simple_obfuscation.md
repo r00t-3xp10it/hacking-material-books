@@ -149,7 +149,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       exit
 
 ![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)<br />
-`HINT: Undefined variables technic are only accessible in bat scripting`
+`HINT: Undefined variables technic are only accessible in bat scripting (it will not work in terminal)`
 
 ---
 
