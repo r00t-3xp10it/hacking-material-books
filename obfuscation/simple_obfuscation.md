@@ -1,16 +1,25 @@
 ![banner](http://i.cubeupload.com/1Kopfs.jpg)
 
-      This article contains a list of simple obfuscation technics that can be used into obfuscating system
-      call's like (powershell.exe -EncodedCommand OR cmd.exe /c start /MIN) in one attempt to bypass AV's
-      AMSI and DEP detection mechanisms, why? let assume we have crypted our shellcode with one AES master
-      key, and the AV vendor can't read inside the crypted shellcode to determine if there actions are good
-      or bad, in this ocasion the AV vendor also looks for system call's that may reveal malicious actions.
+
+                                                  - INTRO -
+
+      I have found out that many A/V vendors and other detection frameworks and services were writing
+      signatures for specific PowerShell attacks based solely on PowerShell execution arguments like:
+
+              -nop -exec bypass -win Hidden -noni -enc | -ep bypass -noni -w hidden -enc
+
+      That and the amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile
+      this article with a list of availale obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) and
+      powershell (psh-ps1), in one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
+      evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
+      system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
 
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)
 
 <br />
 
-      SPECIAL NOTE:
+                                               - SPECIAL NOTE -
+
         remember that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
         interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
         console, then the powershell interpreter will not be able to escape the special character.
@@ -22,6 +31,8 @@
 ![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
 
 ---
+
+<br /><br />
 
 ## Glosario:
 [0] <- Yes, just because in computing the 0 its an importante number too :P<br />
