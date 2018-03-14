@@ -733,6 +733,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
 
+- **Being mean** ..<br />
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/cuJSGj.png)
+
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
