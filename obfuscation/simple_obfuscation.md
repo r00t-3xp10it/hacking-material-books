@@ -741,11 +741,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-<br />
+<br /> 
 
-- **AMSI** bypass using nul characters
+- **AMSI** bypass using nul bits
 
-      Bypass AMSI mechanism using nul characters before the actual funtion occurs.
+      Bypass AMSI mechanism using nul bits before the actual funtion occurs.
       For file contents, insert "#<NULL>" at the beginning of the file, and any places
       where additional scans with AMSI occur. For command line contents, wrap them into
       Invoke-Expression and prepend 'if(0){{{0}}}' -f $(0 -as [char]) +'
