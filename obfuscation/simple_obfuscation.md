@@ -998,12 +998,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- Scripts used in this article<br />
+### Scripts used in this article
 
-[1][trigger.bat](https://pastebin.com/hyBJHAgx)
-[2][template-demo.bat](https://pastebin.com/vnNELqd4)
-[3][Hello.ps1](https://pastebin.com/ELByB5y7)
-[4][AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
+[1][trigger.bat](https://pastebin.com/hyBJHAgx)<br />
+[2][template-demo.bat](https://pastebin.com/vnNELqd4)<br />
+[3][Hello.ps1](https://pastebin.com/ELByB5y7)<br />
+[4][AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
 
 ### Referencies
 [0] [This Article Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
