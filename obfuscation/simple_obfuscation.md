@@ -230,7 +230,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 <br />
 
-- File **trigger.bat** to be executed in target system
+- File **certutil-dropper.bat** to be executed in target system
 
       @echo off
       sEt !h=e
@@ -953,7 +953,7 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
 - Scripts used in this article:
-[1] [trigger.bat](https://pastebin.com/hyBJHAgx) [2] [template-demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
+[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [template-demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
 
 ---
 
