@@ -19,7 +19,7 @@
 **Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)<br />
 
-**Example of an obfuscated powershell dropper** [ test.ps1 ]<br />
+**Example of one obfuscated powershell dropper** [ test.ps1 ]<br />
 ![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
 
 <br />
@@ -692,8 +692,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-[!] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+[3] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 
 
 ---
