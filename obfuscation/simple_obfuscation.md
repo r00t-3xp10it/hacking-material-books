@@ -739,6 +739,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/T1TFFB.png)
 
+---
 
 <br />
 
