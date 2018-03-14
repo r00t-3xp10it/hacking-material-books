@@ -952,7 +952,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- Scripts used in this article:
+- Scripts used in this article:<br />
 [1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
 
 ---
