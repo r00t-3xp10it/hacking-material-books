@@ -706,6 +706,7 @@ Here we can view the all process of encoding/decoding in powershell console
       that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/6y9yF9.png)
+`HINT: Invoke-Expresion powershell method flagging AMSI detection`<br />
 
 <br />
 
@@ -731,7 +732,6 @@ Here we can view the all process of encoding/decoding in powershell console
       methods via its COM interface:
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
-`HINT: Invoke-Expresion powershell method flagging AMSI detection`
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
