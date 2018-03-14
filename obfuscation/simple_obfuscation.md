@@ -34,7 +34,7 @@
       if the code its not broken with a missplaced special character or other diferent thing interfering
       with sourcecode normal execution, before sending your obfuscated code to target machine ..
 
-           To conduct this kind of tests we need to allow the execution of powershell scripts.
+      To conduct this kind of tests (In powershell) we need to allow the execution of powershell scripts.
                  1º - Start Windows PowerShell with the "Run as Administrator" option.
                  2º - Execute the follow in terminal: set-executionpolicy remotesigned
 
@@ -948,6 +948,7 @@ Here we can view the all process of encoding/decoding in powershell console
       OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%'D'%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
 
 [!] [The above OBFUSCATED syscall (string) its embbebed into this demo template.bat](https://pastebin.com/vnNELqd4)<br />
+![Final notes](http://i.cubeupload.com/cSMFvg.png)<br />
 
 ---
 
