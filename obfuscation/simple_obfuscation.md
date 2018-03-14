@@ -60,6 +60,11 @@
 [7] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [8] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
+<br />
+
+- Scripts used in this article (demostration):<br />
+[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
+
 ---
 
 <br /><br /><br /><br /><br />
@@ -949,11 +954,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - demo.bat
 ![Final notes](http://i.cubeupload.com/8egJ8d.png)<br />
-
-<br />
-
-- Scripts used in this article:<br />
-[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
 
 ---
 
