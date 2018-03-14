@@ -16,10 +16,10 @@
 
 <br />
 
-**Diagram of PowerShell execution arguments beeing flagged by AMSI security suite**<br />
+**Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)<br />
 
-**Example of an obfuscated powershell dropper to evade AMSI detection** [ test.ps1 ]<br />
+**Example of an obfuscated powershell dropper** [ test.ps1 ]<br />
 ![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
 
 <br />
@@ -489,7 +489,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ .Split powershell parameter ]
+      [ .Split powershell method ]
       Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Split("~~") -Join ''
       to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
@@ -508,7 +508,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ -Replace powershell parameter ]
+      [ -Replace powershell method ]
       Build a variable named $encoded with the 'SPLIT' syscall inside, and use $encoded.Replace("~~","")
       to 'de-split' the syscall into a new local variable named $decoded, to be called at run-time.
 
@@ -532,7 +532,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ ScriptBlock -Replace parameter ]
+      [ ScriptBlock -Replace method ]
       Build a variable named $ScriptBlock with the 'SPLIT' syscall inside, and use .Replace("+","")
       to 'de-split' the syscall into a new local variable named $syscall, to be called at run-time.
 
@@ -562,12 +562,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      [ Using ::Reverse Switch ]
+      [ Using ::Reverse method ]
       $reverseCmd = "etaD.teG exe.llehsrewop"
       $reverseCmdCharArray = $reverseCmd.ToCharArray();[Array]::Reverse($reverseCmdCharArray);
       ($ReverseCmdCharArray-Join '') | IEX
 
-      [ Using Regex Switch ]
+      [ Using Regex method ]
       $reverseCmd = "etaD.teG exe.llehsrewop"
       IEX (-Join[RegEx]::Matches($reverseCmd,'.','RightToLeft')) | IEX
 
@@ -724,7 +724,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      When AMSI attempts to instantiate its COM component, it will query its registered CLSID and return a
+      When AMSI attempts to starts its COM component, it will query its registered CLSID and return a
       non-existent COM server. This causes a load failure and prevents any scanning methods from being
       accessed, ultimately rendering AMSI useless. Now, when we try to run our “malicious” AMSI test sample,
       you will notice that it is allowed to execute because AMSI is unable to access any of the scanning
@@ -963,7 +963,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
 ### Special thanks
-**@danielbohannon** **@AndyGreen** **enigma0x3**<br />
+**@danielbohannon** **@AndyGreen** **@enigma0x3**<br />
 **@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**<br />
 **@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**<br />
