@@ -731,6 +731,7 @@ Here we can view the all process of encoding/decoding in powershell console
       methods via its COM interface:
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
+`HINT: Invoke-Expresion powershell method flagging AMSI detection`
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
@@ -964,7 +965,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ### Special thanks
 **@danielbohannon** **@AndyGreen** **@enigma0x3**<br />
-**@daniel sauder(avet)** **@Wandoelmo Silva** and<br />
+**@daniel sauder (avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**<br />
 **@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**<br />
 
