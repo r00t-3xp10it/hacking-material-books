@@ -42,9 +42,9 @@
       if the code its not broken with a missplaced special character or other diferent thing interfering
       with sourcecode normal execution, before sending your obfuscated code to target machine ..
 
-      To conduct this kind of tests we need to allow the execution of powershell scripts.
-      1º - Start Windows PowerShell with the "Run as Administrator" option.
-      2º - Execute the follow in terminal: set-executionpolicy remotesigned
+           To conduct this kind of tests we need to allow the execution of powershell scripts.
+                 1º - Start Windows PowerShell with the "Run as Administrator" option.
+                 2º - Execute the follow in terminal: set-executionpolicy remotesigned
 
 ---
 
