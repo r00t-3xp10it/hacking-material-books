@@ -733,7 +733,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
 
-- **Being mean** .. [ one agent with AMSI bypass abilities ;) ]<br />
+- **Being mean** .. [ one agent.bat with AMSI bypass abilities ;) ]<br />
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/cuJSGj.png)
 
