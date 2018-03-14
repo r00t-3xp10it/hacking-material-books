@@ -62,8 +62,12 @@
 
 <br />
 
-- Scripts used in this article (demostration):<br />
-[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
+- Scripts used in this article (**demostration**):<br />
+[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx)<br />
+[2] [demo.bat](https://pastebin.com/vnNELqd4)<br />
+[3] [Hello.ps1](https://pastebin.com/ELByB5y7)<br />
+[4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y)<br />
+[5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
 
 ---
 
