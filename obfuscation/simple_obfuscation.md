@@ -947,13 +947,13 @@ Here we can view the all process of encoding/decoding in powershell console
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
       OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%'D'%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
 
-- template-demo.bat
+- demo.bat
 ![Final notes](http://i.cubeupload.com/8egJ8d.png)<br />
 
 <br />
 
 - Scripts used in this article:
-[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [template-demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
+[1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [2] [demo.bat](https://pastebin.com/vnNELqd4) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [5] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)
 
 ---
 
