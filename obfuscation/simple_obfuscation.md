@@ -60,9 +60,7 @@
 [7] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [8] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
-<br />
-
-### Scripts used in this article (**demostration**):<br />
+### Scripts used in this article (**demo**):<br />
 [1] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx)<br />
 [2] [demo.bat](https://pastebin.com/vnNELqd4)<br />
 [3] [Hello.ps1](https://pastebin.com/ELByB5y7)<br />
