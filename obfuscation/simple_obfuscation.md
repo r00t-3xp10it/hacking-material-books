@@ -208,9 +208,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-      [ certutil ] aditional download/execute remote method
+      [ certutil - Additional Methods for Remote Download ]
       Sometimes we need to use non-conventional methods to deliver our agent to target
-      system and bypass detection, in this situation certutil can be an ussefull method.
+      system and bypass detection, in this situation certutil can be an useful asset.
 
 <br />
 
