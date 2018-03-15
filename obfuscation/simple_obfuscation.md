@@ -19,7 +19,7 @@
 **Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
 ![detection pic](http://i.cubeupload.com/pLllwr.jpg)<br />
 
-**Example of one obfuscated powershell dropper** [ test.ps1 ]<br />
+**Example of one obfuscated powershell dropper** [ psh-dropper.ps1 ]<br />
 ![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
 
 <br />
