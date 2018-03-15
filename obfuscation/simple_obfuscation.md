@@ -972,7 +972,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 
 - Scripts used in this article (**demo**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [5] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [6] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />
+[6] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [7] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
 
 ---
 
