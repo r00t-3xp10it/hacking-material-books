@@ -1021,7 +1021,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ### Special thanks
 **@danielbohannon** **@AndyGreen** **@enigma0x3** **@ReL1k**<br />
-**@daniel sauder (avet)** **@Wandoelmo Silva** and<br />
+**@404death** **@daniel sauder (avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**<br />
 **@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**<br />
 
