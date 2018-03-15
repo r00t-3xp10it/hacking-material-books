@@ -622,7 +622,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
-      [ circumventing -encodedcommand detection - Additional Methods for exec base64 shellcode ]
+      [ Additional Methods for exec base64 shellcode ]
       Since the powershell -enc method started to be used to execute base64 shellcode strings that it became
       very targeted by security suites to flag alerts, In order to circumvent -enc parameter we decided to
       use powershell commands and leverage set-variables with .value.toString() in order to piece together
