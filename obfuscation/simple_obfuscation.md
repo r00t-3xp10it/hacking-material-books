@@ -977,7 +977,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 
 - Scripts used in this article (**POCs**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />[7] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [8] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [9] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />[7] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [8] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [9] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [10] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy)<br />
 
 ---
 
