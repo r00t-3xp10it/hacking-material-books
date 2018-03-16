@@ -744,7 +744,7 @@ Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
 ![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
 
 - Final Notes:<br />
-there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can help us in discovering what flags are beeing detected in our shellcode ..
+there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can help us in discovering what flags are beeing detected in our shellcode .. Adicionally we can also obfuscated the meterpreter loader using arno0x0x random bytes stager [here](https://arno0x0x.wordpress.com/2016/04/13/meterpreter-av-ids-evasion-powershell/)
 
 
 
