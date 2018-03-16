@@ -743,6 +743,11 @@ Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
 `HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
 ![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
 
+- Final Notes:<br />
+there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek)that can help us in discovering what flags are beeing detected in our shellcode ..
+
+
+
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
