@@ -725,22 +725,22 @@ Build shellcode using msfvenom<br />
 Editing msfvenom template<br />
 ![obfuscating the template](http://i.cubeupload.com/Q0ZVWQ.png)
 
-Strip the template to extact only the base64 string<br />
+Strip the template to extact only the base64 string (parsing data)<br />
 ![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
 
 Decoding the base64 string ..<br />
-`The template build by msfvenom also contains powershell syscalls that migth be flagged`<br />
+`This template build by msfvenom also contains powershell syscalls that migth be flagged`<br />
 ![obfuscating the template](http://i.cubeupload.com/i43jmL.png)
 
 Obfuscate the syscalls..<br />
-`HINT: In this example iam only changing the letters from small to big`<br />
+`HINT: In this example iam only changing the letters from small to big (concaternate)`<br />
 ![obfuscating the template](http://i.cubeupload.com/RCEueb.png)
 
-Encodind the template again into base64 to be embebbed into unicorn.ps1<br />
+Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
 ![obfuscating the template](http://i.cubeupload.com/vMTAJU.png)
 
 Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
-`HINT: now your new obfuscated template its ready to be deliver to target`<br />
+`HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
 ![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
 
 
