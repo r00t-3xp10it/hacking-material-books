@@ -719,6 +719,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+Build shellcode using msfvenom<br />
 ![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
 
 ![obfuscating the template](http://i.cubeupload.com/Q0ZVWQ.png)
