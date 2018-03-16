@@ -984,6 +984,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       The above scripts are meent for article readers to quick test concepts and obfuscation
       methods, But there is no garantie that they will bypass AMSI detection (demo scripts).
+      so.. if you are a scriptkid wanting to have scripts to use, dont.. they are examples.
 
 ---
 
