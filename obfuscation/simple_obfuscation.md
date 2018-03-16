@@ -704,6 +704,34 @@ Here we can view the all process of encoding/decoding in powershell console
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [3] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 
+---
+
+<br /><br /><br /><br />
+
+## OBFUSCATING THE METASPLOIT TEMPLATE (psh-cmd)
+
+      when we use metasploit to build shellcode, msfvenom uses pre-written templates to embebbed
+      the shellcode on it, those templates contain also system calls that migth be detected by
+      AMSI mechanic, to avoid that we need to decode the base64 string produced by msfvenom,
+      search for the syscalls, obfuscate them, and encode the template again to base64 to be
+      embebbed into Unicorn.ps1 article template (or using the default msfvenom template).
+
+<br />
+
+![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
+
+![obfuscating the template](http://i.cubeupload.com/Q0ZVWQ.png)
+
+![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
+
+![obfuscating the template](http://i.cubeupload.com/i43jmL.png)
+
+![obfuscating the template](http://i.cubeupload.com/RCEueb.png)
+
+![obfuscating the template](http://i.cubeupload.com/oL8cYV.png)
+
+![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
+
 
 ---
 
