@@ -722,17 +722,27 @@ Here we can view the all process of encoding/decoding in powershell console
 Build shellcode using msfvenom<br />
 ![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
 
+Editing msfvenom template<br />
 ![obfuscating the template](http://i.cubeupload.com/Q0ZVWQ.png)
 
+Strip the template to extact only the base64 string<br />
 ![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
 
+Decoding the base64 string ..<br />
+`The template build by msfvenom also contains powershell syscalls that migth be flagged`<br />
 ![obfuscating the template](http://i.cubeupload.com/i43jmL.png)
 
+Obfuscate the syscalls..<br />
+`HINT: In this example iam only changing the letters from small to big`<br />
 ![obfuscating the template](http://i.cubeupload.com/RCEueb.png)
 
+Encodind the template again into base64 to be embebbed into unicorn.ps1<br />
 ![obfuscating the template](http://i.cubeupload.com/vMTAJU.png)
 
+Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
+`HINT: now your new obfuscated template its ready to be deliver to target`<br />
 ![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
+
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
