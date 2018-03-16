@@ -580,8 +580,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
 
-      Stacking 're-order' commands together with the ; operator. Remmenber that
-      we can also store the re-order method inside an local variable to be called at run-time.
+      Stacking 're-order' commands together with the ; operator. Remmenber that we can also
+     store the re-order method inside an local variable to be called at run-time.
       Example: $syscall = ("{3}{0}{2}{4}" -f'voke','es','-Expr','In','sion')
 
 - String command to obfuscate<br />
@@ -591,8 +591,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob'))`
 
 ![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
-`HINT: we can also scramble the location of vars to obfuscate further eg: r$ ; a$ ; etc`<br />
-`inside the funtion, and then call them in the correct order at execution time ..`
+`HINT: we can also scramble the location of the vars ($a | $r) inside the sourcecode (order)`<br />
+`to obfuscate it further, and then call them in the correct order executing the powershell command.`
 
 ---
 
@@ -982,7 +982,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Scripts used in this article (**POCs**):<br />
 [1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />[7] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [8] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [9] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [10] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy)<br />
 
-      The above scripts are meent for article readers to quick test concepts and obfuscation methods
+      The above scripts are meant for article readers to quick test concepts and obfuscation methods
       there is no guaranties that they will bypass AMSI detection [demo scripts] so.. if you are a
       scriptkiddie wanting to have scripts to use, dont.. they are examples .. use what you have
       learned and apply it to your projects ..
