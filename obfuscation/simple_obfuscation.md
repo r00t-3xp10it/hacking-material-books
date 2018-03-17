@@ -589,7 +589,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `Invoke-Expression (New-Object)`
 
 - String obfuscated<br />
-`$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob'))`
+`$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob')`
 
 ![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
 `HINT: we can also scramble the location of the vars ($a | $r) inside the sourcecode (order)`<br />
