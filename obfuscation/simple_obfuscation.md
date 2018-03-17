@@ -820,7 +820,7 @@ Obfuscate the syscalls..<br />
 ![obfuscating the template](http://i.cubeupload.com/ixIFJi.jpg)
 
 Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
-`HINT: This template only have the syscall's obfuscated, not the 1º funtion deleted.`<br />
+`HINT: This template only have the syscall's obfuscated, not the 1º funtion deleted [redbox in previous pic]`<br />
 ![obfuscating the template](http://i.cubeupload.com/AMIPyT.png)
 
 Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
