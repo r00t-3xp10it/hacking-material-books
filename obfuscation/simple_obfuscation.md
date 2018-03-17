@@ -737,7 +737,7 @@ Obfuscate the syscalls..<br />
 ![obfuscating the template](http://i.cubeupload.com/RCEueb.png)
 
 Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
-![obfuscating the template](http://i.cubeupload.com/vMTAJU.png)
+![obfuscating the template](http://i.cubeupload.com/AMIPyT.png)
 
 Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
 `HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
