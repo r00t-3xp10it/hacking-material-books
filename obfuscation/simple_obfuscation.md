@@ -805,7 +805,7 @@ Build shellcode using msfvenom<br />
 ![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
 
 Editing msfvenom template<br />
-![obfuscating the template](http://i.cubeupload.com/Q0ZVWQ.png)
+![obfuscating the template](http://i.cubeupload.com/z9bcjh.jpg)
 
 Strip the template to extact only the base64 string (parsing data)<br />
 ![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
