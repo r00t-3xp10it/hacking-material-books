@@ -808,6 +808,7 @@ Editing msfvenom template<br />
 ![obfuscating the template](http://i.cubeupload.com/z9bcjh.jpg)
 
 Strip the template to extact only the base64 string (parsing data)<br />
+`HINT: Deleting from template the string: %comspec% /b /c start /min powershell.exe -nop -w hidden -e`<br />
 ![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
 
 Decoding the base64 string ..<br />
