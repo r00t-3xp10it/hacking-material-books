@@ -816,7 +816,7 @@ Decoding the base64 string ..<br />
 
 Obfuscate the syscalls..<br />
 `HINT: In this example iam only changing the letters from small to big (concaternate)`<br />
-![obfuscating the template](http://i.cubeupload.com/RCEueb.png)
+![obfuscating the template](http://i.cubeupload.com/ixIFJi.jpg)
 
 Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
 ![obfuscating the template](http://i.cubeupload.com/AMIPyT.png)
