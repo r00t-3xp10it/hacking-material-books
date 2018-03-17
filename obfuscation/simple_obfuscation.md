@@ -795,7 +795,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       when we use metasploit to build shellcode, msfvenom uses pre-written templates to embebbed
       the shellcode on it, those templates contain also system calls that migth be detected by
-      AMSI mechanic, to avoid that we need to decode the base64 string produced by msfvenom,
+      AMSI mechanism, to avoid that we need to decode the base64 string produced by msfvenom,
       search for the syscalls, obfuscate them, and encode the template again to base64 to be
       embebbed into Unicorn.ps1 article template (or using the default msfvenom template).
 
