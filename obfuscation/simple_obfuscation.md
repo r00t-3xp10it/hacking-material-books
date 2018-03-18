@@ -707,38 +707,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-- Diferent ways to bypass powershell scripts ExecutionPolicy ..<br />
-
-      When we try to execute a powershell script (.ps1) on a system configured
-      with the default execution policy we will get the following error:
-
-![powershell ExecutionPolicy](http://i.cubeupload.com/pEmabR.png)
-
-<br />
-
-      1º - List execution policy in use:
-           Get-ExecutionPolicy -List | Format-Table -AutoSize
-
-      1º - Use the “Bypass” Execution Policy Flag
-           PowerShell.exe -ExecutionPolicy Bypass -File .runme.ps1
-
-      2º - Read Script from a File and Pipe to PowerShell Standard In
-           Get-Content runme.ps1 | PowerShell.exe -noprofile -
-
-      3º - Use the Invoke-Command Command
-           invoke-command -scriptblock {Write-Host "My voice is my passport, verify me."}
-
-<br />
-
-      The function below can be executed via an interactive PowerShell console or by using the “command”
-      switch. Once the function is called it will swap out the “AuthorizationManager” with null. As a result,
-      the execution policy is essentially set to unrestricted for the remainder of the session
-
-      4º - Disable ExecutionPolicy by Swapping out the AuthorizationManager
-      function Disable-ExecutionPolicy {($ctx = $executioncontext.gettype().getfield("_context","nonpublic,instance").getvalue( $executioncontext)).gettype().getfield("_authorizationManager","nonpublic,instance").setvalue($ctx, (new-object System.Management.Automation.AuthorizationManager "Microsoft.PowerShell"))}  Disable-ExecutionPolicy runme.ps1
-
-<br />
-
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [3] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 
