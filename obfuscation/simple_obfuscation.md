@@ -732,8 +732,9 @@ Here we can view the all process of encoding/decoding in powershell console
           When viewed in the event log, the arguments to powershell.exe are no longer visible.
 
           cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
+          cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
 
-![powershell rename](http://i.cubeupload.com/adNz1U.jpg)
+![powershell rename](http://i.cubeupload.com/W7bD5R.jpg)
 
 <br />
 
