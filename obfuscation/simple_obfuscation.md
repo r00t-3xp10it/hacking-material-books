@@ -722,6 +722,7 @@ Here we can view the all process of encoding/decoding in powershell console
           C:\Windows\System32\WindowsPowershell\v1.0\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
 ![powershell rename](http://i.cubeupload.com/79wfQi.jpg)
+`HINT: We need admin rigths to be able to manipulate %windir% sub-directorys files`<br />
 ![powershell rename](http://i.cubeupload.com/7z2OjF.jpg)
 
 <br />
