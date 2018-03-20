@@ -377,7 +377,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done |$0
       [ parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami ]
 
-![bash obfuscation](http://i66.tinypic.com/307u914.png)
+![bash obfuscation](http://i64.tinypic.com/5k1qb7.jpg)
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
@@ -405,7 +405,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
         string=`echo "cm91dGUgLW4K" | base64 -d`
         $string   #<-- execute/decode the base64 syscall at runtime
 
-![bash obfuscation](http://i63.tinypic.com/2m7d9y1.png)
+![bash obfuscation](http://i63.tinypic.com/4kwker.jpg)
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
@@ -423,7 +423,7 @@ The above string can be obfuscated using the **powershell special character: `**
 
       po`wer`shel`l.ex`e -n`op -w`in`d h`idd`en -E`xe`c B`yp`ass -n`on`i -en`c $shellcode
 
-![powershell obfuscation](http://i.cubeupload.com/7hUkvC.jpg)
+![powershell obfuscation](http://i63.tinypic.com/2nvt7wz.jpg)
 
 ---
 
@@ -434,13 +434,13 @@ The above string can be obfuscated using the **powershell special character: `**
       [ "powershell" can be also set and called as variable in cmd.exe ]
       cmd.exe /c "set p1=power&& set p2=shell&& cmd /c echo Write-Host SUCCESS ^| %p1%%p2%.exe"
 
-![powershell obfuscation](http://i.cubeupload.com/uDdG3G.jpg)
+![powershell obfuscation](http://i65.tinypic.com/2liea90.jpg)
 
 - More Obfuscated using powershell **`** and batch **^** special characters
 
       c`md`.e`xe /c "s^Et va^r=Get-Date&& c^md^.e^xe /c e^ch^o %var%^" | power`shell.`ex`e
 
-![powershell obfuscation](http://i.cubeupload.com/G6rj4M.jpg)
+![powershell obfuscation](http://i67.tinypic.com/3509rw5.jpg)
 
 ---
 
