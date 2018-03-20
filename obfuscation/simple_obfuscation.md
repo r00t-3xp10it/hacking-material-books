@@ -265,7 +265,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
         set syscall=R2V0LURhdGUK :: <-- WARNING: Dont leave any 'empty spaces' in variable creation
         powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
 
-![batch obfuscation](http://i64.tinypic.com/29cx545.jpg)
+![batch obfuscation](http://i63.tinypic.com/2m7d9y1.png)
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
