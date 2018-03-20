@@ -716,14 +716,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
      1º - Obfuscate the name of the powershell binary in target system before execute any
           powershell commands. This can be achieved by making a copy of powershell.exe and
-          rename it to Firefox.exe using an agent.bat before further head call the obfuscated
+          rename it to Firefox.exe using an agent.bat before further ahead call the obfuscated
           powershell binary (Firefox.exe) to execute our powershell command line arguments.
 
-          C:\Windows\System32\WindowsPowershell\v1.0\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+          C:\Users\pedro\AppData\Local\Temp\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
-`HINT: We need admin rigths to be able to manipulate %windir% sub-directorys files`<br />
-![powershell rename](http://i.cubeupload.com/79wfQi.jpg)
-![powershell rename](http://i.cubeupload.com/7z2OjF.jpg)
+![powershell rename](http://i.cubeupload.com/sl8UMD.jpg)
 
 <br />
 
