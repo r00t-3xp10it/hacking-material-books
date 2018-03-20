@@ -372,12 +372,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
       [ parsing data inside $skid and $s variables to extract the string: whoami ]
 
-![bash obfuscation](http://i68.tinypic.com/e6t0tw.png)
+![bash obfuscation](http://i67.tinypic.com/2e0lgqr.png)
 
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done |$0
       [ parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami ]
 
-![bash obfuscation]()
+![bash obfuscation](http://i68.tinypic.com/e6t0tw.png)
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
