@@ -1,4 +1,4 @@
-![banner](http://i.cubeupload.com/1Kopfs.jpg)
+![banner](http://i68.tinypic.com/2d1ux00.jpg)
 
 
                                                   - INTRO -
@@ -17,10 +17,10 @@
 <br />
 
 **Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
-![detection pic](http://i.cubeupload.com/pLllwr.jpg)<br />
+![detection pic](http://i65.tinypic.com/2jz3as.jpg)<br />
 
 **Example of one obfuscated powershell dropper** [ psh-dropper.ps1 ]<br />
-![powershell obfuscation](http://i.cubeupload.com/xu5ZkM.jpg)<br />
+![powershell obfuscation](http://i66.tinypic.com/t9bdaq.jpg)<br />
 
 <br />
 
