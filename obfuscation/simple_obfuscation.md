@@ -291,7 +291,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       w$@h\o$@a"m"'i' <-- Using the 4 previous methods together 
 
-![3 special characters](http://i.cubeupload.com/tLBdbW.png)
+![3 special characters](http://i68.tinypic.com/2yphdvs.png)
 
 ---
 
@@ -303,7 +303,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 
       echo $@I A\M; wh$@oam$@i && echo o\ff$@cou$@rs\e .\.
 
-![pipe bash obfuscation](http://i.cubeupload.com/0oCn6M.png)
+![pipe bash obfuscation](http://i64.tinypic.com/2eg8io9.png)
 
 ---
 
@@ -319,7 +319,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated <br />
 `rev <<< 'm- klbsl' |$0`
 
-![bash rev obfuscation](http://i.cubeupload.com/lsyzo5.png)
+![bash rev obfuscation](http://i68.tinypic.com/23vj9yw.png)
 
 - String command to obfuscate<br />
 `whoami`<br />
@@ -327,7 +327,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
 - String obfuscated <br />
 `rev <<< i$@ma\o$@hw |$0`
 
-![bash rev obfuscation](http://i.cubeupload.com/Q7qgFW.png)
+![bash rev obfuscation](http://i64.tinypic.com/2u9sj91.png)
 `HINT: Single quotes are not allowed in Combining rev <<< and the batch \ escape character`
 
 ---
