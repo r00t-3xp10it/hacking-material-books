@@ -351,7 +351,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} |$0
       [ parsing data inside $M variable to extract and 'execute' the string: route ]
 
-![bash obfuscation](http://i64.tinypic.com/sdod8w.png)
+![bash obfuscation](http://i64.tinypic.com/5k1qb7.jpg)
 `HINT: The var ${M:0:1} extracts the letter U from inside the $M local var to build: route`
 
 ---
@@ -372,12 +372,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
       [ parsing data inside $skid and $s variables to extract the string: whoami ]
 
-![bash obfuscation](http://i67.tinypic.com/aneskh.png)
+![bash obfuscation](http://i68.tinypic.com/e6t0tw.png)
 
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done |$0
       [ parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami ]
 
-![bash obfuscation](http://i64.tinypic.com/5k1qb7.jpg)
+![bash obfuscation]()
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
