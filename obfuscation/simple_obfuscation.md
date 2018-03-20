@@ -346,12 +346,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} > meme; ul meme;
       [ print parsed data on screen (route syscall pulled from inside $M variable) ]
 
-![bash obfuscation](http://i.cubeupload.com/NdTN6N.jpg)
+![bash obfuscation](http://i64.tinypic.com/wbfl9w.jpg)
 
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} |$0
       [ parsing data inside $M variable to extract and 'execute' the string: route ]
 
-![bash obfuscation](http://i.cubeupload.com/eRmZtT.jpg)
+![bash obfuscation](http://i68.tinypic.com/mheq04.jpg)
 `HINT: The var ${M:0:1} extracts the letter U from inside the $M local var to build: route`
 
 ---
@@ -372,12 +372,12 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done
       [ parsing data inside $skid and $s variables to extract the string: whoami ]
 
-![bash obfuscation](http://i.cubeupload.com/HkX7JH.png)
+![bash obfuscation](http://i67.tinypic.com/aneskh.png)
 
       skid=(i h w o a m r w X);s=(2 1 3 4 5 0);for i in ${s[@]};do echo ${skid[$i]} | tr -d '\n';done |$0
       [ parsing data inside $skid and $s variables to 'extract' and 'execute' the string: whoami ]
 
-![bash obfuscation](http://i.cubeupload.com/gdgswy.png)
+![bash obfuscation](http://i66.tinypic.com/307u914.png)
 
 `HINT: The number 0 inside variable $s conrresponds to the letter possition in var $skid (i)`
 
@@ -405,7 +405,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
         string=`echo "cm91dGUgLW4K" | base64 -d`
         $string   #<-- execute/decode the base64 syscall at runtime
 
-![bash obfuscation](http://i.cubeupload.com/BPHOln.jpg)
+![bash obfuscation](http://i68.tinypic.com/2s9dil1.png)
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
