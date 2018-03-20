@@ -459,7 +459,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $sys = 'Wi'+'n32_C'+'ompu'+'terS'+'ystem'     #<-- caret + inside single quotes
       p`ow`ers`hell.e`xe $get -Class $sys           #<-- de-obfuscate syscall's at run-time
 
-![powershell obfuscation](http://i.cubeupload.com/JosaOh.jpg)
+![powershell obfuscation](http://i63.tinypic.com/71pe0h.jpg)
 
 ---
       Powershell also allow us to access windows environment variables using the $env: switch
@@ -476,7 +476,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $call = $env:LOCALAPPDATA[0,23,21,7,7]-Join ''
       powershell.exe Get-WmiObject -$call Win32_ComputerSystem
 
-![powershell obfuscation](http://i.cubeupload.com/hgBowH.jpg)
+![powershell obfuscation](http://i66.tinypic.com/334kh9w.jpg)
 
 ---
 
@@ -495,7 +495,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $decoded = $encoded.Split("~~") -Join ''
       poweshell.exe $decoded 
 
-![powershell obfuscation](http://i.cubeupload.com/0HwnAL.jpg)
+![powershell obfuscation](http://i66.tinypic.com/2v2k2lt.jpg)
 
 ---
 
@@ -519,7 +519,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       IEX $decoded
 
 
-![powershell obfuscation](http://i.cubeupload.com/1hkDms.jpg)
+![powershell obfuscation](http://i63.tinypic.com/10wi1b8.jpg)
 
 ---
 
