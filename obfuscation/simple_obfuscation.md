@@ -538,7 +538,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $syscall = $ScriptBlock.Replace("?","").Replace("'","").Replace("+","").Replace("%","")
       Get-CimInstance $syscall | Select-Object CSName, OSArchitecture, Caption, SystemDirectory | FL *
 
-![powershell obfuscation](http://i.cubeupload.com/Ymww0G.jpg)
+![powershell obfuscation](http://i64.tinypic.com/2la6dmu.jpg)
 
 ---
 
