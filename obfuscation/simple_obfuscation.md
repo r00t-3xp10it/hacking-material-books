@@ -351,7 +351,7 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
       M="ureto" && echo ${M:1:1}${M:4:1}${M:0:1}${M:3:1}${M:2:1} |$0
       [ parsing data inside $M variable to extract and 'execute' the string: route ]
 
-![bash obfuscation](http://i68.tinypic.com/mheq04.jpg)
+![bash obfuscation](http://i64.tinypic.com/sdod8w.png)
 `HINT: The var ${M:0:1} extracts the letter U from inside the $M local var to build: route`
 
 ---
