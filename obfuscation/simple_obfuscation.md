@@ -924,7 +924,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 ---
 
-![avet bypass](http://i.cubeupload.com/ub18vo.png)
+![avet bypass](http://i67.tinypic.com/2chpeed.png)
 
 ---
 
@@ -1102,7 +1102,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
       OBFUSCATED    : @c^M%k8%.E"x"%!h% /c =%db%oW%!h%rS^h%!h%lL"."%!h%Xe -%U7%o%db% -W^I%U7% hI%k8%D%!h%%U7% -%!h%p By%db%a^S%AA%s -%!h%%U7% $ENCODED-SHELLCODE-STRING
 
 - demo.bat
-![Final notes](http://i.cubeupload.com/cdL3fb.png)<br />
+![Final notes](http://i65.tinypic.com/20f47xk.png)<br />
 
 
 - Scripts used in this article (**POCs**):<br />
@@ -1139,7 +1139,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
       3ª - Display/Copy the reObfuscated base64 string
            Write-Host "Encoded syscall:" $encodeString -ForeGroundColor Green -BackGroundColor black
 
-![powershell obfuscation](http://i.cubeupload.com/L4hMrt.jpg)
+![powershell obfuscation](http://i63.tinypic.com/wvtlxu.jpg)
 
 
 <br />
@@ -1149,7 +1149,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
            $syscall=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reObfuscation))
            powershell.exe $syscall -Class Win32_ComputerSystem  #<-- decode the syscall at run-time.
 
-![powershell obfuscation](http://i.cubeupload.com/Xg6fEQ.jpg)
+![powershell obfuscation](http://i66.tinypic.com/351cq2w.jpg)
 
 ---
 
