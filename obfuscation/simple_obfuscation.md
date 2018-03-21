@@ -852,6 +852,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![AMSI Bypass](http://i68.tinypic.com/2hd88yg.jpg)
 
+---
 
 - Reflection - Matt Graeber's method<br />
 
@@ -862,7 +863,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![AMSI Bypass](http://i65.tinypic.com/15hzzvb.png)
 
-
+---
 
 - @danielbohannon **escaping percent** signs bug (EventVwr.exe)
 
