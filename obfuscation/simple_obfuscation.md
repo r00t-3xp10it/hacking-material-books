@@ -700,10 +700,10 @@ The above string can be obfuscated using **powershell special characters:** **`*
         $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate))
         powershell.exe Get-$decoded   #<-- execute/decode the base64 syscall at runtime
 
-![powershell obfuscation](http://i.cubeupload.com/E1Y8xV.jpg)
+![powershell obfuscation](http://i64.tinypic.com/2cyfeck.jpg)
 
 Here we can view the all process of encoding/decoding in powershell console
-![powershell obfuscation](http://i.cubeupload.com/FTnIue.jpg)
+![powershell obfuscation](http://i65.tinypic.com/6xqett.jpg)
 
 ---
 
