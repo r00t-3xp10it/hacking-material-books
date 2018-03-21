@@ -867,7 +867,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - @danielbohannon **escaping percent** signs bug (EventVwr.exe)
 
-      Daniel Bohannon disclosure a few day ago (19 march 2018) one AMSI obfuscation technic that
+      Daniel Bohannon disclosure a few days ago (19 march 2018) one AMSI obfuscation technic that
       relays on an escaping bug with percent signs in Sysmon EID 1's CommandLine field that is
       rendering incorrect data when viewed with EventVwr.exe.
 
