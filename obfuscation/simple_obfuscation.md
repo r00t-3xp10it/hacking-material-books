@@ -851,6 +851,17 @@ Here we can view the all process of encoding/decoding in powershell console
 ![AMSI Bypass](http://i68.tinypic.com/2hd88yg.jpg)
 
 
+- Reflection - Matt Graeber's method<br />
+
+      Matt Graeber (@mattifestation) tweeted an awesome one line AMSI bypass. Like many other things
+      by Matt, this is my favorite. It doesn't need elevated shell and there is no notification to the
+      user but the automatic script block logging.
+
+<br />
+
+![AMSI Bypass](http://i65.tinypic.com/15hzzvb.png)
+
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
