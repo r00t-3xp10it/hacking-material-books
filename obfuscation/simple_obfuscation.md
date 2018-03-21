@@ -855,9 +855,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Reflection - Matt Graeber's method<br />
 
-      Matt Graeber (@mattifestation) tweeted an awesome one line AMSI bypass. Like many other things
-      by Matt, this is my favorite. It doesn't need elevated shell and there is no notification to the
-      user but the automatic script block logging.
+      Matt Graeber (@mattifestation) tweeted an awesome one line AMSI bypass. Like many other things by
+      Matt, this is my favorite. It doesn't need elevated shell and there is no notification to the user.
 
 <br />
 
