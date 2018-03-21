@@ -444,21 +444,6 @@ The above string can be obfuscated using the **powershell special character: `**
 
 ---
 
-- @danielbohannon **escaping percent** signs bug (EventVwr.exe)
-
-      Daniel Bohannon disclosure a few day ago (19 march 2018) one AMSI obfuscation technic that
-      relays on an escaping bug with percent signs in Sysmon EID 1's CommandLine field that is
-      rendering incorrect data when viewed with EventVwr.exe.
-
-<br />
-
-      cmd.exe /c "echo PUT_EVIL_COMMANDS_HERE||%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1"
-
-![powershell obfuscation](http://i.cubeupload.com/OzA5WV.jpg)
-![powershell obfuscation](http://i.cubeupload.com/MpI26u.png)
-
----
-
       We can obfuscate the syscall's by simple split them into local variables and concaternate
       them using 'tick' + 'splatting' obfuscation methods inside variable declarations.
 
@@ -877,6 +862,22 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![AMSI Bypass](http://i65.tinypic.com/15hzzvb.png)
 
+
+
+- @danielbohannon **escaping percent** signs bug (EventVwr.exe)
+
+      Daniel Bohannon disclosure a few day ago (19 march 2018) one AMSI obfuscation technic that
+      relays on an escaping bug with percent signs in Sysmon EID 1's CommandLine field that is
+      rendering incorrect data when viewed with EventVwr.exe.
+
+<br />
+
+      cmd.exe /c "echo PUT_EVIL_COMMANDS_HERE||%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1"
+
+![powershell obfuscation](http://i.cubeupload.com/OzA5WV.jpg)
+![powershell obfuscation](http://i.cubeupload.com/MpI26u.png)
+
+---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
