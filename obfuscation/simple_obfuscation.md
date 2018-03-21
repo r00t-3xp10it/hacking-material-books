@@ -719,8 +719,8 @@ Here we can view the all process of encoding/decoding in powershell console
           rename it to Firefox.exe using an agent.bat before further ahead call the obfuscated
           powershell binary (Firefox.exe) to execute our powershell command line arguments.
 
-          Copy-Item "$env:windir\System32\Windowspowershell\v1.0\powershell.exe" -Destination "$env:tmp\Firefox.exe"
-          cd $env:tmp; .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
+       Copy-Item "$env:windir\System32\Windowspowershell\v1.0\powershell.exe" -Destination "$env:tmp\Firefox.exe"
+       cd $env:tmp; .\Firefox.exe -noP -wIn hIdDEn -enc ..SNIPET..
 
 ![powershell rename](http://i63.tinypic.com/k0rhnt.jpg)
 
@@ -730,8 +730,8 @@ Here we can view the all process of encoding/decoding in powershell console
           the ability of powershell to consume commands from the standart input stream ( pipe | )
           When viewed in the event log, the arguments to powershell.exe are no longer visible.
 
-          cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
-          cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
+        cmd.exe /c "echo Get-ExecutionPolicy -List" | powershell.exe
+        cmd.exe /c "set var=Get-ExecutionPolicy -List&& cmd.exe /c echo %var%^" | powershell.exe
 
 ![powershell rename](http://i67.tinypic.com/in8keu.jpg)
 
