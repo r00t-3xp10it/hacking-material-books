@@ -863,7 +863,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![AMSI Bypass](http://i65.tinypic.com/15hzzvb.png)
 
-[11] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
+[@mattifestation reflection technic applied to AMSI-Reflection.ps1 with Bypass/download/exec abilities] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
 
 ---
 
