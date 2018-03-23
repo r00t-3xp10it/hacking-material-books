@@ -724,6 +724,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![powershell rename](http://i63.tinypic.com/k0rhnt.jpg)
 
+[Binary ofuscation technic applied to Bypass-AMSI.ps1 with Bypass/download/exec abilities](https://pastebin.com/A2C0TSNs)<br />
+
 <br />
 
      2º - Unlink the command-line arguments from the code they deliver, one example of that its
@@ -805,6 +807,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i65.tinypic.com/2rpv0hv.png)
 
+[DLL hijacking technic applied to AMSI-Bypass.bat with agent exec abilities](https://pastebin.com/H2kjLCin)<br />
+
 ---
 
 <br /> 
@@ -851,6 +855,8 @@ Here we can view the all process of encoding/decoding in powershell console
       
 
 ![AMSI Bypass](http://i68.tinypic.com/2hd88yg.jpg)
+
+[AMSI Downgrade check applied to AMSI-Downgrade.ps1 (just check if vuln its present)](https://pastebin.com/qkkq5bZy)<br />
 
 ---
 
@@ -1126,7 +1132,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 
 - Scripts used in this article (**POCs**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />[7] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [8] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [9] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [10] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [11] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [7] [Bypass-AMSI.ps1](https://pastebin.com/A2C0TSNs)<br />[8] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [9] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [10] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [11] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [12] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
 
       The above scripts are meant for article readers to quick test concepts and obfuscation methods
       there is no guaranties that they will bypass AMSI detection [demo scripts] so.. if you are a
