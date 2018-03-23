@@ -1132,7 +1132,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 
 - Scripts used in this article (**POCs**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf)<br />[7] [Bypass-AMSI.ps1](https://pastebin.com/A2C0TSNs) [8] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [9] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [10] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin)<br />[11] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [12] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [Hello.ps1](https://pastebin.com/ELByB5y7) [5] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs)<br />[6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [7] [Bypass-AMSI.ps1](https://pastebin.com/A2C0TSNs) [8] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y) [9] [BitsTransfer.ps1](https://pastebin.com/keaHme3F)<br />[10] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [11] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [12] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU)<br />
 
       The above scripts are meant for article readers to quick test concepts and obfuscation methods
       there is no guaranties that they will bypass AMSI detection [demo scripts] so.. if you are a
