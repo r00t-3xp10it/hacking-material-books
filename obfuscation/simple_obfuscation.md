@@ -93,6 +93,20 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
+      Using the alternative cmd.exe **/R switch** to execute commands
+
+
+- String command to obfuscate<br />
+`cmd.exe /c start calc.exe`<br />
+
+- String obfuscated<br />
+`cmd.exe /R start calc.exe`<br />
+
+![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)
+![batch obfuscation](http://i.cubeupload.com/9cwoS1.jpg)
+
+---
+
 - Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
