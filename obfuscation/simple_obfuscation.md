@@ -176,12 +176,12 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
 
-      The attacker sets the wscript.exe command in a process-level environment variable called x before passing
-      it to the final cmd.exe as standard input. The attacker also obfuscates the strings wscript and /e:jscript
-      in the original cmd.exe command using @ characters. The @ characters are later removed from the command
-      contents stored in the environment variable x using cmd.exe’s native variable string replacement
-      functionality. This string replacement functionality follows the form %VariableName:StringToFind=NewString%
-      where StringToFind is the @ character and NewString is blank, so the @ character is simply removed.
+      The attacker sets the netastat command in a process-level environment variable called x before
+      passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat
+      in the original cmd.exe command using @ characters. The @ characters are later removed from the
+      command contents stored in the environment variable x using cmd.exe’s native variable string
+      replacement functionality. %VariableName:StringToFind=NewString% where StringToFind is the @
+      character and NewString is blank, so the @ character is simply removed.
 
 <br />
 
