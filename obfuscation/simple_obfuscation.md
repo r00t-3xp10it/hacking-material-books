@@ -363,9 +363,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 <br />
 
 - String command to obfuscate<br />
-`powershell.exe Get-Date`
+`powershell Get-Date`
 
-- String obfuscated using FOR loop<br />
+- String obfuscated using cmd FOR loop<br />
 `FOR /F "delims=s\ tokens=4" %a IN ('set^|findstr PSM')DO %a Get-Date`
 
 ![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)<br />
