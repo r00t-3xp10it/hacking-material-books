@@ -116,6 +116,29 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
+- adding ramdom whitespaces + commas + semi-collons + carets + double quotes delimiters
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start /max netstat -ano | findstr LISTENING`
+
+- String obfuscated [whitespaces]<br />
+`cmd.exe /c   start   /max   netstat -ano | findstr LISTENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon]<br />
+`cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon+caret]<br />
+`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
+`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
+
+![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
+
+---
+
       Using the alternative cmd.exe [ /R ] switch to execute commands
 
 ![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)<br />
@@ -149,26 +172,29 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- adding ramdom whitespaces + commas + semi-collons + carets + double quotes delimiters
+- We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
+
+      echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
+
+---
+
+      Using a batch redirection caret (<nul) to add a extra layer of rubish data into our oneliner.
+      HINT: the <nul caret will be replaced by a empty string at execution time, And If used the special
+      character ^ at the end of the <nul caret them the token written next to it will also be replaced
+      by a empty string, Example: cmd.exe /c start calc <nul ^DataToDelete
 
 <br />
 
+
 - String command to obfuscate<br />
-`cmd.exe /c start /max netstat -ano | findstr LISTENING`
+`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
-- String obfuscated [whitespaces]<br />
-`cmd.exe /c   start   /max   netstat -ano | findstr LISTENING`<br />
+- String obfuscated (**<nul**) special character.<br />
+`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
-- String obfuscated [whitespaces+collon+semi-collon]<br />
-`cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
-
-- String obfuscated [whitespaces+collon+semi-collon+caret]<br />
-`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
-
-- String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
-`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
-
-![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
+![batch obfuscation](http://i64.tinypic.com/2moo0om.jpg)
 
 ---
 
@@ -213,32 +239,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"`
 
 ![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
-
----
-
-- We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
-
-      echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
-
-![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
-
----
-
-      Using a batch redirection caret (<nul) to add a extra layer of rubish data into our oneliner.
-      HINT: the <nul caret will be replaced by a empty string at execution time, And If used the special
-      character ^ at the end of the <nul caret them the token written next to it will also be replaced
-      by a empty string, Example: cmd.exe /c start calc <nul ^DataToDelete
-
-<br />
-
-
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-- String obfuscated (**<nul**) special character.<br />
-`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-![batch obfuscation](http://i64.tinypic.com/2moo0om.jpg)
 
 ---
 
