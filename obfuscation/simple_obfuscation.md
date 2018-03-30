@@ -172,6 +172,27 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
+      [ Parentheses obfuscation ] Evenly-paired parentheses can encapsulate individual commands
+      in cmd.exe’s arguments without affecting the execution of each command. These unnecessary
+      parenthesis characters indicate the implied sub-command grouping interpreted by cmd.exe’s
+      argument processor. Paired parentheses can be liberally applied for obfuscation purposes.
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c whoami & netstat`
+
+- String obfuscated [double Parentheses]<br />
+`cmd.exe /c ((whoami)) && ((netstat))`<br />
+
+![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
+
+- string more obfuscated using diferent technics<br />
+
+![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
+
+---
+
 - delimiter removal in cmd interpreter [ :@= ]
 
       we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
