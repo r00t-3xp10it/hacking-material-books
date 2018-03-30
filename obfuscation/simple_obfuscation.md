@@ -180,7 +180,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 <br />
 
 - String command to obfuscate<br />
-`cmd.exe /c whoami & netstat`
+`cmd.exe /c whoami && netstat`
 
 - String obfuscated [double Parentheses]<br />
 `cmd.exe /c ((whoami)) && ((netstat))`<br />
