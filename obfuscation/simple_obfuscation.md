@@ -93,20 +93,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-      Using the alternative cmd.exe /R switch to execute commands
-
-![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)<br />
-
-- String command to obfuscate<br />
-`cmd.exe /c start calc.exe`<br />
-
-- String obfuscated<br />
-`cmd.exe /R start calc.exe`<br />
-
-![batch obfuscation](http://i.cubeupload.com/9cwoS1.jpg)
-
----
-
 - Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
@@ -127,6 +113,78 @@ The above string can be obfuscated using the **batch special character: "** <br 
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
 ![batch obfuscation](http://i66.tinypic.com/2ag6b6g.jpg)
+
+---
+
+      Using the alternative cmd.exe [ /R ] switch to execute commands
+
+![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)<br />
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start calc.exe`<br />
+
+- String obfuscated<br />
+`cmd.exe /R start calc.exe`<br />
+
+![batch obfuscation](http://i.cubeupload.com/9cwoS1.jpg)
+
+---
+
+- cmd arguments trigger chars [ \ or / ]
+
+      since we are using cmd interpreter to lunch powershell, we can replace
+      the powershell trigger arguments char '-' by cmd interpreter: '/' '\'
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c powershell.exe -wind hidden Get-WmiObject -Class Win32_ComputerSystem`
+
+- String obfuscated<br />
+`cmd.exe /c powershell.exe /wInd 3 Get-WmiObject -Class Win32_ComputerSystem`<br />
+
+![batch obfuscation](http://i.cubeupload.com/MngcC1.jpg)
+
+---
+
+- adding ramdom whitespaces + commas + semi-collons + carets + double quotes delimiters
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start /max netstat -ano | findstr LISTENING`
+
+- String obfuscated [whitespaces]<br />
+`cmd.exe /c   start   /max   netstat -ano | findstr LISTENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon]<br />
+`cmd.exe /c ,;,  start ;/,b ;;;  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon+caret]<br />
+`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
+
+- String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
+`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
+
+![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
+
+---
+
+- delimiter removal in cmd interpreter [ @= ]
+
+      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c netstat`
+
+- String obfuscated<br />
+`cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"`
+
+![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
 
 ---
 
