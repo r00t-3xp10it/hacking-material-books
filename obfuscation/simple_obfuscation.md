@@ -160,21 +160,28 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c   start   /max   netstat -ano | findstr LISTENING`<br />
 
 - String obfuscated [whitespaces+collon+semi-collon]<br />
-`cmd.exe /c ,;,  start ;/,b ;;;  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
+`cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
 
 - String obfuscated [whitespaces+collon+semi-collon+caret]<br />
-`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
+`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
 
 - String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
-`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
+`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
 
 ![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
 
 ---
 
-- delimiter removal in cmd interpreter [ @= ]
+- delimiter removal in cmd interpreter [ :@= ]
 
-      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time
+      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
+
+      The attacker sets the wscript.exe command in a process-level environment variable called x before passing
+      it to the final cmd.exe as standard input. The attacker also obfuscates the strings wscript and /e:jscript
+      in the original cmd.exe command using @ characters. The @ characters are later removed from the command
+      contents stored in the environment variable x using cmd.exe’s native variable string replacement
+      functionality. This string replacement functionality follows the form %VariableName:StringToFind=NewString%
+      where StringToFind is the @ character and NewString is blank, so the @ character is simply removed.
 
 <br />
 
@@ -339,6 +346,35 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i66.tinypic.com/qzfbex.jpg)
 
+---
+
+- More obscure obfuscated/bypass technics<br />
+
+      If the proccess name is 'powershell' and the command line arguments match some specific
+      patterns, AMSI/AV's will flag that input as malicious. One way to obfuscate the string
+      PowerShell in the example command is to substitute individual characters with substrings
+      of existing environment variable values.
+
+      The Path variable value may vary across different systems depending on various installed
+      programs and configurations, but the PSModulePath variable will likely have the same value
+      on any given system. Case-sensitive substring values such as PSM, SMo, Modu, etc. can be used
+      interchangeably to return only the PSModulePath variable.
+
+<br />
+
+- String command to obfuscate<br />
+`powershell.exe Get-Date`
+
+- PSModulePath environment variable value tokenized on delimiters \ and s<br />
+![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
+
+- String obfuscated using FOR loop<br />
+`FOR /F "delims=s\ tokens=4" %a IN ('set^|findstr PSM')DO %a Get-Date`
+
+![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
@@ -478,6 +514,8 @@ The above string can be obfuscated using **bash special characters: '** or **\\*
         $string   #<-- execute/decode the base64 syscall at runtime
 
 ![bash obfuscation](http://i63.tinypic.com/4kwker.jpg)
+
+---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
