@@ -374,8 +374,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
 
----
-
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
