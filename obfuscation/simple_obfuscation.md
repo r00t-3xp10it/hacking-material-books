@@ -357,21 +357,21 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       The Path variable value may vary across different systems depending on various installed
       programs and configurations, but the PSModulePath variable will likely have the same value
-      on any given system. Case-sensitive substring values such as PSM, SMo, Modu, etc. can be used
-      interchangeably to return only the PSModulePath variable.
+      on any given system. Case-sensitive substring values such as PSM, SMo, Modu, etc. can be
+      used interchangeably to return only the PSModulePath variable.
 
 <br />
 
 - String command to obfuscate<br />
 `powershell.exe Get-Date`
 
-- PSModulePath environment variable value tokenized on delimiters \ and s<br />
-![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
-
 - String obfuscated using FOR loop<br />
 `FOR /F "delims=s\ tokens=4" %a IN ('set^|findstr PSM')DO %a Get-Date`
 
-![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)
+![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)<br />
+
+- **PSModulePath** environment variable value tokenized on delimiters **\** and **s**<br />
+![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
 
 ---
 
