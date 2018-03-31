@@ -378,7 +378,10 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
 
       This technic can also be used to replace the [ @ ] special character in local environment
-      variable by the char missing on it ( in this example the char missing in command its: [ t ] )
+      variable by the char missing on it ( in this example the char missing in command is: [ t ] )
+
+- String obfuscated<br />
+`cmd.exe /c "set x=ne@s@a@&&echo %x:@=t% | cmd"`
 
 ![pipe commands](http://i.cubeupload.com/8ySlqV.jpg)
 
