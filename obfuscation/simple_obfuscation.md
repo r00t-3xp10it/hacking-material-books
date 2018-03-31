@@ -377,7 +377,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
 
-- String obfuscated [replace special char by another character]<br />
+`String obfuscated [replace special char by another character]`<br />
 ![pipe commands](http://i.cubeupload.com/8ySlqV.jpg)
 
 
