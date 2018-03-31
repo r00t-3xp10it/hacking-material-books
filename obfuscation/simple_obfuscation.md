@@ -116,12 +116,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- adding ramdom whitespaces + commas + semi-collons + carets + double quotes delimiters
+      Further obfuscation adding ramdom whitespaces + commas + semi-collons + carets + double quotes
 
 <br />
 
 - String command to obfuscate<br />
 `cmd.exe /c start /max netstat -ano | findstr LISTENING`
+
+<br />
 
 - String obfuscated [whitespaces]<br />
 ![batch obfuscation](http://i.cubeupload.com/eyGNUO.jpg)
