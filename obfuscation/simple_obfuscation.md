@@ -402,7 +402,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
 
-- Another example of for loop technic<br />
+- Another example of cmd FOR loop technic<br />
 
 ![bash obfuscation](http://i.cubeupload.com/RfM32P.jpg)<br />
 
