@@ -159,8 +159,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 - cmd arguments trigger chars [ \ or / ]
 
-      since we are using cmd interpreter to lunch powershell, we can replace
-      the powershell trigger arguments char '-' by cmd interpreter: '/' '\'
+      since we are using the cmd interpreter to lunch powershell, we can replace
+      the powershell trigger arguments characters '-' by cmd interpreter: '/' '\'
 
 <br />
 
@@ -197,6 +197,26 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
 
 ![batch obfuscation](http://i64.tinypic.com/2moo0om.jpg)
+
+---
+
+      [ Brake command line arguments into diferent vars ]
+      The batch command 'CALL' executes one batch file from within another. If you execute a
+      batch file from inside another batch file without using CALL, the original batch file
+      is terminated before the other one starts. CALL command can also be used to 'call'
+      the previous defined variables and joint them together in a new environment variable. 
+      
+
+<br />
+
+
+- String command to obfuscate<br />
+`cmd.exe /c netstat -s -p TCP`
+
+- String obfuscated [brake command line arguments into diferent vars]<br />
+`cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"`<br />
+
+![batch obfuscation](http://i.cubeupload.com/LtFMqK.jpg)
 
 ---
 
