@@ -407,8 +407,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)<br />
 
-    [ PSModulePath ] environment variable value tokenized on delimiters [ \ ] and [ s ]
-
 ![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
 
 - Another example of cmd FOR loop technic<br />
