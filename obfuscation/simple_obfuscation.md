@@ -219,29 +219,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- delimiter removal in cmd interpreter [ :@= ]
-
-      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
-
-      The attacker sets the netastat command in a process-level environment variable called x before
-      passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat
-      in the original cmd.exe command using @ characters. The @ characters are later removed from the
-      command contents stored in the environment variable x using cmd.exe’s native variable string
-      replacement functionality. %VariableName:StringToFind=NewString% where StringToFind is the @
-      character and NewString is blank, so the @ character is simply removed.
-
-<br />
-
-- String command to obfuscate<br />
-`cmd.exe /c netstat`
-
-- String obfuscated<br />
-`cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"`
-
-![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
-
----
-
       Obfuscating windows batch files using undefined environmental variables.
       '''Inside .bat files''' undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
@@ -366,6 +343,29 @@ The above string can be obfuscated using the **batch special character: "** <br 
         powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
 
 ![batch obfuscation](http://i66.tinypic.com/qzfbex.jpg)
+
+---
+
+- delimiter removal in cmd interpreter [ :@= ]
+
+      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
+
+      The attacker sets the netastat command in a process-level environment variable called x before
+      passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat
+      in the original cmd.exe command using @ characters. The @ characters are later removed from the
+      command contents stored in the environment variable x using cmd.exe’s native variable string
+      replacement functionality. %VariableName:StringToFind=NewString% where StringToFind is the @
+      character and NewString is blank, so the @ character is simply removed.
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c netstat`
+
+- String obfuscated<br />
+`cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"`
+
+![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
 
 ---
 
