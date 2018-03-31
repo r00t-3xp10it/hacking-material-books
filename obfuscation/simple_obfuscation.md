@@ -117,6 +117,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ---
 
       Further obfuscation adding ramdom whitespaces + commas + semi-collons + carets + double quotes
+      HINT: Empty space technic can't be used to brake the command argument, but used between them.
 
 <br />
 
