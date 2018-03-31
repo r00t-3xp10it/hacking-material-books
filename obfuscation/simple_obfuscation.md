@@ -124,7 +124,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c start /max netstat -ano | findstr LISTENING`
 
 - String obfuscated [whitespaces]<br />
-`cmd.exe /c   start   /max   netstat -ano | findstr LISTENING`<br />
+![batch obfuscation](http://i.cubeupload.com/eyGNUO.jpg)
 
 - String obfuscated [whitespaces+collon+semi-collon]<br />
 `cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
