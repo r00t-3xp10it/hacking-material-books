@@ -217,6 +217,13 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
 
+      The batch command 'call' executes one batch file from within another. If you execute a
+      batch file from inside another batch file without using CALL, the original batch file
+      is terminated before the other one starts. This method of invoking a batch file from
+      another is usually referred to as chaining.
+
+![batch obfuscation](http://i.cubeupload.com/80N23a.jpg)
+
 ---
 
       Obfuscating windows batch files using undefined environmental variables.
@@ -394,6 +401,10 @@ The above string can be obfuscated using the **batch special character: "** <br 
     [ PSModulePath ] environment variable value tokenized on delimiters [ \ ] and [ s ]
 
 ![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
+
+- Another example of for loop technic<br />
+
+![bash obfuscation](http://i.cubeupload.com/RfM32P.jpg)<br />
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
