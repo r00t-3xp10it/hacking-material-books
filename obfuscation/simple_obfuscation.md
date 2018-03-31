@@ -222,7 +222,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
       The batch command 'call' executes one batch file from within another. If you execute a
       batch file from inside another batch file without using CALL, the original batch file
       is terminated before the other one starts. This method of invoking a batch file from
-      another is usually referred to as chaining.
+      another is usually referred to as chaining and allows us to set any environement
+      variable and 'call it' later in sourcecode ..
 
 ![batch obfuscation](http://i.cubeupload.com/80N23a.jpg)
 
