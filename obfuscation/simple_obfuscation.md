@@ -22,6 +22,9 @@
 **Example of one obfuscated powershell dropper** [ psh-dropper.ps1 ]<br />
 ![powershell obfuscation](http://i66.tinypic.com/t9bdaq.jpg)<br />
 
+**Example of one obfuscated batch agent** [ venom-framework ]<br />
+![batch obfuscation](http://i.cubeupload.com/OPDDJo.png)<br />
+
 <br />
 
                                                - SPECIAL NOTE -
