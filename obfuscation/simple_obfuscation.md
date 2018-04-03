@@ -223,8 +223,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c netstat -s -p TCP`
 
 - String obfuscated [brake command line arguments into diferent vars]<br />
-
-      cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"
+`cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"`
 
 ![batch obfuscation](http://i.cubeupload.com/LtFMqK.jpg)
 
@@ -237,6 +236,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
       HINT: we can separate the command arguments also: cmd.exe /c netstat -s -p TCP
       This way we can separate the command from its arguments or even input a new argument in the middle.
+
+- String obfuscated [brake command line arguments into diferent vars]<br />
 `cmd.exe /c "set com1=net&&set com2=stat&&set com3=-s -p TCP&&set join=%com1%%com2% %com3%&&echo %join%|cmd"`
 
 ![batch obfuscation](http://i.cubeupload.com/RxiSaq.jpg)
