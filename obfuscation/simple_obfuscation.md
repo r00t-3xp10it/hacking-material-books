@@ -235,6 +235,11 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/vzzmTR.jpg)
 
+      HINT: we can separate the command arguments also: cmd.exe /c netstat -s -p TCP
+`cmd.exe /c "set com1=net&&set com2=stat&&set com3=-s -p TCP&&set join=%com1%%com2% %com3%&&echo %join% | cmd"`
+
+![batch obfuscation](http://i.cubeupload.com/RxiSaq.jpg)
+
       we can also use the "enabling delayed environment variable expansion" [/V:ON]
       command to be able to call your variales in two diferent ways: %var% OR !var!
 
