@@ -233,35 +233,6 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-      [ Parentheses obfuscation ] Evenly-paired parentheses can encapsulate individual commands
-      in cmd.exe’s arguments without affecting the execution of each command. These unnecessary
-      parenthesis characters indicate the implied sub-command grouping interpreted by cmd.exe’s
-      argument processor. Paired parentheses can be liberally applied for obfuscation purposes.
-
-<br />
-
-- String command to obfuscate<br />
-`cmd.exe /c whoami && netstat`
-
-- String obfuscated [double Parentheses]<br />
-`cmd.exe /c ((whoami)) && ((netstat))`<br />
-
-![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
-
-- string more obfuscated using diferent technics<br />
-
-![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
-
-      The batch command 'call' executes one batch file from within another. If you execute a
-      batch file from inside another batch file without using CALL, the original batch file
-      is terminated before the other one starts. This method of invoking a batch file from
-      another is usually referred to as chaining and allows us to set any environement
-      variable and 'call it' later in sourcecode ..
-
-![batch obfuscation](http://i.cubeupload.com/80N23a.jpg)
-
----
-
       Obfuscating windows batch files using undefined environmental variables.
       '''Inside .bat files''' undefined environmental variables are expanded into empty strings
       Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
@@ -389,8 +360,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- delimiter removal in cmd interpreter [ :@= ]
+- More obscure obfuscated/bypass technics<br />
 
+      [ delimiter removal in cmd interpreter :@= ] 
       we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
 
       The attacker sets the netastat command in a process-level environment variable called x before
@@ -421,8 +393,36 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- More obscure obfuscated/bypass technics<br />
+      [ Parentheses obfuscation ] Evenly-paired parentheses can encapsulate individual commands
+      in cmd.exe’s arguments without affecting the execution of each command. These unnecessary
+      parenthesis characters indicate the implied sub-command grouping interpreted by cmd.exe’s
+      argument processor. Paired parentheses can be liberally applied for obfuscation purposes.
 
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c whoami && netstat`
+
+- String obfuscated [double Parentheses]<br />
+`cmd.exe /c ((whoami)) && ((netstat))`<br />
+
+![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
+
+- string more obfuscated using diferent technics<br />
+
+![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
+
+      The batch command 'call' executes one batch file from within another. If you execute a
+      batch file from inside another batch file without using CALL, the original batch file
+      is terminated before the other one starts. This method of invoking a batch file from
+      another is usually referred to as chaining and allows us to set any environement
+      variable and 'call it' later in sourcecode ..
+
+![batch obfuscation](http://i.cubeupload.com/80N23a.jpg)
+
+---
+
+      [ obfuscating the string powershell ]
       If the proccess name is 'powershell' and the command line arguments match some specific
       patterns, AMSI/AV's will flag that input as malicious. One way to obfuscate the string
       PowerShell in the example command is to substitute individual characters with substrings
