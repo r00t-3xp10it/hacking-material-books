@@ -185,7 +185,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
 
       HINT: using [ || ] allow us to execute the 2º command if the 1º one fails to execute
-      echo "rubish data" || cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+      COPY %windir%\notepad.exe %nonexisting%\fake.exe || cmd.exe /c start calc
+
+![pipe commands](http://i.cubeupload.com/EIQWfa.jpg)
 
 ---
 
