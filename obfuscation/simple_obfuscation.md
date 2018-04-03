@@ -223,6 +223,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/LtFMqK.jpg)
 
+      we can also use the "enabling delayed environment variable expansion" [/V:ON]
+      command to be able to call your variales in two diferent ways: %var% OR !var!
+
+- String obfuscated [another example using cmd /c to exec the string]<br />
+`cmd.exe /c "set buff=net&& set void=at&&set char=st&&" cmd /V:ON /c %buff%!char!%void% -s -p UDP`
+
+![batch obfuscation](http://i.cubeupload.com/Y2KNXr.jpg)
+
 ---
 
       [ Parentheses obfuscation ] Evenly-paired parentheses can encapsulate individual commands
