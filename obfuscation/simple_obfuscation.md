@@ -452,7 +452,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       WARNING: Remmenber that this screenshots are examples to exec in terminal, so if your plans
       are to use the FOR loop technic then remmenber to input a double number of % in var declarations.
 
-      [ EXAMPLE - batch script]: FOR /F "delims=s\ tokens=4" %%a IN ('set^|findstr PSM')DO %%a Get-Date
+![bash obfuscation](http://i.cubeupload.com/ypR2sm.png)<br />
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
