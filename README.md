@@ -21,7 +21,7 @@
 
 ---
 
-- [Common Format String Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/tree/master/nmap-NSE)<br />
+- [Common Format String Obfuscation Technics](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md)<br />
 
 ![Common Format String Obfuscation Technics](http://i.cubeupload.com/8ySlqV.jpg)<br />
 
