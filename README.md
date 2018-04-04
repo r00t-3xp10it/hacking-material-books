@@ -3,9 +3,7 @@
 
 <br /><br />
 
-- Metasploit RB/ERB scripting
-
-[Metasploit RB/ERB scripting](https://github.com/r00t-3xp10it/hacking-material-books/tree/master/metasploit-RC%5BERB%5D)<br />
+- [Metasploit RB/ERB scripting](https://github.com/r00t-3xp10it/hacking-material-books/tree/master/metasploit-RC%5BERB%5D)<br />
 
 ![Metasploit RB/ERB scripting](http://i.cubeupload.com/4m8G0f.png)<br />
 
