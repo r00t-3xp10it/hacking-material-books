@@ -25,7 +25,7 @@
 
 ![Common Format String Obfuscation Technics](http://i.cubeupload.com/8ySlqV.jpg)<br />
 
-<br /><br /><br />
+---
 
 # Suspicious Shell Activity @2018
 
