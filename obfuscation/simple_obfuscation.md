@@ -751,7 +751,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 <br />
 
-      Another way to use the -Replace switch (remmenber that we can store this command into a $var
+      Another way to use the -Replace switch (remmenber that we can store this command into a $var)
 
 <br />
 
@@ -759,7 +759,7 @@ The above string can be obfuscated using **powershell special characters:** **`*
 `Get-Date`
 
 - String obfuscated<br />
-`(('0 2 4 1 3'-Replace'\w+','{${0}}'))-Replace' ','')-f'Get','t','-D','e','a')`
+`(('0 2 4 1 3'-Replace'\w+','{${0}}'-Replace' ','')-f'Get','t','-D','e','a')`
 
 ![powershell obfuscation](http://i.cubeupload.com/tg6EXi.jpg)
 
