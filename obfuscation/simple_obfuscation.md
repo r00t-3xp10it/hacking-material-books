@@ -753,6 +753,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       Another way to use the -Replace switch (remmenber that we can store this command into a $var
 
+<br />
+
+- String command to obfuscate<br />
+`Get-Date`
+
 - String obfuscated<br />
 `(('0 2 4 1 3'-Replace'\w+','{${0}}'))-Replace' ','')-f'Get','t','-D','e','a')`
 
