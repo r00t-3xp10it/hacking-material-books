@@ -386,7 +386,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
       [ delimiter removal in cmd interpreter :@= ] 
       we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
 
-      The attacker sets the netastat command in a process-level environment variable called x before
+      The attacker sets the netstat command in a process-level environment variable called x before
       passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat
       in the original cmd.exe command using @ characters. The @ characters are later removed from the
       command contents stored in the environment variable x using cmd.exe’s native variable string
@@ -441,9 +441,9 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String obfuscated [double Parentheses]<br />
 `cmd.exe /c ((whoami)) && ((netstat))`<br />
 
-![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
+![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg) whitespaces+collon+semi-collon+caret
 
-- string more obfuscated using diferent technics<br />
+- string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
 
 ![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
 
@@ -488,6 +488,11 @@ The above string can be obfuscated using the **batch special character: "** <br 
       are to use the FOR loop technic then remmenber to input a double number of % in var declarations.
 
 ![bash obfuscation](http://i.cubeupload.com/ypR2sm.png)<br />
+
+      Another technic its to copy powershell.exe from %windir% to %tmp% folder (rewritable location)
+      and rename it to another name with a diferent extension and call it to execute powershell args.
+
+![bash obfuscation](http://i.cubeupload.com/fwGdya.jpg)<br />
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
