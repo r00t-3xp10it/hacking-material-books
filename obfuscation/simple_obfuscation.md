@@ -23,7 +23,7 @@
 ![powershell obfuscation](http://i66.tinypic.com/t9bdaq.jpg)<br />
 
 **Example of one obfuscated batch agent** [ AgentK.bat - venom-framework ]<br />
-![batch obfuscation](http://i.cubeupload.com/Ck8eNe.png)<br />
+![batch obfuscation](http://i.cubeupload.com/BWB6q6.jpg)<br />
 
 <br />
 
