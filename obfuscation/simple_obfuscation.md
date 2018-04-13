@@ -252,6 +252,11 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/Y2KNXr.jpg)
 
+      cmd.exe variable declarations also accepts special characters
+
+- String obfuscated [special characters inside set declarations]<br />
+`cmd.exe /c "set --$#$--=net&& set '''=at&&set ;;;;=st&&" cmd /c %--$#$--%%;;;;%%'''% -s -p UDP`
+
 ---
 
       Obfuscating windows batch files using undefined environmental variables.
@@ -382,6 +387,15 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ---
 
 - More obscure obfuscated/bypass technics<br />
+
+      [ cmd similar interpreter's ] defenders watching launches of cmd?
+      then use the follow Microsoft signed binarys to execute your systemscall's
+
+      forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
+      bash.exe -C calc.exe
+      scriptrunner.exe -appvscript calc.exe
+
+<br />
 
       [ delimiter removal in cmd interpreter :@= ] 
       we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
