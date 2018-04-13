@@ -257,6 +257,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String obfuscated [special characters inside set declarations]<br />
 `cmd.exe /c "set --$#$--=net&& set '''=at&&set ;;;;=st&&" cmd /c %--$#$--%%;;;;%%'''% -s -p UDP`
 
+![batch obfuscation](http://i.cubeupload.com/v5FqKw.jpg)
+
 ---
 
       Obfuscating windows batch files using undefined environmental variables.
@@ -388,12 +390,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 - More obscure obfuscated/bypass technics<br />
 
-      [ cmd similar interpreter's ] defenders watching launches of cmd?
-      then use the follow Microsoft signed binarys to execute your systemscall's
+      [ cmd similar interpreter's ] defenders watching launches of cmd instance?
+      then use the follow Microsoft signed binarys to execute your agents
 
-      forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
       bash.exe -C calc.exe
       scriptrunner.exe -appvscript calc.exe
+      forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
+
+![batch obfuscation](http://i.cubeupload.com/i60JVh.jpg)
 
 <br />
 
