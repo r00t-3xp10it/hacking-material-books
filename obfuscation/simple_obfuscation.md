@@ -522,6 +522,8 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/C8AzE8.png)<br />
 
+- More obfuscated using [ @ = , ; ^ + ( ) ] special characters<br />
+
 ![batch obfuscation](http://i.cubeupload.com/a0F8iS.png)<br />
 
 
