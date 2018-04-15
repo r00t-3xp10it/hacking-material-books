@@ -1099,6 +1099,26 @@ Here we can view the all process of encoding/decoding in powershell console
 ![enigma0x3 - AMSI Bypass](http://i66.tinypic.com/mrstv9.png)
 `HINT: Invoke-Expression powershell command flagging AMSI detection`<br />
 
+---
+
+<br />
+
+      [ detecting the sandbox environment. ] Most sandbox's are using hostnames like Sandbox,
+      Maltest, Malware, malsand, ClonePC. With simple tricks like hostname, mac address or
+      process detection, malware can detect if its working in an sandbox environment.
+      Sandbox evasion capabilities allow malware to stay undetected during sandbox analysis.
+
+      the next powershell script checks if we are running in a sandbox environment by
+      extracting target hostname and compare it with knonw sandbox's hostnames.
+
+<br />
+
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
+
+---
+
 <br />
 
 - **AMSI** .COM Object DLL hijacking [ enigma0x3 ]
@@ -1129,24 +1149,6 @@ Here we can view the all process of encoding/decoding in powershell console
 ![enigma0x3 - AMSI Bypass](http://i65.tinypic.com/2rpv0hv.png)
 
 [DLL hijacking technic applied to AMSI-Bypass.bat with agent exec abilities](https://pastebin.com/H2kjLCin)<br />
-
----
-
-<br />
-
-      [ detecting the sandbox environment. ] Most sandbox's are using hostnames like Sandbox,
-      Maltest, Malware, malsand, ClonePC. With simple tricks like hostname, mac address or
-      process detection, malware can detect if its working in an sandbox environment.
-      Sandbox evasion capabilities allow malware to stay undetected during sandbox analysis.
-
-      the next powershell script checks if we are running in a sandbox environment by
-      extracting target hostname and compare it with knonw sandbox's hostnames.
-
-<br />
-
-      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
-
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
 
 ---
 
