@@ -1132,6 +1132,24 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+<br />
+
+      [ detecting the sandbox environment. ] Most sandbox's are using hostnames like Sandbox,
+      Maltest, Malware, malsand, ClonePC. With simple tricks like hostname, mac address or
+      process detection, malware can detect if its working in an sandbox environment.
+      Sandbox evasion capabilities allow malware to stay undetected during sandbox analysis.
+
+      the next powershell script checks if we are running in a sandbox environment by
+      extracting target hostname and compare it with knonw sandbox's hostnames.
+
+<br />
+
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
+
+---
+
 <br /> 
 
 - **AMSI** bypass using nul bits [Satoshi]
@@ -1453,7 +1471,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 
 - Scripts used in this article (**POCs**):<br />
-[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [5] [Hello.ps1](https://pastebin.com/ELByB5y7)<br />[6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [7] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [8] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [9] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y)<br />[10] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [11] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU) [12] [Bypass-AMSI.ps1](https://pastebin.com/A2C0TSNs) [13] [AgentK.bat](https://pastebin.com/K2w5dbuQ)<br />
+[1] [undefined-vars.bat](https://pastebin.com/MV0uxDaf) [2] [certutil-dropper.bat](https://pastebin.com/hyBJHAgx) [3] [demo.bat](https://pastebin.com/8KL6rBTF) [4] [AMSI-bypass.bat](https://pastebin.com/H2kjLCin) [5] [Hello.ps1](https://pastebin.com/ELByB5y7)<br />[6] [Unicorn.ps1](https://pastebin.com/y9qJdGJf) [7] [psh-dropper.ps1](https://pastebin.com/MJ2f20Zs) [8] [BitsTransfer.ps1](https://pastebin.com/keaHme3F) [9] [Invoke-WebRequest.ps1](https://pastebin.com/9VRtFZ1Y)<br />[10] [AMSI-Downgrade.ps1](https://pastebin.com/qkkq5bZy) [11] [AMSI-Reflection.ps1](https://pastebin.com/THJQvHnU) [12] [Bypass-AMSI.ps1](https://pastebin.com/A2C0TSNs) [13] [AgentK.bat](https://pastebin.com/K2w5dbuQ) [14] [sandbox-detection.ps1](https://pastebin.com/qhgDvcrF)<br />
 
       The above scripts are meant for article readers to quick test concepts and obfuscation methods
       there is no guaranties that they will bypass AMSI detection [demo scripts] so.. if you are a
@@ -1519,6 +1537,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [7] [enigma0x3 - bypassing-amsi-via-com-server-hijacking](https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/)<br />
 [8] [ReL1k - circumventing-encodedcommand-detection-powershell](https://www.trustedsec.com/2017/01/circumventing-encodedcommand-detection-powershell/)<br />
 [9] [Satoshi Tanda - amsi-bypass-with-null-character](http://standa-note.blogspot.pt/2018/02/amsi-bypass-with-null-character.html)<br />
+[10][sandbox-evasion-technics](http://unprotect.tdgt.org/index.php/Sandbox_Evasion)<br />
 
 <br />
 
