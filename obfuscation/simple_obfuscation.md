@@ -1537,7 +1537,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [7] [enigma0x3 - bypassing-amsi-via-com-server-hijacking](https://enigma0x3.net/2017/07/19/bypassing-amsi-via-com-server-hijacking/)<br />
 [8] [ReL1k - circumventing-encodedcommand-detection-powershell](https://www.trustedsec.com/2017/01/circumventing-encodedcommand-detection-powershell/)<br />
 [9] [Satoshi Tanda - amsi-bypass-with-null-character](http://standa-note.blogspot.pt/2018/02/amsi-bypass-with-null-character.html)<br />
-[10][sandbox-evasion-technics](http://unprotect.tdgt.org/index.php/Sandbox_Evasion)<br />
+[10] [sandbox-evasion-technics](http://unprotect.tdgt.org/index.php/Sandbox_Evasion)<br />
 
 <br />
 
