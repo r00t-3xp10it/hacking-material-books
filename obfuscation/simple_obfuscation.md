@@ -1117,6 +1117,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
 
+[sandbox-detection.ps1 demo script can be found here:](https://pastebin.com/qhgDvcrF)<br />
+
 ---
 
 <br />
