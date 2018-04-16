@@ -1103,26 +1103,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      [ detecting the sandbox environment. ] Most sandbox's are using hostnames like Sandbox,
-      Maltest, Malware, malsand, ClonePC. With simple tricks like hostname, mac address or
-      process detection, malware can detect if its working in an sandbox environment.
-      Sandbox evasion capabilities allow malware to stay undetected during sandbox analysis.
-
-      the next powershell script checks if we are running in a sandbox environment by
-      extracting target hostname and compare it with knonw sandbox's hostnames.
-
-<br />
-
-      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
-
-![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
-
-[sandbox-detection.ps1 demo script can be found here:](https://pastebin.com/qhgDvcrF)<br />
-
----
-
-<br />
-
 - **AMSI** .COM Object DLL hijacking [ enigma0x3 ]
 
       [ AMSI COM Bypass ] Since the COM server is resolved via the HKCU hive first, a normal user can hijack
@@ -1288,14 +1268,47 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 ## Bypass the scan engine (sandbox)
 
+<br />
+
+      [ detecting the sandbox environment. ] Most sandbox's are using hostnames like Sandbox,
+      Maltest, Malware, malsand, ClonePC. With simple tricks like hostname, mac address or
+      process detection, malware can detect if its working in an sandbox environment.
+      Sandbox evasion capabilities allow malware to stay undetected during sandbox analysis.
+
+      the next powershell script checks if we are running in a sandbox environment by
+      extracting target hostname and compare it with knonw sandbox's hostnames.
+
+<br />
+
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
+
+[sandbox-detection.ps1 demo script can be found here:](https://pastebin.com/qhgDvcrF)<br />
+
+      The next example uses 'stalling+Onset delay' technics to bypass the sandbox environment.
+
+      Onset delay: Malware will delay execution to avoid analysis by the sample.
+      For example, a external Ping can be perform during a pre-defined time. 
+
+      Stalling code: This technique is used for delaying execution of the real malicious code.
+      Stalling code is typically executed before any malicious behavior. The attacker’s aim is
+      to delay the execution of the malicious activity long enough so that an automated dynamic
+      analysis system fails to extract the interesting malicious behavior. 
+
+<br />
+
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;ping -n 6 -w 100 www.microsoft.com;echo Microsoft > %tmp%\\License.pem;ping -n 3 -w 100 www.microsoft.org;powershell Get-Date;Start-Sleep 3}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+
+---
+
       This next technic writes a file to disk before executing shellcode into target ram ..
       'Template taken from Avet anti-virus evasion tool presented in blackhat 2017'.
 
----
+<br />
 
 ![avet bypass](http://i67.tinypic.com/2chpeed.png)
 
----
 
 <br />
 
