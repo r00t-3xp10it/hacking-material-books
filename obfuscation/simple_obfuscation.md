@@ -1287,7 +1287,6 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [sandbox-detection.ps1 demo script can be found here:](https://pastebin.com/qhgDvcrF)<br />
 
       The next example uses 'stalling+Onset delay' technics to bypass the sandbox environment.
-
       Onset delay: Malware will delay execution to avoid analysis by the sample.
       For example, a external Ping can be perform during a pre-defined time. 
 
