@@ -1280,7 +1280,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 <br />
 
-      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox : detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;}else{write-Host "";write-Host "SandBox : not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
 
 ![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/lisJ35.png)
 
@@ -1297,7 +1297,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 <br />
 
-      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;ping -n 6 -w 100 www.microsoft.com;echo Microsoft > %tmp%\\License.pem;ping -n 3 -w 100 www.microsoft.org;powershell Get-Date;Start-Sleep 3}else{write-Host "";write-Host "SandBox not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox : detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;ping -n 6 -w 100 www.microsoft.com;echo Microsoft > %tmp%\\License.pem;ping -n 3 -w 100 www.microsoft.org;powershell Get-Date;Start-Sleep 3}else{write-Host "";write-Host "SandBox : not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
 
 ---
 
