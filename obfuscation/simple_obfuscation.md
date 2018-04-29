@@ -58,12 +58,15 @@
 [1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
-[4] [AMSI Bypass Technics (COM)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass)<br />
-[5] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
-[6] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
-[7] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[8] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
-[9] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
+
+[4] [VBScript Obfuscation Technics (vbs)] ()<r />
+
+[5] [AMSI Bypass Technics (COM)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass)<br />
+[6] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
+[7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
+[8] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
+[9] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
+[10] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
 ---
 
@@ -1086,6 +1089,44 @@ Here we can view the all process of encoding/decoding in powershell console
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [3] [All Hail to ''@danielbohannon'' for its extraordinary work (obfuscation) under powershell](https://www.sans.org/summit-archives/file/summit-archive-1492186586.pdf)<br />
+
+---
+
+
+<br /><br /><br /><br />
+
+## VBScript Obfuscation Technics (vbs)
+
+      [Reverse a string] StrReverse(string) vbscript funtion can be used
+      to obfuscate the system call(s) by reversing the string(s) at runtime.
+
+<br />
+
+- String command to obfuscate<br />
+`How To Reverse a String In Vbs`
+
+- String obfuscated<br />
+`Wscript.echo StrReverse("sbV nI gnirtS a esreveR oT woH")`
+![vbscript obfuscation](https://i.cubeupload.com/gWZlXY.jpg)
+
+<br />
+
+      [Executing a reverse string] The follow example creates the objshell vbscript
+      object and object.Run to be able to execute commands, it also defines a local
+      variable (dim rev) with the strReverse builtin funtion to reverse the string
+      and store it inside rev variable (dim rev) to be called at execution time.
+
+- String command to obfuscate<br />
+`netstat`
+
+- String obfuscated (test.vbs)<br />
+
+      set objshell = Createobject("Wscript.Shell")
+      dim rev
+      rev = StrReverse("tatsten")
+      object.Run rev
+
+![vbscript obfuscation](http://i.cubeupload.com/xznPeA.jpg)
 
 ---
 
