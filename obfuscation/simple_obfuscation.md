@@ -1128,6 +1128,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+
+---
+
 <br /><br /><br /><br />
 
 ## AMSI COM Bypass
