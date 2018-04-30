@@ -1,6 +1,7 @@
-ASCII control characters
-Dec 	Hex 	Binary 	        Char    Description
+## ASCII control characters
 
+- Dec 	Hex 	Binary 	        Char    Description<br />
+<br />
 0 	00 	00000000 	NUL 	null
 1 	01 	00000001 	SOH 	start of header
 2 	02 	00000010 	STX 	start of text
