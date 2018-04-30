@@ -51,23 +51,23 @@
       36     $       dollar
       37     %       percent
       38     &       ampersand
-      39     ' 	     single quote
-      40     ( 	     left parenthesis
-      41     ) 	     right parenthesis
-      42     * 	     asterisk
+      39     '       single quote
+      40     (       left parenthesis
+      41     )       right parenthesis
+      42     *       asterisk
       43     +       plus
-      44     , 	     comma
-      45     - 	     minus
-      46     . 	     period
-      47     / 	     slash
-      48     0 	     zero
-      49     1 	     one
-      50     2 	     two
-      51     3 	     three
-      52     4 	     four
-      53     5 	     five
-      54     6 	     six
-      55     7 	     seven
+      44     ,       comma
+      45     -       minus
+      46     .       period
+      47     /       slash
+      48     0       zero
+      49     1       one
+      50     2       two
+      51     3       three
+      52     4       four
+      53     5       five
+      54     6       six
+      55     7       seven
 
 
 56 	38 	00111000 	8 	eight
