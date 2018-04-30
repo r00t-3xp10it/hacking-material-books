@@ -45,12 +45,12 @@
       Nº  -  Char  - Description
 
       32     Space   space
-      33     ! 	     exclamation mark
-      34     " 	     double quote
-      35     # 	     number
+      33     !       exclamation mark
+      34     "       double quote
+      35     #       number
       36     $       dollar
-      37     % 	     percent
-      38     & 	     ampersand
+      37     %       percent
+      38     &       ampersand
       39     ' 	     single quote
       40     ( 	     left parenthesis
       41     ) 	     right parenthesis
