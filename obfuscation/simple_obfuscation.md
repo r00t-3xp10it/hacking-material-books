@@ -1147,6 +1147,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/6UqdZD.png)
 
+- Obfuscating further the string inside StrReverse() object<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/yY02QY.png)
+
+---
+
       [Building our vbs oneliner] VBScript uses the : character as end of command the same
       way bash and python uses the ; character to execute another command, this technic can
       be used to build our vbs script oneliner template.
@@ -1158,7 +1164,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - String obfuscated (test.vbs)<br />
 
-      Dim rev:Dim cmd:rev = StrReverse("clac trats c/"):cmd = "cMd.Exe ^B^U^F^F^E^R" & rev:set objshell = CreateObject("Wscript.Shell"):objShell.Run cmd
+      Dim rev:Dim cmd:rev = StrReverse("clac trats R/"):cmd = "cMd.Exe ^B^U^F^F^E^R" & rev:set objshell = CreateObject("Wscript.Shell"):objShell.Run cmd
 
 ![vbscript obfuscation](http://i.cubeupload.com/qs0qx8.png)
 
