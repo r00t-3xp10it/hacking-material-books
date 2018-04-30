@@ -1193,7 +1193,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/MtGs1y.png)
 
--  Build oneliner [ : ] and Obfuscate further the string using the [ + ] operators<br />
+-  Build oneliner [ : ] and Obfuscate further the string using [ + ] and [ ^ ] operators<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oW4Kvd.png)
 
