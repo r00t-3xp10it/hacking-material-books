@@ -1128,6 +1128,25 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [ANCII character substitution] vbscript calls ancii characters using the Chr() API.
+      This substitution method can be used to obfuscated our systemcall(s) by composing
+      the final command at run time
+
+<br />
+
+- String command to obfuscate<br />
+`WHOAMI`
+
+- String obfuscated (test.vbs)<br />
+
+      Wscript.echo Chr(87) & Chr(72) & Chr(79) & Chr(65) & Chr(77) & Chr(73)
+
+![vbscript obfuscation](http://i.cubeupload.com/lCC4M4.png)
+
+[Here we can see the full list of ANCII characters](ufu)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
