@@ -1109,22 +1109,21 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      [Executing a reverse string] The follow example creates the objshell vbscript
-      object and object.Run to be able to execute commands, it also defines a local
-      variable (dim rev) with the strReverse builtin funtion to reverse the string
-      and store it inside rev variable (dim rev) to be called at execution time.
+      [Executing a reverse string] The follow example creates the objshell and objShell.Run
+      Objects to be able to execute commands, it also defines a local variable (dim rev) with
+      the strReverse() builtin API that reverses the string (netstat systemcall) at runtime.
 
 - String command to obfuscate<br />
 `netstat`
 
 - String obfuscated (test.vbs)<br />
 
-      set objshell = Createobject("Wscript.Shell")
-      dim rev
+      Dim rev
       rev = StrReverse("tatsten")
-      object.Run rev
+      set objshell = Createobject("Wscript.Shell")
+      objShell.Run rev
 
-![vbscript obfuscation](http://i.cubeupload.com/xznPeA.jpg)
+![vbscript obfuscation](http://i.cubeupload.com/IHL5Nf.png)
 
 ---
 
