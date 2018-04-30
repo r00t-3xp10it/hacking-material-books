@@ -1215,6 +1215,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ![vbscript obfuscation](http://i.cubeupload.com/lCC4M4.png)
 
 - Executing ANCII character substitution (oneliner - test.vbs)<br />
+`cmd.exe /c start calc`<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/WiXBCu.png)
 
