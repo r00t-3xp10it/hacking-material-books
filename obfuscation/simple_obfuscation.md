@@ -1127,6 +1127,28 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [caret escape character obfuscation] Vbscript uses the ^ (caret) character as escape character.
+      The follow example also splits the command into two variables (rev+cmd) and join them at runtime.
+      HINT: any character inserted after the ^ (caret) character will be ignored by vbs interpreter.
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start calc`
+
+- String obfuscated (test.vbs)<br />
+
+      Dim rev
+      Dim cmd
+      rev = StrReverse("clac trats c/")
+      cmd = "cMd.Exe ^B^U^F^F^E^R" & rev
+      set objshell = CreateObject("Wscript.Shell")
+      objShell.Run cmd
+
+![vbscript obfuscation](http://i.cubeupload.com/6UqdZD.png)
+
+---
+
       [ANCII character substitution] vbscript calls ancii characters using the Chr() API.
       This substitution method can be used to obfuscated our systemcall(s) by composing
       the final command at run time
