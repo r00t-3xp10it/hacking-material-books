@@ -1150,8 +1150,12 @@ Here we can view the all process of encoding/decoding in powershell console
 - Obfuscating further the string inside StrReverse() object<br />
 `rev = StrReverse("cl^ac ^ ^ tr^at^s R/^")`<br />
 
-
 ![vbscript obfuscation](http://i.cubeupload.com/yY02QY.png)<br />
+
+- Obfuscating further the string using the [ + ] operator<br />
+`rev = StrReverse("cl^ac "+" ^ "+" ^ tr^a"+"t^s R/^")`<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/1FViJX.png)<br />
 
 ---
 
@@ -1169,6 +1173,29 @@ Here we can view the all process of encoding/decoding in powershell console
       Dim rev:Dim cmd:rev = StrReverse("clac trats R/"):cmd = "cMd.Exe ^B^U^F^F^E^R" & rev:set objshell = CreateObject("Wscript.Shell"):objShell.Run cmd
 
 ![vbscript obfuscation](http://i.cubeupload.com/qs0qx8.png)
+
+---
+
+      [replace vbscript API] In this example the special character [ @ ] its deleted
+      from the txt string using wscript (Replace(txt,"@","")) bultin API.
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start calc`
+
+- String obfuscated (test.vbs)<br />
+
+      Dim txt
+      txt = "@cM@d.@ex@e @ /@R s@tar@t @cal@c"
+      set objshell = CreateObject("Wscript.Shell")
+      objShell.Run(Replace(txt,"@",""))
+
+![vbscript obfuscation](http://i.cubeupload.com/MtGs1y.png)
+
+-  Build oneliner [ : ] and Obfuscate further the string using the [ + ] operators<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/oW4Kvd.png)
 
 ---
 
