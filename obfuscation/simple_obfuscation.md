@@ -1149,12 +1149,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Obfuscating further the string inside StrReverse() object<br />
 
-![vbscript obfuscation](http://i.cubeupload.com/yY02QY.png)<br />
-
-      HINT: Remmenber that after the 'cmd.exe /c' command all syntax will be executed under
+      HINT: Remmenber that after the 'cmd.exe /R' command all syntax will be executed under
       cmd interpreter, allowing us to use batch obfuscation technics in string manipulations.
       HINT: In cmd local variable the cMd.Exe string its beeing executed by Wscript interpreter
       that only allow us to use the ^ (caret) in the empty spaces betuiwn arguments.
+
+![vbscript obfuscation](http://i.cubeupload.com/yY02QY.png)<br />
 
 ---
 
