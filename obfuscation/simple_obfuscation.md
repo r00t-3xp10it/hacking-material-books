@@ -1128,6 +1128,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/IHL5Nf.png)
 
+- Ofuscating Function Names using lowercase and uppercase characters<br />
+ 
+![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
+
 ---
 
       [executing mallware using concaternation and var substitution]
@@ -1178,6 +1182,10 @@ Here we can view the all process of encoding/decoding in powershell console
 `rev = StrReverse("cl^ac "+" ^ "+" ^ tr^a"+"t^s R/^")`<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/1FViJX.png)<br />
+
+- Ofuscating Function Names<br />
+ 
+![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
 
 ---
 
