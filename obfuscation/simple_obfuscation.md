@@ -1183,10 +1183,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/1FViJX.png)<br />
 
-- Ofuscating Function Names<br />
- 
-![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
-
 ---
 
       [Building oneliner] VBScript uses the [ : ] character as end of command the same
@@ -1203,6 +1199,16 @@ Here we can view the all process of encoding/decoding in powershell console
       Dim rev:Dim cmd:rev = StrReverse("clac trats R/"):cmd = "cMd.Exe ^B^U^F^F^E^R" & rev:set objshell = CreateObject("Wscript.Shell"):objShell.Run cmd
 
 ![vbscript obfuscation](http://i.cubeupload.com/qs0qx8.png)
+
+---
+
+- Ofuscating Function Names<br />
+ 
+![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
+
+- Oneliner using [ : ] and further obfuscating methods with lowercase and uppercase<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/74l9v7.png)
 
 ---
 
