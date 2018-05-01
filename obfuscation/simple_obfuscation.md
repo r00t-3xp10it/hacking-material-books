@@ -1110,6 +1110,10 @@ Here we can view the all process of encoding/decoding in powershell console
 `Wscript.echo StrReverse("sbV nI gnirtS a esreveR oT woH")`
 ![vbscript obfuscation](https://i.cubeupload.com/gWZlXY.jpg)
 
+- Ofuscating Function Names using lowercase and uppercase characters<br />
+ 
+![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
+
 <br />
 
       [Executing a reverse string] The follow example creates the objshell and objShell.Run
@@ -1127,10 +1131,6 @@ Here we can view the all process of encoding/decoding in powershell console
       objShell.Run rev
 
 ![vbscript obfuscation](http://i.cubeupload.com/IHL5Nf.png)
-
-- Ofuscating Function Names using lowercase and uppercase characters<br />
- 
-![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
 ---
 
