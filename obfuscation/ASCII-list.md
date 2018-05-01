@@ -145,4 +145,5 @@
 
 <br />
 
-[For a full ANCII list please visite this website](http://www.theasciicode.com.ar/)
+[For a full ANCII list please visite this website:](http://www.theasciicode.com.ar/)<br />
+[Return to VBScript obfuscation chapter here:](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#vbscript-obfuscation-technics-vbs)<br />

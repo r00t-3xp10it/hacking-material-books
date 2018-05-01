@@ -1272,7 +1272,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/WiXBCu.png)
 
-[Here we can see the full list of ANCII characters](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/ASCII-list.md)<br />
+[We can see the full list of ANCII characters here:](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/ASCII-list.md)<br />
 
 ---
 
