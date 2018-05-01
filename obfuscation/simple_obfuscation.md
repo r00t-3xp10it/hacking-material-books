@@ -1127,6 +1127,25 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [executing mallware using concaternation and var substitution]
+
+<br />
+
+- String command to obfuscate<br />
+`executing mallware using concaternation and var substitution`
+
+- String obfuscated (test.vbs)<br />
+
+      Dim off
+      Dim buff
+      off = "ti"
+      buff = "i"
+      Wscript.echo("Execut" + buff + "ng mallware us" + buff + "ng concaterna" + off + "on and var subs" + off + "tu" + off + "on")
+
+![vbscript obfuscation](http://i.cubeupload.com/56SM5z.png)
+
+---
+
       [caret escape character obfuscation] Vbscript uses the ^ (caret) character as escape character.
       The follow example also splits the command into two variables (rev+cmd) and join them at runtime.
       HINT: any character inserted after the ^ (caret) character will be ignored by vbs interpreter.
@@ -1196,6 +1215,14 @@ Here we can view the all process of encoding/decoding in powershell console
 -  Build oneliner [ : ] and Obfuscate further the string using [ + ] and [ ^ ] operators<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oW4Kvd.png)
+
+- Replace the 2 first occurrencies of [ # ] character by [ i ] character<br />
+
+      Dim txt
+      txt = "Replac#ng the 2 first occurrenc#es of # character by i character!"
+      Wscript.echo(Replace(txt,"#","i",1,2))
+
+![vbscript obfuscation](http://i.cubeupload.com/VIyvEC.png)
 
 ---
 
