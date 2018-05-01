@@ -26,7 +26,7 @@
 ![batch obfuscation](http://i.cubeupload.com/slRTcL.png)<br />
 
 **Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
-![vbscript obfuscation](http://i.cubeupload.com/aUFUMw.png)<br />
+![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
 
 <br />
 
