@@ -25,6 +25,9 @@
 **Example of one obfuscated batch agent** [ AgentK.bat - venom-framework ]<br />
 ![batch obfuscation](http://i.cubeupload.com/slRTcL.png)<br />
 
+**Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
+![vbscript obfuscation](http://i.cubeupload.com/aUFUMw.png)<br />
+
 <br />
 
                                                - SPECIAL NOTE -
@@ -1264,7 +1267,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [Join builtin API] using VBScript Join API to join the systemcall together at runtime 
+      [Join builtin API] using VBScript Join API to join the systemcall(s) together at runtime 
 
 <br />
 
