@@ -1202,11 +1202,13 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-- Ofuscating Function Names<br />
+      [Ofuscating Function Names] Function names or variable declarations can be further obfuscated
+      be replacing human-readable names by a random string of characters, helping this way to throw
+      more confusion to sourcecode and signature detection analysis based in certain patterns. 
  
 ![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
 
-- Oneliner using [ : ] and further obfuscating methods with lowercase and uppercase<br />
+- Oneliner using [ : ] and further obfuscating [ methods ] with lowercase and uppercase<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/74l9v7.png)
 
