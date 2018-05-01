@@ -1181,9 +1181,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [Building our vbs oneliner] VBScript uses the : character as end of command the same
-      way bash and python uses the ; character to execute another command, this technic can
-      be used to build our vbs script oneliner template.
+      [Building oneliner] VBScript uses the [ : ] character as end of command the same
+      way bash and python uses the [ ; ] character to execute another command, this
+      technic can be used to build our vbs script oneliner agent.
 
 <br />
 
@@ -1226,6 +1226,15 @@ Here we can view the all process of encoding/decoding in powershell console
       Wscript.echo(Replace(txt,"#","i",1,2))
 
 ![vbscript obfuscation](http://i.cubeupload.com/VIyvEC.png)
+
+- Another way to Replace [ UI$z ] string by [ t ] character<br /> 
+
+      Dim ser
+      ser = Replace("neUI$zsUI$zaUI$z -UI$z", "UI$z", "t")
+      set objShell = CreateObject("Wscript.Shell")
+      objShell.Run(ser)
+
+![vbscript obfuscation](https://i.cubeupload.com/2JHct1.png)
 
 ---
 
