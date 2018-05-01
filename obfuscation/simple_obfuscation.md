@@ -1264,6 +1264,31 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [Join builtin API] using VBScript Join API to join the systemcall together at runtime 
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /c start calc`
+
+- String obfuscated (test.vbs)<br />
+
+      Dim MyArray
+      Dim stack
+      MyArray = array("c","a","l","c")
+      stack = Join(MyArray,"")
+      final = "cmd.exe /c start " & stack
+      set objshell = CreateObject("Wscript.Shell")
+      objShell.Run final
+
+![vbscript obfuscation](https://i.cubeupload.com/w0YIHX.png)
+
+- Further obfuscation [ var substitution, random function names, ancii substitution, caret obfuscation, concaternation ]<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/aUFUMw.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
