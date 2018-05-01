@@ -1297,7 +1297,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Further obfuscation [ var substitution, random function names, ancii substitution, caret obfuscation, concaternation ]<br />
 
-![vbscript obfuscation](http://i.cubeupload.com/aUFUMw.png)
+![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)
 
 ---
 
