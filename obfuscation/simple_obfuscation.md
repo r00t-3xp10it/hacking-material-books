@@ -1247,6 +1247,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/OhKC5l.png)
 
+- ANCII and VBScript var substitution using [ + ] operator<br />
+
+      Dim void
+      void = "o"+""
+      Wscript.echo Chr(87)+Chr(72)+Chr(79)+Chr(65)+Chr(77)+Chr(73)+Chr(63)+"Iam Gr" + void + void + "t offc" + void + "urse.."
+
+![vbscript obfuscation](http://i.cubeupload.com/LgdMJY.png)
+
 - Oneliner: Executing ANCII character substitution (test.vbs)<br />
 `cmd.exe /c start calc`<br />
 
