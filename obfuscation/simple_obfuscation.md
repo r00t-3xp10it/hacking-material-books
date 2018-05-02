@@ -1349,7 +1349,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       [ Using environment variables + Len() ] The follow example show how to extract the string
       'Temp' from target %tmp% environment variable full path, store it into 'splash' vba variable
-      declaration and use (Len(env) -29) funtion to delete the first 29 chars from the string.
+      declaration and use (Len(pass) -29) funtion to delete the first 29 chars from the string.
 
 <br />
 
