@@ -1098,8 +1098,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## VBScript Obfuscation Technics (vba-vbs)
 
-      [Reverse a string] StrReverse(string) vbscript funtion can be used
-      to obfuscate the system call(s) by reversing the string(s) at runtime.
+      [Reverse a string] The StrReverse() vbscript funtion can be used
+      to obfuscate the systemcall(s) by reversing the string(s) at runtime.
 
 <br />
 
@@ -1110,7 +1110,7 @@ Here we can view the all process of encoding/decoding in powershell console
 `Wscript.echo StrReverse("sbV nI gnirtS a esreveR oT woH")`
 ![vbscript obfuscation](https://i.cubeupload.com/gWZlXY.jpg)
 
-- Ofuscating Function Names using lowercase and uppercase characters<br />
+- Ofuscating [Function Names] using lowercase and uppercase characters<br />
  
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
@@ -1135,6 +1135,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
       [executing mallware using concaternation and var substitution]
+      This next example shows how to use concaternation and variable substitution inside string
 
 <br />
 
@@ -1155,7 +1156,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
       [caret escape character obfuscation] Vbscript uses the ^ (caret) character as escape character.
       The follow example also splits the command into two variables (rev+cmd) and join them at runtime.
-      HINT: any character inserted after the ^ (caret) character will be ignored by vbs interpreter.
 
 <br />
 
@@ -1185,7 +1185,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [Building oneliner] VBScript uses the [ : ] character as end of command the same
+      [Build oneliner] VBScript uses the [ : ] character as end of command the same
       way bash and python uses the [ ; ] character to execute another command, this
       technic can be used to build our vbs script oneliner agent.
 
@@ -1215,7 +1215,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
       [replace vbscript API] In this example the special character [ @ ] its deleted
-      from the txt string using wscript (Replace(txt,"@","")) bultin API.
+      from the txt var string using wscript (Replace(txt,"@","")) builtin API.
 
 <br />
 
@@ -1235,7 +1235,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/oW4Kvd.png)
 
-- Replace the 2 first occurrencies of [ # ] character by [ i ] character<br />
+- Replace the two first occurrencies of [ # ] character by [ i ] character<br />
 
       Dim txt
       txt = "Replac#ng the 2 first occurrenc#es of # character by i character!"
@@ -1257,7 +1257,7 @@ Here we can view the all process of encoding/decoding in powershell console
       vbs function to replace inside the string the chars [ UI$z -> e ] and [ 0!b -> P]
 
       The 1º Replace() function will store the string substitution of [ e ] character into sEr
-      variable declaration, the 2º Replace() function its then used y the Wscript.echo() function
+      variable declaration, the 2º Replace() function its then used by the Wscript.echo() function
       to replace the [ P ] chars before executing the de-obfuscated syscall.
 
 <br />
@@ -1304,7 +1304,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/LgdMJY.png)
 
-- Oneliner: Executing ANCII character substitution (test.vbs)<br />
+- Build Oneliner: Executing ANCII character substitution (test.vbs)<br />
 `cmd.exe /c start calc`<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/WiXBCu.png)
@@ -1313,7 +1313,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [Join builtin API] using VBScript Join API to join the systemcall(s) together at runtime 
+      [Join builtin API] using VBScript Join API to join the systemcall(s) together at runtime
+      The string its concaternated inside MyArray variable declaration and Join together inside
+      stack var, then the two var(s) are 'stack' and stored inside a new var named final to be
+      called at runtime.
 
 <br />
 
