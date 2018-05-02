@@ -1341,6 +1341,22 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [ Using environment variables + Len() ] The follow example show how to extract the string
+      'Temp' from target %tmp% environment variable full path, store it into 'splash' vba variable
+      declaration and use (Len(env) -29) funtion to delete the first 29 chars from the string.
+
+<br />
+
+      Dim env
+      Dim splash
+      env = CreateObject("Wscript.Shell").ExpandEnvironmentStrings("%tmp%")
+      splash = Rigth(env, Len(env) -29)
+      Wscript.echo("Extracting '" + splash + "' chars from: '" + env + "' env")
+
+![vbscript obfuscation](http://i.cubeupload.com/IncZR1.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
