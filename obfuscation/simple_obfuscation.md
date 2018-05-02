@@ -1206,11 +1206,17 @@ Here we can view the all process of encoding/decoding in powershell console
       be replacing human-readable names by a random string of characters, helping this way to throw
       more confusion to sourcecode and fool signature detection analysis based in certain patterns. 
  
+<br />
+
 ![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
 
-- Oneliner using [ : ] and further obfuscating [ methods ] with lowercase and uppercase<br />
+- Obfuscating method names and start of cmd functions with special characters<br />
 
-![vbscript obfuscation](http://i.cubeupload.com/74l9v7.png)
+![vbscript obfuscation](https://i.cubeupload.com/vycfL0.png)
+
+- Build Oneliner (test.vbs)<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/BKEczg.png)
 
 ---
 
@@ -1347,13 +1353,23 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      Dim env
+      Dim pass
       Dim splash
-      env = CreateObject("Wscript.Shell").ExpandEnvironmentStrings("%tmp%")
-      splash = Rigth(env, Len(env) -29)
-      Wscript.echo("Extracting '" + splash + "' chars from: '" + env + "' env")
+      pass = CreateObject("Wscript.Shell").ExpandEnvironmentStrings("%tmp%")
+      splash = Rigth(pass, Len(pass) -29)
+      Wscript.echo("Extracting '" + splash + "' chars from: '" + pass + "' env")
 
 ![vbscript obfuscation](http://i.cubeupload.com/IncZR1.png)
+
+- Using [ Mid ] vba API to extract a sub-string from main string
+
+      Dim pass
+      Dim splash
+      pass = CreateObject("Wscript.Shell").ExpandEnvironmentStrings("%tmp%")
+      splash = Mid(pass, 10, 5)
+      Wscript.echo("Extracting '" + splash + "' chars from: '" + pass + "' env")
+
+![vbscript obfuscation](http://i.cubeupload.com/kyDnDW.png)
 
 ---
 
