@@ -1252,6 +1252,27 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](https://i.cubeupload.com/2JHct1.png)
 
+      [Replacing two characters] In the follow example we are obfuscating variable declarations
+      names + vba function names using lowercase and uppercase characters, and using the Replace()
+      vbs function to replace inside the string the chars [ UI$z -> e ] and [ 0!b -> P]
+
+      The 1º Replace() function will store the string substitution of [ e ] character into sEr
+      variable declaration, the 2º Replace() function its then used y the Wscript.echo() function
+      to replace the [ P ] chars before executing the de-obfuscated syscall.
+
+<br />
+
+- String command to obfuscate<br />
+`Powershell.exe -noP -eNc shellcode: \x0e\x0a\xeP`
+
+- String obfuscated (test.vbs)<br />
+
+      diM sEr
+      sEr = rEpLaCe("0!bowUI$zrshUI$zll.UI$z -no0!b -UI$zNc shUI$zllcodUI$z: \x0UI$z\x0a\xUI$z0!b", "UI$z", "e")
+      wScRipt.eChO(rEPlacE(sEr, "0!b", "P"))
+
+![vbscript obfuscation](https://i.cubeupload.com/0Pxw9I.png)
+
 ---
 
       [ANCII character substitution] vbscript calls ancii characters using the Chr() API.
