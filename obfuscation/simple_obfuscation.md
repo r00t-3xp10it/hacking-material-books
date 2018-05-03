@@ -1190,7 +1190,7 @@ Here we can view the all process of encoding/decoding in powershell console
       way bash and python uses the [ ; ] character to execute another command, this
       technic can be used to build our vbs script oneliner agent.
 
-![vbscript obfuscation](http://i.cubeupload.com/1LZbt1.png)
+![vbscript obfuscation](http://i.cubeupload.com/BKEczg.png)
 
 ---
 
