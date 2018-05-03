@@ -1116,8 +1116,8 @@ Here we can view the all process of encoding/decoding in powershell console
 - Obfuscating [ string ] using concaternation<br />
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
-- Using concaternation and var substitution [ without StrReverse() ]<br />
-![vbscript obfuscation](http://i.cubeupload.com/56SM5z.png)
+- Using concaternation and variable substitution<br />
+![vbscript obfuscation](http://i.cubeupload.com/qJ7Xbn.png)
 
 ---
 
