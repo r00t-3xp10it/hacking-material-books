@@ -1345,6 +1345,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/kyDnDW.png)
 
+- Further Obfuscation in function and method names and strings concaternation<br />
+
+![vbscript obfuscation](https://i.cubeupload.com/aNP9w4.png)
+
+- Build Oneliner using [ : ] operator (test.vbs)<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/qHGcuz.png)
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
