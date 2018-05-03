@@ -1110,13 +1110,13 @@ Here we can view the all process of encoding/decoding in powershell console
 `Wscript.echo StrReverse("sbV nI gnirtS a esreveR oT woH")`
 ![vbscript obfuscation](https://i.cubeupload.com/gWZlXY.jpg)
 
-- Ofuscating [Function Names] using lowercase and uppercase characters<br />
+- Ofuscating [ function names ] using lowercase and uppercase characters<br />
  
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
 - Obfuscating [ string ] using concaternation<br />
 
-![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
+![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
 <br />
 
