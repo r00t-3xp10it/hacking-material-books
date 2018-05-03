@@ -1131,7 +1131,6 @@ Here we can view the all process of encoding/decoding in powershell console
       rev = StrReverse("tatsten")
       set objshell = Createobject("Wscript.Shell")
       objShell.Run rev
-
 ![vbscript obfuscation](http://i.cubeupload.com/IHL5Nf.png)
 
 ---
