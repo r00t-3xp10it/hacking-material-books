@@ -1114,6 +1114,10 @@ Here we can view the all process of encoding/decoding in powershell console
  
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
+- Obfuscating [ string ] using concaternation<br />
+
+![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
+
 <br />
 
       [Executing a reverse string] The follow example creates the objshell and objShell.Run
