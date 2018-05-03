@@ -1116,7 +1116,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Obfuscating [ string ] using concaternation<br />
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
-- Using concaternation and var substitution<br />
+- Using concaternation and var substitution [ without StrReverse() ]<br />
 ![vbscript obfuscation](http://i.cubeupload.com/56SM5z.png)
 
 ---
@@ -1172,23 +1172,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [Build oneliner] VBScript uses the [ : ] character as end of command the same
-      way bash and python uses the [ ; ] character to execute another command, this
-      technic can be used to build our vbs script oneliner agent.
-
-<br />
-
-- String command to obfuscate<br />
-`cmd.exe /c start calc`
-
-- String obfuscated (test.vbs)<br />
-
-      Dim rev:Dim cmd:rev = StrReverse("clac trats R/"):cmd = "cMd.Exe ^B^U^F^F^E^R" & rev:set objshell = CreateObject("Wscript.Shell"):objShell.Run cmd
-
-![vbscript obfuscation](http://i.cubeupload.com/qs0qx8.png)
-
----
-
       [Ofuscating Function Names] Function names or variable declarations can be further obfuscated
       be replacing human-readable names by a random string of characters, helping this way to throw
       more confusion to sourcecode and fool signature detection analysis based in certain patterns. 
@@ -1202,6 +1185,10 @@ Here we can view the all process of encoding/decoding in powershell console
 ![vbscript obfuscation](https://i.cubeupload.com/vycfL0.png)
 
 - Build Oneliner (test.vbs)<br />
+
+      [Build oneliner] VBScript uses the [ : ] character as end of command the same
+      way bash and python uses the [ ; ] character to execute another command, this
+      technic can be used to build our vbs script oneliner agent.
 
 ![vbscript obfuscation](http://i.cubeupload.com/BKEczg.png)
 
