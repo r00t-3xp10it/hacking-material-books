@@ -1111,11 +1111,9 @@ Here we can view the all process of encoding/decoding in powershell console
 ![vbscript obfuscation](https://i.cubeupload.com/gWZlXY.jpg)
 
 - Ofuscating [ function names ] using lowercase and uppercase characters<br />
- 
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
 - Obfuscating [ string ] using concaternation<br />
-
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
 <br />
