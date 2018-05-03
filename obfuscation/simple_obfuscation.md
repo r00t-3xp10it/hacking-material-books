@@ -1353,6 +1353,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/qHGcuz.png)
 
+- Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
