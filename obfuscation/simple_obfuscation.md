@@ -1116,6 +1116,11 @@ Here we can view the all process of encoding/decoding in powershell console
 - Obfuscating [ string ] using concaternation<br />
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
+- Using concaternation and var substitution<br />
+![vbscript obfuscation](http://i.cubeupload.com/56SM5z.png)
+
+---
+
 <br />
 
       [Executing a reverse string] The follow example creates the objshell and objShell.Run
@@ -1131,27 +1136,8 @@ Here we can view the all process of encoding/decoding in powershell console
       rev = StrReverse("tatsten")
       set objshell = Createobject("Wscript.Shell")
       objShell.Run rev
+
 ![vbscript obfuscation](http://i.cubeupload.com/IHL5Nf.png)
-
----
-
-      [executing mallware using concaternation and var substitution]
-      This next example shows how to use concaternation and variable substitution inside string
-
-<br />
-
-- String command to obfuscate<br />
-`executing mallware using concaternation and var substitution`
-
-- String obfuscated (test.vbs)<br />
-
-      Dim off
-      Dim buff
-      off = "ti"
-      buff = "i"
-      Wscript.echo("Execut" + buff + "ng mallware us" + buff + "ng concaterna" + off + "on and var subs" + off + "tu" + off + "on")
-
-![vbscript obfuscation](http://i.cubeupload.com/56SM5z.png)
 
 ---
 
