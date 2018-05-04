@@ -1361,7 +1361,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-                                    ARITHMETIC SEQUENCES OBSCURE FUNTIONS
+                         OBSCURE FUNTIONS [ ARITHMETIC SEQUENCES + SANDBOX EMULATION CHECKS ]
 
 - Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
 
