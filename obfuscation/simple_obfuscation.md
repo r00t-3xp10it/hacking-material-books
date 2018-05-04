@@ -1370,12 +1370,10 @@ Here we can view the all process of encoding/decoding in powershell console
 - Build oneliner [ Stack var declarations + Add arithmetic obscure funtion ]<br />
 
       [Arithmetic Sequences] When it comes to hard-coded numeric values, obfuscators
-      may employ simple arithmetic to thwart reverse engineers or to stall code exec.
+      may employ simple arithmetic to thwart reverse engineers or to stall code execution.
 
       UikEt = "201"+"8"
-      If UikEt < 0 Then
-      MsgBox "Obscure funtion that never gets executed"
-      End If
+      If UikEt < 0 Then:MsgBox "Obscure funtion that never gets executed":End If
 
       HINT: 2018 its allways BIGGER than 0 (so this funtion will never execute)
 
