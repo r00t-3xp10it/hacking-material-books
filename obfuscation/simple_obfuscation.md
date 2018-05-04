@@ -1379,12 +1379,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)<br />
 
----
-
       [sandbox emulation checks] This next exercise will check target %userdomain% value to determine
       if script its running in a sandbox environement (AMSI scan) by comparing sandbox common hostnames
       like: sandbox, Maltest, ClonePC, etc .. the If statatment will Exit (Wscript.Quit) script execution
       if detected sandbox or resume script execution if not running inside a sandbox environement ..
+
+<br />
 
       Dim x0a
       x0a = CreateObject("Wscript.Shell").ExpandEnvironmenSTrings("%USERDOMAIN%")
