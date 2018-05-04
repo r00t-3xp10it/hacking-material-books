@@ -1361,7 +1361,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-                               HEAVILY OBFUSCATED
+                                    ARITHMETIC SEQUENCES OBSCURE FUNTIONS
 
 - Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
 
@@ -1377,7 +1377,7 @@ Here we can view the all process of encoding/decoding in powershell console
       MsgBox "Obscure funtion that never gets executed"
       End If
 
-      HINT: 2018 its allways HIGTHER than 0 (so this funtion will never execute)
+      HINT: 2018 its allways BIGGER than 0 (so this funtion will never execute)
 
 ![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)
 
