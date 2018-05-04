@@ -1251,7 +1251,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](https://i.cubeupload.com/0Pxw9I.png)
 
-- Replacing four (4) characters on obfuscated string<br />
+- Replacing four (4) diferent characters on the obfuscated string [ e | P | o | s ]<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/RkBwqE.png)
 
@@ -1365,16 +1365,24 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
 
-- Further obfuscation [ vba funtion/methods names var substitution ]<br />
+- Further obfuscation [ vba funtion/methods names var substitution + stack var declarations ]<br />
 
       TODO: [ note-to-self :: Obfuscate even further ]
       dIM DvFoiUrs0, PiDkLBxQ1, fSkHguEi, sUiDnUl1
-      fSkHguEi = "cR"+"eAt" + "EObJ"+"eCt"
+      fSkHguEi = "cR"+"eAt" + "EOb"+"JeCt"
       sUiDnUl1 = "W" + "sCr"+"Ip" + "T"
       DvFoiUrs0 = fSkHguEi("" + sUiDnUl1 + ".Sh" + "el"+"l").eXpAnDEnvIrOnMeNTSrInGs("%t" + "mp"+"%")
       ---
       sUiDnUl1.eChO("Ext"+"rac" + "ting '" + PiDkLBxQ1 + "' char"+"s from: '" + DvFoiUrs0 + "' env")
       
+
+![vbscript obfuscation](take-screenshot)
+
+- Further obfuscation [ Add aritmetic obscure funtion ]<br />
+
+      TODO: FdsJkl=2018+"0"
+      If 2018 < 0 Then
+      End If
 
 ![vbscript obfuscation](take-screenshot)
 
