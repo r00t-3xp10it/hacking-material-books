@@ -1170,8 +1170,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/1FViJX.png)<br />
 
----
-
       [Ofuscating Function Names] Function names or variable declarations can be further obfuscated
       be replacing human-readable names by a random string of characters, helping this way to throw
       more confusion to sourcecode and fool signature detection analysis based in certain patterns. 
@@ -1353,7 +1351,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/kyDnDW.png)
 
-- Further Obfuscation in function and method names and strings concaternation<br />
+- Further Obfuscation in function and method names and strings concaternation [extract 2 characters]<br />
 
 ![vbscript obfuscation](https://i.cubeupload.com/aNP9w4.png)
 
@@ -1361,9 +1359,25 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/qHGcuz.png)
 
+---
+
 - Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
+
+- Further obfuscation [ vba funtion names var substitution ]<br />
+
+      TODO: [ note-to-self :: Obfuscate even further ]
+      Dim fSkHguEi
+      dIM sUiDnUl1
+      fSkHguEi = "cR"+"eAt" + "EObJ"+"eCt"
+      sUiDnUl1 = "W" + "sCr"+"Ip" + "T"
+
+![vbscript obfuscation](take-screenshot)
+
+- Build oneliner (test.vbs)<br />
+
+![vbscript obfuscation](take-screenshot)
 
 ---
 
