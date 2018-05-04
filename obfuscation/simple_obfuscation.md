@@ -1361,34 +1361,25 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+                               HEAVILY OBFUSCATED
+
 - Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
 
-- Further obfuscation [ vba funtion/methods names var substitution + stack var declarations ]<br />
+- Build oneliner [ Stack var declarations + Add arithmetic obscure funtion ]<br />
 
-      TODO: [ note-to-self :: Obfuscate even further ]
-      dIM DvFoiUrs0, PiDkLBxQ1, fSkHguEi, sUiDnUl1
-      fSkHguEi = "cR"+"eAt" + "EOb"+"JeCt"
-      sUiDnUl1 = "W" + "sCr"+"Ip" + "T"
-      DvFoiUrs0 = fSkHguEi("" + sUiDnUl1 + ".Sh" + "el"+"l").eXpAnDEnvIrOnMeNTSrInGs("%t" + "mp"+"%")
-      ---
-      sUiDnUl1.eChO("Ext"+"rac" + "ting '" + PiDkLBxQ1 + "' char"+"s from: '" + DvFoiUrs0 + "' env")
-      
+      [Arithmetic Sequences] When it comes to hard-coded numeric values, obfuscators
+      may employ simple arithmetic to thwart reverse engineers or to stall code exec.
 
-![vbscript obfuscation](take-screenshot)
-
-- Further obfuscation [ Add aritmetic obscure funtion ]<br />
-
-      TODO: FdsJkl=2018+"0"
-      If 2018 < 0 Then
+      UikEt = "201"+"8"
+      If UikEt < 0 Then
+      MsgBox "Obscure funtion that never gets executed"
       End If
 
-![vbscript obfuscation](take-screenshot)
+      HINT: 2018 its allways HIGTHER than 0 (so this funtion will never execute)
 
-- Build oneliner (test.vbs)<br />
-
-![vbscript obfuscation](take-screenshot)
+![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)
 
 ---
 
