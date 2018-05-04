@@ -1253,6 +1253,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](https://i.cubeupload.com/0Pxw9I.png)
 
+- Replacing four (4) characters on obfuscated string<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/RkBwqE.png)
+
+- Build oneliner (test.vbs)<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/gcSLVS.png)
+
 ---
 
       [ANCII character substitution] vbscript calls ancii characters using the Chr() API.
