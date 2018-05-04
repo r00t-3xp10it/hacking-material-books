@@ -1377,8 +1377,30 @@ Here we can view the all process of encoding/decoding in powershell console
 
       HINT: 2018 its allways BIGGER than 0 (so this funtion will never execute)
 
-![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)
+![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)<br />
 
+---
+
+      [sandbox emulation checks] This next exercise will check target %userdomain% value to determine
+      if script its running in a sandbox environement (AMSI scan) by comparing sandbox common hostnames
+      like: sandbox, Maltest, ClonePC, etc .. the If statatment will Exit (Wscript.Quit) script execution
+      if detected sandbox or resume script execution if not running inside a sandbox environement ..
+
+      Dim x0a
+      x0a = CreateObject("Wscript.Shell").ExpandEnvironmenSTrings("%USERDOMAIN%")
+
+      If (x0a = "sandbox" OR x0a = "Maltest" OR x0a = "ClonePC") Then
+      MsgBox "Sandbox emulation running in: " & x0a & Wscript.Quit
+      else
+      MsgBox "None sandbox emulation running in: " & x0a
+      End If
+
+![vbscript obfuscation](http://i.cubeupload.com/Mm2KpZ.png)
+
+- Obfuscation technics in string manipulation can be stack together using [ + ] or [ & ] operators<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/wE0lXo.png)
+      
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
