@@ -1372,6 +1372,10 @@ Here we can view the all process of encoding/decoding in powershell console
       dIM sUiDnUl1
       fSkHguEi = "cR"+"eAt" + "EObJ"+"eCt"
       sUiDnUl1 = "W" + "sCr"+"Ip" + "T"
+      DvFoiUrs0 = fSkHguEi("" + sUiDnUl1 + ".Sh" + "el"+"l").eXpAnDEnvIrOnMeNTSrInGs("%t" + "mp%")
+      ---
+      sUiDnUl1.eChO("Ext"+"rac" + "ting '" + PiDkLBxQ1 + "' char"+"s from: '" + DvFoiUrs0 + "' env")
+      
 
 ![vbscript obfuscation](take-screenshot)
 
