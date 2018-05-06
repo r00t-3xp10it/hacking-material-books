@@ -1113,7 +1113,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Ofuscating [ function names ] using lowercase and uppercase characters<br />
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
-- Obfuscating [ string ] using concaternation (vba accepts [ +  and & ] operators to stack)<br />
+- Obfuscating [ string ] using concaternation (vba accepts [ +  and & ] operators to stack string)<br />
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
 - Using concaternation and variable substitution<br />
@@ -1123,9 +1123,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-      [Executing a reverse string] The follow example creates the objshell and objShell.Run
-      Objects to be able to execute commands, it also defines a local variable (dim rev) with
-      the strReverse() builtin API that reverses the string (netstat systemcall) at runtime.
+      [Executing a reverse string] The follow example creates the objshell and objShell.Run Objects
+      to be able to execute commands, it also defines a local variable (dim rev) with the strReverse()
+      builtin API that reverses the string (netstat systemcall) at runtime execution.
 
 - String command to obfuscate<br />
 `netstat`
