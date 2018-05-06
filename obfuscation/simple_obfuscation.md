@@ -1193,8 +1193,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [replace vbscript API] In this example the special character [ @ ] its deleted
-      from the txt var string using wscript (Replace(txt,"@","")) builtin API.
+      [replace vbscript API] In this example the special character [ @ ] its deleted from the txt var string
+      using wscript (Replace(txt,"@","")) builtin API together with [ objShell.Run ] method at runtime exec. 
 
 <br />
 
