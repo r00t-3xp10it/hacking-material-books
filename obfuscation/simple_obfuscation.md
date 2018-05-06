@@ -1141,8 +1141,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [caret escape character obfuscation] Vbscript uses the ^ (caret) character as escape character.
-      The follow example also splits the command into two variables (rev+cmd) and join them at runtime.
+      [caret escape character obfuscation] In this example the vba script its executing cmd commands.
+      Remmenber that the cmd.exe interpreter uses the [ ^ ] caret as escape caracter, that allow us to
+      abuse of batch obfuscation technics after the cmd.exe beeing trigger by the vba sourcecode. The
+      follow example also splits the command into 2 var(s) [ rev + cmd ] and join them at runtime exec.
 
 <br />
 
