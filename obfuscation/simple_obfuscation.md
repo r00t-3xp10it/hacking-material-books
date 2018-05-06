@@ -1186,9 +1186,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - Build Oneliner (test.vbs)<br />
 
-      [Build oneliner] VBScript uses the [ : ] character as end of command the same
-      way bash and python uses the [ ; ] character to execute another command, this
-      technic can be used to build our vbs script oneliner agent.
+      [Build oneliner] VBScript uses the [ : ] character as end of command the same way bash and python
+      uses the [ ; ] character to execute another command, this technic can be used to build our vbs oneliner.
 
 ![vbscript obfuscation](https://i.cubeupload.com/XWtrCW.png)
 
