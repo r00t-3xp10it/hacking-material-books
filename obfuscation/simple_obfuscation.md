@@ -1452,6 +1452,20 @@ Here we can view the all process of encoding/decoding in powershell console
       
 ---
 
+      [AMSI Bypass - behavioral monitoring] this technic uses behavioral monitoring to detect human
+      interaction on the computer before malware executes. Random activities such as page scrolling,
+      mouse movement or [ mouse clicks ] are difficult to replicate by a virtual environment,that
+      gap in sandboxing can be exploited writing a funtion to stall code exec (human interaction).
+
+<br />
+
+- Behavioral Monitoring Funtion [ mouse click ]<br />
+`MsgBox"Installing Microsoft Updates .."`
+
+![vbscript obfuscation](https://i.cubeupload.com/AzNqlj.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
