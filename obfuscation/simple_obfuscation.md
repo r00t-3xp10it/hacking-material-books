@@ -1113,7 +1113,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Ofuscating [ function names ] using lowercase and uppercase characters<br />
 ![vbscript obfuscation](https://i.cubeupload.com/I61iVL.png)
 
-- Obfuscating [ string ] using concaternation<br />
+- Obfuscating [ string ] using concaternation (vba accepts [ +  and & ])<br />
 ![vbscript obfuscation](https://i.cubeupload.com/JrJBVS.png)
 
 - Using concaternation and variable substitution<br />
