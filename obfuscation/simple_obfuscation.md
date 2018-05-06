@@ -1400,6 +1400,23 @@ Here we can view the all process of encoding/decoding in powershell console
 - Obfuscation technics in string manipulation can be stack together using [ + ] or [ & ] operators<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/wE0lXo.png)
+
+---
+
+      Diferent method to use the Mid() funtion without expanding the target environement var(s).
+      In this example we will store all the letters needed to build our command inside [ String1 ]
+      HINT: we can use only two local vars to achive this [ String1 and String2 ] its all we need.
+
+<br />
+
+- String command to obfuscate<br />
+`PoWeRshell.exe -noP -enC \x0a\x0d\xff`
+
+![vbscript obfuscation](http://i.cubeupload.com/hLBu2W.png)
+
+- Build oneliner (test.vbs)<br />
+
+![vbscript obfuscation](http://i.cubeupload.com/igdIAl.png)
       
 ---
 
