@@ -1098,8 +1098,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## VBScript Obfuscation Technics (vba-vbs)
 
-      [Reverse a string] The StrReverse() vbscript funtion can be used
-      to obfuscate the systemcall(s) by reversing the string(s) at runtime.
+      [Reverse a string] The StrReverse() vbscript funtion can be used to reverse a string.
+      This funtion allow us to obfuscate the systemcall(s) by reversing the string(s) at runtime.
 
 <br />
 
