@@ -1283,7 +1283,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/OhKC5l.png)
 
-- ANCII and VBScript var substitution using [ Chr() ] and [ + void + ]<br />
+- ANCII and VBScript var substitution using [ Chr() ] and [ + void + ] and [ + ] to stack<br />
 
       Dim void
       void = "o"+""
