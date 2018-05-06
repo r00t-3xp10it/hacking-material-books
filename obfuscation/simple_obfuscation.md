@@ -1378,7 +1378,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
                          OBSCURE FUNTIONS [ ARITHMETIC SEQUENCES + SANDBOX EMULATION CHECKS ]
 
-      Extract [ Cmd /c start calc ] from target %tmp% variable string using Mid() VBA API.
+                  Extract [ Cmd /c start calc ] from target %tmp% variable string using Mid() VBA API.
 
 <br />
 
@@ -1389,10 +1389,17 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
 
-- Build oneliner [ Stack var declarations + Add arithmetic obscure funtion ]<br />
+---
 
-      [Arithmetic Sequences] When it comes to hard-coded numeric values, obfuscators
-      may employ simple arithmetic to thwart reverse engineers or to stall code execution.
+      [Arithmetic Sequences] When it comes to hard-coded numeric values, obfuscators may employ simple
+      arithmetic to thwart reverse engineers or to stall malicious code execution to bypass sandbox.
+
+<br />
+
+- String command to obfuscate<br />
+`Cmd /c start calc `
+
+- String obfuscated (test.vbs)<br />
 
       UikEt = "201"+"8"
       If UikEt < 0 Then:MsgBox "Obscure funtion that never gets executed":End If
@@ -1401,12 +1408,19 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/o7Sfza.png)<br />
 
+---
+
       [sandbox emulation checks] This next exercise will check target %userdomain% value to determine
       if script its running in a sandbox environement (AMSI scan) by comparing sandbox common hostnames
       like: sandbox, Maltest, ClonePC, etc .. the If statatment will Exit (Wscript.Quit) script execution
       if detected sandbox or resume script execution if not running inside a sandbox environement ..
 
 <br />
+
+- String command to obfuscate<br />
+`Cmd /c start calc `
+
+- String obfuscated (test.vbs)<br />
 
       Dim x0a
       x0a = CreateObject("Wscript.Shell").ExpandEnvironmenSTrings("%USERDOMAIN%")
