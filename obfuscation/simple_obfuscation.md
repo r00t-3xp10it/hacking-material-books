@@ -1399,7 +1399,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - String command to obfuscate<br />
 `Cmd /c start calc `
 
-- String obfuscated (test.vbs)<br />
+- Arithmetic funtion<br />
 
       UikEt = "201"+"8"
       If UikEt < 0 Then:MsgBox "Obscure funtion that never gets executed":End If
@@ -1420,7 +1420,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - String command to obfuscate<br />
 `Cmd /c start calc `
 
-- String obfuscated (test.vbs)<br />
+- hostname check funtion<br />
 
       Dim x0a
       x0a = CreateObject("Wscript.Shell").ExpandEnvironmenSTrings("%USERDOMAIN%")
