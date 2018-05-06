@@ -1121,11 +1121,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-<br />
-
       [Executing a reverse string] The follow example creates the objshell and objShell.Run Objects
       to be able to execute commands, it also defines a local variable (dim rev) with the strReverse()
       builtin API that reverses the string (netstat systemcall) at runtime execution.
+
+<br />
 
 - String command to obfuscate<br />
 `netstat`
