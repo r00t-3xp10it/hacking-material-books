@@ -1378,7 +1378,14 @@ Here we can view the all process of encoding/decoding in powershell console
 
                          OBSCURE FUNTIONS [ ARITHMETIC SEQUENCES + SANDBOX EMULATION CHECKS ]
 
-- Extract [ Cmd /c start calc ] from target %tmp% variable string<br />
+      Extract [ Cmd /c start calc ] from target %tmp% variable string using Mid() VBA API.
+
+<br />
+
+- String command to obfuscate<br />
+`Cmd /c start calc `
+
+- String obfuscated (test.vbs)<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oQs8qp.png)
 
