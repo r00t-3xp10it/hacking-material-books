@@ -1210,7 +1210,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/MtGs1y.png)
 
--  Build oneliner [ : ] and Obfuscate further the string using [ + ] and [ ^ ] operators<br />
+-  Build oneliner [ : ] and Obfuscate further the string using [ + ] and [ ^ ] operators (concaternation)<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/oW4Kvd.png)
 
@@ -1222,7 +1222,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/VIyvEC.png)
 
-- Another way to Replace [ UI$z ] string by [ t ] character<br /> 
+- Another way to Replace [ UI$z ] string by [ t ] character at runtime<br /> 
 
       Dim ser
       ser = Replace("neUI$zsUI$zaUI$z -UI$z", "UI$z", "t")
@@ -1283,7 +1283,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/OhKC5l.png)
 
-- ANCII and VBScript var substitution using [ + ] operator<br />
+- ANCII and VBScript var substitution using [ Chr() ] and [ + void + ]<br />
 
       Dim void
       void = "o"+""
