@@ -1396,9 +1396,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-- String command to obfuscate<br />
-`Cmd /c start calc `
-
 - Arithmetic funtion<br />
 
       UikEt = "201"+"8"
@@ -1416,9 +1413,6 @@ Here we can view the all process of encoding/decoding in powershell console
       if detected sandbox or resume script execution if not running inside a sandbox environement ..
 
 <br />
-
-- String command to obfuscate<br />
-`Cmd /c start calc `
 
 - hostname check funtion<br />
 
@@ -1439,9 +1433,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      Diferent method to use the Mid() funtion without expanding the target environement var(s).
+      Diferent method to use the [ Mid() ] funtion without expanding the target environement var(s).
       In this example we will store all the letters needed to build our command inside [ String1 ]
-      HINT: we can use only two local vars to achive this [ String1 and String2 ] its all we need.
+      HINT: we can use only 2 vba var(s) to achive this: [ String1 and String2 ] and call [ String2 ]
 
 <br />
 
@@ -1450,7 +1444,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/hLBu2W.png)
 
-- Build oneliner (test.vbs)<br />
+- Build oneliner using [ : ] character and deleting empty spaces in between commands<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/igdIAl.png)
       
