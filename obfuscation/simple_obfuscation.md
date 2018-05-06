@@ -1334,6 +1334,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+- String command to obfuscate<br />
+`Temp`
+
+- String obfuscated (test.vbs)<br />
+
       Dim pass
       Dim splash
       pass = CreateObject("Wscript.Shell").ExpandEnvironmentStrings("%tmp%")
@@ -1342,7 +1347,16 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/IncZR1.png)
 
-- Using [ Mid ] vba API to extract a sub-string from main string
+---
+
+      Using [ Mid ] vba API to extract a sub-string from the [ middle ] of the main string.
+
+<br />
+
+- String command to obfuscate<br />
+`pedro`
+
+- String obfuscated (test.vbs)<br />
 
       Dim pass
       Dim splash
