@@ -1366,7 +1366,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/kyDnDW.png)
 
-- Further Obfuscation in function and method names and strings concaternation [extract 2 characters]<br />
+- Further Obfuscation in function and method names and strings concaternation [ + extract 2 strings ]<br />
 
 ![vbscript obfuscation](https://i.cubeupload.com/aNP9w4.png)
 
