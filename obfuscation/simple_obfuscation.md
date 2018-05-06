@@ -1447,6 +1447,8 @@ Here we can view the all process of encoding/decoding in powershell console
 - Build oneliner using [ : ] character and deleting empty spaces in between commands<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/igdIAl.png)
+
+[*] [Here we can find this template modified to trigger shellcode base64 execution](https://pastebin.com/cxfyQfwT)
       
 ---
 
