@@ -1180,7 +1180,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
 
-- Obfuscating method names and start of cmd functions with [ batch ] special characters<br />
+- Obfuscating method names [lowercase and uppercase] and start of cmd functions with [ batch ] special chars<br />
 
 ![vbscript obfuscation](https://i.cubeupload.com/vycfL0.png)
 
