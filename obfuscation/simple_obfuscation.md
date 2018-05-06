@@ -1167,7 +1167,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](http://i.cubeupload.com/yY02QY.png)<br />
 
-- Obfuscating further the string using the [ + ] operator<br />
+- Obfuscating further the string using the [ + ] operator (concaternation)<br />
 `rev = StrReverse("cl^ac "+" ^ "+" ^ tr^a"+"t^s R/^")`<br />
 
 ![vbscript obfuscation](http://i.cubeupload.com/1FViJX.png)<br />
@@ -1180,7 +1180,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![vbscript obfuscation](https://i.cubeupload.com/ZOoE5w.png)
 
-- Obfuscating method names and start of cmd functions with special characters<br />
+- Obfuscating method names and start of cmd functions with [ batch ] special characters<br />
 
 ![vbscript obfuscation](https://i.cubeupload.com/vycfL0.png)
 
