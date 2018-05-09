@@ -1466,6 +1466,28 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [less Mid() statements] AV vendors sometimes uses regex search to find repetitive patterns that
+      may reveal malicious actions. In this example we are reducing the number of mid() calls either
+      to evade regex repetitive search or to maintain our code smaller (if nedded)..
+
+      In the follow example we are 'stacking' groups of letters insted of extracting one char at the time.
+
+<br />
+
+- String command to obfuscate<br />
+`powershell -win 1 -nop -en \x0a\x0d\xff`
+
+- String obfuscated (test.vbs)<br />
+
+      dIm Char,Cmd
+      Char="-wIN"+"eN"+"PoWeR"+"1"+"noP"+"ShElL"
+      Cmd=mid(Char,7,5)&MiD(Char,16,5)&" 1 "&mId(Char,1,4)&" "&MiD(Char,12,1)&" "&mId(Char,1,1)&mId(Char,13,3)&" "&mId(Char,1,1)&MiD(Char,5,2)&" "&"\x0a\x0d\xff"
+      Wscript.echo Cmd
+
+![vbscript obfuscation](http://i.cubeupload.com/4RbjC8.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
