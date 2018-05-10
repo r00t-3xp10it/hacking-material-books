@@ -1481,7 +1481,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       dIm Char,Cmd
       Char="-wIN"+"eN"+"PoWeR"+"1"+"noP"+"ShElL"
-      Cmd=mid(Char,7,5)&MiD(Char,16,5)&" 1 "&mId(Char,1,4)&" "&MiD(Char,12,1)&" "&mId(Char,1,1)&mId(Char,13,3)&" "&mId(Char,1,1)&MiD(Char,5,2)&" "&"\x0a\x0d\xff"
+      Cmd=mid(Char,7,5)&MiD(Char,16,5)&" 1 "&mId(Char,1,4)&" "&mId(Char,1,1)&MiD(Char,13,3)&" "&mId(Char,1,1)&mId(Char,5,2)&" "&"\x0a\x0d\xff"
       Wscript.echo Cmd
 
 ![vbscript obfuscation](http://i.cubeupload.com/4RbjC8.png)
