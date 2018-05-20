@@ -6,7 +6,7 @@
 
 - [bash programing (parsing data in bash)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md)<br />
 
-![bash programing](http://i.cubeupload.com/oLAdVi.png)<br />
+![bash programing](http://i.cubeupload.com/H3pI9b.png)<br />
 
 ---
 
