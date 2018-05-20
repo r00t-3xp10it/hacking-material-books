@@ -3,6 +3,13 @@
 
 <br /><br />
 
+
+- [bash programing](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md)<br />
+
+![bash programing](http://i.cubeupload.com/oLAdVi.png)<br />
+
+---
+
 - [Metasploit RB/ERB scripting](https://github.com/r00t-3xp10it/hacking-material-books/tree/master/metasploit-RC%5BERB%5D)<br />
 
 ![Metasploit RB/ERB scripting](http://i.cubeupload.com/4m8G0f.png)<br />
