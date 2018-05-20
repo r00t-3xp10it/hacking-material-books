@@ -1,12 +1,12 @@
-<br />
 
 # parsing data in bash
 
 
+<br /><br />
+
 - grab all instances of inet pattern<br />
 
       ifconfig wlan0 | egrep "inet"
-
 
 - grab only the 1º instance of inet pattern<br />
 
