@@ -66,10 +66,11 @@
 [6] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
 [7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
 [8] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[9] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
-[10] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
+[9] [C Obfuscation Technics (c)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#C-Obfuscation-Technics-c)<r />
+[10] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
+[11] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
----
+--- C Obfuscation Technics (c)
 
 <br /><br /><br /><br /><br />
 
@@ -1850,6 +1851,103 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 - Compile template.c with **GCC** software to **.exe**
 
       gcc.exe template.c -o agent.exe
+
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+
+
+---
+
+<br /><br /><br /><br />
+
+## C Obfuscation Technics (c)
+
+      var declarations
+
+<br />
+
+- String command to obfuscate<br />
+`hello`
+
+- String obfuscated (test.c)<br />
+
+      var = 'hello';
+      int main()
+        {
+          printf('ofuscated %var');
+        }
+
+![C obfuscation](http:)
+
+---
+
+      [trigraphs]
+      Trigraph 	Equivalent
+      ??=       #
+      ??/       \
+      ??'       ^
+      ??(       [
+      ??)       ]
+      ??!       |
+      ??<       {
+      ??>       }
+      ??-       ~
+
+<br />
+
+- String command to obfuscate<br />
+`int main(void){((void (*)())buf();}`
+
+- String obfuscated (test.c)<br />
+`int main(void)??<((void (*)())buf();??>`
+
+![C obfuscation](http:)
+
+---
+
+      [preprocessor]
+
+<br />
+
+- String command to obfuscate<br />
+`int main()`
+
+- String obfuscated (test.c)<br />
+
+      #include <stdio.h>
+      #include <windows.h>
+      #define _____(i,s,o,g,r,a,m)(i##r##s##o)
+      #define _ _____(m,i,n,u,a,l,s)
+
+      int _()
+        {
+          printf('int main() obfuscation');
+        }
+
+
+![C obfuscation](http:)
+
+---
+
+      [preprocessor+trigraphs]
+
+<br />
+
+- String command to obfuscate<br />
+`printf()`
+
+- String obfuscated (test.c)<br />
+
+      #include <stdio.h>
+      #include <windows.h>
+      #define _____(i,s,o,g,r,a,m)(i##r##s##o)
+      #define _ _____(m,i,n,u,a,l,s)
+
+      int _()
+        ??<
+          printf('trigraphs obfuscation');
+        ??>
+
+---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
