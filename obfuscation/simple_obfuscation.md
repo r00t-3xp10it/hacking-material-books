@@ -1951,19 +1951,21 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 <br />
 
 - String command to obfuscate<br />
-`int main()` **and** `{` **and** `}` **and** `\`
+`int main()` **and** `{` **and** `}` **and** `\` **and** `#`
 
 - String obfuscated (template.c)<br />
 
-      #include<stdio.h>
-      #include<string.h>
-      #define _____(i,s,o,g,r,a,m)(i##r##s##o)
-      #define _ _____(m,i,n,u,a,l,s)
+      ??=include<stdio.h>
+      ??=include<string.h>
+      ??=define _____(i,s,o,g,r,a,m)(i##r##s##o)
+      ??=define _ _____(m,i,n,u,a,l,s)
 
       int _()
         ??<
-          printf("preprocessor and trigraphs obfuscation??/n");
+          printf("preprocessor and trigraphs and ??= obfuscation??/n");
         ??>
+
+![C obfuscation](http://i.cubeupload.com/djqUpl.png)
 
 ---
 
