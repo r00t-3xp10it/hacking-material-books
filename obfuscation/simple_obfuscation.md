@@ -1861,6 +1861,9 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 ## C Obfuscation Technics (c)
 
+      WARNING: In the follow examples (template.c) are linux executables
+      compiled with the help of gcc (gnu-cross-compiler) 
+
       var declarations
 
 <br />
@@ -1868,12 +1871,15 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 - String command to obfuscate<br />
 `hello`
 
-- String obfuscated (test.c)<br />
+- String obfuscated (template.c)<br />
+
+      #include<stdio.h>
+      #include<string.h>
 
       var = 'hello';
       int main()
         {
-          printf('ofuscated %var');
+          printf("ofuscated %var \n");
         }
 
 ![C obfuscation](http:)
@@ -1892,16 +1898,24 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
       ??>       }
       ??-       ~
 
+      COMPILING: gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname
+
 <br />
 
 - String command to obfuscate<br />
-`int main(void){((void (*)())buf();}`
+`{` **and** `}`
 
-- String obfuscated (test.c)<br />
+- String obfuscated (template.c)<br />
 
-      int main(void)??<((void (*)())buf();??>
+      #include<stdio.h>
+      #include<string.h>
 
-![C obfuscation](http:)
+      int main()
+        ??<
+          printf("trigraphs obfuscation\n");
+        ??>
+
+![C obfuscation](http://i.cubeupload.com/P1msbZ.png)
 
 ---
 
@@ -1912,16 +1926,16 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 - String command to obfuscate<br />
 `int main()`
 
-- String obfuscated (test.c)<br />
+- String obfuscated (template.c)<br />
 
-      #include <stdio.h>
-      #include <windows.h>
+      #include<stdio.h>
+      #include<string.h>
       #define _____(i,s,o,g,r,a,m)(i##r##s##o)
       #define _ _____(m,i,n,u,a,l,s)
 
       int _()
         {
-          printf('int main() obfuscation');
+          printf("int main() pointer obfuscation\n");
         }
 
 
@@ -1936,16 +1950,16 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 - String command to obfuscate<br />
 `printf()`
 
-- String obfuscated (test.c)<br />
+- String obfuscated (template.c)<br />
 
-      #include <stdio.h>
-      #include <windows.h>
+      #include<stdio.h>
+      #include<string.h>
       #define _____(i,s,o,g,r,a,m)(i##r##s##o)
       #define _ _____(m,i,n,u,a,l,s)
 
       int _()
         ??<
-          printf('trigraphs obfuscation');
+          printf("preprocessor and trigraphs obfuscation\n");
         ??>
 
 ---
