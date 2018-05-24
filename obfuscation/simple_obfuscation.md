@@ -1957,7 +1957,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
       ??=include<stdio.h>
       ??=include<string.h>
-      ??=define _____(i,s,o,g,r,a,m)(i##r##s##o)
+      ??=define _____(i,s,o,g,r,a,m)(i??=??=r??=??=s??=??=o)
       ??=define _ _____(m,i,n,u,a,l,s)
 
       int _()
@@ -1965,7 +1965,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
           printf("preprocessor and trigraphs and ??= obfuscation??/n");
         ??>
 
-![C obfuscation](http://i.cubeupload.com/djqUpl.png)
+![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
 
 ---
 
