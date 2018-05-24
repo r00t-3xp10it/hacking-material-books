@@ -1898,7 +1898,8 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 `int main(void){((void (*)())buf();}`
 
 - String obfuscated (test.c)<br />
-`int main(void)??<((void (*)())buf();??>`
+
+      int main(void)??<((void (*)())buf();??>
 
 ![C obfuscation](http:)
 
