@@ -1910,13 +1910,13 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
       int main()
         ??<
-          printf("trigraphs obfuscation\n");
+          printf("trigraphs obfuscation??/n");
         ??>
 
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
-![C obfuscation](http://i.cubeupload.com/P1msbZ.png)
+![C obfuscation](http://i.cubeupload.com/8lSO3S.png)
 
 ---
 
