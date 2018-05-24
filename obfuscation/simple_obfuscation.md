@@ -1887,7 +1887,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 ---
 
       [trigraphs]
-      Trigraph 	Equivalent
+      Trigraph  Equivalent
       ??=       #
       ??/       \
       ??'       ^
@@ -1897,8 +1897,6 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
       ??<       {
       ??>       }
       ??-       ~
-
-      COMPILING: gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname
 
 <br />
 
@@ -1914,6 +1912,9 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
         ??<
           printf("trigraphs obfuscation\n");
         ??>
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
 ![C obfuscation](http://i.cubeupload.com/P1msbZ.png)
 
