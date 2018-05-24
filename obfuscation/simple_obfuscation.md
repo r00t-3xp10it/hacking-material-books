@@ -1862,7 +1862,9 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 ## C Obfuscation Technics (c)
 
       WARNING: In the follow examples (template.c) are linux executables
-      compiled with the help of gcc (gnu-cross-compiler) 
+      files compiled with the help of gcc (gnu-cross-compiler)
+
+<br /><br />
 
       var declarations
 
@@ -1887,6 +1889,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 ---
 
       [trigraphs]
+
       Trigraph  Equivalent
       ??=       #
       ??/       \
@@ -1901,7 +1904,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 <br />
 
 - String command to obfuscate<br />
-`{` **and** `}`
+`{` **and** `}` **and** `\`
 
 - String obfuscated (template.c)<br />
 
@@ -1944,12 +1947,12 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 ---
 
-      [preprocessor+trigraphs]
+      [preprocessor + trigraphs]
 
 <br />
 
 - String command to obfuscate<br />
-`printf()`
+`int main()` **and** `{` **and** `}` **and** `\`
 
 - String obfuscated (template.c)<br />
 
@@ -1960,7 +1963,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
       int _()
         ??<
-          printf("preprocessor and trigraphs obfuscation\n");
+          printf("preprocessor and trigraphs obfuscation??/n");
         ??>
 
 ---
