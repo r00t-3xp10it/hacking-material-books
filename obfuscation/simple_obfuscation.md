@@ -1515,12 +1515,13 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## C Obfuscation Technics (c-exe)
 
-      WARNING: In the follow examples (template.c) are going to be compiled
-      into linux executables files with the help of GCC (Gnu-Cross-Compiler)
+      WARNING: In the follow examples (template.c) its going to be compiled into
+      an linux executable file with the help of GCC (Gnu-Cross-Compiler) to be
+      abble to demonstrate the obfuscation technics discussed in this chapter.
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
-      HINT: #include <windows.h> C lib to template.c if you wish to
+      HINT: #include <windows.h> C library to template.c if you wish to
       transform it into an windows executable file (mingw32 compiled).
 
 <br /><br />
