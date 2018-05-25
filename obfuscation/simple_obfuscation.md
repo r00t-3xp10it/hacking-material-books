@@ -1558,6 +1558,38 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [ANCII char substitution]
+
+<br />
+
+- String command to obfuscate<br />
+`CmD.exe /R start calc`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            char y = 67;   // ancii character C
+            char x = 109;  // ancii character m
+            char w = 68;   // ancii character D
+
+            // putchar() funtion its then used to convert the decimal(67)
+            // value of char var by is comrrespondent ancii character(C).
+            putchar(y);putchar(x);putchar(w);printf(".exe /R start calc\n");
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i63.tinypic.com/2lub386.png)
+
+[!] [ANCII TABLE](https://www.asciitable.com/)<br />
+
+---
+
       [strcat()] In the follow example the attacker 'splits' the string powershell into 
       two char variables and use strcat() funtion to concaternate (join) the two sub-strings
       together at run time execution..
@@ -1656,7 +1688,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack template.c -o finalname`
 
-![C obfuscation](http://need-screenshot)
+![C obfuscation](http://i63.tinypic.com/2gt5aaw.png)
 
 ---
 
