@@ -1515,9 +1515,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## C Obfuscation Technics (c-exe)
 
-      WARNING: In the follow examples (template.c) its going to be compiled into
-      an linux executable file with the help of GCC (Gnu-Cross-Compiler) to be
-      abble to demonstrate the obfuscation technics discussed in this chapter.
+      WARNING: In the follow examples (template.c) its going to be compiled into an linux executable file
+      with the help of GCC (Gnu-Cross-Compiler) to demonstrate obfuscation technics discussed in this chapter.
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
