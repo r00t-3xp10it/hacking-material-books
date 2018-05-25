@@ -1520,7 +1520,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
-      HINT: #include <windows.h> lib to template.c if you wish to transform it into an M$ exec (mingw32 compiled).
+      HINT: #include <windows.h> into template.c if you wish to transform it into an M$ exec (mingw32 compiled).
 
 <br /><br />
 
