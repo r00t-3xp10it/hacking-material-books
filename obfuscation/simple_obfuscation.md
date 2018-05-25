@@ -166,7 +166,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 ---
 
       @Daniel bohannon reported days ago another cmd ofuscation technic that relays
-      on a string added in betuinw switch flags [ /R = /lablablaR ] ..
+      on a string added in betuinw switch flags [ /R = lablabla/R ] ..
 
 <br />
 
@@ -174,7 +174,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /R start calc.exe`<br />
 
 - String obfuscated<br />
-`cmd.exe /rubish string that never gets executedR start calc.exe`<br />
+`cmd.exe rubish string that never gets executed/R start calc.exe`<br />
 
 ![batch obfuscation](http://i)
 
@@ -1520,28 +1520,37 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br />
 
-      var declarations
+      [strcat()] In the follow example the attacker 'splits' the string powershell into 
+      two char variables and use strcat() API to concaternate (join) the two sub-strings
+      together at run time ..
+      
 
 <br />
 
 - String command to obfuscate<br />
-`hello`
+`PoWeRShElL`
 
 - String obfuscated (template.c)<br />
 
-      #include<stdio.h>
-      #include<string.h>
+      #include <stdio.h>
+      #include <string.h>
 
-      var = 'hello';
-      int main()
-        {
-          printf("ofuscated %var \n");
-        }
+        int main ()
+          {
+            /* variable declations*/
+            char str1[12] = "PoWeR";
+            char str2[12] = "ShElL";
+
+            /* concatenates str1 and str2 */
+            strcat(str1,str2);
+            printf("Concaternate 'PoWeR' + 'ShElL' using strcat: %s\n", str1 );
+            return 0;
+          }
 
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack template.c -o finalname`
 
-![C obfuscation](http:)
+![C obfuscation](http://i68.tinypic.com/1zd3gpv.jpg)
 
 ---
 
