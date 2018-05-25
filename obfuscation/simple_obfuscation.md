@@ -1520,38 +1520,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br />
 
-      [strcat()] In the follow example the attacker 'splits' the string powershell into 
-      two char variables and use strcat() API to concaternate (join) the two sub-strings
-      together at run time ..
-      
-
-<br />
-
-- String command to obfuscate<br />
-`PoWeRShElL`
-
-- String obfuscated (template.c)<br />
-
-      #include <stdio.h>
-      #include <string.h>
-
-        int main ()
-          {
-            /* variable declations*/
-            char str1[12] = "PoWeR";
-            char str2[12] = "ShElL";
-
-            /* concatenates str1 and str2 */
-            strcat(str1,str2);
-            printf("Concaternate 'PoWeR' + 'ShElL' using strcat: %s\n", str1 );
-            return 0;
-          }
-
-- Compiling template.c<br />
-`gcc -fno-stack-protector -z execstack template.c -o finalname`
-
-![C obfuscation](http://i68.tinypic.com/1zd3gpv.jpg)
-
 ---
 
       [trigraphs]
@@ -1591,6 +1559,41 @@ Here we can view the all process of encoding/decoding in powershell console
       switch its required in gcc syntax to be abble to compile the substitution technic`
 
 ---
+
+      [strcat()] In the follow example the attacker 'splits' the string powershell into 
+      two char variables and use strcat() API to concaternate (join) the two sub-strings
+      together at run time ..
+      
+
+<br />
+
+- String command to obfuscate<br />
+`PoWeRShElL`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main ()
+          {
+            /* variable declations*/
+            char str1[12] = "PoWeR";
+            char str2[12] = "ShElL";
+
+            /* concatenates str1 and str2 */
+            strcat(str1,str2);
+            printf("Concaternate 'PoWeR' + 'ShElL' using strcat: %s\n", str1 );
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i68.tinypic.com/1zd3gpv.jpg)
+
+---
+
 
       [preprocessor] The follow screenshot will demistify the use of preprocessor
       (macros) inside C language to obfuscated the system call(s) at run time exec.
