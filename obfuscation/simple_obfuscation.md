@@ -1609,6 +1609,9 @@ Here we can view the all process of encoding/decoding in powershell console
         }
 
 
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
 ![C obfuscation](http:)
 
 ---
@@ -1631,6 +1634,9 @@ Here we can view the all process of encoding/decoding in powershell console
         ??<
           printf("preprocessor and trigraphs and ??= obfuscation??/n");
         ??>
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
 ![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
 
