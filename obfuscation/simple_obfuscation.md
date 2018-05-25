@@ -1578,6 +1578,9 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i.cubeupload.com/8lSO3S.png)
 
+      WARNING: IF your template contains trigraphs substitution method then -trigraphs
+      switch its required in gcc syntax to be abble to compile the substitution technic`
+
 ---
 
       [preprocessor] The follow screenshot will demistify the use of preprocessor
