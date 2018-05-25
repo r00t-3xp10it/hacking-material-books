@@ -1581,7 +1581,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
             /* concatenates str1 and str2 */
             strcat(str1,str2);
-            printf("Concaternate 'PoWeR' + 'ShElL' using strcat: %s\n", str1 );
+            printf("Concaternate 'PoWeR' + 'ShElL' using strcat(): %s\n", str1 );
             return 0;
           }
 
@@ -1649,7 +1649,7 @@ Here we can view the all process of encoding/decoding in powershell console
             char string[ ] = "pOwErShElLrUbIsH";
             char comma[20] = "";
             strncpy (comma, string, 10 );
-            printf("String after strcpy(): %s\n", comma );
+            printf("String after strncpy(): %s\n", comma );
             return 0;
           }
 
