@@ -541,6 +541,10 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ![batch obfuscation](http://i.cubeupload.com/fwGdya.jpg)<br />
 
+      Another LOLbin transformation that may help bypass applocker restrictions ..
+
+![batch obfuscation](http://i.cubeupload.com/sfzsuo.png)<br />
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
