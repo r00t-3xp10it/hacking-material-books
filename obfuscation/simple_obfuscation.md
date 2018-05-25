@@ -1538,6 +1538,9 @@ Here we can view the all process of encoding/decoding in powershell console
           printf("ofuscated %var \n");
         }
 
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
 ![C obfuscation](http:)
 
 ---
