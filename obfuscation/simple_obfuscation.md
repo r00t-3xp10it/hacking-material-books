@@ -1610,7 +1610,7 @@ Here we can view the all process of encoding/decoding in powershell console
       #include <stdio.h>
       #include <string.h>
 
-        int main( )
+        int main()
           {
             char source[ ] = " -noProblem";
             char target[ ] = "PoWeRShElL";
@@ -1622,6 +1622,41 @@ Here we can view the all process of encoding/decoding in powershell console
 `gcc -fno-stack-protector -z execstack template.c -o finalname`
 
 ![C obfuscation](http://i64.tinypic.com/2610m51.png)
+
+---
+
+      [strncpy()] function copies portion of contents of one string into another string.
+      EXAMPLE: strncpy (str1, str2, 4) – It copies first 4 characters of str2 into str1.
+
+      If destination string length is less than source string, entire source string value won’t
+      be copied into destination string. For example, consider destination string length is 20
+      and source string length is 30. If you want to copy 25 characters from source string using
+      strncpy( ) function, only 20 characters from source string will be copied into destination
+      string and remaining 5 characters won’t be copied and will be truncated.
+
+<br />
+
+- String command to obfuscate<br />
+`PoWeRShElL`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            char string[ ] = "pOwErShElLrUbIsH";
+            char comma[20] = "";
+            strncpy (comma, string, 10 );
+            printf("String after strcpy(): %s\n", comma );
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://need-screenshot)
 
 ---
 
