@@ -62,10 +62,10 @@
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [VBScript Obfuscation Technics (vba-vbs)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#vbscript-obfuscation-technics-vba-vbs)<br />
-[5] [C Obfuscation Technics (c)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c)<br />
-[6] [AMSI Bypass Technics (COM)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass)<br />
-[7] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
-[8] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
+[5] [C Obfuscation Technics (c-exe)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
+[6] [AMSI Bypass Technics (COM/REG)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-reg-bypass)<br />
+[7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
+[8] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
 [9] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
 [10] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [11] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
@@ -1494,7 +1494,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br /><br /><br />
 
-## C Obfuscation Technics (c)
+## C Obfuscation Technics (c-exe)
 
       WARNING: In the follow examples (template.c) are linux executables
       files compiled with the help of gcc (gnu-cross-compiler)
@@ -1611,7 +1611,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br /><br /><br />
 
-## AMSI COM Bypass
+## AMSI COM/REG Bypass
 
       Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
       that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
@@ -1737,55 +1737,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br /><br /><br />
 
-## OBFUSCATING THE METASPLOIT TEMPLATE (psh-cmd)
-
-      when we use metasploit to build shellcode, msfvenom uses pre-written templates to embebbed
-      the shellcode on it, those templates contain also system calls that migth be detected by
-      AMSI mechanism, to avoid that we need to decode the base64 string produced by msfvenom,
-      search for the syscalls, obfuscate them, and encode the template again to base64 to be
-      embebbed into Unicorn.ps1 article template (or using the default msfvenom template).
-
-<br />
-
-Build shellcode using msfvenom<br />
-![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
-
-Editing msfvenom template<br />
-![obfuscating the template](http://i.cubeupload.com/z9bcjh.jpg)
-
-Strip the template to extact only the base64 string (parsing data)<br />
-`HINT: Deleting from template the string: %comspec% /b /c start /min powershell.exe -nop -w hidden -e`<br />
-![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
-
-Decoding the base64 string ..<br />
-`This template build by msfvenom also contains powershell syscalls that migth be flagged`<br />
-![obfuscating the template](http://i.cubeupload.com/i43jmL.png)
-
-Obfuscate the syscalls..<br />
-`HINT: In this example iam only changing the letters from small to big (concaternate)`<br />
-![obfuscating the template](http://i.cubeupload.com/ixIFJi.jpg)
-
-Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
-`HINT: This template only have the syscall's obfuscated, not the 1º funtion deleted [redbox in previous pic]`<br />
-![obfuscating the template](http://i.cubeupload.com/AMIPyT.png)
-
-Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
-`HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
-![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
-`HINT: If your plans are using the msfvenom template, then remmenber to add the follow syscall (obfuscate it)`<br />
-`HINT: in the beggining of the template: %comspec% /b /c start /min powershell.exe -noP -wIn hIdDEn -en`<br />
-
-
-- Final Notes:<br />
-there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can help us in discovering what flags are beeing detected in our shellcode ..<br />Adicionally we can also obfuscated the meterpreter loader using arno0x0x random bytes stager [here](https://arno0x0x.wordpress.com/2016/04/13/meterpreter-av-ids-evasion-powershell/)<br />
-
-
-[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
-
----
-
-<br /><br /><br /><br />
-
 ## Bypass the scan engine (sandbox)
 
 <br />
@@ -1878,6 +1829,55 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
+
+---
+
+<br /><br /><br /><br />
+
+## OBFUSCATING THE METASPLOIT TEMPLATE (psh-cmd)
+
+      when we use metasploit to build shellcode, msfvenom uses pre-written templates to embebbed
+      the shellcode on it, those templates contain also system calls that migth be detected by
+      AMSI mechanism, to avoid that we need to decode the base64 string produced by msfvenom,
+      search for the syscalls, obfuscate them, and encode the template again to base64 to be
+      embebbed into Unicorn.ps1 article template (or using the default msfvenom template).
+
+<br />
+
+Build shellcode using msfvenom<br />
+![obfuscating the template](http://i.cubeupload.com/DLjxC2.png)
+
+Editing msfvenom template<br />
+![obfuscating the template](http://i.cubeupload.com/z9bcjh.jpg)
+
+Strip the template to extact only the base64 string (parsing data)<br />
+`HINT: Deleting from template the string: %comspec% /b /c start /min powershell.exe -nop -w hidden -e`<br />
+![obfuscating the template](http://i.cubeupload.com/ZtyCYd.png)
+
+Decoding the base64 string ..<br />
+`This template build by msfvenom also contains powershell syscalls that migth be flagged`<br />
+![obfuscating the template](http://i.cubeupload.com/i43jmL.png)
+
+Obfuscate the syscalls..<br />
+`HINT: In this example iam only changing the letters from small to big (concaternate)`<br />
+![obfuscating the template](http://i.cubeupload.com/ixIFJi.jpg)
+
+Encodind the template again into base64 to be embebbed into unicorn.ps1 (or not)<br />
+`HINT: This template only have the syscall's obfuscated, not the 1º funtion deleted [redbox in previous pic]`<br />
+![obfuscating the template](http://i.cubeupload.com/AMIPyT.png)
+
+Replace [ ENCODED-SHELLCODE-STRING ] by your new base64 string..<br />
+`HINT: now your new obfuscated template its ready to be deliver to target machine`<br />
+![obfuscating the template](http://i.cubeupload.com/w7CJtx.png)
+`HINT: If your plans are using the msfvenom template, then remmenber to add the follow syscall (obfuscate it)`<br />
+`HINT: in the beggining of the template: %comspec% /b /c start /min powershell.exe -noP -wIn hIdDEn -en`<br />
+
+
+- Final Notes:<br />
+there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can help us in discovering what flags are beeing detected in our shellcode ..<br />Adicionally we can also obfuscated the meterpreter loader using arno0x0x random bytes stager [here](https://arno0x0x.wordpress.com/2016/04/13/meterpreter-av-ids-evasion-powershell/)<br />
+
+
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
 
