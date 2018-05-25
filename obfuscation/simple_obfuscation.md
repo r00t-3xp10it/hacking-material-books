@@ -165,6 +165,21 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
+      @Daniel bohannon reported days ago another cmd ofuscation technic that relays
+      on a string added in betuinw switch flags [ /R = /lablablaR ] ..
+
+<br />
+
+- String command to obfuscate<br />
+`cmd.exe /R start calc.exe`<br />
+
+- String obfuscated<br />
+`cmd.exe /rubish string that never gets executedR start calc.exe`<br />
+
+![batch obfuscation](http://i)
+
+---
+
 - cmd arguments trigger chars [ \ or / ]
 
       since we are using the cmd interpreter to lunch powershell, we can replace
