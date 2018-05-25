@@ -2155,6 +2155,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [8] [ReL1k - circumventing-encodedcommand-detection-powershell](https://www.trustedsec.com/2017/01/circumventing-encodedcommand-detection-powershell/)<br />
 [9] [Satoshi Tanda - amsi-bypass-with-null-character](http://standa-note.blogspot.pt/2018/02/amsi-bypass-with-null-character.html)<br />
 [10] [sandbox-evasion-technics](http://unprotect.tdgt.org/index.php/Sandbox_Evasion)<br />
+[11] [C String Obfuscation](https://fresh2refresh.com/c-programming/c-strings/c-strncat-function/)<br />
 
 <br />
 
