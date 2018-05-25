@@ -62,11 +62,11 @@
 [2] [Bash Obfuscation Technics (bash-sh)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bash-obfuscation-bash-sh)<br />
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [VBScript Obfuscation Technics (vba-vbs)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#vbscript-obfuscation-technics-vba-vbs)<br />
-[5] [AMSI Bypass Technics (COM)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass)<br />
-[6] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
-[7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
-[8] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[9] [C Obfuscation Technics (c)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c)<br />
+[5] [C Obfuscation Technics (c)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c)<br />
+[6] [AMSI Bypass Technics (COM)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-com-bypass)<br />
+[7] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
+[8] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
+[9] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
 [10] [FInal Notes - Remarks](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [11] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
@@ -1494,6 +1494,123 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br /><br /><br /><br />
 
+## C Obfuscation Technics (c)
+
+      WARNING: In the follow examples (template.c) are linux executables
+      files compiled with the help of gcc (gnu-cross-compiler)
+
+<br /><br />
+
+      var declarations
+
+<br />
+
+- String command to obfuscate<br />
+`hello`
+
+- String obfuscated (template.c)<br />
+
+      #include<stdio.h>
+      #include<string.h>
+
+      var = 'hello';
+      int main()
+        {
+          printf("ofuscated %var \n");
+        }
+
+![C obfuscation](http:)
+
+---
+
+      [trigraphs]
+
+      Trigraph  Equivalent
+      ??=       #
+      ??/       \
+      ??'       ^
+      ??(       [
+      ??)       ]
+      ??!       |
+      ??<       {
+      ??>       }
+      ??-       ~
+
+<br />
+
+- String command to obfuscate<br />
+`{` **and** `}` **and** `\`
+
+- String obfuscated (template.c)<br />
+
+      #include<stdio.h>
+      #include<string.h>
+
+      int main()
+        ??<
+          printf("trigraphs obfuscation??/n");
+        ??>
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
+
+![C obfuscation](http://i.cubeupload.com/8lSO3S.png)
+
+---
+
+      [preprocessor]
+
+<br />
+
+- String command to obfuscate<br />
+`int main()`
+
+- String obfuscated (template.c)<br />
+
+      #include<stdio.h>
+      #include<string.h>
+      #define _____(i,s,o,g,r,a,m)(i##r##s##o)
+      #define _ _____(m,i,n,u,a,l,s)
+
+      int _()
+        {
+          printf("int main() pointer obfuscation\n");
+        }
+
+
+![C obfuscation](http:)
+
+---
+
+      [preprocessor + trigraphs]
+
+<br />
+
+- String command to obfuscate<br />
+`int main()` **and** `{` **and** `}` **and** `\` **and** `#`
+
+- String obfuscated (template.c)<br />
+
+      ??=include<stdio.h>
+      ??=include<string.h>
+      ??=define _____(i,s,o,g,r,a,m)(i??=??=r??=??=s??=??=o)
+      ??=define _ _____(m,i,n,u,a,l,s)
+
+      int _()
+        ??<
+          printf("preprocessor and trigraphs and ??= obfuscation??/n");
+        ??>
+
+![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
+
+---
+
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+
+---
+
+<br /><br /><br /><br />
+
 ## AMSI COM Bypass
 
       Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
@@ -1850,124 +1967,6 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 - Compile template.c with **GCC** software to **.exe**
 
       gcc.exe template.c -o agent.exe
-
-[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
-
-
----
-
-<br /><br /><br /><br />
-
-## C Obfuscation Technics (c)
-
-      WARNING: In the follow examples (template.c) are linux executables
-      files compiled with the help of gcc (gnu-cross-compiler)
-
-<br /><br />
-
-      var declarations
-
-<br />
-
-- String command to obfuscate<br />
-`hello`
-
-- String obfuscated (template.c)<br />
-
-      #include<stdio.h>
-      #include<string.h>
-
-      var = 'hello';
-      int main()
-        {
-          printf("ofuscated %var \n");
-        }
-
-![C obfuscation](http:)
-
----
-
-      [trigraphs]
-
-      Trigraph  Equivalent
-      ??=       #
-      ??/       \
-      ??'       ^
-      ??(       [
-      ??)       ]
-      ??!       |
-      ??<       {
-      ??>       }
-      ??-       ~
-
-<br />
-
-- String command to obfuscate<br />
-`{` **and** `}` **and** `\`
-
-- String obfuscated (template.c)<br />
-
-      #include<stdio.h>
-      #include<string.h>
-
-      int main()
-        ??<
-          printf("trigraphs obfuscation??/n");
-        ??>
-
-- Compiling template.c<br />
-`gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
-
-![C obfuscation](http://i.cubeupload.com/8lSO3S.png)
-
----
-
-      [preprocessor]
-
-<br />
-
-- String command to obfuscate<br />
-`int main()`
-
-- String obfuscated (template.c)<br />
-
-      #include<stdio.h>
-      #include<string.h>
-      #define _____(i,s,o,g,r,a,m)(i##r##s##o)
-      #define _ _____(m,i,n,u,a,l,s)
-
-      int _()
-        {
-          printf("int main() pointer obfuscation\n");
-        }
-
-
-![C obfuscation](http:)
-
----
-
-      [preprocessor + trigraphs]
-
-<br />
-
-- String command to obfuscate<br />
-`int main()` **and** `{` **and** `}` **and** `\` **and** `#`
-
-- String obfuscated (template.c)<br />
-
-      ??=include<stdio.h>
-      ??=include<string.h>
-      ??=define _____(i,s,o,g,r,a,m)(i??=??=r??=??=s??=??=o)
-      ??=define _ _____(m,i,n,u,a,l,s)
-
-      int _()
-        ??<
-          printf("preprocessor and trigraphs and ??= obfuscation??/n");
-        ??>
-
-![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
-
----
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
