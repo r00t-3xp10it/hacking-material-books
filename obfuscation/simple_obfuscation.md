@@ -1583,11 +1583,14 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
 ![C obfuscation](http://i.cubeupload.com/R59wz0.jpg)
+`WARNING: #includes like '<stdio.h>' and '<string.h>' are requires to string manipulations`
+
+<br />
 
 - String command to obfuscate<br />
 `int main()`
 
-- String obfuscated (template.c)<br />
+- String obfuscated (template.c - another example)<br />
 
       #include<stdio.h>
       #include<string.h>
