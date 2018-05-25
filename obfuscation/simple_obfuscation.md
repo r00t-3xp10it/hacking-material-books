@@ -180,10 +180,10 @@ The above string can be obfuscated using the **batch special character: "** <br 
 
 ---
 
-- cmd arguments trigger chars [ \ or / ]
+- cmd arguments trigger chars [ - or / ]
 
       since we are using the cmd interpreter to lunch powershell, we can replace
-      the powershell trigger arguments characters '-' by cmd interpreter: '/' '\'
+      the powershell trigger arguments characters '-' by cmd interpreter: '/'
 
 <br />
 
