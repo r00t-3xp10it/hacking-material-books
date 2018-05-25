@@ -1559,7 +1559,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
       [strcat()] In the follow example the attacker 'splits' the string powershell into 
-      two char variables and use strcat() API to concaternate (join) the two sub-strings
+      two char variables and use strcat() funtion to concaternate (join) the two sub-strings
       together at run time execution..
       
 
@@ -1592,6 +1592,38 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [strncat] The strncat( ) function in C language concatenates (appends) portion of one
+      string at the end of another string. WARNING: remenber that each string in C is ended
+      up with the null character ('\0') so we must take that into account and sum one more
+      number to the strncat delimiter (if you want to print 3 chars then add the 4 delimiter)
+
+      Example :
+      strncat (str2, str1, 3 ); -> First 3 chars of str1 is concatenated at the end of str2.
+
+<br />
+
+- String command to obfuscate<br />
+`PoWeRShElL -noP`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main( )
+          {
+            char source[ ] = " -noProblem";
+            char target[ ] = "PoWeRShElL";
+            strncat (target, source, 6 );
+            printf("String after strncat(): %s\n", target);
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i64.tinypic.com/2610m51.png)
+
+---
 
       [preprocessor] The follow screenshot will demistify the use of preprocessor
       (macros) inside C language to obfuscated the system call(s) at run time exec.
