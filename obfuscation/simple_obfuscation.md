@@ -1518,13 +1518,6 @@ Here we can view the all process of encoding/decoding in powershell console
       WARNING: In the follow examples (template.c) are going to be compiled
       into linux executables files with the help of GCC (Gnu-Cross-Compiler)
 
-      #include<stdio.h>
-
-      int main()
-        {
-          printf("linux template.c/n");
-        }
-
 ![C obfuscation](http://i66.tinypic.com/eimweg.png)
 
       HINT: #include <windows.h> C lib to template.c if you wish to
@@ -1554,8 +1547,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - String obfuscated (template.c)<br />
 
-      #include<stdio.h>
-      #include<string.h>
+      #include <stdio.h>
+      #include <string.h>
 
       int main()
         ??<
@@ -1622,8 +1615,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - String obfuscated (template.c - another example)<br />
 
-      #include<stdio.h>
-      #include<string.h>
+      #include <stdio.h>
+      #include <string.h>
       #define _____(i,s,o,g,r,a,m)(i##r##s##o)
       #define _ _____(m,i,n,u,a,l,s)
 
@@ -1649,8 +1642,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - String obfuscated (template.c)<br />
 
-      ??=include<stdio.h>
-      ??=include<string.h>
+      ??=include <stdio.h>
+      ??=include <string.h>
       ??=define _____(i,s,o,g,r,a,m)(i??=??=r??=??=s??=??=o)
       ??=define _ _____(m,i,n,u,a,l,s)
 
