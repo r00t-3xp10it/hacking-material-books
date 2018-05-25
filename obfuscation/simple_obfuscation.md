@@ -1577,9 +1577,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [preprocessor]
+      [preprocessor] The follow screenshot will demistify the use of preprocessor
+      (macros) inside C language to obfuscated the system call(s) at run time exec.
 
 <br />
+
+![C obfuscation](http://i.cubeupload.com/R59wz0.jpg)
 
 - String command to obfuscate<br />
 `int main()`
