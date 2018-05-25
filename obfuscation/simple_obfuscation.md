@@ -1518,7 +1518,7 @@ Here we can view the all process of encoding/decoding in powershell console
       WARNING: In the follow examples (template.c) are going to be compiled
       into linux executables files with the help of GCC (Gnu-Cross-Compiler)
 
-![C obfuscation](http://i66.tinypic.com/eimweg.png)
+![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
       HINT: #include <windows.h> C lib to template.c if you wish to
       transform it into an windows executable file (mingw32 compiled).
