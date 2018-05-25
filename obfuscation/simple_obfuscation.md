@@ -1531,16 +1531,7 @@ Here we can view the all process of encoding/decoding in powershell console
       characters (introduced by two consecutive question marks) that the compiler replaces with
       their corresponding punctuation characters.
 
-      Trigraph  Equivalent
-      ??=       #
-      ??/       \
-      ??'       ^
-      ??(       [
-      ??)       ]
-      ??!       |
-      ??<       {
-      ??>       }
-      ??-       ~
+![C obfuscation](http://i66.tinypic.com/2eoeg7r.png)
 
 <br />
 
