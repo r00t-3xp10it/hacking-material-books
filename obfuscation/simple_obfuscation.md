@@ -1515,7 +1515,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## C Obfuscation Technics (c-exe)
 
-      WARNING: In the follow examples (template.c) its going to be compiled into an linux executable file
+      [WARNING]: In the follow examples (template.c) its going to be compiled into an linux executable file
       with the help of GCC (Gnu-Cross-Compiler) to demonstrate obfuscation technics discussed in this chapter.
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
@@ -1526,7 +1526,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [trigraphs]
+      [trigraphs] Trigraph sequences allow C programs to be written using only the ISO
+      (International Standards Organization) Invariant Code Set. Trigraphs are sequences of three
+      characters (introduced by two consecutive question marks) that the compiler replaces with
+      their corresponding punctuation characters.
 
       Trigraph  Equivalent
       ??=       #
@@ -1566,7 +1569,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       [strcat()] In the follow example the attacker 'splits' the string powershell into 
       two char variables and use strcat() API to concaternate (join) the two sub-strings
-      together at run time ..
+      together at run time execution..
       
 
 <br />
