@@ -1692,6 +1692,62 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [executing a shell command] In the follow example we will demonstrate how to use
+      the system() funtion to be abble to execute shell (bash) commands using C language.
+      HINT: system() funtion will execute system commands, in linux distos it uses the
+      bash interpreter, in windows distros uses the batch interpreter, etc, etc, etc..
+
+<br />
+
+- String command to obfuscate<br />
+`uname -a`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            // system() funtion variable declaration
+            int system(const char *command);
+            // executing system() shell funtion (bash)
+            system("uname -a");
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i63.tinypic.com/bhakuw.png)
+
+      Assigning the 'bash command' into one C variable to be called in system() funtion
+
+<br />
+
+- String command to obfuscate<br />
+`uname -a`
+
+- String obfuscated (template.c - another example)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            // system() funtion variable declaration
+            char command[] = "uname -a";
+            int system(const char *command);
+            // executing system() shell funtion (bash)
+            system(command);
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i64.tinypic.com/w88fpy.png)
+
+---
+
       [preprocessor] The follow screenshot will demistify the use of preprocessor
       (macros) inside C language to obfuscated the system call(s) at run time exec.
 
