@@ -1551,7 +1551,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
-![C obfuscation](http://i.cubeupload.com/8lSO3S.png)
+![C obfuscation](http://i63.tinypic.com/2mr7gg9.png)
 
       WARNING: IF your template contains trigraphs substitution method then -trigraphs
       switch its required in gcc syntax to be abble to compile the substitution technic`
@@ -1776,16 +1776,16 @@ Here we can view the all process of encoding/decoding in powershell console
       #define _____(i,s,o,g,r,a,m)(i##r##s##o)
       #define _ _____(m,i,n,u,a,l,s)
 
-      int _()
-        {
-          printf("int main() pointer obfuscation\n");
-        }
+        int _()
+         {
+           printf("int main() funtion obfuscation\n");
+         }
 
 
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack template.c -o finalname`
 
-![C obfuscation](http:)
+![C obfuscation](http://i63.tinypic.com/33pc0ev.png)
 
 ---
 
@@ -1803,15 +1803,15 @@ Here we can view the all process of encoding/decoding in powershell console
       ??=define _____(i,s,o,g,r,a,m)(i??=??=r??=??=s??=??=o)
       ??=define _ _____(m,i,n,u,a,l,s)
 
-      int _()
-        ??<
-          printf("preprocessor and trigraphs and ??= obfuscation??/n");
-        ??>
+        int _()
+          ??<
+            printf("preprocessor and trigraphs and ??< ??= ??> obfuscation??/n");
+          ??>
 
 - Compiling template.c<br />
 `gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
-![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
+![C obfuscation](http://i67.tinypic.com/727rmh.png)
 
 - More obfuscated using: (delete withespaces + concaternation + trigraphs<br />
 
