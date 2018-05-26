@@ -1588,6 +1588,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ![C obfuscation](http://i63.tinypic.com/2lub386.png)
 
       Using arithmetic operators to add or substract a number into final var declaration.
+`char y = 66+1;   // ancii character C`
 
 ![C obfuscation](http:)
 
