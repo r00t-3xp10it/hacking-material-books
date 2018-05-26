@@ -1558,7 +1558,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [ANCII char substitution]
+      [ANCII char substitution] The C library function int putchar(int char) writes a
+      character (an unsigned char) specified by the argument char to stdout.
 
 <br />
 
@@ -1577,7 +1578,7 @@ Here we can view the all process of encoding/decoding in powershell console
             char w = 68;   // ancii character D
 
             // putchar() funtion its then used to convert the decimal(67)
-            // value of char var by is comrrespondent ancii character(C).
+            // value of var 'y' by is comrrespondent ancii character(C).
             putchar(y);putchar(x);putchar(w);printf(".exe /R start calc\n");
           }
 
@@ -1586,7 +1587,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i63.tinypic.com/2lub386.png)
 
-[!] [ANCII TABLE](https://www.asciitable.com/)<br />
+[!] [REVIEW THE FULL ANCII TABLE HERE:](https://www.asciitable.com/)<br />
 
 ---
 
@@ -1630,7 +1631,9 @@ Here we can view the all process of encoding/decoding in powershell console
       number to the strncat delimiter (if you want to print 3 chars then add the 4 delimiter)
 
       Example :
-      strncat (str2, str1, 3 ); -> First 3 chars of str1 is concatenated at the end of str2.
+      strncat(target, source, 6); -> First 6 chars of source[] is concatenated at the end of target[]
+      HINT: Remmener that var source[] as a empty space in the begging of the string that must be
+      counted as delimiter. char souce[] = " -noP" + return carrier (\0) == 6 tokens == " -nop"
 
 <br />
 
@@ -1658,7 +1661,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
       [strncpy()] function copies portion of contents of one string into another string.
-      EXAMPLE: strncpy (str1, str2, 4) – It copies first 4 characters of str2 into str1.
+      EXAMPLE: strncpy (comma, string, 10 ); – It copies first 10 chars of string[] into comma[]
 
       If destination string length is less than source string, entire source string value won’t
       be copied into destination string. For example, consider destination string length is 20
@@ -1692,10 +1695,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [executing a shell command] In the follow example we will demonstrate how to use
-      the system() funtion to be abble to execute shell (bash) commands using C language.
-      HINT: system() funtion will execute system commands, in linux distos it uses the
-      bash interpreter, in windows distros uses the batch interpreter, etc, etc, etc..
+      [executing a shell command] In the follow example we will demonstrate how to use the system()
+      funtion to be abble to execute shell (bash) commands using C language. HINT: system() funtion
+      will execute system commands, in linux distos it uses the bash interpreter, in windows distros
+      uses the batch interpreter, etc, etc, etc..
 
 <br />
 
