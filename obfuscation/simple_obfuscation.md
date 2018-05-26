@@ -1517,10 +1517,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
       [WARNING]: In the follow examples (template.c) its going to be compiled into an linux executable file
       with the help of GCC (Gnu-Cross-Compiler) to demonstrate obfuscation technics discussed in this chapter.
+      "Its more easy for me to write the article take screenshots and execute agent in the same machine (PC)"
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
       HINT: #include <windows.h> into template.c if you wish to transform it into an M$ exec (mingw32 compiled).
+      HINT: #include <string.h>  library its required for C program string manipulations
 
 <br /><br />
 
@@ -1561,6 +1563,10 @@ Here we can view the all process of encoding/decoding in powershell console
       [ANCII char substitution] The C library function int putchar(int char) writes a
       character (an unsigned char) specified by the argument char to stdout.
 
+      The program specifies the reading length's maximum value at 1000 characters.
+      It will stop reading either after reading 1000 characters or after reading in
+      an end-of-file indicator, whichever comes first.
+
 <br />
 
 - String command to obfuscate<br />
@@ -1588,6 +1594,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ![C obfuscation](http://i63.tinypic.com/2lub386.png)
 
       Using arithmetic operators to add or substract a number into final var declaration.
+      This technic can be used to throw more confusion into the sourcecode (obfuscation).
       SYNTAX EXAMPLE: char y = 66+1;   // ancii character C (char67)
 
 ![C obfuscation](http://i63.tinypic.com/25z1baw.png)
@@ -1633,12 +1640,13 @@ Here we can view the all process of encoding/decoding in powershell console
       [strncat] The strncat( ) function in C language concatenates (appends) portion of one
       string at the end of another string. WARNING: remenber that each string in C is ended
       up with the null character ('\0') so we must take that into account and sum one more
-      number to the strncat delimiter (if you want to print 3 chars then add the 4 delimiter)
+      number to the strncat delimiter (if you want to print 4 chars then add the 5 delimiters)
 
       Example :
       strncat(target, source, 6); -> First 6 chars of source[] is concatenated at the end of target[]
       HINT: Remmener that var source[] as a empty space in the begging of the string that must be
-      counted as delimiter. char souce[] = " -noP" + return carrier (\0) == 6 tokens == " -nop"
+      counted as delimiter. char souce[] = " -noP" + return carrier (\0) == 6 tokens == " -nop\0"
+                                                    --  char source[] token delimiters = 12345 6
 
 <br />
 
@@ -1671,7 +1679,7 @@ Here we can view the all process of encoding/decoding in powershell console
       If destination string length is less than source string, entire source string value won’t
       be copied into destination string. For example, consider destination string length is 20
       and source string length is 30. If you want to copy 25 characters from source string using
-      strncpy( ) function, only 20 characters from source string will be copied into destination
+      strncpy() function, only 20 characters from source string will be copied into destination
       string and remaining 5 characters won’t be copied and will be truncated.
 
 <br />
@@ -1729,6 +1737,8 @@ Here we can view the all process of encoding/decoding in powershell console
 ![C obfuscation](http://i63.tinypic.com/bhakuw.png)
 
       Assigning the 'bash command' into one C variable to be called in system() funtion
+      This will allow us to use further string manipulation technics sutch as concaternation
+      in variable declarations further obfuscating the sourcecode.
 
 <br />
 
@@ -1756,20 +1766,23 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [preprocessor] The follow screenshot will demistify the use of preprocessor
-      (macros) inside C language to obfuscated the system call(s) at run time exec.
+      [preprocessor] The follow screenshot will demistify the use of preprocessor (macros) inside C language
+      macros technic can be used to obfuscated the system call(s) and de-obfuscate then at run time exec.
+
+      The C preprocessor or cpp is the macro preprocessor for the C and C++ computer programming languages.
+      The preprocessor provides the ability for the inclusion of header files, macro expansions, conditional
+      compilation, and line control.
 
 <br />
 
 ![C obfuscation](http://i68.tinypic.com/s474lf.jpg)
-`WARNING: #includes like '<stdio.h>' and '<string.h>' are requires to string manipulations`
 
 <br />
 
 - String command to obfuscate<br />
 `int main()`
 
-- String obfuscated (template.c - another example)<br />
+- String obfuscated (template.c)<br />
 
       #include <stdio.h>
       #include <string.h>
@@ -1789,7 +1802,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [preprocessor + trigraphs]
+      [preprocessor + trigraphs obfuscation]
 
 <br />
 
@@ -1813,7 +1826,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i67.tinypic.com/727rmh.png)
 
-- More obfuscated using: (delete withespaces + concaternation + trigraphs<br />
+- More obfuscated: (delete withespaces + concaternation + trigraphs + var substitution)<br />
 
 ![C obfuscation](http://i68.tinypic.com/33y6mmt.png)
 
