@@ -1590,7 +1590,7 @@ Here we can view the all process of encoding/decoding in powershell console
       Using arithmetic operators to add or substract a number into final var declaration.
       SYNTAX EXAMPLE: char y = 66+1;   // ancii character C (char67)
 
-![C obfuscation](http:)
+![C obfuscation](http://i63.tinypic.com/25z1baw.png)
 
 [!] [REVIEW THE FULL ANCII TABLE HERE:](https://www.asciitable.com/)<br />
 
@@ -1761,7 +1761,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
-![C obfuscation](http://i.cubeupload.com/R59wz0.jpg)
+![C obfuscation](http://i68.tinypic.com/s474lf.jpg)
 `WARNING: #includes like '<stdio.h>' and '<string.h>' are requires to string manipulations`
 
 <br />
@@ -1812,6 +1812,10 @@ Here we can view the all process of encoding/decoding in powershell console
 `gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
 ![C obfuscation](http://i.cubeupload.com/jlmXzq.png)
+
+- More obfuscated using: (delete withespaces + concaternation + trigraphs<br />
+
+![C obfuscation](http://i68.tinypic.com/33y6mmt.png)
 
 ---
 
