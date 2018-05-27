@@ -2180,21 +2180,13 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 
 - **template.c** to be injected with generated shellcode
 
-      #include
-      #include
-      #include
-      #include
-      #include
-      #include
-      #include
-
-      <stdio.h>
-      <stdlib.h>
-      <unistd.h>
-      <string.h>
-      <windows.h>
-      <tchar.h>
-      <stdlib.h>
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <string.h>
+      #include <windows.h>
+      #include <tchar.h>
+      #include <stdlib.h>
 
       void exec_mycode(unsigned char *mycode)
       {
