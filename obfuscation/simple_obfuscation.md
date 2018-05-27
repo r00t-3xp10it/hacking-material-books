@@ -1832,6 +1832,38 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [indexing + reorder] In this next example the attacker will split the 'pOwErShElL' syscall
+      into a set of strings (token[]) before re-assemble them together in there correct order ..
+
+<br />
+
+- String command to obfuscate<br />
+`pOwErShElL`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            const char *token[] = {"ErSh","TriP","pOw","ElL"};
+              printf("token[0]                   : %s\n", token[0]);
+              printf("token[1]                   : %s\n", token[1]);
+              printf("token[2]                   : %s\n", token[2]);
+              printf("token[3]                   : %s\n", token[3]);
+              printf("concaternate all tokens    : %s%s%s%s\n", token[0], token[1], token[2], token[3]);
+              printf("reorder tokens [2],[0],[3] : %s%s%s\n", token[2], token[0], token[3]);
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i66.tinypic.com/hs6t8x.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
