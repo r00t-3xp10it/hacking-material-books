@@ -1754,6 +1754,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i66.tinypic.com/2i74fbr.png)
 
+- Replace two chars in str[] by another two chars and delete the last char of str[]
+
+![C obfuscation](http://i68.tinypic.com/2hehtg0.png)
+
+
 ---
 
       [executing a shell command] In the follow example we will demonstrate how to use the system()
