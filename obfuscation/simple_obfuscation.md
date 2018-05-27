@@ -1610,7 +1610,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i63.tinypic.com/25z1baw.png)
 
-[!] [REVIEW THE FULL ANCII TABLE HERE:](https://www.asciitable.com/)<br />
+[!] [review the full ANCII table here:](https://www.asciitable.com/)<br />
 
 ---
 
@@ -2061,7 +2061,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 **template.c** from AVET<br />
 
-
+```
       #include <stdio.h>
       #include <stdlib.h>
       #include <unistd.h>
@@ -2101,6 +2101,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 	exec_mycode(buffer);
       }
+```
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 [1] [avepoc - some pocs for antivirus evasion](https://github.com/govolution/avepoc)<br />
