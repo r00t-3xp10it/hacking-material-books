@@ -1864,7 +1864,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - More obfuscated: (delete withespaces + concaternation + trigraphs + var substitution + reorder)<br />
 
-![C obfuscation](http://i63.tinypic.com/23ige1d.png)
+![C obfuscation](http://i63.tinypic.com/hwid84.png)
 
 ---
 
