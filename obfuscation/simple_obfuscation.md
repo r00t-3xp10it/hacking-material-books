@@ -1864,7 +1864,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 - More obfuscated: (delete withespaces + concaternation + trigraphs + var substitution + reorder)<br />
 
-![C obfuscation](http://i66.tinypic.com/292agd0.png)
+![C obfuscation](http://i65.tinypic.com/25u0gw2.png)
+`Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
 
 ---
 
