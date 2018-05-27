@@ -1862,6 +1862,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i66.tinypic.com/hs6t8x.png)
 
+- More obfuscated: (delete withespaces + concaternation + trigraphs + var substitution + reorder)<br />
+
+![C obfuscation](http://i63.tinypic.com/23ige1d.png)
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
