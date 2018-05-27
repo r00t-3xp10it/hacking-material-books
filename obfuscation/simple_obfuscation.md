@@ -1558,6 +1558,15 @@ Here we can view the all process of encoding/decoding in powershell console
       WARNING: IF your template contains trigraphs substitution method then -trigraphs
       switch its required in gcc syntax to be abble to compile the substitution technic`
 
+<br />
+
+      [Digraphs] Unlike trigraphs, digraphs are handled during tokenization, and any digraph must
+      always represent a full token by itself, or compose the token %:%: replacing the preprocessor
+      concatenation token ##. If a digraph sequence occurs inside another token, for example a quoted
+      string, or a character constant, it will not be replaced.
+
+![C obfuscation](http://i64.tinypic.com/j5l3mf.png)
+
 ---
 
       [ANCII char substitution] The C library function int putchar(int char) writes a
@@ -2341,6 +2350,7 @@ there is a tool [AVSignSeek](https://github.com/hegusung/AVSignSeek) that can he
 [9] [Satoshi Tanda - amsi-bypass-with-null-character](http://standa-note.blogspot.pt/2018/02/amsi-bypass-with-null-character.html)<br />
 [10] [sandbox-evasion-technics](http://unprotect.tdgt.org/index.php/Sandbox_Evasion)<br />
 [11] [C String Obfuscation](https://fresh2refresh.com/c-programming/c-strings/c-strncat-function/)<br />
+[12] [Weirdest obfuscated “Hello World!”](https://codegolf.stackexchange.com/questions/22533/weirdest-obfuscated-hello-world)<br />
 
 <br />
 
