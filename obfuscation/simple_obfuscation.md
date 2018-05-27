@@ -1719,6 +1719,41 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [memset()] memset() is used to fill a block of memory with a particular value.
+      Example: (str + 1)  points to the first character of the string 'GiDks' (letter G) the next argument
+      of memset() sets that the replacement character will be the letter (e) and the final argument will
+      replace in str[] 2 chars counting from the 1º char found.. (letter iD will be replaced by letters ee)
+
+<br />
+
+- String command to obfuscate<br />
+`Geeks`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+ 
+        int main()
+          {
+            char str[] = "GiDks";
+            printf("Before memset(): %s\n", str);
+
+            // Substitute the token after the 1º char of str[] by the letter 'e'
+            // 2*sizeof(char) indicates that two chars are beeing replaced in str[]
+            memset(str + 1, 'e', 2*sizeof(char));
+
+            printf("After  memset(): %s\n", str);
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i66.tinypic.com/2i74fbr.png)
+
+---
+
       [executing a shell command] In the follow example we will demonstrate how to use the system()
       funtion to be abble to execute shell (bash) commands using C language. HINT: system() funtion
       will execute system commands, in linux distos it uses the bash interpreter, in windows distros
