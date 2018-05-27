@@ -23,7 +23,7 @@
 ![powershell obfuscation](http://i66.tinypic.com/t9bdaq.jpg)<br />
 
 **Example of one obfuscated batch agent** [ AgentK.bat - venom-framework ]<br />
-![batch obfuscation](http://i.cubeupload.com/slRTcL.png)<br />
+![batch obfuscation](http://i66.tinypic.com/30krpy0.jpg)<br />
 
 **Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
 ![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
@@ -1461,7 +1461,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - String command to obfuscate<br />
 `PoWeRshell.exe -noP -enC \x0a\x0d\xff`
 
-![vbscript obfuscation](http://i.cubeupload.com/hLBu2W.png)
+![vbscript obfuscation](http://i64.tinypic.com/o714c3.jpg)
 
 - Build oneliner using [ : ] character and deleting empty spaces in between commands<br />
 
