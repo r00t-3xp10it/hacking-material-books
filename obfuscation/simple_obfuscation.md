@@ -1558,6 +1558,8 @@ Here we can view the all process of encoding/decoding in powershell console
       WARNING: IF your template contains trigraphs substitution method then -trigraphs
       switch its required in gcc syntax to be abble to compile the substitution technic`
 
+---
+
 <br />
 
       [Digraphs] Unlike trigraphs, digraphs are handled during tokenization, and any digraph must
