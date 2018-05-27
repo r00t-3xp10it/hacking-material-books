@@ -1724,6 +1724,8 @@ Here we can view the all process of encoding/decoding in powershell console
       of memset() sets that the replacement character will be the letter (e) and the final argument will
       replace in str[] 2 chars counting from the 1º char found.. (letter iD will be replaced by letters ee)
 
+      SYNTAX: memset(str + 1, 'e', 2*sizeof(char));
+
 <br />
 
 - String command to obfuscate<br />
