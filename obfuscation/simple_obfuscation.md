@@ -1521,8 +1521,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
-      HINT: #include <windows.h> into template.c if you wish to transform it into an M$ exec (mingw32 compiled).
       HINT: #include <string.h>  library its required for C program string manipulations
+      HINT: #include <windows.h> into template.c if you wish to transform it into an M$ exec (mingw32 compiled).
 
 <br /><br />
 
@@ -1865,7 +1865,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - More obfuscated: (delete withespaces + concaternation + trigraphs + var substitution + reorder)<br />
 
 ![C obfuscation](http://i65.tinypic.com/25u0gw2.png)
-`Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
+`HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
 
 ---
 
