@@ -1830,6 +1830,47 @@ Here we can view the all process of encoding/decoding in powershell console
 ![C obfuscation](http://i63.tinypic.com/jpx3qx.png)
 `HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`<br />
 
+---
+
+      [memset + strrchr] The strrchr funtion locates the last occurrence of character in the string.
+      In the follow example the token [p] inside str[] variable its the delimiter char that strrchr
+      its searching for, then the new value its written in a new variable named ret[] and memset()
+      funtion then prints the [10] firts tokens and delete the [3] last tokens from ret[] variable.
+      
+<br />
+
+- String command to obfuscate<br />
+`powershell`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main ()
+          {
+            char *ret;
+            const char ch = 'p';
+            const char str[] = "noobpowershellgie";
+            printf("token[0]: %s\n", str);
+
+              /* use token ['p'] as delimiter to del everything before delimiter */
+              ret = strrchr(str, ch);
+              printf("token[1]: %s\n", ret);
+
+            /* memset to count [10] tokens in [ret] and del the last [3] chars */
+            memset(ret + 10, ' ', 3*sizeof(char));
+            printf("token[2]: %s\n", ret);
+            return(0);
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i67.tinypic.com/2wq5ts3.png)
+
+---
+
       The next example splits the syscall(s) into two char variables, uses memset() C funtion
       to replace tokens in strings and then uses strcat() to be abble to concaternate syscall.
 
