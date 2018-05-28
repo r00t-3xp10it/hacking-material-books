@@ -1567,7 +1567,8 @@ Here we can view the all process of encoding/decoding in powershell console
       concatenation token ##. If a digraph sequence occurs inside another token, for example a quoted
       string, or a character constant, it will not be replaced.
 
-![C obfuscation](http://i64.tinypic.com/j5l3mf.png)
+![C obfuscation](http://i67.tinypic.com/34sqtdc.png)
+`HINT: digraphs does not require any special GCC switch to be compiled unlike trigraphs`
 
 ---
 
@@ -1719,52 +1720,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [memset()] memset() is used to fill a block of memory with a particular value.
-      Example: (str + 1)  points to the first character of the string 'GiDks' (letter G) the next argument
-      of memset() sets that the replacement character will be the letter (e) and the final argument will
-      replace in str[] 2 chars counting from the 1º char found.. (letter iD will be replaced by letters ee)
-
-      SYNTAX: memset(str + 1, 'e', 2*sizeof(char));
-
-<br />
-
-- String command to obfuscate<br />
-`Geeks`
-
-- String obfuscated (template.c)<br />
-
-      #include <stdio.h>
-      #include <string.h>
- 
-        int main()
-          {
-            char str[] = "GiDks";
-            printf("Before memset(): %s\n", str);
-
-            // Substitute the token after the 1º char of str[] by the letter 'e'
-            // 2*sizeof(char) indicates that two chars are beeing replaced in str[]
-            memset(str + 1, 'e', 2*sizeof(char));
-
-            printf("After  memset(): %s\n", str);
-            return 0;
-          }
-
-- Compiling template.c<br />
-`gcc -fno-stack-protector -z execstack template.c -o finalname`
-
-![C obfuscation](http://i66.tinypic.com/2i74fbr.png)
-
-- Replace two chars in str[] by another two chars and delete the last char of str[]<br />
-
-![C obfuscation](http://i68.tinypic.com/2hehtg0.png)
-
-- Replace 5 chars in str[]<br />
-
-![C obfuscation](http://i68.tinypic.com/2j5l2s0.png)
-
-
----
-
       [executing a shell command] In the follow example we will demonstrate how to use the system()
       funtion to be abble to execute shell (bash) commands using C language. HINT: system() funtion
       will execute system commands, in linux distos it uses the bash interpreter, in windows distros
@@ -1820,6 +1775,57 @@ Here we can view the all process of encoding/decoding in powershell console
 `gcc -fno-stack-protector -z execstack template.c -o finalname`
 
 ![C obfuscation](http://i64.tinypic.com/w88fpy.png)
+
+---
+
+      [memset()] memset() is used to fill a block of memory with a particular value.
+      Example: (str + 1)  points to the first character of the string 'GiDks' (letter G) the next argument
+      of memset() sets that the replacement character will be the letter (e) and the final argument will
+      replace in str[] 2 chars counting from the 1º char found.. (letter iD will be replaced by letters ee)
+
+      SYNTAX: memset(str + 1, 'e', 2*sizeof(char));
+
+<br />
+
+- String command to obfuscate<br />
+`Geeks`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+ 
+        int main()
+          {
+            char str[] = "GiDks";
+            printf("Before memset(): %s\n", str);
+
+            // Substitute the token after the 1º char of str[] by the letter 'e'
+            // 2*sizeof(char) indicates that two chars are beeing replaced in str[]
+            memset(str + 1, 'e', 2*sizeof(char));
+
+            printf("After  memset(): %s\n", str);
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i66.tinypic.com/2i74fbr.png)
+
+- Replace two chars in str[] by another two chars and delete the last char of str[]<br />
+
+![C obfuscation](http://i68.tinypic.com/2hehtg0.png)
+
+- Replace 5 chars in str[]<br />
+
+![C obfuscation](http://i68.tinypic.com/2j5l2s0.png)
+
+- Executing obfuscated nmap command (digraphs+trigraphs+delspaces+memset+system)<br />
+
+![C obfuscation](http://i63.tinypic.com/jpx3qx.png)
+`HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
+[!] [Review this obfuscated template here](https://pastebin.com/CBaGDzHY)<br />
 
 ---
 
