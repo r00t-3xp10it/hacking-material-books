@@ -1754,9 +1754,13 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i66.tinypic.com/2i74fbr.png)
 
-- Replace two chars in str[] by another two chars and delete the last char of str[]
+- Replace two chars in str[] by another two chars and delete the last char of str[]<br />
 
 ![C obfuscation](http://i68.tinypic.com/2hehtg0.png)
+
+- Replace 5 chars in str[]<br />
+
+![C obfuscation](http://i68.tinypic.com/2j5l2s0.png)
 
 
 ---
