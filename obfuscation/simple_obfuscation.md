@@ -1828,7 +1828,7 @@ Here we can view the all process of encoding/decoding in powershell console
 - Executing obfuscated nmap command (digraphs+trigraphs+delspaces+memset+system)<br />
 
 ![C obfuscation](http://i63.tinypic.com/jpx3qx.png)
-`HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
+`HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`<br />
 [!] [Review this obfuscated template here](https://pastebin.com/CBaGDzHY)<br />
 
 ---
