@@ -174,7 +174,7 @@ The above string can be obfuscated using the **batch special character: "** <br 
 `cmd.exe /R start calc.exe`<br />
 
 - String obfuscated<br />
-`cmd.exe rubish string that never gets executed/R start calc.exe`<br />
+`cmd.exe rubishdata/R start calc.exe`<br />
 
 ![batch obfuscation](http://i)
 
@@ -1829,7 +1829,49 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i63.tinypic.com/jpx3qx.png)
 `HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`<br />
-[!] [Review this obfuscated template here](https://pastebin.com/CBaGDzHY)<br />
+
+      The next example splits the syscall(s) into two char variables, uses memset() C funtion
+      to replace tokens in strings and then uses strcat() to be abble to concaternate syscall.
+
+<br />
+
+- String command to obfuscate<br />
+`ifconfig wlan0|grep inet`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+      int main()
+        {
+          /* variable declarations */
+          char trs[40] = "|grIp 0nUt";
+          char str[40] = "if=on+ig elan0";
+          printf("token[0]: %s\n", trs);
+          printf("token[1]: %s\n", str);
+
+          /* replace tokens in trs[] */
+          memset(trs + 3, 'e', 1*sizeof(char));
+          memset(trs + 6, 'i', 1*sizeof(char));
+          memset(trs + 8, 'e', 1*sizeof(char));
+          /* replace tokens in str[] */
+          memset(str + 2, 'c', 1*sizeof(char));
+          memset(str + 5, 'f', 1*sizeof(char));
+          memset(str + 9, 'w', 1*sizeof(char));
+
+          /* concaternate the two strings together */
+          strcat(str, trs);
+          printf("command : %s\n\n", str);
+          /* runing command with system() funtion */
+          int system(char *str);
+          system(str);
+        }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i63.tinypic.com/far24y.png)
 
 ---
 
