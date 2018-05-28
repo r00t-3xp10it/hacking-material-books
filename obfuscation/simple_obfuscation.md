@@ -1567,6 +1567,10 @@ Here we can view the all process of encoding/decoding in powershell console
       concatenation token ##. If a digraph sequence occurs inside another token, for example a quoted
       string, or a character constant, it will not be replaced.
 
+![C obfuscation](http://i64.tinypic.com/j5l3mf.jpg)
+
+<br />
+
 ![C obfuscation](http://i67.tinypic.com/34sqtdc.png)
 `HINT: digraphs does not require any special GCC switch to be compiled unlike trigraphs`
 
