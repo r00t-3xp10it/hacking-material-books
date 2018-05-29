@@ -1576,6 +1576,35 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [horizontal tab character] This technic allow us to add a 'space(horizontal tab)'
+      into string at runtime, and it can be used for string obfuscation proposes ..
+
+<br />
+
+- String command to obfuscate<br />
+`pOwErShElL /wIN 1 /noP /Enc`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+
+        int main()
+          {
+            /* Here we are using \t, which is a horizontal tab character. */
+            /* It will provide a tab space between two words. */
+            char str[] = "pOwErShElL\t/wIN\t1\t/noP\t/Enc";
+            printf("token[0]: pOwErShElL\\t/wIN\\t1\\t/noP\\t/Enc\\n\n");
+            printf("token[1]: %s\n", str);
+            return (0);
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i64.tinypic.com/s49zsi.png)
+
+---
+
       [ANCII char substitution] The C library function int putchar(int char) writes a
       character (an unsigned char) specified by the argument char to stdout.
 
