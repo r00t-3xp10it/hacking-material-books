@@ -2054,7 +2054,7 @@ Here we can view the all process of encoding/decoding in powershell console
 ---
 
       [strcpy + strcat + strtok] The next example uses strcpy + strcat + strtok + system
-      to concaternate and execute our string
+      C funtions to concaternate and execute our obfuscated string at runtime.
 
 <br />
 
