@@ -2053,6 +2053,56 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
+      [strcpy + strcat + strtok] The next example uses strcpy + strcat + strtok + system
+      to concaternate and execute our string
+
+<br />
+
+- String command to obfuscate<br />
+`netstat -r`
+
+- String obfuscated (template.c)<br />
+
+      #include <stdio.h>
+      #include <string.h>
+
+        int main()
+          {
+            char comm[] = " -r";
+            /* var declarations using [:,;] as delimiters */
+            char str[] = "stat:rip,net";
+            char token0[30], token1[30], token2[30], token3[30];
+            printf("string  : stat:rip,net\n");
+
+              /* strtok() extract tokens from str[] using delimiters [:,;] */
+              strcpy(token0, strtok(str , ":"));
+              strcpy(token1, strtok(NULL, ","));
+              strcpy(token2, strtok(NULL, ";"));
+              /* print separated tokens in screen */
+              printf("token[0]: %s\n", token0);
+              printf("token[1]: %s\n", token1);
+              printf("token[2]: %s\n", token2);
+              printf("concater: %s%s%s\n", token0, token1, token2);
+              printf("reorder : %s%s%s\n\n", token2, token0, comm);
+
+            /* concaternate string using strcat */
+            strcat(token2, token0);
+            strcat(token2, comm);
+
+            /* execute command using system() */
+            int system(char *token2);
+            system(token2);
+            return 0;
+          }
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack template.c -o finalname`
+
+![C obfuscation](http://i66.tinypic.com/219cew.png)
+![C obfuscation](http://i65.tinypic.com/ofqdlw.png)
+
+---
+
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
 
 ---
