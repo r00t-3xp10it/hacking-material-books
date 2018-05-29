@@ -1869,6 +1869,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i67.tinypic.com/2wq5ts3.png)
 
+- Further obfuscated with the help of digraphs and another memset replacement<br />
+
+![C obfuscation](http://i63.tinypic.com/26273ih.png)
+`HINT: digraphs does not require any special GCC switch to be compiled unlike trigraphs`
+
 ---
 
       The next example splits the syscall(s) into two char variables, uses memset() C funtion
