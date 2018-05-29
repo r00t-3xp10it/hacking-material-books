@@ -2078,6 +2078,7 @@ Here we can view the all process of encoding/decoding in powershell console
               strcpy(token0, strtok(str , ":"));
               strcpy(token1, strtok(NULL, ","));
               strcpy(token2, strtok(NULL, ";"));
+
               /* print separated tokens in screen */
               printf("token[0]: %s\n", token0);
               printf("token[1]: %s\n", token1);
