@@ -1517,7 +1517,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
       [WARNING]: In the follow examples (template.c) its going to be compiled into an LINUX executable program
       with the help of GCC (Gnu-Cross-Compiler) to demonstrate obfuscation technics discussed in this chapter.
-      "Its more easy for me to write the article take screenshots and execute agent in the same machine (PC)"
+      "Its more easy for me to write the article, take screenshots and execute agent in the same machine (PC)"
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
@@ -2103,6 +2103,26 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i66.tinypic.com/219cew.png)
 ![C obfuscation](http://i65.tinypic.com/ofqdlw.png)
+
+---
+
+      [strcpy + strtok + strcat + memset + trigraphs + del spaces + system]
+      In the next example we are joining many of the technics described in
+      this chapter (c-exe) to further obfuscate sourcecode and build oneliner.
+
+<br />
+
+- String command to obfuscate<br />
+`netstat -s -t`
+
+![C obfuscation](http://i66.tinypic.com/qry8h3.png)
+![C obfuscation](http://i66.tinypic.com/xp7hoz.png)
+
+- Compiling template.c<br />
+`gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
+
+![C obfuscation](http://i63.tinypic.com/1z1qmxf.png)
+`HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
 
 ---
 
