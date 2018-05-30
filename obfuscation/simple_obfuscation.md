@@ -2123,7 +2123,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i66.tinypic.com/xp7hoz.png)
 
-- Obfuscate (trigraphs + del spaces) and Compile template.c<br />
+- Obfuscate (trigraphs + del spaces + random var names) and Compile template.c<br />
 `gcc -fno-stack-protector -z execstack -trigraphs template.c -o finalname`
 
 ![C obfuscation](http://i63.tinypic.com/1z1qmxf.png)
