@@ -2106,9 +2106,8 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ---
 
-      [strcpy + strtok + strcat + memset + trigraphs + del spaces + system]
-      In the next example we are joining many of the technics described in
-      this chapter (c-exe) to further obfuscate sourcecode and build oneliner.
+      [strcpy + strtok + strcat + memset + trigraphs + del spaces + system] In the next example we are
+      using many of the technics described to further obfuscate the sourcecode and build our oneliner.
 
 <br />
 
