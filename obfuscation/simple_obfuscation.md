@@ -1521,7 +1521,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i65.tinypic.com/11kjeqh.png)
 
-      HINT: #include <string.h>  library its required for C program string manipulations
+      HINT: #include <string.h>  library its required for the C program to use string manipulations.
       HINT: #include <windows.h> into template.c if you wish to transform it into an M$ executable (mingw32)
       compile to windows systems (x86): i586-mingw32msvc-gcc template.c -o finalname.exe -lws2_32 -mwindows
       compile to windows systems (x64): i686-w64-mingw32-gcc template.c -o finalname.exe -lws2_32 -mwindows
