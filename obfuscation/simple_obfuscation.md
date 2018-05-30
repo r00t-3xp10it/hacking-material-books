@@ -2115,6 +2115,15 @@ Here we can view the all process of encoding/decoding in powershell console
 `netstat -s -t`
 
 ![C obfuscation](http://i66.tinypic.com/qry8h3.png)
+
+      HINT: the character [i] inside string, its the delimiter strtok() funtion
+      its waiting to build tokens (separate string in sub-strings).. 
+
+      Thats how tokens: stat | q-u | net | q-s are extracted from the main string
+      The next step its to use strcat() funtion to concaternate and reorder string.
+      Then memset() funtion will replace the char [q] in string by a empty space.
+      (spaces between netstat cmd arguments)
+
 ![C obfuscation](http://i66.tinypic.com/xp7hoz.png)
 
 - Compiling template.c<br />
