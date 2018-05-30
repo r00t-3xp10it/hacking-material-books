@@ -1515,7 +1515,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ## C Obfuscation Technics (c-exe)
 
-      [WARNING]: In the follow examples (template.c) its going to be compiled into an linux executable file
+      [WARNING]: In the follow examples (template.c) its going to be compiled into an LINUX executable program
       with the help of GCC (Gnu-Cross-Compiler) to demonstrate obfuscation technics discussed in this chapter.
       "Its more easy for me to write the article take screenshots and execute agent in the same machine (PC)"
 
