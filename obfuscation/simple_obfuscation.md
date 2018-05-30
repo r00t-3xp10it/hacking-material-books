@@ -2112,7 +2112,7 @@ Here we can view the all process of encoding/decoding in powershell console
 <br />
 
 - String command to obfuscate<br />
-`netstat -s -t`
+`netstat -s -u`
 
 ![C obfuscation](http://i66.tinypic.com/qry8h3.png)
 
