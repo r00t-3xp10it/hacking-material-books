@@ -62,6 +62,10 @@
       paplay $store
 
 
+- TODO:
+
+      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
+
 <br />
 
 _EOF
