@@ -96,8 +96,6 @@
       fi
 
 
-if ! [ -z "$var" ]; then echo not empty; else echo empty;fi
-
 - FOR loops<br />
 
       for i in 1 2 3 4 5
