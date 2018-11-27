@@ -96,10 +96,9 @@
 
 - join variable with text
 
-
-     var=sun
-     echo $varshine     # $varshine is undefined (empty string)
-     echo ${var}shine   # displays the word "sunshine"
+      var=sun
+      echo $varshine     # $varshine is undefined (empty string)
+      echo ${var}shine   # displays the word "sunshine"
 
 
 - TODO: (csharp shellcode parsing)
