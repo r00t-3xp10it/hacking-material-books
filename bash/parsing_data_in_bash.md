@@ -86,6 +86,18 @@
       fi
 
 
+- check for NOT empty variable declarations<br />
+
+      var="hello"
+      if ! [ -z "$var" ]; then
+        echo "The variable declaration its NOT empty .."
+      else
+        echo "The variable declaration its empty .."
+      fi
+
+
+if ! [ -z "$var" ]; then echo not empty; else echo empty;fi
+
 - FOR loops<br />
 
       for i in 1 2 3 4 5
