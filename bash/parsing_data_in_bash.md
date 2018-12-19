@@ -14,19 +14,19 @@
 
       ifconfig wlan0 | grep "inet" --color=auto
 
-![pic](http://i63.tinypic.com/syv2hj.png)
+![pic](http://i67.tinypic.com/vht43l.png)
 
 - output only the matching pattern of each line<br />
 
-      ifconfig wlan0 | grep -o "inet"
+      ifconfig wlan0 | grep -o "inet6"
 
-![pic](http://i67.tinypic.com/aorha1.png)
+![pic](http://i68.tinypic.com/2vijvhx.png)
 
 - invert the sence of matching (sellect non-matching lines)<br />
 
       cat test.c | grep -v "="
 
-![pic](http://i63.tinypic.com/s287bo.png)
+![pic](http://i65.tinypic.com/2zpt4ix.png)
 
 - grab only the 1º instance of inet pattern<br />
 
@@ -47,21 +47,21 @@
 ![pic](http://i68.tinypic.com/4t0x2g.png)
 
 
-- grab 1º inet | print 2º string | grab the 1º . and cut until the next .<br />
+- grab 1º inet | print 2º string | grab the 1º [.] and cut until the next [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
-- grab the 1º inet | print 2º string | grab the 2º . and cut until the next .<br />
+- grab the 1º inet | print 2º string | grab the 2º [.] and cut until the next [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
-- grab the 1º inet | print 2º string | grab the 2º and 3º . and cut until the next .<br />
+- grab the 1º inet | print 2º string | grab the 2º and 3º [.] and cut until the next [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2,3
 
@@ -81,16 +81,16 @@
       v2=`echo ${v1::-3}`
       echo $v2
 
-![pic](http://i68.tinypic.com/34q07so.png)
+![pic](http://i67.tinypic.com/2ypajyf.png)
 
 
-- remove everything after the final [ . ]<br />
+- remove everything after the final [.]<br />
 
       IP="192.168.1.71"
       parse=`echo ${IP%.*}`
       echo $parse
 
-![pic](http://i64.tinypic.com/20udct4.png)
+![pic](http://i64.tinypic.com/2i1fuyw.png)
 
 
 - head -3 (print 3 lines from start) tail -1 (print last line from end)<br />
@@ -98,7 +98,7 @@
       locate .ogg | grep "sounds/gnome"
       locate .ogg | grep "sounds/gnome" | head -3 | tail -1
 
-![pic](http://i67.tinypic.com/3150v0i.png)
+![pic](http://i66.tinypic.com/2qmqn9z.png)
 
 
 - check for empty variable declarations<br />
