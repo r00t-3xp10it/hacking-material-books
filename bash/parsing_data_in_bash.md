@@ -6,9 +6,27 @@
 
 - grab all instances of inet pattern<br />
 
-      ifconfig wlan0 | egrep "inet"
+      ifconfig wlan0 | grep "inet" --color=auto
 
 ![pic](http://i67.tinypic.com/2dt3t3n.png)
+
+- colorize pattern<br />
+
+      ifconfig wlan0 | grep "inet" --color=auto
+
+![pic](http://i63.tinypic.com/syv2hj.png)
+
+- output only the matching pattern of each line<br />
+
+      ifconfig wlan0 | grep -o "inet"
+
+![pic](http://i67.tinypic.com/aorha1.png)
+
+- invert the sence of matching (sellect non-matching lines)<br />
+
+      cat test.c | grep -v "="
+
+![pic](http://i63.tinypic.com/s287bo.png)
 
 - grab only the 1º instance of inet pattern<br />
 
