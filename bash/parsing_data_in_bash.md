@@ -6,7 +6,7 @@
 
 - grab all instances of inet pattern<br />
 
-      ifconfig wlan0 | grep "inet" --color=auto
+      ifconfig wlan0 | grep "inet"
 
 ![pic](http://i67.tinypic.com/2dt3t3n.png)
 
