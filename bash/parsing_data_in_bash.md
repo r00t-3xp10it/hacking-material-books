@@ -10,7 +10,7 @@
 
 ![pic](http://i67.tinypic.com/2dt3t3n.png)
 
-- colorize pattern<br />
+- colorize matching pattern<br />
 
       ifconfig wlan0 | grep "inet" --color=auto
 
@@ -81,17 +81,24 @@
       v2=`echo ${v1::-3}`
       echo $v2
 
+![pic](http://i68.tinypic.com/34q07so.png)
+
 
 - remove everything after the final [ . ]<br />
 
       IP="192.168.1.71"
       parse=`echo ${IP%.*}`
+      echo $parse
+
+![pic](http://i64.tinypic.com/20udct4.png)
 
 
 - head -3 (print 3 lines from start) tail -1 (print last line from end)<br />
 
-      store=`locate .ogg | grep "sounds/gnome" | head -3 | tail -1`
-      paplay $store
+      locate .ogg | grep "sounds/gnome"
+      locate .ogg | grep "sounds/gnome" | head -3 | tail -1
+
+![pic](http://i67.tinypic.com/3150v0i.png)
 
 
 - check for empty variable declarations<br />
