@@ -125,8 +125,10 @@
 
       for i in 1 2 3 4 5
       do
-      echo "Looping ... number $i"
+      echo "Looping ... number $i" && sleep 1
       done
+
+![pic](http://i64.tinypic.com/2a6qki8.png)
 
 
 - join variable with text
@@ -134,6 +136,9 @@
       var=sun
       echo $varshine     # $varshine is undefined (empty string)
       echo ${var}shine   # displays the word "sunshine"
+      echo ${var}spot    # displays the word "sunspot"
+
+![pic](http://i64.tinypic.com/34njqc2.png)
 
 
 - TODO: (csharp shellcode parsing)
