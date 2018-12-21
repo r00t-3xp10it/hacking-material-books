@@ -27,15 +27,15 @@
 
 
 ### Article Glossario
-[1] [grep](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#definition---what-does-http-header-mean)<br />
-[2] [awk](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#step-by-step-how-to-use-morpheus-to-capture-http-headers)<br />
-[3] [cut](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#reverse-enginnering-morpheus-module)<br />
+[1] [grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
+[2] [awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
+[3] [cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
 
 ---
 
 
 
-#### grep
+### GREP
 
       grep searches the input files for lines containing a match to a given pattern list.
       When it finds a match in a line, it copies the line to standard output (by default),
