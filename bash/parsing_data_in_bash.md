@@ -46,31 +46,31 @@
 
 <br />
 
-- grab all instances of inet pattern<br />
+- grab all lines that contains the 'inet' expression<br />
 
       ifconfig wlan0 | grep "inet"
 
 ![pic](http://i67.tinypic.com/2dt3t3n.png)
 
-- colorize matching pattern<br />
+- colorize the matching expression<br />
 
       ifconfig wlan0 | grep "inet" --color=auto
 
 ![pic](http://i67.tinypic.com/vht43l.png)
 
-- output only the matching pattern of each line<br />
+- output only the matching expression of each line<br />
 
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
 
-- invert the sence of matching (sellect non-matching lines)<br />
+- invert the sence of matching (delete matching lines)<br />
 
       ifconfig wlan0 | grep -v "wlan0:"
 
 ![pic](http://i65.tinypic.com/67ntid.png)
 
-- grab only the 1º instance of inet pattern<br />
+- grab only the 1º line containing the 'inet' expression<br />
 
       ifconfig wlan0 | egrep -m 1 "inet"
 
@@ -83,13 +83,13 @@
 
 ### AWK
 
-- grab 1º inet | print 2º string<br />
+- grab 1º line that contains the 'inet' expression AND print the 2º string<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
 
 ![pic](http://i68.tinypic.com/193st2.png)
 
-- grab 1º inet | print 2º string + 4º string<br />
+- grab 1º line that contains the 'inet' expression AND print 2º string + 4º string<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2,$4'}
 
@@ -103,7 +103,7 @@
 ### CUT
 
 
-- grab 1º inet | print 2º string | grab the 1º [.] and cut until the next [.]<br />
+- grab 1º line that contains the 'inet' expression AND print 2º string | grab the 1º [.] and cut until the next [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f1
 
