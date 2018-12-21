@@ -71,6 +71,13 @@
 
 ### AWK
 
+      Awk breaks each line of input passed to it into fields. By default, a field is a string of consecutive
+      characters delimited by whitespace, though there are options for changing this. Awk parses and operates
+      on each separate field. This makes it ideal for handling structured text files -- especially tables --
+      data organized into consistent chunks, such as rows and columns.
+
+<br />
+
 - grab 1º line that contains the 'inet' expression AND print the 2º string<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
