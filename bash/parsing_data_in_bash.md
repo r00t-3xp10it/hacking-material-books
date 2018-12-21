@@ -28,11 +28,12 @@
 
 ### Article Glossario
 [1] [grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[2] [awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[3] [cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
+[2] [awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[3] [cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+[4] [head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
+[5] [tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 
 ---
-
 
 
 ### GREP
@@ -73,6 +74,12 @@
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
 
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+---
+
+### AWK
+
 - grab 1º inet | print 2º string<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
@@ -84,6 +91,12 @@
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2,$4'}
 
 ![pic](http://i68.tinypic.com/4t0x2g.png)
+
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+---
+
+### CUT
 
 
 - grab 1º inet | print 2º string | grab the 1º [.] and cut until the next [.]<br />
@@ -114,6 +127,12 @@
 ![pic](http://i66.tinypic.com/207q58y.png)
 
 
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+---
+
+### REGEX
+
+
 - delete last 3 chars from string<br />
 
       v1=`ifconfig | grep "broadcast" | awk {'print $6'}`
@@ -131,6 +150,11 @@
 
 ![pic](http://i64.tinypic.com/2i1fuyw.png)
 
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+---
+
+### HEAD
+
 
 - head -3 (print 3 lines from start) tail -1 (print last line from end)<br />
 
@@ -138,6 +162,11 @@
       locate .ogg | grep "sounds/gnome" | head -3 | tail -1
 
 ![pic](http://i66.tinypic.com/2qmqn9z.png)
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+---
+
+### TAIL
 
 
 - check for empty variable declarations<br />
@@ -185,5 +214,7 @@
       store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
 <br />
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 _EOF
