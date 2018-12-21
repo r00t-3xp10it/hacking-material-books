@@ -1,10 +1,9 @@
 
                                              parsing data in bash
 
-
-
       Parsing, syntax analysis, or syntactic analysis is the process of analysing a string of symbols,
-      either in natural language, computer languages or data structures, conforming to the rules of a formal grammar.
+      either in natural language, computer languages or data structures, conforming to the rules of a
+      formal grammar.
 
 
 <br /><br />
@@ -17,6 +16,13 @@
 [4] [head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
 [5] [tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 
+<br />
+
+
+                                      Parsing data from ifconfig command
+
+![pic](http://i64.tinypic.com/205qy50.png)
+
 ---
 
 
@@ -25,13 +31,6 @@
       grep searches the input files or commands for lines containing a match to a given pattern list.
       When it finds a match in a line, it copies the line to standard output (by default), or whatever
       other sort of output you have requested with grep command options.
-
-<br />
-
-
-                                      Parsing data from ifconfig command
-
-![pic](http://i64.tinypic.com/205qy50.png)
 
 <br />
 
