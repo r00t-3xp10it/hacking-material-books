@@ -26,6 +26,23 @@
 <br />
 
 
+### Article Glossario
+[1] [grep](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#definition---what-does-http-header-mean)<br />
+[2] [awk](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#step-by-step-how-to-use-morpheus-to-capture-http-headers)<br />
+[3] [cut](https://github.com/r00t-3xp10it/morpheus/wiki/HTTP-tcp-Header-Information-Gathering-Module#reverse-enginnering-morpheus-module)<br />
+
+---
+
+
+
+#### grep
+
+      grep searches the input files for lines containing a match to a given pattern list.
+      When it finds a match in a line, it copies the line to standard output (by default),
+      or whatever other sort of output you have requested with options.
+
+<br />
+
 - grab all instances of inet pattern<br />
 
       ifconfig wlan0 | grep "inet"
