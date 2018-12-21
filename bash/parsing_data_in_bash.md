@@ -40,11 +40,11 @@
 
 ![pic](http://i65.tinypic.com/67ntid.png)
 
-- grab all lines that contains the 'inet' expression<br />
+- grab 'all' lines that contains the 'inet' expression<br />
 
       ifconfig wlan0 | grep "inet"
 
-![pic](http://i67.tinypic.com/2dt3t3n.png)
+![pic](http://i66.tinypic.com/2uoi0sz.png)
 
 - colorize the matching expression<br />
 
