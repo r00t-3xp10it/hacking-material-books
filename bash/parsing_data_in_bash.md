@@ -21,7 +21,7 @@
 
 <br /><br />
 
-                                        Parsing data fom ifconfig command
+                                      Parsing data from ifconfig command
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
@@ -66,9 +66,9 @@
 
 - invert the sence of matching (sellect non-matching lines)<br />
 
-      cat test.c | grep -v "="
+      ifconfig wlan0 | grep -v "wlan0:"
 
-![pic](http://i65.tinypic.com/2zpt4ix.png)
+![pic](http://i65.tinypic.com/67ntid.png)
 
 - grab only the 1º instance of inet pattern<br />
 
