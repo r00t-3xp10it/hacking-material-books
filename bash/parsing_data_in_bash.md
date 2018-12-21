@@ -1,30 +1,28 @@
 
-                                             parsing data in bash
+                                           * PARSING DATA IN BASH *
 
       Parsing, syntax analysis, or syntactic analysis is the process of analysing a string of symbols,
       either in natural language, computer languages or data structures, conforming to the rules of a
-      formal grammar.
+      formal grammar. In the follow examples we will use the UNIX ifconfig command to extract expressions.
+
+
+<br />
+
+![pic](http://i64.tinypic.com/205qy50.png)
 
 
 <br /><br />
 
-
 ### Article Glossario
-[1] [grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[2] [awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[3] [cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[4] [head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
-[5] [tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
-
-<br />
-
-
-                                      Parsing data from ifconfig command
-
-![pic](http://i64.tinypic.com/205qy50.png)
+[1] [Parsing with grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
+[2] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[3] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+[4] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
+[5] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 
 ---
 
+<br /><br />
 
 ### GREP
 
@@ -69,6 +67,8 @@
 
 ---
 
+<br /><br />
+
 ### AWK
 
       Awk breaks each line of input passed to it into fields. By default, a field is a string of consecutive
@@ -94,6 +94,8 @@
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
+
+<br /><br />
 
 ### CUT
 
@@ -135,6 +137,8 @@
 
 ---
 
+<br /><br />
+
 ### REGEX
 
 
@@ -159,6 +163,8 @@
 
 ---
 
+<br /><br />
+
 ### HEAD
 
 
@@ -172,6 +178,8 @@
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
+
+<br /><br />
 
 ### TAIL
 
