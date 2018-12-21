@@ -46,6 +46,12 @@
 
 <br />
 
+- invert the sence of matching (delete matching lines)<br />
+
+      ifconfig wlan0 | grep -v "wlan0:"
+
+![pic](http://i65.tinypic.com/67ntid.png)
+
 - grab all lines that contains the 'inet' expression<br />
 
       ifconfig wlan0 | grep "inet"
@@ -63,12 +69,6 @@
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
-
-- invert the sence of matching (delete matching lines)<br />
-
-      ifconfig wlan0 | grep -v "wlan0:"
-
-![pic](http://i65.tinypic.com/67ntid.png)
 
 - grab only the 1º line containing the 'inet' expression<br />
 
