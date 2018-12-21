@@ -21,12 +21,6 @@
 
 <br /><br />
 
-                                      Parsing data from ifconfig command
-
-![pic](http://i64.tinypic.com/205qy50.png)
-
-<br />
-
 
 ### Article Glossario
 [1] [grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
@@ -43,6 +37,13 @@
       grep searches the input files for lines containing a match to a given pattern list.
       When it finds a match in a line, it copies the line to standard output (by default),
       or whatever other sort of output you have requested with options.
+
+<br />
+
+
+                                      Parsing data from ifconfig command
+
+![pic](http://i64.tinypic.com/205qy50.png)
 
 <br />
 
