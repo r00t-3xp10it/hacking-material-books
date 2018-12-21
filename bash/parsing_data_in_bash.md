@@ -76,6 +76,7 @@
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 ### AWK
@@ -94,6 +95,7 @@
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 ### CUT
@@ -128,6 +130,7 @@
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 ### REGEX
@@ -151,6 +154,7 @@
 ![pic](http://i64.tinypic.com/2i1fuyw.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 ### HEAD
@@ -164,6 +168,7 @@
 ![pic](http://i66.tinypic.com/2qmqn9z.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 ### TAIL
