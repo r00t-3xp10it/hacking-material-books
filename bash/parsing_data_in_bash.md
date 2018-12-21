@@ -184,6 +184,16 @@
 ### TAIL
 
 
+- grab only the 2º 'inet' expression with the help of 'tail' command
+
+      ifconfig wlan0 | egrep -m 2 "inet" | tail -1
+
+![pic](http://i66.tinypic.com/119yzwn.png)
+
+---
+
+<br /><br />
+
 - check for empty variable declarations<br />
 
       var=""
