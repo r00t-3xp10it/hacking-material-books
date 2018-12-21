@@ -110,7 +110,7 @@
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
-- grab the 1º inet | print 2º string | grab the 2º [.] and cut until the next [.]<br />
+- grab the 1º inet | print 2º string | grab the 2º [.] and cut (delete) everything to the rigth position<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2
 
