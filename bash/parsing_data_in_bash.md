@@ -314,7 +314,13 @@ With everything we have learn until now, how do you append only the line that co
 
 ![pic](http://i63.tinypic.com/rc7z49.png)
 
-- **Delete 'new line paragrafs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
+- **'tr'** can also be used to remove **'new line paragrafs'** and **empty spaces** betuwin lines<br />
+
+      ifconfig wlan0 | tr -d '\n' | tr -d ' '
+
+![pic](http://i63.tinypic.com/24enepv.png)
+
+- Delete **'new line paragrafs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
 
