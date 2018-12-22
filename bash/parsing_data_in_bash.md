@@ -56,9 +56,9 @@
 
 - Print only the **1º line** containing the **'inet'** expression<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet"
+      ifconfig wlan0 | grep -m 1 "inet"
 
-![pic](http://i64.tinypic.com/4vo5g0.png)
+![pic](http://i67.tinypic.com/95sy91.png)
 
 - print only the matching expression (not the line)<br />
 
