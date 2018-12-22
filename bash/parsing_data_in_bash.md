@@ -22,6 +22,7 @@
 [4] [Parsing with cat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
 [5] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
 [6] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+[7] [Parsing with tr](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
 
 
 ---
@@ -285,6 +286,40 @@ With everything we have learn until now, how do you append only the line that co
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
+
+---
+
+<br /><br />
+
+### TR
+
+      tr is an UNIX utility for translating, or deleting, or squeezing repeated characters.
+      It will read from STDIN and write to STDOUT.
+
+![pic](http://i64.tinypic.com/205qy50.png)
+
+<br />
+
+
+- Delete specified characters using -d option
+tr can also be used to remove particular characters using -d option.
+
+      ifconfig wlan0 | tr -d '5'
+
+      ifconfig wlan0 | tr -d '5' | tr -d '1'
+
+      ifconfig wlan0 | tr -d '5' | tr -d '1' | tr -d ' ' | tr -d '\n'
+
+![pic](http://i65.tinypic.com/2m7x25d.png)
+
+
+
+- TODO: (csharp shellcode parsing)
+
+      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
 <br /><br />
@@ -354,10 +389,7 @@ With everything we have learn until now, how do you append only the line that co
 
 ![pic](http://i64.tinypic.com/34njqc2.png)
 
-
-- TODO: (csharp shellcode parsing)
-
-      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
+---
 
 <br /><br />
 
