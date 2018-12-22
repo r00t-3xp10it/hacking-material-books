@@ -3,7 +3,7 @@
 
       Parsing, syntax analysis, or syntactic analysis is the process of analysing a string of symbols,
       either in natural language, computer languages or data structures, conforming to the rules of a
-      formal grammar. In the follow examples we will use the UNIX 'ifconfig' command to extract expressions.
+      formal grammar. In the follow examples we will use the UNIX 'ifconfig' command as example.
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
