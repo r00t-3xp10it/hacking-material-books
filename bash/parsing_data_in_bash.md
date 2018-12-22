@@ -60,7 +60,7 @@
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
 
-- Outputs only the matching expression (not the line)<br />
+- print only the matching expression (not the line)<br />
 
       ifconfig wlan0 | grep -o "inet6"
 
