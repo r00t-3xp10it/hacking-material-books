@@ -125,12 +125,27 @@ With everything we have learn until now, how do you print only the line that con
 
 ### TAIL
 
+      By default, ‘tail’ command reads the last 10 lines of the file. If you want to read more or less
+      than 10 lines from the ending of the file then you have to use ‘-n’ option with ‘tail’ command.
+      In the next example we are using 'grep' command to displays all lines that contains the 'X' expression.
 
-- grab only the 2º 'inet' expression with the help of 'tail' command
+![pic](http://i68.tinypic.com/nfr43c.png)
 
-      ifconfig wlan0 | egrep -m 2 "inet" | tail -1
+<br />
 
-![pic](http://i66.tinypic.com/119yzwn.png)
+- Print the first **'two lines'** that contains the expression **'X'** and display the **last line**<br />
+
+      ifconfig wlan0 | grep "X" | head -n 2 | tail -n 1
+
+![pic](http://i65.tinypic.com/2nc14t5.png)
+
+- Print the first **'two lines'** that contains the expression **'X'** and display the **last line**<br />
+
+      ifconfig wlan0 | grep "X" | head -n 3 | tail -n 1
+
+![pic](http://i65.tinypic.com/2nc14t5.png)
+
+
 
 ---
 
