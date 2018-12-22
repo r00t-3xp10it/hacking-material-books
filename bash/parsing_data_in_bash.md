@@ -41,11 +41,17 @@
 
 ![pic](http://i67.tinypic.com/vht43l.png)
 
-- Output only the matching expression<br />
+- Outputs only the matching expression<br />
 
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
+
+- Outputs only the lines with **'inet'** in them (perfect match - not inet6)<br/ >
+
+      ifconfig wlan0 | grep -w "inet"
+
+![pic](http://i66.tinypic.com/25kraxc.png)
 
 - Print only the **1º line** containing the **'inet'** expression<br />
 
