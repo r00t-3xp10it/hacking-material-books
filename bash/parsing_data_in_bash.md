@@ -7,6 +7,10 @@
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
+      The 'ifconfig wlan0' presents many information about the current interface in use, but lets say
+      we only need to 'extract' the ip address from ifconfig command and store that info into one bash
+      variable (for scripting) or into a logfile for later review, its when 'parsing' its helpfull..
+
 
 <br /><br />
 
