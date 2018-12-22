@@ -32,31 +32,31 @@
 
 <br />
 
-- grab 'all' lines that contains the 'inet' expression<br />
+- Print 'all' lines that contains the 'inet' expression<br />
 
       ifconfig wlan0 | grep "inet"
 
 ![pic](http://i66.tinypic.com/2uoi0sz.png)
 
-- colorize the matching expression<br />
+- Colorize the matching expression<br />
 
       ifconfig wlan0 | grep "inet" --color=auto
 
 ![pic](http://i67.tinypic.com/vht43l.png)
 
-- output only the matching expression of each line<br />
+- Output only the matching expression<br />
 
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
 
-- grab only the 1º line containing the 'inet' expression<br />
+- Print only the 1º line containing the 'inet' expression<br />
 
       ifconfig wlan0 | egrep -m 1 "inet"
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
 
-- invert the sence of matching (delete matching lines)<br />
+- Invert the sence of matching (delete matching lines)<br />
 
       ifconfig wlan0 | grep -v "wlan0:"
 
