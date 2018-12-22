@@ -81,9 +81,15 @@
 
 - Read **article** file and print a line **only if:** the whole line matches your suppied regex<br />
 
-    cat article | grep -x "This line will be displayed .."
+      cat article | grep -x "This line will be displayed .."
 
 ![pic](http://i67.tinypic.com/14ne8b4.png)
+
+- Print **all lines** that contains the **ERROR** expression<br />
+
+      cat article | grep "ERROR"
+
+![pic](http://i63.tinypic.com/rarr6e.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
