@@ -47,11 +47,6 @@
 
 ![pic](http://i67.tinypic.com/vht43l.png)
 
-- Outputs only the matching expression (not the line)<br />
-
-      ifconfig wlan0 | grep -o "inet6"
-
-![pic](http://i68.tinypic.com/2vijvhx.png)
 
 - Outputs only the lines with **'inet'** in them (perfect match - not inet6)<br />
 
@@ -64,6 +59,12 @@
       ifconfig wlan0 | egrep -m 1 "inet"
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
+
+- Outputs only the matching expression (not the line)<br />
+
+      ifconfig wlan0 | grep -o "inet6"
+
+![pic](http://i68.tinypic.com/2vijvhx.png)
 
 - **Invert** the sence of matching (**delete matching lines** that contains the expression)<br />
 
