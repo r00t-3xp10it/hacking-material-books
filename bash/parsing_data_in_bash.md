@@ -308,30 +308,23 @@ With everything we have learn until now, how do you append only the line that co
 
 ![pic](http://i64.tinypic.com/rktvmd.png)
 
-- **'tr'** can also be used to remove **'new line paragrafs'** using \n (paragraf)<br />
+- **'tr'** can also be used to remove **'new line paragraphs'** using \n (paragraph)<br />
 
       ifconfig wlan0 | tr -d '\n'
 
 ![pic](http://i63.tinypic.com/rc7z49.png)
 
-- **'tr'** can also be used to remove **'new line paragrafs'** and **empty spaces** betuwin lines<br />
+- Delete **'new line paragraphs'** (tr -d '\n') and **empty spaces** between lines (tr -d ' ')<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -d ' '
 
 ![pic](http://i63.tinypic.com/24enepv.png)
 
-- Delete **'new line paragrafs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
+- Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
 
 ![pic](http://i63.tinypic.com/24enepv.png)
-
-- **'TR'** can also be used to remove **'empty spaces'** using the -d switch.<br />
-
-      ifconfig wlan0 | tr -d '5' | tr -d '1' | tr -d ' ' | tr -d '\n'
-
-![pic](http://i65.tinypic.com/2m7x25d.png)
-
 
 - Csharp shellcode parsing (build oneliner droper)<br />
 
