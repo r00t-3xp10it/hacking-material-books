@@ -294,19 +294,21 @@ With everything we have learn until now, how do you append only the line that co
 ### TR
 
       tr is an UNIX utility for translating, or deleting, or squeezing repeated characters.
-      It will read from STDIN and write to STDOUT.
+      It will read from STDIN and write to STDOUT. In the next example we are using 'ifconfig'
+      command and 'tr' to delete numbers, leters, expressions and empty lines (build oneliner's).
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
 <br />
 
 
-- Delete specified characters using -d option
-tr can also be used to remove particular characters using -d option.
+- **Delete** specified characters (numbers) using **'tr -d'** switch<br />
 
       ifconfig wlan0 | tr -d '5'
 
       ifconfig wlan0 | tr -d '5' | tr -d '1'
+
+- tr can also be used to remove **'empty spaces'** using the -d switch.<br />
 
       ifconfig wlan0 | tr -d '5' | tr -d '1' | tr -d ' ' | tr -d '\n'
 
