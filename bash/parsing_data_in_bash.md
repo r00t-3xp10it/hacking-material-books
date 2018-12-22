@@ -32,12 +32,6 @@
 
 <br />
 
-- invert the sence of matching (delete matching lines)<br />
-
-      ifconfig wlan0 | grep -v "wlan0:"
-
-![pic](http://i65.tinypic.com/67ntid.png)
-
 - grab 'all' lines that contains the 'inet' expression<br />
 
       ifconfig wlan0 | grep "inet"
@@ -62,6 +56,11 @@
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
 
+- invert the sence of matching (delete matching lines)<br />
+
+      ifconfig wlan0 | grep -v "wlan0:"
+
+![pic](http://i65.tinypic.com/67ntid.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
