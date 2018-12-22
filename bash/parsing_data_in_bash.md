@@ -375,7 +375,7 @@ With everything we have learn until now, how do you append only the line that co
 
 ### EXERCISE4:
 
-![pic]()
+![pic](http://i67.tinypic.com/2hwd2ls.png)
 
 ### EXERCISE5:
 
