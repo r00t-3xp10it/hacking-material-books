@@ -12,10 +12,11 @@
 
 ### Article Glossario
 [1] [Parsing with grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[2] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[3] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[4] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
-[5] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
+[2] [Parsing with cat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
+[3] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[4] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+[5] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
+[6] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 
 ---
 
@@ -64,6 +65,25 @@
       ifconfig wlan0 | grep -v "inet"
 
 ![pic](http://i67.tinypic.com/2upeloz.png)
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
+---
+
+<br /><br />
+
+### CAT
+
+      cat is a standard Unix utility that reads files sequentially, writing them to standard output.
+      The name is derived from its function to concatenate files. 
+
+<br />
+
+- Read **article** file and print a line **only if:** the whole line matches your suppied regex<br />
+
+    cat article | grep -x "This line will be displayed .."
+
+![pic](http://i67.tinypic.com/14ne8b4.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
