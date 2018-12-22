@@ -110,7 +110,7 @@ With everything we have learn until now, how do you print only the line that con
 
 ![pic](http://i66.tinypic.com/2wbz22b.png)
 
-- Print the **'two first lines'** that contains the expression **'X'**<br />
+- Print the first **'two lines'** that contains the expression **'X'**<br />
 
       ifconfig wlan0 | grep "X" | head -n 2
 
