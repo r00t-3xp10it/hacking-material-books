@@ -48,7 +48,7 @@
 ![pic](http://i67.tinypic.com/vht43l.png)
 
 
-- Outputs only the lines with **'inet'** in them (perfect match - not inet6)<br />
+- print only the lines with **'inet'** in them (perfect match - not inet6)<br />
 
       ifconfig wlan0 | grep -w "inet"
 
@@ -74,7 +74,7 @@
 ![pic](http://i67.tinypic.com/2upeloz.png)
 
 
-<br />
+<br /><br />
 
 **EXERCISE1:** Print only the line that contains **RX packets** expression<br />
 With everything we have learn until now, how do you print only the line that contains the RX packets expression?<br />
