@@ -116,8 +116,6 @@ With everything we have learn until now, how do you print only the line that con
 
 ![pic](http://i63.tinypic.com/rarr6e.png)
 
-<br />
-
 - Store all **ERROR** lines from article file into another logfile<br />
 
       cat article | grep "ERROR" >> new_logfile.log
