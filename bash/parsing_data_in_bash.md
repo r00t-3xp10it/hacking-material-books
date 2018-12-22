@@ -100,7 +100,7 @@ With everything we have learn until now, how do you print only the line that con
       file to demonstrate parsing technincs. The demonstration file can be downloaded from the link above.
 
 ![pic](http://i65.tinypic.com/73mr1w.png)
-[download article file](https://gist.github.com/r00t-3xp10it/c3f7cbf1ca73f8d7ce24d17af39738a8)
+[demonstration file of 'parsing data in bash'](https://gist.github.com/r00t-3xp10it/c3f7cbf1ca73f8d7ce24d17af39738a8)
 
 <br /><br />
 
@@ -116,7 +116,7 @@ With everything we have learn until now, how do you print only the line that con
 
 ![pic](http://i63.tinypic.com/rarr6e.png)
 
-- **HINT:** Store **ERROR** lines into another logfile<br />
+- **HINT:** Store all **ERROR** lines from article file into another logfile<br />
 
       cat article | grep "ERROR" >> new_logfile.log
 
