@@ -76,7 +76,8 @@
 
 <br />
 
-**EXERCISE:** Print only the line that contains **RX packets** expression<br /> 
+**EXERCISE:** Print only the line that contains **RX packets** expression<br />
+With everything we have learn until now, how do you print only the line that contains the RX packets expression?<br />
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
