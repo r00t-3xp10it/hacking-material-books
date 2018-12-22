@@ -96,9 +96,8 @@ With everything we have learn until now, how do you print only the line that con
 ### CAT
 
       cat is a standard Unix utility that reads files sequentially, writing them to standard output.
-      The name is derived from its function to concatenate files. 
-
-<br />
+      The name is derived from its function to concatenate files. In this section we will use 'article'
+      file to demonstrate parsing technincs.
 
 ![pic](http://i65.tinypic.com/73mr1w.png)
 
