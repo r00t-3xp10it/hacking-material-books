@@ -17,11 +17,12 @@
 
 ### Article Glossario
 [1] [Parsing with grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[2] [Parsing with cat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
-[3] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[4] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[5] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
-[6] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
+[2] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
+[3] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
+[4] [Parsing with cat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
+[5] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[6] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+
 
 ---
 
@@ -88,6 +89,41 @@ With everything we have learn until now, how do you print only the line that con
 [?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise1)<br />
 [?] [exercise2 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise2)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
+---
+
+<br /><br />
+
+### HEAD
+
+      By default, ‘head’ command reads the first 10 lines of the file. If you want to read more or less
+      than 10 lines from the beginning of the file then you have to use ‘-n’ option with ‘head’ command.
+
+![pic](http://i68.tinypic.com/nfr43c.png)
+
+<br />
+
+- Print the **two first lines** that contains the expression **'X'**<br />
+
+      ifconfig wlan0 | grep "X" | head -n 2
+
+![pic](http://i66.tinypic.com/15hna6h.png)
+
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
+---
+
+<br /><br />
+
+### TAIL
+
+
+- grab only the 2º 'inet' expression with the help of 'tail' command
+
+      ifconfig wlan0 | egrep -m 2 "inet" | tail -1
+
+![pic](http://i66.tinypic.com/119yzwn.png)
 
 ---
 
@@ -239,35 +275,6 @@ With everything we have learn until now, how do you append only the line that co
 ![pic](http://i64.tinypic.com/2i1fuyw.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
-
----
-
-<br /><br />
-
-### HEAD
-
-
-- head -3 (print 3 lines from start) tail -1 (print last line from end)<br />
-
-      locate .ogg | grep "sounds/gnome"
-      locate .ogg | grep "sounds/gnome" | head -3 | tail -1
-
-![pic](http://i66.tinypic.com/2qmqn9z.png)
-
-[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
-
----
-
-<br /><br />
-
-### TAIL
-
-
-- grab only the 2º 'inet' expression with the help of 'tail' command
-
-      ifconfig wlan0 | egrep -m 2 "inet" | tail -1
-
-![pic](http://i66.tinypic.com/119yzwn.png)
 
 ---
 
