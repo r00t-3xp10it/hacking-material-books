@@ -440,6 +440,9 @@ With everything we have learn until now, how do you append only the line that co
 ![pic](http://i63.tinypic.com/e64xs3.png)
 ![pic](http://i63.tinypic.com/24v0787.png)
 
+---
+
+<br /><br />
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 [1] [Parsing data with GREP](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
