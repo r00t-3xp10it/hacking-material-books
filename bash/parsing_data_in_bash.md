@@ -336,6 +336,14 @@ With everything we have learn until now, how do you append only the line that co
 
       store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
+<br /><br />
+
+                                               * EXERCISES *
+
+**EXERCISE7:** blablabla ...<br />
+
+
+[?] [exercise7 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise7)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
