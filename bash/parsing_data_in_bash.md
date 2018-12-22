@@ -94,7 +94,7 @@
 
 ![pic](http://i66.tinypic.com/2urq9vn.png)
 
-- HINT: Store IP address into one bash variable
+- **HINT:** Store IP address into one bash variable for later use (scripting)<br />
 
       parse_data=`ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}`
       echo my ip: $parse_data
