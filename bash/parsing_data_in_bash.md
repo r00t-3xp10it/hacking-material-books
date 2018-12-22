@@ -82,8 +82,8 @@ With everything we have learn until now, how do you print only the line that con
 **EXERCISE2:** Print only the line that contains your mac address<br />
 With everything we have learn until now, how do you print only the line that contains your mac address?<br />
 
-[?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise1-ifconfig-wlan0--grep-rx-packets)<br />
-[?] [exercise2 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise2-ifconfig-wlan0--grep-ether)<br />
+[?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise1)<br />
+[?] [exercise2 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise2)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
