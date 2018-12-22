@@ -320,6 +320,12 @@ With everything we have learn until now, how do you append only the line that co
 
 ![pic](http://i65.tinypic.com/8y6hph.png)
 
+- Replace (tr -s) **'empty spaces'** between lines by a **'tab space'**<br />
+
+      ifconfig wlan0 | tr -s ' ' '\t'
+
+![pic](http://i63.tinypic.com/2isxzjc.png)
+
 - Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
