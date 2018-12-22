@@ -80,10 +80,10 @@
 
                                                * EXERCISES *
 
-**EXERCISE1:** Print only the line that contains **RX packets** expression<br />
+**EXERCISE1:** Print only the line that contains **'RX packets'** expression<br />
 With everything we have learn until now, how do you print only the line that contains the RX packets expression?<br />
 
-**EXERCISE2:** Print only the line that contains your mac address<br />
+**EXERCISE2:** Print only the line that contains your **'mac address'**<br />
 With everything we have learn until now, how do you print only the line that contains your mac address?<br />
 
 [?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise1)<br />
@@ -104,13 +104,13 @@ With everything we have learn until now, how do you print only the line that con
 
 <br />
 
-- Print the **first line** that contains the expression **'X'**<br />
+- Print the **'first line'** that contains the expression **'X'**<br />
 
       ifconfig wlan0 | grep "X" | head -n 1
 
 ![pic](http://i66.tinypic.com/2wbz22b.png)
 
-- Print the **two first lines** that contains the expression **'X'**<br />
+- Print the **'two first lines'** that contains the expression **'X'**<br />
 
       ifconfig wlan0 | grep "X" | head -n 2
 
