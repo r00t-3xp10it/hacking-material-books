@@ -295,7 +295,7 @@ With everything we have learn until now, how do you append only the line that co
 
       tr is an UNIX utility for translating, or deleting, or squeezing repeated characters.
       It will read from STDIN and write to STDOUT. In the next example we are using 'ifconfig'
-      command and 'tr' to delete numbers, leters, expressions and empty spaces, tab spaces.
+      command and 'tr' to delete numbers, leters, expressions, empty spaces and tab spaces.
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
@@ -314,11 +314,11 @@ With everything we have learn until now, how do you append only the line that co
 
 ![pic](http://i63.tinypic.com/rc7z49.png)
 
-- Delete **'new line paragraphs'** (tr -d '\n') and **empty spaces** between lines (tr -d ' ')<br />
+- Delete **empty spaces** between lines (tr -d ' ')<br />
 
-      ifconfig wlan0 | tr -d '\n' | tr -d ' '
+      ifconfig wlan0 | tr -d ' '
 
-![pic](http://i63.tinypic.com/24enepv.png)
+![pic](http://i65.tinypic.com/8y6hph.png)
 
 - Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
