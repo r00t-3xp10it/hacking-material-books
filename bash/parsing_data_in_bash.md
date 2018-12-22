@@ -124,6 +124,14 @@ With everything we have learn until now, how do you print only the line that con
 
 ![pic](http://i66.tinypic.com/2a0nuhk.png)
 
+<br /><br />
+
+                                               * EXERCISES *
+
+**EXERCISE3:** Append only the line that contains **192.168.1.69** expression into a new logfile<br />
+With everything we have learn until now, how do you append only the line that contains the **192.168.1.69** expression?<br />
+
+[?] [exercise3 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise3)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -320,6 +328,10 @@ With everything we have learn until now, how do you print only the line that con
 ### EXERCISE2:
 
 ![pic](http://i65.tinypic.com/2vcc12o.png)
+
+### EXERCISE3:
+
+![pic](http://i63.tinypic.com/e64xs3.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
