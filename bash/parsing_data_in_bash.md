@@ -77,7 +77,7 @@
 
 <br /><br />
 
-                                       * EXERCISES *
+                                               * EXERCISES *
 
 **EXERCISE1:** Print only the line that contains **RX packets** expression<br />
 With everything we have learn until now, how do you print only the line that contains the RX packets expression?<br />
