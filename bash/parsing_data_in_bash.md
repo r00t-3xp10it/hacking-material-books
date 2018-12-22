@@ -73,6 +73,9 @@
 
 ![pic](http://i67.tinypic.com/2upeloz.png)
 
+
+**EXERCISE:** Print only the line that contains **RX packets** expression<br /> 
+
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
