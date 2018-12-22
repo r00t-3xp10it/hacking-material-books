@@ -83,7 +83,7 @@ With everything we have learn until now, how do you print only the line that con
 With everything we have learn until now, how do you print only the line that contains your mac address?<br />
 
 [?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise1-ifconfig-wlan0--grep-rx-packets)<br />
-[?] [exercise1 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise2-ifconfig-wlan0--grep-ether)<br />
+[?] [exercise2 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise2-ifconfig-wlan0--grep-ether)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -298,8 +298,13 @@ With everything we have learn until now, how do you print only the line that con
 
 <br /><br />
 
-### EXERCISE1: ifconfig wlan0 | grep "RX packets"
-### EXERCISE2: ifconfig wlan0 | grep "ether"
+### EXERCISE1:
+
+![pic](http://i66.tinypic.com/28hziac.png)
+
+### EXERCISE2:
+
+![pic](http://i65.tinypic.com/2vcc12o.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
