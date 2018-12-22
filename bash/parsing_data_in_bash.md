@@ -31,7 +31,7 @@
 
       grep searches the input files or commands for lines containing a match to a given pattern list.
       When it finds a match in a line, it copies the line to standard output (by default), or whatever
-      other sort of output you have requested with grep command options.
+      other sort of output you have requested with grep command options (switch's).
 
 <br />
 
@@ -48,7 +48,7 @@
 ![pic](http://i67.tinypic.com/vht43l.png)
 
 
-- print only the lines with **'inet'** in them (perfect match - not inet6)<br />
+- Print only the lines with **'inet'** in them (perfect match - not inet6)<br />
 
       ifconfig wlan0 | grep -w "inet"
 
@@ -65,7 +65,8 @@
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
-**HINT:** grep -o switch can be used to **'check'** if the suplied expression exists (scripting)<br />
+**HINT:** grep -o switch can be used to **'check'** if the suplied expression exists (in scripting)<br />
+
 
 - **Invert** the sence of matching (**delete matching lines** that contains the expression)<br />
 
@@ -75,6 +76,8 @@
 
 
 <br /><br />
+
+                                       * EXERCISES *
 
 **EXERCISE1:** Print only the line that contains **RX packets** expression<br />
 With everything we have learn until now, how do you print only the line that contains the RX packets expression?<br />
