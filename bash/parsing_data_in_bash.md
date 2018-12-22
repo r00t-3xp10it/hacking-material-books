@@ -121,7 +121,6 @@ With everything we have learn until now, how do you print only the line that con
                                                * EXERCISES *
 
 **EXERCISE3:** Print the **4 lines** that contains the **'X'** expression using **head -n** switch<br />
-With everything we have learn until now, how do you print the **4 lines** that contains the **'X'** expression using **head -n**?<br />
 
 [?] [exercise3 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise3)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
@@ -157,7 +156,7 @@ With everything we have learn until now, how do you print the **4 lines** that c
                                                * EXERCISES *
 
 **EXERCISE4:** Print **only the line** that contains the **'TX errors'** expression with the help of **'tail -n'** switch<br />
-With everything we have learn until now, how do you Print **only the line** that contains the **'TX errors'** expression with the help of **'tail -n'** switch?<br />
+
 [?] [exercise4 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise4)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
