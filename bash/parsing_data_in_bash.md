@@ -308,15 +308,14 @@ With everything we have learn until now, how do you append only the line that co
 
       ifconfig wlan0 | tr -d '5' | tr -d '1'
 
-- tr can also be used to remove **'empty spaces'** using the -d switch.<br />
+- **'TR'** can also be used to remove **'empty spaces'** using the -d switch.<br />
 
       ifconfig wlan0 | tr -d '5' | tr -d '1' | tr -d ' ' | tr -d '\n'
 
 ![pic](http://i65.tinypic.com/2m7x25d.png)
 
 
-
-- TODO: (csharp shellcode parsing)
+- Csharp shellcode parsing (build oneliner droper)<br />
 
       store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
 
