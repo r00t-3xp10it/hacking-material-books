@@ -105,13 +105,13 @@ With everything we have learn until now, how do you print only the line that con
 
 <br />
 
-- Print the **'first line'** that contains the expression **'X'**<br />
+- Print the **'first line'** that contains the expression **'X'** using **head -n** switch<br />
 
       ifconfig wlan0 | grep "X" | head -n 1
 
 ![pic](http://i66.tinypic.com/2wbz22b.png)
 
-- Print the first **'two lines'** that contains the expression **'X'**<br />
+- Print the first **'two lines'** that contains the expression **'X'** using **head -n** switch<br />
 
       ifconfig wlan0 | grep "X" | head -n 2
 
