@@ -72,22 +72,34 @@
 
       Awk breaks each line of input passed to it into fields. By default, a field is a string of consecutive
       characters delimited by whitespace, though there are options for changing this. Awk parses and operates
-      on each separate field. This makes it ideal for handling structured text files -- especially tables --
-      data organized into consistent chunks, such as rows and columns.
+      on each separate field. This makes it ideal for handling large text files, logfiles or databases.
 
 <br />
 
-- grab 1º line that contains the 'inet' expression AND print the 2º string<br />
+- Grab 1º line that contains the 'inet' expression AND print the 2º field<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
 
 ![pic](http://i68.tinypic.com/193st2.png)
 
-- grab 1º line that contains the 'inet' expression AND print 2º string + 4º string<br />
+- Grab 1º line that contains the 'inet' expression AND print 1º field + 2º field<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2,$4'}
+      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $1,$2'}
 
-![pic](http://i68.tinypic.com/4t0x2g.png)
+![pic](http://i64.tinypic.com/2wcgpcz.png)
+
+- Grab 1º line that contains the 'inet' expression AND print 3º field + 4º field<br />
+
+      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $3,$4'}
+
+![pic](http://i66.tinypic.com/2urq9vn.png)
+
+- HINT: Store IP address into one bash variable
+
+      parse_data=`ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}`
+      echo my ip: $parse_data
+
+![pic](http://i63.tinypic.com/vws7z7.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
