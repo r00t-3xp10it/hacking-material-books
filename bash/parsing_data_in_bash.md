@@ -100,6 +100,10 @@ With everything we have learn until now, how do you print only the line that con
 
 <br />
 
+![pic](http://i65.tinypic.com/73mr1w.png)
+
+<br /><br />
+
 - Read **article** file and print a line **only if:** the whole line matches your suppied regex<br />
 
       cat article | grep -x "This line will be displayed .."
@@ -111,6 +115,12 @@ With everything we have learn until now, how do you print only the line that con
       cat article | grep "ERROR"
 
 ![pic](http://i63.tinypic.com/rarr6e.png)
+
+- **HINT:** Store **ERROR** lines into another logfile<br />
+
+      cat article | grep "ERROR" >> new_logfile.log
+
+![pic](http://i66.tinypic.com/2a0nuhk.png)
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
