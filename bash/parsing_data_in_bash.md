@@ -5,9 +5,6 @@
       either in natural language, computer languages or data structures, conforming to the rules of a
       formal grammar. In the follow examples we will use the UNIX ifconfig command to extract expressions.
 
-
-<br />
-
 ![pic](http://i64.tinypic.com/205qy50.png)
 
 
@@ -32,7 +29,7 @@
 
 <br />
 
-- Print 'all' lines that contains the 'inet' expression<br />
+- Print **'All'** lines that contains the **'inet'** expression<br />
 
       ifconfig wlan0 | grep "inet"
 
@@ -50,13 +47,13 @@
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
 
-- Print only the 1º line containing the 'inet' expression<br />
+- Print only the **1º line** containing the **'inet'** expression<br />
 
       ifconfig wlan0 | egrep -m 1 "inet"
 
 ![pic](http://i64.tinypic.com/4vo5g0.png)
 
-- Invert the sence of matching (delete matching lines that contains the expression)<br />
+- **Invert** the sence of matching (**delete matching lines** that contains the expression)<br />
 
       ifconfig wlan0 | grep -v "inet"
 
@@ -76,25 +73,25 @@
 
 <br />
 
-- Grab 1º line that contains the 'inet' expression AND print the 2º field<br />
+- Grab **1º line** that contains the **'inet'** expression AND print the **2º field**<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
 
 ![pic](http://i68.tinypic.com/193st2.png)
 
-- Grab 1º line that contains the 'inet' expression AND print 1º field + 2º field<br />
+- Grab **1º line** that contains the **'inet'** expression AND print **1º field + 2º field**<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $1,$2'}
 
 ![pic](http://i64.tinypic.com/2wcgpcz.png)
 
-- Grab 1º line that contains the 'inet' expression AND print 3º field + 4º field<br />
+- Grab **1º line** that contains the **'inet'** expression AND print **3º field + 4º field**<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $3,$4'}
 
 ![pic](http://i66.tinypic.com/2urq9vn.png)
 
-- **HINT:** Store IP address into one bash variable for later use (scripting)<br />
+- **HINT:** Store IP address into one bash **variable** for later use (scripting)<br />
 
       parse_data=`ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}`
       echo my ip: $parse_data
