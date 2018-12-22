@@ -16,13 +16,13 @@
 <br /><br />
 
 ### Article Glossario
-[1] [Parsing with grep](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
-[2] [Parsing with head](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
-[3] [Parsing with tail](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
-[4] [Parsing with cat](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
-[5] [Parsing with awk](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[6] [Parsing with cut](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[7] [Parsing with tr](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[1] [Parsing data with GREP](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
+[2] [Parsing data with HEAD](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
+[3] [Parsing data with TAIL](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
+[4] [Parsing data with CAT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
+[5] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
+[7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
 
 
 ---
@@ -37,20 +37,20 @@
 
 <br />
 
-- Print **'All'** lines that contains the **'inet'** expression<br />
+- Print **All** the lines that contains the **'inet'** expression<br />
 
       ifconfig wlan0 | grep "inet"
 
 ![pic](http://i66.tinypic.com/2uoi0sz.png)
 
-- Colorize the matching expression<br />
+- Colorize the **matching** expression<br />
 
       ifconfig wlan0 | grep "inet" --color=auto
 
 ![pic](http://i67.tinypic.com/vht43l.png)
 
 
-- Print only the lines with **'inet'** in them (perfect match - not inet6)<br />
+- Print only the lines with **'inet'** in them (only perfect matches)<br />
 
       ifconfig wlan0 | grep -w "inet"
 
@@ -62,15 +62,15 @@
 
 ![pic](http://i67.tinypic.com/95sy91.png)
 
-- print only the matching expression (not the line)<br />
+- print only the matching expression (**not the line**)<br />
 
       ifconfig wlan0 | grep -o "inet6"
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
-**HINT:** grep -o switch can be used to **'check'** if the suplied expression exists (in scripting)<br /><br />
+**HINT:** grep -o switch can be used to **check** if the suplied expression exists (in scripting)<br /><br />
 
 
-- **Invert** the sence of matching (**delete matching lines** that contains the expression)<br />
+- **Invert** the sence of matching (**delete all matching lines** that contains the expression)<br />
 
       ifconfig wlan0 | grep -v "inet"
 
