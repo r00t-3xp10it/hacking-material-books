@@ -66,6 +66,8 @@
 
 ![pic](http://i68.tinypic.com/2vijvhx.png)
 
+      **HINT:** grep -o switch can be used to **'check'** if the suplied expression exists (scripting)<br />
+
 - **Invert** the sence of matching (**delete matching lines** that contains the expression)<br />
 
       ifconfig wlan0 | grep -v "inet"
