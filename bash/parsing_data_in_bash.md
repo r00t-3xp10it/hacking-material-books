@@ -374,7 +374,34 @@ With everything we have learn until now, how do you write only the line that con
       sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream
       (a file, or input from a pipeline). While in some ways similar to an editor which permits scripted edits
       (such as ed), sed works by making only one pass over the input(s), and is consequently more efficient.
-      But it is sed's ability to filter text in a pipeline which particularly distinguishes it from other types of editors.
+      But it is sed's ability to filter text in a pipeline which distinguishes it from other types of editors.
+
+<br />
+
+      echo "Wellcome to SSA team" | sed 's/team/RedTeam'
+
+      cat article | sed '2s/will/will not/'
+
+      cat article | sed '2d'
+
+      cat article | sed '2,4d'
+
+<br />
+
+      #!/bin/sh
+      myvar="10101010"
+      echo "Shantys variable is: $myvar"
+      pause 3
+
+
+      # execute test.sh
+      chmod +x test.sh && ./test.sh
+      
+      # Use SED -i to replace text inside test.sh
+      sed -i 's/10101010/hello world/' test.sh
+
+      # print and run test.sh
+      cat test.sh && echo "" && ./test.sh
 
 <br />
 
