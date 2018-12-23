@@ -295,7 +295,7 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
-- Grab the **1º inet** | print **2º string** | grab the 2º [.] and cut (delete) everything to the rigth position<br />
+- Grab the **1º inet** | print **2º string** | grab the 2º [.] and cut (delete) everything to the left position until [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2
 
