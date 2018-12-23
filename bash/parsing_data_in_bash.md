@@ -152,6 +152,12 @@ With everything we have learn until now, how do you print only the line that con
 
 ![pic](http://i63.tinypic.com/2j29mab.png)
 
+- Grab the first **'3 lines'** (head -n 3) that contains the expression **'X'** and print the **last two lines** (tail -n 2)<br />
+
+      ifconfig wlan0 | grep "X" | head -n 3 | tail -n 2
+
+![pic](http://i68.tinypic.com/2w4l0g8.png)
+
 <br /><br />
 
                                                * EXERCISES *
