@@ -186,7 +186,7 @@ With everything we have learn until now, how do you print only the line that con
 
       cat article | grep "ERROR"
 
-![pic](http://i63.tinypic.com/rarr6e.png)
+![pic](http://i68.tinypic.com/znwor9.png)
 
 - Store all **ERROR** lines from article file into another logfile<br />
 
