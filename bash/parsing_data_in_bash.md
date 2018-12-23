@@ -265,7 +265,13 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i68.tinypic.com/if5p8m.png)
 
+<br /><br />
 
+                                               * EXERCISES *
+
+**EXERCISE6:** Print only the **2º field** of your inet6 interface (e.g f629)<br />
+
+[?] [exercise6 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise6)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -509,6 +515,10 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/e64xs3.png)
 ![pic](http://i63.tinypic.com/24v0787.png)
+
+### EXERCISE6:
+
+![pic](http://i63.tinypic.com/dpbnmf.png)
 
 ---
 
