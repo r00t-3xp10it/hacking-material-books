@@ -230,19 +230,19 @@ With everything we have learn until now, how do you write only the line that con
 
       ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}
 
-![pic](http://i68.tinypic.com/193st2.png)
+![pic](http://i67.tinypic.com/118mypy.png)
 
 - Grab the **1º line** that contains the **'inet'** expression AND print **1º field + 2º field**<br />
 
       ifconfig wlan0 | grep -m 1 "inet" | awk {'print $1,$2'}
 
-![pic](http://i64.tinypic.com/2wcgpcz.png)
+![pic](http://i64.tinypic.com/fn4wsj.png)
 
 - Grab the **1º line** that contains the **'inet'** expression AND print **3º field + 4º field**<br />
 
       ifconfig wlan0 | grep -m 1 "inet" | awk {'print $3,$4'}
 
-![pic](http://i66.tinypic.com/2urq9vn.png)
+![pic](http://i65.tinypic.com/15qxgz6.png)
 
 <br />
 
