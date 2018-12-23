@@ -369,6 +369,21 @@ With everything we have learn until now, how do you write only the line that con
 
 <br /><br />
 
+### SED
+
+      sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream
+      (a file, or input from a pipeline). While in some ways similar to an editor which permits scripted edits
+      (such as ed), sed works by making only one pass over the input(s), and is consequently more efficient.
+      But it is sed's ability to filter text in a pipeline which particularly distinguishes it from other types of editors.
+
+<br />
+
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
+---
+
+<br /><br />
+
 ### REGEX
 
 
