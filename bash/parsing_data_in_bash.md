@@ -226,21 +226,21 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-- Grab **1º line** that contains the **'inet'** expression AND print the **2º field**<br />
+- Grab the **1º line** that contains the **'inet'** expression AND print the **2º field**<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}
+      ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}
 
 ![pic](http://i68.tinypic.com/193st2.png)
 
-- Grab **1º line** that contains the **'inet'** expression AND print **1º field + 2º field**<br />
+- Grab the **1º line** that contains the **'inet'** expression AND print **1º field + 2º field**<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $1,$2'}
+      ifconfig wlan0 | grep -m 1 "inet" | awk {'print $1,$2'}
 
 ![pic](http://i64.tinypic.com/2wcgpcz.png)
 
-- Grab **1º line** that contains the **'inet'** expression AND print **3º field + 4º field**<br />
+- Grab the **1º line** that contains the **'inet'** expression AND print **3º field + 4º field**<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $3,$4'}
+      ifconfig wlan0 | grep -m 1 "inet" | awk {'print $3,$4'}
 
 ![pic](http://i66.tinypic.com/2urq9vn.png)
 
@@ -258,7 +258,7 @@ With everything we have learn until now, how do you write only the line that con
 
 - **HINT:** Store IP address into one bash **variable** for later use (scripting)<br />
 
-      parse_data=`ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}`
+      parse_data=`ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}`
       echo my ip: $parse_data
 
 ![pic](http://i63.tinypic.com/vws7z7.png)
