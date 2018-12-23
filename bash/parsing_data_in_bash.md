@@ -246,7 +246,7 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-- AWK **delimiter** switch (-F [expression])<br />
+- AWK **delimiter** switch (awk -F [ expression ])<br />
 
       Sometimes the separator its not space nor tab, in this situation we can use awk -F switch
       to chose our 'delimiter' char and print the field we want. In the next example we will
