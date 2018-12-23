@@ -288,6 +288,11 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
+
+      echo "foobar" | cut -c 2,5
+      echo "foobar" | cut -c 4-6
+
+
 - Grab the **1º inet** | print **2º field** | grab the 1º [.] and cut (delete) everything to the rigth position<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f1
@@ -392,13 +397,23 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
+      # replace 'team' by 'RedTeam' from stdout
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
+      # replace 'will' in 2º line by 'will not' from stdout 
       cat article | sed '2s/will/will not/'
 
+      # delete 2 line from stdout
       cat article | sed '2d'
 
+      # delete lines 2 and 3 from stdout
       cat article | sed '2,4d'
+
+      # delete 2º line from file
+      cat article | sed -i '2d'
+
+      # execute multiple sed commands
+      sed -e 's/this/that/; s/test/another/'
 
 <br />
 
