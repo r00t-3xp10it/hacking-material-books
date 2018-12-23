@@ -276,6 +276,8 @@ With everything we have learn until now, how do you write only the line that con
       the result to standard output. It can be used to cut parts of a line by byte position, character and field.
       Basically the cut command slices a line and extracts the text.
 
+![pic](http://i64.tinypic.com/205qy50.png)
+
 <br />
 
 - grab 1º line that contains the 'inet' expression AND print 2º string | grab the 1º [.] and cut until the next [.]<br />
