@@ -20,9 +20,9 @@
 [2] [Parsing data with HEAD](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
 [3] [Parsing data with TAIL](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 [4] [Parsing data with CAT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
-[5] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[5] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[6] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[7] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 
 
 ---
@@ -208,6 +208,65 @@ With everything we have learn until now, how do you append only the line that co
 
 <br /><br />
 
+### TR
+
+      tr is an UNIX utility for translating, or deleting, or squeezing repeated characters.
+      It will read from STDIN and write to STDOUT. In the next example we are using 'ifconfig'
+      command and 'tr' to delete numbers, leters, expressions, empty spaces and tab spaces.
+
+![pic](http://i64.tinypic.com/205qy50.png)
+
+<br />
+
+
+- **Delete** from STDOUT characters ('5' and '.') using **'tr -d'** switch<br />
+
+      ifconfig wlan0 | tr -d '5' | tr -d '.'
+
+![pic](http://i64.tinypic.com/rktvmd.png)
+
+- **'tr'** can also be used to remove **'new line paragraphs'** using \n (paragraph)<br />
+
+      ifconfig wlan0 | tr -d '\n'
+
+![pic](http://i63.tinypic.com/rc7z49.png)
+
+- Delete **empty spaces** between lines (tr -d ' ')<br />
+
+      ifconfig wlan0 | tr -d ' '
+
+![pic](http://i65.tinypic.com/8y6hph.png)
+
+- Replace (tr -s) **'empty spaces'** between lines by a **'tab space'**<br />
+
+      ifconfig wlan0 | tr -s ' ' '\t'
+
+![pic](http://i63.tinypic.com/2isxzjc.png)
+
+- Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
+
+      ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
+
+![pic](http://i63.tinypic.com/24enepv.png)
+
+- Csharp shellcode parsing (build oneliner droper)<br />
+
+      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
+
+<br /><br />
+
+                                               * EXERCISES *
+
+**EXERCISE7:** blablabla ...<br />
+
+
+[?] [exercise7 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise7)<br />
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
+---
+
+<br /><br />
+
 ### AWK
 
       Awk breaks each line of input passed to it into fields. By default, a field is a string of consecutive
@@ -284,66 +343,6 @@ With everything we have learn until now, how do you append only the line that co
 ![pic](http://i66.tinypic.com/207q58y.png)
 
 
-[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
-
-
----
-
-<br /><br />
-
-### TR
-
-      tr is an UNIX utility for translating, or deleting, or squeezing repeated characters.
-      It will read from STDIN and write to STDOUT. In the next example we are using 'ifconfig'
-      command and 'tr' to delete numbers, leters, expressions, empty spaces and tab spaces.
-
-![pic](http://i64.tinypic.com/205qy50.png)
-
-<br />
-
-
-- **Delete** from STDOUT characters ('5' and '.') using **'tr -d'** switch<br />
-
-      ifconfig wlan0 | tr -d '5' | tr -d '.'
-
-![pic](http://i64.tinypic.com/rktvmd.png)
-
-- **'tr'** can also be used to remove **'new line paragraphs'** using \n (paragraph)<br />
-
-      ifconfig wlan0 | tr -d '\n'
-
-![pic](http://i63.tinypic.com/rc7z49.png)
-
-- Delete **empty spaces** between lines (tr -d ' ')<br />
-
-      ifconfig wlan0 | tr -d ' '
-
-![pic](http://i65.tinypic.com/8y6hph.png)
-
-- Replace (tr -s) **'empty spaces'** between lines by a **'tab space'**<br />
-
-      ifconfig wlan0 | tr -s ' ' '\t'
-
-![pic](http://i63.tinypic.com/2isxzjc.png)
-
-- Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
-
-      ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
-
-![pic](http://i63.tinypic.com/24enepv.png)
-
-- Csharp shellcode parsing (build oneliner droper)<br />
-
-      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
-
-<br /><br />
-
-                                               * EXERCISES *
-
-**EXERCISE7:** blablabla ...<br />
-
-
-[?] [exercise7 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise7)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -449,8 +448,8 @@ With everything we have learn until now, how do you append only the line that co
 [2] [Parsing data with HEAD](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
 [3] [Parsing data with TAIL](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tail)<br />
 [4] [Parsing data with CAT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cat)<br />
-[5] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
-[6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
-[7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[5] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[6] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
+[7] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 
 _EOF
