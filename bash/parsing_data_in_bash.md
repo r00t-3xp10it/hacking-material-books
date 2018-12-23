@@ -290,8 +290,13 @@ With everything we have learn until now, how do you write only the line that con
 
 
       echo "foobar" | cut -c 2,5
-      echo "foobar" | cut -c 4-6
 
+
+- Grab the line that contains **'flags'** expression and cut starting in **18** until **49**<br />
+
+      ifconfig wlan0 | grep -w "flags" | cut -c 18-49
+
+![pic](http://i68.tinypic.com/fn4gnp.png)
 
 - Grab the **1º inet** | print **2º field** | grab the 1º [.] and cut (delete) everything to the rigth position<br />
 
