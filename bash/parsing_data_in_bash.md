@@ -222,6 +222,8 @@ With everything we have learn until now, how do you write only the line that con
       characters delimited by whitespace, though there are options for changing this. Awk parses and operates
       on each separate field. This makes it ideal for handling large text files, logfiles or databases.
 
+![pic](http://i64.tinypic.com/205qy50.png)
+
 <br />
 
 - Grab **1º line** that contains the **'inet'** expression AND print the **2º field**<br />
@@ -378,7 +380,7 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-      echo "Wellcome to SSA team" | sed 's/team/RedTeam'
+      echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
       cat article | sed '2s/will/will not/'
 
