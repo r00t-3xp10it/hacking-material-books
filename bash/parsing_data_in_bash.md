@@ -246,9 +246,9 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-      Sometimes the separator its not space nor tab, in this situation we can use awk -F
-      switch to chose our 'delimiter' chars and print the field we want. In the next example
-      we will extract the 2º field of our mac address using awk -F switch.
+      Sometimes the separator its not space nor tab, in this situation we can use awk -F switch
+      to chose our 'delimiter' char and print the field we want. In the next example we will extract
+      the 2º field of our mac address using awk -F switch with (:) as delimiter char.
 
 <br />
 
