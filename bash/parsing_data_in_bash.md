@@ -397,22 +397,28 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-      # replace 'team' by 'RedTeam' from stdout
+- Replace **'team'** by **'RedTeam'** from stdout<br />
+
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
-      # replace 'will' in 2º line by 'will not' from stdout 
+- Replace **'will'** in 2º line by **'will not'** from stdout<br />
+ 
       cat article | sed '2s/will/will not/'
 
-      # delete 2 line from stdout
+- Delete 2º line from stdout<br />
+
       cat article | sed '2d'
 
-      # delete lines 2 and 3 from stdout
+- Delete lines 2º and 3º from stdout<br />
+
       cat article | sed '2,4d'
 
-      # delete 2º line from file
-      cat article | sed -i '2d'
+- Delete 2º line from article file<br />
 
-      # execute multiple sed commands
+      sed -i '2d' article
+
+- Execute multiple sed commands<br />
+
       sed -e 's/this/that/; s/test/another/'
 
 <br />
