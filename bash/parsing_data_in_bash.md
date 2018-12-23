@@ -256,12 +256,12 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i67.tinypic.com/fvwk10.png)
 
-- **HINT:** Store IP address into one bash **variable** for later use (scripting)<br />
+- Store your IP address into one bash **variable** for later use (scripting)<br />
 
       parse_data=`ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}`
       echo my ip: $parse_data
 
-![pic](http://i63.tinypic.com/vws7z7.png)
+![pic](http://i68.tinypic.com/if5p8m.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
