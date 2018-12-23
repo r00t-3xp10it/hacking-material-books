@@ -157,7 +157,7 @@ With everything we have learn until now, how do you print only the line that con
       ifconfig wlan0 | grep "X" | head -n 3 | tail -n 2
 
 ![pic](http://i68.tinypic.com/2w4l0g8.png)
-**HINT:** we are diplaying the **last two lines** captured by the **'head -n 3'** command previously.<br /> 
+**HINT:** we are displaying the **last two lines** (tail -n 2) that **'head -n 3'** command have filter previously.<br /> 
 
 <br /><br />
 
