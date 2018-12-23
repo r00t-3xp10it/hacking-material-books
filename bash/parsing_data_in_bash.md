@@ -288,21 +288,21 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-- Grab the **1º inet** | print **2º string** | grab the 1º [.] and cut (delete) everything to the rigth position<br />
+- Grab the **1º inet** | print **2º field** | grab the 1º [.] and cut (delete) everything to the rigth position<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
-- Grab the **1º inet** | print **2º string** | grab the 2º [.] and cut (delete) everything to the left position until [.]<br />
+- Grab the **1º inet** | print **2º field** | grab the 2º [.] and cut (delete) everything to the left position until [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
-- Grab the **1º inet** | print **2º string** | grab the 2º and 3º [.] and cut (delete) everything in between [.]<br />
+- Grab the **1º inet** | print **2º field** | grab the 2º and 3º [.] and cut (delete) everything in between [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2,3
 
