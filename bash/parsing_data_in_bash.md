@@ -302,14 +302,14 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
-- Grab the **1º inet** | print **2º string** | grab the 2º and 3º [.] and cut (delete) everything to the rigth position<br />
+- Grab the **1º inet** | print **2º string** | grab the 2º and 3º [.] and cut (delete) everything in between [.]<br />
 
       ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2,3
 
 ![pic](http://i64.tinypic.com/qwy4gz.png)
 
 
-- parsing data (192.168.1.) [print first 10 chars]<br />
+- Parsing data (192.168.1.) [print first 10 chars]<br />
 
       var=`echo 192.168.1.71 | grep "192" | cut -c1-10`; echo $var
 
