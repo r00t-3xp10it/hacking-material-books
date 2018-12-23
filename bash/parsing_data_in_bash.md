@@ -269,7 +269,7 @@ With everything we have learn until now, how do you write only the line that con
 
                                                * EXERCISES *
 
-**EXERCISE6:** Print only the **2º field** of your inet6 interface (e.g f629)<br />
+**EXERCISE6:** Print only the **2º field** of your inet6 interface (e.g f629) using **awk -F** switch<br />
 
 [?] [exercise6 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise6)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
