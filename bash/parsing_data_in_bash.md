@@ -180,7 +180,7 @@ With everything we have learn until now, how do you print only the line that con
 
       cat article | grep -x "This line will be displayed .."
 
-![pic](http://i67.tinypic.com/14ne8b4.png)
+![pic](http://i68.tinypic.com/34zzn08.png)
 
 - Print **all lines** that contains the **ERROR** expression<br />
 
