@@ -172,11 +172,11 @@ With everything we have learn until now, how do you print only the line that con
       file to demonstrate parsing technincs. The demonstration file can be downloaded from the link above.
 
 ![pic](http://i65.tinypic.com/73mr1w.png)
-[?] [demonstration file of 'parsing data in bash'](https://gist.github.com/r00t-3xp10it/c3f7cbf1ca73f8d7ce24d17af39738a8)
+[?] [demonstration file of 'parsing data in bash' (article demo file)](https://gist.github.com/r00t-3xp10it/c3f7cbf1ca73f8d7ce24d17af39738a8)
 
 <br /><br />
 
-- Read **article** file and print a line **only if:** the whole line matches your suppied regex<br />
+- Read **article** file and print a line **[ only if ]:** the whole line matches your suppied regex<br />
 
       cat article | grep -x "This line will be displayed .."
 
