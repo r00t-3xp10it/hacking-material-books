@@ -23,6 +23,7 @@
 [5] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
 [6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 [7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[8] [Parsing data with SED](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#sed)<br />
 
 
 ---
@@ -241,6 +242,16 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i66.tinypic.com/2urq9vn.png)
 
+      Sometimes the separator its not space nor tab, in this situation we can use awk -F
+      switch to chose our 'delimiter' chars and print the field we want. In the next example
+      we will extract the 2º field of our mac address using awk -F switch.
+
+<br />
+
+      ifconfig wlan0 | grep -w "ether" | awk {'print $2'} | awk -F: {'print $2'}
+
+![pic](http://i67.tinypic.com/fvwk10.png)
+
 - **HINT:** Store IP address into one bash **variable** for later use (scripting)<br />
 
       parse_data=`ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'}`
@@ -458,5 +469,6 @@ With everything we have learn until now, how do you write only the line that con
 [5] [Parsing data with AWK](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#awk)<br />
 [6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 [7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
+[8] [Parsing data with SED](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#sed)<br />
 
 _EOF
