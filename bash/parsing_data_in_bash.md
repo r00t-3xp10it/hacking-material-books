@@ -306,9 +306,10 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/21afo1g.png)
 
-<br />
+<br /><br />
 
-      This next section will describe the use of cut -d switch to help us print the string we want in stdout
+                            This next section will describe the use of cut -d switch
+
 
       IP address parsed    :    192        .        168        .         1         .        71
       Delimiter description: [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4][field 5]
