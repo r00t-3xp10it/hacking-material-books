@@ -476,9 +476,9 @@ With everything we have learn until now, how do you write only the line that con
 
 - Obfuscating ifconfig wlan0 **mac address** (ether) displays (4º line displays)<br />
 
-      ifconfig wlan0 | sed -e '4s/8/3/g; 4s/0/5/g'
+      ifconfig wlan0 | sed -e '4s/8/3/g; 4s/0/5/g; 4s/f/a/g'
 
-![pic](http://i68.tinypic.com/9prytw.png)
+![pic](http://i63.tinypic.com/2s0e9u9.png)
 
 <br /><br /><br />
 
