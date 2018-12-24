@@ -323,11 +323,11 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
-- Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and cut the last ip range fom stdout<br />
 
-      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2,3
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1,2,3
 
-![pic](http://i64.tinypic.com/qwy4gz.png)
+![pic](http://i68.tinypic.com/ixeh61.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
