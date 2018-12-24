@@ -290,11 +290,7 @@ With everything we have learn until now, how do you write only the line that con
       In the follow examples we will use -c (char possition) or -d (delimiter) cut switchs to be habble
       to print on stdout the string we need. The -c switch allow us to print one character or a group of
       characters based on is possition in the line. And the -d switch allow us to chose a cut delimiter.
-      Also remmenber that in delimiter use the empty space(s) counts as one character space.
-
-
-      IP address parsed    :    192        .        168        .         1         .        71
-      Delimiter description: [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4][field 5]
+      Also remmenber that in delimiter use (cut -d) the empty space(s) counts as one character space.
 
 <br />
 
@@ -310,21 +306,30 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/21afo1g.png)
 
-- Grab the line that contains **'inet'** expression, print **2º field** and print (cut) 1º field of delimiter<br />
+<br />
+
+      This next section will describe the use of cut -d switch to help us print the string we want in stdout
+
+      IP address parsed    :    192        .        168        .         1         .        71
+      Delimiter description: [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4][field 5]
+
+<br />
+
+- Grab the line that contains **'inet'** expression, print **2º field** and print **1º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i66.tinypic.com/dzcgg7.png)
 
 
-- Grab the line that contains **'inet'** expression, print **2º field** and print (cut) 2º field of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and print **2º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i65.tinypic.com/23iwbpk.png)
 
 
-- Grab the line that contains **'inet'** expression, print **2º field** and print (cut) from 1º to 3º field of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and print from **1º to 3º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1,2,3
 
