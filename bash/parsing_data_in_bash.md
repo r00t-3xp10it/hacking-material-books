@@ -461,7 +461,11 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-- Delete lines 2º and 3º from stdout<br />
+- Replace **'will'** in 2º line by **'will not'** from stdout<br />
+ 
+      cat article | sed '2s/will/will not/'
+
+- Delete lines **2º and 3º** from stdout<br />
 
       cat article | sed '2,4d'
 
