@@ -359,7 +359,7 @@ With everything we have learn until now, how do you write only the line that con
 <br />
 
 
-- **Delete** from STDOUT characters ('5' and '.') using **'tr -d'** switch<br />
+- **Delete** from stdout characters ('5' and '.') using **'tr -d'** switch<br />
 
       ifconfig wlan0 | tr -d '5' | tr -d '.'
 
@@ -442,25 +442,37 @@ With everything we have learn until now, how do you write only the line that con
 
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
+![pic](http://i67.tinypic.com/2ngbvr6.png)
+
 - Replace [s/] **All** [/g] occurencies of **'inet'** by **'obfuscated'** from stdout<br />
  
       ifconfig wlan0 | sed 's/inet/obfuscated/g'
+
+![pic](http://i64.tinypic.com/n70dxz.png)
 
 - Delete the **2º line** display from stdout<br />
 
       ifconfig wlan0 | sed '2d'
 
+![pic](http://i67.tinypic.com/4idfya.png)
+
 - Delete the **1º and 4º line** displays from stdout<br />
 
       ifconfig wlan0 | sed '1d;4d'
+
+![pic](http://i68.tinypic.com/23ubgus.png)
 
 - Delete the **1º line** and from **5º until 8º line** displays from stdout<br />
 
       ifconfig wlan0 | sed '1d;5,8d'
 
+![pic](http://i68.tinypic.com/4grrwp.png)
+
 - Execute **multiple** sed commands or **regex** using sed -e switch<br />
 
       ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
+
+![pic](http://i64.tinypic.com/28b5es7.png)
 
 <br /><br />
 
