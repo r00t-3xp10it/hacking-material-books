@@ -472,9 +472,13 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed '2,4d'
 
-- Delete 2º line from article file and **save** file<br />
+- Delete **2º line** from article file and **save** file<br />
 
       cat article | sed -i '2d' article
+
+- Delete **3º and 4º line** from article file and **save** file<br />
+
+      cat article | sed -i '3d;4d' article
 
 <br /><br />
 
