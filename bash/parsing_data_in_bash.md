@@ -444,6 +444,11 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed '2d'
 
+<br />
+
+      In the next example we are using s/ [substitute flag] with /g [global flag] to replace ALL occurencies
+      of the suplied expression globally, we also stack commands together using the [;] (semi-collon symbol)
+
 - Execute **multiple** sed commands or **regex** using sed -e switch<br />
 
       ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
