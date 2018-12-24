@@ -295,19 +295,17 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-
-- Grab the line that contains **'inet'** expression and print char(s) based on is **possition** in the line<br />
-
-      ifconfig wlan0 | grep -w "inet" | cut -c 10,11,12,56,57,59
-
-![pic](http://i68.tinypic.com/x3fzpj.png)
-
-
 - Grab the line that contains **'flags'** expression and print all char(s) starting in possition **18** until **49**<br />
 
       ifconfig wlan0 | grep -w "flags" | cut -c 18-49
 
 ![pic](http://i68.tinypic.com/fn4gnp.png)
+
+- Grab the line that contains **'inet'** expression and print char(s) based on is **possition** in the line<br />
+
+      ifconfig wlan0 | grep -w "inet" | cut -c 10,11,12,56,57,59
+
+![pic](http://i63.tinypic.com/21afo1g.png)
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the rigth position of delimiter<br />
 
