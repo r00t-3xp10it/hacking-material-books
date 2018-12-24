@@ -408,7 +408,7 @@ With everything we have learn until now, how do you write only the line that con
 
                                                * EXERCISES *
 
-**EXERCISE8:** Delete **All** chars [.][:][,][<][>][(][)][=] and **empty spaces** from ifconfig wlan0 stdout ..<br />
+**EXERCISE8:** Delete **All** chars [.][:][,][<][>][ ( ][ ) ][=] and **empty spaces** from ifconfig wlan0 stdout ..<br />
 
 
 [?] [exercise8 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise8)<br />
