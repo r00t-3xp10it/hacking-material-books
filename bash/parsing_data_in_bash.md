@@ -450,7 +450,7 @@ With everything we have learn until now, how do you write only the line that con
 
 <br /><br />
 
-                                 * sed file system operations *
+                                     * sed file system operations *
 
 ![pic](http://i65.tinypic.com/73mr1w.png)
 
