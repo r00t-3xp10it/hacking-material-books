@@ -24,6 +24,7 @@
 [6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 [7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
 [8] [Parsing data with SED](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#sed)<br />
+[9] [Parsing data with REGEX](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#regex)<br />
 
 
 ---
@@ -637,6 +638,7 @@ With everything we have learn until now, how do you write only the line that con
 [6] [Parsing data with CUT](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#cut)<br />
 [7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
 [8] [Parsing data with SED](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#sed)<br />
+[9] [Parsing data with REGEX](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#regex)<br />
 
 ---
 
