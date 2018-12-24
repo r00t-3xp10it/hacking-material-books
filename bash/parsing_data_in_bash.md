@@ -424,12 +424,12 @@ With everything we have learn until now, how do you write only the line that con
 
                          sed [switch] '[flag]/[old text]/[new text]/[flag]' [filename]
 
-                                sed -i   -  save changes into file
-                                sed -e   -  sed regex switch
-                                sed s/   -  sed substitution flag
-                                sed /g   -  sed substitution global flag
-                                sed '1d' -  sed delete line possition flag
-                                sed '2s' -  sed substitution line possition flag
+                                sed -i    -   save changes into file
+                                sed -e    -   sed regex switch
+                                sed s/    -   sed substitution flag
+                                sed /g    -   sed substitution global flag
+                                sed '2d'  -   sed delete line possition flag
+                                sed '2s/' -   sed substitution line possition flag
 
 <br /><br />
 
