@@ -244,16 +244,9 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i65.tinypic.com/15qxgz6.png)
 
-- Store your IP address into one bash **variable** for later use (scripting)<br />
-
-      parse_data=`ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}`
-      echo my ip: $parse_data
-
-![pic](http://i68.tinypic.com/if5p8m.png)
-
 <br />
 
-- AWK **delimiter** switch (awk -F [ expression ])<br />
+- AWK -F switch (awk -F [ delimiter ])<br />
 
       Sometimes the separator its not space nor tab, in this situation we can use awk -F switch
       to chose our 'delimiter' char and print the field we want. In the next example we will
@@ -264,6 +257,13 @@ With everything we have learn until now, how do you write only the line that con
       ifconfig wlan0 | grep -w "ether" | awk {'print $2'} | awk -F: {'print $2'}
 
 ![pic](http://i67.tinypic.com/fvwk10.png)
+
+- Store your IP address into one bash **variable** for later use (scripting)<br />
+
+      parse_data=`ifconfig wlan0 | grep -m 1 "inet" | awk {'print $2'}`
+      echo my ip: $parse_data
+
+![pic](http://i68.tinypic.com/if5p8m.png)
 
 <br /><br />
 
