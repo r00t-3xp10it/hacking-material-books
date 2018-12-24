@@ -290,7 +290,8 @@ With everything we have learn until now, how do you write only the line that con
       In the follow examples we will use -c (char possition) or -d (delimiter) cut switchs
       to be habble to print on stdout the string we need. The -c switch allow us to print
       one character or a group of characters based on is possition in the line. And the -d
-      switch allow us to chose a cut delimiter.
+      switch allow us to chose a cut delimiter. Also remmenber that in delimiter use the
+      empty spaces count as one character.
 
 <br />
 
@@ -302,7 +303,7 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i68.tinypic.com/x3fzpj.png)
 
 
-- Grab the line that contains **'flags'** expression and print char(s) starting in possition **18** until **49**<br />
+- Grab the line that contains **'flags'** expression and print all char(s) starting in possition **18** until **49**<br />
 
       ifconfig wlan0 | grep -w "flags" | cut -c 18-49
 
