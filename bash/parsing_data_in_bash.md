@@ -420,7 +420,7 @@ With everything we have learn until now, how do you write only the line that con
       (such as ed), sed works by making only one pass over the input(s), and is consequently more efficient.
       But it is sed's ability to filter text in a pipeline which distinguishes it from other types of editors.
 
-![pic](http://i65.tinypic.com/73mr1w.png)
+![pic](http://i64.tinypic.com/205qy50.png)
 
                           sed [switch] '[flag]/[old text]/[new text]/[flag]'
 
@@ -451,6 +451,8 @@ With everything we have learn until now, how do you write only the line that con
 <br /><br />
 
                                  * sed file system operations *
+
+![pic](http://i65.tinypic.com/73mr1w.png)
 
 <br />
 
