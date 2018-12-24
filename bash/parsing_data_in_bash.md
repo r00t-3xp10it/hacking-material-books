@@ -424,14 +424,13 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-                                     * Description of SED syntax *
                           sed [switch] '[flag]/[old text]/[new text]/[flag]'
 
                               sed -i   -  save changes into file
                               sed -e   -  sed regex switch
-                              sed s/   - sed substitute flag
-                              sed /g   - sed substitute global flag
-                              sed '2d' - sed delete line possition flag
+                              sed s/   -  sed substitute flag
+                              sed /g   -  sed substitute global flag
+                              sed '2d' -  sed delete line possition flag
 
 <br />
 
