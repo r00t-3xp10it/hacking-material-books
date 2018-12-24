@@ -470,9 +470,9 @@ With everything we have learn until now, how do you write only the line that con
 
 - Execute **multiple** sed commands or **regex** using sed -e switch<br />
 
-      ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
+      ifconfig wlan0 | sed -e 's/netmask/obfuscated/; s/inet/cia/g; s/bytes/badsum/g'
 
-![pic](http://i64.tinypic.com/28b5es7.png)
+![pic](http://i65.tinypic.com/9qkc9e.png)
 
 <br /><br />
 
