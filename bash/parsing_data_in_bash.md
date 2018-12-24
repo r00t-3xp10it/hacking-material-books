@@ -311,21 +311,21 @@ With everything we have learn until now, how do you write only the line that con
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the rigth position of delimiter<br />
 
-      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f1
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
 
-      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f2
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
 
-      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f2,3
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2,3
 
 ![pic](http://i64.tinypic.com/qwy4gz.png)
 
