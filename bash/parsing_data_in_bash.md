@@ -500,13 +500,13 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/2n0t3es.png)
 
-- Delete [sed -i '1d'] **1º line** from article file<br />
+- Delete [1d] **1º line** from article and **save** [-i] file<br />
 
       sed -i '1d' article && cat article
 
 ![pic](http://i66.tinypic.com/2cgj3i1.png)
 
-- Delete [sed -i '1d;2d'] **3º and 4º line** from article file<br />
+- Delete [1d;2d] **3º and 4º line** from article and **save** [-i] file<br />
 
       sed -i '1d;2d' article && cat article
 
