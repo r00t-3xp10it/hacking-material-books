@@ -501,7 +501,7 @@ With everything we have learn until now, how do you write only the line that con
 
 <br /><br />
 
-![pic](http://i68.tinypic.com/2m67ays.png)
+![pic](http://i68.tinypic.com/2m67ays.png)<br />
 [+] [Download 'test.sh' into your working directory (pwd)](https://gist.github.com/r00t-3xp10it/f78aa02026e25c407d8ec5fd92eaed9a)<br />
 
       # execute test.sh
