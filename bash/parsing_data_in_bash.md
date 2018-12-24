@@ -389,6 +389,12 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/24enepv.png)
 
+- Delete **'new line paragraphs'**, replace **'tab spaces'** by nothing and **delete empty spaces**<br />
+
+      ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' ' | tr -d ' '
+
+![pic](http://i65.tinypic.com/2rp2p9g.png)
+
 - Csharp shellcode parsing (build oneliner droper)<br />
 
       store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
