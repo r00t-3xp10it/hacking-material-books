@@ -291,7 +291,10 @@ With everything we have learn until now, how do you write only the line that con
       to be habble to print on stdout the string we need. The -c switch allow us to print
       one character or a group of characters based on is possition in the line. And the -d
       switch allow us to chose a cut delimiter. Also remmenber that in delimiter use the
-      empty spaces count as one character.
+      empty spaces count as one character space.
+
+      IP address display   :    192        .        168        .         1         .        71              netmask
+      Delimiter description: [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4][field 5][field 6]
 
 <br />
 
