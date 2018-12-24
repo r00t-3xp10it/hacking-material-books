@@ -424,6 +424,17 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
+                                     * Description of SED syntax *
+                          sed [switch] '[flag]/[old text]/[new text]/[flag]'
+
+                              sed -i   -  save changes into file
+                              sed -e   -  sed regex switch
+                              sed s/   - sed substitute flag
+                              sed /g   - sed substitute global flag
+                              sed '2d' - sed delete line possition flag
+
+<br />
+
 - Replace **'team'** by **'RedTeam'** from stdout<br />
 
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
@@ -447,6 +458,7 @@ With everything we have learn until now, how do you write only the line that con
 - Execute multiple sed commands<br />
 
       sed -e 's/this/that/; s/test/another/'
+      ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
 
 <br />
 
