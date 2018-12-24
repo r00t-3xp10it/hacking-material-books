@@ -444,7 +444,7 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed '2d'
 
-- Execute multiple sed commands<br />
+- Execute **multiple** sed commands or **regex** using sed -e flag<br />
 
       ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
 
