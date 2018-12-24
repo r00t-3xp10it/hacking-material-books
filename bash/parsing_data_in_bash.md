@@ -383,6 +383,13 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i63.tinypic.com/2isxzjc.png)
 
+- Replace (tr -s) **'inet'** between lines by **'obfuscated'**<br />
+
+      ifconfig wlan0 | tr -s 'inet' 'HALO'
+
+![pic](http://i63.)
+**HINT:** The word to be substitute must match the same number of chars that the one beeing substitued
+
 - Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
