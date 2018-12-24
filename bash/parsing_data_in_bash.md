@@ -308,29 +308,28 @@ With everything we have learn until now, how do you write only the line that con
 
 <br /><br />
 
-                            This next section will describe the use of cut -d switch
-
+                          * This next section will describe the use of cut -d switch *
 
       IP address parsed    :    192        .        168        .         1         .        71
       Delimiter description: [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4][field 5]
 
 <br />
 
-- Grab the line that contains **'inet'** expression, select **2º field** and print **1º field** of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** (awk) and print **1º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i66.tinypic.com/dzcgg7.png)
 
 
-- Grab the line that contains **'inet'** expression, select **2º field** and print **2º field** of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** (awk) and print **2º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i65.tinypic.com/23iwbpk.png)
 
 
-- Grab the line that contains **'inet'** expression, select **2º field** and print from **1º to 3º field** of delimiter<br />
+- Grab the line that contains **'inet'** expression, print **2º field** (awk) and print from **1º to 3º field** of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1,2,3
 
