@@ -422,8 +422,6 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i65.tinypic.com/73mr1w.png)
 
-<br />
-
                           sed [switch] '[flag]/[old text]/[new text]/[flag]'
 
                               sed -i   -  save changes into file
@@ -432,7 +430,7 @@ With everything we have learn until now, how do you write only the line that con
                               sed /g   -  sed substitute global flag
                               sed '2d' -  sed delete line possition flag
 
-<br />
+<br /><br />
 
 - Replace **'team'** by **'RedTeam'** from stdout<br />
 
