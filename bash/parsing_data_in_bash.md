@@ -436,13 +436,13 @@ With everything we have learn until now, how do you write only the line that con
 
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
-- Replace **'will'** in 2º line by **'will not'** from stdout<br />
+- Replace All occurencies of **'netmask'** by **'obfuscated'** from stdout<br />
  
-      cat article | sed '2s/will/will not/'
+      ifconfig wlan0 | sed 's/netmask/obfuscated/g'
 
-- Delete 2º line from stdout<br />
+- Delete the 2º line display from stdout<br />
 
-      cat article | sed '2d'
+      ifconfig wlan0 | sed '2d'
 
 <br /><br />
 
@@ -469,7 +469,7 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed '2,4d'
 
-- Delete 2º line from article file<br />
+- Delete 2º line from article file and **save** file<br />
 
       cat article | sed -i '2d' article
 
