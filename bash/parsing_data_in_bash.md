@@ -444,20 +444,21 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed '2d'
 
+- Execute multiple sed commands<br />
+
+      ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
+
+                                 * sed file system operations *
+
 - Delete lines 2º and 3º from stdout<br />
 
       cat article | sed '2,4d'
 
 - Delete 2º line from article file<br />
 
-      sed -i '2d' article
+      cat article | sed -i '2d' article
 
-- Execute multiple sed commands<br />
-
-      sed -e 's/this/that/; s/test/another/'
-      ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
-
-<br />
+<br /><br />
 
       #!/bin/sh
       myvar="10101010"
