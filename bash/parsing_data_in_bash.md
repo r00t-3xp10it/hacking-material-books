@@ -627,8 +627,6 @@ With everything we have learn until now, how do you write only the line that con
 
 ---
 
-<br /><br />
-
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 [1] [Parsing data with GREP](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
 [2] [Parsing data with HEAD](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#head)<br />
@@ -642,7 +640,5 @@ With everything we have learn until now, how do you write only the line that con
 
 ---
 
-<br />
-
-**Special Thanks:** shanty damayanti,
+**Special Thanks:** shanty damayanti (my geek wife),
 #### SuspiciousShellActivity - RedTeam @2018
