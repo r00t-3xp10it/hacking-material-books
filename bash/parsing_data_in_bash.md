@@ -474,6 +474,12 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i65.tinypic.com/9qkc9e.png)
 
+- Obfuscating ifconfig wlan0 mac address displays (4º line displays)<br />
+
+      ifconfig wlan0 | sed -e '4s/8/3/g; 4s/0/5/g'
+
+![pic](http://i68.tinypic.com/9prytw.png)
+
 <br /><br /><br />
 
                                      * sed file system operations *
