@@ -389,10 +389,10 @@ With everything we have learn until now, how do you write only the line that con
 
                                                * EXERCISES *
 
-**EXERCISE7:** blablabla ...<br />
+**EXERCISE8:** blablabla ...<br />
 
 
-[?] [exercise7 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise7)<br />
+[?] [exercise8 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise8)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -557,6 +557,10 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE7:
 
 ![pic](http://i67.tinypic.com/978hs4.png)
+
+### EXERCISE8:
+
+![pic](http://i67.)
 
 ---
 
