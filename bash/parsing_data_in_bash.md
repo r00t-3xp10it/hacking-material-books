@@ -637,5 +637,5 @@ With everything we have learn until now, how do you write only the line that con
 
 ---
 
-**Special Thanks:** shanty damayanti (my geek wife),
+**Special Thanks:** Shanty Damayanti (my geek wife),
 ### SuspiciousShellActivity - RedTeam @2018
