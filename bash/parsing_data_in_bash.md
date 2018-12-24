@@ -544,12 +544,6 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i64.tinypic.com/2i1fuyw.png)
 
-[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
-
----
-
-<br /><br />
-
 - check for empty variable declarations<br />
 
       var=""
@@ -589,9 +583,13 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i64.tinypic.com/34njqc2.png)
 
+[0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
+
 ---
 
-<br /><br />
+<br /><br /><br /><br />
+
+                                          * EXERCISES SOLUCTIONS *
 
 ### EXERCISE1:
 
@@ -628,7 +626,7 @@ With everything we have learn until now, how do you write only the line that con
 
 ---
 
-<br /><br />
+<br /><br /><br />
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 [1] [Parsing data with GREP](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
@@ -640,4 +638,9 @@ With everything we have learn until now, how do you write only the line that con
 [7] [Parsing data with TR](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#tr)<br />
 [8] [Parsing data with SED](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#sed)<br />
 
-_EOF
+---
+
+<br /><br />
+
+**Special Thanks:** shanty damayanti,
+#### SuspiciousShellActivity - RedTeam @2018
