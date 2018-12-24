@@ -390,6 +390,8 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i67.tinypic.com/24wzrro.png)<br />
 **HINT:** The word to be substitute must match the same number of chars that the one beeing substitued
 
+<br />
+
 - Delete **'new line paragraphs'** (tr -d '\n') and replace (tr -s '\t' ' ') **'tab spaces'** by nothing<br />
 
       ifconfig wlan0 | tr -d '\n' | tr -s '\t' ' '
@@ -402,15 +404,11 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i65.tinypic.com/2rp2p9g.png)
 
-- Csharp shellcode parsing (build oneliner droper)<br />
-
-      store=`cat shell.txt | grep -v '=' | tr -d ';' | tr -d '\"' | tr -d '\\' | tr -d 'x' | tr -d '\n'`
-
 <br /><br />
 
                                                * EXERCISES *
 
-**EXERCISE8:** blablabla ...<br />
+**EXERCISE8:** Delete **All** chars [.][:][,][<][>][(][)][=] and **empty spaces** from ifconfig wlan0 stdout ..<br />
 
 
 [?] [exercise8 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise8)<br />
@@ -614,7 +612,7 @@ With everything we have learn until now, how do you write only the line that con
 
 ### EXERCISE8:
 
-![pic](http://i67.)
+![pic](http://i67.tinypic.com/2dbkmzq.png)
 
 ---
 
