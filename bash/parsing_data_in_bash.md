@@ -475,7 +475,7 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i65.tinypic.com/9qkc9e.png)
 
-<br /><br />
+<br /><br /><br />
 
                                      * sed file system operations *
 
@@ -499,7 +499,7 @@ With everything we have learn until now, how do you write only the line that con
 
       cat article | sed -i '3d;4d' article
 
-<br /><br />
+<br /><br /><br />
 
                                 * delete expression(s) inside existing script *
 
@@ -509,7 +509,7 @@ With everything we have learn until now, how do you write only the line that con
       # execute test.sh
       chmod +x test.sh && ./test.sh
       
-      # Use SED -i to replace text inside test.sh
+      # Use SED -i to replace text inside test.sh and save file
       sed -i 's/10101010/hello world/' test.sh
 
       # print and run test.sh
