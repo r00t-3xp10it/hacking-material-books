@@ -492,17 +492,25 @@ With everything we have learn until now, how do you write only the line that con
  
       cat article | sed '2s/will/will not/'
 
-- Delete lines **2º and 3º** from stdout<br />
+![pic](http://i68.tinypic.com/14o3io0.png)
+
+- Delete lines from **2º to 4º** from stdout<br />
 
       cat article | sed '2,4d'
 
-- Delete **2º line** from article file and **save** file [-i]<br />
+![pic](http://i63.tinypic.com/2n0t3es.png)
 
-      cat article | sed -i '2d' article
+- Delete [sed -i '1d'] **1º line** from article file<br />
 
-- Delete **3º and 4º line** from article file and **save** file [-i]<br />
+      sed -i '1d' article && cat article
 
-      cat article | sed -i '3d;4d' article
+![pic](http://i66.tinypic.com/2cgj3i1.png)
+
+- Delete [sed -i '1d;2d'] **3º and 4º line** from article file<br />
+
+      sed -i '1d;2d' article && cat article
+
+![pic](http://i68.tinypic.com/xbjyhs.png)
 
 <br /><br /><br />
 
