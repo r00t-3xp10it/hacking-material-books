@@ -506,7 +506,7 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i66.tinypic.com/2cgj3i1.png)
 
-- Delete **3º and 4º line** [1d;2d] from article and **save** [-i] file<br />
+- Delete **1º and 2º line** [1d;2d] from article and **save** [-i] file<br />
 
       sed -i '1d;2d' article && cat article
 
