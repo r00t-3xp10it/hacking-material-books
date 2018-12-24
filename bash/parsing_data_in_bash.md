@@ -426,9 +426,10 @@ With everything we have learn until now, how do you write only the line that con
 
                                 sed -i   -  save changes into file
                                 sed -e   -  sed regex switch
-                                sed s/   -  sed substitute flag
-                                sed /g   -  sed substitute global flag
-                                sed '2d' -  sed delete line possition flag
+                                sed s/   -  sed substitution flag
+                                sed /g   -  sed substitution global flag
+                                sed '1d' -  sed delete line possition flag
+                                sed '2s' -  sed substitution line possition flag
 
 <br /><br />
 
