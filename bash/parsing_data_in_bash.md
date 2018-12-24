@@ -287,52 +287,46 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
-      In the follow examples we will use cut -c (char possition) or -d (delimiter) switchs
-      to be habble to extact from stdin the string we need. The -c switch allow us to print
-      one character or a group of characters based on is possition on the line. And the -d
+      In the follow examples we will use -c (char possition) or -d (delimiter) cut switchs
+      to be habble to print on stdout the string we need. The -c switch allow us to print
+      one character or a group of characters based on is possition in the line. And the -d
       switch allow us to chose a cut delimiter.
 
 <br />
 
 
-- Print **each character** based on is **possition** on the current line (extract netcat string)<br />
+- Grab the line that contains **'inet'** expression and print char(s) based on is **possition** in the line<br />
 
       ifconfig wlan0 | grep -w "inet" | cut -c 10,11,12,56,57,59
 
 ![pic](http://i68.tinypic.com/x3fzpj.png)
 
-- Grab the line that contains **'flags'** expression and cut starting in **18** until **49**<br />
+
+- Grab the line that contains **'flags'** expression and print char(s) starting in possition **18** until **49**<br />
 
       ifconfig wlan0 | grep -w "flags" | cut -c 18-49
 
 ![pic](http://i68.tinypic.com/fn4gnp.png)
 
-- Grab the **1º inet** | print **2º field** | grab the 1º [.] and cut (delete) everything to the rigth position<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the rigth position of delimiter<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f1
+      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f1
 
 ![pic](http://i64.tinypic.com/dmpic4.png)
 
 
-- Grab the **1º inet** | print **2º field** | grab the 2º [.] and cut (delete) everything to the left position until [.]<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2
+      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f2
 
 ![pic](http://i68.tinypic.com/72c1h0.png)
 
 
-- Grab the **1º inet** | print **2º field** | grab the 2º and 3º [.] and cut (delete) everything in between [.]<br />
+- Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
 
-      ifconfig wlan0 | egrep -m 1 "inet" | awk {'print $2'} | cut -d '.' -f2,3
+      ifconfig wlan0 | egrep -w "inet" | awk {'print $2'} | cut -d '.' -f2,3
 
 ![pic](http://i64.tinypic.com/qwy4gz.png)
-
-
-- Parsing data (192.168.1.) [print first 10 chars]<br />
-
-      var=`echo 192.168.1.71 | grep "192" | cut -c1-10`; echo $var
-
-![pic](http://i66.tinypic.com/207q58y.png)
 
 
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
