@@ -422,13 +422,13 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
-                          sed [switch] '[flag]/[old text]/[new text]/[flag]'
+                         sed [switch] '[flag]/[old text]/[new text]/[flag]' [filename]
 
-                              sed -i   -  save changes into file
-                              sed -e   -  sed regex switch
-                              sed s/   -  sed substitute flag
-                              sed /g   -  sed substitute global flag
-                              sed '2d' -  sed delete line possition flag
+                                sed -i   -  save changes into file
+                                sed -e   -  sed regex switch
+                                sed s/   -  sed substitute flag
+                                sed /g   -  sed substitute global flag
+                                sed '2d' -  sed delete line possition flag
 
 <br /><br />
 
