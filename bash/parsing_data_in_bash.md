@@ -12,8 +12,7 @@
       variable (for scripting) or into a logfile for later review, its when 'parsing' its helpfull ..
       This article will show easy examples using bash commands like: GREP, CAT, AWK, CUT, HEAD, TAIL, etc.
 
-
-<br /><br />
+<br />
 
 ### Article Glossario
 [1] [Parsing data with GREP](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#grep)<br />
