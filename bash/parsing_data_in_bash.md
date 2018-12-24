@@ -436,15 +436,21 @@ With everything we have learn until now, how do you write only the line that con
 
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
-- Replace All occurencies of **'netmask'** by **'obfuscated'** from stdout<br />
+- Replace **All** (/g) occurencies of **'netmask'** by **'obfuscated'** from stdout<br />
  
       ifconfig wlan0 | sed 's/netmask/obfuscated/g'
 
-- Delete the 2º line display from stdout<br />
+- Delete the **2º line** display from stdout<br />
 
       ifconfig wlan0 | sed '2d'
-      ifconfig wlan0 | sed '1d;4d'   # delete 1º and 4º line
-      ifconfig wlan0 | sed '1d;5,8d' # delete 1º line and from 5º until 8º line
+
+- Delete the **1º and 4º line** displays from stdout<br />
+
+      ifconfig wlan0 | sed '1d;4d'
+
+- Delete the **1º line** and from **5º until 8º line** displays from stdout<br />
+
+      ifconfig wlan0 | sed '1d;5,8d'
 
 - Execute **multiple** sed commands or **regex** using sed -e switch<br />
 
