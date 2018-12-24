@@ -287,11 +287,19 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i64.tinypic.com/205qy50.png)
 
+      In the follow examples we will use cut -c (char possition) or -d (delimiter) switchs
+      to be habble to extact from stdin the string we need. The -c switch allow us to print
+      one character or a group of characters based on is possition on the line. And the -d
+      switch allow us to chose a cut delimiter.
+
 <br />
 
 
-      echo "foobar" | cut -c 2,5
+- Print **each character** based on is **possition** on the current line (extract netcat string)<br />
 
+      ifconfig wlan0 | grep -w "inet" | cut -c 10,11,12,56,57,59
+
+![pic](http://i68.tinypic.com/x3fzpj.png)
 
 - Grab the line that contains **'flags'** expression and cut starting in **18** until **49**<br />
 
