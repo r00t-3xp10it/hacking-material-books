@@ -437,9 +437,9 @@ With everything we have learn until now, how do you write only the line that con
 
       echo "Wellcome to SSA team" | sed 's/team/RedTeam/'
 
-- Replace **All** (/g) occurencies of **'netmask'** by **'obfuscated'** from stdout<br />
+- Replace **All** (/g) occurencies of **'inet'** by **'obfuscated'** from stdout<br />
  
-      ifconfig wlan0 | sed 's/netmask/obfuscated/g'
+      ifconfig wlan0 | sed 's/inet/obfuscated/g'
 
 - Delete the **2º line** display from stdout<br />
 
