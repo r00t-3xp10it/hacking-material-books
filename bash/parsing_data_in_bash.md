@@ -311,14 +311,14 @@ With everything we have learn until now, how do you write only the line that con
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1
 
-![pic](http://i64.tinypic.com/dmpic4.png)
+![pic](http://i66.tinypic.com/dzcgg7.png)
 
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut everything to the left position of delimiter<br />
 
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2
 
-![pic](http://i68.tinypic.com/72c1h0.png)
+![pic](http://i65.tinypic.com/23iwbpk.png)
 
 
 - Grab the line that contains **'inet'** expression, print **2º field** and cut the last ip range fom stdout<br />
@@ -556,7 +556,7 @@ With everything we have learn until now, how do you write only the line that con
 
 ### EXERCISE7:
 
-![pic](http://i63)
+![pic](http://i67.tinypic.com/978hs4.png)
 
 ---
 
