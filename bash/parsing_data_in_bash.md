@@ -448,7 +448,10 @@ With everything we have learn until now, how do you write only the line that con
 
       ifconfig wlan0 | sed -e 's/netmask/obfuscated/g; s/inet/cia/g; s/bytes/badsum/g'
 
+<br />
                                  * sed file system operations *
+
+<br />
 
 - Delete lines 2º and 3º from stdout<br />
 
