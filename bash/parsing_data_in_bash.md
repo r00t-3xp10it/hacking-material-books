@@ -443,6 +443,8 @@ With everything we have learn until now, how do you write only the line that con
 - Delete the 2º line display from stdout<br />
 
       ifconfig wlan0 | sed '2d'
+      ifconfig wlan0 | sed '1d;4d'   # delete 1º and 4º line
+      ifconfig wlan0 | sed '1d;5,8d' # delete 1º line and from 5º until 8º line
 
 <br /><br />
 
