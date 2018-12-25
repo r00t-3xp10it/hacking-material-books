@@ -317,7 +317,6 @@ With everything we have learn until now, how do you write only the line that con
       ifconfig wlan0 | grep -w "flags" | cut -c 18-49
 
 ![pic](http://i68.tinypic.com/fn4gnp.png)
-![pic](http://i66.tinypic.com/11j97w0.jpg)
 
 - Grab the line that contains **'inet'** expression and print char(s) based on is **possition** in the line<br />
 
