@@ -222,13 +222,13 @@ With everything we have learn until now, how do you write only the line that con
       characters delimited by whitespace, though there are options for changing this. Awk parses and operates
       on each separate field. This makes it ideal for handling large text files, logfiles or databases.
 
+![pic](http://i64.tinypic.com/205qy50.png)
+
            NOTE: By default, a field is a string of consecutive characters delimited by whitespaces.
            ----------------------------------------------------------------------------------------
            |             my                name                  is                pedro           |
            |         [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]         |
            ----------------------------------------------------------------------------------------
-
-![pic](http://i64.tinypic.com/205qy50.png)
 
 <br />
 
