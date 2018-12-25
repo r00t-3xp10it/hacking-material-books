@@ -306,8 +306,9 @@ With everything we have learn until now, how do you write only the line that con
            -----------------------------------------------------------------------------------------
            |                  my                name                  is                pedro      |
            |   [delimiter][field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]    |
+           |   [ char 1  ][ char 2][ char 3  ][ char 4][ char 5  ][ char 6][ char 7  ][ char 8]    |
            -----------------------------------------------------------------------------------------
-           NOTE: remmenber that in delimiter use (cut -d) the empty space counts as one char space.
+           NOTE: Remmenber that empty space(s) counts as one char space into defining fields.
 
 <br />
 
