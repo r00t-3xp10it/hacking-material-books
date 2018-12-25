@@ -302,10 +302,9 @@ With everything we have learn until now, how do you write only the line that con
       to print on stdout the string we need. The -c switch allow us to print one character or a group of
       characters based on is possition in the line. And the -d switch allow us to chose a cut delimiter.
 
-
            NOTE: By default, a field is a string of consecutive characters delimited by whitespaces.
            -----------------------------------------------------------------------------------------
-           |        my                name                  is                pedro                |
+           |                  my                name                  is                pedro      |
            |   [delimiter][field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]    |
            -----------------------------------------------------------------------------------------
            NOTE: remmenber that in delimiter use (cut -d) the empty space counts as one char space.
