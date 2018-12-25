@@ -19,7 +19,7 @@
       ifconfig wlan0 [enter]
       ifconfig wlan0 | grep -w "inet" [enter]
       ifconfig wlan0 | grep -w "inet" | awk {'print $2'} [enter]
-      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2 [enter]
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f1,2,3 [enter]
 
 
 <br />
