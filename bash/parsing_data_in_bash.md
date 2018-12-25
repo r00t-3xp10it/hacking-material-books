@@ -408,7 +408,7 @@ With everything we have learn until now, how do you write only the line that con
       ifconfig wlan0 | tr -s 'inet' 'HALO'
 
 ![pic](http://i67.tinypic.com/24wzrro.png)<br />
-**HINT:** The word to be substitute must match the same number of chars that the one beeing substitued
+**HINT:** All chars [i n e t] will be replaced in stdout because tr -s works globally.
 
 <br />
 
