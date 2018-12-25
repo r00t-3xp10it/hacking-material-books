@@ -100,7 +100,7 @@ With everything we have learn until now, how do you print only the line that con
 
       By default, ‘head’ command reads the first 10 lines of the file. If you want to read more or less
       than 10 lines from the beginning of the file then you have to use ‘-n’ option with ‘head’ command.
-      In the next example we are using 'grep' command to displays all lines that contains the 'X' expression.
+      In the next example we are using 'grep' command to display all lines that contains the 'X' expression.
 
 ![pic](http://i68.tinypic.com/nfr43c.png)
 
@@ -135,7 +135,7 @@ With everything we have learn until now, how do you print only the line that con
 
       By default, ‘tail’ command reads the last 10 lines of the file. If you want to read more or less
       than 10 lines from the ending of the file then you have to use ‘-n’ option with ‘tail’ command.
-      In the next example we are using 'grep' command to displays all lines that contains the 'X' expression.
+      In the next example we are using 'grep' command to display all lines that contains the 'X' expression.
 
 ![pic](http://i68.tinypic.com/nfr43c.png)
 
@@ -308,7 +308,7 @@ With everything we have learn until now, how do you write only the line that con
            |   [delimiter][field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]    |
            |   [ char 1  ][ char 2][ char 3  ][ char 4][ char 5  ][ char 6][ char 7  ][ char 8]    |
            -----------------------------------------------------------------------------------------
-           NOTE: Remmenber that empty space(s) counts as one char space into defining fields.
+           NOTE: Remmenber that empty space counts as one char space into delimiting fields with cut.
 
 <br />
 
