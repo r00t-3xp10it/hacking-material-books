@@ -665,6 +665,7 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE9:
 
 ![pic](http://i68.tinypic.com/r26c2c.png)
+![pic](http://i64.tinypic.com/ajxhdl.png)
 
 ---
 
