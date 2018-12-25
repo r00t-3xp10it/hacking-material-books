@@ -528,8 +528,13 @@ With everything we have learn until now, how do you write only the line that con
       # print and run test.sh
       cat test.sh && echo "" && ./test.sh
 
-<br />
+<br /><br />
 
+                                               * EXERCISES *
+
+**EXERCISE9:** Delete **All** lines that dosent contain [ERROR] expression, and also **save** the changes inside file ..<br />
+
+[?] [exercise9 soluction](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#exercise9)<br />
 [0] [article glossario](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md#article-glossario)<br />
 
 ---
@@ -635,6 +640,10 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE8:
 
 ![pic](http://i67.tinypic.com/2dbkmzq.png)
+
+### EXERCISE9:
+
+![pic](http://i68.tinypic.com/r26c2c.png)
 
 ---
 
