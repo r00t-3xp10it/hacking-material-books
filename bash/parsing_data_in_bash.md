@@ -258,8 +258,10 @@ With everything we have learn until now, how do you write only the line that con
       to chose our 'delimiter' char and print the field we want. In the next example we will
       extract the 2º field of our mac address using awk -F switch with (:) as delimiter char.
 
-                    my        :       name        :        is         :     pedro
-                [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]
+         -----------------------------------------------------------------------------------
+         |      00         :        1c         :        bf         :        89             |
+         |   [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]         |
+         -----------------------------------------------------------------------------------
 
 <br />
 
