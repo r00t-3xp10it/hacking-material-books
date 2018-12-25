@@ -326,10 +326,12 @@ With everything we have learn until now, how do you write only the line that con
 
 <br /><br />
 
-           -----------------------------------------------------------------------------------------
-           |            192        .        168        .         1         .        71             |
-           |        [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]          |
-           -----------------------------------------------------------------------------------------
+           NOTE: Sometimes the separator its not space nor tab, in this situation we can use the
+           cut -d switch to chose our 'delimiter' char and print the field we want on stdout. 
+           ----------------------------------------------------------------------------------------
+           |            192        .        168        .         1         .        71            |
+           |        [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]         |
+           ----------------------------------------------------------------------------------------
 
 <br />
 
