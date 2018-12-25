@@ -635,6 +635,7 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE2:
 
 ![pic](http://i65.tinypic.com/2vcc12o.png)
+![pic](http://i63.tinypic.com/2w6flp5.png)
 
 ### EXERCISE3:
 
@@ -652,6 +653,7 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE6:
 
 ![pic](http://i63.tinypic.com/dpbnmf.png)
+![pic](http://i64.tinypic.com/2hhkazd.png)
 
 ### EXERCISE7:
 
