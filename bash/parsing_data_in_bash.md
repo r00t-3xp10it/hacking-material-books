@@ -10,7 +10,15 @@
       The 'ifconfig wlan0' presents many information about the current interface in use, but lets say
       we only need to 'extract' the ip address from ifconfig command and store that info into one bash
       variable (for scripting) or into a logfile for later review, its when 'parsing' its helpfull ..
-      This article will show easy examples using bash commands like: GREP, CAT, AWK, CUT, HEAD, TAIL, etc.
+      This article will show easy examples using bash commands like: GREP, CAT, AWK, CUT, HEAD, etc.
+
+      NOTE: By default, a field is a string of consecutive characters delimited by whitespaces.
+      ----------------------------------------------------------------------------------------
+      |             my                name                  is                pedro           |
+      |         [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]         |
+      ----------------------------------------------------------------------------------------
+
+
 
 <br />
 
@@ -636,6 +644,7 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE7:
 
 ![pic](http://i67.tinypic.com/978hs4.png)
+![pic](http://i66.tinypic.com/11j97w0.png)
 
 ### EXERCISE8:
 
