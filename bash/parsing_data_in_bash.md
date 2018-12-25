@@ -225,10 +225,10 @@ With everything we have learn until now, how do you write only the line that con
 ![pic](http://i64.tinypic.com/205qy50.png)
 
            NOTE: By default, a field is a string of consecutive characters delimited by whitespaces.
-           ----------------------------------------------------------------------------------------
+           -----------------------------------------------------------------------------------------
            |             my                name                  is                pedro           |
            |         [field 1][delimiter][field 2][delimiter][field 3][delimiter][field 4]         |
-           ----------------------------------------------------------------------------------------
+           -----------------------------------------------------------------------------------------
 
 <br />
 
@@ -265,7 +265,7 @@ With everything we have learn until now, how do you write only the line that con
 
 <br />
 
-      ifconfig wlan0 | grep -w "ether" | awk {'print $2'} | awk -F: {'print $2'}
+      ifconfig wlan0 | grep -w "ether" | awk {'print $2'} | awk -F ":" {'print $2'}
 
 ![pic](http://i67.tinypic.com/fvwk10.png)
 
@@ -317,6 +317,7 @@ With everything we have learn until now, how do you write only the line that con
       ifconfig wlan0 | grep -w "flags" | cut -c 18-49
 
 ![pic](http://i68.tinypic.com/fn4gnp.png)
+![pic](http://i66.tinypic.com/11j97w0.jpg)
 
 - Grab the line that contains **'inet'** expression and print char(s) based on is **possition** in the line<br />
 
