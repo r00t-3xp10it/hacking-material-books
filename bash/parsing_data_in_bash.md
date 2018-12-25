@@ -10,7 +10,17 @@
       The 'ifconfig' command presents many information about the current interface in use, but lets say
       we only need to 'extract' the ip address from ifconfig command and store that info into one bash
       variable (for scripting) or into a logfile for later review, its when 'parsing' its helpfull ..
+
       This article will show easy examples using bash commands like: GREP, CAT, AWK, CUT, HEAD, etc.
+      This article also use 'oneliner(s)' to demonstrate technics, but its adviced to test examples
+      step-by-step (pipe-by-pipe) to easy understand the concepts behind the technics.
+
+      [EXAMPLE]
+      ifconfig wlan0
+      ifconfig wlan0 | grep -w "inet"
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'}
+      ifconfig wlan0 | grep -w "inet" | awk {'print $2'} | cut -d '.' -f2
+
 
 <br />
 
