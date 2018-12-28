@@ -542,6 +542,12 @@ With everything we have learn until now, how do you write only the line that con
 
 ![pic](http://i68.tinypic.com/xbjyhs.png)
 
+- Delete **ALL** the lines that contains the expression **'[ERROR]'** and save file<br />
+
+      sed -i '/[ERROR]/d' article && cat article
+
+![pic](http://i65.tinypic.com/11c85ys.png)
+
 <br /><br /><br />
 
                                 * substitute expression(s) inside existing script *
@@ -673,6 +679,7 @@ With everything we have learn until now, how do you write only the line that con
 ### EXERCISE8:
 
 ![pic](http://i67.tinypic.com/2dbkmzq.png)
+![pic](http://i66.tinypic.com/2va1nh3.png)
 
 ### EXERCISE9:
 
