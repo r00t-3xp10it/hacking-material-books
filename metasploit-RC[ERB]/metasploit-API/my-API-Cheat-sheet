@@ -77,6 +77,15 @@ File.open("/root/hello.sh", "w") {|f| f.write("#!/bin/sh\necho 'hello iam 1º li
 
 
 ## write remote file
+rc_full_path = "/root/ip.sh"
+con_rc << "#!/bin/sh\n"
+con_rc << "ifconfig wlan0"
+print_line("Writing Console RC file to #{rc_full_path}")
+file_write(rc_full_path, con_rc)
+
+
+
+## write remote file
 dll_data =
   "#!/bin/sh" +
   "xwd -root-out /tmp/screen.xwd" +
@@ -167,6 +176,38 @@ if app_path.include? "\\"
   final = app_path.gsub('\\', '\\\\\\')
   puts "#{final}"
 end
+
+
+
+## delete chars from var declarations (output: xfcxfdx00)
+char = datastore['shellcode'] # '\xfc\xfd\x00'
+char.delete "\\"
+
+
+
+## join strings (output: powershell)
+values = ["pow", "ers", "hell"]
+result = values.join
+print_good("#{results}")
+
+
+
+## use .split [delimiter]
+values = "pedro ubuntu"
+parse = values.split(' ')
+print_status("#{parse}")
+
+output:
+   pedro
+   ubuntu
+
+
+
+## use .split to extract only the fields we want
+values = "pedro ubuntu r00t-3xp10it"
+parse = values.split(' ')[2]
+
+output: r00t-3xp10it
 
 
 
@@ -384,7 +425,7 @@ end
 
 
 
-######################### VARIABLE OPERATIONS #################################
+######################### VARIOUS OPERATIONS #################################
 
 
 
