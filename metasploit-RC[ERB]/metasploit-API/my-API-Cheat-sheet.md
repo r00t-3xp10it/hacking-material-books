@@ -52,11 +52,6 @@
 
       print_line("Hello from a metasploit session at #{Time.now}")
 
-- **execute command and display results**
-
-      output = cmd_exec("whoami")
-      print_good("whoami: #{output}")
-
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
@@ -65,24 +60,25 @@
 
 ## EXECUTE REMOTE COMMANDS
 
+- **execute command and display results**
 
-## execute bash (/bin/sh) commands
-cmd_exec("mkdir -m 700 -p /root/test")
-cmd_exec("chmod 777 #{random_file_path}")
-cmd_exec("sh #{random_file_path}")
-system("msfconsole -q -x 'db_status'")
+      output = cmd_exec("whoami")
+      print_good("whoami: #{output}")
 
+- **execute bash (/bin/sh) commands**
 
+      cmd_exec("mkdir -m 700 -p /root/test.s")
+      cmd_exec("sh /root/test.sh")
+      system("msfconsole -x 'db_status'")
 
-## Execute command and display results
-print_status("Executing command: ifconfig wlan0")
-command_output = cmd_exec("ifconfig wlan0")
-print_line("CONFIGS: #{command_output}")
+- **Execute command and display results**
 
+      output = cmd_exec("ifconfig wlan0")
+      print_good("CONFIGS: #{output}")
 
+- **Execute remote command (windows)**
 
-## Execute remote command
-proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
+      proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -189,61 +185,58 @@ proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' =
 
 ## CHECK TARGET ARCH
 
+- **check FOR proper operative System**
 
+      if session.platform == 'windows'
+      unless session.platform.include?("linux")
 
+- **check FOR proper operative System (windows-not-wine)**
 
-## check FOR proper operative System
-if session.platform == 'windows'
-if not session.platform.include?("linux")
-
-
-
-## check FOR proper operative System (windows-not-wine)
-oscheck = client.fs.file.expand_path("%OS%")
-if not oscheck == "Windows_NT"
-  print_error("[ ABORT ]: This module only works againts windows systems")
-  return nil
-end
-
-
-
-## check FOR operative System
-if not sysinfo['OS'] =~ /Windows 10/
-  print_error("[ ABORT ]: This module only works againt windows 10 systems")
-  return nil
-end
-
-
-
-## determine target arch
-sysarch = sysinfo['Architecture']
-  if sysarch == ARCH_X86
-    target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
-  else
-    target_compspec = "C:\\Windows\\system32\\cmd.exe"
-  end
-
-
-
-## determine taget distro
-target_info = cmd_exec('uname -ms')
-if target_info =~ /linux/ || target_info =~ /Linux/
-  print_status("Platform: Linux")
-end
-
-
-
-## target System check method
-def check
-  vuln = false
-    winver = sysinfo["OS"]
-    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
-    affected.each { |v|
-      if winver.include? v
-        vuln = true
-        break
+      oscheck = client.fs.file.expand_path("%OS%")
+      if not oscheck == "Windows_NT"
+        print_error("[ ABORT ]: This module only works againts windows systems")
+        return nil
       end
-end
+
+- **check FOR operative System compatible**
+
+      unless sysinfo['OS'] =~ /Windows (xp|vista|9|10)/
+        print_error("[ ABORT ]: This module only works againt windows systems.")
+        return nil
+      end
+
+- **determine target arch (x86|x64)**
+
+      sysarch = sysinfo['Architecture']
+        if sysarch == ARCH_X86
+          target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
+        else
+          target_compspec = "C:\\Windows\\system32\\cmd.exe"
+        end
+
+- **determine target distro (linux)**
+
+      target_info = cmd_exec('uname -ms')
+      if target_info =~ /linux/ || target_info =~ /Linux/
+        print_status("Platform: Linux")
+      end
+
+
+
+- **another target System check method (windows)**
+
+      def check
+        vulnerable = []
+          winver = sysinfo["OS"]
+          affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
+            affected.each { |v|
+              if winver.include? v
+                vulnerable = true
+              else
+                vulnerable = false
+            break
+          end
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -254,140 +247,126 @@ end
 
 ## VARIOUS CHECKS
 
+- **check if remote file exists (windows)**
 
+      print_warning("checking file existance")
+      path="C:\\Windows\\system32\\ola.txt"
+        if session.fs.file.exist?(path)
+          print_good("path: #{path} found ..")
+        end
 
-## check if remote file exists
-print_warning("checking file existance")
-path="C:\\Windows\\system32\\ola.txt"
-if session.fs.file.exist?(path)
-  print_good("file found ..")
-end
+- **check IF application exists (linux)**
 
+      if exists_exe?("wget")
+        print_good("wget available, using it ..")
+      end
 
+- **check IF directory exists ?????**
 
-## check IF application exists (installed)
-if exists_exe?("wget")
-  print_good("wget available, using it")
-end
+      get_path = "C:\\windows"
+        if session.fs.dir.exist?(get_path) # error ?? why ???
+          print_good('Vuln path exists')
+        else
+          print_error("#{get_path} doesn't exist on target")
+      end
 
+- **check IF directory exists (local)**
 
+      get_path = "/root/payload.sh"
+        if not File.directory?(get_path)
+          print_error("Remote path: #{get_path} not found ..")
+          return nil
+        end
 
-## check IF directory exists ?????
-get_path = "C:\\windows"
-  if session.fs.dir.exist?(get_path) # error ?? why ???
-    print_good('Vuln path exists')
-  else
-    print_error("#{get_path} doesn't exist on target")
-end
+- **check IF string inputed contains \\ .**
 
+      if app_path.include? "\\"
 
+- **check IF string does NOT contains any \\ .**
 
-# check IF directory exists ????
-get_path = "C:\\windows"
-  if not File.directory?(get_path)
-    print_error("Remote path: #{get_path} not found ..")
-    return nil
-  end
+      unless app_path.include? "\\"
 
+- **check if we are in a meterpreter session**
 
+      if not sysinfo.nil?
+        print_status("Running module against #{sysnfo['Computer']}")
+      end
 
-## check IF string inputed contains \
-if app_path.include? "\\"
+- **check if sessions its admin**
 
+      isadd = is_admin?
+      if(isadd)
+        print_line('we are admin') 
+      else
+        print_line('not admin access level') 
+      end
 
+- **check if sessions its system**
 
-## check IF string does NOT contains any \
-if not app_path.include? "\\"
+      issys = is_system?
+      if(issys)
+        print_line('we are system') 
+      else
+        print_line('not a system access level') 
+      end
 
+- **List all the available interfaces from victims system**
+comment: This will return an array of the first interface available in the victims
+system along with the details like IP, netmask, mac_address etc.
 
+      vtemp = "client.net.config.get_interfaces"
+      print_good("Interfaces: #{vtemp}")
 
-## check if is a meterpreter session
-if not sysinfo.nil?
-  print_status("Running module against #{sysnfo['Computer']}")
-end
+- **Get target host name**
 
+      def get_host
+        case session.type
+        when /meterpreter/
+          host = sysinfo["Computer"]
+        when /shell/
+          host = cmd_exec("hostname").chomp
+        end
+        print_status("Running module against #{host}")
+        return host
+      end
 
+- **determine if MinGW has been installed, support new and old MinGW system paths**
 
-## check if its admin
-isadd = is_admin?
-if(isadd)
-  print_line('we are admin') 
-else
-  print_line('not admin access level') 
-end
+      mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
+      if mingw == false
+        print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
+        return nil
+      end
 
+- **determine if we are in a VM System (windows)**
 
+      if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
+        vm = true
+      end
 
-## check if its system
-issys = is_system?
-if(issys)
-  print_line('we are system') 
-else
-  print_line('not a system access level') 
-end
+      if not vm
+        srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
+          if srvvals and srvvals.include?("VBoxMouse")
+            vm = true
+          elsif srvvals and srvvals.include?("VBoxGuest")
+            vm = true
+          elsif srvvals and srvvals.include?("VBoxService")
+            vm = true
+          elsif srvvals and srvvals.include?("VBoxSF")
+            vm = true
+          end
+      end
 
-
-
-# List all the available interface from victims system
-# comment: This will return an array of the first interface available in the victims
-# system along with the details like IP, netmask, mac_address etc
-vtemp = "client.net.config.get_interfaces"
-print_good("Interfaces: #{vtemp}")
-
-
-
-## Get host name
-def get_host
-  case session.type
-  when /meterpreter/
-    host = sysinfo["Computer"]
-  when /shell/
-    host = cmd_exec("hostname").chomp
-  end
-  print_status("Running module against #{host}")
-  return host
-end
-
-
-
-## determine if MinGW has been installed, support new and old MinGW system paths
-mingw = true if File::exists?('/usr/i586-mingw32msvc') || File::exists?('/usr/bin/i586-migw32msvc')
-if mingw == false
-    print_error("[*] You must have MinGW-32 installed in order to compile EXEs!!")
-    return nil
-end
-
-
-
-## determine if we are in a VM System
-if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
-  vm = true
-end
-
-if not vm
-  srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
-    if srvvals and srvvals.include?("VBoxMouse")
-      vm = true
-    elsif srvvals and srvvals.include?("VBoxGuest")
-      vm = true
-    elsif srvvals and srvvals.include?("VBoxService")
-      vm = true
-    elsif srvvals and srvvals.include?("VBoxSF")
-      vm = true
-    end
-end
-
-if vm
-  report_note(
-    :host   => session,
-    :type   => 'host.hypervisor',
-    :data   => { :hypervisor => "VirtualBox" },
-    :update => :unique_data
-    )
-  print_status("This is a Sun VirtualBox Virtual Machine")
-  return "VirtualBox"
-end
-end
+      if vm
+        report_note(
+          :host   => session,
+          :type   => 'host.hypervisor',
+          :data   => { :hypervisor => "VirtualBox" },
+          :update => :unique_data
+          )
+        print_status("This is a Sun VirtualBox Virtual Machine")
+        return "VirtualBox"
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
