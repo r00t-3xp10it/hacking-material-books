@@ -117,7 +117,7 @@
         vtemp << file_object.read
       end
 
-[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+[!][article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
