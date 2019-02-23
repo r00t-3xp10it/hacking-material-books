@@ -60,7 +60,7 @@
 
 - **use backslash to escape double quotes or special caracters**
 
-      print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\fg.exe\"")
+      print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
 
 - **write to a local file**
 
@@ -75,10 +75,10 @@
 - **write to remote file**
 
       rc_full_path = "/root/ip.sh"
-      con_rc << "#!/bin/sh\n"
-      con_rc << "ifconfig wlan0"
-      print_line("Writing Console RC file to #{rc_full_path}")
-      file_write(rc_full_path, con_rc)
+        con_rc << "#!/bin/sh\n"
+        con_rc << "ifconfig wlan0"
+        print_line("Writing Console RC file to #{rc_full_path}")
+        file_write(rc_full_path, con_rc)
 
 - **write to remote file**
 
