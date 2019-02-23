@@ -1,7 +1,7 @@
 
 ## METASPLOIT API CHEAT SHEET
 
-<blockquote>The purpose of this cheat sheet is to describe some common API technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API. Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
+<blockquote>The purpose of this cheat sheet is to describe some common API technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
