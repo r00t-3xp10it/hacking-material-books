@@ -9,7 +9,7 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
-| stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | arch = client.fs.file.writable?("%tmp%") |
+| stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | check = client.fs.file.writable?("%tmp%") |
 | checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-arch) | unless session.platform.include?("linux") |
 | execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
