@@ -3,7 +3,7 @@
 
 <blockquote>Description:<br />The purpose of this cheat sheet is to describe some common options for some of the various components of the Metasploit Framework, it is worthy to note that the Metasploit has a full-featured Ruby client API.</blockquote>
 
-#### [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
+#### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
 
 | Name | Description | Type | Default Value | 
