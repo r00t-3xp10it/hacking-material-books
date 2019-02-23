@@ -1,8 +1,6 @@
-################################################################################
-#                        MY METASPLOIT API CHEAT SHEET                         #
-#                                                                              #
-#    WARNING: use at your own risk, since most of this lines are basic ideas   #
-################################################################################
+
+> MY METASPLOIT API CHEAT SHEET
+
 
 
 ## EXECUTE RUBY ONLINE:
