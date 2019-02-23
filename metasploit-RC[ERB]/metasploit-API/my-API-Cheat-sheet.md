@@ -1,7 +1,7 @@
 
 ## METASPLOIT API CHEAT SHEET
 
-<blockquote>The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API. Documentation:https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
+<blockquote>The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API. Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
 
 #### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
@@ -13,6 +13,7 @@
 | checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-arch) | unless session.platform.include?("linux") |
 | execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
+| listing processes | [listing processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listing-processes) | session.sys.process.get_processes().each do \|x\| |
 
 ---
 <br /><br /><br />
