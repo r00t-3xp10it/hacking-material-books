@@ -4,19 +4,15 @@
 > Description:<br />
 > The purpose of this cheat sheet is to describe some common options for some of the various components of the Metasploit Framework 
 
-## EXECUTE RUBY ONLINE:
-https://www.tutorialspoint.com/execute_ruby_online.php
+## [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
 
+<br /><br />
 
+## STDAPI OPERATIONS
 
+- **print time (hours)**
 
-########################## STDAPI OPERATIONS ##################################
-
-
-
-
-## print time (hours)
-print_line("Hello from a metasploit session at #{Time.now}")
+      print_line("Hello from a metasploit session at #{Time.now}")
 
 
 
