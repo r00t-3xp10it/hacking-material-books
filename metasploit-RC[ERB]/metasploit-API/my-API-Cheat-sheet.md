@@ -7,7 +7,7 @@
 
 <br />
 
-| article chapters | jump links | examples |
+| article chapters | jump links | API examples |
 |-------|---|---|
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | client.fs.file.writable?("%tmp%") |
 | checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-arch) | unless session.platform.include?("linux") |
