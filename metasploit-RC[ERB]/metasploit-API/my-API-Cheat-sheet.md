@@ -117,6 +117,8 @@
         vtemp << file_object.read
       end
 
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
 ---
 
 <br /><br /><br />
@@ -259,6 +261,8 @@ if vm
 end
 end
 
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
 ---
 
 <br /><br /><br />
@@ -306,6 +310,7 @@ parse = values.split(' ')[2]
 
 output: r00t-3xp10it
 
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
@@ -369,6 +374,8 @@ def check
       end
 end
 
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
 ---
 
 <br /><br /><br />
@@ -395,6 +402,8 @@ print_line("CONFIGS: #{command_output}")
 
 ## Execute remote command
 proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
+
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
@@ -426,6 +435,8 @@ def get_winlogon
       print_good("process found ..")
     end
 end
+
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
@@ -493,6 +504,8 @@ end
      # Store in tables and print results on screen
      tbl << [vtemp]
      print_line("\n" + tbl.to_s + "\n")
+
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
@@ -589,6 +602,8 @@ key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windo
     print_status("Error: failed to open the registry key for writing")
   end
 end
+
+[article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
 
