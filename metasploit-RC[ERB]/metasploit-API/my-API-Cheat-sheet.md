@@ -76,8 +76,8 @@
       proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
 - **Executing a shell command (not meterpreter)**
+'we need to escape the remote_path var because sed command uses /// as command separator'
 
-      # we need to escape the remote_path var because sed command uses /// as command separator
       app_path = "/root/payload.sh"
       parse = app_path.gsub('/', '\\/')
       session.shell_command("sed -i 's|@reboot \* \* \* \* root #{parse}||' /etc/crontab")
