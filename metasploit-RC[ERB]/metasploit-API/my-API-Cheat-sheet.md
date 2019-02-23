@@ -5,6 +5,10 @@
 
 ### [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
 
+### [Metasploit Remote API (hd moore)](https://community.rapid7.com/docs/DOC-1516)
+
+### [Documentation for rapid7/metasploit-framework (master)](https://www.rubydoc.info/github/rapid7/metasploit-framework/index)
+
 | Name | Description | Type | Default Value | 
 |------|-------------|------|---------------|
 | remote_file | Remote file to download | url | https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md|
