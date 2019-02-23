@@ -119,7 +119,7 @@
 <br /><br /><br />
 
 
-########################## VARIOUS CHECKS #################################
+## VARIOUS CHECKS
 
 
 
@@ -260,7 +260,7 @@ end
 
 <br /><br /><br />
 
-#################### ruby string manipulation
+## ruby string manipulation
 
 ## substitution of chars using gsub()
 app_path = 'C:\windows\system32\calc.exe'
@@ -308,7 +308,7 @@ output: r00t-3xp10it
 
 <br /><br /><br />
 
-########################## CHECK TARGET ARCH ##################################
+## CHECK TARGET ARCH
 
 
 
@@ -370,7 +370,7 @@ end
 
 <br /><br /><br />
 
-####################### EXECUTE REMOTE COMMANDS ###############################
+## EXECUTE REMOTE COMMANDS
 
 
 
@@ -397,7 +397,7 @@ proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' =
 
 <br /><br /><br />
 
-########################### LIST PROCESS ##################################
+## LISTTING REMOTE PROCESSES
 
 
 
@@ -428,7 +428,7 @@ end
 
 <br /><br /><br />
 
-######################### VARIOUS OPERATIONS #################################
+## VARIOUS OPERATIONS
 
 
 
@@ -495,7 +495,7 @@ end
 
 <br /><br /><br />
 
-########################### WRITING EXPLOITS ##################################
+## WRITING EXPLOITS
 
 
 
