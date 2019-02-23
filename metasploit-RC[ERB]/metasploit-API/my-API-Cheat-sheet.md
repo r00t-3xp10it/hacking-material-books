@@ -1,7 +1,7 @@
 
 ## METASPLOIT API CHEAT SHEET
 
-<blockquote>Description:<br />The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework to assiste developers into writing metasploit modules, it is worthy to note that the Metasploit has a full-featured Ruby client API. The objective of this cheat sheet its.</blockquote>
+<blockquote>The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework to assiste developers into writing metasploit modules, it is worthy to note that the Metasploit has a full-featured Ruby client API.</blockquote>
 
 #### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
