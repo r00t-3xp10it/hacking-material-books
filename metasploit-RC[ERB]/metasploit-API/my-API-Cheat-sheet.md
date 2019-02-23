@@ -3,11 +3,9 @@
 
 <blockquote>Description:<br />The purpose of this cheat sheet is to describe some common options for some of the various components of the Metasploit Framework, it is worthy to note that the Metasploit has a full-featured Ruby client API.</blockquote>
 
-### [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
-
-### [Metasploit Remote API (hd moore)](https://community.rapid7.com/docs/DOC-1516)
-
-### [Documentation for rapid7/metasploit-framework (master)](https://www.rubydoc.info/github/rapid7/metasploit-framework/index)
+#### [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
+#### [Metasploit Remote API (hd moore)](https://community.rapid7.com/docs/DOC-1516)
+#### [Documentation for rapid7/metasploit-framework (master)](https://www.rubydoc.info/github/rapid7/metasploit-framework/index)
 
 | Name | Description | Type | Default Value | 
 |------|-------------|------|---------------|
