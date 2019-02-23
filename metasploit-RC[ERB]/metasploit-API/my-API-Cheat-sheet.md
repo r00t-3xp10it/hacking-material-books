@@ -6,6 +6,11 @@
 
 ### [Execute ruby online](https://www.tutorialspoint.com/execute_ruby_online.php)
 
+| Name | Description | Type | Default Value | 
+|------|-------------|------|---------------|
+| remote_file | Remote file to download | url | https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md|
+| local_file | Local file path to save downloaded file | path | C:\Windows\Temp\bitsadmin_flag.ps1|
+
 <br /><br />
 
 ## STDAPI OPERATIONS
