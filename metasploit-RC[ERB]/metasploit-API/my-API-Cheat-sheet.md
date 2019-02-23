@@ -8,11 +8,11 @@
 | article chapters | jump links | API examples |
 |-------|---|---|
 | Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target its not compatible with this module ...") |
+| execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | if client.fs.file.writable?("%tmp%") |
+| checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-target-arch) | unless session.platform.include?("linux") |
 | various checks | [various checks ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-checks) | mul = client.framework.exploits.create("multi/handler") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
-| checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-target-arch) | unless session.platform.include?("linux") |
-| execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listting-remote-processes) | session.sys.process.get_processes().each do \|x\| |
 | various operations | [various operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-operations) | tbl = Rex::Ui::Text::Table.new('') |
 | writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
@@ -56,6 +56,33 @@
 
       output = cmd_exec("whoami")
       print_good("whoami: #{output}")
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
+---
+
+<br /><br /><br />
+
+## EXECUTE REMOTE COMMANDS
+
+
+## execute bash (/bin/sh) commands
+cmd_exec("mkdir -m 700 -p /root/test")
+cmd_exec("chmod 777 #{random_file_path}")
+cmd_exec("sh #{random_file_path}")
+system("msfconsole -q -x 'db_status'")
+
+
+
+## Execute command and display results
+print_status("Executing command: ifconfig wlan0")
+command_output = cmd_exec("ifconfig wlan0")
+print_line("CONFIGS: #{command_output}")
+
+
+
+## Execute remote command
+proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -153,6 +180,70 @@
         until file1.eof?
         vtemp << file_object.read
       end
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
+---
+
+<br /><br /><br />
+
+## CHECK TARGET ARCH
+
+
+
+
+## check FOR proper operative System
+if session.platform == 'windows'
+if not session.platform.include?("linux")
+
+
+
+## check FOR proper operative System (windows-not-wine)
+oscheck = client.fs.file.expand_path("%OS%")
+if not oscheck == "Windows_NT"
+  print_error("[ ABORT ]: This module only works againts windows systems")
+  return nil
+end
+
+
+
+## check FOR operative System
+if not sysinfo['OS'] =~ /Windows 10/
+  print_error("[ ABORT ]: This module only works againt windows 10 systems")
+  return nil
+end
+
+
+
+## determine target arch
+sysarch = sysinfo['Architecture']
+  if sysarch == ARCH_X86
+    target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
+  else
+    target_compspec = "C:\\Windows\\system32\\cmd.exe"
+  end
+
+
+
+## determine taget distro
+target_info = cmd_exec('uname -ms')
+if target_info =~ /linux/ || target_info =~ /Linux/
+  print_status("Platform: Linux")
+end
+
+
+
+## target System check method
+def check
+  vuln = false
+    winver = sysinfo["OS"]
+    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
+    affected.each { |v|
+      if winver.include? v
+        vuln = true
+        break
+      end
+end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -407,99 +498,6 @@ end
       parse = values.split(' ')[2]
 
       output: r00t-3xp10it
-
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
-
----
-
-<br /><br /><br />
-
-## CHECK TARGET ARCH
-
-
-
-
-## check FOR proper operative System
-if session.platform == 'windows'
-if not session.platform.include?("linux")
-
-
-
-## check FOR proper operative System (windows-not-wine)
-oscheck = client.fs.file.expand_path("%OS%")
-if not oscheck == "Windows_NT"
-  print_error("[ ABORT ]: This module only works againts windows systems")
-  return nil
-end
-
-
-
-## check FOR operative System
-if not sysinfo['OS'] =~ /Windows 10/
-  print_error("[ ABORT ]: This module only works againt windows 10 systems")
-  return nil
-end
-
-
-
-## determine target arch
-sysarch = sysinfo['Architecture']
-  if sysarch == ARCH_X86
-    target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
-  else
-    target_compspec = "C:\\Windows\\system32\\cmd.exe"
-  end
-
-
-
-## determine taget distro
-target_info = cmd_exec('uname -ms')
-if target_info =~ /linux/ || target_info =~ /Linux/
-  print_status("Platform: Linux")
-end
-
-
-
-## target System check method
-def check
-  vuln = false
-    winver = sysinfo["OS"]
-    affected = [ 'Windows Vista', 'Windows 7', 'Windows 2008' ]
-    affected.each { |v|
-      if winver.include? v
-        vuln = true
-        break
-      end
-end
-
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
-
----
-
-<br /><br /><br />
-
-## EXECUTE REMOTE COMMANDS
-
-
-
-
-## execute bash (/bin/sh) commands
-cmd_exec("mkdir -m 700 -p /root/test")
-cmd_exec("chmod 777 #{random_file_path}")
-cmd_exec("sh #{random_file_path}")
-system("msfconsole -q -x 'db_status'")
-
-
-
-## Execute command and display results
-print_status("Executing command: ifconfig wlan0")
-command_output = cmd_exec("ifconfig wlan0")
-print_line("CONFIGS: #{command_output}")
-
-
-
-## Execute remote command
-proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
