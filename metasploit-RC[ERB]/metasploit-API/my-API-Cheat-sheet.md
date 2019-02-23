@@ -6,10 +6,9 @@
 #### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
 
-| Name | Description | Type | Default Value | 
-|------|-------------|------|---------------|
-| remote_file | Remote file to download | url | https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md|
-| local_file | Local file path to save downloaded file | path | C:\Windows\Temp\bitsadmin_flag.ps1|
+|chapter|url|
+|-------|---|
+| stdapi operations | https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations |
 
 ---
 <br /><br /><br />
