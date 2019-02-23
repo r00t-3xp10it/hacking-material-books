@@ -7,7 +7,7 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
-| Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target its not compatible with this module") |
+| Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target sys its not compatible with this module") |
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | if client.fs.file.writable?("%tmp%") |
 | various checks | [various checks ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-checks) | mul = client.framework.exploits.create("multi/handler") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
@@ -24,10 +24,26 @@
 
 ## Print messages on terminal
 
+- **print green color**
+
       print_good("Target #{arch} its compatible with this module")
+
+- **print red color**
+
       print_error("Target #{arch} its not compatible with this module")
+
+- **print yellow color**
+
       print_warning("Aborting, module can't determine target arch.")
+
+- **print line**
+
       print_line("Hello from a metasploit session at #{Time.now}")
+
+- **execute command and display results**
+
+      output = cmd_exec("whoami")
+      print_good("whoami: #{output}")
 
 ---
 <br /><br /><br />
