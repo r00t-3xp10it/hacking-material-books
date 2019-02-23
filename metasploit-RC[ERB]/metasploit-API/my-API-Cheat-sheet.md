@@ -78,7 +78,8 @@
 - **Executing a shell command (not meterpreter)**
 
       # we need to escape the remote_path var because sed command uses /// as command separator
-      parse = app_path.gsub('/', '\/')
+      app_path = "/root/payload.sh"
+      parse = app_path.gsub('/', '\\/')
       session.shell_command("sed -i 's|@reboot \* \* \* \* root #{parse}||' /etc/crontab")
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
