@@ -65,16 +65,11 @@
       output = cmd_exec("whoami")
       print_good("whoami: #{output}")
 
-- **execute bash (/bin/sh) commands**
+- **execute bash commands (/bin/sh)**
 
       cmd_exec("mkdir -m 700 -p /root/test.s")
       cmd_exec("sh /root/test.sh")
       system("msfconsole -x 'db_status'")
-
-- **Execute command and display results**
-
-      output = cmd_exec("ifconfig wlan0")
-      print_good("CONFIGS: #{output}")
 
 - **Execute remote command (windows)**
 
