@@ -20,6 +20,7 @@
 #### [!] [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
 ---
+
 <br /><br /><br />
 
 ## Print messages on terminal
@@ -49,7 +50,10 @@
       output = cmd_exec("whoami")
       print_good("whoami: #{output}")
 
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
 ---
+
 <br /><br /><br />
 
 ## STDAPI OPERATIONS
