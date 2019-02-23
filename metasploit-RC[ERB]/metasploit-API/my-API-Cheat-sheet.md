@@ -299,46 +299,107 @@ end
 
 ## ruby string manipulation
 
-## substitution of chars using gsub()
-app_path = 'C:\windows\system32\calc.exe'
-puts "#{app_path}"
-puts "-------------------"
-if app_path.include? "\\"
-  final = app_path.gsub('\\', '\\\\\\')
-  puts "#{final}"
-end
 
+- **use .chomp to delete last char from string**
 
+      s = "hello"
+      s.chomp('o')
 
-## delete chars from var declarations (output: xfcxfdx00)
-char = datastore['shellcode'] # '\xfc\xfd\x00'
-char.delete "\\"
+      output: hell
 
+- **join strings together with .concat()**
 
+      s = "hello"
+      s.concat(" world")
 
-## join strings (output: powershell)
-values = ["pow", "ers", "hell"]
-result = values.join
-print_good("#{results}")
+      output: hello world
 
+- **string manipulation using .delete() and +**
 
+      remote_path = "/tmp/payload.sh"
+      rem = remote_path.delete(".sh")
+      mask = rem+"/cron"
+      puts mask
 
-## use .split [delimiter]
-values = "pedro ubuntu"
-parse = values.split(' ')
-print_status("#{parse}")
+      output: /tmp/payload/cron
 
-output:
-   pedro
-   ubuntu
+- **string manipulation using .delete() and .insert()**
 
+      remote_path = "/tmp/payload.sh"
+      rem = remote_path.delete(".sh")
+      mask = rem.insert(12,"/cron")
+      puts mask
 
+      output: /tmp/payload/cron
 
-## use .split to extract only the fields we want
-values = "pedro ubuntu r00t-3xp10it"
-parse = values.split(' ')[2]
+- **string manipulation (count chars in string)**
 
-output: r00t-3xp10it
+      remote_path = "/tmp/payload.sh"
+      rem = remote_path.length
+      puts rem
+
+      output: 15
+
+ - **string manipulation (subtitute chars global)**
+
+       remote_path = "/tmp/payload.sh"
+       rem = remote_path.gsub("a","0")
+       puts rem
+
+       output: /tmp/p0ylo0d.sh
+
+- **string manipulation (substitute 1º occurencie)**
+
+       remote_path = "/tmp/payload.sh"
+       rem = remote_path.sub("a","0")
+       puts rem
+
+       output: /tmp/p0yload.sh
+
+- **substitution of chars using .gsub()**
+
+      app_path = 'C:\windows\system32\calc.exe'
+      print_warning("path: #{app_path}")
+      print_line("-------------------")
+
+        if app_path.include? "\\"
+          final = app_path.gsub('\\', '\\\\\\')
+          print_good("final path: #{final}")
+        end
+
+      output: C:\\windows\\system32\\calc.exe
+
+- **delete chars from var declarations**
+
+      char = datastore['shellcode'] # '\xfc\xfd\x00'
+      output = char.delete "\\"
+
+      output: xfcxfdx00
+
+- **join strings**
+
+      values = ["pow", "ers", "hell"]
+      result = values.join
+      print_good("concaternate: #{results}")
+
+      output: powershell
+
+- **use .split() [delimiter]**
+
+      values = "pedro ubuntu"
+      parse = values.split(' ')
+      print_status("output: #{parse}")
+
+      output:
+        pedro
+        ubuntu
+
+- **use .split() to extract only the field we want**
+
+      values = "pedro ubuntu r00t-3xp10it"
+      parse = values.split(' ')[2]
+
+      output: r00t-3xp10it
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
