@@ -17,7 +17,7 @@
 | various operations | [various operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-operations) | tbl = Rex::Ui::Text::Table.new('') |
 | writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
 
-<br /><br />
+<br />
 
 ## EXTERNAL LINKS
 
