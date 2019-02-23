@@ -10,12 +10,13 @@
 | article chapters | jump links | API examples |
 |-------|---|---|
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | if client.fs.file.writable?("%tmp%") |
-| checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-arch) | unless session.platform.include?("linux") |
-| execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
-| listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listing-remote-processes) | session.sys.process.get_processes().each do \|x\| |
+| various checks | [various checks ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-checks) | mul = client.framework.exploits.create("multi/handler") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
-| various operations | [various operations ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-operations) | mul = client.framework.exploits.create("multi/handler") |
-| writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writting-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
+| checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-target-arch) | unless session.platform.include?("linux") |
+| execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
+| listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listting-remote-processes) | session.sys.process.get_processes().each do \|x\| |
+| various operations | [various operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-operations) | tbl = Rex::Ui::Text::Table.new( |
+| writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
 
 ---
 <br /><br /><br />
