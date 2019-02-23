@@ -1,7 +1,7 @@
 
-## MY METASPLOIT API CHEAT SHEET
+## METASPLOIT API CHEAT SHEET
 
-> Description:
+> Description:<br />
 > The purpose of this cheat sheet is to describe some common options for some of the various components of the Metasploit Framework 
 
 ## EXECUTE RUBY ONLINE:
