@@ -22,13 +22,13 @@
 ## EXTERNAL LINKS
 
 - [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
-- [rapid7: metasploit-framework API](http://www.rubydoc.info/github/rapid7/metasploit-framework/index)
-- [metasploit-unleashed: Writing_Meterpreter_Scripts](http://www.offensive-security.com/metasploit-unleashed/Writing_Meterpreter_Scripts)
-- [r00t-3xp10it: writing_a_linux_post_module_from_scratch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/writing_a_linux_post_module_from_scratch.md)
+- [Rapid7 metasploit-framework API](http://www.rubydoc.info/github/rapid7/metasploit-framework/index)
+- [Metasploit-unleashed Writing_Meterpreter_Scripts](http://www.offensive-security.com/metasploit-unleashed/Writing_Meterpreter_Scripts)
+- [r00t-3xp10it writing_a_linux_post_module_from_scratch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/writing_a_linux_post_module_from_scratch.md)
 
 ---
 
-<br /><br /><br />
+<br /><br /><br /><br />
 
 ## Print messages on terminal
 
