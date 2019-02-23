@@ -2,12 +2,11 @@
 ## METASPLOIT API CHEAT SHEET
 
 <blockquote>The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API. Documentation:https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
+#### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 
 <br />
 
-#### [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
-
-| article chapters | jump link |
+| article chapters | jump links |
 |-------|---|
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) |
 | checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-arch) |
