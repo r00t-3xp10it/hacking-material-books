@@ -23,6 +23,12 @@
 
 ## STDAPI OPERATIONS
 
+- **Print messages on screen**
+
+      print_good("Target #{arch} its compatible with this module")
+      print_error("Target #{arch} its not compatible with this module")
+      print_warning("Aborting, module can't determine target arch.")
+
 - **print time (hours)**
 
       print_line("Hello from a metasploit session at #{Time.now}")
@@ -77,8 +83,8 @@
       rc_full_path = "/root/ip.sh"
         con_rc << "#!/bin/sh\n"
         con_rc << "ifconfig wlan0"
-        print_line("Writing Console RC file to #{rc_full_path}")
         file_write(rc_full_path, con_rc)
+      print_line("Writing Console RC file to #{rc_full_path}")
 
 - **write to remote file**
 
