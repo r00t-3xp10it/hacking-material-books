@@ -3,8 +3,6 @@
 
 <blockquote>The purpose of this cheat sheet is to describe some common scripting technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API. Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
 
-<br /><br />
-
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
 | article chapters | jump links | API examples |
