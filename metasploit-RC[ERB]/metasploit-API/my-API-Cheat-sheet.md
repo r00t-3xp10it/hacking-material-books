@@ -671,8 +671,8 @@ system along with the details like IP, netmask, mac_address etc.
 
       cmd_exec("REG ADD HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f")
 
-- **write reg key remote using .process.execute()**
-'execute cmd prompt in a **hidden** channelized windows'<br />
+- **write reg key remote using .process.execute()**<br />
+'execute cmd prompt in a **hidden** channelized windows'
 
       cmd = "HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f"
       r = session.sys.process.execute("cmd.exe /c REG ADD #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
