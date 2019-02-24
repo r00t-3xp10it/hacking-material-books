@@ -22,15 +22,6 @@
 
 <br />
 
-## includes/requires (msf libraries)
-<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
-
-      require 'rex'
-      require 'msf/core'
-      require 'msf/core/post/common'
-
-<br />
-
 ## EXTERNAL LINKS
 
 - [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
@@ -44,17 +35,24 @@
 <br /><br /><br /><br />
 
 ## METASPLOIT SKELETON
-<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
+
+- **Metasploit skeleton (requires|includes)**<br />
+<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows). Then we define a new class which inherits from the metasploit Post class</blockquote>
 
       require 'rex'
       require 'msf/core'
       require 'msf/core/post/common'
 
-      class MetasploitModule < Msf::Post
+        class MetasploitModule < Msf::Post
 
         include Msf::Post::File
         include Msf::Post::Linux::Priv
         include Msf::Post::Linux::System
+
+<br />
+
+- **Metasploit skeleton (initialize method)**<br />
+<blockquote>This initialize method is basically boilerplate code that tells metasploit information about your module so it can display said information to users inside the metasploit console..</blockquote>
 
         def initialize(info={})
           super(update_info(info,
@@ -73,10 +71,17 @@
 
         register_options(
           [
-            OptString.new('SESSION', [ true, 'The session number to run this module on', 1]),
-            OptString.new('APPL_PATH', [ true, 'Set absoluct path of malicious PE/Appl to run'])
+            OptString.new('SESSION', [ true, 'The session number to run this module on', 1])
           ], self.class)
         end
+
+      
+        def run
+          print_status("exploiting target machine")
+          output = cmd_exec("whoami")
+          print_line("#{output}")
+        end
+
 
 ---
 
