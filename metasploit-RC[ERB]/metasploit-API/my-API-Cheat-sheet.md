@@ -277,6 +277,15 @@
         return nil
       end
 
+- **Check if we are running in an higth integrity context (NT AUTHORITY/SYSTEM)**<br />
+'NT AUTHORITY/SYSTEM (windows based distos)'
+
+      target_uid = client.sys.config.getuid
+      unless target_uid =~ /NT AUTHORITY/SYSTEM/
+        print_error("[ABORT]: Admin access is required in target system ..")
+        return nil
+      end
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
