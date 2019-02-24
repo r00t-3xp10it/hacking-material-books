@@ -572,6 +572,28 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: payload.sh
 
+- **count number of / and replace payload name**
+
+      remote_path = "/tmp/ola/payload.sh"
+
+        # count nº of / and print only last field
+        if remote_path.count('/') == 1
+          payload_name = remote_path.split('/')[1]
+        elsif remote_path.count('/') == 2
+          payload_name = remote_path.split('/')[2]
+        elsif remote_path.count('/') == 3
+          payload_name = remote_path.split('/')[3]
+        end
+
+        # replace payload name
+        final_name = payload_name.sub("#{done}",'crond')
+
+      # print onscreen
+      puts final_name
+
+
+      output: crond
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
