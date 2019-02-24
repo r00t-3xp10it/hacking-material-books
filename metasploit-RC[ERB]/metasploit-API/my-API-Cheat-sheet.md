@@ -37,7 +37,7 @@
 ## METASPLOIT SKELETON
 
 - **Metasploit skeleton (requires|includes)**<br />
-<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
+<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, libs, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
 
       require 'rex'
       require 'msf/core'
@@ -52,7 +52,7 @@
 <br />
 
 - **Metasploit skeleton (initialize method)**<br />
-<blockquote>This initialize method is basically boilerplate code that tells metasploit information about your module so it can display said information to users inside the metasploit console. It also contains the 'register_options' method</blockquote>
+<blockquote>This initialize method is basically boilerplate code that tells metasploit information about your module so it can<br />display said information to users inside the metasploit console. It also contains the 'register_options' method</blockquote>
 
         def initialize(info={})
           super(update_info(info,
