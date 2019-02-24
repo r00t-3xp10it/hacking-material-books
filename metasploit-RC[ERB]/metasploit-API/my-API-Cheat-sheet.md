@@ -267,6 +267,17 @@
 
 ## VARIOUS CHECKS
 
+- **check to see if a string is empty**
+
+      name = ""
+      name.empty?    # true
+
+      name = "Sammy"
+      name.empty?    # false
+
+      name = "     "
+      name.empty?    # false
+
 - **check if remote file exists (windows)**
 
       print_warning("checking file existance")
@@ -409,17 +420,6 @@ system along with the details like IP, netmask, mac_address etc.
       remote_path = "/tmp/payload.sh"
       mask = remote_path.slice(0..-4)
       print_good("#{mask}")
-
-- **check to see if a string is empty**
-
-      name = ""
-      name.empty?    # true
-
-      name = "Sammy"
-      name.empty?    # false
-
-      name = "     "
-      name.empty?    # false
 
 - **use .chomp() to delete last char from a string**
 
