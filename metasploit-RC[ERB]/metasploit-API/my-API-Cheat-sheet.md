@@ -281,7 +281,7 @@
 'NT AUTHORITY/SYSTEM (windows based distos)'
 
       target_uid = client.sys.config.getuid
-      unless target_uid =~ /NT AUTHORITY/SYSTEM/
+      unless target_uid =~ /(NT AUTHORITY/SYSTEM)/
         print_error("[ABORT]: Admin access is required in target system ..")
         return nil
       end
