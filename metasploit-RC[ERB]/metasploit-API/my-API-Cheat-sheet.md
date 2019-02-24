@@ -586,7 +586,7 @@ system along with the details like IP, netmask, mac_address etc.
         end
 
         # replace payload name in absoluct path
-        final_name = remote_path.sub("#{done}",'crond')
+        final_name = remote_path.sub("#{payload_name}",'crond')
 
       # print onscreen
       puts "payload name: #{payload_name}"
