@@ -721,7 +721,7 @@ system along with the details like IP, netmask, mac_address etc.
 
 - **Build your own logfile with random name (local)**
 
-      data_entry = []
+      f = []
       rand = Rex::Text.rand_text_alpha(5)
       loot_folder = datastore['LOOT_FOLDER']
       File.open("#{loot_folder}/revert_#{rand}.rc", "w") do |f|
