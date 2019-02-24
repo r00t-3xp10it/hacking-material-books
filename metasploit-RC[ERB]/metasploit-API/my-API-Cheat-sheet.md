@@ -70,6 +70,11 @@
         ))
         end
 
+<br />
+
+- **Metasploit skeleton (register_options method)**<br />
+<blockquote>This method adds options that the user can specify before running the module.<br />The OptBool.new() API accepts bollean values (1 or 0 - true or false) to be inputed manually by user<br />The OptString.new() API accepts string values (text-numbers-symbols) to be inputed manually by user</blockquote>
+
         register_options(
           [
             OptBool.new('SESSION', [ true, 'The session number to run this module on', 1]),
