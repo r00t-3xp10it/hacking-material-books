@@ -572,6 +572,46 @@ system along with the details like IP, netmask, mac_address etc.
       tbl << [vtemp]
       print_line("\n" + tbl.to_s + "\n")
 
+      def check_firefox_win(path)
+          paths  = []
+          ffpath = []
+          path = path + "\\Mozilla\\"
+      print_status("Checking for Firefox profile in: #{path}")
+
+      stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
+      if !stat
+        print_error("Firefox was not found (Missing profiles.ini)")
+        return
+      end
+
+      session.fs.dir.foreach(path) do |fdir|
+        print_status("Found a Firefox directory: #{path + fdir}")
+        ffpath << path + fdir
+        break
+      end
+
+      if ffpath.empty?
+        print_error("Firefox was not found")
+        return
+      end
+
+      #print_status("Locating Firefox profiles")
+      path << "Firefox\\Profiles\\"
+
+      # We should only have profiles in the Profiles directory store them all
+      begin
+      session.fs.dir.foreach(path) do |pdirs|
+        next if pdirs == "." or pdirs == ".."
+        vprint_good("Found profile: #{path + pdirs}")
+        paths << path + pdirs
+      end
+      rescue
+        print_error("Profiles directory is missing")
+        return
+      end
+      paths.empty? ? (nil) : (paths)
+      end
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
@@ -672,53 +712,11 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
----
-
-      def check_firefox_win(path)
-          paths  = []
-          ffpath = []
-          path = path + "\\Mozilla\\"
-      print_status("Checking for Firefox profile in: #{path}")
-
-      stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
-      if !stat
-        print_error("Firefox was not found (Missing profiles.ini)")
-        return
-      end
-
-      session.fs.dir.foreach(path) do |fdir|
-        print_status("Found a Firefox directory: #{path + fdir}")
-        ffpath << path + fdir
-        break
-      end
-
-      if ffpath.empty?
-        print_error("Firefox was not found")
-        return
-      end
-
-      #print_status("Locating Firefox profiles")
-      path << "Firefox\\Profiles\\"
-
-      # We should only have profiles in the Profiles directory store them all
-      begin
-      session.fs.dir.foreach(path) do |pdirs|
-        next if pdirs == "." or pdirs == ".."
-        vprint_good("Found profile: #{path + pdirs}")
-        paths << path + pdirs
-      end
-      rescue
-        print_error("Profiles directory is missing")
-        return
-      end
-      paths.empty? ? (nil) : (paths)
-      end
-
-<br /><br /><br />
+## Discover target arch using regedit
 
 > Syntax: client.sys.config.sysinfo["System Language"]<br />
-> Output: "en_US"<br />
 > Comment: This will give operating system language of the compromised system.<br />
+
 
       REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
       0436 = "af;Afrikaans"
@@ -846,5 +844,7 @@ system along with the details like IP, netmask, mac_address etc.
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
+
+### Suspicious Shell Activity @2019
 
 EOF
