@@ -602,6 +602,7 @@ system along with the details like IP, netmask, mac_address etc.
 
 - **BUILD C template**
 
+```
       exeTEMPLATE = %{
         #include <stdio.h>
         #include <windows.h>
@@ -632,6 +633,7 @@ system along with the details like IP, netmask, mac_address etc.
       file_temp = File.new("temp.c", "w")
       file_temp.write(exeTEMPLATE)
       file_temp.close
+```
 
 - **This sample demonstrates how a file can be encoded using a framework encoder.**
 
