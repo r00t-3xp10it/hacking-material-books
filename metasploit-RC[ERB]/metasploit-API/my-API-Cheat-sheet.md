@@ -23,7 +23,7 @@
 
 ## includes/requires (msf libraries)
 <blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, HTTP, XOR, Base64, etc.
- **msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. HINT: This line alone gives us access to over 6,000+ different functions (API calls). **msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system (linux or windows).</blockquote>
+ **msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, etc. **msf/core/post/common** allow us to use the API cmd_exec() to execute bash commands on remote system (linux or windows).</blockquote>
 
       require 'rex'
       require 'msf/core'
