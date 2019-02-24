@@ -111,6 +111,19 @@
 
       client.fs.dir.mkdir("c:\\oldman")
 
+- **delete remote directory**
+
+       client.fs.dir.delete("c:\\oldman")
+
+- **Search for the specified file**
+'This will search for hacking.txt in the oldman directory and its **subdirectories**'
+
+      client.fs.file.search("c:\\oldman","hacking.txt")
+
+- **Check if specified file exists**
+
+      client.fs.file.exists?("c:\\oldman\\file.txt")
+
 - **Download file from target system**<br />
 'This will download dum.txt from taget and save it to attackers root directory'
 
@@ -129,6 +142,10 @@
 - **use backslash to escape double quotes or special caracters**
 
       print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
+
+- **Get current working directory**
+
+      client.fs.dir.pwd
 
 - **write to a local file**
 
