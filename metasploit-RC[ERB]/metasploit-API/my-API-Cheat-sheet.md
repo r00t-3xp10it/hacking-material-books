@@ -121,6 +121,13 @@
 
       print_line("Hello from a metasploit session at #{Time.now}")
 
+- **print data onscreen**
+
+      data = "print onscreen"
+      print_good(data)
+      print_warning("another way to: ", data)
+      print_warning("yet another way to: #{data}")
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
