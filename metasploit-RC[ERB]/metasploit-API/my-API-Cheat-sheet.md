@@ -399,9 +399,10 @@ system along with the details like IP, netmask, mac_address etc.
 - **Using .slice() to extract chars**
 <blockquote> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</blockquote>
 
-      "Sammy".slice(0)     # "s"
-      "Sammy".slice(1,2)   # "am"
-      "Sammy".slice(1..4)  # "ammy"
+      s = "Sammy"
+      s.slice(0)     # "s"
+      s.slice(1,2)   # "am"
+      s.slice(1..4)  # "ammy"
 
 - **check to see if a string is empty**
 
