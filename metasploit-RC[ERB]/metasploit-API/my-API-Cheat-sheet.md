@@ -719,6 +719,22 @@ system along with the details like IP, netmask, mac_address etc.
       print_warning("logfile stored: ~/.msf4/loot/persistence_#{rand}.txt")
       Rex::sleep(1.0)
 
+- **Build your own logfile with random name (local)**
+
+      data_entry = []
+      rand = Rex::Text.rand_text_alpha(5)
+      loot_folder = datastore['LOOT_FOLDER']
+      File.open("#{loot_folder}/revert_#{rand}.rc", "w") do |f|
+        f.write("# kali_initd_persistence\n")
+        f.write("####\n")
+        f.write("service: crontab\n")
+        f.write("service path: /etc/crontab\n")
+        f.write("payload: /root/payload.sh")
+        f.close
+      end
+      print_warning("logfile stored: #{loot_folder}/revert_#{rand}.rc")
+
+
 - **display report note to attacker**
 
       output = client.fs.file.expand_path("%SYSTEMDRIVE%")
