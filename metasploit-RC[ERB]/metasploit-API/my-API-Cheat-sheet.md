@@ -268,6 +268,15 @@
           end
       end
 
+- **Check if we are running in an higth integrity context (root)**<br />
+'uid=0 OR root (linux based distos)'
+
+      target_uid = client.sys.config.getuid
+      unless target_uid =~ /uid=0/ || target_uid =~ /root/
+        print_error("[ABORT]: root access is required in target system ..")
+        return nil
+      end
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
