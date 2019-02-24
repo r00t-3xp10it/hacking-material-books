@@ -72,7 +72,8 @@
 
         register_options(
           [
-            OptString.new('SESSION', [ true, 'The session number to run this module on', 1])
+            OptBool.new('SESSION', [ true, 'The session number to run this module on', 1]),
+            OptString.new('APPL_PATH', [ true, 'Set absoluct path of malicious PE/Appl to run'])
           ], self.class)
         end
 
