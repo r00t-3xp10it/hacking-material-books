@@ -553,7 +553,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: payload.sh
 
-- **count number of / and print last occurence**
+- **count number of / and print the last occurence (field)**
 
       remote_path = "/tmp/ola/payload.sh"
 
