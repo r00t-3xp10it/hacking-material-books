@@ -563,7 +563,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       remote_path = "/tmp/payload.sh"
       rem = remote_path.delete(".sh")
-      mask = rem+"/cron"
+      mask = rem + "/cron"
       puts mask
 
       output: /tmp/payload/cron
