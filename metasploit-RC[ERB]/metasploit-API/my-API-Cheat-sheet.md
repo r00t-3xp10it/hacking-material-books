@@ -562,15 +562,15 @@ system along with the details like IP, netmask, mac_address etc.
           'lan'
       ])
  
-     # Gather target user data
-     file1 = client.fs.file.new("%temp%\\dum.txt")
+      # Gather target user data
+      file1 = client.fs.file.new("%temp%\\dum.txt")
            vtemp = ""
            until file1.eof?
            vtemp << file.read
  
-     # Store in tables and print results on screen
-     tbl << [vtemp]
-     print_line("\n" + tbl.to_s + "\n")
+      # Store in tables and print results on screen
+      tbl << [vtemp]
+      print_line("\n" + tbl.to_s + "\n")
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
