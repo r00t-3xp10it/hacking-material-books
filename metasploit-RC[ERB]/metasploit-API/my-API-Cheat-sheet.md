@@ -850,7 +850,7 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
-## Discover target arch using regedit
+## Discover target system language
 
 > Syntax: client.sys.config.sysinfo["System Language"]<br />
 > Comment: This will give operating system language of the compromised system.<br />
