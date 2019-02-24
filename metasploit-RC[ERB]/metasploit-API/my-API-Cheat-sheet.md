@@ -53,7 +53,7 @@
 <br />
 
 - **Metasploit skeleton (initialize method)**<br />
-<blockquote>This initialize method is basically boilerplate code that tells metasploit information about your module so it can<br />display said information to users inside the metasploit console. It also contains the 'register_options' method</blockquote>
+<blockquote>This initialize method is basically boilerplate code that tells metasploit information about your module so it can<br />display said information to users inside the metasploit console.</blockquote>
 
         def initialize(info={})
           super(update_info(info,
