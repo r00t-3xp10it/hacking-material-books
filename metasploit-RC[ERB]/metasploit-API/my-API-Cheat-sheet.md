@@ -421,6 +421,8 @@ system along with the details like IP, netmask, mac_address etc.
       mask = remote_path.slice(0..-4)
       print_good("#{mask}")
 
+      output: /tmp/payload
+
 - **use .chomp() to delete last char from a string**
 
       s = "hello"
@@ -542,6 +544,14 @@ system along with the details like IP, netmask, mac_address etc.
       parse = values.split(' ')[2]
 
       output: r00t-3xp10it
+
+- **use .split() and / as delimiter and print 2º ocurrence**
+
+      remote_path = "/tmp/payload.sh"
+      final = remote_path.split('/')[2]
+      print_good("#{final}")
+
+      output: payload.sh
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
