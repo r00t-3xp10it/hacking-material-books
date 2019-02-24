@@ -631,8 +631,9 @@ system along with the details like IP, netmask, mac_address etc.
       def get_winlogon
         session.sys.process.get_processes().each do |x|
           if x['name'].downcase == "winlogon.exe"
+            print_good("process found ..")
+          end
         end
-        print_good("process found ..")
       end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
