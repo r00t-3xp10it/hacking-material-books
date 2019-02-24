@@ -557,10 +557,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       remote_path = "/tmp/ola/payload.sh"
 
-      # count number of / chars in string
-      mask = remote_path.count('/')
-
-      # parsing data (print field we want)
+      # count nº of / and print only last field
       if remote_path.count('/') == 1
         done = remote_path.split('/')[1]
       elsif remote_path.count('/') == 2
