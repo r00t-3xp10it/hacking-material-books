@@ -404,6 +404,12 @@ system along with the details like IP, netmask, mac_address etc.
       s.slice(1,2)   # "am"
       s.slice(1..4)  # "ammy"
 
+- **delete last 3 chars from string**
+
+      remote_path = "/tmp/payload.sh"
+      mask = remote_path.slice(0..-4)
+      print_good("#{mask}")
+
 - **check to see if a string is empty**
 
       name = ""
