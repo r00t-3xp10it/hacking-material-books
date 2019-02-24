@@ -7,6 +7,9 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
+| metasploit skeleton | [requires/includes/info](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-metasploit-skeleton) | print_error("Target its not compatible with this module ...") |
+
+
 | Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target its not compatible with this module ...") |
 | execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | if client.fs.file.writable?("%tmp%") |
@@ -41,6 +44,45 @@
 ---
 
 <br /><br /><br /><br />
+
+## METASPLOIT SKELETON
+<blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
+
+      require 'rex'
+      require 'msf/core'
+      require 'msf/core/post/common'
+
+      class MetasploitModule < Msf::Post
+
+        include Msf::Post::File
+        include Msf::Post::Linux::Priv
+        include Msf::Post::Linux::System
+
+        def initialize(info={})
+          super(update_info(info,
+            'Name'         => "SCRNSAVE T1180 (User-land Persistence)",
+            'Description'  => %q{
+               To achieve persistence the attacker can modify 'SCRNSAVE.EXE' value in the registry.
+          },
+            'License'      => MSF_LICENSE,
+            'Platform'     => ['linux'],
+            'SessionTypes' => ['meterpreter'],
+            'Author'       => [
+            'Pedro Ubuntu [r00t-3xp10it]',
+            ]
+        ))
+        end
+
+        register_options(
+          [
+            OptString.new('SESSION', [ true, 'The session number to run this module on', 1]),
+            OptString.new('APPL_PATH', [ true, 'Set absoluct path of malicious PE/Appl to run'])
+          ], self.class)
+        end
+
+---
+
+<br /><br /><br />
 
 ## Print messages on terminal
 
