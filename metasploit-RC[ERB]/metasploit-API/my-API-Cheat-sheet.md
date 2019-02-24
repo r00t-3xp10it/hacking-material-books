@@ -116,7 +116,7 @@
 
        client.fs.dir.delete("c:\\oldman")
 
-- **Search for the specified file**
+- **Search for the specified file**<br />
 'This will search for hacking.txt in the oldman directory and its **subdirectories**'
 
       client.fs.file.search("c:\\oldman","hacking.txt")
@@ -330,8 +330,8 @@
         print_line('not a system access level') 
       end
 
-- **List all the available interfaces from victims system**
-comment: This will return an array of the first interface available in the victims
+- **List all the available interfaces from victims system**<br />
+**comment:** This will return an array of the first interface available in the victims<br />
 system along with the details like IP, netmask, mac_address etc.
 
       vtemp = "client.net.config.get_interfaces"
@@ -396,9 +396,8 @@ system along with the details like IP, netmask, mac_address etc.
 
 ## ruby string manipulation
 
-<scriptblock> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</scriptblock>
-
 - **Using .slice() to extract chars**
+<blockquote> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</blockquote>
 
       "Sammy".slice(0)     # "s"
       "Sammy".slice(1,2)   # "am"
@@ -429,7 +428,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: hlo
 
-- **The index method returns the index of a string**
+- **The index method returns the index of a string**<br />
 'The index method only finds the **first occurrance** though'
 
       s = "hello"
