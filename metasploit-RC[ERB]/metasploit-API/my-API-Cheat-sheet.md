@@ -27,6 +27,7 @@
 - [Execute Ruby Online (Ruby v2.4.1)](https://www.tutorialspoint.com/execute_ruby_online.php)
 - [Rapid7 metasploit-framework API](http://www.rubydoc.info/github/rapid7/metasploit-framework/index)
 - [Metasploit-unleashed Writing_Meterpreter_Scripts](http://www.offensive-security.com/metasploit-unleashed/Writing_Meterpreter_Scripts)
+- [Rapid7 get started with writing an auxiliary module](https://github.com/rapid7/metasploit-framework/wiki/How-to-get-started-with-writing-an-auxiliary-module)
 - [r00t-3xp10it writing_a_linux_post_module_from_scratch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/writing_a_linux_post_module_from_scratch.md)
 - [digitalocean how to work with strings methods in ruby](https://www.digitalocean.com/community/tutorials/how-to-work-with-string-methods-in-ruby)
 
@@ -61,7 +62,7 @@
                To achieve persistence the attacker can modify 'SCRNSAVE.EXE' value in the registry.
           },
             'License'      => MSF_LICENSE,
-            'Platform'     => ['linux'],
+            'Platform'     => ['windows'],
             'SessionTypes' => ['meterpreter'],
             'Author'       => [
             'Pedro Ubuntu [r00t-3xp10it]',
