@@ -586,13 +586,16 @@ system along with the details like IP, netmask, mac_address etc.
         end
 
         # replace payload name
-        final_name = payload_name.sub("#{done}",'crond')
+        final_name = payload_name.sub("#{done}",'/crond')
 
       # print onscreen
-      puts final_name
+      puts "payload name: #{payload_name}"
+      puts "final name  : #{final_name}"
 
 
-      output: crond
+      output:
+        payload name: /payload.sh
+        final name  : /crond
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
