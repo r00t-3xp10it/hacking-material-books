@@ -1,7 +1,7 @@
 
 ## METASPLOIT API CHEAT SHEET
 
-<blockquote>The objective of this cheat sheet is to describe some common API technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has a full-featured Ruby client API Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
+<blockquote>The objective of this cheat sheet is to describe some common API technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has<br />a full-featured Ruby client API Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
@@ -36,7 +36,7 @@
 
 ## METASPLOIT SKELETON
 
-- **Metasploit skeleton (requires|includes)**<br />
+- **Metasploit skeleton - Linux (requires|includes)**<br />
 <blockquote>**rex** is the basic library for most tasks: Handles sockets, protocols, text transformations, SSL, SMB, XOR, Base64.<br />**msf/core** will include all the functionalities from the core library. the framework’s core library is the low-level interface that provides the required functionality for interacting with exploit modules, sessions, plugins, encoders, libs, etc.<br />**msf/core/post/common** allow us to use cmd_exec() to execute commands on remote system (linux or windows).</blockquote>
 
       require 'rex'
