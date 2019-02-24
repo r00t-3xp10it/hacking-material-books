@@ -65,7 +65,7 @@
             'Platform'     => ['windows'],
             'SessionTypes' => ['meterpreter'],
             'Author'       => [
-            'Pedro Ubuntu [r00t-3xp10it]',
+              'Pedro Ubuntu [r00t-3xp10it]',
             ]
         ))
         end
