@@ -25,6 +25,7 @@
 - [Rapid7 metasploit-framework API](http://www.rubydoc.info/github/rapid7/metasploit-framework/index)
 - [Metasploit-unleashed Writing_Meterpreter_Scripts](http://www.offensive-security.com/metasploit-unleashed/Writing_Meterpreter_Scripts)
 - [r00t-3xp10it writing_a_linux_post_module_from_scratch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/writing_a_linux_post_module_from_scratch.md)
+- [digitalocean how to work with strings methods in ruby](https://www.digitalocean.com/community/tutorials/how-to-work-with-string-methods-in-ruby)
 
 ---
 
@@ -395,13 +396,52 @@ system along with the details like IP, netmask, mac_address etc.
 
 ## ruby string manipulation
 
+<scriptblock> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</scriptblock>
 
-- **use .chomp to delete last char from string**
+- **Using .slice() to extract chars**
+
+      "Sammy".slice(0)     # "s"
+      "Sammy".slice(1,2)   # "am"
+      "Sammy".slice(1..4)  # "ammy"
+
+- **check to see if a string is empty**
+
+      name = ""
+      name.empty?    # true
+
+      name = "Sammy"
+      name.empty?    # false
+
+      name = "     "
+      name.empty?    # false
+
+- **use .chomp() to delete last char from a string**
 
       s = "hello"
       s.chomp('o')
 
       output: hell
+
+- **Use .chomp() method to remove multiple characters from the end of a string**
+
+      s = "hello"
+      s.chomp("el")
+
+      output: hlo
+
+- **The index method returns the index of a string**
+'The index method only finds the **first occurrance** though'
+
+      s = "hello"
+      s.index("e")
+
+      output: 2
+
+      s.index("o")
+      output: 5
+
+      s.index("Fish")
+      output: nil
 
 - **join strings together with .concat()**
 
