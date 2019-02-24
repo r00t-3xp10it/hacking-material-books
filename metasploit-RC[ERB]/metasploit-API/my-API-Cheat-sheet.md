@@ -225,13 +225,13 @@
         return nil
       end
 
-- **determine target arch (x86|x64)**
+- **determine target compsec arch (x86|x64)**
 
       sysarch = sysinfo['Architecture']
         if sysarch == ARCH_X86
-          target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
-        else
           target_compspec = "C:\\Windows\\system32\\cmd.exe"
+        else
+          target_compspec = "C:\\Windows\\SysWow64\\cmd.exe"
         end
 
 - **determine target distro (linux)**
@@ -240,7 +240,6 @@
       if target_info =~ /linux/ || target_info =~ /Linux/
         print_status("Platform: Linux")
       end
-
 
 
 - **another target System check method (windows)**
@@ -278,6 +277,13 @@
       name = "     "
       name.empty?    # false
 
+- **check if string its empty**
+
+      name = ""
+      if name.nil? || name == '' || name == ' '
+
+      output: true
+
 - **check if remote file exists (windows)**
 
       print_warning("checking file existance")
@@ -304,22 +310,24 @@
 - **check IF directory exists (local)**
 
       get_path = "/root/payload.sh"
-        if not File.directory?(get_path)
-          print_error("Remote path: #{get_path} not found ..")
-          return nil
-        end
+      unless File.directory?(get_path)
+        print_error("Remote path: #{get_path} not found ..")
+        return nil
+      end
 
 - **check IF string inputed contains \\ .**
 
+      app_path = "C:\windows\system32\calc.exe"
       if app_path.include? "\\"
 
 - **check IF string does NOT contains any \\ .**
 
+      app_path = "C:\windows\system32\calc.exe"
       unless app_path.include? "\\"
 
 - **check if we are in a meterpreter session**
 
-      if not sysinfo.nil?
+      if not sysinfo.nil? or sysinfo == ''
         print_status("Running module against #{sysnfo['Computer']}")
       end
 
@@ -342,7 +350,7 @@
       end
 
 - **List all the available interfaces from victims system**<br />
-**comment:** This will return an array of the first interface available in the victims<br />
+comment: This will return an array of the first interface available in the victims<br />
 system along with the details like IP, netmask, mac_address etc.
 
       vtemp = "client.net.config.get_interfaces"
@@ -520,7 +528,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: xfcxfdx00
 
-- **join strings**
+- **join strings (concaternation)**
 
       values = ["pow", "ers", "hell"]
       result = values.join
@@ -572,7 +580,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: payload.sh
 
-- **count number of / and replace payload name in absoluct path**
+- **count number of / and replace the payload name in absoluct path**
 
       remote_path = "/tmp/ola/payload.sh"
 
@@ -640,6 +648,19 @@ system along with the details like IP, netmask, mac_address etc.
         data_entry = cmd_exec("ifconfig")
         store_loot("ifconfig", "text/plain", session, data_entry, "output.txt", "output of ifconfig command")
       end
+
+- **Build your own logfile with random name**
+
+      data_entry = []
+      rand = Rex::Text.rand_text_alpha(5)
+        data_entry << "# kali_initd_persistence\n"
+        data_entry << "####\n"
+        data_entry << "service: crontab\n"
+        data_entry << "service path: /etc/crontab\n"
+        data_entry << "payload: /root/payload.sh"
+      store_loot("persistence_#{rand}", "text/plain", session, data_entry, "persistence_#{rand}.txt", "persistence_#{rand}")
+      print_warning("logfile stored: ~/.msf4/loot/persistence_#{rand}.txt")
+      Rex::sleep(1.0)
 
 - **display report note to attacker**
 
