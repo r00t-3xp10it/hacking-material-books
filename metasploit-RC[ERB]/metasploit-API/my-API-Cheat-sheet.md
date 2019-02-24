@@ -716,9 +716,9 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
-> Syntax: client.sys.config.sysinfo["System Language"]
-> Output: "en_US"
-> Comment: This will give operating system language of the compromised system.
+> Syntax: client.sys.config.sysinfo["System Language"]<br />
+> Output: "en_US"<br />
+> Comment: This will give operating system language of the compromised system.<br />
 
       REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
       0436 = "af;Afrikaans"
