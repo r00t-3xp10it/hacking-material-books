@@ -572,11 +572,11 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: payload.sh
 
-- **count number of / and replace payload name**
+- **count number of / and replace payload name in absoluct path**
 
       remote_path = "/tmp/ola/payload.sh"
 
-        # count nº of / and print only last field
+        # count nº of / and store only last field
         if remote_path.count('/') == 1
           payload_name = remote_path.split('/')[1]
         elsif remote_path.count('/') == 2
@@ -585,8 +585,8 @@ system along with the details like IP, netmask, mac_address etc.
           payload_name = remote_path.split('/')[3]
         end
 
-        # replace payload name
-        final_name = payload_name.sub("#{done}",'/crond')
+        # replace payload name in absoluct path
+        final_name = remote_path.sub("#{done}",'crond')
 
       # print onscreen
       puts "payload name: #{payload_name}"
@@ -594,8 +594,8 @@ system along with the details like IP, netmask, mac_address etc.
 
 
       output:
-        payload name: /payload.sh
-        final name  : /crond
+        payload name: payload.sh
+        final name  : /tmp/ola/crond
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
