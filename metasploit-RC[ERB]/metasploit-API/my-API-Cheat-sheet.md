@@ -17,7 +17,7 @@
 | listing remote processes | [listing remote processes](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#listting-remote-processes) | session.sys.process.get_processes().each do \|x\| |
 | manipulate registry | [manipulate regedit (remote)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#manipulate-regedit) | registry_getvaldata('HKCU\Control Panel','Title') |
 | store loot | [store loot (local)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#store-loot) | tbl = Rex::Ui::Text::Table.new('') |
-| writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
+| writting exploits | [writting exploits (C|VBS)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
 | discover system language | [discover language (regedit)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#discover-system-language) | client.sys.config.sysinfo['System Language'] |
 
 <br />
