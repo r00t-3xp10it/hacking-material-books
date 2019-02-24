@@ -17,6 +17,7 @@
 | manipulate registry | [manipulate regedit (remote)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#manipulate-regedit) | registry_getvaldata('HKCU\Control Panel','Title') |
 | store loot | [store loot (local)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#store-loot) | tbl = Rex::Ui::Text::Table.new('') |
 | writting exploits | [writting exploits](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#writing-exploits) | exeTEMPLATE = %{ #include <stdio.h> }, |
+| discover language | [discover language (regedit)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#discover-system-language) | client.sys.config.sysinfo['System Language'] |
 
 <br />
 
@@ -850,13 +851,29 @@ system along with the details like IP, netmask, mac_address etc.
 
 <br /><br /><br />
 
-## Discover target system language
+## DISCOVER SYSTEM LANGUAGE
 
-> Syntax: client.sys.config.sysinfo["System Language"]<br />
-> Comment: This will give operating system language of the compromised system.<br />
+> This will give us the operating system language of the compromised system.<br />
 
+- **Discover system language using msf API**
 
-      REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage
+      output = client.sys.config.sysinfo['System Language']
+      print_good("System lang detected: #{output}")
+
+- **Discover system language using cmd_exec()**
+
+      check = cmd_exec("REG QUERY HKLM\System\CurrentControlSet\Control\Nls\Language /v InstallLanguage")
+      if check == "0436"
+        parse = "af;Afrikaans"
+      elsif check == "041c"
+        parse = "sq;Albanian"
+      else
+        print_error("module can not determine system language")
+      end
+      print_good("system language detected: #{parse}")
+
+- **InstallLAnguage codes (regedit)**
+
       0436 = "af;Afrikaans"
       041C = "sq;Albanian"
       0001 = "ar;Arabic"
