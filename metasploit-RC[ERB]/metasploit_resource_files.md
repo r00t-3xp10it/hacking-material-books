@@ -1,6 +1,6 @@
 ## METASPLOIT RESOURCE FILES
 
-<blockquote>The objective of this cheat sheet is to describe some common API technics for some of the various components of the Metasploit Framework, to assiste developers into writing metasploit modules. It is worthy to note that the Metasploit has<br />a full-featured Ruby client API Documentation: https://www.rubydoc.info/github/rapid7/metasploit-framework/index</blockquote>
+<blockquote>Resource scripts provide an easy way for you to automate repetitive tasks in Metasploit. Conceptually, they're just like batch scripts. They contain a set of commands that are automatically and sequentially executed when you load the script in Metasploit. You can create a resource script by chaining together a series of Metasploit console commands and by directly embedding Ruby to do things like call APIs, interact with objects in the database, and iterate actions.</blockquote>
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
