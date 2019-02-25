@@ -712,7 +712,7 @@ system along with the details like IP, netmask, mac_address etc.
         final name  : /tmp/ola/crond
 
 - **Use .last together with .split('/') [delimiter] to extact the last index from string**<br />
-<blockquote>This next example uses / as delimiter to build an array list, then the .first method extracts<br />the first index of that array list or the .last method extracts the last index of that array list.<br />then we use .sub() method to replace the last index of array.</blockquote>
+<blockquote>This next example uses / as delimiter to build an array list, then the .first method extracts the first index of that array<br />or the .last method extracts the last index of that array list. Then we use .sub() method to replace the last index of array.</blockquote>
 
       remote_path = "/tmp/ola/payload.sh"
       chars = remote_path.split('/')
