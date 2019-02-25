@@ -8,7 +8,7 @@
 | article chapters | jump links | API examples |
 |-------|---|---|
 | metasploit skeleton | [requires-includes-info](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-skeleton) | include Msf::Post::Linux::System |
-| Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target its not compatible with this module ....") |
+| Print on terminal | [print messages on terminal](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#print-messages-on-terminal) | print_error("Target its not compatible with this module.") |
 | execute remote commands | [executing remote commands](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#execute-remote-commands) | cmd_exec("chmod 777 #{random_file_path}") |
 | stdapi operations | [stdapi operations](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#stdapi-operations) | if client.fs.file.writable?("%tmp%") |
 | checking target arch | [checking target system arch](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#check-target-arch) | unless session.platform.include?("linux") |
