@@ -600,19 +600,28 @@ system along with the details like IP, netmask, mac_address etc.
 
       if registry_getvaldata('HKLM\HARDWARE\DESCRIPTION\System','SystemBiosVersion') =~ /vbox/i
         vm = true
+        box = "vbox"
       end
 
       if not vm
         srvvals = registry_enumkeys('HKLM\SYSTEM\ControlSet001\Services')
           if srvvals and srvvals.include?("VBoxMouse")
             vm = true
+            box = "VBoxMouse"
           elsif srvvals and srvvals.include?("VBoxGuest")
             vm = true
+            box = "VBoxGuest"
           elsif srvvals and srvvals.include?("VBoxService")
             vm = true
+            box = "VBoxService"
           elsif srvvals and srvvals.include?("VBoxSF")
             vm = true
+            box = "VBoxSF"
           end
+      end
+
+      if vm == true
+        print_warning("value: #{box}")
       end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
