@@ -195,9 +195,13 @@
 
       client.fs.file.mv("C:\\oldname","C:\\newname")
 
-- **check if file its writeable**
+- **check if file its writable**
 
-      client.fs.file.writeable?("C:\\Users\\pedro\\Desktop")
+      client.fs.file.writable?("C:\\Users\\pedro\\Desktop")
+
+-**check if a file its executable**
+
+      client.fs.file.executable?("C:\\Users\\pedro\\Desktop\\payload.exe")
 
 - **make a directory named "oldman"**
 
@@ -855,6 +859,14 @@ system along with the details like IP, netmask, mac_address etc.
       output:
         payload name: payload.sh
         final name  : /tmp/ola/crond
+
+- **Returns the last character of a string**<br />
+'If a limit is supplied returns a substring fom the beggining of string until it reaches the limit value'
+
+      remote_path = "/tmp/ola/payload.sh"
+      parse = remote_path.last(10)
+
+      output: payload.sh
 
 - **Use .last together with .split('/') [delimiter] to extact the last index from string**<br />
 <blockquote>This next example uses / as delimiter to build an array list, then the .first method extracts the first index of that array<br />or the .last method extracts the last index of that array list. Then we use .sub() method to replace the last index of array.</blockquote>
