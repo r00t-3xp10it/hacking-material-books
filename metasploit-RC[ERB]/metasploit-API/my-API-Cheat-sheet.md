@@ -534,7 +534,7 @@ system along with the details like IP, netmask, mac_address etc.
       s = "hello"
       s.chomp("el")
 
-      output: hlo
+      output: ho
 
 - **The index method returns the index of a string**<br />
 'The index method only finds the **first occurrance** though'
