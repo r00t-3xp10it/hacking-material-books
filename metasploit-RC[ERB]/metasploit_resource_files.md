@@ -42,6 +42,6 @@
 
 <br /><br /><br />
 
-## ERB SCRIPTING
+## ERB SCRIPTING (ruby)
 
 
