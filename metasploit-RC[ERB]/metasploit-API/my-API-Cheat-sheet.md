@@ -557,6 +557,12 @@ system along with the details like IP, netmask, mac_address etc.
         print_status("Running module against #{sysnfo['Computer']}")
       end
 
+- **check if we are in a meterpreter session**
+
+      if session.type == "meterpreter"
+        print_good("we are running a meterpreter session")
+      end
+
 - **check if sessions its admin**
 
       isadd = is_admin?
@@ -709,7 +715,19 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: 15
 
- - **string manipulation (subtitute chars global)**
+- **string manipulation (count chars in string)**
+
+      remote_path = "/tmp/payload.sh"
+      rem = remote_path.length
+        if remote_path.length > 10
+          puts "length: #{rem} its higher than 10 chars long"
+        else
+          puts "length: #{rem} its smaller than 10 chars long"
+        end
+
+      output: length: 15 its higher than 10 chars long
+
+- **string manipulation (subtitute chars global)**
 
        remote_path = "/tmp/payload.sh"
        rem = remote_path.gsub("a","0")
