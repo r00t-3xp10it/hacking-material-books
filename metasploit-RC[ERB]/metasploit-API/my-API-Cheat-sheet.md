@@ -529,7 +529,7 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: hell
 
-- **Use .chomp() method to remove multiple characters from the end of a string**
+- **Use .chomp() method to remove multiple characters from the string**
 
       s = "hello"
       s.chomp("el")
