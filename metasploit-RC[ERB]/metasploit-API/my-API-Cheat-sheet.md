@@ -509,7 +509,7 @@ system along with the details like IP, netmask, mac_address etc.
 ## RUBY STRING MANIPULATION
 
 - **Using .slice() to extract chars**
-<blockquote> The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</blockquote>
+<blockquote>The slice method lets you grab a single character or a range of characters. Passing a single integer returns the character at that index. Passing two integers, separated by a comma, tells slice to return all the characters from the first index to the last index, inclusive. The slice method also accepts a range, such as 1..4, to specify the characters to extract:</blockquote>
 
       s = "Sammy"
       s.slice(0)     # "s"
@@ -629,6 +629,19 @@ system along with the details like IP, netmask, mac_address etc.
 
       output: powershell
 
+- **Check if last string prefix corresponds to ubuntu**<br />
+'we can use the **end_with?** method to check if a string ends with a specific prefix'.
+
+      text = "pedro ubuntu r00t-3xp10it"
+      final = text.end_with?("ubuntu")
+        if final == true
+          puts true
+      else
+          puts false
+      end
+
+      output: true
+
 - **use .split() [delimiter]**
 
       values = "pedro ubuntu"
@@ -697,6 +710,25 @@ system along with the details like IP, netmask, mac_address etc.
       output:
         payload name: payload.sh
         final name  : /tmp/ola/crond
+
+- **Use .last together with .split('/') [delimiter] to extact the last index from string**<br />
+<blockquote>This next example uses / as delimiter to build an array list, then the .first method extracts<br />the first index of that array list or the .last method extracts the last index of that array list.<br />then we use .sub() method to replace the last index of array.</blockquote>
+
+      remote_path = "/tmp/ola/payload.sh"
+      chars = remote_path.split('/')
+        puts "My array is: #{chars}"
+        puts "the first index is: #{chars.first}"
+        puts "Your last index is: #{chars.last}"
+
+        # replace payload name in absoluct path
+        final_path = remote_path.sub("#{chars.last}",'crond')
+
+        print_good("final path: #{final_path}")
+
+      output: My array is: ["tmp", "ola", "payload.sh"]
+      output: the first index is: tmp
+      output: Your last index is: payload.sh
+      output: final path: /tmp/ola/crond
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
