@@ -8,3 +8,9 @@
 |-------|---|---|
 | metasploit skeleton | [requires-includes-info](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-skeleton) | include Msf::Post::Linux::System |
 
+<br />
+
+## EXTERNAL LINKS
+
+- [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
+
