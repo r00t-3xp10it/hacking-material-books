@@ -811,10 +811,10 @@ system along with the details like IP, netmask, mac_address etc.
 
 - **Checks if a key exists on the target registry**
 
-      base_key = "ScreenSaveActive"
-      root_key = "HKCU\\Software\\Microsoft\\title"
-      if registry_key_exist?(root_key, base_key)
-      print_good("ScreenSaveActive value found in regedit")
+      data = registry_key_exist?('HKCU\Control Panel\Desktop','ScreenSaveActive')
+        unless data.nil? || data.empty?
+        print_good("value: ScreenSaveActive found in regedit.")
+      end
 
 - **Read remote registry key and store results in local var**
 
