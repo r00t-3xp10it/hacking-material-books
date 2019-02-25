@@ -6,7 +6,7 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
-| resource files | [resource files examples](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#resource-files-examples) |  run migrate -n wininit.exe |
+| resource files | [resource files examples](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
 
 <br />
 
