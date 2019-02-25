@@ -20,13 +20,15 @@
 ## EXTERNAL LINKS
 
 - [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
-- [Rapid7 resource]
+- [INULBR metasploit-automatizacao](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html#more)
+- [Offensiveinfosec writing-resource-scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/)
 
 ---
 
 <br /><br /><br />
 
 ## RESOURCE FILES EXAMPLES
+<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
 - **Runing resource files**
 
@@ -34,12 +36,12 @@
       msfconsole -r /root/version.rc
       meterpreter > resource /root/version.rc
 
-- **The following example creates a resource file to display the version number of metasploit.**
+- **Create a resource file to display the version number of metasploit (manually).**
 
       touch version.rc
       echo 'version' >> version.rc
 
-- **Use the core command 'makerc' to build your resource file**<br />
+- **Create a resource file using the core command 'makerc'**<br />
 'maekerc will build a resource file with the settings enter in msfconsole'
 
       kali > msfconsole
@@ -60,7 +62,35 @@
 
 ## ERB SCRIPTING (ruby)
 
+- **erb scripting**
 
+      <ruby>
+      framework.db.hosts.each do |h|
+         h.services.each do |serv|
+ 
+         if serv.port == 445 and h.os_flavor =~/XP|.NET Server|2003/i
+                next if (serv.port != 445)
+                print_good("#{h.address} seems to be Windows #{h.os_flavor}...")
+                self.run_single("use exploit/windows/smb/ms08_067_netapi")
+                print_good("Running ms08_067_netapi check against #{h.address}")
+                self.run_single("set RHOST #{h.address}")
+                self.run_single("check")
+   
+         elsif serv.port == 5900 and h.os_name =~/Linux/i
+                next if (serv.port != 5900)
+                print_good("#{h.address} seems to be Linux #{h.os_flavor}...")
+                self.run_single("use auxiliary/scanner/vnc/vnc_none_auth")
+                print_good("Running VNC no auth check against #{h.os_flavor}")
+                self.run_single("set RHOSTS #{h.address}")
+                self.run_single("run")
+ 
+         else
+                print_error("#{h.address} does not have port 445/5900 open")
+                return nil 
+         end
+       end
+      end
+      </ruby>
 
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
