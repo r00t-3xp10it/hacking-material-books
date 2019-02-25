@@ -716,14 +716,14 @@ system along with the details like IP, netmask, mac_address etc.
 
       remote_path = "/tmp/ola/payload.sh"
       chars = remote_path.split('/')
+
         puts "My array is: #{chars}"
         puts "the first index is: #{chars.first}"
         puts "Your last index is: #{chars.last}"
-
+        #
         # replace payload name in absoluct path
         final_path = remote_path.sub("#{chars.last}",'crond')
-
-        print_good("final path is: #{final_path}")
+      print_good("final path is: #{final_path}")
 
       output: My array is: ["tmp", "ola", "payload.sh"]
       output: the first index is: tmp
