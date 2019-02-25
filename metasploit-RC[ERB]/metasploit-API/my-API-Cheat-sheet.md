@@ -199,7 +199,7 @@
 
       client.fs.file.writable?("C:\\Users\\pedro\\Desktop")
 
--**check if a file its executable**
+- **check if a file its executable**
 
       client.fs.file.executable?("C:\\Users\\pedro\\Desktop\\payload.exe")
 
@@ -724,14 +724,14 @@ system along with the details like IP, netmask, mac_address etc.
       remote_path = "/tmp/payload.sh"
       rem = remote_path.length
         if remote_path.length > 10
-          puts "length: #{rem} its higher than 10 chars long"
+          puts "supplied path its higher than 10 chars long"
         elsif remote_path.length == 10
-          puts "length: #{rem} its 10 chars long"
+          puts "supplied path its 10 chars long"
         else
-          puts "length: #{rem} its smaller than 10 chars long"
+          puts "supplied path its smaller than 10 chars long"
         end
 
-      output: length: 15 its higher than 10 chars long
+      output: supplied path its higher than 10 chars long
 
 - **string manipulation (subtitute chars global)**
 
@@ -860,8 +860,8 @@ system along with the details like IP, netmask, mac_address etc.
         payload name: payload.sh
         final name  : /tmp/ola/crond
 
-- **Returns the last character of a string**<br />
-'If a limit is supplied returns a substring fom the beggining of string until it reaches the limit value'
+- **Returns the last 10 characters of a string**<br />
+'If a limit is supplied(10) returns a substring fom the beggining of string until it reaches the limit value'
 
       remote_path = "/tmp/ola/payload.sh"
       parse = remote_path.last(10)
