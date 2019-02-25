@@ -861,7 +861,7 @@ system along with the details like IP, netmask, mac_address etc.
         final name  : /tmp/ola/crond
 
 - **Returns the first 8 characters of a string**<br />
-'If a limit is supplied(10) returns a substring fom the beggining of string until it reaches the limit value'
+'If a limit is supplied(8) returns a substring fom the beggining of string until it reaches the limit value'
 
       remote_path = "/tmp/ola/payload.sh"
       parse = remote_path.first(8)
