@@ -7,7 +7,7 @@
 | article chapters | jump links | API examples |
 |-------|---|---|
 | resource files | [resource files examples](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
-| erb scripting| [ERB scripting](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting) | run_single("services #{framework.datastore['RHOSTS']}") |
+| erb scripting| [ERB scripting](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | run_single("services #{framework.datastore['RHOSTS']}") |
 
 <br />
 
