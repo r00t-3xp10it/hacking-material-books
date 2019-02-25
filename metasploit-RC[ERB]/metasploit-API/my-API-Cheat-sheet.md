@@ -723,12 +723,12 @@ system along with the details like IP, netmask, mac_address etc.
         # replace payload name in absoluct path
         final_path = remote_path.sub("#{chars.last}",'crond')
 
-        print_good("final path: #{final_path}")
+        print_good("final path is: #{final_path}")
 
       output: My array is: ["tmp", "ola", "payload.sh"]
       output: the first index is: tmp
       output: Your last index is: payload.sh
-      output: final path: /tmp/ola/crond
+      output: final path is: /tmp/ola/crond
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
