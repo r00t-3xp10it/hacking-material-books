@@ -623,12 +623,12 @@ system along with the details like IP, netmask, mac_address etc.
 
       values = ["pow", "ers", "hell"]
       result = values.join
-      print_good("concaternate: #{results}")
+      print_good("concaternate: #{result}")
 
       output: powershell
 
-- **Check if last string prefix corresponds to ubuntu**<br />
-'we can use the **end_with?** method to check if a string ends with a specific prefix'.
+- **Check if last string prefix corresponds to ubuntu string**<br />
+'we can use the **end_with?** method to check if a string ends with a specific string'.
 
       text = "pedro ubuntu r00t-3xp10it"
       final = text.end_with?("ubuntu")
@@ -638,9 +638,9 @@ system along with the details like IP, netmask, mac_address etc.
           puts false
       end
 
-      output: true
+      output: false
 
-- **use .split() [delimiter]**
+- **use .split(' ') [empty space delimiter]**
 
       values = "pedro ubuntu"
       parse = values.split(' ')
@@ -650,7 +650,8 @@ system along with the details like IP, netmask, mac_address etc.
         pedro
         ubuntu
 
-- **use .split() to extract only the field we want**
+- **use .split() to extract only the field we want (2º string inside array)**<br />
+'Remmenber that ruby array index(s) starts in: [0][1][2]'
 
       values = "pedro ubuntu r00t-3xp10it"
       parse = values.split(' ')[2]
