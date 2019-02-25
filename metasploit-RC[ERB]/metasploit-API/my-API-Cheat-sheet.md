@@ -721,6 +721,8 @@ system along with the details like IP, netmask, mac_address etc.
       rem = remote_path.length
         if remote_path.length > 10
           puts "length: #{rem} its higher than 10 chars long"
+        elsif remote_path.length == 10
+          puts "length: #{rem} its 10 chars long"
         else
           puts "length: #{rem} its smaller than 10 chars long"
         end
