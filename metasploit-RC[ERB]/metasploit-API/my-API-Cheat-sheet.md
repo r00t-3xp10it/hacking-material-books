@@ -136,7 +136,7 @@
 
 ## EXECUTE REMOTE COMMANDS
 
-- **execute command and display results**
+- **execute one command and display results**
 
       output = cmd_exec("whoami")
       print_good("whoami: #{output}")
@@ -150,7 +150,7 @@
 
       proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
-- **Use backslash(s) to escape special caracters ["*\$!]**
+- **Use backslash(s) to escape special caracters [ "*\$! ]**
 
       proc = session.sys.process.execute("cmd.exe /c sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"", nil, {'Hidden' => true})
 
@@ -859,6 +859,15 @@ system along with the details like IP, netmask, mac_address etc.
       output:
         payload name: payload.sh
         final name  : /tmp/ola/crond
+
+- **Returns the first 8 characters of a string**<br />
+'If a limit is supplied(10) returns a substring fom the beggining of string until it reaches the limit value'
+
+      remote_path = "/tmp/ola/payload.sh"
+      parse = remote_path.first(8)
+
+      output: /tmp/ola
+
 
 - **Returns the last 10 characters of a string**<br />
 'If a limit is supplied(10) returns a substring fom the beggining of string until it reaches the limit value'
