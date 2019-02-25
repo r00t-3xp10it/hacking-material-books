@@ -38,10 +38,21 @@
 
 <br />
 
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
+
 ---
 
 <br /><br /><br />
 
 ## ERB SCRIPTING (ruby)
+
+
+
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
+
+---
+
+<br /><br /><br />
 
 
