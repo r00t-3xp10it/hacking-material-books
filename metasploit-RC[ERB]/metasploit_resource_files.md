@@ -6,7 +6,7 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
-| metasploit skeleton | [requires-includes-info](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-skeleton) | include Msf::Post::Linux::System |
+| resource files | [resource files examples](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#resource-files-examples) |  run migrate -n wininit.exe |
 
 <br />
 
@@ -19,4 +19,21 @@
 ## EXTERNAL LINKS
 
 - [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
+
+---
+
+<br /><br /><br />
+
+## RESOURCE FILES EXAMPLES
+
+- **The following example creates a resource file to display the version number of metasploit.**
+
+      touch version.rc
+      echo 'version' >> version.rc
+
+      run  :  msfconsole -r version.rc
+      or    :  msfconsole -r /root/version.rc
+      or    :  msf > resource /root/version.rc
+
+<br />
 
