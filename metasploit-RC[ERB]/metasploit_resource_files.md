@@ -49,7 +49,7 @@
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
-    `[run]` msfconsole -r my_resource_file.rc
+    `[run]` msfconsole -r /root/my_resource_file.rc
 
 - **Create a resource file to display the version number of metasploit (makerc)::**`[metasploit prompt]`<br />
 
@@ -74,7 +74,7 @@
          echo 'set ExitOnSession false' >> my_resource_file.rc
          echo 'exploit' >> my_resource_file.rc
 
-    `[run]` msfconsole -r my_resource_file.rc
+    `[run]` msfconsole -r /root/my_resource_file.rc
 
 - **Create a resource file using the core command 'makerc'::**`[metasploit prompt]`<br />
 
@@ -175,6 +175,8 @@
          </ruby>
       run
 
+     `[run]` msfconsole > resource -r /root/my_resource_file.rc
+
 <br />
 
 - **FFF**
@@ -211,6 +213,8 @@
       end
       </ruby>
 
+     `[run]` msfconsole > resource -r /root/my_resource_file.rc
+
 <br />
 
 - **FFF**
@@ -244,6 +248,8 @@
           self.run_single("use auxiliary/scanner/snmp/snmp_enumshares")
           self.run_single("run")
       </ruby>
+
+     `[run]` msfconsole > resource -r /root/my_resource_file.rc
 
 <br />
 
