@@ -8,8 +8,8 @@
 |-------|---|---|
 | how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
 | how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts) | makerc /root/my_resource_file.rc | 
-| rc scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-post-exploitation) | run migrate -n explorer.exe |
-| rc scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
+| RC scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-post-exploitation) | run migrate -n explorer.exe |
+| RC scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
 | using ruby (ERB scripting) | [using ruby in RC (ERB scripting)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#using-ruby-in-rc-erb-scripting) | \<ruby\>framework.db.hosts.each do \|h\|\</ruby\> |
 
 <br />
@@ -25,7 +25,7 @@
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
-<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole with the resource command or you can run a resource script when you start msfconsole with the -r flag from msfconsole.</blockquote>
+<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag from msfconsole.</blockquote>
 
       msfconsole -r my_resource_file.rc
       msfconsole -r /root/my_resource_file.rc
@@ -96,6 +96,7 @@
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
 
 - **FFF**
+<blockquote>Auto-run scripts are great when you need multiple modules to run automatically</blockquote>
 
       getsystem
       screenshot -v -p IClass.jpeg -v true
@@ -107,6 +108,7 @@
 <br />
 
 - **FFF**
+<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically</blockquote>
 
       getsystem
       run migrate -n explorer.exe
