@@ -4,22 +4,17 @@
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
-| article chapters | jump links | commands examples |
-|-------|---|---|
-| how to run | [resource scripts (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
-| resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
-| post exploitation | [post exploitation (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) | self.run_single("use auxiliary/scanner/vnc/vnc_none_auth") |
-| AutoRunScript| [RC through AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#run-rc-through-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
-| ERB scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | <ruby>hosts = session.framework.datastore['RPATH'].split('/')[1..-5]</ruby> |
+| article chapters | jump links |
+|-------|---|
+| how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts?) |
+| how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts?) |
+| resource scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) |
+| resource scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#run-rc-through-autorunscript) |
+| using ruby in RC (ERB scripting) | [using ruby in RC (ERB scripting)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) |
 
 <br />
 
-### Description:
-<blockquote>The console (msfconsole or msf pro) supports basic automation using resource scripts. These scripts contain a set of console commands that are executed when the script loads. In addition to the basic console (core) commands, these scripts are also treated as ERB models. ERB is a way to embed Ruby code directly into a document. This allows you to call APIs that are not exposed through console commands and until you programmatically generate and return a list of commands based on your own logic. Resource scripts can be specified with the -r option for the Metasploit Console and runs automatically on startup if it exists. Resource scripts can also be run from the console prompt through the resource command (msf> resource file-to-run.rc)</blockquote>
-
-<br />
-
-## EXTERNAL LINKS
+## REFERENCIES
 
 - [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
 - [INULBR metasploit-automatizacao](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html#more)
@@ -42,7 +37,7 @@
 
 <br /><br /><br />
 
-## RESOURCE FILES EXAMPLES
+## HOW TO WRITE RESOURCE SCRIPTS?
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
 - **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
@@ -97,7 +92,7 @@
 
 <br /><br /><br />
 
-## POST EXPLOITATION
+## RESOURCE SCRIPTS IN POST EXPLOITATION
 
 - **FFF**
 
@@ -134,7 +129,7 @@
 
 <br /><br /><br />
 
-## Run RC through AutoRunScript
+## RESOURCE SCRIPTS IN AutoRunScript
 
 - **RC::AutoRunScript::**`[resource_script.rc]`<br />
 
@@ -148,10 +143,14 @@
 
 <br /><br /><br />
 
-## ERB SCRIPTING (ruby)
+## USING RUBY IN RC (ERB scripting)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br /><br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple core or meterpreter commands together with ruby syntax (api).</blockquote>
 
 - **ERB scripting (ruby)::**`[resource_script.rc]`<br />
+
+      setg 192.168.1.71 192.168.1.254
+
+<br />
 
       <ruby>
       framework.db.hosts.each do |h|
@@ -184,6 +183,10 @@
 <br />
 
 - **FFF**
+
+      setg 192.168.1.71 192.168.1.254
+
+<br />
 
       <ruby>
         print_line("")
@@ -219,5 +222,7 @@
 ---
 
 <br /><br /><br />
+
+## Suspicious Shell Activity (Red Team) @2019
 
 
