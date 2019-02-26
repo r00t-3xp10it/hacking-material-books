@@ -50,12 +50,16 @@
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
+      msfconsole -r my_resource_file.rc
+
 - **Create a resource file to display the version number of metasploit (makerc)**<br />
 `[metasploit prompt]`
 
       kali > msfconsole
       msf > version
       msf > makerc /root/my_resource_file.rc
+
+      msf > resource /root/my_resource_file.rc
 
 <br /><br />
 
