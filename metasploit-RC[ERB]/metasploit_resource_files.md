@@ -167,7 +167,7 @@
 
      `[run]` msfconsole > resource -r /root/script.rc
 
-<br />
+<br /><br />
 
 - **Handler::AutoRunScript::OneLiner::**`[bash prompt]`<br />
 <blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation without the need to write script.rc (thats going to trigger 'gather.rc'). In this example we set a global variable (setg resource <path-to-our-script.rc>) before load/config the multi/handler AutoRunScript flag that allow us to trigger the @darkopeator multi_command module.</blockquote>
