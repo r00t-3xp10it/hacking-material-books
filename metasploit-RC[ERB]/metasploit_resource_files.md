@@ -8,7 +8,7 @@
 |-------|---|---|
 | how to run | [resource scripts (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
 | resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
-| AutoRunScript| [RC through AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#autorunscript) | set AutoRunScript /root/my_resource_file.rc |
+| AutoRunScript| [RC through AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#runrcthroughautorunscript) | set AutoRunScript /root/my_resource_file.rc |
 | post exploitation | [post exploitation (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) | self.run_single("use auxiliary/scanner/vnc/vnc_none_auth") |
 | ERB scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | <ruby>hosts = session.framework.datastore['RPATH'].split('/')[1..-5]</ruby> |
 
@@ -97,9 +97,13 @@
 
 <br /><br /><br />
 
-## AutoRunScript
+## Run RC through AutoRunScript
 
       set AutoRunScript /root/my_resource_file.rc
+
+<br />
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
 
