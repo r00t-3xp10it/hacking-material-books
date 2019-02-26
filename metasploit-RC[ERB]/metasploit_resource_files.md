@@ -44,14 +44,14 @@
 ## RESOURCE FILES EXAMPLES
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
-- **Create a resource file to display the version number of metasploit (manually)**`[bash prompt]`<br />
+- **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
     `[run]` msfconsole -r my_resource_file.rc
 
-- **Create a resource file to display the version number of metasploit (makerc)**`[metasploit prompt]`<br />
+- **Create a resource file to display the version number of metasploit (makerc)::**`[metasploit prompt]`<br />
 
       kali > msfconsole
       msf > version
@@ -63,7 +63,7 @@
 
 <blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days passed we dont remmenber the handler configuration set that day, thats one<br />of the ways rc scripting can be used for, besides automating the framework (erb scripting can access metasploit api).</blockquote>
 
-- **Create a resource file using bash terminal prompt**`[bash prompt]`<br />
+- **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
 
@@ -75,8 +75,7 @@
 
     `[run]` msfconsole -r my_resource_file.rc
 
-- **Create a resource file using the core command 'makerc'**`[metasploit prompt]`<br />
-'maekerc will build a resource file with the settings enter in msfconsole'<br />
+- **Create a resource file using the core command 'makerc'::**`[metasploit prompt]`<br />
 
       kali > msfconsole
       msf > use exploit/multi/handler
