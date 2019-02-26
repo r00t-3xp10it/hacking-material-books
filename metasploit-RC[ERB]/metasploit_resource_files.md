@@ -107,7 +107,9 @@
         echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
 
 <br />
+
      `[run]` meterpreter > resource /root/my_resource_file.rc
+
 <br />
 
 - **FFF**
@@ -124,7 +126,9 @@
         clearev
 
 <br />
+
      `[run]` meterpreter > resource /root/my_resource_file.rc
+
 <br />
 
 
