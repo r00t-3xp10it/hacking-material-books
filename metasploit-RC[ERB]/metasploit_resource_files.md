@@ -4,7 +4,7 @@
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
-| article chapters | jump links | commands syntax |
+| article chapters | jump links | command syntax |
 |-------|---|---|
 | how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
 | how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts) | makerc /root/my_resource_file.rc | 
