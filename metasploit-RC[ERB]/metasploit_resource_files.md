@@ -6,6 +6,7 @@
 
 | article chapters | jump links | API examples |
 |-------|---|---|
+| how to run | [resource scripts (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) | meterpreter > resource /root/my_resource_file.rc |
 | resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
 | post exploitation | [post exploitation (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) | self.run_single("use auxiliary/scanner/vnc/vnc_none_auth") |
 | ERB scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | <ruby>hosts = session.framework.datastore['RPATH'].split('/')[1..-5]</ruby> |
@@ -14,7 +15,6 @@
 
 ### Description:
 <blockquote>The console (msfconsole or msf pro) supports basic automation using resource scripts. These scripts contain a set of console commands that are executed when the script loads. In addition to the basic console (core) commands, these scripts are also treated as ERB models. ERB is a way to embed Ruby code directly into a document. This allows you to call APIs that are not exposed through console commands and until you programmatically generate and return a list of commands based on your own logic. Resource scripts can be specified with the -r option for the Metasploit Console and runs automatically on startup if it exists. Resource scripts can also be run from the console prompt through the resource command (msf> resource file-to-run.rc)</blockquote>
-
 
 <br />
 
@@ -28,9 +28,7 @@
 
 <br /><br /><br />
 
-## RESOURCE FILES EXAMPLES
-
-- **How do i run my resource scripts?**
+##  HOW TO RUN RESOURCE SCRIPTS?
 
       msfconsole -r my_resource_file.rc
       msfconsole -r /root/my_resource_file.rc
@@ -39,6 +37,13 @@
 
 <br />
 
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
+
+---
+
+<br /><br /><br />
+
+## RESOURCE FILES EXAMPLES
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
 - **Create a resource file to display the version number of metasploit (manually)**<br />
@@ -95,6 +100,8 @@
 
       sudo msfconsole -x 'spool $IPATH/output/report.log; use exploit/multi/handler; set LHOST $lhost; set LPORT $lport; set PAYLOAD $paylo; set AutoRunScript multi_command -rc $IPATH/aux/$P0; exploit'
 
+<br />
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
@@ -133,6 +140,7 @@
       end
       </ruby>
 
+<br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
