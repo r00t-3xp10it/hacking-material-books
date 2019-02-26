@@ -159,7 +159,7 @@
 <br /><br /><br />
 
 ## USING RUBY IN RC (ERB scripting)
-<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br /><br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple core or meterpreter commands together with ruby syntax (api).</blockquote>
+<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple core or meterpreter commands together with ruby syntax (api).</blockquote>
 
 - **ERB scripting (ruby)::**`[resource_script.rc]`<br />
 
