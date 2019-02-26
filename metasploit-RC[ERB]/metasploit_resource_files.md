@@ -124,7 +124,7 @@
 <br /><br /><br />
 
 ## ERB SCRIPTING (ruby)
-<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic (scripting)<br /><br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls (example: client.sys.config.getuid). One of the advantages of using ERB scripting is that we can use simple core or meterpreter commands together with ruby syntax (api). "Everything writen between the <ruby>...</ruby> tags will be interpreted as ruby code by metasploit"</blockquote>
+<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br /><br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is that we can use simple core or meterpreter commands together with ruby syntax (api).<br /> "Everything writen between the <ruby>...</ruby> tags will be interpreted as ruby code by metasploit"</blockquote>
 
 - **erb scripting**
 
