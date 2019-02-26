@@ -102,7 +102,7 @@
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time.</blockquote>
 
-- **Resource script to elevate session,take screenshots, migrate and run post-modules::**`[bash prompt]`<br />
+- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
 
@@ -119,7 +119,7 @@
 
 <blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) using meterpreter core commands written inside one resource script.</blockquote>
 
-- **Resource script to elevate session, migrate, persiste payload and clear tacks::**`[bash prompt]`<br />
+- **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[bash prompt]`<br />
 
       touch my_resource_file.rc
 
