@@ -4,7 +4,7 @@
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
-| article chapters | jump links | API examples |
+| article chapters | jump links | commands examples |
 |-------|---|---|
 | how to run | [resource scripts (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
 | resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
