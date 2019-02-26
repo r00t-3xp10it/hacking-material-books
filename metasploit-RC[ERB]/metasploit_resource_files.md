@@ -8,7 +8,7 @@
 |-------|---|---|
 | resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
 | post exploitation | [post exploitation (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) | self.run_single("use auxiliary/scanner/vnc/vnc_none_auth") |
-| erb scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | run_single("services #{framework.datastore['RHOSTS']}") |
+| erb scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | <ruby>hosts = framework.datastore['RPATH'].split('/')[1..-5]</ruby> |
 
 <br />
 
