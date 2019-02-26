@@ -45,6 +45,7 @@
 
   - [bash prompt]<br />
 
+
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
