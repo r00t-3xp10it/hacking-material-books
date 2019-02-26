@@ -217,30 +217,29 @@
 
       <ruby>
         print_line("")
-        print_status("Please wait, checking if RHOSTS are set globally...")
+        print_status("Please wait, checking if RHOSTS are set globally.")
           if (framework.datastore['RHOSTS'] == nil)
             print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
           return nil
         end
 
         # Using nmap to populate metasploit database (db_nmap)
-        print_good("RHOSTS set globally [ OK ] running scans...")
-        run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
+        print_good("RHOSTS set globally [ OK ] running scans.")
+        self.run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
 
         # Displays msf database results stored into 'services' and 'vulns' 
-        run_single("services #{framework.datastore['RHOSTS']}")
-        run_single("vulns #{framework.datastore['RHOSTS']}")
+        self.run_single("services #{framework.datastore['RHOSTS']}")
+        self.run_single("vulns #{framework.datastore['RHOSTS']}")
         print_line("")
-        print_good("Please wait, running msf auxiliary modules...")
-      </ruby>
 
-      # running msf auxiliary modules
-      use auxiliary/scanner/snmp/snmp_enum
-      run
-      use auxiliary/scanner/snmp/snmp_enumusers
-      run
-      use auxiliary/scanner/snmp/snmp_enumshares
-      run
+          print_good("Please wait, running msf auxiliary modules.")
+          self.run_single("use auxiliary/scanner/snmp/snmp_enum")
+          self.run_single("run")
+          self.run_single("use auxiliary/scanner/snmp/snmp_enumusers")
+          self.run_single("run")
+          self.run_single("use auxiliary/scanner/snmp/snmp_enumshares")
+          self.run_single("run")
+      </ruby>
 
 <br />
 
