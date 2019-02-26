@@ -43,7 +43,7 @@
 
 - **Create a resource file to display the version number of metasploit (manually)**
 
-  - bash prompt
+  - [bash prompt]<br />
 
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
