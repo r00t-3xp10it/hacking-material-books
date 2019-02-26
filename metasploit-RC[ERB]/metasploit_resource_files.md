@@ -54,7 +54,7 @@
       msf > version
       msf > makerc /root/my_resource_file.rc
 
-<br />
+<br /><br />
 
 <blockquote>In the next example we are going to write one handler resource file</blockquote>
 
