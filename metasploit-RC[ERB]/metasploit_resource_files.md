@@ -30,7 +30,7 @@
 
 ## RESOURCE FILES EXAMPLES
 
-- **Runing resource scripts**
+- **How do i run my resource scripts?**
 
       msfconsole -r my_resource_file.rc
       msfconsole -r /root/my_resource_file.rc
