@@ -117,7 +117,7 @@
 
 <br />
 
-<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) using meterpreter core commands</blockquote>
+<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) using meterpreter core commands written inside one resource script.</blockquote>
 
 - **Resource script to elevate session, migrate, persiste payload and clear tacks::**`[bash prompt]`<br />
 
