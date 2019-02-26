@@ -108,7 +108,7 @@
 
 <br />
 
-     `[run]` meterpreter > resource /root/my_resource_file.rc
+`[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
@@ -127,7 +127,7 @@
 
 <br />
 
-     `[run]` meterpreter > resource /root/my_resource_file.rc
+`[run]` meterpreter > resource /root/my_resource_file.rc
 
 <br />
 
