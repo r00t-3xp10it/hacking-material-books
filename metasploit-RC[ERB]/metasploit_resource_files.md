@@ -220,17 +220,17 @@
         print_status("Please wait, checking if RHOSTS are set globally.")
           if (framework.datastore['RHOSTS'] == nil)
             print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
-          return nil
-        end
+            return nil
+          end
 
-        # Using nmap to populate metasploit database (db_nmap)
-        print_good("RHOSTS set globally [ OK ] running scans.")
-        self.run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
+          # Using nmap to populate metasploit database (db_nmap)
+          print_good("RHOSTS set globally [ OK ] running scans.")
+          self.run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
 
-        # Displays msf database results stored into 'services' and 'vulns' 
-        self.run_single("services #{framework.datastore['RHOSTS']}")
-        self.run_single("vulns #{framework.datastore['RHOSTS']}")
-        print_line("")
+          # Displays msf database results stored into 'services' and 'vulns' 
+          self.run_single("services #{framework.datastore['RHOSTS']}")
+          self.run_single("vulns #{framework.datastore['RHOSTS']}")
+          print_line("")
 
           print_good("Please wait, running msf auxiliary modules.")
           self.run_single("use auxiliary/scanner/snmp/snmp_enum")
