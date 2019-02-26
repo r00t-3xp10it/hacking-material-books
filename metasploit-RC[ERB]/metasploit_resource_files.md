@@ -50,7 +50,7 @@
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
-    `[run] msfconsole -r my_resource_file.rc`
+    `[run]` msfconsole -r my_resource_file.rc
 
 - **Create a resource file to display the version number of metasploit (makerc)**<br />
 `[metasploit prompt]`
@@ -59,7 +59,7 @@
       msf > version
       msf > makerc /root/my_resource_file.rc
 
-`[run] msf > resource /root/my_resource_file.rc`
+    `[run]` msf > resource /root/my_resource_file.rc
 
 <br /><br />
 
