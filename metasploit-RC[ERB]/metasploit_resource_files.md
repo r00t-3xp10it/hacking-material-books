@@ -25,6 +25,7 @@
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
+<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole with the resource command or you can run a resource script when you start msfconsole with the -r flag from msfconsole. If you want to automatically run a resource script when msfconsole launches, you can use the -r flag:</blockquote>
 
       msfconsole -r my_resource_file.rc
       msfconsole -r /root/my_resource_file.rc
@@ -198,7 +199,7 @@
 
         # Using nmap to populate metasploit database (db_nmap)
         print_good("RHOSTS set globally [ OK ] running scans...")
-        run_single("nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
+        run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
 
         # Displays msf database results stored into 'services' and 'vulns' 
         run_single("services #{framework.datastore['RHOSTS']}")
