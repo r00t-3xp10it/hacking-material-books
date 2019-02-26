@@ -63,8 +63,7 @@
 
 <blockquote>In the next example we are going to write one handler resource file</blockquote>
 
-- **Create a resource file using bash terminal prompt (bash)**<br />
-`[bash prompt]`
+- **Create a resource file using bash terminal prompt (bash)**`[bash prompt]`<br />
 
       touch my_resource_file.rc
          echo 'use exploit/multi/handler' > my_resource_file.rc
@@ -73,9 +72,8 @@
          echo 'set LPORT 666' >> my_resource_file.rc
          echo 'exploit' >> my_resource_file.rc
 
-- **Create a resource file using the core command 'makerc'**<br />
+- **Create a resource file using the core command 'makerc'**`[metasploit prompt]`<br />
 'maekerc will build a resource file with the settings enter in msfconsole'<br />
-`[metasploit prompt]`
 
       kali > msfconsole
       msf > use exploit/multi/handler
