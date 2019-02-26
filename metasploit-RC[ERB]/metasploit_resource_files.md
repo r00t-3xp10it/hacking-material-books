@@ -17,12 +17,11 @@
 
 ## REFERENCIES
 
-- [Rapid7 resource files](https://metasploit.help.rapid7.com/docs/resource-scripts)
-- [Metasploit-automatizacao](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html#more)
-- [Msfconsole core commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
-- [Meterpreter core commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
-- [My metasploit api cheat sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
-- [Offensiveinfosec writing-resource-scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/) 
+- [Rapid7 Resource Files](https://metasploit.help.rapid7.com/docs/resource-scripts)
+- [Msfconsole Core Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
+- [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
+- [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
+- [Offensiveinfosec Writing Resource Scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/) 
 
 ---
 
