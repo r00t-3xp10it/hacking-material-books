@@ -42,8 +42,8 @@
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
 - **Create a resource file to display the version number of metasploit (manually)**
+ - [bash prompt]
 
-      [bash prompt]
       touch my_resource_file.rc
       echo 'version' > my_resource_file.rc
 
