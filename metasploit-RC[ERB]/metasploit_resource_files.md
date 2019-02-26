@@ -115,7 +115,7 @@
 
      `[run]` meterpreter > resource /root/my_resource_file.rc
 
-<br />
+<br /><br />
 
 <blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) using meterpreter core commands written inside one resource script.</blockquote>
 
