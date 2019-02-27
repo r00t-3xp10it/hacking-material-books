@@ -135,6 +135,21 @@
 
 <br />
 
+- **Using SETG global variable to config auxiliary(s) modules options**<br />
+<blockquote>In the next resource script all auxiliary modules require that RHOST and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run.</blockquote>
+
+      touch http_brute.rc
+
+         echo 'setg THREADS 8' > /root/http_brute.rc
+         echo 'setg RHOSTS 192.168.1.0/24' >> /root/http_brute.rc
+         echo 'run auxiliary/gather/http/http_version' >> /root/http_brute.rc
+         echo 'run auxiliary/gather/http/dir_scanner' >> /root/http_brute.rc
+         echo 'run auxiliary/gather/http/http_login' >> /root/http_brute.rc
+
+     `[run]` msfconsole > resource -r /root/http_brute.rc
+
+<br />
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
