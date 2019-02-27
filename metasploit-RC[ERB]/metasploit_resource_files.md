@@ -61,7 +61,7 @@
 
 <br /><br />
 
-<blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days passed we dont remmenber the handler configuration set that day, thats one<br />of the ways rc scripting can be used for, besides automating the framework (erb scripting can access metasploit api).</blockquote>
+<blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days passed we dont remmenber the handler configurations set that day, thats one<br />of the reasons rc scripting can be used for, besides automating the framework (erb scripting can access metasploit api).</blockquote>
 
 - **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
 
