@@ -48,7 +48,8 @@
 - **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
 
       touch script.rc
-      echo 'version;exit -y' > script.rc
+      echo 'version' > script.rc
+      echo 'exit -y' >> script.rc
 
     `[run]` msfconsole -r /root/script.rc
 
@@ -93,7 +94,7 @@
 
 <br /><br />
 
-<blockquote>The next resource script allow us to record msfconsole activity under two files: logfile.log and commands.rc<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
+<blockquote>The next resource script allow us to record msfconsole activity under logfile.log<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
 
 - **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[bash prompt]`<br />
 
@@ -104,7 +105,6 @@
          echo 'sessions -v' >> record.rc
          echo 'loadpath /root/msf-auxiliarys' >> record.rc
          echo 'resource /root/handler.rc' >> record.rc
-         echo 'makerc /root/commands.rc' >> record.rc
 
     `[run]` msfconsole -r /root/record.rc
 
