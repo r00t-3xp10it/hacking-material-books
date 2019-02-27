@@ -111,7 +111,7 @@
 
     `[run]` msfconsole -r /root/record.rc
 
-![gif](http://i67.tinypic.com/11186qe.gif)
+![gif](http://i68.tinypic.com/343oefb.gif)
 
 <br />
 
@@ -177,7 +177,7 @@
 
      `[run]` msfconsole -r /root/http_brute.rc
 
-![gif](http://i66.tinypic.com/2edmtrb.gif)
+![gif](http://i66.tinypic.com/2usid92.gif)
 
 <br />
 
