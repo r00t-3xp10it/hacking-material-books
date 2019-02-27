@@ -92,6 +92,24 @@
 
 <br />
 
+<blockquote>The next resource script allow us to record msfconsole activity into 2 files: logfile.log and commands.rc<br />It also displays database information sutch as: msfconsole/framework versions, active sessions in verbose mode<br />loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the resource script<br />handler.rc at startup (msfconsole startup).</blockquote>
+
+- **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[bash prompt]`<br />
+
+      touch record.rc
+
+         echo 'spool /root/logfile.log' > record.rc
+         echo 'makerc /root/commands.rc' >> record.rc
+         echo 'version' >> record.rc
+         echo 'sessions -v' >> record.rc
+         echo 'loadpath /root/msf-auxiliarys' >> record.rc
+         echo 'resource /root/handler.rc' >> record.rc
+
+    `[run]` msfconsole > resource -r /root/handler.rc
+
+
+<br />
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
