@@ -142,7 +142,7 @@
 <br /><br /><br />
 
 ## RESOURCE SCRIPTS IN AutoRunScript
-<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole 'AutoRunScript' handler flag, for this to work we need to define a global variable (setg \<option\>) to call our resource script at session creation.</blockquote>
+<blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole 'AutoRunScript' handler flag, for this to work we need to define a global variable (setg RESOURCE /root/gather.rc) to call our resource script at session creation.</blockquote>
 
 - **RC::Post-Exploit::Script::**`[gather.rc]`<br />
 
