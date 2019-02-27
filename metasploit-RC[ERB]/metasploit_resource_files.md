@@ -34,6 +34,7 @@
       msfconsole -r /root/script.rc
       msf > resource /root/script.rc
       meterpreter > resource /root/script.rc
+      msf exploit(multi/handler) > resource /root/script.rc
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
