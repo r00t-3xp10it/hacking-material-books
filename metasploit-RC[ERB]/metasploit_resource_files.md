@@ -111,6 +111,7 @@
 
     `[run]` msfconsole -r /root/record.rc
 
+![gif](http://i67.tinypic.com/11186qe.gif)
 
 <br />
 
