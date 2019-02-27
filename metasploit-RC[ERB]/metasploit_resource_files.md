@@ -133,7 +133,7 @@
 
      `[run]` meterpreter > resource /root/script.rc
 
-<br />
+<br /><br />
 
 - **Using SETG global variable to config auxiliary(s) modules options**<br />
 <blockquote>In the next resource script all auxiliary modules require that RHOST and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run.</blockquote>
@@ -212,7 +212,7 @@
 
      `[run]` msfconsole > resource -r /root/script.rc
 
-<br />
+<br /><br />
 
 - **FFF**
 
@@ -250,7 +250,7 @@
 
      `[run]` msfconsole > resource -r /root/script.rc
 
-<br />
+<br /><br />
 
 - **FFF**
 
