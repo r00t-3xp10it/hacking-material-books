@@ -47,7 +47,7 @@
 - **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
 
       touch script.rc
-      echo 'version' > script.rc
+      echo 'version;exit -y' > script.rc
 
     `[run]` msfconsole -r /root/script.rc
 
