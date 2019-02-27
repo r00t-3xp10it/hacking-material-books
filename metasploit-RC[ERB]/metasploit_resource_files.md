@@ -168,7 +168,7 @@
          echo 'getuid' >> /root/gather.rc
          echo 'screenshot' >> /root/gather.rc
 
-- **RC::AutoRunScript::Handler::**`[script.rc]`<br />
+- **RC::AutoRunScript::Handler::**`[handler.rc]`<br />
 
       touch handler.rc
 
