@@ -93,7 +93,7 @@
 
 <br /><br />
 
-<blockquote>The next resource script allow us to record msfconsole activity under two files: logfile.log and commands.rc<br />It also displays database information sutch as: msfconsole/framework versions, active sessions in verbose mode loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the script handler.rc at msfconsole startup.</blockquote>
+<blockquote>The next resource script allow us to record msfconsole activity under two files: logfile.log and commands.rc<br />It also displays database information sutch as: framework versions, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
 
 - **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[bash prompt]`<br />
 
