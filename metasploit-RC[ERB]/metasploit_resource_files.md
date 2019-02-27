@@ -147,7 +147,7 @@
          echo 'run auxiliary/gather/http/dir_scanner' >> /root/http_brute.rc
          echo 'run auxiliary/gather/http/http_login' >> /root/http_brute.rc
 
-`[run]` msfconsole > resource /root/http_brute.rc
+     `[run]` msfconsole > resource /root/http_brute.rc
 
 <br />
 
