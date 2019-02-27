@@ -36,7 +36,7 @@
       meterpreter > resource /root/script.rc
       msf exploit(multi/handler) > resource /root/script.rc
 
-<blockquote>Remmenber to start the postgresql service: service postgresql start</blockquote>
+<blockquote>Remmenber to start the postgresql service before using msf: sudo service postgresql start</blockquote>
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
