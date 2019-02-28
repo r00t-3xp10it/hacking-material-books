@@ -275,8 +275,7 @@
 
 </ruby>
 ```
-
-     `[run]` msfconsole -r /root/template.rc
+`[run]` msfconsole -r /root/template.rc
 
 <br /><br />
 
