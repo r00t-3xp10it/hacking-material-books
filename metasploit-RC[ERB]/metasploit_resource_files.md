@@ -264,7 +264,7 @@
 
 <br /><br />
 
-<blockquote>Run auxiliray/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan (stored in database) to sellect what auxiliary/exploits modules to be run againts target system.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to be run againts target system.</blockquote>
 
 - **Run auxiliay/exploit modules based on database (targets) ports found::**`[exploiter.rc]`<br />
 
