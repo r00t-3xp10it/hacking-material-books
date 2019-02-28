@@ -246,13 +246,16 @@
         echo "" >> http_title.rc
         echo '   <ruby>' >> http_title.rc
         echo "     xhost = framework.db.hosts.map(&:address).join(' ')" >> http_title.rc
-        echo '     run_single("setg RHOSTS #{xhost}")' >> http_title.rc
-        echo '     print_good("###### Running ruby code inside resource files ######")' >> http_title.rc
-        echo '     run_single("use auxiliary/scanner/http/title")' >> http_title.rc
-        echo '     run_single("exploit")' >> http_title.rc
-        echo '     print_good("######### another auxiliary #########")' >> http_title.rc
-        echo '     run_single("use auxiliary/scanner/http/http_login")' >> http_title.rc
-        echo '     run_single("exploit")' >> http_title.rc
+        echo '           run_single("setg RHOSTS #{xhost}")' >> http_title.rc
+        echo '           print_good("###### Running ruby code inside resource files ######")' >> http_title.rc
+        echo '           run_single("use auxiliary/scanner/http/title")' >> http_title.rc
+        echo '           run_single("exploit")' >> http_title.rc
+        echo '           print_good("######### dir_scanner auxiliary #########")' >> http_title.rc
+        echo '           run_single("use auxiliary/scanner/http/dir_scanner")' >> http_title.rc
+        echo '           run_single("exploit")' >> http_title.rc
+        echo '           print_good("######### http_login auxiliary #########")' >> http_title.rc
+        echo '           run_single("use auxiliary/scanner/http/http_login")' >> http_title.rc
+        echo '           run_single("exploit")' >> http_title.rc
         echo '   </ruby>' >> http_title.rc
         echo "" >> http_title.rc
         echo 'unsetg RHOSTS' >> http_title.rc
