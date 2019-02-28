@@ -267,10 +267,10 @@ unsetg RESOURCE
        Rex::sleep(2)
        run_single("hosts")
 
-   # exporting database to local file' >> template.rc
-   print_good("exporting database to: template.xml")' >> template.rc
-   Rex::sleep(1.5)' >> template.rc
-   run_single("db_export -f xml template.xml")' >> template.rc
+   # exporting database to local file
+   print_good("exporting database to: template.xml")
+   Rex::sleep(1.5)
+   run_single("db_export -f xml template.xml")
 
 </ruby>
 ```
