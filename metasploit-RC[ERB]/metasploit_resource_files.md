@@ -99,18 +99,17 @@
 
 <blockquote>The next resource script allow us to record msfconsole activity under logfile.log and commands.rc<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
 
-- **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[bash prompt]`<br />
+- **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[record.rc]`<br />
 
-      touch record.rc
-
-         echo 'spool /root/logfile.log' > record.rc
-         echo 'version' >> record.rc
-         echo 'sessions -v' >> record.rc
-         echo 'loadpath /root/msf-auxiliarys' >> record.rc
-         echo 'resource /root/handler.rc' >> record.rc
-         echo 'makerc /root/commands.rc' >> record.rc
-
-    `[run]` msfconsole -r /root/record.rc
+```
+spool /root/logfile.log
+version
+sessions -v
+loadpath /root/msf-auxiliarys
+resource /root/handler.rc
+makerc /root/commands.rc
+```
+`[run]` msfconsole -r /root/record.rc
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
 
