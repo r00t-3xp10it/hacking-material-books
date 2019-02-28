@@ -264,7 +264,7 @@
 
 <br /><br />
 
-<blockquote>Run auxiliay/exploit modules based on database (targets) ports found</blockquote>
+<blockquote>Run auxiliay/exploit modules based on database (targets) ports found<br />Next resource script searchs inside msf database for targets open ports discover by db_nmap scan and stored inside msfdb to sellect what auxiliary/exploits modules to run.</blockquote>
 
 - **Run auxiliay/exploit modules based on database (targets) ports found::**`[exploiter.rc]`<br />
 
@@ -310,7 +310,7 @@
       echo "" >> exploiter.rc
       echo 'unsetg RHOSTS' >> exploiter.rc
 
-    `[run]` msfconsole -r /root/exploiter.rc
+<br />    `[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
