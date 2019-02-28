@@ -301,8 +301,7 @@ services
 
 unsetg RHOSTS
 ```
-
-     `[run]` msfconsole -r /root/http_title.rc
+`[run]` msfconsole -r /root/http_title.rc
 
 <br /><br />
 
@@ -349,8 +348,7 @@ services
 
 unsetg RHOSTS
 ```
-
-    `[run]` msfconsole -r /root/exploiter.rc
+`[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
