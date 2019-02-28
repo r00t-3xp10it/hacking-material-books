@@ -278,7 +278,7 @@ unsetg RESOURCE
 
 <br /><br />
 
-<blockquote>The next resource script uses db_nmap metasploit command to populate msfdb database with hosts, then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts stored inside the msfdb database.</blockquote>
+<blockquote>The next resource script uses db_nmap metasploit command to populate msfdb database with hosts, then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts stored in the msfdb.</blockquote>
 
 - **Scan local lan with nmap and run auxiliary(s)::**`[http_title.rc]`<br />
 
