@@ -279,6 +279,7 @@
             xhost = framework.db.hosts.map(&:address).join(' ')
             xport = framework.db.services.map(&:port).join(' ')
             run_single("setg RHOSTS #{xhost}")
+
                if xport =~ /80/i
                     print_status("## Target port: 80 http found")
                     print_good("## Running port 80 auxiliary/exploits.")
