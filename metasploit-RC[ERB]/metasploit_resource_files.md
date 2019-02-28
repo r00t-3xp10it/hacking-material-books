@@ -310,7 +310,7 @@
       echo "" >> exploiter.rc
       echo 'unsetg RHOSTS' >> exploiter.rc
 
-     `[run]` msfconsole -r /root/exploiter.rc
+    `[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
