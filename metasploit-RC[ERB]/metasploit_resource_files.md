@@ -310,7 +310,7 @@
 
       unsetg RHOSTS
 
-     `[run]` msfconsole -r /root/exploiter.rc
+    `[run]` msfconsole -r /root/exploiter.rc
 
 <br /><br />
 
