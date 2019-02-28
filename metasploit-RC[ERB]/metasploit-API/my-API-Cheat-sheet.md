@@ -634,6 +634,30 @@ system along with the details like IP, netmask, mac_address etc.
         print_warning("value: #{box}")
       end
 
+- **Check msf database for hosts (address) and ports (port)**
+
+           xhost = framework.db.hosts.map(&:address).join(' ')
+           print_status("## Targets found: #{xhost} found")
+
+           output: ## Tagets found: 192.168.1.71 192.168.1.253 192.168.1.254
+
+
+
+           flavor = framework.db.hosts.map(&:os_flavor).join(' ')
+           print_status("## Targets found: #{flavor} found")
+
+           output: ## Targets found: windows linux
+
+
+
+           fexploit = framework.db.services.map(&:port).join(' ')
+           if fexploit =~ /80/i
+                print_status("## Targets port: #{fexploit} found")
+           end
+
+           output: ## Targets port: 80 445 139
+
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
