@@ -241,16 +241,21 @@
 
       touch http_title.rc
 
-        echo 'workspace -a http_title' > http_title.rc
-        echo 'db_nmap -Pn -T4 -sV -p 80 --open 192.168.1.0/24' >> http_title.rc
+        echo 'db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24' > http_title.rc
         echo 'services' >> http_title.rc
+        echo "" >> http_title.rc
         echo '   <ruby>' >> http_title.rc
-        echo '     print_good("#### Running ruby code inside resource files ####")' >> http_title.rc
+        echo "     xhost = framework.db.hosts.map(&:address).join(' ')" >> http_title.rc
+        echo '     run_single("setg RHOSTS #{xhost}")' >> http_title.rc
+        echo '     print_good("###### Running ruby code inside resource files ######")' >> http_title.rc
         echo '     run_single("use auxiliary/scanner/http/title")' >> http_title.rc
-        echo '     run_single("set RHOSTS 192.168.1.0/24")' >> http_title.rc
+        echo '     run_single("exploit")' >> http_title.rc
+        echo '     print_good("######### another auxiliary #########")' >> http_title.rc
+        echo '     run_single("use auxiliary/scanner/http/http_login")' >> http_title.rc
         echo '     run_single("exploit")' >> http_title.rc
         echo '   </ruby>' >> http_title.rc
-        echo 'workspace -d http_title' >> http_title.rc
+        echo "" >> http_title.rc
+        echo 'unsetg RHOSTS' >> http_title.rc
 
      `[run]` msfconsole -r /root/http_title.rc
 
