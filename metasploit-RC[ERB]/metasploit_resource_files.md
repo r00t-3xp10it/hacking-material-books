@@ -239,43 +239,42 @@
 
 - **Running ruby code inside resource files::**`[template.rc]`<br />
 
-      touch template.rc
+```
+<ruby>
 
-        echo '<ruby>' > template.rc
-        echo "" >> template.rc
-        echo '   help = %Q|' >> template.rc
-        echo '    Description:' >> template.rc
-        echo '       This Metasploit RC file can be used to automate the exploitation process.' >> template.rc
-        echo '       In this example we are just checking msfdb connection status, list database' >> template.rc
-        echo '       hosts, services and export the contents of database to template.xml local file.' >> template.rc
-        echo "" >> template.rc
-        echo '    Usage:' >> template.rc
-        echo '       ./msfconsole -r template.rc' >> template.rc
-        echo "" >> template.rc
-        echo '    Author:' >> template.rc
-        echo '       r00t-3xp10it  <pedroubuntu10[at]hotmail.com>' >> template.rc
-        echo '    |' >> template.rc
-        echo '   print_line(help)' >> template.rc
-        echo '   Rex::sleep(1.5)' >> template.rc
-        echo "" >> template.rc
-        echo '      # checking database contents' >> template.rc
-        echo '      print_good("checking database connection")' >> template.rc
-        echo '      Rex::sleep(2)' >> template.rc
-        echo '      run_single("db_status")' >> template.rc
-        echo '      print_good("checking database sevices")' >> template.rc
-        echo '      Rex::sleep(2)' >> template.rc
-        echo '      run_single("services")' >> template.rc
-        echo '      print_good("checking database hosts")' >> template.rc
-        echo '      Rex::sleep(2)' >> template.rc
-        echo '      run_single("hosts")' >> template.rc
-        echo "" >> template.rc
-        echo '   # exporting database to local file' >> template.rc
-        echo '   print_good("exporting database to: template.xml")' >> template.rc
-        echo '   Rex::sleep(1.5)' >> template.rc
-        echo '   run_single("db_export -f xml template.xml")' >> template.rc
-        echo "" >> template.rc
-        echo '</ruby>' >> template.rc
+   help = %Q|
+    Description:
+       This Metasploit RC file can be used to automate the exploitation process.
+       In this example we are just checking msfdb connection status, list database
+       hosts, services and export the contents of database to template.xml local file.
 
+    Usage:
+       ./msfconsole -r template.rc
+
+    Author:
+       r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+    |
+    print_line(help)
+    Rex::sleep(1.5)
+
+       # checking database contents
+       print_good("checking database connection")
+       Rex::sleep(2)
+       run_single("db_status")
+       print_good("checking database sevices")
+       Rex::sleep(2)
+       run_single("services")
+       print_good("checking database hosts")
+       Rex::sleep(2)
+       run_single("hosts")
+
+   # exporting database to local file' >> template.rc
+   print_good("exporting database to: template.xml")' >> template.rc
+   Rex::sleep(1.5)' >> template.rc
+   run_single("db_export -f xml template.xml")' >> template.rc
+
+</ruby>
+```
 
 <br /><br />
 
