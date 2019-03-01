@@ -298,7 +298,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      print_line(help)
      Rex::sleep(1.5)
 
-     run_single("db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24")
+     run_single("db_nmap -sV -Pn -T4 -p 80 --script=banner.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open 192.168.1.0/24")
      run_single("services")
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
@@ -316,7 +316,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the setg global variable declarations, if none value has povided then this resource script will use default values.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the setg global variable declaration, if none value has povided then this resource script will use module default values.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **brute_force.rc**
 ```
