@@ -74,7 +74,7 @@ Using metasploit makerc core command to write our resource script.
    msf > version
    msf > makerc /root/version.rc
 ```
-`[run] msf >` resource /root/version.rc
+**Run the script:** resource /root/version.rc
 
 <br /><br />
 
