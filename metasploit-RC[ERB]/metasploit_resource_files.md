@@ -22,7 +22,8 @@
 - [Msfconsole Core Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
 - [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
 - [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
-- [Offensiveinfosec Writing Resource Scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/) 
+- [Offensiveinfosec Writing Resource Scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/)
+- [INURLBR - metasploit automatizacao resource files](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html)
 
 ---
 
@@ -261,6 +262,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        print_good("checking database hosts")
        Rex::sleep(2)
        run_single("hosts")
+       print_good("checking database workspace")
+       Rex::sleep(2)
+       run_single("workspace -v")
 
     print_warning("exporting database to: template.xml")
     Rex::sleep(1.5)
