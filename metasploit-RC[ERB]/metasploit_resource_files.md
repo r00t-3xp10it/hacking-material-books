@@ -328,13 +328,13 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using db_nmap to populate msfdb datase with hosts
           then trigger auxiliary/scanners based on target ports capture by db_nmap.
-      Author:
+        Author:
           r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
       |
       print_line(help)
       Rex::sleep(1.5)
 
-      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=http-headers.nse,smb-os-discovery.nse --open 192.168.1.0/24")
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=banner.nse,smb-os-discovery.nse,http-headers.nse --open 192.168.1.0/24")
       run_single("services")
       print_good("## Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
@@ -342,17 +342,15 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("setg RHOSTS #{xhost}")
 
          if xport =~ /21/i
-              next if (xport != 21)
-              print_status("## Target port: 21 ftp found")
+              print_warning("## Target port: 21 ftp found")
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
-              run_single("use auxiliary/scanner/ftp/ftp_anonymous")
+              run_single("use auxiliary/scanner/ftp/anonymous")
               run_single("exploit")
          end
 
          if xport =~ /445/i
-              next if (xport != 445)
-              print_status("## Target port: 445 smb found")
+              print_warning("## Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumusers")
@@ -362,8 +360,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
 
          if xport =~ /80/i
-              next if (xport != 80)
-              print_status("## Target port: 80 http found")
+              print_warning("## Target port: 80 http found")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/dir_scanner")
