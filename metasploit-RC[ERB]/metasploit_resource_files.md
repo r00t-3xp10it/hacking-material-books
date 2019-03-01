@@ -46,7 +46,7 @@
 <br /><br /><br />
 
 ## HOW TO WRITE RESOURCE SCRIPTS?
-<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
+<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
 - **Resource file to display the version number of metasploit::**`[version.rc]`<br />
 
@@ -56,6 +56,7 @@
 ```
 `[run]` msfconsole -r /root/version.rc
 
+<br />
 - **Resource file to display the version number of metasploit (makerc)::**`[version.rc]`<br />
 ```
    kali > msfconsole
