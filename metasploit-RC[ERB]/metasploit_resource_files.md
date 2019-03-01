@@ -26,25 +26,26 @@
 
 ---
 
+
+Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run
+
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
-<blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the resource script at startup).</blockquote>
+<blockquote>You can run resource scripts from msfconsole or from the web interface. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole execute the resource script at startup).</blockquote>
 
 
-To run resource script at msfconsole start execute the follow commands in your terminal.
+To run resource script(s) at **msfconsole startup** execute the follow commands in your terminal:
 
-      msfconsole -r script.rc
       msfconsole -r /root/script.rc
 
-- **Run::from::inside::msfconsole::prompt**
+To run resource script(s) **inside msfconsole** execute the follow commands in msfconsole:
 
-      msf > resource /root/script.rc
-      msf exploit(multi/handler) > resource /root/script.rc
+      resource /root/script.rc
 
-- **Run::from::inside::meterpreter::prompt**
+To run resource script(s) **inside meterpreter** execute the follow commands in meterpreter:
 
-      meterpreter > resource /root/script.rc
+      resource /root/script.rc
 
 <blockquote>Remmenber: To start postgresql service before using msf: sudo service postgresql start</blockquote>
 
@@ -57,8 +58,8 @@ To run resource script at msfconsole start execute the follow commands in your t
 ## HOW TO WRITE RESOURCE SCRIPTS?
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
-- **Resource file to display the version number of metasploit::**`[script: version.rc]`<br />
 
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and rename it as: **version.rc**
 ```
   version
   exit -y
@@ -67,7 +68,7 @@ To run resource script at msfconsole start execute the follow commands in your t
 
 <br />
 
-- **Using makerc metasploit core command to build::**`[script: version.rc]`<br />
+Using metasploit makerc core command to write our resource script.
 ```
    kali > msfconsole
    msf > version
