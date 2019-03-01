@@ -275,8 +275,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **http_recon.rc**
 ```
-db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
-services
    <ruby>
      help = %Q|
        Description:
@@ -288,6 +286,8 @@ services
      print_line(help)
      Rex::sleep(1.5)
 
+     run_single("db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24")
+     run_single("services")
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
            run_single("use auxiliary/scanner/http/title")
@@ -296,8 +296,8 @@ services
            run_single("exploit")
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
+     unsetg RHOSTS
    </ruby>
-unsetg RHOSTS
 ```
 **Run the script:** msfconsole -r /root/http_recon.rc
 
@@ -307,8 +307,6 @@ unsetg RHOSTS
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **scanner.rc**
 ```
-db_nmap -sV -Pn -T4 -p 21,80,445 --open --reason 192.168.1.0/24
-services
    <ruby>
       help = %Q|
         Description:
@@ -320,6 +318,8 @@ services
       print_line(help)
       Rex::sleep(1.5)
 
+      run_single("db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24")
+      run_single("services")
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
@@ -352,8 +352,8 @@ services
               run_single("use auxiliary/scanner/smb/smb_enumshares")
               run_single("exploit")
          end
+      unsetg RHOSTS
    </ruby>
-unsetg RHOSTS
 ```
 **Run the script:** msfconsole -r /root/scanner.rc
 
