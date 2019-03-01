@@ -297,7 +297,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
            run_single("exploit")
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
-     unsetg RHOSTS
+     run_single("unsetg RHOSTS")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/http_recon.rc
@@ -320,8 +320,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       print_line(help)
       Rex::sleep(1.5)
 
-      run_single("db_nmap -sV -Pn -T4 -p 21,80,445 --open --reason 192.168.1.0/24")
+      run_single("db_nmap -sV -Pn -T4 -p 21,80,445 --script=http-headers.nse,smb-os-discovery.nse --open 192.168.1.0/24")
       run_single("services")
+      print_good("## Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
@@ -354,7 +355,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/http/http_login")
               run_single("exploit")
          end
-      unsetg RHOSTS
+      run_single("unsetg RHOSTS")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/scanner.rc
@@ -364,21 +365,29 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
 ```
-setg RHOSTS 192.168.1.71 192.168.1.254
+setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
    <ruby>
-      print_line("")
+      help = %Q|
+        Description:
+          This Metasploit RC file can be used to automate the exploitation process.
+          In this example we are using msfconsole setg to add to msfdb database rhosts
+          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhosts.
+      Author:
+          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+      |
+      print_line(help)
+      Rex::sleep(1.5)
+
       print_status("Please wait, checking if RHOSTS are set globally.")
       if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
-         print_error("[ERROR] Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx")
+         print_error("Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx xxx.xxx.xxx.xxx")
          return nil
       end
 
-         # Using nmap to populate metasploit database (db_nmap)
-         print_good("RHOSTS set globally [ OK ] running scans.")
-            run_single(\"db_nmap -sU -sS -Pn -n --script=smb-check-vulns.nse,samba-vuln-cve-2012-1182 --script-args=unsafe=1 -p U:135,T:139,445 #{framework.datastore['RHOSTS']}\")
-            # Displays msf database results stored into 'services' and 'vulns'
-            run_single("services")
-            run_single("vulns")
+         print_good("RHOSTS set globally [ OK ] running nmap scans.")
+         run_single("db_nmap -sU -sS -Pn --script=smb-os-discovery.nse,smb-enum-shares.nse,smb-enum-processes.nse --script-args=unsafe=1 -p U:137,T:139,445 #{framework.datastore['RHOSTS']}")
+         run_single("services")
+         run_single("vulns")
 
       print_good("Please wait, running msf auxiliary modules.")
       run_single("use auxiliary/scanner/snmp/snmp_enum")
@@ -387,8 +396,8 @@ setg RHOSTS 192.168.1.71 192.168.1.254
       run_single("exploit")
       run_single("use auxiliary/scanner/snmp/snmp_enumshares")
       run_single("exploit")
+      run_single("unsetg RHOSTS")
    </ruby>
-unsetg RHOSTS
 ```
 **Run the script:** msfconsole -r /root/snmp_enum.rc
 
