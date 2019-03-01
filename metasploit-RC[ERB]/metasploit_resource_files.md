@@ -283,7 +283,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>The next resource script uses db_nmap metasploit core command to populate the msfdb database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts stored inside the msfdb database.</blockquote>
+<blockquote>The next resource script uses db_nmap metasploit core command to populate the msfdb database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts that are stored inside the msfdb database (db_nmap scan: 192.168.1.0/24).</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **http_recon.rc**
 ```
