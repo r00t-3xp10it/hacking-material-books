@@ -92,7 +92,7 @@
 
 <br />
 
-- **Resource file to start one handler (makerc)::**`[script: handler.rc]`<br />
+- **Using makerc metasploit core command to build::**`[script: handler.rc]`<br />
 
 ```
    kali > msfconsole
