@@ -279,7 +279,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      help = %Q|
        Description:
          This Metasploit RC file can be used to automate the exploitation process.
-         In this example we are triggering http/auxiliarys againts all hosts in db
+         In this example we are using db_nmap to populate msfdb datase with hosts
+         then trigger auxiliary/http/scanner modules againts all hosts inside db.
      Author:
          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
      |
@@ -311,7 +312,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       help = %Q|
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
-          In this example we are triggering auxiliary/scanners based on target ports
+          In this example we are using db_nmap to populate msfdb datase with hosts
+          then trigger auxiliary/scanners based on target ports capture by db_nmap.
       Author:
           r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
       |
