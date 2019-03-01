@@ -30,11 +30,11 @@
 ##  HOW TO RUN RESOURCE SCRIPTS?
 <blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the resource script at startup).</blockquote>
 
-      msfconsole -r script.rc
-      msfconsole -r /root/script.rc
-      msf > resource /root/script.rc
-      meterpreter > resource /root/script.rc
-      msf exploit(multi/handler) > resource /root/script.rc
+      msfconsole -r script.rc<br />
+      msfconsole -r /root/script.rc<br />
+      msf > resource /root/script.rc<br />
+      meterpreter > resource /root/script.rc<br />
+      msf exploit(multi/handler) > resource /root/script.rc<br />
 
 <blockquote>Remmenber: start the postgresql service before using msf: sudo service postgresql start</blockquote>
 
@@ -47,14 +47,14 @@
 ## HOW TO WRITE RESOURCE SCRIPTS?
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
-- **Create a resource file to display the version number of metasploit (manually)::**`[bash prompt]`<br />
+- **Create a resource file to display the version number of metasploit (manually)::**<br />
+`[resource file]:`version.rc<br />
 
-      touch script.rc
-
-         echo 'version' > script.rc
-         echo 'exit -y' >> script.rc
-
-    `[run]` msfconsole -r /root/script.rc
+```
+  version
+  exit -y
+```
+`[run]` msfconsole -r /root/version.rc
 
 - **Create a resource file to display the version number of metasploit (makerc)::**`[metasploit prompt]`<br />
 
