@@ -332,16 +332,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         if xport =~ /80/i
-              print_status("## Target port: 80 http found")
-              run_single("use auxiliary/scanner/http/title")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/http/dir_scanner")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/http/http_login")
-              run_single("exploit")
-         end
-
          if xport =~ /445/i
               print_status("## Target port: 445 smb found")
               print_good("## Running port 445 auxiliary/exploits.")
@@ -350,6 +340,16 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/smb/smb_enumusers")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumshares")
+              run_single("exploit")
+         end
+
+         if xport =~ /80/i
+              print_status("## Target port: 80 http found")
+              run_single("use auxiliary/scanner/http/title")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/http/dir_scanner")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/http/http_login")
               run_single("exploit")
          end
       unsetg RHOSTS
