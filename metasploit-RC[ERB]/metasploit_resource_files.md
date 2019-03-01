@@ -318,7 +318,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       print_line(help)
       Rex::sleep(1.5)
 
-      run_single("db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24")
+      run_single("db_nmap -sV -Pn -T4 -p 21,80,445 --open --reason 192.168.1.0/24")
       run_single("services")
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
