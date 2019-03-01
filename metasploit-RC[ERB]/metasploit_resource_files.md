@@ -125,6 +125,8 @@
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
 
+<blockquote>Final Note: Resource Files give us the ability to execute sequentially metasploit core commands, so if we read metasploit core commands we have many combinations that we can use in resource files scripting.</blockquote>
+
 <br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
