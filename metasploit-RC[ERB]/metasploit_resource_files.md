@@ -33,9 +33,7 @@
 ## WHAT ARE RESOURCE FILES
 The Metasploit Console (msfconsole) has supported the concept of resource files for quite some time. A resource file is essentially a batch script for Metasploit; using these files you can automate common tasks. If you create a resource script called ~/.msf3/msfconsole.rc, it will automatically load each time you start the msfconsole interface. This is a great way to automatically connect to a database and set common parameters (setg PAYLOAD, etc). Until this morning, however, resource scripts were limited to simple console commands.
 
-As of revision r8876, blocks of Ruby code can now be directly inserted into the resource scripts. This turns resource scripts into a generic automation platform for the Metasploit Framework.
-
-Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run.
+As of revision r8876, blocks of Ruby code can now be directly inserted into the resource scripts. This turns resource scripts into a generic automation platform for the Metasploit Framework. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script/auxiliary/exploit to run.
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
