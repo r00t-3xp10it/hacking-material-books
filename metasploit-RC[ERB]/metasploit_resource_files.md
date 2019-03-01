@@ -453,6 +453,7 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
               print_warning("## Target linux found.")
          else
               print_error("Resource File does not support os_flavor")
+              return nil
          end
 
          if xflavor =~ /windows/i and xport == 21
