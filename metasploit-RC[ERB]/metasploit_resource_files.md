@@ -295,7 +295,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          This Metasploit RC file can be used to automate the exploitation process.
          In this example we are using db_nmap to populate msfdb datase with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
-     Author:
+       Author:
          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
      |
      print_line(help)
@@ -386,10 +386,10 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using msfconsole setg to add to msfdb database rhosts
           then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhosts.
-      Executing:
+        Executing:
           setg RHOSTS <hosts-separated-by-spaces>
           msfconsole -r /root/snmp_enum.rc
-      Author:
+        Author:
           r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
       |
       print_line(help)
