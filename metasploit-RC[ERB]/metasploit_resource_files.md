@@ -57,6 +57,7 @@
 `[run]` msfconsole -r /root/version.rc
 
 <br />
+
 - **Resource file to display the version number of metasploit (makerc)::**`[version.rc]`<br />
 ```
    kali > msfconsole
