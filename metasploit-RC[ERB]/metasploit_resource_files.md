@@ -64,7 +64,7 @@ Open your text editor and copy/past the follow two metasploit core commands to i
   version
   exit -y
 ```
-`[run]` msfconsole -r /root/version.rc
+**run the script:** msfconsole -r /root/version.rc
 
 <br />
 
