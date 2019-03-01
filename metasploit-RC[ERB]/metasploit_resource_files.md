@@ -451,6 +451,9 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
               print_warning("## Target windows found.")
          elsif xflavor =~ /linux/i
               print_warning("## Target linux found.")
+         elsif xflavor.nil? or xflavor == ''
+              print_error("db_nmap scan failed to report os_flavor")
+              return nil
          else
               print_error("Resource File does not support os_flavor")
               return nil
