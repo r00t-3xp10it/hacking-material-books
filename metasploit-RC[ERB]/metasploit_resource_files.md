@@ -326,7 +326,6 @@ services
 
          if xport =~ /21/i
               print_status("## Target port: 21 ftp found")
-              print_good("## Running port 21 auxiliary/exploits.")
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_anonymous")
