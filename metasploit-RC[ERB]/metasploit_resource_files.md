@@ -428,8 +428,8 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using msfconsole setg to add to msfdb database rhosts
-          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts all
-          rhosts based on Operative System reported by db_nmap.
+          then trigger db_nmap nse OS scans and msfconsole auxiliary modules againts all
+          rhosts based on target Operative System reported by db_nmap scans.
         Executing:
           setg RHOSTS <hosts-separated-by-spaces>
           msfconsole -r /root/os_flavor.rc
@@ -447,20 +447,29 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
       xflavor = framework.db.services.map(&:os_flavor).join(' ')
       run_single("setg RHOSTS #{xhost}")
 
-         if xflavor =~ /windows/ and xport == 21
+         if xflavor =~ /windows/i
               print_warning("## Target windows found.")
+         elsif xflavor =~ /linux/i
+              print_warning("## Target linux found.")
+         else
+              print_error("Resource File does not support os_flavor")
+         end
+
+         if xflavor =~ /windows/i and xport == 21
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/anonymous")
               run_single("exploit")
-         elsif xflavor =~ /windows/ and xport == 445
+         end
+         if xflavor =~ /windows/i and xport == 445
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumusers")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumshares")
               run_single("exploit")
-         elsif xflavor =~ /windows/ and xport == 80
+         end
+         if xflavor =~ /windows/i and xport == 80
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/dir_scanner")
@@ -470,7 +479,6 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
          end
 
          if xflavor =~ /linux/ and xport == 21
-              print_warning("## Target linux found.")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumusers")
