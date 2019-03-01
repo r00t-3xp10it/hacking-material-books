@@ -59,7 +59,7 @@ To run resource script(s) **inside meterpreter** execute the follow commands in 
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
 
-Open your text editor and copy/past the follow two metasploit core commands to it, save file and rename it as: **version.rc**
+Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **version.rc**
 ```
   version
   exit -y
@@ -68,7 +68,7 @@ Open your text editor and copy/past the follow two metasploit core commands to i
 
 <br />
 
-Using metasploit makerc core command to write our resource script.
+Next example show us how to use msfconsole makerc core command to write our resource script.
 ```
    kali > msfconsole
    msf > version
