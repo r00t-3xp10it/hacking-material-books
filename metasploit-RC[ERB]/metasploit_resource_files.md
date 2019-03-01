@@ -240,7 +240,6 @@
 
 ```
 <ruby>
-
    help = %Q|
     Description:
        This Metasploit RC file can be used to automate the exploitation process.
@@ -265,7 +264,6 @@
    print_warning("exporting database to: template.xml")
    Rex::sleep(1.5)
    run_single("db_export -f xml template.xml")
-
 </ruby>
 ```
 `[run]` msfconsole -r /root/template.rc
@@ -279,7 +277,6 @@
 ```
 db_nmap -sV -Pn -T4 -p 80 --open --reason 192.168.1.0/24
 services
-
    <ruby>
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
@@ -293,7 +290,6 @@ services
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
    </ruby>
-
 unsetg RHOSTS
 ```
 `[run]` msfconsole -r /root/http_title.rc
@@ -307,7 +303,6 @@ unsetg RHOSTS
 ```
 db_nmap -sV -Pn -T4 -p 80,445,139 --open --reason 192.168.1.0/24
 services
-
    <ruby>
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
@@ -340,7 +335,6 @@ services
               run_single("exploit")
          end
    </ruby>
-
 unsetg RHOSTS
 ```
 `[run]` msfconsole -r /root/recon.rc
@@ -351,7 +345,6 @@ unsetg RHOSTS
 
 ```
 setg RHOSTS 192.168.1.71 192.168.1.254
-
    <ruby>
       print_line("")
       print_status("Please wait, checking if RHOSTS are set globally.")
@@ -375,7 +368,6 @@ setg RHOSTS 192.168.1.71 192.168.1.254
       run_single("use auxiliary/scanner/snmp/snmp_enumshares")
       run_single("exploit")
    </ruby>
-
 unsetg RHOSTS
 ```
 `[run]` msfconsole -r /root/snmp_enum.rc
