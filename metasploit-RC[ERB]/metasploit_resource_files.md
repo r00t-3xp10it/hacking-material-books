@@ -42,7 +42,7 @@ As of revision r8876, blocks of Ruby code can now be directly inserted into the 
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
-You can run resource scripts from msfconsole or from the web interface. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole execute the resource script at startup).<br />
+<blockquote>You can run resource scripts from msfconsole or from the web interface. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole execute the resource script at startup).</blockquote>
 
 
 To run resource script(s) at **msfconsole startup** execute the follow commands in your terminal:
