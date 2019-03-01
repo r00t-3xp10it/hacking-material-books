@@ -416,9 +416,76 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
 ```
 **Run the script:** msfconsole -r /root/snmp_enum.rc
 
+<br /><br />
+
+<blockquote>Run auxiliary modules based on OS_flavor againts sellected RHOSTS variable setg defined in the beggining of the this resource file (before ruby code) Users just need to change RHOSTS var to point to your targets to be scanned.</blockquote>
+
+Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **os_flavor.rc**
+```
+setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
+   <ruby>
+      help = %Q|
+        Description:
+          This Metasploit RC file can be used to automate the exploitation process.
+          In this example we are using msfconsole setg to add to msfdb database rhosts
+          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts all
+          rhosts based on Operative System reported by db_nmap.
+        Executing:
+          setg RHOSTS <hosts-separated-by-spaces>
+          msfconsole -r /root/os_flavor.rc
+        Author:
+          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
+      |
+      print_line(help)
+      Rex::sleep(1.5)
+
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=banner.nse,http-headers.nse --open 192.168.1.0/24")
+      run_single("services")
+      print_good("## Reading msfdb database.")
+      xhost = framework.db.hosts.map(&:address).join(' ')
+      xport = framework.db.services.map(&:port).join(' ')
+      xflavor = framework.db.services.map(&:os_flavor).join(' ')
+      run_single("setg RHOSTS #{xhost}")
+
+         if xflavor =~ /windows/ and xport == 21
+              print_warning("## Target windows found.")
+              run_single("use auxiliary/scanner/ftp/ftp_version")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/ftp/anonymous")
+              run_single("exploit")
+         elsif xflavor =~ /windows/ and xport == 445
+              run_single("use auxiliary/scanner/smb/smb_version")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_enumusers")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_enumshares")
+              run_single("exploit")
+         elsif xflavor =~ /windows/ and xport == 80
+              run_single("use auxiliary/scanner/http/title")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/http/dir_scanner")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/http/http_login")
+              run_single("exploit")
+         end
+
+         if xflavor =~ /linux/ and xport == 21
+              print_warning("## Target linux found.")
+              run_single("use auxiliary/scanner/smb/smb_version")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_enumusers")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/smb/smb_enumshares")
+              run_single("exploit")
+         end
+      run_single("unsetg RHOSTS")
+   </ruby>
+```
+**Run the script:** msfconsole -r /root/os_flavor.rc
+
 <br />
 
-![pic](http://i66.tinypic.com/2ywxvf7.png)
+![pic](http://blablabla)
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
