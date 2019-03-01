@@ -159,7 +159,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
 
 <br /><br />
 
-<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev). Remmenber that you must have update.exe in working directory to be uploaded to target.</blockquote>
+<blockquote>Auto-run scripts are great when you need to persiste fast your payload automatically. This next example demonstrates how to use resource scripts to successfully persiste a payload in target system and clean tracks (timestomp & clearev). Remmenber that you must have the update.exe in your working directory to be uploaded to target system.</blockquote>
 
 Open your text editor and copy/past the follow metasploit commands to it, save file and name it as: **persistence.rc**
 ```
