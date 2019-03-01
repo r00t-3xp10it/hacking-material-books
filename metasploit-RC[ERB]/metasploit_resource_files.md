@@ -361,7 +361,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected RHOSTS variable setg defined in the beggining of the this resource file (before ruby code tag), users just need to change RHOSTS var to point to your targets to be scanned.</blockquote>
+<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected RHOSTS variable setg defined in the beggining of the this resource file (before ruby code) Users just need to change RHOSTS var to point to your targets to be scanned.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
 ```
