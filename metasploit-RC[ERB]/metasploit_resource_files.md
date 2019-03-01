@@ -256,7 +256,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        In this example we are just checking msfdb connection status, list database
        hosts, services and export the contents of database to template.xml local file.
     Author:
-       r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+       r00t-3xp10it  <pedroubuntu10[at]gmail.com>
     |
     print_line(help)
     Rex::sleep(1.5)
@@ -294,7 +294,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          In this example we are using db_nmap to populate msfdb datase with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
        Author:
-         r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+         r00t-3xp10it  <pedroubuntu10[at]gmail.com>
      |
      print_line(help)
      Rex::sleep(1.5)
@@ -327,7 +327,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
           In this example we are using db_nmap to populate msfdb datase with hosts
           then trigger auxiliary/scanners based on target ports capture by db_nmap.
         Author:
-          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
       print_line(help)
       Rex::sleep(1.5)
@@ -388,7 +388,7 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
           setg RHOSTS <hosts-separated-by-spaces>
           msfconsole -r /root/snmp_enum.rc
         Author:
-          r00t-3xp10it  <pedroubuntu10[at]hotmail.com>
+          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
       print_line(help)
       Rex::sleep(1.5)
