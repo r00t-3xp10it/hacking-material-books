@@ -310,6 +310,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
      run_single("unsetg RHOSTS")
+     run_single("services -d")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/http_recon.rc
@@ -367,26 +368,27 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
       run_single("unsetg RHOSTS")
+     run_single("services -d")
+     run_single("hosts -d")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/scanner.rc
 
 <br /><br />
 
-<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected RHOSTS variable setg defined in the beggining of the this resource file (before ruby code) Users just need to change RHOSTS var to point to your targets to be scanned.</blockquote>
+<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into setg RHOSTS variable to point to the targets to be scanned.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
 ```
-setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
    <ruby>
       help = %Q|
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using msfconsole setg to add to msfdb database rhosts
           then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhosts.
-        Executing:
+        Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
-          msfconsole -r /root/snmp_enum.rc
+          resource <path-to-script>/snmp_enum.rc
         Author:
           r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
@@ -395,14 +397,14 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
 
       print_status("Please wait, checking if RHOSTS are set globally.")
       if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
-         print_error("Please set RHOSTS globally: setg RHOSTS xxx.xxx.xxx.xxx xxx.xxx.xxx.xxx")
+         print_error("Please set RHOSTS: setg RHOSTS xxx.xxx.xxx.xxx xxx.xxx.xxx.xxx")
          return nil
       end
 
          print_good("RHOSTS set globally [ OK ] running nmap scans.")
-         run_single("db_nmap -sU -sS -Pn --script=smb-os-discovery.nse,smb-enum-shares.nse,smb-enum-processes.nse --script-args=unsafe=1 -p U:137,T:139,445 #{framework.datastore['RHOSTS']}")
+         run_single("db_nmap -sU -sS -Pn --script=banner.nse,smb-os-discovery.nse,smb-enum-shares.nse,smb-enum-processes.nse --script-args=unsafe=1 -p U:137,T:139,445 #{framework.datastore['RHOSTS']}")
+         run_single("hosts")
          run_single("services")
-         run_single("vulns")
 
       print_good("Please wait, running msf auxiliary modules.")
       run_single("use auxiliary/scanner/snmp/snmp_enum")
@@ -412,88 +414,11 @@ setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
       run_single("use auxiliary/scanner/snmp/snmp_enumshares")
       run_single("exploit")
       run_single("unsetg RHOSTS")
+     run_single("services -d")
+     run_single("hosts -d")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/snmp_enum.rc
-
-<br /><br />
-
-<blockquote>Run auxiliary modules based on OS_flavor againts sellected RHOSTS variable setg defined in the beggining of the this resource file (before ruby code) Users just need to change RHOSTS var to point to your targets to be scanned.</blockquote>
-
-Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **os_flavor.rc**
-```
-setg RHOSTS 192.168.1.71 192.168.1.253 192.168.1.254
-   <ruby>
-      help = %Q|
-        Description:
-          This Metasploit RC file can be used to automate the exploitation process.
-          In this example we are using msfconsole setg to add to msfdb database rhosts
-          then trigger db_nmap nse OS scans and msfconsole auxiliary modules againts all
-          rhosts based on target Operative System reported by db_nmap scans.
-        Executing:
-          setg RHOSTS <hosts-separated-by-spaces>
-          msfconsole -r /root/os_flavor.rc
-        Author:
-          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
-      |
-      print_line(help)
-      Rex::sleep(1.5)
-
-      run_single("db_nmap -sV -Pn -T4 -O -p 21,80,445 --script=banner.nse,http-headers.nse --open 192.168.1.0/24")
-      run_single("services")
-      print_good("## Reading msfdb database.")
-      xhost = framework.db.hosts.map(&:address).join(' ')
-      xport = framework.db.services.map(&:port).join(' ')
-      xflavor = framework.db.services.map(&:os_flavor).join(' ')
-      run_single("setg RHOSTS #{xhost}")
-
-         if xflavor =~ /windows/i
-              print_warning("## Target windows found.")
-         elsif xflavor =~ /linux/i
-              print_warning("## Target linux found.")
-         elsif xflavor.nil? or xflavor == ''
-              print_error("db_nmap scan failed to report os_flavor")
-              return nil
-         else
-              print_error("Resource File does not support os_flavor")
-              return nil
-         end
-
-         if xflavor =~ /windows/i and xport == 21
-              run_single("use auxiliary/scanner/ftp/ftp_version")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/ftp/anonymous")
-              run_single("exploit")
-         end
-         if xflavor =~ /windows/i and xport == 445
-              run_single("use auxiliary/scanner/smb/smb_version")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/smb/smb_enumusers")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/smb/smb_enumshares")
-              run_single("exploit")
-         end
-         if xflavor =~ /windows/i and xport == 80
-              run_single("use auxiliary/scanner/http/title")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/http/dir_scanner")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/http/http_login")
-              run_single("exploit")
-         end
-
-         if xflavor =~ /linux/ and xport == 21
-              run_single("use auxiliary/scanner/smb/smb_version")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/smb/smb_enumusers")
-              run_single("exploit")
-              run_single("use auxiliary/scanner/smb/smb_enumshares")
-              run_single("exploit")
-         end
-      run_single("unsetg RHOSTS")
-   </ruby>
-```
-**Run the script:** msfconsole -r /root/os_flavor.rc
 
 <br />
 
