@@ -66,7 +66,7 @@
 
 <br />
 
-- **Resource file to display the version number of metasploit (makerc)::**`[script: version.rc]`<br />
+- **Using makerc metasploit core command to build::**`[script: version.rc]`<br />
 ```
    kali > msfconsole
    msf > version
