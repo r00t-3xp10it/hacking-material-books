@@ -337,7 +337,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
          if xport =~ /445/i
               print_status("## Target port: 445 smb found")
-              print_good("## Running port 445 auxiliary/exploits.")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_enumusers")
