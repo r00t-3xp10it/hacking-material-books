@@ -36,14 +36,10 @@
       msfconsole -r script.rc
       msfconsole -r /root/script.rc
 
-<br />
-
 - **Run::from::inside::msfconsole::prompt**
 
       msf > resource /root/script.rc
       msf exploit(multi/handler) > resource /root/script.rc
-
-<br />
 
 - **Run::from::inside::meterpreter::prompt**
 
