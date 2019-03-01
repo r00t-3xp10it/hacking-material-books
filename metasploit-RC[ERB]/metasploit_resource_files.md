@@ -291,7 +291,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      help = %Q|
        Description:
          This Metasploit RC file can be used to automate the exploitation process.
-         In this example we are using db_nmap to populate msfdb datase with hosts
+         In this example we are using db_nmap to populate msfdb database with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
        Author:
          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
@@ -317,7 +317,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user imputs (RHOSTS) throuth setg global variable.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) throuth setg global variable.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **scanner.rc**
 ```
@@ -325,7 +325,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       help = %Q|
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
-          In this example we are using db_nmap to populate msfdb datase with hosts
+          In this example we are using db_nmap to populate msfdb database with hosts
           then trigger auxiliary/scanners based on target ports capture by db_nmap.
         Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
