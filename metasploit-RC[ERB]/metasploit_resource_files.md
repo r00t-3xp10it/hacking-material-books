@@ -31,7 +31,7 @@
 ##  HOW TO RUN RESOURCE SCRIPTS?
 <blockquote>You can run resource scripts from msfconsole or from the web interface. Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole executing the resource script at startup).</blockquote>
 
-- **Run::on::msfconsole::start**
+- **Run::from::msfconsole::start**
 
       msfconsole -r script.rc
       msfconsole -r /root/script.rc
