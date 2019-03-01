@@ -254,7 +254,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        This Metasploit RC file can be used to automate the exploitation process.
        In this example we are just checking msfdb connection status, list database
        hosts, services and export the contents of database to template.xml local file.
-
     Author:
        r00t-3xp10it  <pedroubuntu10[at]gmail.com>
     |
@@ -293,7 +292,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          This Metasploit RC file can be used to automate the exploitation process.
          In this example we are using db_nmap to populate msfdb database with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
-
        Author:
          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
      |
