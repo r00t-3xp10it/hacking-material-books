@@ -35,7 +35,7 @@ The Metasploit Console (msfconsole) has supported the concept of resource files 
 
 As of revision r8876, blocks of Ruby code can now be directly inserted into the resource scripts. This turns resource scripts into a generic automation platform for the Metasploit Framework.
 
-**WARNING: Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run**
+<blockquote>WARNING: Before you can run a resource script, you need to identify the required parameters that need to be configured for the script to run</blockquote>
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
