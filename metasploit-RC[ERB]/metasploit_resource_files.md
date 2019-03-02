@@ -378,6 +378,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set BRUTEFORCE_SPEED 4")
               run_single("set THREADS 70")
               run_single("exploit")
          end
@@ -433,7 +434,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
       print_warning("please wait, Cleaning msfdb Database.")
       run_single("unsetg RHOSTS USERPASS_FILE")
-      run_single("unset THREADS VERBOSE USERPASS_FILE")
+      run_single("unset THREADS VERBOSE BRUTEFORCE_SPEED USERPASS_FILE")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
