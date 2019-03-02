@@ -187,7 +187,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    run
    unsetg RHOSTS THREADS
 ```
-**[in meterpreter]::Run the script::** `resource /root/http_brute.rc`
+**[in terminal]::Run the script::** `msfconsole -r /root/http_brute.rc`
 
 ![gif](http://i66.tinypic.com/2usid92.gif)
 
