@@ -318,7 +318,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <blockquote>Run auxiliary/exploit modules based on database (targets) ports found. Next resource script searchs inside msf database for targets open ports discover by db_nmap scan to sellect what auxiliary/exploits modules to run againts target system. REMARK: This script its prepared to accept user inputs (RHOSTS) and (USERPASS_FILE) throuth the 'SETG' global variable declaration, if none value has povided then this resource script will use is own default values.</blockquote>
 
-**setg** In order to save a lot of typing during a pentest, you can set global variables within msfconsole. You can do this with the setg command. Once these have been set you can use them in as many exploits and auxiliary modules as you like to prevent always check auxiliary options before you run or exploit. Conversely, you can use the **unsetg** command to unset a global variable.
+**setg** In order to save a lot of typing during a pentest, you can set global variables within msfconsole. You can do this with the setg command. Once these have been set you can use them in as many exploits and auxiliary modules as you like to prevent always check auxiliary options before you run or exploit. Conversely, you can use the **unsetg** command to unset a global var.
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **brute_force.rc**
 ```
