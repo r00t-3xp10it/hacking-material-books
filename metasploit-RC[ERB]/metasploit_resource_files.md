@@ -329,7 +329,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using db_nmap to populate msfdb database with hosts
-          then it triggers auxiliary/scanners based on target open ports reported.
+          then it triggers msf auxiliary/scanners based on target open ports reported.
           this module probes for 21:22:23:110:445 remote TCP ports open.
 
         Execute in msfconsole:
