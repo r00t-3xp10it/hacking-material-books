@@ -388,7 +388,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
               run_single("set VERBOSE true")
-              run_single("set THREADS 16")
+              run_single("set THREADS 26")
               run_single("exploit")
          end
 
