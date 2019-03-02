@@ -350,13 +350,27 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
       run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
-      print_good("## Reading msfdb database.")
+      print_good("Reading msfdb database.")
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
 
+         if xhost.nil? or xhost == ''
+              print_error("db_nmap did not find any alive connections.")
+              print_error("please wait, cleaning recent configurations.")
+              run_single("unsetg RHOSTS USERPASS_FILE")
+              return nil
+         elsif xport.nil? or xport == ''
+              print_error("db_nmap did not find any 21,22,23,80,445 ports open")
+              print_error("please wait, cleaning recent configurations.")
+              run_single("unsetg RHOSTS USERPASS_FILE")
+              run_single("services -d")
+              run_single("hosts -d")
+              return nil
+         end
+
          if xport =~ /21/i
-              print_warning("## Target port: 21 ftp found")
+              print_warning("Remote Target port: 21 ftp found")
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/anonymous")
@@ -364,31 +378,29 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set THREADS 70")
+              run_single("set THREADS 105")
               run_single("exploit")
          end
 
          if xport =~ /22/i
-              print_warning("## Target port: 22 ssh found")
+              print_warning("Remote Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set VERBOSE true")
               run_single("exploit")
          end
 
          if xport =~ /23/i
-              print_warning("## Target port: 23 telnet found")
+              print_warning("Remote Target port: 23 telnet found")
               run_single("use auxiliary/scanner/telnet/telnet_version")
               run_single("exploit")
               run_single("use auxiliary/scanner/telnet/telnet_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set VERBOSE true")
-              run_single("set THREADS 30")
+              run_single("set THREADS 16")
               run_single("exploit")
          end
 
          if xport =~ /445/i
-              print_warning("## Target port: 445 smb found")
+              print_warning("Remote Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("set THREADS 16")
               run_single("exploit")
@@ -405,7 +417,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          end
 
          if xport =~ /80/i
-              print_warning("## Target port: 80 http found")
+              print_warning("Remote Target port: 80 http found")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/options")
@@ -416,9 +428,9 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/http/http_login")
               run_single("exploit")
          end
-      print_warning("## Cleaning Database.")
+      print_warning("please wait, Cleaning msfdb Database.")
       run_single("unsetg RHOSTS USERPASS_FILE")
-      run_single("unset THREADS VERBOSE USERPASS_FILE")
+      run_single("unset THREADS")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
