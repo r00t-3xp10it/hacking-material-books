@@ -173,7 +173,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
 
 <br /><br />
 
-<blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using 'SETG' (global variable declarations) to configurate all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will then run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
+<blockquote>In the next resource script all auxiliary modules require that RHOSTS and THREADS options are set before running the modules. In the next example we are using 'SETG' (global variable declarations) to configure all the options that we need before running the modules. So its advice before writing a resource file like this one, to first check what options are required for the auxiliary to run. The next rc script will then run 3 auxiliary modules againts all hosts found inside local lan.</blockquote>
 
 Open your text editor and copy/past the follow metasploit commands to it, save file and name it as: **http_brute.rc**
 ```
