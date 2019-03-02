@@ -657,6 +657,15 @@ system along with the details like IP, netmask, mac_address etc.
 
            output: ## Targets port: 80 445 139
 
+- **Read rhosts from database**
+
+            # main loop, where we connect to each host
+            # and try to add our user to the required group
+           hosts.each do |rhost|
+            run_single("set RHOST #{rhost}")
+            run_single("exploit")
+           end 
+
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
