@@ -503,7 +503,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br />
 
-![pic](http://i67.tinypic.com/2dmi2w2.gif)
+![pic](http://i67.tinypic.com/34znijd.gif)
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
