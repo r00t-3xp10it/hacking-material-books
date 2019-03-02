@@ -461,7 +461,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into 'SETG' RHOSTS variable to point to the targets to be scanned.</blockquote>
+<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into 'SETG' RHOSTS var to point to the targets to be scanned.</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
 ```
