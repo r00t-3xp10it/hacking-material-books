@@ -21,7 +21,7 @@
 - [Msfconsole Core Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
 - [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
 - [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
-- [Rapid7 automating the metasploit console](https://blog.rapid7.com/2010/03/22/automating-the-metasploit-console/)
+- [Rapid7 - automating the metasploit console](https://blog.rapid7.com/2010/03/22/automating-the-metasploit-console/)
 - [INURLBR - metasploit automatizacao resource files](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html)
 
 ---
@@ -31,7 +31,7 @@
 ## WHAT ARE RESOURCE FILES
 The Metasploit Console (msfconsole) has supported the concept of resource files for quite some time. A resource file is essentially a batch script for Metasploit using these files you can automate common tasks. If you create a resource script called ~/.msf4/msfconsole.rc, it will automatically load each time you start the msfconsole interface. This is a great way to automatically connect to a database and set common parameters (setg PAYLOAD, setg RHOSTS, etc) As of revision r8876, blocks of Ruby code (ERB) can now be directly inserted into the resource script. This turns resource scripts into a generic automation platform for the Metasploit Framework.
 
-The 'resource' command will execute msfconsole/meterpreter instructions located inside a text file containing one entry per line. 'resource' will execute each line in sequence. This can help automate repetitive actions performed by an user. By default the commands will run in the current working directory (on target machine) and resource file in the local working directory (the attacking machine).
+The 'resource' command will execute msfconsole/meterpreter instructions located inside a text file containing one entry per line. 'resource' will execute each line in sequence. This can help automate repetitive actions performed users. By default the commands will run in the current working directory (target machine) and resource file in the local working directory (attacking machine).
 
 WARNING: Before we can run a resource script, we need to identify the required parameters that need to be configured<br />for the script/auxiliary/exploit to run. Also remmenber to start postgresql service before interacting with metasploit console.
 
