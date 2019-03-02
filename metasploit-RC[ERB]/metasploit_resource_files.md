@@ -378,7 +378,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
               run_single("use auxiliary/scanner/ftp/ftp_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
-              run_single("set THREADS 105")
+              run_single("set THREADS 70")
               run_single("exploit")
          end
 
@@ -386,6 +386,8 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               print_warning("Remote Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set VERBOSE true")
+              run_single("set THREADS 16")
               run_single("exploit")
          end
 
@@ -426,11 +428,12 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("use auxiliary/scanner/http/dir_scanner")
               run_single("exploit")
               run_single("use auxiliary/scanner/http/http_login")
+              run_single("set THREADS 16")
               run_single("exploit")
          end
       print_warning("please wait, Cleaning msfdb Database.")
       run_single("unsetg RHOSTS USERPASS_FILE")
-      run_single("unset THREADS")
+      run_single("unset THREADS VERBOSE USERPASS_FILE")
      run_single("services -d")
      run_single("hosts -d")
    </ruby>
