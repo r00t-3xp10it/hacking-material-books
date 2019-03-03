@@ -353,7 +353,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("db_nmap -sV -Pn -T4 -O -p 21,22,23,80,110,445 --script=smb-os-discovery.nse,http-headers.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       run_single("services")
       print_good("Reading msfdb database for info.")
-      xname = framework.db.services.map(&:name).join(' ')
       xhost = framework.db.hosts.map(&:address).join(' ')
       xport = framework.db.services.map(&:port).join(' ')
       run_single("setg RHOSTS #{xhost}")
@@ -372,7 +371,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               return nil
          end
 
-         unless xhost.nil? and xport == 21 and xname == ftp
+         if xport =~ /21/i
               print_warning("Remote Target port: 21 ftp found")
               run_single("use auxiliary/scanner/ftp/ftp_version")
               run_single("exploit")
@@ -387,7 +386,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         unless xhost.nil? and xport == 22 and xname == ssh
+         if xport =~ /22/i
               print_warning("Remote Target port: 22 ssh found")
               run_single("use auxiliary/scanner/ssh/ssh_login")
               run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
@@ -397,7 +396,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         unless xhost.nil? and xport == 23 and xname == telnet
+         if xport =~ /23/i
               print_warning("Remote Target port: 23 telnet found")
               run_single("use auxiliary/scanner/telnet/telnet_version")
               run_single("exploit")
@@ -408,7 +407,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         unless xhost.nil? and xport == 110 and xname == pop3
+         if xport =~ /110/i
               print_warning("Remote Target port: 110 pop3 found")
               run_single("use auxiliary/scanner/pop3/pop3_version")
               run_single("set THREADS 30")
@@ -419,7 +418,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         unless xhost.nil? and xport == 445 and xname == smb
+         if xport =~ /445/i
               print_warning("Remote Target port: 445 smb found")
               run_single("use auxiliary/scanner/smb/smb_version")
               run_single("set THREADS 16")
@@ -437,7 +436,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               run_single("exploit")
          end
 
-         unless xhost.nil? and xport == 80 and xname == http
+         if xport =~ /80/i
               print_warning("Remote Target port: 80 http found")
               run_single("use auxiliary/scanner/http/title")
               run_single("exploit")
