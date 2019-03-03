@@ -20,6 +20,7 @@
 - [Rapid7 Resource Files](https://metasploit.help.rapid7.com/docs/resource-scripts)
 - [Msfconsole Core Commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/)
 - [Meterpreter Core Commands](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/)
+- [My resource scripts repository](https://github.com/r00t-3xp10it/resource_files)
 - [My Metasploit API Cheat Sheet](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md)
 - [Rapid7 - automating the metasploit console](https://blog.rapid7.com/2010/03/22/automating-the-metasploit-console/)
 - [INURLBR - metasploit automatizacao resource files](http://blog.inurl.com.br/2015/02/metasploit-automatizacao-resource-files_23.html)
