@@ -463,7 +463,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
 <br /><br />
 
-<blockquote>mysql_brute will use nmap to search/check for port 3306 open, then it populates the msfdb with a list of hosts found, and run auxiliary modules to gather info and brute force mysql services. if none value (setg) has povided then this resource script will use is own default values.</blockquote>
+<blockquote>mysql_brute will use nmap to search/check for port 3306 open (mysql) then it populates the msfdb with a list of hosts found, and run auxiliary modules to gather info and brute force mysql services. if none value (setg) has povided then this resource script will use is own default values. (example: scan rhosts 192.168.1.0/24)</blockquote>
 
 Open your text editor and copy/past the follow ruby (erb) code to it, save file and name it as: **mysql_brute.rc**
 ```
