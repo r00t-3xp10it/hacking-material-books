@@ -547,7 +547,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
 
        print_warning("please wait, Cleaning msfdb Database.")
        Rex::sleep(1.0)
-       run_single("unsetg RHOSTS USERPASS_FILE")
+       run_single("unsetg RHOSTS RANDOM_HOSTS USERPASS_FILE")
        run_single("unset THREADS VERBOSE USERNAME USERPASS_FILE PASSWORD STOP_ON_SUCCESS")
        Rex::sleep(1.0)
        run_single("services -d")
