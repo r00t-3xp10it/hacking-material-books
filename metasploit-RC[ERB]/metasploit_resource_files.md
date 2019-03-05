@@ -58,6 +58,10 @@ To run resource script **inside meterpreter** execute the follow command in mete
 
       resource /root/script.rc
 
+To set a global variable (erb) and run resource script **msfconsole startup** execute the follow command:
+
+      msfconsole -q -x 'setg RANDOM_HOSTS true;resource /root/http_CVE.rc'
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit_resource_files.md#metasploit-resource-files)
 
 ---
