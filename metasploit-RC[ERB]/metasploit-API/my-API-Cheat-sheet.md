@@ -643,10 +643,10 @@ system along with the details like IP, netmask, mac_address etc.
 
 
 
-           flavor = framework.db.hosts.map(&:os_flavor).join(' ')
+           flavor = framework.db.hosts.map(&:os_flavor).join(' ').gsub(' ',', ')
            print_status("## Targets found: #{flavor} found")
 
-           output: ## Targets found: windows linux
+           output: ## Targets found: windows, linux
 
 
 
@@ -662,10 +662,24 @@ system along with the details like IP, netmask, mac_address etc.
             # main loop, where we connect to each host
             # and try to add our user to the required group
            hosts.each do |rhost|
-            run_single("set RHOST #{rhost}")
+            run_single("set RHOSTS #{rhost}")
             run_single("exploit")
-           end 
+           end
 
+- **loop function to extract info from database**
+
+```
+      framework.db.hosts.each do |host|
+         framework.db.services.each do |serv|
+	      print_line("IP: #{host.address}")
+              print_line("OS: #{host.os_name}")
+              print_line("Servicename: #{serv.name}")
+              print_line("Service Port: #{serv.port.to_i}")
+              print_line("Service Protocol: #{serv.proto}")
+              print_line("")
+         end
+      end
+```
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
