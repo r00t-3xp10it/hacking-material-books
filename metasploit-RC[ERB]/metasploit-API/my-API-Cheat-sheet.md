@@ -661,10 +661,10 @@ system along with the details like IP, netmask, mac_address etc.
 
             # main loop, where we connect to each host
             # and try to add our user to the required group
-           hosts.each do |rhost|
-            run_single("set RHOSTS #{rhost}")
-            run_single("exploit")
-           end
+            hosts.each do |rhost|
+               run_single("set RHOSTS #{rhost}")
+               run_single("exploit")
+            end
 
 - **loop function to extract info from database**
 
@@ -679,6 +679,47 @@ system along with the details like IP, netmask, mac_address etc.
               print_line("")
          end
       end
+```
+
+- **Check if database its connected**
+
+```
+    if not framework.db.active
+      print_error("Database not connected")
+      return nil
+    else
+      print_good("Database connected")
+    end
+
+```
+- **check if redteam workspace exists**
+
+```
+ck_team = framework.db.workspaces.map(&:name).join(' ')
+   if ck_team =~ /redteam/i
+      print_good("redteam workspace found")
+   else
+      print_error("redteam workspace not found")
+   end
+
+```
+
+- **check what workspace its active.**
+
+```
+    ds = framework.db.workspace.name
+    print_status("Current workspace: #{ds}")
+    Rex::sleep(1.0)
+
+    output: default
+```
+
+- **Get user imputs inside msfconsole**
+
+```
+   print_status("Input LHOST:")
+      addr = gets.chomp
+      print_good("set LHOST #{addr}")
 ```
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
