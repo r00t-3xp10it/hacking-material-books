@@ -722,6 +722,39 @@ ck_team = framework.db.workspaces.map(&:name).join(' ')
       print_good("set LHOST #{addr}")
 ```
 
+- **Query framework.sessions api**
+
+```
+<ruby>
+# 0 == none session active
+if (framework.sessions.length > 0)
+     print_status("Active sessions found")
+    ## check for session ID
+    framework.sessions.each_key do |sid|
+        print_status("ID: #{sid}")
+            ## Check for RHOST and RPORT
+            session = framework.sessions[sid]
+            xhost = session.tunnel_peer.split(':')[0]
+            xport = session.tunnel_peer.split(':')[1]
+            print_status("RHOST: #{xhost}")
+            print_status("RPORT: #{xport}")
+            ## Check RHOST platform (session.platform)
+            if (session.platform =~ /Windows/i)
+                print_good("TARGET: #{xhost} - Windows platform detected")
+            elsif (session.platform =~ /Linux/i)
+              	print_good("TARGET: #{xhost} - Linux platform detected")
+            else
+               	print_error("TARGET: #{xhost} - platform NOT detected")
+            end
+    end
+end
+
+## prompt:: msf >
+run_single("back")
+</ruby>
+
+```
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
