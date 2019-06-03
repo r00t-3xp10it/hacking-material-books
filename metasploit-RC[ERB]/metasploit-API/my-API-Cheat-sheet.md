@@ -146,7 +146,29 @@
       cmd_exec("sh /root/test.sh")
       cmd_exec("mkdir -m 700 -p /root/test.s")
 
-- **Execute remote command (windows)**
+
+- **Calling a shell command from ruby (local)**
+
+      local_path = `pwd`
+      parse = local_path.chomp
+      print_good("Script Absoluct Path: #{parse}")
+
+- **error codes (exit codes)**
+
+      ## ERROR CODES
+      # 0 => true
+      # 1 => false
+      # nil => command failed
+
+      exit_code = system("date")
+      if $? == 0
+         print_good("command executed : #{exit_code}")
+      else
+         print_good("command NOT executed ..")
+      end
+
+
+- **Execute an remote command (windows)**
 
       proc = session.sys.process.execute("cmd.exe /c start calc.exe", nil, {'Hidden' => true})
 
