@@ -4,8 +4,8 @@ Take control of a linux system remotely ( metasploit - RAT )
 <br />
 
 #### STEPS REQUIRED TO ACHIEVE THIS
-[1º - Use Metasploit Framework to Build Shellcode in C Format (Linux Systems)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#use-metasploit-framework-to-build-shellcode-in-c-for-linux-systems)<br />
-[2º - Insert the C shellcode into a C program](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#embedding-shellcode-in-c-into-a-c-program)<br />
+[1º - Use Metasploit Framework to Build Shellcode in C Format](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#use-metasploit-framework-to-build-shellcode-in-c-for-linux-systems)<br />
+[2º - Insert the C shellcode created into a C program](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#embedding-shellcode-in-c-into-a-c-program)<br />
 [3º - Use GCC to compile the C program (make it executable)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#use-gcc-to-compile-the-c-program-make-it-executable)<br />
 
 <br />
@@ -37,11 +37,11 @@ but also contains a system command that takes a screenshot to the desktop of the
 
 <br /><br /><br />
 
-#### Use Metasploit Framework to Build Shellcode in C For Linux Systems
+#### Use Metasploit Framework to Build Shellcode in C Format
 
 <br />
 
-#### Embedding (shellcode in C) into a C program
+#### Insert the C shellcode created into a C program
 
 <br />
 
