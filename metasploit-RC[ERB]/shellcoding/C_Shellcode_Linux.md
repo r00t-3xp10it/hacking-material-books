@@ -6,7 +6,7 @@ In hacking, a shellcode is a small piece of code used as the payload in the expl
 <br />
 
 #### :: EXERCISE OBJECTIVES
-Use Metasploit to build shellcode in C format and Insert C shellcode into a C program (RAT)<br />
+Use Metasploit to build shellcode in C format and Insert the C shellcode into a C program (RAT)<br />
 To be abble to control of a linux system remotely using social engineering.
 
 <br />
@@ -55,6 +55,8 @@ sudo mkdir shellcode
 cd shellcode
 ```
 
+![pic](http://i64.tinypic.com/2hn3k2f.png)
+
 <br />
 
 #### :: Start postgresql service
@@ -62,6 +64,8 @@ cd shellcode
 ```
 sudo service postgresql start
 ```
+
+![pic](http://i63.tinypic.com/2eoikbo.png)
 
 <br />
 
