@@ -1,3 +1,10 @@
+#### :: SHELLCODE DESCRIPTION (Wikipedia)
+In hacking, a shellcode is a small piece of code used as the payload in the exploitation of a software vulnerability. It is called "shellcode" because it typically starts a command shell from which the attacker can control the compromised machine, but any piece of code that performs a similar task can be called shellcode. Because the function of a payload is not limited to merely spawning a shell, some have suggested that the name shellcode is insufficient. However, attempts at replacing the term have not gained wide acceptance. Shellcode is commonly written in machine code. 
+
+---
+
+<br />
+
 #### :: EXERCISE OBJECTIVES
 Use Metasploit to build shellcode in C format and Insert C shellcode into a C program (RAT)<br />
 To be abble to control of a linux system remotely using social engineering.
@@ -27,11 +34,6 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 | [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | C Compiler | Compile the C Program ( make it executable ) | yes |
 | [xwd](http://blog.tordeu.com/?p=135) | X Window Screenshots | Take Screenshots ( social engineering ) | optional |
 
-
-<br /><br />
-
-#### :: SHELLCODE DESCRIPTION (Wikipedia)
-In hacking, a shellcode is a small piece of code used as the payload in the exploitation of a software vulnerability. It is called "shellcode" because it typically starts a command shell from which the attacker can control the compromised machine, but any piece of code that performs a similar task can be called shellcode. Because the function of a payload is not limited to merely spawning a shell, some have suggested that the name shellcode is insufficient. However, attempts at replacing the term have not gained wide acceptance. Shellcode is commonly written in machine code. 
 
 <br /><br />
 
