@@ -14,17 +14,17 @@ Take control of a linux system remotely ( metasploit - RAT )
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
-[MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic. **'Command Used (screenshot function):'**<br />
+[MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic. **'Command Used (screenshot function)'**:<br />
 
     system("sleep 1; xwd -root -out /tmp/ScreenShot.xwd");
 
 <br /><br />
 
-| DEPENDENCIE | FUNCTION | REQUIRED |
-|---|---|---|
-| Metasploit | Build shellcode ; recive connection ( handler )| yes |
-| [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | Compile the C Program ( make it executable ) | yes |
-| [xwd](http://blog.tordeu.com/?p=135) | Take Screenshots ( social engineering ) | optional |
+| DEPENDENCIE | DESCRIPTION | FUNCTION | REQUIRED |
+|---|---|---|---|
+| Metasploit | Metasploit framework | Build shellcode ; recive connection ( handler )| yes |
+| [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | C Compiler | Compile the C Program ( make it executable ) | yes |
+| [xwd](http://blog.tordeu.com/?p=135) | X window Screenshots | Take Screenshots ( social engineering ) | optional |
 
 
 <br /><br />
