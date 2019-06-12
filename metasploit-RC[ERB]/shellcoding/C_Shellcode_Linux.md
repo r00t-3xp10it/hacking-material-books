@@ -1,5 +1,6 @@
 #### EXERCISE OBJECTIVES
-Use Metasploit Framework to build shellcode in C format, then embbeded it on a C program (RAT) to be abble to control of a linux system remotely.
+Use Metasploit Framework to build shellcode in C format, then embbeded it on a C program (RAT)<br />
+to be abble to control of a linux system remotely using social engineering.
 
 <br />
 
