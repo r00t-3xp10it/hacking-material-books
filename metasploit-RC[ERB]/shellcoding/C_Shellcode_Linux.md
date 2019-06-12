@@ -11,7 +11,7 @@ To be abble to control of a linux system remotely using social engineering.
 
 <br />
 
-#### :: [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security))
+#### :: [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security)) (Why execute this?)
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
