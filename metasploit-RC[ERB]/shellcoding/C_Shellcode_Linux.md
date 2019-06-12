@@ -1,5 +1,5 @@
 #### EXERCISE OBJECTIVES
-Use Metasploit to build shellcode in C format, then embbeded it on a C program (RAT)<br />
+Use Metasploit to build shellcode in C format, Insert C shellcode into a C program (RAT)<br />
 to be abble to control of a linux system remotely using social engineering.
 
 <br />
