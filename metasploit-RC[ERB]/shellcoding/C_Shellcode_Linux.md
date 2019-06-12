@@ -1,5 +1,5 @@
 #### EXERCISE OBJECTIVES
-Take control of a linux system remotely ( metasploit - RAT )
+Use Metasploit Framework to build shellcode in C format, then embbeded it on a C program (RAT) to be abble to control of a linux system remotely.
 
 <br />
 
