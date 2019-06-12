@@ -10,23 +10,29 @@ Take control of a linux system remotely ( metasploit )
 
 <br />
 
-#### SOCIAL ENGENEERING
+#### SOCIAL ENGINEERING
 **Take a desktop screenshot using a C program.**<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
-but also contains a system command that takes a screenshot to the desktop of the target PC using the package [xwd](https://mmm)<br />
+but also contains a system command that takes a screenshot to the desktop of the target PC using<br />
+[MITRE ATT&CK T1113 (xwd package)](https://attack.mitre.org/techniques/T1113/)<br />
+
+
+the package [xwd](http://blog.tordeu.com/?p=135)<br />
 
 <br />
 
 | DEPENDENCIE | FUNCTION | REQUIRED |
 |---|---|---|
 | Metasploit | Build shellcode ; recive connection ( handler )| yes |
-| [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | Compile C Program ( make it executable ) | yes |
-| [xwd](http://blog.tordeu.com/?p=135) | Take Screenshots ( social engeneering ) | optional |
+| [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | Compile the C Program ( make it executable ) | yes |
+| [xwd](http://blog.tordeu.com/?p=135) | Take Screenshots ( social engineering ) | optional |
 
 
 #### SHELLCODING DESCRIPTION
 
 <br />
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
 ---
 
@@ -43,7 +49,6 @@ but also contains a system command that takes a screenshot to the desktop of the
 #### Use GCC to compile the C program (make it executable)
 
 <br />
-
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
