@@ -39,6 +39,9 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 ---
 
 ### :: STEP-BY-STEP (HOW-TO)
+Execute all the follow commands sequencialy into your terminal windows<br />
+All Commands required to acomplish this exercise are inside the grey box(s).<br />
+This exercise its written this way to allow readers to work only in terminal windows.<br />
 
 <br /><br />
 
