@@ -85,7 +85,7 @@ cat chars.raw
 
 <br />
 
-#### Parse shellcode data and store it into a local bash variable
+#### [Parse](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md) shellcode data and store it into a local bash variable
 
 ```
 pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
