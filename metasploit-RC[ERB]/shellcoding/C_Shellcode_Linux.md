@@ -153,7 +153,7 @@ cat payload.c
 sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 ```
 
-![pic](http://i63.tinypic.com/ei6w40.png)
+![pic](http://i63.tinypic.com/allx4w.png)
 
 <br />
 
