@@ -13,7 +13,7 @@ Take control of a linux system remotely ( metasploit - RAT )
 #### SOCIAL ENGINEERING
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
-but also contains a system command that takes a screenshot of the target PC desktop using<br />
+but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
 [MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic.<br />
 
 <br /><br />
@@ -85,7 +85,7 @@ cat chars.raw
 #### Parse shellcode data and store it into a local bash variable
 
 ```
-pa=$(cat chars.raw | grep -v "=" | tr -d '"; ' | tr -d '\n')
+pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 ```
 
 <br />
