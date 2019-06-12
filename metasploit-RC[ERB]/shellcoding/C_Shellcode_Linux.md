@@ -114,7 +114,6 @@ are creating it using the follow commands described in the next grey box.<br />
 <br />
 
 #### :: Insert the C shellcode created into a C program
-# TODO: printf() misses ",strlen(buf)); and & for multi-thread ???
 
 ```
 echo "#include<stdio.h>" > payload.c
