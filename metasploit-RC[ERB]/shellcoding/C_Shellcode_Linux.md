@@ -22,9 +22,9 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
 | DEPENDENCIE | DESCRIPTION | FUNCTION | REQUIRED |
 |---|---|---|---|
-| Metasploit | Metasploit framework | Build shellcode ; recive connection ( handler )| yes |
+| Metasploit | Metasploit Framework | Build Shellcode + Recive Connection ( handler )| yes |
 | [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | C Compiler | Compile the C Program ( make it executable ) | yes |
-| [xwd](http://blog.tordeu.com/?p=135) | X window Screenshots | Take Screenshots ( social engineering ) | optional |
+| [xwd](http://blog.tordeu.com/?p=135) | X Window Screenshots | Take Screenshots ( social engineering ) | optional |
 
 
 <br /><br />
