@@ -14,7 +14,7 @@ Take control of a linux system remotely ( metasploit - RAT )
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
-[MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic. **'Command Used:'**<br />
+[MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic. **'Command Used (screenshot function):'**<br />
 
     system("sleep 1; xwd -root -out /tmp/ScreenShot.xwd");
 
