@@ -18,7 +18,7 @@ To be abble to control of a linux system remotely using social engineering.
 
 <br />
 
-#### :: [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security)) (Why execute this?)
+#### :: [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security))
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
@@ -28,9 +28,9 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
 <br />
 
-#### :: MULTI-THREADING (exec simultaneously -> screenshot + shellcode)
-Its achieved using the bash & operator that backgrounds the current system call (display screenshot)
-while jumping to the next C Program function (execute shellcode in RAM).**'(Multi-Thread Inside C Program)'**:<br />
+#### :: MULTI-THREADING (simultaneously -> display screenshot + exec shellcode)
+Its achieved using the bash & operator that backgrounds the current system call (display screenshot)<br />
+while jumping to the next C function (execute shellcode in RAM). **'(Multi-Thread Inside the C Program)'**:<br />
 
     system("sleep 1; xwud -in /tmp/ScreenShot.xwd &");
     void (*ret)() = (void(*)())buf;
