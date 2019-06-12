@@ -14,9 +14,9 @@ Take control of a linux system remotely ( metasploit - RAT )
 'Take a desktop screenshot using a C program'.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also contains a system command that takes a screenshot to the desktop of the target PC using<br />
-[MITRE ATT&CK T1113 (xwd package)](https://attack.mitre.org/techniques/T1113/)<br />
+[MITRE ATT&CK T1113 (xwd package)](https://attack.mitre.org/techniques/T1113/) Technic.<br />
 
-<br />
+<br /><br />
 
 | DEPENDENCIE | FUNCTION | REQUIRED |
 |---|---|---|
@@ -25,11 +25,11 @@ but also contains a system command that takes a screenshot to the desktop of the
 | [xwd](http://blog.tordeu.com/?p=135) | Take Screenshots ( social engineering ) | optional |
 
 
-<br />
+<br /><br />
 
 #### SHELLCODING DESCRIPTION
 
-<br />
+<br /><br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
@@ -39,18 +39,20 @@ but also contains a system command that takes a screenshot to the desktop of the
 
 #### Use Metasploit to Build Shellcode in C Format
 
-<br />
+<br /><br />
 
 #### Insert the C shellcode created into a C program
 
-<br />
+<br /><br />
 
 #### Use GCC to compile the C program (make it executable)
 
-<br />
+<br /><br />
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
 ---
+
+### Suspiciou Shell Activity - RedTeam @2019
 
 
