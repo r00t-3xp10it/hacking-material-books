@@ -155,13 +155,15 @@ sudo ./desktop_screenshot
 
 ---
 
-<br /><br /><br />
+<br />
 
 #### Video Tutorial
 
 [C Shellcode Linux - Video Tutorial](https://blablabla.)
 
 <br />
+
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-objectives)
 
 ---
 
