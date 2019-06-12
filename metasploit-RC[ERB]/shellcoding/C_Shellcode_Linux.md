@@ -28,7 +28,7 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
 <br />
 
-#### :: MULTI-THREADING (simultaneously -> display screenshot + exec shellcode)
+#### :: MULTI-THREAD (simultaneously -> display screenshot + exec shellcode)
 Its achieved using the bash & operator that backgrounds the current system call (display screenshot)<br />
 while jumping to the next C function (execute shellcode in RAM). **'(Multi-Thread Inside the C Program)'**:<br />
 
