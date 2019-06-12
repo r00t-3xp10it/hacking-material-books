@@ -1,6 +1,6 @@
 #### EXERCISE OBJECTIVES
-Use Metasploit to build shellcode in C format, Insert C shellcode into a C program (RAT)<br />
-to be abble to control of a linux system remotely using social engineering.
+Use Metasploit to build shellcode in C format and Insert C shellcode into a C program (RAT)<br />
+To be abble to control of a linux system remotely using social engineering.
 
 <br />
 
@@ -11,7 +11,7 @@ to be abble to control of a linux system remotely using social engineering.
 
 <br />
 
-#### SOCIAL ENGINEERING
+#### [SOCIAL ENGINEERING](https://en.wikipedia.org/wiki/Social_engineering_(security))
 **'Take a desktop screenshot using a C program'**.<br />
 The C program not only runs the shellcode (RAM) that allows us to control the target PC remotely,<br />
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
