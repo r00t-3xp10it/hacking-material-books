@@ -16,9 +16,6 @@ The C program not only runs the shellcode (RAM) that allows us to control the ta
 but also contains a system command that takes a screenshot to the desktop of the target PC using<br />
 [MITRE ATT&CK T1113 (xwd package)](https://attack.mitre.org/techniques/T1113/)<br />
 
-
-the package [xwd](http://blog.tordeu.com/?p=135)<br />
-
 <br />
 
 | DEPENDENCIE | FUNCTION | REQUIRED |
@@ -27,6 +24,8 @@ the package [xwd](http://blog.tordeu.com/?p=135)<br />
 | [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | Compile the C Program ( make it executable ) | yes |
 | [xwd](http://blog.tordeu.com/?p=135) | Take Screenshots ( social engineering ) | optional |
 
+
+<br />
 
 #### SHELLCODING DESCRIPTION
 
