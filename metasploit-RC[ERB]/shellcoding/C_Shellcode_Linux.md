@@ -16,7 +16,7 @@ The C program not only runs the shellcode (RAM) that allows us to control the ta
 but also executes a system command (sh) that takes a screenshot of the target PC desktop using<br />
 [MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/) (xwd package) Technic.<br />
 
-- **Command Used (screenshot function)**
+- **Command Used (screenshot function)**<br />
 `system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");`
 
 <br /><br />
