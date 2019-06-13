@@ -12,7 +12,7 @@ That text file later will be used to parse the raw shellcode data into oneliner 
 <br />
 
 #### SOCIAL ENGINEERING ['wiki'](https://en.wikipedia.org/wiki/Social_engineering_(security))
-Social engineering is the art of manipulating users of a computing system into revealing confidential information or into executing malicious code. In this exercise we will explore human curiosity to gain remote code execution (RCE) in remote system using the C program as a **RAT** working in background while our C program performs the function of social engineering taking a screenshot of user desktop and displaying it as promiss without him realizing that our shellcode its running in background giving us remote access to is machine.
+Social engineering is the art of manipulating users of a computing system into revealing confidential information or into executing malicious code. In this exercise we will explore human curiosity to gain remote code execution (RCE) in remote system using the C program as a **RAT** working in background while the rest of the C program performs the function of social engineering taking a screenshot of user desktop and displaying it as promiss, without him realizing that our shellcode its also running in background giving us remote access to is machine.
 
 
 <br />
