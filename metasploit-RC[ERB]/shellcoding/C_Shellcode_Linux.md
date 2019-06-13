@@ -43,7 +43,7 @@ In this exercise its achieved using the bash **'&'** operator that backgrounds t
 |---|---|---|---|
 | Metasploit | Metasploit Framework | Build Shellcode + Recive Connection ( handler )| yes |
 | [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) | C Compiler | Compile the C Program ( make it executable ) | yes |
-| [xwd](http://blog.tordeu.com/?p=135) | X Window Screenshots | Take Screenshots ( social engineering ) | optional |
+| [xwd](http://blog.tordeu.com/?p=135) | X Window Screenshots | Take Screenshots ( social engineering ) | optional |<br />
 **HINT:** 'xwd package its by default native installed under most linux distros (or maybee in all)'
 
 
