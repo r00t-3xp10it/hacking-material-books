@@ -200,7 +200,7 @@ sudo ./desktop_screenshot
 
 #### Video Tutorial
 
-[C Shellcode Linux - Video Tutorial](https://blablabla.)
+[C Shellcode Linux - Video Tutorial](https://youtu.be/Td0nGOisYGA)
 
 <br />
 
