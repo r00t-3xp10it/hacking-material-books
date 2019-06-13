@@ -135,6 +135,7 @@ echo "}" >> payload.c
 ```
 
 ![pic](http://i67.tinypic.com/309rd74.png)
+WARNING: This C Program only works in Linux distros, but with a few modification like the inclusion of **<windows.h>** lib and with a diferent gcc compiler command syntax it can be possible to pull out the same trick agains windows users using the apropriate payload. 
 
 <br />
 
