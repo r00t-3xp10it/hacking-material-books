@@ -9,6 +9,13 @@ In hacking, a shellcode is a small piece of code used as the payload in the expl
 This exercise describes how to use metasploit framework to generate shellcode in C format and redirect the stdout to a text file (chars.raw).
 That text file later will be used to parse the raw shellcode data into oneliner string thats going to be injected into one C Program that we also need to build to be abble to execute shellcode in target ram (running in background). This exercise also describes the use of ['MITRE ATT&CK T1113'](https://attack.mitre.org/techniques/T1113/) as social engineering technic to trick the remote user into executing our program with the promiss of taking a screenshot to current desktop and display it. As final stage we will need to use the ['GCC'](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler to be abble to complie our C Program into one Linux executable before send it to target user.
 
+    Attacker  : Linux Kali x86 bits
+    Target    : Linux (all distros) x86 bits
+    Payload   : linux/x86/meterpreter/reverse_tcp
+    shellcode : C format
+    executable: C Program
+    Social Eng: MITRE ATT&CK T1113
+
 <br />
 
 #### SOCIAL ENGINEERING ['wiki'](https://en.wikipedia.org/wiki/Social_engineering_(security))
@@ -136,7 +143,7 @@ echo "}" >> payload.c
 
 ![pic](http://i67.tinypic.com/309rd74.png)
 WARNING: This C Program only works in Linux distros, but with a few modifications like the inclusion of **<windows.h>**<br />
-lib and with a diferent [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler command syntax, it can be possible to pull out the same trick agains windows users. (GCC can also compile C sourcecode into executables .exe)<br /> 
+lib and with a diferent [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler command syntax, it can be possible to pull out the same trick agains windows users.<br /> 
 
 <br />
 
