@@ -110,8 +110,7 @@ pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 
 ![pic](http://i65.tinypic.com/2090m12.png)
 
-The shellcode data its now stored inside a bash local variable named **$pa**<br />
-This variable its going to be used to embebbed the shellcode in to C Program while we are creating it using the follow commands described in the next grey box(s).<br />
+The shellcode data its now stored inside a bash local variable named **$pa**. This variable its going to be used to embebbed the shellcode in to C Program while we are creating it using the follow commands described in the next grey box(s).<br />
 
 <br />
 
