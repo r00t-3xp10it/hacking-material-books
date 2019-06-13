@@ -48,6 +48,7 @@ In this exercise its achieved using the bash **'&'** operator that backgrounds t
 ### STEP-BY-STEP (HOW-TO)
 Execute all commands that are inside the grey box(s) sequencialy using only your terminal (console prompt).<br />
 This exercise its written to allow readers to copy/paste the all exercise without the need to call upon GUI(s) softwares.<br />
+'Or for those script kiddies that dosent waste time on reading descriptions like the above chapters' :) <br />
 
 <br /><br />
 
