@@ -7,11 +7,11 @@ In hacking, a shellcode is a small piece of code used as the payload in the expl
 
 #### EXERCISE DESCRIPTION
 This exercise describes how to use metasploit framework to generate shellcode in C format and redirect the stdout to a text file (chars.raw).
-That text file later will be used to parse the raw shellcode data into oneliner string thats going to be injected into one C Program that we also need to build to be abble to execute shellcode in target ram (running in background). This exercise also describes the use of ['MITRE ATT&CK T1113'](https://attack.mitre.org/techniques/T1113/) as social engineering technic to trick the remote user into executing our program with the promiss of taking a screenshot to current desktop and display it. As final stage we will need to use the ['GCC'](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler to be abble to complie your C Program into one Linux executable before being able to send to target user.
+That text file later will be used to parse the raw shellcode data into oneliner string thats going to be injected into one C Program that we also need to build to be abble to execute shellcode in target ram (running in background). This exercise also describes the use of ['MITRE ATT&CK T1113'](https://attack.mitre.org/techniques/T1113/) as social engineering technic to trick the remote user into executing our program with the promiss of taking a screenshot to current desktop and display it. As final stage we will need to use the ['GCC'](https://www.cyberciti.biz/faq/debian-linux-install-gnu-gcc-compiler/) compiler to be abble to complie our C Program into one Linux executable before send it to target user.
 
 <br />
 
-#### SOCIAL ENGINEERING [wiki](https://en.wikipedia.org/wiki/Social_engineering_(security))
+#### SOCIAL ENGINEERING ['wiki'](https://en.wikipedia.org/wiki/Social_engineering_(security))
 Social engineering is the art of manipulating users of a computing system into revealing confidential information or into executing malicious code. In this exercise we will explore human curiosity to gain remote code execution (RCE) in remote system using the C program as a **RAT** working in background while our C program performs the function of social engineering taking a screenshot of user desktop and displaying it as promiss without him realize that our shellcode its running in background giving us remote access to is machine.
 
 
