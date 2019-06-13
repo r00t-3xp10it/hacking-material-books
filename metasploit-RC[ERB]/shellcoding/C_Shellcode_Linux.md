@@ -18,7 +18,7 @@ Social engineering is the art of manipulating users of a computing system into r
 <br />
 
 #### MULTI-THREAD (display screenshot + execute shellcode)
-In this exercise its achieved using the bash **&** operator that backgrounds the current system() call of displaying the screenshot to target user while jumping into the next C function (execute shellcode in RAM). I have to use this trick because the system() call works like the **&&** operator (bash) that waits for the process to end befor passing to the next instruction. without the use of **&** operator the C program needed to wait for user to close the screenshot befor executing the shellcode into ram, so we will have 2 process working in background (display screenshot and execute shellcode) without waiting for user intervention in the proccess.
+In this exercise its achieved using the bash **'&'** operator that backgrounds the current system() call of displaying the screenshot to target user while jumping into the next C function (execute shellcode in RAM). I have to use this trick because the system() call works like the **'&&'** operator (bash) that waits for the process to end befor passing to the next instruction. without the use of **'&'** operator the C program needed to wait for user to close the screenshot befor executing the shellcode into ram, so we will have 2 process working in background (display screenshot and execute shellcode) without waiting for user intervention in the proccess.
 
 <br />
 
@@ -31,8 +31,6 @@ In this exercise its achieved using the bash **&** operator that backgrounds the
 <br />
 
 #### LIST OF DEPENDENCIES NEEDED
-
-<br />
 
 | DEPENDENCIE | DESCRIPTION | FUNCTION | REQUIRED |
 |---|---|---|---|
