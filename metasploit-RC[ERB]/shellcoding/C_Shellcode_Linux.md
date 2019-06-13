@@ -1,4 +1,4 @@
-#### :: SHELLCODE DESCRIPTION (Wikipedia)
+#### SHELLCODE DESCRIPTION (Wikipedia)
 In hacking, a shellcode is a small piece of code used as the payload in the exploitation of a software vulnerability. It is called "shellcode" because it typically starts a command shell from which the attacker can control the compromised machine, but any piece of code that performs a similar task can be called shellcode. Because the function of a payload is not limited to merely spawning a shell, some have suggested that the name shellcode is insufficient. However, attempts at replacing the term have not gained wide acceptance. Shellcode is commonly written in machine code. 
 
 ---
@@ -23,9 +23,9 @@ In this exercise its achieved using the bash **&** operator that backgrounds the
 <br />
 
 #### STEPS REQUIRED TO ACHIEVE THIS
-[1º Use Metasploit to Build Shellcode in C Format](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-use-metasploit-to-build-shellcode-in-c-format)<br />
-[2º Insert the C shellcode created into our C program](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-insert-the-c-shellcode-created-into-a-c-program)<br />
-[3º Use GCC to compile the C program (make it executable)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-use-gcc-to-compile-the-c-program-make-it-executable)<br />
+[1º Use Metasploit to Build Shellcode in C Format](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#3%C2%BA-use-metasploit-to-build-shellcode-in-c-format)<br />
+[2º Insert the C shellcode created into our C program](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#5%C2%BA-insert-the-c-shellcode-created-into-our-c-program)<br />
+[3º Use GCC to compile the C program (make it executable)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#6%C2%BA-use-gcc-to-compile-our-c-program-make-it-executable)<br />
 
 
 <br />
@@ -43,7 +43,7 @@ In this exercise its achieved using the bash **&** operator that backgrounds the
 
 <br /><br />
 
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-exercise-objectives)
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-description)
 
 ---
 
@@ -184,7 +184,7 @@ sudo ./desktop_screenshot
 
 <br />
 
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-exercise-objectives)
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-description)
 
 ---
 
@@ -196,7 +196,7 @@ sudo ./desktop_screenshot
 
 <br />
 
-#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#-exercise-objectives)
+#### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/shellcoding/C_Shellcode_Linux.md#exercise-description)
 
 ---
 
