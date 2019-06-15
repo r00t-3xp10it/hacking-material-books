@@ -199,8 +199,8 @@ sudo ./desktop_screenshot
 <br />
 
 #### EXTRA (Obfuscation)
-Shellcode obfuscation can be used to evade IDS/AV static detection or make the sourcecode unreadable for users.<br />
-In the follow example we are using msfvenom RC4 crypter to build our shellcode stub.
+Shellcode obfuscation can be used to evade **IDS/AV static detection** or make the sourcecode unreadable for users.<br />
+The follow C commented line show us how to use msfvenom RC4 crypter to build our shellcode stub.
 ![pic](http://i66.tinypic.com/vsozf4.png)
 
 In the follow example we are using **memset** to De-Obfuscate the bash command only at runtime exec.
