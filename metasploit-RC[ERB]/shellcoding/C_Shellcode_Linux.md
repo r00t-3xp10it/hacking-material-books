@@ -217,7 +217,7 @@ This meens that AV static analysis scanning for MITRE ATT&CK ID(s) can not find 
 Then **system(str)** its called further ahed in sourcecode to execute the De-Obfuscated bash command at runtime.
 ![pic](http://i67.tinypic.com/14mx3du.png) 
 More Information about C obfuscation technics can be found [here](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
-MITRE ATT&CK T1036 & MITRE ATT&CK T1113 C Program (venom framework v2.0.16) can be review [here](https://gist.github.com/r00t-3xp10it/962b352fe5c4c2aa3a9f9957331be8c7)
+MITRE ATT&CK T1036 & T1113 C Program (venom framework v2.0.16) can be review [here](https://gist.github.com/r00t-3xp10it/962b352fe5c4c2aa3a9f9957331be8c7)
 
 ---
 
