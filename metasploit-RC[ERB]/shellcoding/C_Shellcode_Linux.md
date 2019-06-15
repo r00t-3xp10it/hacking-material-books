@@ -206,6 +206,9 @@ The follow commented line in C show us how to use msfvenom RC4 crypter to build 
 
 In the follow example we are using **memset** to De-Obfuscate the bash command only at runtime exec.
 This meens that AV static analysis scanning for MITRE ATT&CK ID(s) can not find any command related to **xwd** package to flag as suspicious.
+
+     char str[] = "sleep 1;Owd -rift -put /tmp/Scr.x0d;xwOd -in /tmp/Scr.Owd &";
+
 ![pic](http://i68.tinypic.com/dnne4g.png)
 
 **memset** will replace characters in **str[]** variable declaration based on they possition on the line. then system(str); its called to execute the De-Obfuscated bash command at runtime.
