@@ -231,10 +231,12 @@ MITRE ATT&CK T1036 & T1113 C Program (venom framework v2.0.16) can be review [he
 
 
 #### Usefull links
-[1] [venom framewok (shellcode generator) v1.0.15](https://github.com/r00t-3xp10it/venom/releases/tag/v1.0.15)<br />
-[2] [rapid7-hiding-metasploit-shellcode-to-evade-windows-defender/](https://blog.rapid7.com/2018/05/03/hiding-metasploit-shellcode-to-evade-windows-defender/)<br />
-[3] [rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf)<br />
-[4] [r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
+[1] [MITRE ATT&CK T1036](https://attack.mitre.org/techniques/T1036/)<br />
+[2] [MITRE ATT&CK T1113](https://attack.mitre.org/techniques/T1113/)<br />
+[3] [venom framewok (shellcode generator) v1.0.15](https://github.com/r00t-3xp10it/venom/releases/tag/v1.0.15)<br />
+[4] [rapid7-hiding-metasploit-shellcode-to-evade-windows-defender/](https://blog.rapid7.com/2018/05/03/hiding-metasploit-shellcode-to-evade-windows-defender/)<br />
+[5] [rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/rapid7-whitepaper-metasploit-framework-encapsulating-av-techniques.pdf)<br />
+[6] [r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
 
 <br />
 
