@@ -211,6 +211,8 @@ This meens that AV static analysis scanning for MITRE ATT&CK ID(s) can not find 
 
 More Information about C obfuscation technics can be found [here](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)
 
+---
+
 <br />
 
 #### Video Tutorial
