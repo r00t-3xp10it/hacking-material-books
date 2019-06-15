@@ -199,15 +199,19 @@ sudo ./desktop_screenshot
 <br />
 
 #### EXTRA (Obfuscation)
-Shellcode obfuscation can be used to evade **IDS/AV static detection** or make the sourcecode unreadable for users.<br />
+Shellcode obfuscation can be used to evade **IDS/AV (static detection)** or make the sourcecode unreadable for users.<br />
 The follow C commented line show us how to use msfvenom RC4 crypter to build our shellcode stub.
 ![pic](http://i66.tinypic.com/vsozf4.png)
 
 In the follow example we are using **memset** to De-Obfuscate the bash command only at runtime exec.
 This meens that AV static analysis scanning for MITRE ATT&CK ID(s) can not find any command related to **xwd** package to flag as suspicious.
 ![pic](http://i68.tinypic.com/dnne4g.png)
-**memset** will replace characters in **str[]** variable declaration based on they possition on the line. then system(str) its called to execute the De-Obfuscated bash command at runtime.
+**memset** will replace characters in **str[]** variable declaration based on they possition on the line. then system(str); its called to execute the De-Obfuscated bash command at runtime.
 ![pic](http://i67.tinypic.com/14mx3du.png) 
+
+<br />
+
+More Information about C obfuscation technic can be found [here](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)
 
 <br />
 
