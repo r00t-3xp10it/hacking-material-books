@@ -213,7 +213,8 @@ This meens that AV static analysis scanning for MITRE ATT&CK ID(s) can not find 
      [OBFUSCATED]    : sleep 1;Owd -rift -put /tmp/Scr.x0d;xwOd -in /tmp/Scr.Owd &
      [DE-OBFUSCATED] : sleep 1;xwd -root -out /tmp/Scr.xwd;xwud -in /tmp/Scr.xwd &
 
-**memset** will replace characters in **str[]** variable declaration based on they possition on the line. then system(str); its called ahed to execute the De-Obfuscated bash command at runtime.
+**memset** will replace characters in **str[]** variable declaration based on there possition on the line.<br />
+Then system(str); its called further ahed in sourcecode to execute the De-Obfuscated bash command at runtime.
 ![pic](http://i67.tinypic.com/14mx3du.png) 
 More Information about C obfuscation technics can be found [here](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)
 
