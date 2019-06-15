@@ -199,6 +199,7 @@ sudo ./desktop_screenshot
 <br />
 
 #### EXTRA (Obfuscation)
+The follow chapter reffers to obfuscation technics that can be used to improve the above C Program.<br /><br />
 Shellcode obfuscation can be used to evade **IDS/AV (static detection)** or make the sourcecode unreadable for users.<br />
 The follow C commented line show us how to use msfvenom RC4 crypter to build our shellcode stub.
 ![pic](http://i66.tinypic.com/vsozf4.png)
