@@ -7,7 +7,7 @@
 
 /*
 Author: r00t-3xp10it
-Framework: venom v1.0.16
+Framework: venom v1.0.16 (categorie:unix-payloads - agent:nº1)
 gcc -fno-stack-protector -z execstack exec.c -o daemon
 */
 
