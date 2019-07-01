@@ -7,8 +7,8 @@
 
 /*
 Author: r00t-3xp10it
-Framework: venom v1.0.16
-MITRE ATT&CK T1036 served as Linux RAT agent (trojan).
+MITRE ATT&CK T1036 served as Linux RAT agent (trojan)
+Framework: venom v1.0.16 (categorie:unix-payloads - agent:nº4)
 gcc -fno-stack-protector -z execstack htop.c -o htop_installer.deb
 "Naming the compiled C program to .deb does not call the dpkg at runtime (MITRE ATT&CK T1036)"
 */
