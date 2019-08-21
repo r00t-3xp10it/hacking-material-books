@@ -196,6 +196,18 @@
       client.sys.config.getprivs.each do |priv|
       end
 
+- **Execute BASH command and store output into a local var (ruby)**<br />
+
+      query_numb = `cat CVEs.txt|grep -m 20 'CVE-'|awk {'print $2'}|cut -d '-' -f1,2,3`
+      parse_trail = query_numb.split(' ')
+      print_good("List of CVEs found: #{parse_trail}")
+
+- **Count the number of lines present in text file**<br />
+
+      count_lines = File.open("CVEs.txt") { |f| f.count }
+      print_good("Number of lines in CVEs.txt: #{count_lines}")
+      
+
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
 ---
@@ -342,6 +354,28 @@ system along with the details like IP, netmask, mac_address etc.
 
       vtemp = "client.net.config.get_interfaces"
       print_good("Interfaces: #{vtemp}")
+
+- **Looping in ERB (pure ruby)**<br />
+
+      ## List of CVE id's (local)
+      query_numb = `cat CVEs.txt|grep -m 20 'CVE-'|awk {'print $2'}|cut -d '-' -f1,2,3`
+      ## Make sure we get any CVE numbers back
+      parse_trail = query_numb.split(' ')
+      unless (parse_trail.nil? or parse_trail == '')
+          ## Chose either to suggest exploits or to abort
+          print "[?] Suggest exploits to CVEs found ? (y/n):"
+          query_cve = gets.chomp
+          if query_cve == "y" or query_cve == "Y"
+              # Use msfconsole search command to search for compatible CVEs exploits
+              print_line("")
+              (parse_trail).each do |id|
+                  print_good("search cve:#{id} type:exploit rank:good rank:great rank:excellent")
+                  Rex::sleep(0.5)
+                  run_single("search cve:#{id} type:exploit rank:good rank:great rank:excellent")
+                  Rex::sleep(1.0)
+              end
+          end
+      end
 
 #### [!] [Jump to article index](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/metasploit-RC%5BERB%5D/metasploit-API/my-API-Cheat-sheet.md#metasploit-api-cheat-sheet)
 
@@ -566,6 +600,11 @@ system along with the details like IP, netmask, mac_address etc.
         print_error("Remote path: #{get_path} not found ..")
         return nil
       end
+
+- **check IF directory exists (local)**<br />
+
+      get_path = "/root/logs"
+      print_good("Remote directory: #{get_path} found ..") if File.directory?(get_path)
 
 - **check IF string inputed contains \\ .**
 
