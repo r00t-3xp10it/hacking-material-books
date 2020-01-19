@@ -16,7 +16,7 @@ Start-Sleep -Seconds 3
 ```
 
 #### Lets Run our Script (With PS ExecutionPolicy set to 'AllSigned')
-[AllSigned = Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
+[AllSigned](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7) Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.
 ![sd11](https://user-images.githubusercontent.com/23490060/72687408-6a1e7180-3af5-11ea-8d14-c0ffa221468d.png)
 
 <br />
@@ -57,7 +57,7 @@ Set-AuthenticodeSignature -FilePath $env:userprofile\Desktop\my_posh_script.ps1 
 #### After the script beeing signed, it will be append one certificate {code block} inside the PS script:
 ![po1](https://user-images.githubusercontent.com/23490060/72687557-d2ba1e00-3af6-11ea-840b-702ccbe4bc73.png)
 #### Running the script with PS Execution-Policy set to 'AllSigned'
-[AllSigned. Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
+[AllSigned.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7) Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.
 ![sdff](https://user-images.githubusercontent.com/23490060/72687601-6a1f7100-3af7-11ea-8f95-9d611d8867b2.png)
 
 ---
