@@ -119,3 +119,9 @@ pause
 its set by Default to powershell Scripts Only (this policy does not affects batch scripts from running and executing all of this)..
 ![dff](https://user-images.githubusercontent.com/23490060/72754958-28f39380-3bc1-11ea-8eb8-d2c61351ba14.png)
 
+<br />
+
+### Final Notes:
+- 1º - Remmenber to set execution policy to default `cmd /c echo Y | powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser`
+- 2º - Remmenber to delete certificate from **certlm.msc** mmc console (LocalMachine\Root)
+- 3º - Remmenber to delete payload from **%tmp%** remote folder
