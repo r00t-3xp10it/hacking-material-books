@@ -124,6 +124,9 @@ echo [i] Script: my_posh_script.ps1 deleted from: %tmp% ..
 echo [i] Remmenber to delete the 'certificate' from 'certlm.msc' cert store ..
 pause
 ```
+
+<br />
+
 **Remark:** This batch script must be executed with **admin privileges**<br />
 **Remark:** This Dropper.bat can **Download-PS-Script/Build-Cert/Sign-PS-Script/Execute-PS-Script** because the Policy
 its set by Default to powershell Scripts Only (this policy does not affects batch scripts from running and executing all of this)..
