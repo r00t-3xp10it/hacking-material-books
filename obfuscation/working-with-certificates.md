@@ -138,4 +138,5 @@ its set by Default to powershell Scripts Only (this policy does not affects batc
 ### Final Notes:
 - 1º - This Batch script will revert target machine to previous state, by setting the PS policy<br />
        to **'Restricted'** (default) and by deleting **'my_posh_script.ps1'** from **%tmp%** remote folder ..
-- 2º - Remmenber to delete the certificate from **certlm.msc** cert store (LocalMachine\Root) ..
+- 2º - Remmenber to delete the certificate from **certlm.msc** cert store (LocalMachine\Root) ..<br />
+**{ For easy find in the cert store, I have set the certificate -FriendlyName as "SsaRedTeam" }**
