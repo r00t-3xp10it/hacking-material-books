@@ -120,7 +120,7 @@ timeout /T 2 >nul
 cmd /c echo Y | powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 echo [i] PowerShell Execution Policy Set to: 'Restricted' ..
 cd %tmp% && del /F /Q my_posh_script.ps1
-echo [i] Script: my_posh_script.ps1 deleted from: %tmp% ..
+echo [i] my_posh_script.ps1 deleted from: %tmp% ..
 timeout /T 2 >nul
 echo [i] Remmenber to delete the 'certificate' from 'certlm.msc' cert store ..
 pause
