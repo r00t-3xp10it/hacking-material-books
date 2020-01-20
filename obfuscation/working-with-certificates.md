@@ -122,6 +122,7 @@ its set by Default to powershell Scripts Only (this policy does not affects batc
 <br />
 
 ### Final Notes:
-- 1º - Remmenber to set execution policy to default `cmd /c echo Y | powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser`
+- 1º - Remmenber to set execution policy to default<br />
+`cmd /c echo Y | powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser`
 - 2º - Remmenber to delete certificate from **certlm.msc** mmc console (LocalMachine\Root)
 - 3º - Remmenber to delete payload from **%tmp%** remote folder
