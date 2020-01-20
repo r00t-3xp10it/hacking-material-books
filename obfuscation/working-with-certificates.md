@@ -31,7 +31,7 @@ Start-Sleep -Seconds 3
 
 #### To create a self-signed certificate for signing the application code (my_posh_script.ps1), run the command:
 ```
-$cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate” -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My
+$cert = New-SelfSignedCertificate -Subject "My Code Signing Certificate" -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My
 ```
 ![sdr](https://user-images.githubusercontent.com/23490060/72689217-0dc44d80-3b07-11ea-98f6-1acadb0615b3.png)
 
