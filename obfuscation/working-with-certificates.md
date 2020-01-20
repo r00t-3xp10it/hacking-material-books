@@ -44,7 +44,7 @@ Set-AuthenticodeSignature -FilePath $env:userprofile\Desktop\my_posh_script.ps1 
 ![fdr](https://user-images.githubusercontent.com/23490060/72689232-3cdabf00-3b07-11ea-9ba7-ff830fca7356.png)
 
 **Remark:** f you are receiving an **'UnknownError'** warning when executing the command, this means that **'the certificate is not trusted'**.
-Because it is located in the **'user’s personal certificates store'** -> (open certlm.msc snap-in [Windows+R -> `certlm.msc`] to see it)
+Because it is located in the **'user’s personal certificates store'** To open the certificate store press: Windows+R -> `certlm.msc`.
 ![sd3](https://user-images.githubusercontent.com/23490060/72686272-bfa15100-3aea-11ea-9f1a-7ae2e2cb0cb2.png)
 
 <br />
