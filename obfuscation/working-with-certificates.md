@@ -117,7 +117,7 @@ pause
 
 echo [i] Reverting %userdomain% to Previous State (before dropper.bat exec)
 timeout /T 2 >nul
-cmd /c echo Y | powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser
 echo [i] PowerShell Execution Policy Set to: 'Restricted' ..
 cd %tmp% && del /F /Q my_posh_script.ps1
 echo [i] my_posh_script.ps1 deleted from: %tmp% ..
