@@ -79,7 +79,7 @@ this certificate in there certificate store ...
 
 <br />
 
-#### Revert Target System to 'Default' Settings. (admin privs requiered)
+#### (cmd.exe) Revert Target System to 'Default' Settings. (admin privs requiered)
 ```
 cd %tmp% && del /F /Q my_posh_script.ps1
 cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser
