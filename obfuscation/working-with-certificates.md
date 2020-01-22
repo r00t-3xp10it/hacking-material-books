@@ -64,7 +64,7 @@ Set-AuthenticodeSignature -FilePath $env:userprofile\Desktop\my_posh_script.ps1 
 #### After the script beeing signed, it will be append one certificate {code block} inside the PS script:
 ![po1](https://user-images.githubusercontent.com/23490060/72687557-d2ba1e00-3af6-11ea-840b-702ccbe4bc73.png)
 #### Running the script with PS Execution-Policy set to 'AllSigned'
-[AllSigned. Requires that all scripts and files are signed by a trusted publisher, including scripts written on local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
+[AllSigned = Requires that all scripts and files are signed by a trusted publisher, including scripts written on local computer.](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
 ![sdff](https://user-images.githubusercontent.com/23490060/72687601-6a1f7100-3af7-11ea-8f95-9d611d8867b2.png)
 
 ---
@@ -79,7 +79,7 @@ this certificate in there certificate store ...
 
 <br />
 
-#### Revert Target System to 'Default' Settings. (non admin privs requiered)
+#### Revert Target System to 'Default' Settings. (admin privs requiered)
 ```
 cd %tmp% && del /F /Q my_posh_script.ps1
 cmd /c echo Y | powershell Set-ExecutionPolicy Restricted -Scope CurrentUser
@@ -89,7 +89,7 @@ powershell Get-ChildItem Cert:\LocalMachine\Root ^| Where-Object {$_.Issuer -mat
 
 <br />
 
-This next step shows us how this technic can be abused (PS Execution Policy bypass) to remote Download/Execute our PS Script, even if target system is config to Only run digitally Signed PS scripts .. It will download and execute him ..
+This next step shows us how this technic can be abused (PS Execution Policy bypass) to remote Download/Execute our PS Script, even if target system is config to Only run digitally Signed PS scripts .. It will download, sign it and execute him ..
 
 <br />
 
