@@ -9,7 +9,7 @@
 
       The amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile this article
       with a list of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1)
-      C, vbscript (vs), etc. In one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
+      C, vbscript (vbs), etc. In one attempt to bypass AV's AMSI and DEP detection mechanisms and sandbox
       evasion technics. This article does not focus in shellcode obfuscation or crypting, but only in
       system call's that are (or migth) beeing detected by security suites like microsoft's AMSI ..
 
@@ -46,23 +46,22 @@
 
 ## Batch Obfuscation (cmd-bat)
 
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
-The above string can be obfuscated using the **batch special character: ^** <br />
+String command to obfuscate<br />
 
-- String obfuscated<br />
+      cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+
+
+String obfuscated<br />
 
       cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
 
-![batch obfuscation](http://i68.tinypic.com/qx3xc6.jpg)
-
 ---
 
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem`<br />
-The above string can be obfuscated using the **batch special character: "** <br />
+String command to obfuscate<br />
 
-- String obfuscated<br />
+      cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem
+
+String obfuscated<br />
 
       c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
 
