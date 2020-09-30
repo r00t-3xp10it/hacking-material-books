@@ -44,11 +44,11 @@ suites like microsoft's AMSI/DEP/ASLR ..
 
 ---
 
-<br /><br /><br /><br />
+<br /><br /><br />
 
 ## Batch Obfuscation (cmd-bat)
 
-String command to obfuscate<br />
+String to obfuscate<br />
 
       cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -59,7 +59,7 @@ String obfuscated<br />
 
 ---
 
-String command to obfuscate<br />
+String to obfuscate<br />
 
       cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem
 
@@ -97,7 +97,7 @@ Any formula under the **batch interpreter** can be started with the follow speci
 
 <br />
 
-String command to obfuscate<br />
+String to obfuscate<br />
 
       cmd.exe /c start /max netstat -ano | findstr LISTENING
 
@@ -127,7 +127,7 @@ Using the alternative cmd.exe [ /R ] switch to execute commands
 
 <br />
 
-String command to obfuscate<br />
+String to obfuscate<br />
 
       cmd.exe /c start calc.exe
 
@@ -146,7 +146,7 @@ String obfuscated<br />
 
 <br />
 
-- String command to obfuscate<br />
+- String to obfuscate<br />
 `cmd.exe /c powershell.exe -wind hidden Get-WmiObject -Class Win32_ComputerSystem`
 
 - String obfuscated<br />
@@ -167,23 +167,6 @@ String obfuscated<br />
 
 ![pipe commands](http://i.cubeupload.com/EIQWfa.jpg)
 
----
-
-      Using a batch redirection caret (<nul) to add a extra layer of rubish data into our oneliner.
-      HINT: the <nul caret will be replaced by a empty string at execution time, And If used the special
-      character ^ at the end of the <nul caret them the token written next to it will also be replaced
-      by a empty string, Example: cmd.exe /c start calc <nul ^DataToDelete
-
-<br />
-
-
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-- String obfuscated (**<nul**) special character.<br />
-`cmd.exe /c <nul powershell.exe <nul -nop -wind hidden -Exec Bypass -noni -enc $shellcode`
-
-![batch obfuscation](http://i64.tinypic.com/2moo0om.jpg)
 
 ---
 
