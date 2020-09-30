@@ -65,12 +65,11 @@ String obfuscated<br />
 
       c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
 
-![batch obfuscation](http://i65.tinypic.com/2wbrzh0.jpg)
 `HINT: In tests conducted i was not been able to use 2 letters inside double quotes (eg. c"md".exe)`
 
 ---
 
-- Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
+Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -89,8 +88,6 @@ String obfuscated<br />
       [Using 3 diferent technics (=@|^|")]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
-![batch obfuscation](http://i66.tinypic.com/2ag6b6g.jpg)
-
 ---
 
       Further obfuscation adding ramdom whitespaces + commas + semi-collons + carets + double quotes
@@ -98,55 +95,45 @@ String obfuscated<br />
 
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c start /max netstat -ano | findstr LISTENING`
+String command to obfuscate<br />
 
-<br />
+      cmd.exe /c start /max netstat -ano | findstr LISTENING
 
-- String obfuscated [whitespaces]<br />
+String obfuscated [whitespaces]<br />
+
 ![batch obfuscation](http://i.cubeupload.com/eyGNUO.jpg)
 
-- String obfuscated [whitespaces+collon+semi-collon]<br />
-`cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING`<br />
+String obfuscated [whitespaces+collon+semi-collon]<br />
 
-- String obfuscated [whitespaces+collon+semi-collon+caret]<br />
-`c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING`<br />
+      cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING
 
-- String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
-`;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG`<br />
+String obfuscated [whitespaces+collon+semi-collon+caret]<br />
+
+      c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING
+
+String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
+
+      ;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG
 
 ![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
 
 ---
 
-      Using the alternative cmd.exe [ /R ] switch to execute commands
+Using the alternative cmd.exe [ /R ] switch to execute commands
 
 ![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)<br />
 
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c start calc.exe`<br />
+String command to obfuscate<br />
 
-- String obfuscated<br />
-`cmd.exe /R start calc.exe`<br />
+      cmd.exe /c start calc.exe
+
+String obfuscated<br />
+
+      cmd.exe /R start calc.exe
 
 ![batch obfuscation](http://i.cubeupload.com/9cwoS1.jpg)
-
----
-
-      @Daniel bohannon reported days ago another cmd ofuscation technic that relays
-      on a string added in betuinw switch flags [ /R = lablabla/R ] ..
-
-<br />
-
-- String command to obfuscate<br />
-`cmd.exe /R start calc.exe`<br />
-
-- String obfuscated<br />
-`cmd.exe rubishdata/R start calc.exe`<br />
-
-![batch obfuscation](http://i)
 
 ---
 
