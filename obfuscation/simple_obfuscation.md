@@ -7,7 +7,7 @@
                 ██████  ██████  ██       ██████  ███████  ██████ ██   ██    ██    ██  ██████  ██   ████
 ```
 
-                                                       - INTRO -
+                                                         - INTRO -
 
 The amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile this article with a list
 of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C, vbscript (vbs), etc.
@@ -24,10 +24,9 @@ suites like microsoft's AMSI/DEP/ASLR ..
 **Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
 ![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
 
-
 ---
 
-<br /><br />
+<br />
 
 ## Glosario (Index):
 [1] [Batch Obfuscation Technics (cmd-bat)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#batch-obfuscation-cmd-bat)<br />
@@ -43,6 +42,7 @@ suites like microsoft's AMSI/DEP/ASLR ..
 [11] [FInal Notes - Remarks - POC's](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
 [12] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
+---
 
 <br /><br /><br /><br />
 
