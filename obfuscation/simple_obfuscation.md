@@ -1,4 +1,3 @@
-![banner](http://i68.tinypic.com/2d1ux00.jpg)
 
 
                                                   - INTRO -
@@ -16,41 +15,10 @@
 
 <br />
 
-**Diagram of PowerShell execution arguments beeing flagged by AMSI security suites**<br />
-![detection pic](http://i65.tinypic.com/2jz3as.jpg)<br />
-
-**Example of one obfuscated powershell dropper** [ psh-dropper.ps1 ]<br />
-![powershell obfuscation](http://i66.tinypic.com/t9bdaq.jpg)<br />
-
-**Example of one obfuscated batch agent** [ AgentK.bat - venom-framework ]<br />
-![batch obfuscation](http://i66.tinypic.com/30krpy0.jpg)<br />
 
 **Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
 ![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
 
-<br />
-
-                                               - SPECIAL NOTE -
-
-      remember that if we chose to use the 'batch' obfuscation technic, then it will only work in MS-DOS
-      interpreter (cmd.exe or file.bat), If we use one 'batch' special character in powershell terminal
-      console, then the powershell interpreter will not be able to escape the special character.
-
-      Its also a good practice to test your obfuscation sourcecode in 'target' terminal console to check
-      if the code its not broken with a missplaced special character or other diferent thing interfering
-      with sourcecode normal execution, before sending your obfuscated code to target machine ..
-
-      To conduct this kind of tests (In powershell) we need to allow the execution of powershell scripts.
-                 1º - Start Windows PowerShell with the "Run as Administrator" option.
-                 2º - Execute the follow in terminal: set-executionpolicy remotesigned
-                 3º - To revert group policy to default: set-executionpolicy restricted
-
-
-**Bad character sellection** [ batch escape character -used- in powershell interpreter ]
-![bad character sellection](http://i64.tinypic.com/2u7c5kz.jpg)
-
-**Good character sellection** [ powershell special character used in powershell interpreter ]
-![powershell obfuscation](http://i64.tinypic.com/2u7c50n.jpg)
 
 ---
 
