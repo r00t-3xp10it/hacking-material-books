@@ -7,7 +7,7 @@
                 ██████  ██████  ██       ██████  ███████  ██████ ██   ██    ██    ██  ██████  ██   ████
 ```
 
-                                                  - INTRO -
+                                                       - INTRO -
 
 The amazing work conducted by @danielbohannon in Invoke-Obfuscation, it took me to compile this article with a list
 of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C, vbscript (vbs), etc.
