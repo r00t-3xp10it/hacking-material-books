@@ -1,5 +1,4 @@
-![banner](http://i.cubeupload.com/1Kopfs.jpg)
-
+![banner](https://user-images.githubusercontent.com/23490060/94752338-dc349f00-0382-11eb-8e38-223fe0cd7ebe.jpg)
                                                          - INTRO -
 
 The amazing work conducted by @danielbohannon in [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation), it took me to compile this article with a list
