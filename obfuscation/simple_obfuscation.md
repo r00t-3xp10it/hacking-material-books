@@ -60,6 +60,7 @@ String obfuscated<br />
 
       c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
 
+![rr](https://user-images.githubusercontent.com/23490060/94753079-0b4c1000-0385-11eb-80b5-9712ae6d8a17.png)
 `HINT: In tests conducted i was not been able to use 2 letters inside double quotes (eg. c"md".exe)`
 
 ---
