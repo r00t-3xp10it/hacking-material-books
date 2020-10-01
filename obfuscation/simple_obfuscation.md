@@ -3,10 +3,10 @@
                                                            - INTRO -
 
 The amazing work conducted by [@danielbohannon](https://twitter.com/danielhbohannon) in [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation), it took me to compile this article with a list
-of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C, vbscript (vbs), etc .. 
-In one attempt to bypass AV's AMSI/DEP/ASLR detection mechanisms and sandbox evasion technics. This article does not
+of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C (C), vbscript (vbs), etc .. 
+In one attempt to bypass AV's [AMSI|DEP|ASLR] detection mechanisms and sandbox detection technics. This article does not
 focus in shellcode obfuscation or crypting, but only in system call's that are (or migth) beeing detected by security
-suites like microsoft's AMSI/DEP/ASLR String based detection mechanisms ..
+suites like microsoft's AMSI/DEP/ASLR string based detection mechanisms ..
 
 <br /><br />
 
