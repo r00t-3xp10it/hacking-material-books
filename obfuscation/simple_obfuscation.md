@@ -84,10 +84,13 @@ Any formula under the **batch interpreter** can be started with the follow speci
       [Using 3 diferent technics (=@|^|")]
       @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
 
+![last](https://user-images.githubusercontent.com/23490060/94753411-0dfb3500-0386-11eb-9014-2103d88b677e.png)
 ---
 
-      Further obfuscation adding ramdom whitespaces + commas + semi-collons + carets + double quotes
-      HINT: Empty space technic can't be used to brake the command argument, but used between them.
+<br />
+
+Further obfuscation adding ramdom whitespaces + commas + semi-collons + carets + double quotes<br />
+HINT: Empty space technic can't be used to brake the command argument, but used between them.
 
 <br />
 
