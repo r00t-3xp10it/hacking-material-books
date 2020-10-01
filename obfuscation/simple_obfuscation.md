@@ -2077,7 +2077,7 @@ Here we can view the all process of encoding/decoding in powershell console
 <br /><br /><br /><br />
 
 ## Download/Execution (LolBin)
-This section contains onelinner crandle downloaders that for one reason or another does not trigger security applications to flag them as<br />'suspicious behaviour' like some other download/execution technics ( example: Downloading files using certutil its now blocked by amsi<br /> and every file downloaded using powershell .DownloadFile() API its immediately scanned by amsi ).There are many other crandle downloaders not described in this section because amsi flag them as 'suspicious behavior'.
+This section contains onelinner crandle downloaders that for one reason or another does not trigger security applications to flag them as<br />'suspicious behaviour' like some other download/execution technics. ( example: Downloading files using certutil its now blocked by amsi<br /> and every file downloaded using powershell .DownloadFile() API its immediately scanned by amsi ). There are many crandle downloaders available that are not described in this section because amsi flag them (or the files they download) as 'suspicious behavior'.
 
 <br /><br />
 
