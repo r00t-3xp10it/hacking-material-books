@@ -262,7 +262,7 @@ String obfuscated<br />
 
       %!h%e%i#%st%db0%%i#% -"s" | fi%!h%ds%i#%r O%pP0%e%!h%s
 
-![batch obfuscation](http://i64.tinypic.com/33lmik5.jpg)
+![tres](https://user-images.githubusercontent.com/23490060/95486006-63d56b80-098a-11eb-94b1-a7ea0d6ca7f1.png)
 
 ---
 
