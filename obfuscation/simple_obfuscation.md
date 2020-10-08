@@ -155,9 +155,9 @@ String obfuscated<br />
 
 - We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
 
-      echo "rubish data" | cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+      echo "rubish data" | cmd.exe /c start powershell.exe
 
-![pipe commands](http://i66.tinypic.com/2lcbseo.jpg)
+![one](https://user-images.githubusercontent.com/23490060/95484664-a7c77100-0988-11eb-8450-85b815cf1c06.png)
 
       HINT: using [ || ] allow us to execute the 2º command if the 1º one fails to execute
       COPY %windir%\notepad.exe %nonexisting%\fake.exe || cmd.exe /c start calc
