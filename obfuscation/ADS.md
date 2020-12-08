@@ -8,7 +8,7 @@ compatibility with the old Hierarchical File System (HFS) from Mac which uses so
 Basically, ADS can be used to hide the presence of a secret or malicious file inside the file record of an innocent file. That is,
 when windows shows you a file, say "readme.txt", the metadata that tells your system where to get "readme.txt" may also
 contain information for "EvilSpyware.exe". Thus, malicious files may be on your system and you cannot see them using normal means.
-<br />
+<br /><br />
 **How to see Alternate Data Streams records in CLI?**
 ```
 dir /r
