@@ -37,7 +37,7 @@ suites like microsoft's AMSI/DEP/ASLR string based detection mechanisms ..
 
 <br /><br /><br />
 
-## Batch Obfuscation (cmd-bat)
+## :octocat: Batch Obfuscation (cmd-bat)
 
 <br />
 
@@ -139,6 +139,8 @@ String obfuscated<br />
 cmd.exe /R start calc.exe
 ```
 
+![rr2](https://user-images.githubusercontent.com/23490060/120902266-3c2cc500-c637-11eb-91e3-71e3a6ece512.png)
+
 ---
 
 <br />
@@ -222,7 +224,7 @@ String obfuscated [special characters inside set declarations]<br />
 cmd.exe /c "set --$#$--=net&& set '''=at&&set ;;;;=st&&" cmd /c %--$#$--%%;;;;%%'''% -s -p UDP
 ```
 
-![rr1](https://user-images.githubusercontent.com/23490060/120901770-b0199e00-c634-11eb-9a6b-a767fcef0db2.png)
+![rr1](https://user-images.githubusercontent.com/23490060/120902358-dd1b8000-c637-11eb-87d5-90e675818895.png)
 
 ---
 
