@@ -459,6 +459,9 @@ cmd.exe /c ((whoami)) && ((netstat))
 ```
 
 string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
+```cmd
+@c"m"D^.e"X"^e, ^/c (,(=w^H"o"A^m"I");,) ,&&; ( ;(,n^E"T"s^t"A"t);,)
+```
 ![rr6](https://user-images.githubusercontent.com/23490060/120912149-c2bbc380-c684-11eb-9071-4a80c836d9a8.png)
 
 ---
