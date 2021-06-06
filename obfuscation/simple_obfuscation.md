@@ -257,9 +257,7 @@ exit
 <br />
 
 <b><i>We can also use batch local enviroment variables to scramble the syscall's</i></b>
-Since cmd.exe allows using variables inside commands, this can be used for obfuscation.
-HINT: chose letters as: 'a e i o u' because they are the most commom ;)
-HINT: dont leave 'empty spaces' defining variables (set i#=t<empty-space>)
+Since cmd.exe allows using variables inside commands, this can be used for obfuscation. HINT: chose letters as: 'a e i o u' because they are the most commom ;) HINT: dont leave 'empty spaces' defining variables.
 
 <br />
 
