@@ -311,7 +311,7 @@ exit
 
 <b><i>certutil - Additional Methods for Remote Download</i></b><br />
 Sometimes we need to use non-conventional methods to [deliver our agent](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#downloadexecution-lolbin) to target system and bypass detection.<br />
-In this situation certutil can be an useful asset because AMSI does not scan the download data in oposite to `iwr`.
+In this situation certutil can be an useful asset because AMSI does not scan the download data in oposite to [iwr](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#downloadexecution-lolbin).
 
 <br />
 	
