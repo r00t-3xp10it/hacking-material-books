@@ -458,11 +458,8 @@ String obfuscated [double Parentheses]<br />
 cmd.exe /c ((whoami)) && ((netstat))
 ```
 
-![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
-
 string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
-
-![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
+![rr6](https://user-images.githubusercontent.com/23490060/120912149-c2bbc380-c684-11eb-9071-4a80c836d9a8.png)
 
 ---
 
