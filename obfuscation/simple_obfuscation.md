@@ -458,7 +458,7 @@ String obfuscated [double Parentheses]<br />
 cmd.exe /c ((whoami)) && ((netstat))
 ```
 
-string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
+string more obfuscated using: <b><i>Parentheses + carets + double_quotes + collon + semi-collon + special_chars</i></b><br />
 ```cmd
 @c"m"D^.e"X"^e, ^/c (,(=w^H"o"A^m"I");,) ,&&; ( ;(,n^E"T"s^t"A"t);,)
 ```
