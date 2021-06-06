@@ -284,7 +284,7 @@ set !h=n
 <br />
 
 This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract<br />
-the strings inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
+the character's inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
 
 <br />
 	
