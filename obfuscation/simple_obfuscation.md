@@ -372,8 +372,14 @@ powershell.exe $decoded=[System.Text.Encoding]::UTF8.GetString([System.Convert]:
 defenders watching launches of cmd instance? then use the follow Microsoft signed binarys ([LolBins](https://lolbas-project.github.io/#)) to execute your agents.	
 ```cmd
 bash.exe -C calc.exe
+pcalua.exe -a C:\tmp\pentestlab.exe
 scriptrunner.exe -appvscript calc.exe
+conhost.exe C:\tmp\pentestlab.exe
+conhost "pentestlab.blog C:\tmp\pentestlab.exe"
+conhost pentestlab.blog/../../tmp/pentestlab.exe
+explorer.exe pentestlab.blog, "C:\tmp\pentestlab.exe"
 forfiles /p c:\windows\system32\ /m notepad.exe /c calc.exe
+SyncAppvPublishingServer.vbs "n; Start-Process C:\tmp\pentestlab.exe"
 ```
 
 ![rr4](https://user-images.githubusercontent.com/23490060/120903329-80bb5f00-c63d-11eb-8824-603f0c388417.png)
