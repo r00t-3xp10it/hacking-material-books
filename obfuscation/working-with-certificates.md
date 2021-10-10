@@ -74,7 +74,7 @@ Set-AuthenticodeSignature -FilePath $env:userprofile\Desktop\my_posh_script.ps1 
 **Remark:** After beeing signed, the PS script can not be changed under the risk of breaking cert code block
 
 **Remark:** Remmenber that this certificate its only valid for the Local Machine (current PC) were it was been stored..
-That meens if we port the PS script to a remote machine it will not execute, because remote machine does not contain
+That means if we port the PS script to a remote machine it will not execute, because remote machine does not contain
 this certificate in there certificate store ...
 
 <br />
