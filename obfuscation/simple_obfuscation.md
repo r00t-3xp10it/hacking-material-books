@@ -1085,6 +1085,7 @@ Here we can view the all process of encoding/decoding in powershell console
 
 Concatenated IEX API call
 
+    &(DIR Alias:/I*X)'Get-Service'
     &(''.SubString.ToString()[67,72,64]-Join'')'Get-Service'
 
 ---
