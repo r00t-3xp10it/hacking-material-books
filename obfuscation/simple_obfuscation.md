@@ -1083,6 +1083,11 @@ Here we can view the all process of encoding/decoding in powershell console
 
 <br />
 
+Rename binary.exe beeing flagged by AV to .MSC extenssion to be abble to execute it ..
+![MSCObfuscation](https://user-images.githubusercontent.com/23490060/152838133-d43e4743-daef-4053-86e0-a176fc1987c5.png)
+
+<br />
+
 Concatenated IEX API call
 
     &(DIR Alias:/I*X)'Get-Service'
