@@ -1088,7 +1088,7 @@ Rename binary.exe beeing flagged by AV to .MSC extenssion to be abble to execute
 
 <br />
 
-Concatenated IEX API call
+Concatenated IEX API call<br />
 Is 'Invoke-Expression' (IEX) beeing flagged by nasty amsi ? ...
 
     &('{0}ex' -f'I') Get-Service                             # IEX 'Get-Service'
