@@ -2,7 +2,7 @@
 
                                                            - INTRO -
 
-The amazing work conducted by [@danielbohannon](https://twitter.com/danielhbohannon) in [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation), it took me to compile this article with a list
+The amazing work conducted by [@danielbohannon](https://twitter.com/danielhbohannon) in [Invoke-Obfuscation](https://github.com/danielbFohannon/Invoke-Obfuscation), it took me to compile this article with a list
 of available obfuscation technics for cmd.exe (cmd-bat) bash (bash-sh) powershell (psh-ps1) C (C), vbscript (vbs), etc ..
 In one attempt to bypass AV's [AMSI|DEP|ASLR] detection mechanisms and sandbox detection technics. This article does not
 focus in shellcode obfuscation or crypting, but only in system call's that are (or migth) beeing detected by security
@@ -1090,6 +1090,8 @@ Rename binary.exe beeing flagged by AV to .MSC extenssion to be abble to execute
 
 Concatenated IEX API call
 
+
+    &('{0}ex' -f'I') Get-Service                             # IEX 'Get-Service'
     &(DIR Alias:/I*X)'Get-Service'                           # IEX 'Get-Service'
     &((echo "0Ie0X") -replace '0','') Get-Service            # IEX 'Get-Service'
     &($Env:ComSpec[4,15,25] -Join '') Get-Service            # IEX 'Get-Service'
