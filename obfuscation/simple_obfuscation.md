@@ -844,6 +844,18 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i64.tinypic.com/2la6dmu.jpg)
 
+       HEX encoding
+
+<br />
+
+- String command to obfuscate<br />
+`powershell.exe Get-Date`
+
+      "powershell.exe Get-Date"|Format-Hex
+
+      $DeObfuscate = '70 6F 77 65 72 73 68 65 6C 6C 2E 65 78 65 20 47 65 74 2D 44 61 74 65'.Split(" ")|forEach{[char]([convert]::toint16($_,16))}|forEach{$Decoded=$Decoded+$_}
+      echo $Decoded
+
 ---
 
       [ RTLO ] Powershell cames with one buitin feature (::Reverse) that allow us to change the
