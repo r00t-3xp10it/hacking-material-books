@@ -875,8 +875,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 - String obfuscated<br />
 
-$Obfuscate = (([regex]::Matches("powershell.exe Get-Date",'.','RightToLeft')|ForEach{$_.value}) -join '')
-$De-Obfuscate = (([regex]::Matches("etaD-teG exe.llehsrewop",'.','RightToLeft') | foreach {$_.value}) -join '')
+      $Obfuscate = (([regex]::Matches("powershell.exe Get-Date",'.','RightToLeft')|ForEach{$_.value}) -join '')
+      $De-Obfuscate = (([regex]::Matches("etaD-teG exe.llehsrewop",'.','RightToLeft') | foreach {$_.value}) -join '')
 
 ---
 
