@@ -844,6 +844,8 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
 ![powershell obfuscation](http://i64.tinypic.com/2la6dmu.jpg)
 
+---
+
        HEX encoding
 
 <br />
@@ -889,6 +891,51 @@ The above string can be obfuscated using **powershell special characters:** **`*
 
       $Obfuscate = (([regex]::Matches("powershell.exe Get-Date",'.','RightToLeft')|ForEach{$_.value}) -join '')
       $De-Obfuscate = (([regex]::Matches("etaD-teG exe.llehsrewop",'.','RightToLeft') | foreach {$_.value}) -join '')
+
+---
+
+      Obfuscate Boolean Values
+
+      It's super fun and easy to replace $True and $False values with other boolean equivalents,
+      which are literaly unlimited. Especially if you have identified the detection trigger in a given
+      payload and that includes a $True or $False value, you will probably be able to bypass detection
+      by simply replacing it with a boolean substitute.
+
+<br />
+
+- String command to obfuscate<br />
+`while($true) {}`
+
+- String obfuscated<br />
+
+      while([bool]0x12AE) {}
+
+  All of the examples below evaluate to $True
+
+      [bool]1254
+      [bool]0x12AE
+      ![bool]$null
+      ![bool]$False
+      [bool]@(0x01BE)
+      [bool][System.Collections.ArrayList]
+      [bool][System.Collections.CaseInsensitiveComparer]
+      [bool][System.Collections.Hashtable]
+
+---
+
+      Substitute Loops
+
+      There are certain loops that can be substituted with other loop types or functions.
+      For example, a While ($True){ # some code } loop can be substituted with the following:
+
+<br />
+
+- String command to obfuscate<br />
+`while($true) {}`
+
+- String obfuscated<br />
+
+      For(;;) { # some code }
 
 ---
 
